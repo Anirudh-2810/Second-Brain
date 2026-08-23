@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder("brain")
+formulas:
+  updated: file.mtime.format("YYYY-MM-DD")
+properties:
+  file.name:
+    displayName: Topic
+  formula.updated:
+    displayName: Updated
+  description:
+    displayName: About
+views:
+  - type: table
+    name: Memory Topics
+    order:
+      - file.name
+      - formula.updated
+      - description
+    sort:
+      - property: file.mtime
+        direction: DESC

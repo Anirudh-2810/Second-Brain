@@ -1,0 +1,7 @@
+{
+  "userIgnoreFilters": [
+    ".opencode/",
+    ".scripts/",
+    "ARCHITECTURE.md"
+  ]
+}

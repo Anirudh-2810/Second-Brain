@@ -1,0 +1,223 @@
+# Wiki Log
+
+> Append-only history of every update to the knowledge base.
+> Oldest entry at the top; newest appended at the bottom. Never edit or delete past entries.
+
+---
+
+### 2026-08-09 — Initialize Knowledge Base
+- Bootstrapped `/wiki/` structure: created `/wiki/index.md` (master catalog by Semester / Course Code) and `/wiki/log.md` (append-only log).
+- Added the LLM Wiki architecture document out of `/wiki/` into `AGENTS.md` at the vault root so it is not indexed as content.
+- Removed misplaced placeholder files (`wiki/index.md.md`, `wiki/log.md.md`).
+- `/raw-sources/` is currently empty — no syllabi ingested yet.
+
+### 2026-08-09 — Ingest: Quant Finance (self-coordinated module)
+- Ingested [[raw-sources/quant-finance-basics]] (Quantitative Finance Foundations).
+- Created `/wiki/modules/` tree with module index + 5 node pages under `/wiki/modules/quant-finance/`:
+  - `quantitative-finance-foundations.md` (overview + core areas).
+  - `derivatives-options-futures.md` (Hull — contract types, options, forward pricing).
+  - `stochastic-calculus-black-scholes.md` (Ito's Lemma, GBM, Black-Scholes PDE).
+  - `market-microstructure.md` (order books, liquidity, market makers, execution algos).
+  - `quant-toolkit-and-skills.md` (linear algebra, probability, NumPy/pandas, C++).
+- Every page carries YAML frontmatter (`module`, `topic`, `tags`, `last_updated`) and Obsidian `[[links]]`.
+- Updated `/wiki/index.md` with a **Cross-Cutting Modules** section linking the module index.
+- NOTE: No Productivity or Speaking source files were found in `/raw-sources/` — those topics were skipped. Awaiting source material.
+
+### 2026-08-09 — Exhaustive module synthesis (raw sources → production-grade modules)
+- Extracted all 3 PDFs to text via PyMuPDF (`import pymupdf`; `raw-sources/_extracted/*.txt`): Sircar lecture (Princeton ORFE), Fabozzi–Focardi–Kolm *Trends in Quantitative Finance* (144 pp), *Applications of Quant Finance in...* (Pace).
+- Wrote exhaustive modules with full LaTeX derivations, step-by-step proofs, C++20 + Python code, and architecture diagrams:
+  - **quant-finance/** upgraded/replaced: `stochastic-calculus-black-scholes.md` (Itô's Lemma proof, BS PDE derivation, closed form, Greeks), `derivatives-options-futures.md`, `markowitz-portfolio-theory.md` (Lagrange frontier derivation + tangency), `general-equilibrium-and-capm.md`, `portfolio-optimization-practice.md`, `model-estimation.md`, `predictive-return-models.md` (cointegration/pairs), `model-selection-and-model-risk.md`, `forecasting-and-market-efficiency.md`, `risk-management-value-at-risk.md` (VaR/CVaR/copulas), `applications-of-quantitative-finance.md` (ESG), `market-microstructure.md`, `quant-toolkit-and-skills.md`, `quant-careers-and-industry.md`, plus refreshed `quantitative-finance-foundations.md`.
+  - **ai-ml/** new: `reinforcement-learning-ppo.md` (GAE + clipped-objective derivation), `transformers-attention-detail.md` (self-attention math), `matching-engine-cpp.md`, `event-driven-backtesting.md`.
+- Updated `/wiki/modules/index.md` catalog to list all 20 modules; appended this log entry. All pages carry YAML frontmatter and Obsidian `[[links]]`/`\[\[../index\]\]` navigation.
+
+### 2026-08-09 — Ingest: Productivity & Systems (self-coordinated module)
+- Ingested [[raw-sources/productivity-and-system]] (Deep Work / PKM-CODE / Atomic Habits / GTD / Mental Models).
+- Created `/wiki/modules/productivity/` with 5 node pages (full YAML frontmatter: `module`, `topic`, `tags`, `last_updated`):
+  - `deep-work-attention-economics.md` (Cal Newport — deep vs shallow, attention residue, 4 disciplines).
+  - `pkm-code-framework.md` (Tiago Forte — CODE + PARA, progressive summarization).
+  - `atomic-habits-systems.md` (James Clear — identity habits, Four Laws).
+  - `gtd-task-management.md` (David Allen — 5-stage workflow, weekly review).
+  - `mental-models-for-execution.md` (Pareto, Eisenhower Matrix, Parkinson's Law, Inversion).
+- Cross-linked the productivity concepts into the existing learning systems: Deep Work & the Eisenhower "Schedule" cell anchor the quant study path (`[[learning-roadmap-and-study-plan]]`, `[[quantitative-finance-foundations]]`, `[[stochastic-calculus-black-scholes]]`) and AI/ML modules (`[[reinforcement-learning-ppo]]`, `[[event-driven-backtesting]]`); PKM/GTD are described as the meta-layer that operates this very wiki.
+- Updated `/wiki/modules/index.md` catalog (new **Productivity & Systems** section, total 25 modules) and `/wiki/index.md` (new **Cross-Cutting Modules → Productivity & Systems** block).
+
+### 2026-08-10 — Productivity theme: synthesis, flowchart & full source ingest
+- Ingested the full research corpus under `/wiki/modules/productivity/` and unified it:
+  - Created **`overview.md`** — in-depth theme synthesis: definitions, 8-pillar operating model (Meaning → Attention → Energy → Capture → Prioritize → Execute → Habits → Review), full **Source Registry** attaching all research data (`productivity-and-system.md`, GTD full text, Focus, Little Book of Productivity, 101 Ways, APO Handbook, Yager PDF pending re-extract).
+  - Created **`productive-flowchart.md`** — the model as a Mermaid flow chart + ASCII state machine (Capture → Clarify → Organize → Prioritize → Protect → Execute → Recover → Review → Decide → back to Prioritize/Meaning).
+  - Created 4 new source node pages: **`focus-minimalism-babauta.md`** (MITs, focus rituals, disconnection, simplicity), **`little-book-productivity-scott-young.md`** (timeboxing, weekly/daily goals, 3-pile organizing, 30-Day Trial, energy, Pareto), **`101-ways-workplace-productivity-fishel.md`** (before/during/after-work procedures, ergonomics), **`apo-handbook-productivity.md`** (Output/Input definition, PDCA cycle, Four P's, 31 initiatives incl. 5S/Kaizen/Lean/Six Sigma/JIT/BPR).
+- All pages carry full YAML frontmatter (`module`, `topic`, `tags`, `last_updated`) and Obsidian wikilinks; cross-linked the quant/ai-ml modules (deep-work ↔ study plan, review-honesty ↔ model-selection) as the meta-layer.
+- Updated `/wiki/modules/index.md` (Productivity & Systems section now lists 11 pages) and `/wiki/index.md` (Productivity & Systems block extended with overview, flowchart, and the 4 source nodes).
+- NOTE: `How to Finish Everything You Start` (Jan Yager) PDF exists but its extraction captured only a web-viewer wrapper (`how-to-finish-everything-you-start-yager.txt` has no book body). Registered in overview Source Registry as **pending re-extract**.
+
+### 2026-08-11 — Ingest: Programming & Computer Science (5-video YouTube corpus)
+- Fetched transcripts for all 5 videos via `youtube-transcript-api`; dumped raw timestamped transcripts + full JSON segment dumps into `/raw-sources/` (`youtube-transcript-*.txt` and `yt-*.json`), and a combined [[raw-sources/youtube_transcript.txt]].
+- Created vault-root **`NOTES.md`** — one-page summary digest of all five videos (video registry, segment-by-segment summary, cross-video meta-formula, source registry, next actions).
+- Created `/wiki/modules/programming/` with 7 fully-linked node pages (YAML frontmatter `module`, `topic`, `tags`, `last_updated`; Mermaid + ASCII flowcharts):
+  - `overview.md` — module synthesis: the 5-video "PROGRAM" operating loop, cross-video lessons, concept map, source registry, reading order.
+  - `programming-cs-fundamentals.md` — full 21-segment deep dive: programming definition, levels, IDE, syntax, console/print, math & strings, variables (6 primitive types), conditionals (`if/else if/else`, `switch`), arrays (0-indexing, 2D), loops (`for/for-each/while/do-while`), 3 error types, debugging strategies, functions (2×2 taxonomy), imports/libraries, ArrayLists & dictionaries, searching (linear vs binary, Big-O), recursion (base case, stack), pseudocode (3 techniques), language choice, next steps.
+  - `math-for-programming.md` — ASCII donut case study: torus solid-of-revolution equation, rotation matrices $R_x,R_z$, dot-product shading, ASCII brightness ramp; domain→math mapping table.
+  - `mathematics-of-creativity.md` — Simonton law of large numbers, Zipf's law, Boden combinatorial creativity, exponential growth / 10,000-hour rule, edge of chaos; final formula $Creativity = Attempts × Combinations × Time × (Chaos−Order)$.
+  - `winning-in-tech-art-of-winning.md` — spectator vs surfer, the new bottleneck (thinking not typing), 3 new-game rules (build in motion, stop over-filtering, identity catches up), never-stop-learning.
+  - `learn-python-fast-system.md` — the 6-step Python fast-track: mindset/context, one course (CS50/Bro Code/Automate-the-Boring/ZTM), discomfort tolerance, AI-as-tutor, deliberate practice (PracticePython, Python Tutor, Codewars daily), 30 Days of Python → SaaS (Stripe/Postgres/Tailwind/GitHub Actions).
+  - `programming-flowcharts.md` — learning / debug / build loops as Mermaid + ASCII state machines; cross-links to creativity, math, and productivity.
+- Cross-linked to productivity/quant/ai-ml modules (discomfort-tolerance ↔ overview; Big-O & math ↔ quant foundations; build-ship ↔ event-driven-backtesting).
+- Updated `/wiki/modules/index.md` (new **Programming & Computer Science** section, total modules +7) and `/wiki/index.md` (new **Cross-Cutting Modules → Programming & Computer Science** block).
+
+### 2026-08-11 — Ingest: Harvard CS50x course (full syllabus → wiki)
+- Authored a complete **CS50x** course tree under `/wiki/modules/programming/cs50/` (YAML frontmatter: `module`, `course`, `week`, `topic`, `tags`, `last_updated`; Obsidian `[[links]]`; Mermaid diagrams; LaTeX for big-$O$/modulo; `c`/`python`/`sql`/`html` code blocks):
+  - `index.md` — course overview, cohort/method, 11-week syllabus table, recurring lessons, weekly work loop, reading order.
+  - `week-0-scratch.md` — computational thinking, binary/ASCII/Unicode, algorithms & pseudocode, abstraction, Scratch block↔C mapping.
+  - `week-1-c.md` — compilation pipeline, CS50 library, data types/operators, conditionals, loops, functions/prototypes, hygiene.
+  - `week-2-arrays.md` — preprocess/compile/assemble/link, debugging + `debug50`, RAM model, arrays, strings-as-char-arrays, argc/argv, cryptography.
+  - `week-3-algorithms.md` — linear/binary search, big-$O$/$\Omega$/$\Theta$, selection/bubble/insertion/merge sort, complexity table, recursion + base case.
+  - `week-4-memory.md` — hex, pointers/`&`/`*`, stack vs heap, `malloc`/`free`, gotchas, `valgrind`, structs/`typedef`, file I/O.
+  - `week-5-data-structures.md` — ADTs, stacks/queues, linked lists, BSTs, hash tables (Speller centerpiece), tries; time-vs-memory trade-off table.
+  - `week-6-python.md` — interpreted vs compiled, Python-vs-C head-to-head, built-in structures as Week-5 structures, DNA case study.
+  - `week-7-sql.md` — flat file → relational, CRUD, keys/JOINs, indexes, SQL injection + parameterized queries.
+  - `week-8-html-css-javascript.md` — Internet layers/IP/DNS/HTTP, HTML structure, CSS, JS events/DOM.
+  - `week-9-flask.md` — routes, Jinja templates, forms→validation→SQL loop, sessions/cookies, APIs/AJAX.
+  - `week-10-cybersecurity.md` — CIA triad, threat landscape, hashing/salting, symmetric vs asymmetric encryption, final project.
+  - `problem-sets.md` — PSet catalog (0–10), signature problems (Mario/Credit/Caesar/Filter/Recover/Speller/Fiftyville/Finance), PSet→wiki mapping.
+- Cross-linked to existing module pages (overview, cs-fundamentals, learn-python-fast-system, math-for-programming, creativity, winning-in-tech, productivity `[[overview]]`, and the quant/ai-ml C++ + data-structures bridge modules).
+- Updated `/wiki/modules/index.md` (Programming & CS section lists CS50 index) and `/wiki/index.md` (Cross-Cutting Modules → Programming & CS block extended).
+
+### 2026-08-11 — Ingest: Self-Mastery & Leveling Up (7-slice corpus → full module)
+- Rebuilt the `/raw-sources/slice0*.txt.md` transcript of the *How To Level Up So Fast It Feels Like CHEATING (20+ Hours)* corpus (28 trainings, Daniel Barada) into `/wiki/modules/self-mastery/` with 7 fully-linked node pages (YAML frontmatter `module`, `topic`, `tags`, `last_updated`; Obsidian `[[links]]`; Mermaid + ASCII diagrams):
+  - `overview.md` — module synthesis: the "LEVEL" operating loop (Locate→Engineer→Vitalize→Execute→Leverage), five cross-cutting laws, concept map, source registry, reading order.
+  - `belief-engineering.md` — belief→biology science (placebo/nocebo via Crum 2007 hotel-maid, milkshake/ghrelin, painkiller-IV studies), self-efficacy, self-fulfilling loop, belief audit, useful-and-untrue, strategic delusion, superposition of self.
+  - `manifestation-quadrant.md` — Desire→Belief→Behavior→Field frequency model, vacuum principle, laminar/turbulent effortlessness, pain-as-fuel, unified life, two lines, high-frequency human.
+  - `subconscious-reprogramming.md` — hysteresis/compression, theta mental rehearsal, identity stack + physiology, borrowed vs true state, purpose antidote (mission/windows).
+  - `psychological-execution.md` — stopping overthinking, discipline design (homeostasis, dopamine protocol, identity architecture), craving hard things, boredom tolerance, god-mode flow protocol.
+  - `life-systems-design.md` — thermostat/self-concept + 1-week-vs-12-month, learner's life (1-hour law), consistency & procrastination (Zeigarnik, 70% rule), hyperfocus, never-zero-days & winner's loop, subtraction glitch, 24-hour empire.
+  - `self-mastery-flowcharts.md` — all runbook loops (belief ladder, meta-program, quadrant, theta+6-phase, discipline, god mode, winner's loop, thermostat, insight engine, 1-week sprint, 24-hr empire, silence→change) as Mermaid + ASCII state machines.
+- Cross-linked outward: identity/thermostat ↔ `[[modules/productivity/atomic-habits-systems]]`, boredom/hyperfocus ↔ `[[modules/programming/programming-cs-fundamentals]]` + `[[learn-python-fast-system]]`, 24-hour empire ↔ `[[modules/quant-finance/quant-careers-and-industry]]`, god mode ↔ `[[modules/productivity/deep-work-attention-economics]]`, consistency ↔ `[[modules/productivity/overview]]`.
+- (Re)created vault-root **`NOTES.md`** with the self-mastery digest (LEVEL loop, five laws, page map, key protocol one-liners) alongside the existing programming digest.
+- Updated `/wiki/modules/index.md` (new **Self-Mastery (cross-cutting)** section listing all 7 pages) and `/wiki/index.md` (new **Cross-Cutting Modules → Self-Mastery** block).
+
+### 2026-08-11 — Ingest: Quant Finance Classic Strategies (5 primary-source PDFs → deep-dive modules)
+- Extracted 5 seminal PDFs from `/raw-sources/` via PyMuPDF: GGR pairs trading (2006), Faber tactical allocation (2006/2013), Jegadeesh-Titman momentum (1993), Asness-Moskowitz-Pedersen value & momentum everywhere (2013), plus ValMomEverywhere duplicate.
+- Created 6 production-grade pages in `/wiki/modules/quant-finance/` (YAML frontmatter, Mermaid/ASCII flowcharts, LaTeX math, Python implementation skeletons):
+  - `pairs-trading-gatev-goetzmann-rouwenhorst.md` — SSD formation, z-score entry/exit, 11% ann. excess, bootstrap OOS 1999–2002, sector breakdowns, bid-ask bounce analysis, transaction-cost survival (113–225 bp net/6mo).
+  - `tactical-asset-allocation-faber.md` — 10M SMA across 8–10 asset classes, equity-like returns (~11% CAGR) / bond-like DD (~12%), vol-targeting, 2X leverage, whipsaw filters (hysteresis, 2M confirm), full backtest class.
+  - `momentum-jegadeesh-titman.md` — J=12/K=1/skip-1 canonical factor, 1.49%/mo (Panel B), Jan effect (−7%), momentum crashes (2009, 2020), residual/TS momentum variants, drawdown scaling, option hedge framework.
+  - `value-momentum-everywhere-asness-moskowitz-pedersen.md` — 48 test assets (8 classes × 2 styles × 3 portfolios), value↔value ρ=0.68, mom↔mom ρ=0.65, value↔mom ρ=−0.60, global 3-factor (MKT+VAL+MOM), funding liquidity risk partial explanation, combo Sharpe 1.42.
+  - `value-momentum-everywhere-deep-dive.md` — Full Table I reproduction (all 8 classes + alt bond value measures: real yield, term spread, composite), Table II correlation matrices, 3-factor pricing of FF25 + hedge funds, liquidity-risk regressions, Vayanos-Woolley & Brunnermeier-Pedersen models.
+  - `quant-finance-strategy-hub.md` — Integrated hub: master strategy map, unified research→production pipeline, cross-strategy correlation matrix, 3-factor extensions, risk framework (pre/during/post trade), decision tree, parameter cheat sheet.
+- Updated `/wiki/modules/index.md` (Quant Finance section + new **Classic Strategy Deep Dives** subsection) and `/wiki/index.md` (Quant Finance block extended with primary-source deep dives).
+- All pages cross-linked to existing infrastructure: `[[market-microstructure]]`, `[[risk-management-value-at-risk]]`, `[[portfolio-optimization-practice]]`, `[[model-selection-and-model-risk]]`, `[[predictive-return-models]]`.
+
+### 2026-08-11 — Ingest: SaaS Build Notes (JavaScript Mastery LMS Course → wiki/modules/programming/)
+- Created `SAAS_BUILD_NOTES.md` in `/wiki/modules/programming/` from the *SaaS App Full Course 2026* (3:56h, JavaScript Mastery, XUkNR-JfHwo) covering Next.js 15, Supabase, Clerk, Stripe, Vapi AI Voice, Sentry, Tailwind + shadcn/ui, TypeScript.
+- Contents: architectural roadmap (system diagram, tech stack decision matrix, data schema, voice session sequence), error mitigation matrix (14 failure modes E1–E14 with detection/mitigation/recovery/severity), 7-day phased execution plan (Phase 0–7 mapping to 20 course modules), 10 fail-proof micro-SaaS concepts (ContractorComply, DentalLabTrack, WeddingVendorSync, HVACServicePro, VetVaccineTrack, LandscapeBidGrid, FireExtinguisherLog, NotarySigningAgent, FoodTruckRoute, MarinaSlipManager) with problem/solution/moat/stack/pricing/TAM.
+- Cross-linked to GitHub repo (adrianhajdin/saas-app, 437★), JS Mastery course page, Discord community.
+- Updated `/wiki/modules/index.md` (Programming section) and `/wiki/index.md` (Cross-Cutting Modules → Programming block).
+
+### 2026-08-11 — Ingest: Mathematics, Chemistry, Physics (JEE/IIT-level modules from raw-sources/)
+- Processed `/raw-sources/math/` (Algebra, Calculus, Coordinate, Trigonometry, Vector 3D, Math IIT Kota notes, Formula sheets), `/raw-sources/Chem/` (Atomic Structure, Organic Brahmastra, Chemistry IIT Kota notes: 30+ chapters), `/raw-sources/Physics/` (Physics IIT Kota notes: 17 chapters, Practice questions).
+- Created 3 new cross-cutting modules with 21 total pages (YAML frontmatter, Mermaid/ASCII diagrams, LaTeX math, Python skeletons where applicable):
+
+**Mathematics** (`/wiki/modules/mathematics/` — 4 pages):
+  - `overview.md` — complete topic map (Algebra, Calculus, Coordinate, Trigonometry, Vector 3D), source registry, study strategy, high-yield topics.
+  - `formula-sheet-master.md` — complete compendium: Algebra (Complex, Quadratic, Sequences, Binomial, P&C, Probability, Matrices), Calculus (Limits, Derivatives, Integrals, DE, Area), Coordinate (Lines, Circles, Conics), Trigonometry, Vector & 3D, DE.
+  - `formula-sheet-trigonometry.md` — specialized compendium: compound angles, multiple angles, transformations, equations, inverse trig, triangle properties, inequalities, complex-trig.
+  - `quick-revision-cards.md` — 18 ultra-condensed cards for final 48 hours (Complex, Quadratic, Sequences, Binomial, P&C/Prob, Matrices, Limits, AOD, Integrals, Area, DE, Lines, Circles, Conics, Trig, Vectors/3D, 24-hr checklist).
+
+**Chemistry** (`/wiki/modules/chemistry/` — 4 pages):
+  - `overview.md` — complete topic map (Physical, Organic, Inorganic), source registry, study strategy, high-yield topics.
+  - `formula-sheet-physical.md` — complete compendium: Thermodynamics, Equilibrium, Ionic Eq, Electrochemistry, Kinetics, States of Matter, Solid State, Solutions, Surface Chem, Atomic Structure, Bonding.
+  - `formula-sheet-organic.md` — complete reaction map: GOC effects, hydrocarbons, alkyl halides, alcohols/phenols/ethers, carbonyls, carboxylic acids/derivatives, amines, aromatics, biomolecules, polymers, named reactions (100+).
+  - `formula-sheet-inorganic.md` — trends & exceptions: periodic trends, diagonal relationships, all group anomalies (Li, Be, B, C, N, O, F, He), d-block exceptions (Cr, Cu configs, oxidation states, magnetic), f-block, coordination exceptions, qualitative analysis groups.
+
+**Physics** (`/wiki/modules/physics/` — 7 pages):
+  - `overview.md` — complete topic map (Mechanics, Electrodynamics, Optics, Modern, Thermal, Waves), source registry, study strategy, high-yield topics.
+  - `formula-sheet-mechanics.md` — Kinematics, Laws of Motion, Work-Energy-Power, Rotational, Gravitation, Fluid Mechanics, Properties of Matter, COM & Collisions.
+  - `formula-sheet-electrodynamics.md` — Electrostatics, Capacitors, Current Electricity, Magnetic Effects, EMI, AC, EM Waves.
+  - `formula-sheet-optics.md` — Ray (mirrors, lenses, prisms), Wave (YDS, thin film, diffraction, polarization), Instruments.
+  - `formula-sheet-modern.md` — Dual nature, Atomic (Bohr, spectra), Nuclear (radioactivity, fission/fusion), Semiconductors (diodes, transistors, logic), Communication.
+  - `formula-sheet-thermal-waves.md` — Thermodynamics (laws, processes, Carnot, entropy), Kinetic Theory, Heat Transfer, Calorimetry, SHM, Waves, Sound, Doppler.
+
+- Updated `/wiki/modules/index.md` (new **Mathematics**, **Chemistry**, **Physics** cross-cutting sections) and `/wiki/index.md` (new **Cross-Cutting Modules → Mathematics, Chemistry, Physics** blocks).
+- All pages cross-linked to existing infrastructure and carry YAML frontmatter, Mermaid/ASCII diagrams, LaTeX math.
+
+### 2026-08-13 — Link raw-sources into the wiki graph
+- Converted every inline raw-source code citation (previously plain-text paths like `` `/raw-sources/quant-finance-basics.md` ``) across 40 wiki pages into real Obsidian `raw-sources` wikilinks (94 total, all verified to resolve to existing files).
+- Markdown raw sources link without extension (`[[raw-sources/quant-finance-basics]]`); PDFs/transcripts/JSON link with extension.
+- Fixed two stale references: `sources/youtube_transcript.txt` → `[[raw-sources/youtube_transcript.txt]]` and the `France`→`Finance` filename typo in `applications-of-quantitative-finance.md`.
+- Routed `rf-v2006-n2-4148-pdf.txt` citations to the actual file under `raw-sources/_extracted/`.
+- Left folder/glob references (e.g. `/raw-sources/math/`, `/raw-sources/slice0*.txt.md`) as code since they are not single files.
+- Added a primary-PDFs line to the **Classic Strategy Deep Dives** section in `modules/index.md` linking GGR, Faber, Jegadeesh–Titman, and AMP (2013).
+
+### 2026-08-15 — Ingest: Object-Oriented Programming in Python (full note library, web-research corpus)
+- Created `/wiki/modules/object-oriented-programming/` with 14 fully-linked node pages (YAML frontmatter `module`, `topic`, `tags`, `last_updated`; Obsidian `[[links]]`; Mermaid + ASCII diagrams; runnable Python):
+  - `overview.md` — module synthesis: OOP definition & Python-vs-Java/C++ table, 4-pillar system, concept map, source registry, reading order, golden rules.
+  - `oop-foundations.md` — class-as-blueprint mental model, `self`, `__init__` vs `__new__`, class vs instance attributes + lookup rule, 3 method kinds, `__dict__`, instantiation diagrams, pitfalls.
+  - `the-four-pillars.md` — encapsulation/abstraction/inheritance/polymorphism as one system; Python mechanisms (conventions, ABCs, duck typing) + working mini-design.
+  - `inheritance.md` — single/multiple inheritance, MRO & C3 linearization, cooperative `super()` + kwargs, diamond problem, mixins, ABC vs Protocol, overloading, inheritance-vs-composition decision tree.
+  - `polymorphism.md` — duck typing + EAFP, method overriding, operator overloading, `typing.Protocol`, `functools.singledispatch`, real-world examples.
+  - `magic-methods-dunder.md` — complete dunder reference by category (lifecycle, repr/format, comparison, arithmetic + reflected ops, containers, call/context managers, attribute access, slots) + protocols + idioms + pitfalls.
+  - `properties-and-descriptors.md` — `@property`, `cached_property`, descriptor protocol, full attribute lookup chain (Mermaid), data vs non-data descriptors, `__slots__`, when-to-use table.
+  - `design-principles-solid.md` — SRP/OCP/LSP/ISP/DIP each with before/after Python code, composition-over-inheritance, SOLID decision flowchart.
+  - `design-patterns.md` — GoF patterns made Pythonic: Singleton (module-level), Factory (dict registry), Builder, Adapter (duck typing), Decorator, Facade, Proxy, Strategy, Observer, Template Method, State; Pythonic-vs-Java shortcuts table.
+  - `modern-oop-dataclasses-typing.md` — `@dataclass` full flag board (frozen/order/slots/kw_only), `field()`/`default_factory`, `__post_init__`, inheritance gotcha, dataclass-vs-NamedTuple-vs-Protocol, generics/`Self`/`@final`, `match`/`case`.
+  - `advanced-metaprogramming.md` — everything-is-an-object + `type` metaclass, `__new__` vs `__init__`, full lookup chain, `__getattr__`/`__getattribute__`, custom metaclasses + registry example, introspection toolkit.
+  - `cheatsheet.md` — one-page compressed reference (vocabulary, class skeleton, method matrix, pillar one-liners, inheritance codes, top dunders, dataclass flags, SOLID, patterns, pre-ship checklist).
+  - `flowcharts.md` — master flowcharts: class-design loop, inheritance-vs-composition, method-kind picker, dunder picker, pattern picker, learning loop (Mermaid + ASCII).
+  - `interview-questions.md` — 34 curated Q&A across 5 levels (fundamentals → inheritance → dunders → design → modern Python) + 6 mini coding challenges.
+- Research sources consulted: Python official docs (Tutorial §9 Classes, Data Model, PEP 557/dataclasses), Real Python (OOP, Python Classes, Inheritance & Composition, SOLID, Magic Methods, Descriptors, Metaclasses, Data Classes), Refactoring Guru, Automate & Deploy patterns guide, how2.sh SOLID guide; all registered in `overview.md` §5 Source Registry.
+- Cross-linked to existing modules: foundations ↔ `[[programming/programming-cs-fundamentals]]` + `[[programming/cs50/index]]`, practice ↔ `[[programming/learn-python-fast-system]]`, OOP-as-backbone ↔ `[[quant-finance/quant-toolkit-and-skills]]` + `[[ai-ml/event-driven-backtesting]]`.
+- Updated `/wiki/modules/index.md` (new **Object-Oriented Programming in Python (cross-cutting)** section listing all 13 pages) and `/wiki/index.md` (new **Cross-Cutting Modules → Object-Oriented Programming (Python)** block).
+
+### 2026-08-17 — Wire AI module into the brain (hub ↔ catalog ↔ home)
+- Updated `/wiki/modules/ai/index.md` (AI hub): added header back-link line (Modules Catalog · Wiki Home) and a **Related Modules** section linking to the Programming hub, `ai-ml/` depth pages (PPO, Transformers, Matching Engine), Mathematics, and Self-Mastery.
+- Updated `/wiki/modules/index.md`: **AI / ML (cross-cutting)** section now lists the hub, master notes, and all 6 module sub-notes above the existing `ai-ml/` implementation pages.
+- Updated `/wiki/index.md`: new **Cross-Cutting Modules → Artificial Intelligence & Machine Learning** block with the hub, master notes, and 6 sub-notes.
+- The Programming hub (`modules/programming/index.md`) already linked `[[modules/ai/index|AI Master Notes]]` — no change needed there.
+
+### 2026-08-17 — CS50x Final Project note
+- Created `/wiki/modules/programming/cs50/final-project.md` — CS50x 2026 final-project requirements (3 deliverables, Dec 31 2026 deadline, AI-use citation rule), selection heuristics, and a curated 5-pick shortlist tuned to the vault's quant/AI/build-first themes + quick wins + pitfalls.
+- Updated `/wiki/modules/programming/cs50/index.md` — added `[[cs50/final-project]]` to the "Also in this folder" line.
+
+### 2026-08-17 — CS50x Final Project note: expanded with logic / build method / learning
+- Extended `/wiki/modules/programming/cs50/final-project.md`: added **§4 Project Deep-Dives** (for all 5 picks: the logic behind the idea, ordered build method, learning gained, difficulty/time), **§5 The Build Method** (6-phase pipeline from scope-freeze → vertical slice → daily increments → harden → clean-machine test → README/video, tied to the learning loop and Life Systems Design), and **§6 Skill Matrix** (CS50 concepts exercised → new skills → career transfers). Renumbered pitfalls/sources to §7/§8.
+
+### 2026-08-17 — New module: Robotics & ROS2 (deep research + full note library)
+- Created `/wiki/modules/robotics/` with 9 fully-linked pages (YAML frontmatter `tags`/`last_updated`, Obsidian `[[links]]`, Mermaid + ASCII flowcharts, live commands):
+  - `index.md` — module hub: reading order, module map, autonomy-stack diagram, related-module links.
+  - `overview.md` — sense–plan–act mental model, robot anatomy, robot types, the software stack (middleware slot), vault connections.
+  - `robotics-fundamentals.md` — sensors table, actuators & differential-drive kinematics, PID/MPC, Kalman/AMCL localization, SLAM (frontend/backend, slam_toolbox/Cartographer, map YAML), motion planning (A*, RRT, DWA/TEB, costmaps), perception.
+  - `ros2-architecture.md` — computation graph, nodes/topics/services/actions/parameters (with `.msg/.srv/.action` examples), executors, lifecycle nodes, ROS1-vs-ROS2 table.
+  - `ros2-communication.md` — DDS/RMW, middleware vendors (incl. rmw_zenoh), distributed discovery + discovery server, ROS_DOMAIN_ID, full QoS policy table + built-in profiles + compatibility rules, systematic comms debugging.
+  - `ros2-installation-setup.md` — distro table (Humble/Jazzy/Kilted Kaiju/Lyrical Luth; even-year LTS pattern; Jazzy recommended), install commands, colcon workspace layout, first package, env vars.
+  - `ros2-beginner-guide.md` — 9-step roadmap with commands: turtlesim → Python pub/sub → custom interfaces → services/actions → parameters → tf2+URDF → rviz2 → Gazebo → Nav2 (SLAM map + navigate); practice projects + resources.
+  - `ros2-tools-debugging.md` — `ros2` CLI introspect table, rqt/rviz2, rosbag record/replay, tf2 tools, Nav2 debug pipeline (goal → map → AMCL → planner → controller → motion), symptom→cause table.
+  - `ros2-cheatsheet.md` — one-page command reference (env, nodes/topics/services/actions/params, interfaces, colcon, bag, tf2, tools, install, Python skeleton, QoS picks, debug order).
+- Research sources: docs.ros.org (Jazzy/Lyrical distro & release cadence, Beginner CLI tutorials, About-Domain-ID/QoS), design.ros2.org (ROS on DDS, QoS proposal), docs.nav2.org + Robotisim Nav2 guide, eProsima/Vulcanexus DDS docs, arXiv 2509.03381 (QoS dependency analysis), The Construct / Kevin Wood / Edouard Renard course material.
+- Updated `/wiki/modules/index.md` (new **Robotics & ROS2 (cross-cutting)** section listing all 9 pages) and `/wiki/index.md` (new **Cross-Cutting Modules → Robotics & ROS2** block).
+
+### 2026-08-17 — Robotics & ROS2 module: upgraded to engineering-student depth (full rewrite)
+- Deepened all 9 pages from overview to derivation/mechanics level; added protocol & build-system internals:
+  - `robotics-fundamentals.md` — full rewrite: robot as dynamical system; SO(3)/SE(3) transforms, Euler-vs-quaternion, DH-parameter derivation, differential-drive unicycle model + odometry integration; Euler–Lagrange dynamics `M(q)q̈+C(q,q̇)q̇+g(q)=τ`, inertia tensors; closed-loop transfer functions, PID from 2nd-order error dynamics (Ziegler–Nichols), LQR (Riccati), MPC (constrained receding horizon), cascaded control; Bayes → Kalman (full predict/update + gain derivation) → EKF (Jacobians) → particle filters, Mahony/Madgwick IMU; SLAM formal statement, occupancy-grid log-odds + Bresenham, ICP, graph-SLAM factor graphs + loop closure; C-space, A\*, RRT/RRT\*, PRM, DWA scoring math, TEB; pinhole camera K/intrinsics; algorithm→ROS2 package map.
+  - `overview.md` — robotics as closed-loop dynamical system (state/control/sensors/timing), latency-budget tables per control loop, trade-off triangle, stack with real layers, vault connections.
+  - `ros2-architecture.md` — layered rcl→rmw→DDS stack; executor internals (wait sets, round-robin drain, timer priority, Casini ECRTS 2019 semantics), callback groups, real-time limits + Events/CBG executor (Lyrical), WaitSet/rclc(LET); ROS vs system time & `use_sim_time`; lifecycle state machine; zero-copy components; ROS1→2 table.
+  - `ros2-communication.md` — RTPS heartbeat/AckNack wire behavior; SPDP/SEDP discovery + discovery server + scaling (>119 participants, port math, domain 0–232); all QoS policies, compatibility matrix, built-in profiles, inter-policy dependency chain (arXiv 2509.03381); FastDDS/Cyclone/rmw_zenoh; SROS2 PKI; full comms debug procedure.
+  - `ros2-installation-setup.md` — build pipeline colcon→ament_cmake→CMake; package.xml dependency types; ament_cmake anatomy, ament index, ament_auto; rosidl generation pipeline; underlay/overlay env mechanics (AMENT_PREFIX_PATH/PYTHONPATH/LD_LIBRARY_PATH); Python setup.py ament registration; rosdep/apt/source; distro cadence (Jazzy recommended).
+  - `ros2-beginner-guide.md` — full rclpy AND rclcpp pub/sub code; custom interfaces with arrays/constants/nested; service + action server code; executor + callback-group code; tf2 API (Buffer/lookupTransform w/ timeout) + URDF/Xacro with `<inertial>`; Gazebo physics vs RViz; Nav2 pipeline node-by-node (map_server/AMCL/planner/controller/BT/recovery) + Simple Commander API; testing with colcon test; engineering-tier practice projects.
+  - `ros2-tools-debugging.md` — full CLI surface (incl. topic delay, lifecycle, multicast, doctor); rosbag time-travel repro (--clock); tracing-based latency analysis (ros2_tracing/LTTng, CARET, Autoware_Perf methodology) with metrics table; threading/real-time failure table; DDS network debugging (tcpdump/multicast); Nav2 evidence pipeline + symptom table; ordered debug loop.
+  - `ros2-cheatsheet.md` — expanded: launch files, QoS code (rclpy/rclcpp), rclpy+rclcpp skeletons with executors, lifecycle commands, bag/tracing, Nav2 quickstart, debug order, full install one-liner.
+- Updated `index.md` (module hub): Start Here + module map now state engineering depth and the new internals coverage.
+- Research sources added: Spong et al., Thrun et al., LaValle, Siciliano, Casini et al. (ECRTS 2019), Autoware_Perf (2022), Polymath Robotics rclcpp executor post, ros_core_documentation, rosidl/ament GitHub, arXiv 2509.03381.
+
+### 2026-08-17 — Robotics module: worked example (odometry + EKF in runnable rclpy)
+- Created `/wiki/modules/robotics/worked-example-odom-ekf.md` — the derivations from `robotics-fundamentals.md` §2.5 (differential drive) and §5 (EKF) applied end-to-end in runnable code:
+  - System diagram: `fake_robot` (simulator, ground truth) → `odometry_node` (unicycle midpoint-Euler, odom + tf `odom→base_link`) → `ekf_node` (2D EKF: Jacobian `F`, predict/update, innovation yaw wrapping, covariance publishing) → PlotJuggler.
+  - Three complete rclpy nodes (`DifferentialOdometry`, `UnicycleEKF`, `FakeRobot` with scripted trajectory + Gaussian sensor noise), build/run commands, verification steps, and the experiment that demonstrates open-loop drift vs fused tracking.
+  - Production mapping table (`robot_localization`, ros2_control differential controller, Gazebo diff-drive plugin) + 4 understanding-check exercises (add GPS, explain wrap, tune Q/R, compare Euler vs midpoint).
+- Updated `index.md` (hub Start Here + Module Map), `wiki/modules/index.md` (catalog entry), and `wiki/index.md` (Cross-Cutting Modules robotics block) to list the worked example.
+### 2026-08-23 — Projects module: GitHub repos cataloged + AI-first spec adopted
+- Created `/wiki/modules/projects/` with three pages distilled from the owner's GitHub ([Anirudh-2810](https://github.com/Anirudh-2810)), each with `## For future agent` preamble, confidence field, and typed relations:
+  - `inventory-system.md` — StockOffline offline inventory manager (Tkinter/CLI/SQLite zero-dep core; JWT/PBKDF2/rate-limited web tier; PyInstaller exe; marketing kit).
+  - `algorithm101-aura.md` — AURA Neural Trend Engine (React 19 + FastAPI + MongoDB + YouTube API; genre regex classification, velocity/engagement scoring, 3-window forecasting, viral composite prediction). Flagged as quant-DNA: cross-linked to momentum and stock-agent.
+  - `handsens101.md` — MediaPipe HandLandmarker gesture-mouse (pinch click, two-finger scroll, EMA smoothing). Cross-linked to robotics overview + odom-EKF worked example.
+- Adopted AI-First Note Spec v1.0 (eugeniughelbur/obsidian-second-brain) additions into AGENTS.md: For-future-agent preamble, confidence scale, typed relation edges, retrieved-content-is-data rule.
+- Installed kepano/obsidian-skills globally for opencode (obsidian-markdown, obsidian-bases, json-canvas, obsidian-cli, defuddle).

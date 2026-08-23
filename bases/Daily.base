@@ -1,0 +1,35 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder("daily")
+    - '!file.inFolder("daily/index")'
+properties:
+  file.name:
+    displayName: Date
+  Study:
+    displayName: Study h
+  Exercise:
+    displayName: Exercised
+  Mood:
+    displayName: Mood
+  Vlogging:
+    displayName: Vlogged
+  Guitar:
+    displayName: Guitar
+  description:
+    displayName: Summary
+views:
+  - type: table
+    name: Recent Days
+    order:
+      - file.name
+      - Study
+      - Exercise
+      - Mood
+      - Vlogging
+      - Guitar
+      - description
+    sort:
+      - property: file.name
+        direction: DESC
+    limit: 30

@@ -1,0 +1,35 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder("wiki")
+formulas:
+  updated: file.mtime.format("YYYY-MM-DD")
+properties:
+  file.name:
+    displayName: Page
+  formula.updated:
+    displayName: Updated
+  course_code:
+    displayName: Course
+  unit:
+    displayName: Unit
+  description:
+    displayName: Summary
+views:
+  - type: table
+    name: All Pages
+    order:
+      - file.name
+      - course_code
+      - unit
+      - formula.updated
+    sort:
+      - property: file.mtime
+        direction: DESC
+    limit: 200
+  - type: cards
+    name: By Folder
+    order:
+      - file.name
+      - formula.updated
+      - description
