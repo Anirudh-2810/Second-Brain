@@ -112,6 +112,17 @@ Then add tests: override-wins, reference-splicing, variant-swap. Each test = one
 - Metrics: resolver passing arc-tests · demo scene composed from 3 layers · README with example
 - Interview angle even outside graphics: "override-resolution design" story
 
+## Part 6 — Internals Push: LIVRPS Conflict Example + Hydra Contract
+
+### Worked LIVRPS conflict
+/Robot.color authored three places: scene.usda local opinion red; referenced asset grey; inherited class blue. Resolution walks strongest-first RECURSIVELY: Local(red) wins immediately; absent local would fall to Inherits(blue), then References(grey), Payloads, Specializes. Subtlety: each arc resolves its own sublayers INTERNALLY first, then competes as one opinion. Your miniUSD hits this when a referenced layer contains overrides: fully resolve the referenced stack first, then treat as single opinion.
+
+### Hydra render-delegate contract
+Triad: scene delegate (answers prims/params on demand) ↔ render index (change tracker) ↔ render delegate (backend draws). Renderers plug in consuming an ABSTRACT scene, USD-blind. Same decoupling as JDBC drivers. Steal this triad whenever designing swappable backends (chart libs, export formats).
+
+### Performance architecture
+.usdc crate: lz4-compressed sections + token tables + lazy mmap — opening a 10GB scene costs O(index) not O(data). Composition cached per context, invalidated by change-notification dirty propagation. Lessons: lazy structured access beats eager parse; invalidation GRANULARITY determines interactive performance.
+
 ## Checkpoint Questions
 
 1. In my resolver, which strength rule broke when I added references — and why does LIVRPS order references BELOW local?

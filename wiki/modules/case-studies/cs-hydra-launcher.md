@@ -95,6 +95,17 @@ Test rig: serve a file with a throttled local HTTP server you control; kill serv
 - Metrics: own-launcher usage days · downloader resume-success rate · installer size tracked
 - Interview angle: Electron security model + state-machine design stories
 
+## Part 6 — Internals Push: Typed IPC + Playtime Tracking + Desktop SQLite
+
+### Typed IPC channel pattern
+Naive apps scatter `ipcRenderer.send('do-thing')` strings — undebuggable. Hydra-style fix: one channels.ts declaring `CHANNELS = { listGames:'games:list', startDownload:'downloads:start' } as const`; renderer imports typed wrappers; main switches on same constants. Renaming a channel becomes a compile error instead of runtime silence. Adopt week one in ANY desktop app.
+
+### Playtime tracking mechanics (M2 detail)
+Option 1: poll process list every 30s, count minutes exe present (simple, misses AFK). Option 2: foreground-window hooks (accurate attention-time, more parts). Start with option 1 + idle heuristic via GetLastInputInfo > 5min pauses accumulation. Storage: daily aggregate upsert `(app_id, date, seconds)` checkpointed periodically (crash-safe). Weekly report = GROUP BY date.
+
+### Desktop SQLite pragmatics
+better-sqlite3-class synchronous driver owned by main process; never share connections across processes — message the owner. WAL mode for safe concurrent reads during writes. Migrations via user_version pragma + ordered scripts — a pattern repeating in every shipped desktop app.
+
 ## Checkpoint Questions
 
 1. What does context-isolation prevent, and which Hydra-style feature would tempt you to disable it?

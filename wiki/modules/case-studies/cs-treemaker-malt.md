@@ -111,6 +111,17 @@ The triad transfers: VSCode/Obsidian/Figma plugins share register/action/UI DNA.
 - Build B unlocks the entire plugin-economy skill (Blender/Obsidian/VSCode/Figma plugins share the registration-operator-panel DNA)
 - Metrics: artifacts used by real humans · add-on skeleton reusable
 
+## Part 6 — Internals Push: GEDCOM Format + bpy Registration Deep
+
+### GEDCOM in five lines
+Genealogy interchange format: lines of LEVEL TAG VALUE — `0 @I1@ INDI` starts an individual; `1 BIRT` birth event; `2 DATE 1969`; `1 FAMC @F1@` child-to-family link. Hierarchy purely by level numbers. TreeMaker-class tools ingest GEDCOM or simplified JSON. Lesson: ancient line-level formats persist because diff-friendly and stream-parseable.
+
+### bpy registration deep — why classes, not functions
+Blender maintains a live type system: registered Operators become undo-pushable, hotkey-mappable, callable via bpy.ops, searchable in F3. Panels introspect poll() for context-sensitivity; PropertyGroups persist inside .blend files and participate in undo. The ceremony enrolls your code into Blender's undo/menu/persistence subsystems — unregistered functions run but integrate with nothing.
+
+### Version-churn strategy
+Blender breaks the Python API across major releases (2.8x, 3.x, 4.x each moved things). Sustainable add-ons pin supported versions in bl_info and gate version-specific imports — maintenance burden of platform-adjacent tools is structural, not accidental.
+
 ## Checkpoint Questions
 
 1. In your D3 tree, what breaks when two siblings marry into the same family (DAG vs tree)?

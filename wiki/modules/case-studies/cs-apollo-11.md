@@ -101,6 +101,17 @@ Navigation math needed vectors/matrices; hardware had none of it. Solution: an i
 - Interview story banked: "I built a priority executive that reproduces the 1202 rescue" — memorable at fresher level
 - Metrics: simulator demo working · restart-drill demonstrated · files-read-with-notes count
 
+## Part 6 — Internals Push: Interpreter, DSKY Protocol, Rope Memory
+
+### Interpreter pseudo-instructions (VM layer)
+Native AGC4 ops handle single-word arithmetic only; guidance math needs vectors/matrices. The Interpreter layers pseudo-instructions — DV (dot product), VXV (cross), UNIT (normalize), matrix transforms — as threaded-code tables executed by a small VM. Navigation engineers wrote equations nearly literally; cost paid in exact counted cycles. This is the ancestor argument for every domain-specific VM (JVM bytecode, WASM).
+
+### DSKY protocol (constrained grammar UI)
+Verb/Noun grammar: sequences like VERB 37 NOUN 01; responses flash codes then steady register displays (R1/R2/R3, signed 5-digit + exponent). ENTER during alarm triage was priority input during descent. Build lesson: constrained grammars beat menus for reliability under stress — your DSKY emulator should reproduce flash semantics exactly.
+
+### Core rope memory manufacturing
+Programs physically woven: wire through core = 1, around = 0, threaded by textile workers from printed LISTINGS. Consequences: bugs unfixable post-weave (hence exhaustive simulators), six-month lead time per rope (requirements frozen brutally early), weavers themselves as QA catching inconsistencies. Extreme proof of a general law: deployment friction determines development discipline.
+
 ## Checkpoint Questions
 
 1. Which single design decision let the AGC survive hardware-induced overload?

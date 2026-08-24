@@ -108,6 +108,19 @@ Failure lab: dim lighting breaks landmarks — document threshold; it teaches mo
 - Metrics: puppet params driven live · packaging-A deployed URL · ethics-note written
 - Interview angle: "I compared learned-warping vs landmark-classical approaches for face animation" — genuinely differentiated fresher story
 
+## Part 6 — Internals Push: Warping Field + Stitching Math Sketch
+
+### Dense warping field intuition
+Per generated pixel, the warping module predicts WHERE in source appearance features to sample — a learned flow-field analogous to optical flow, trained jointly with keypoints via self-supervised reconstruction on talking-head pairs. Keypoints decide coarse motion; warp field fills skin/hair continuity between sparse anchors. Underfit signature: background swims with face motion — partially masked by stitching, which is why both modules ship together.
+
+### Stitching mask math sketch
+Stitching head predicts per-pixel soft mask M in [0,1] over the animated region border; output = M*animated + (1-M)*original. Trained to concentrate at face boundary. Cheap trick, large perceived-quality gain — recurring pattern: 90% of "looks professional" is seam blending, not the headline module.
+
+### Puppet upgrade path after v0.1
+1. Head-yaw via affine transform driven by landmark-derived yaw estimate
+2. Mesh-warp mouth: triangulate mouth region, affine triangles between closed/open anchors (replaces sprite swap)
+3. Latency budgeting: MediaPipe ~10ms + draw ~5ms fits 30fps — measure, don't guess
+
 ## Checkpoint Questions
 
 1. What does the stitching module fix that raw warping breaks?

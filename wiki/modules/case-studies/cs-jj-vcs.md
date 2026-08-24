@@ -51,6 +51,20 @@ flowchart TD
 
 **Premortem**: *"Tried jj for a day, went back to git."* Mechanism: compared under deadline pressure with git reflexes intact. New VCS need a sandbox commitment window (2 weeks) to be fairly evaluated.
 
+## Part 6 — Internals Push: Change-IDs, Conflict Trees, Colocation
+
+### change-id vs commit-id
+Git identity = SHA(content+parents): rebase rewrites history so every SHA changes and references break. jj adds a SECOND stable id — the change-id tracks "the logical change" while commit-id tracks "this exact snapshot". Implemented as a side-table mapping change-id to current commit-id, updated atomically on rebase/amend. Practical result: `jj log` shows stable labels (qpvuntsm-style) usable in prose/issues across history edits. mini-jj insight: add a changes.json sidecar mapping uuid to commit-sha; watch references survive your own rebases.
+
+### Conflict trees as ordinary objects
+A conflicted merge produces a TREE whose entries can be conflict records; materialization renders markers into the workdir at checkout; resolution writes a fresh normal tree. Consequences: you can COMMIT a conflicted state, rebase other work around it, resolve later. Git's conflicted index blocks everything until resolved — jj made conflicts flow through every command unchanged.
+
+### Colocation
+.jj and .git share one object store; jj imports Git refs each command and exports back. Both tools operate on one physical repo — adoption cost near zero. Engineering lesson: interop layers beat migration walls.
+
+### Revsets
+`jj log -r 'ancestors(@, 5) | mine()'` — a compositional query DSL over the commit graph: small operator set, set algebra, lazy evaluation. Study if you ever design domain query languages.
+
 ## Life Integration
 
 - Perfect [[lr-build-your-own-x]] companion: build mini-jj concepts after studying theirs

@@ -110,6 +110,33 @@ Graduation test: run suite against a NAIVE `subprocess.run(code, timeout=10)` en
 - Metrics: attack-suite cases passing · layers named from memory · one real hostile input survived
 - Interview story tier: top-tier fresher security narrative ("I built and then attacked my own sandbox")
 
+## Part 6 — Internals Push: NSJAIL Anatomy & Seccomp Mechanics
+
+### Annotated NSJAIL config
+```
+mode: ONCE                  # one exec per jail; no reuse contamination
+chroot_dir: "/snek"         # attacker sees minimal fake root
+mount bind /snek/usr -> /usr  # only what CPython needs
+mount tmp read-only         # scratch without persistence
+time_limit: 10              # wall-clock kill
+rlimit_as: SOFT cap         # address-space memory bomb cap
+rlimit_nproc: 64            # fork-bomb cap
+clone_newnet: true          # network namespace: zero interfaces
+clone_newuser: true         # drop root, map to nobody
+clone_newpid: true          # cannot see/kill host processes
+seccomp_policy: strict      # syscall allowlist
+cgroup pids limit: 64       # cgroup backup to rlimit
+```
+
+### seccomp allowlist vs blocklist
+Blocklists fail because kernels ADD syscalls faster than lists update — new attack surface enabled by default. Allowlist permits ONLY named calls (read/write/exit/brk/mmap...) and returns EPERM or kills on everything else — ptrace, mount, bpf, keyctl simply do not exist inside. snekbox ships a policy tuned to CPython's real syscall profile: run once in logging mode, collect actual calls, allow exactly that set.
+
+### Extended escape taxonomy beyond M2
+- resource: bytearray-loop memory hog (rlimit_as catches); thread bombs (nproc)
+- fs tricks: symlink races against bind mounts (read-only + chroot contain)
+- interpreter escapes: ctypes CDLL loads (seccomp blocks mmap/open policy paths); os.* abuse (PID+mount namespaces contain blast radius)
+- honest limitation: timing side-channels are out of scope for snek-class sandboxing — document it
+
 ## Checkpoint Questions
 
 1. Which single layer stops a fork bomb — and which stops `/etc/passwd` reading? (They're different.)

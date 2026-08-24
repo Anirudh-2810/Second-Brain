@@ -106,6 +106,17 @@ User-mode enumeration only sees what the kernel exposes to your token. Rootkits 
 - Metrics: rungs climbed · NT concepts explained from memory · own-tool usage during real slowdowns
 - Career signal: "I wrote a process monitor in C" separates you from pure-web cohorts instantly
 
+## Part 6 — Internals Push: NT Enumeration Deeper + Handle Tables
+
+### What NtQuerySystemInformation returns
+SystemProcessInformation yields ONE flat buffer: SYSTEM_PROCESS_INFORMATION structs each followed INLINE by that process's thread array. Correct walk: next = current + SizeOfStruct + threads*sizeof(SYSTEM_THREAD). Two classic bugs SI guards against: buffer-size race (processes spawn between size query and data query → retry loop) and cross-version struct drift (use maintained PHNT headers).
+
+### Handle tables
+Kernel objects (process/thread/section/event/token) are accessed via HANDLES indexing per-process handle tables with access masks. Enumerating system handle tables (SystemHandleInformation) reveals which process holds which handle to whom — how "who locks this file" works, and how injections are spotted (cross-process handle WITH PROCESS_VM_WRITE access = red flag). Your rung-3 kill-tool exercises the same privilege machinery.
+
+### Why AV flags such tools (mechanism)
+Raw disk opens, driver loads, cross-process memory reads, terminating protected processes — behaviorally identical to ransomware/rootkit toolkits. Unsigned binary performing them = maximum suspicion. Legit tools earn signing reputation; your builds document intent in README and expect SmartScreen — never disable AV globally as a workaround.
+
 ## Checkpoint Questions
 
 1. Why does hiding a process from user-mode enumeration NOT hide it from a driver?

@@ -118,6 +118,57 @@ Ledger schema: `(ts, provider, model, tokens_in, tokens_out, latency_ms, ok, err
 - Metrics: providers implemented · failover demonstrated live · monthly token-cost report generated
 - Interview angle: "multi-provider resilience design" — 2026-hot topic, legally grounded
 
+## Part 6 — Internals Push: Provider Interface + Router Failover Code
+
+### Provider interface (the abstraction that matters)
+```python
+class Provider(ABC):
+    name: str
+    cost_per_1k_out: float      # 0.0 for free tiers/local
+    priority: int               # lower tried first
+
+    @abstractmethod
+    def available(self) -> bool: ...   # quota left? cached health?
+
+    @abstractmethod
+    def chat(self, messages, model, temperature=0.7) -> str: ...
+```
+Implementations: GroqProvider (official free tier), GeminiProvider (free tier), OpenRouterProvider (paid fallback), OllamaProvider (local offline last resort).
+
+### Router failover logic (the g4f lesson, legalized)
+```python
+class Router:
+    def __init__(self, providers):
+        self.providers = sorted(providers, key=lambda p: p.priority)
+        self.cooldown = {}
+
+    def chat(self, messages, model):
+        last_err = None
+        for p in self.providers:
+            if time.time() < self.cooldown.get(p.name, 0): continue
+            if not p.available(): continue
+            t0 = time.time()
+            try:
+                out = p.chat(messages, model)
+                ledger.log(p.name, tokens=len(str(messages))//4,
+                           latency=time.time()-t0, ok=True)
+                return out
+            except RateLimited:
+                ledger.log(p.name, ok=False, err="429")
+                self.cooldown[p.name] = time.time() + 300  # 5-min cool-down
+                last_err = "rate-limited"
+            except Exception as e:
+                ledger.log(p.name, ok=False, err=str(e)[:200]); last_err = e
+        raise RuntimeError(f"all providers failed: {last_err}")
+```
+Ledger schema: `(ts, provider, model, tokens_in, tokens_out, latency_ms, ok, err)`. Monthly report: GROUP BY provider → cost/latency dashboard. This router + ledger is the production pattern behind every serious GenAI app ([[roadmap-ml-engineer]] GenAI branch artifact).
+
+### Provider mortality taxonomy (from g4f's churn history)
+1. Endpoint schema change → provider class update needed
+2. Auth tightening (login walls) → provider needs credentials or dies
+3. Legal takedown → provider removed entirely
+Your legal stack faces only #1 — another reason the legal path is also the stable path.
+
 ## Checkpoint Questions
 
 1. What makes the registry pattern survive weekly endpoint deaths — which principle?

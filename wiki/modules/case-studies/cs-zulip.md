@@ -119,6 +119,18 @@ async def events(stream_id: int, request: Request):
 - Metrics: messages flowing, SSE reconnect robustness, tests passing
 - Interview stories: schema decisions, SSE-vs-websocket tradeoff, concurrent-write handling ([[interview-counter-guide]] STAR bank)
 
+## Part 6 — Internals Push: Recipient Indirection & Queue Lifecycle
+
+### The Recipient triangle (worked example)
+Schema: Stream 1:n Recipient(type=stream) ; Message points at recipient_id ; UserMembership(user, recipient_id, last_read_id).
+Why the indirection: ONE routing concept covers streams AND huddles AND personal PMs. Permission check is uniform — "is user subscribed to recipient X?" — regardless of audience kind. Adding broadcast channels later = new Recipient subtype, zero message-table migration. Cost: reads join through Recipient, absorbed by denormalized caches. Design law: model RELATIONSHIPS as entities when kinds may grow; direct FKs only when the kind-set is provably closed.
+
+### Queue-worker lifecycle (reliability tiers)
+Producers publish events to RabbitMQ exchanges routed into sharded `user_events:<user>` queues (websocket fanout) plus worker pools (email, webhooks, thumbnails). Consumers ack AFTER side-effects complete → crash mid-job means redelivery → workers must be idempotent (dedupe keys). Missed-message backfill: clients track last event id; reconnect asks Tornado for replay; aged-out events pulled from DB. Three reliability tiers: live push, queue replay, DB backfill.
+
+### mypy --strict culture notes
+Incremental adoption over years; strictness enforced on NEW modules first; custom mypy plugins check Django-specific idioms. Takeaway: strict typing is a CI-enforced POLICY, achievable gradually — start new-file-only.
+
 ## Checkpoint Questions
 
 1. Why does Zulip need BOTH Django and Tornado — what breaks if events go straight through Django?

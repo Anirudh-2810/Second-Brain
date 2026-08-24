@@ -139,6 +139,26 @@ This skeleton + spec page IS the deliverable — languages start exactly here.
 - Metrics: LOC of your framework · todo-app working on it · spec+parser committed
 - Ecosystem-wisdom metrics applied forward: every future stack choice runs through activity/health checklist ([[market-analysis-tech-2026]] lens)
 
+## Part 6 — Internals Push: Riot Compile Pipeline + AS4 Autopsy Notes
+
+### Riot compile pipeline stages
+1. Parse `.riot` template (HTML-ish with embedded script/style)
+2. Extract component parts: markup AST, script body, scoped CSS
+3. Transform bindings into render-function code targeting runtime APIs
+4. Scoped-CSS: rewrite selectors adding generated attribute (riot-tag scoped isolation without shadow DOM)
+5. Emit ES module exporting a factory; runtime `mount()` instantiates: build DOM from factory output, attach observable state, patch bound expressions on update
+Studying stage 3-4 teaches the core trick all frameworks share: templates become FUNCTIONS; updates re-invoke them efficiently (VDOM diffing or targeted binding patches — the genre's central fork).
+
+### AS4 autopsy notes
+Adobe's research outputs: language spec drafts (static typing over AS3 model), prototype compiler experiments, no shipped runtime. Death chain: browsers deprecate plugin APIs → Flash Player EOL announcement → no distribution platform → spec irrelevant regardless of quality. Compare: Kotlin survived because its HOST (JVM) thrived. Law extracted: language futures track RUNTIME futures, always.
+
+### Micro-framework exercise grading rubric
+- interpolation renders (pass)
+- event binding declarative (pass)
+- reactive auto-update on state change (distinction)
+- list rendering with keys (star)
+- your README explains tradeoffs vs React/VDOM (the real learning evidence)
+
 ## Checkpoint Questions
 
 1. In YOUR framework, where exactly does reactivity live — and what does Riot's observer share with it?

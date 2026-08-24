@@ -116,6 +116,23 @@ def featurize(item, profile, now):
 2. Why does the Heavy Ranker have 48 outputs instead of one CTR score?
 3. What breaks first in MY recommender if I stop labeling for a month?
 
+## Part 6 — Internals Push: Ranking Features & Retrieval Mechanics
+
+### Heavy Ranker feature families (what the 48 heads actually eat)
+1. **Author features**: you-follow? muted? past engagement rate with author.
+2. **Engagement features**: viewer's prior engagement with this media/topic; impression damping (time since last shown).
+3. **Content features**: card type (photo/video/poll), language confidence, toxicity scores from separate classifiers, link presence.
+4. **Relative-social features**: how many of YOUR follows engaged this tweet; in-network vs out-of-network flag.
+5. **Temporal/context**: post age normalized by source velocity, conversation position, device/time context.
+
+Engineering lesson: rankers are 70% feature plumbing. Your mini recommender should spend proportionally equal effort on featurize() as on the model.
+
+### Earlybird retrieval mechanics
+Earlybird = inverted index: token to sorted posting list of tweet ids + quality metadata. Query intersects postings under follower-graph filters + recency windows, scored by static quality and engagement velocity. Vector search (SimClusters) handles semantic recall; lexical recall stays inverted-index — two lanes by design. Modern translation: Earlybird role = Elasticsearch/Lucene; SimClusters role = embedding ANN (pgvector/HNSW). Your mini build uses TF-IDF cosine for both lanes merged.
+
+### Why Scala microservices
+Each candidate source scales independently (graph walks vs index queries vs ANN). Thrift contracts let teams deploy separately. Cost: distributed-tracing complexity, managed by product-mixer pipeline instrumentation. Lesson: split multi-stage systems along SCALING-NEED boundaries.
+
 ## Cross-Vault Links
 
 [[ml-interview-playbook]] · [[python-datascience-topics]] · [[mlops-production-deployment]] · [[modules/case-studies/index|Field Index]]

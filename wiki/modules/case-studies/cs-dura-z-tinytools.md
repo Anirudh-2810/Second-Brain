@@ -118,6 +118,45 @@ HEAD, index, branches: untouched. Recovery = cherry-pick/checkout from your ref.
 - mini-dura insures THIS VAULT — your second brain deserves crash insurance beyond GitHub pushes
 - Metrics: jd-hit-rate daily · mini-dura snapshots count · one real recovery performed (the graduation event)
 
+## Part 6 — Internals Push: Frecency Formula + Dura Plumbing Sequence
+
+### z scoring precisely
+Each history line: `path|rank|last_timestamp`. On lookup, effective score = rank * decay(age), decay halving per ~2-week bucket (implementation detail varies). Rank increments per visit; entries below threshold get pruned periodically. Knobs: half-life, prune threshold, match semantics (substring vs word-boundary). Edge cases your mini version must handle: same directory visited twice in one session (dedupe before increment), drives/removable media vanishing (prune on not-found), case-insensitive Windows paths (normalize lower on write).
+
+### mini-z PowerShell implementation sketch (~60 lines)
+```powershell
+$CdHist = "$env:USERPROFILE\.cdhist"
+function Update-CdHist($path) {
+    $lines = @(Get-Content $CdHist -ErrorAction SilentlyContinue)
+    $now = Get-Date; $found = $false
+    $out = foreach ($l in $lines) {
+        $p,$r,$ts = $l -split '\|'
+        if ($p -eq $path) { $found=$true; "$p|$([int]$r+1)|$($now.ToString('o'))" }
+        else { $l } }
+    if (-not $found) { $out += "$path|1|$($now.ToString('o'))" }
+    Set-Content $CdHist $out
+}
+function jd { param([string]$Target)
+    $best = Get-Content $CdHist | ForEach-Object {
+        $p,$r,$ts = $_ -split '\|'
+        $days = ((Get-Date) - [datetime]$ts).TotalDays
+        [pscustomobject]@{Path=$p; Score=[int]$r*[math]::Exp(-$days/14)}
+    } | Where-Object Path -like "*$Target*" | Sort-Object Score -Desc | Select -First 1
+    if ($best) { Set-Location $best.Path; Update-CdHist $best.Path }
+}
+```
+Install: dot-source from $PROFILE. Gotchas: OneDrive-roamed profiles, spaces handled by strict pipe delimiter.
+
+### mini-dura plumbing sequence (why plumbing, not porcelain)
+Porcelain `git add/commit` mutates index+HEAD — violating dura's core promise. Plumbing avoids it:
+```
+git hash-object -w <changed-files>     # blobs written; refs untouched
+git read-tree / write-tree             # tree from staged snapshot
+git commit-tree <tree> -p <parent> -m "dura <timestamp>"
+git update-ref refs/mini-dura/<repo>   # snapshot ref only
+```
+HEAD, index, branches: untouched by construction — insurance provably harmless. Recovery drill (do it once BEFORE you need it): make a messy edit, run snapshot, hard-reset workdir, recover from mini-dura ref.
+
 ## Checkpoint Questions
 
 1. Derive why frecency beats pure-MRU after a 2-week vacation.
