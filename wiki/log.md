@@ -314,3 +314,7 @@
 - Batch 3: how-to-self-teach (productivity/) - failure engines + energy-scheduling R&D; example-question-bank (careers/) - drilling mechanism + expectation tags + failure-signal interpretation; ml-theory-and-moocs, python-datascience-frameworks, python-datascience-topics (data-science/).
 - Every deep edition adds: root-cause mechanisms, failure-mode taxonomies w/ early warnings, premortems, defeat-tackling flowcharts, life-integration systems, success metrics.
 - Remaining: reference pages + repo-expansion pages (~24) queued for batch 4+.
+
+### 2026-08-24 — Deep Edition pass, batch 4 (7 more reference-layer pages)
+- mlops-production-deployment (production-failure taxonomy, MLOps ladder, notebook-to-production gap), systems-design-distributed (distributed failure taxonomy, learning-order, K8s/Docker traps) [systems-design]; web-development-resources (frontend failure taxonomy F1-F6) [web-development]; software-dev-general, languages-python-advanced, language-rust, languages-polyglot (programming/) — compounding-vs-plateau mechanism, per-language failure modes + transfer upgrades, decision logic.
+- Remaining deep-edition targets: repo-expansion pages (17).

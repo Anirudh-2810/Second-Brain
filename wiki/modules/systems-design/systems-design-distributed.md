@@ -1,72 +1,122 @@
 ---
 course_code: "SYSDESIGN"
 course_name: "Systems Design & Distributed Systems Field"
-unit: "Module 10 — Systems Design & Distributed Systems"
-tags: [systems-design, distributed-systems, hadoop, docker, kubernetes, airflow, celery, caching, monitoring, scalability]
+unit: "Module 10 — Systems Design & Distributed Systems [Deep Edition]"
+tags: [systems-design, distributed-systems, hadoop, docker, kubernetes, airflow, celery, caching, monitoring, scalability, failure-analysis]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/niderhoff/knowledge-repository#systems-design"
 ---
 
 ## For future agent
-Backend/distributed-systems resources: scalability pattern catalogs, system-design interview material, container orchestration best practices (Docker/K8s), workflow engines (Airflow/Celery/KEDA), and infra utilities. Use when designing a backend, preparing for system design rounds, or debugging K8s.
+Deep edition of the systems design reference layer. Adds the failure-mode taxonomy of distributed systems (the classic ways systems actually die), learning-order logic (what to learn before what and why), per-tool failure traps (Docker/K8s standard mistakes), premortem of typical backend-learning abandonment, defeat-tackling flowchart, life integration. Interview application in [[system-design-interview]]; case studies in [[repo-scalability-catalogs]].
 
-# Systems Design & Distributed Systems
+# Systems Design & Distributed Systems — Deep Edition
 
-## Pattern Catalogs & Primers
-- **[awesome-scalability](https://binhnguyennus.github.io/awesome-scalability/)** — the patterns of scalable/reliable/performant large-scale systems; massive index
-- **[System Design Primer (donnemartin)](https://github.com/donnemartin/system-design-primer)** — THE system design study guide: building blocks + worked designs + flashcards
-- [awesome-system-design (madd86)](https://github.com/madd86/awesome-system-design) — second catalog
-- Book (from reading list): **[Designing Data-Intensive Applications (Kleppmann)](https://dataintensive.net/)** — the distributed-systems bible
+## Part 1 — The Distributed Failure Taxonomy (why this field exists)
 
-## Big Data
-- **[Hadoop: The Definitive Guide (O'Reilly)](http://hadoopbook.com/**)** — canonical Hadoop text
-- [Free 3-node Hadoop cluster starter kit](http://hadoopinrealworld.com/hadoopstarterkit/)
-- 2026 note `(TBC)`: Hadoop-era batch stack has largely yielded to cloud warehouses (BigQuery/Snowflake) + Spark; learn concepts here, tools elsewhere
+Every distributed-systems tool is a scar tissue response to a specific failure class. Learn tools BY their failures:
 
-## Data Serialization
-- [FlexBuffers (schema-less Flatbuffers)](https://google.github.io/flatbuffers/flexbuffers.html) · [HN discussion](https://news.ycombinator.com/item?id=23588558)
-- Protobuf adjacent: [Apache Arrow Flight](https://arrow.apache.org/blog/2019/10/13/introducing-arrow-flight/) — columnar transport claiming faster-than-gRPC data transfer
+| Failure Class | What It Kills | Tools Born From It |
+|---------------|--------------|--------------------|
+| **Single point of failure** | Whole service on one box dies | Load balancers, replication, fail-over |
+| **Split brain** | Two masters accept conflicting writes | Consensus protocols, leader election |
+| **Unbounded queues** | Memory death under load spikes | Backpressure, rate limiting, circuit breakers |
+| **Cache-stale chaos** | Users see wrong data after writes | Invalidation strategies (cache-aside etc.) |
+| **Cascade failure** | One slow service drags all down | Timeouts, bulkheads, retries-with-jitter |
+| **Silent data loss** | Money/messages vanish | Acknowledgment semantics, durable queues, exactly-once patterns |
 
-## Docker Best Practices
-All three from NodeBestPractices but language-agnostic:
-- [Lint your Dockerfile](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/docker/lint-dockerfile.md)
-- **[Avoid build-time secrets](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/docker/avoid-build-time-secrets.md)** — secrets baked into layers leak forever
-- **[Multi-stage builds](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/docker/multi_stage_builds.md)** — build toolchain out of final image
+**Learning mechanism**: for every tool you study, name the failure class it exists for. Tools learned without their failure are cargo cults that collapse under interview probes.
 
-## Kubernetes
+## Part 2 — Pattern Catalogs & Primers
 
-### Learn
-- [Katacoda interactive K8s courses](https://www.katacoda.com/courses/kubernetes) — browser labs
-- [Magic Sandbox bootcamp platform](https://www.msb.com/)
-- [A Gentle Introduction to Kubernetes](https://medium.com/faun/a-gentle-introduction-to-kubernetes-4961e443ba26)
+- **[awesome-scalability](https://binhnguyennus.github.io/awesome-scalability/)** → expanded [[repo-scalability-catalogs]]
+- **[System Design Primer](https://github.com/donnemartin/system-design-primer)** → expanded [[repo-system-design-primer]]
+- [awesome-system-design (madd86)](https://github.com/madd86/awesome-system-design)
+- Book: **[Designing Data-Intensive Applications (Kleppmann)](https://dataintensive.net/)** — the distributed-systems bible; read after primer vocabulary, not before
 
-### Avoid Mistakes
-- **[10 most common mistakes using kubernetes (pipetail)](https://blog.pipetail.io/posts/2020-05-04-most-common-mistakes-k8s/)** — liveness/readiness misuse, no requests/limits, latest tags… · [HN thread](https://news.ycombinator.com/item?id=23211325)
-- [Validating K8s YAML for best practice (learnk8s)](https://learnk8s.io/validating-kubernetes-yaml)
+## Part 3 — Big Data (era-aware)
 
-### Tooling
-- [Kubernetes YAML Generator](https://k8syaml.com/)
-- [Pulumi](https://www.pulumi.com/kubernetes/) — define K8s infra in ts/python/go instead of YAML
+- **[Hadoop: The Definitive Guide](http://hadoopbook.com/)** · [free 3-node cluster kit](http://hadoopinrealworld.com/hadoopstarterkit/)
+- Era note `(2026)`: batch-Hadoop largely yielded to cloud warehouses + Spark; learn the *concepts* (distributed storage, shuffle, fault tolerance) here — they transfer everywhere.
 
-## Workflows / Pipelines / Messaging
-- [Apache Airflow on Kubernetes Executor + MiniKube (Marc Lamberti)](https://marclamberti.com/blog/airflow-kubernetes-executor/#Introducing_Apache_Airflow_with_Kubernetes_Executor)
-- KEDA autoscaling: [queue-triggered jobs sample](https://github.com/tomconte/sample-keda-queue-jobs)
-- Celery at scale: **[Scaling effectively when Kubernetes met Celery](https://hackernoon.com/https-medium-com-talperetz24-scaling-effectively-when-kubernetes-met-celery-e6abd7ce4fed)**
-- Python-side pairing: django-celery/django-rq in [[languages-python-advanced]]
+## Part 4 — Docker Best Practices (language-agnostic gold)
 
-## Infrastructure Utilities
-| Area | Resource |
-|------|----------|
-| nginx config | [DigitalOcean nginx config generator UI](https://www.digitalocean.com/community/tools/nginx) |
-| Caching | [KeyDB](https://docs.keydb.dev/blog/2019/10/07/blog-post/) — multithreaded Redis fork ("5× faster") |
-| Monitoring | [Prometheus Basics (yolossn)](https://github.com/yolossn/Prometheus-Basics) — metric types → PromQL primer |
-| API testing | [postwoman/Hoppscotch](https://github.com/liyasthomas/postwoman) — open-source Postman alternative |
-| Video streaming | [Go + HLS media server how-to](https://hackernoon.com/building-a-media-streaming-server-using-go-and-hls-protocol-j85h3wem) |
+| Practice | Why It Matters | Link |
+|----------|---------------|------|
+| Lint your Dockerfile | Catches order/layer mistakes cheaply | [guide](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/docker/lint-dockerfile.md) |
+| **No build-time secrets** | Baked layers leak forever, even "deleted" | [rule](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/docker/avoid-build-time-secrets.md) |
+| **Multi-stage builds** | Toolchain stays out of final image; smaller attack surface | [rule](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/docker/multi_stage_builds.md) |
+
+Failure mode: treating Docker as "works on my machine, but portable" — without the three rules above you've just made your machine portable with its bugs.
+
+## Part 5 — Kubernetes
+
+**Learn**: [Katacoda interactive courses](https://www.katacoda.com/courses/kubernetes) · [gentle intro](https://medium.com/faun/a-gentle-introduction-to-kubernetes-4961e443ba26) · Magic Sandbox bootcamp
+
+**The standard mistakes** ([pipetail's famous list](https://blog.pipetail.io/posts/2020-05-04-most-common-mistakes-k8s/) · [HN thread](https://news.ycombinator.com/item?id=23211325)):
+1. Liveness/readiness misuse (liveness killing pods during slow loads)
+2. No resource requests/limits → noisy neighbor + OOM roulette
+3. `latest` image tags → non-reproducible deploys
+4. Single-replica "production"
+5. Ignoring PodDisruptionBudgets
+
+**Tooling**: [k8syaml generator](https://k8syaml.com/) · [learnk8s YAML validation](https://learnk8s.io/validating-kubernetes-yaml) · [Pulumi](https://www.pulumi.com/kubernetes/) (infra in real languages)
+
+## Part 6 — Workflow Engines / Messaging / Utilities
+
+| Area | Resource | Trap to Avoid |
+|------|----------|---------------|
+| Airflow on K8s | [Marc Lamberti guide](https://marclamberti.com/blog/airflow-kubernetes-executor/#Introducing_Apache_Airflow_with_Kubernetes_Executor) | Non-idempotent tasks break backfills |
+| KEDA autoscaling | [queue-triggered jobs sample](https://github.com/tomconte/sample-keda-queue-jobs) | Scaling on lag without poison-pill handling |
+| Celery at scale | [When Kubernetes met Celery](https://hackernoon.com/https-medium-com-talperetz24-scaling-effectively-when-kubernetes-met-celery-e6abd7ce4fed) | Assuming task parallelism = correctness |
+| nginx config | [DO config generator](https://www.digitalocean.com/community/tools/nginx) | Generated ≠ understood; read what it emits |
+| Caching | [KeyDB](https://docs.keydb.dev/blog/2019/10/07/blog-post/) multithreaded Redis fork | Cache without invalidation strategy = stale-data bugs |
+| Monitoring | [Prometheus Basics](https://github.com/yolossn/Prometheus-Basics) | Alerting on symptoms not causes |
+| API testing | [Hoppscotch/postwoman](https://github.com/liyasthomas/postwoman) | — |
+| Video streaming | [Go+HLS how-to](https://hackernoon.com/building-a-media-streaming-server-using-go-and-hls-protocol-j85h3wem) | — |
+| Serialization | [Flexbuffers](https://google.github.io/flatbuffers/flexbuffers.html) · [Arrow Flight](https://arrow.apache.org/blog/2019/10/13/introducing-arrow-flight/) | Schema-less flexibility ↔ validation tradeoff |
+
+## Part 7 — Learning-Order Logic + Premortem
+
+```mermaid
+flowchart LR
+    N["Networking basics<br/>(DNS/TCP/TLS)"] --> L["Linux + one server<br/>hand-deployed"]
+    L --> D["Docker<br/>(the 3 rules)"]
+    D --> K{"Need orchestration<br/>for your project?"}
+    K -->|"yes"| KK["Kubernetes basics"]
+    K -->|"no"| W["Workflow engine<br/>when a real pipeline exists"]
+    KK & W --> M["Monitoring LAST-but-mandatory:<br/>unmonitored = unoperated"]
+```
+
+### Premortem
+*Systems learning abandoned.* Findings: (1) started with Kubernetes before networking — pure symbol soup; (2) tool-collected endlessly, never ran a hand-deployed server; (3) Hadoop rabbit hole in 2026; (4) no personal project ever needed >1 machine, so all knowledge stayed theoretical. Counters: the order chart + project-driven entry rule.
+
+## Part 8 — Defeat-Tackling Flowchart
+
+```mermaid
+flowchart TD
+    S["Stuck"] --> T{"Type?"}
+    T -->|"tool won't start"| L{"Read the error<br/>or guessing?"}
+    L -->|"guessing"| RE["Actually read it -<br/>90% name the fix"]
+    T -->|"concept opaque"| F["Name the FAILURE CLASS<br/>it solves - tools make sense<br/>through their scars"]
+    T -->|"tutorial works,<br/>mine doesn't"| D{"Config identical?<br/>Diff line by line"}
+    T -->|"overwhelmed by choices"| P["Project-first: pick the smallest<br/>real need, learn only that tool"]
+    RE & F & D & P --> G["One running thing ><br/>five understood things"]
+```
+
+## Part 9 — Life Integration
+
+- One deployed service maintained beats ten tutorials: keep ONE always-running project ([[modules/retrieval-agent/overview]] qualifies) and practice operations on it
+- Weekly case study from [[repo-scalability-catalogs]] during commutes
+- Metrics: services alive · incidents debugged (logged in vault) · failure-classes you can explain from experience vs reading
+
+## Example Checkpoint Questions
+
+1. Your service survives single-instance kill but fails when network partitions mid-write — which CAP position did you accidentally choose?
+2. Why do retries WITHOUT jitter cause cascade failures?
+3. What breaks first if cache TTL is set to infinity? And to zero?
 
 ## Cross-Vault Links
 
-- [[mlops-production-deployment]] — ML-specific serving on top of these patterns
-- [[modules/programming/SAAS_BUILD_NOTES]] — SaaS deployment checklist using this stack's cloud-managed equivalents
-- [[software-dev-general]] — architecture thinking that precedes infrastructure
-- [[modules/systems-design/index|Systems Design Hub]] — module hub
+[[system-design-interview]] · [[repo-system-design-primer]] · [[repo-scalability-catalogs]] · [[repo-nodejs-best-practices]] · [[mlops-production-deployment]] · [[modules/programming/SAAS_BUILD_NOTES]]
