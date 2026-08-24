@@ -22,7 +22,8 @@ for root, dirs, files in os.walk(WIKI):
 
 modules.sort()
 
-def rgb_int(hue_deg, s=0.65, l=0.6):
+def rgb_int(hue_deg, s=0.52, l=0.38):
+    """Darker palette tuned for dark-theme graph canvas (muted, low-glare)."""
     r, g, b = colorsys.hls_to_rgb((hue_deg % 360) / 360, l, s)
     return (int(r * 255) << 16) + (int(g * 255) << 8) + int(b * 255)
 
