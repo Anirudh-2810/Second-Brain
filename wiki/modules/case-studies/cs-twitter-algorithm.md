@@ -1,66 +1,88 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 1 — twitter/the-algorithm (X Recommendation System)"
-tags: [recommendation-systems, machine-learning, scala, architecture, case-study]
+unit: "Case Study 1 — twitter/the-algorithm [Deep R&D + Build Edition]"
+tags: [recommendation-systems, machine-learning, scala, architecture, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/twitter/the-algorithm (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of X/Twitter's open-sourced recommendation algorithm (released March 2023, ~66k stars). Real README structure fetched: Architecture → For You Timeline → Recommended Notifications → build/test. This page extracts the architecture lessons and the candidate-source→ranking pattern that dominates industrial recsys. Pairs with [[ml-interview-playbook]] system-design section.
+Full deep-dive on X/Twitter's recommendation algorithm: exact code inventory (languages, services, key components), WHY each technology choice was made, and a concrete build plan for the user's own two-stage recommender (full version impossible at home; a genuinely similar workflow IS buildable in Python). Pairs with [[ml-interview-playbook]] ML system design.
 
-# X/Twitter Recommendation Algorithm
+# X/Twitter Recommendation Algorithm — Deep R&D
 
-## What It Is
+## Part 1 — The Code Inventory (what code is actually there)
 
-The production source code behind X's "For You" timeline: Scala/Java services + ML models orchestrating a multi-stage recommendation pipeline over ~500M posts/day. Released for transparency after the 2022 acquisition — the highest-profile recsys codebase ever opened.
+The repo (~66k stars) contains the serving-side of X's "For You" timeline plus supporting ML infrastructure:
 
-## How It Works (architecture)
+| Component | Language/Stack | Role |
+|-----------|---------------|------|
+| **home-mixer** | Scala (Finatra/Thrift) | The mixer service: assembles candidate sets → runs ranking → applies heuristics/filters → final timeline. Built on Twitter's **product-mixer** component library (pipeline of `CandidatePipeline`s, `Hydrator`s, `Selector`s, `Decorator`s) |
+| **cr-mixer** | Scala | Candidate-generation coordination layer: calls out to underlying candidate sources (tweet recommender, FRS, UTG) with per-user feature hydration |
+| **Earlybird** | Java | Real-time search index — doubles as a *candidate source* for recent posts (inverted index over tweets, queried by relevance) |
+| **User Tweet Graph (UTG)** / Gepher-based services | JVM | Social-graph candidate retrieval: "tweets from accounts/accounts you follow", FRS (follow recommendation service) for out-of-network expansion |
+| **SimClusters** | Scala + Spark-trained models | Embedding model: users & tweets mapped into ~145k community clusters; candidates found via cluster proximity |
+| **TwML** | Java/Scala ML runtime | Twitter's model framework for serving trained models inside services |
+| **Heavy Ranker** | Trained NN (~48 outputs) | MaskNet-style multi-task network scoring every candidate for ~10 engagement types (fav, reply, dwell, negative…) |
+| **Light Ranker** | Lighter model (early stage) | Cheap pre-scoring within candidate generation |
+| **visibilitylib** | Scala | Visibility filtering: rules engine for mutes/blocks/quality filters applied post-ranking |
+| **representation-manager** | Scala | Serves user/tweet embeddings from SimClusters etc. |
+| **topic-social-proof** | Scala | Topic-level social proof signals for candidates |
+
+**Training side** lives partly outside this repo (Hadoop/Spark batch pipelines historically; TwML training), but feature definitions and model wiring are visible.
+
+**Build tooling**: Bazel (Twitter's monorepo standard) — building anything non-trivial locally is heavy.
+
+## Part 2 — Why Each Choice Was Made (rationale R&D)
+
+| Choice | Why | What It Buys | Cost |
+|--------|-----|--------------|------|
+| **Scala/JVM for serving** | Long-lived high-throughput services; Finagle ecosystem matured over a decade at Twitter | GC-tuned latency at scale; typed service contracts via Thrift IDL across hundreds of teams | Heavy toolchain; slow iteration vs Python |
+| **Two-stage retrieval→ranking** | Cannot score 500M posts/day with a 48-output NN | Funnel: cheap recall (Earlybird/UTG/SimClusters pull ~1500) → expensive precision (Heavy Ranker) | Recall stage caps ceiling; misses hide upstream forever |
+| **Multi-task outputs (48 heads)** | Engagement isn't one number; negative feedback needs explicit weight | Tunable product surface ("healthy conversation") without retraining per tweak | Multi-objective tuning complexity; weighting = editorial power |
+| **SimClusters embeddings** | Sparse interpretable communities scale better than pure dense embeddings for explainability + cold-start | Human-readable "this tweet matches communities X,Y" | Staleness; batch recompute cadence |
+| **Heuristic layer AFTER ranking** | Product rules change faster than models | Diversity/visibility tweaks ship in minutes, not training cycles | Rules accrete into unexplainable soup without governance |
+| **Bazel monorepo** | Hundreds of engineers, one repo | Hermetic builds, cross-service type safety | Brutal for outsiders cloning the repo |
+
+**Second-order insight**: notice what's ABSENT — no end-to-end deep learning pipeline in the open parts. Industrial recsys is systems engineering with models embedded, not models with systems attached.
+
+## Part 3 — Can I Build My Own Version?
+
+### Full version: ❌ impossible
+Requires petabyte-scale event streams, Spark clusters, JVM fleet, trained-on-billions engagement data.
+
+### Similar workflow: ✅ YES — genuinely similar shape, honest scale
+**Project: "For-You feed for YOUR information diet"** — a two-stage recommender over sources YOU choose (RSS feeds, YouTube subscriptions export, arXiv listings, GitHub trending). Same architecture, your scale:
 
 ```mermaid
 flowchart LR
-    S["Candidate sources<br/>(~1500 posts pulled)"] --> F["Feature extraction<br/>+ filtering"]
-    F --> R["Ranking: 48-output<br/>neural network (MaskNet)<br/>scoring 10 engagement types"]
-    R --> H["Heuristics/filters:<br/>diversity, visibility,<br/>author balance"]
-    H --> T["~50 posts to your timeline"]
+    CS["Candidate sources:<br/>RSS/arXiv/GitHub pulls<br/>(~200-2000 items)"] --> CF["Cheap features:<br/>recency, source affinity,<br/>keyword overlap w/ profile"]
+    CF --> LR["Light ranker:<br/>LogisticRegression/GBM<br/>on YOUR liked/disliked labels"]
+    LR --> H["Heuristics: diversity<br/>(max 2/source), dedupe,<br/>read-already filter"]
+    H --> O["Daily digest output:<br/>markdown page / email"]
 ```
 
-Key components from the release: **Home Mixer** (the mixer service), **TwML** (ML model framework), candidate sources including **Earlybird** (search index for real-time retrieval), **UTG** (user tweet graph — social-graph candidates), **SimClusters** (embedding-based community clustering), **CR-Mixer** (candidate generation coordination layer).
+### Build plan (Python, ~4 weekends)
 
-**The load-bearing lesson**: retrieval and ranking are SEPARATE stages. You cannot score 500M posts; you cheaply narrow to ~1500 then expensively rank. This two-stage shape recurs in YouTube, LinkedIn, Amazon — it IS industrial recsys design ([[ml-interview-playbook]]).
+| Weekend | Deliverable |
+|---------|-------------|
+| 1 | Ingesters: fetch RSS/GitHub/arXiv → SQLite items table (id, title, text, source, ts) |
+| 2 | Labeling loop: daily you mark 👍/👎 → training table grows; features: recency decay, source prior, TF-IDF cosine vs liked-centroid |
+| 3 | Light ranker v1: sklearn LogisticRegression → GBM comparison; precision@10 evaluation on held-out days |
+| 4 | Heuristics + digest renderer (Jinja → markdown/email); FastAPI `/feed` endpoint; deploy free tier |
 
-## What To Extract From Studying It
+**Failure modes while building**: label starvation (fix: seed with ⭐'d GitHub repos + saved articles); drift as interests shift (fix: time-decayed labels); metric self-deception (fix: held-out temporal split, never random).
 
-1. **Two-stage pipeline discipline** (candidates → rankers) — name it in any ML-system interview
-2. **Multiple engagement objectives** (fav/reply/dwell/negative signals) — single-metric thinking is fresher thinking
-3. **Heavy heuristics AROUND ML**: social proof, author diversity, feedback fatigue — real systems are rules+models, not pure models
-4. **Scala at scale**: JVM services with Thrift RPC — different from Python-notebook ML world
-5. **Feature engineering as infrastructure**: TwML features versioned/served like products
+**Interview yield**: this project legitimately supports "I've built a two-stage recommender with multi-signal ranking and temporal evaluation" — and you've read the industrial reference implementation to compare shapes.
 
-## Failure Modes
+## Part 4 — Checkpoint Questions
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Reading code linearly | 100+ services overwhelm | Trace ONE feature: "how does a retweet get scored?" |
-| Era assumption | Code frozen at open-source moment ≠ current X | Treat as architecture textbook, not live docs |
-| Notebook-brain shock | No pandas here — production ML is distributed systems | Pair study with [[mlops-production-deployment]] concepts |
-
-**Premortem of studying it**: *Cloned, overwhelmed by directory tree, quit.* Counter: the trace-one-feature protocol ([[modules/case-studies/index|study protocol]]) — enter through `home-mixer` service, follow one request.
-
-## Life Integration
-
-- Interview ammunition: "I've read Twitter's actual ranking code" + one specific insight = rare signal
-- Study cadence: one service/week during MLE roadmap Stage 4–5
-- Metrics: features traced end-to-end · architecture decisions explained in vault notes · interview mentions banked
-
-## Example Checkpoint Questions
-
-1. Why can't the heavy neural net score all 500M posts? Where does the funnel narrow?
-2. Name three NON-model components in the pipeline and their jobs.
-3. What engagement signals exist beyond likes — why does negativity weighting matter?
+1. Map Twitter's funnel onto my mini version — which component corresponds to Earlybird? To visibilitylib?
+2. Why does the Heavy Ranker have 48 outputs instead of one CTR score?
+3. What breaks first in MY recommender if I stop labeling for a month?
 
 ## Cross-Vault Links
 
-[[python-datascience-topics]] (Recommender Systems) · [[ml-interview-playbook]] · [[systems-design-distributed]] · [[modules/case-studies/index|Field Index]]
+[[ml-interview-playbook]] · [[python-datascience-topics]] · [[mlops-production-deployment]] · [[modules/case-studies/index|Field Index]]

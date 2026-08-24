@@ -1,69 +1,90 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 4 — zulip/zulip"
-tags: [django, python, open-source, architecture, case-study]
+unit: "Case Study 4 — zulip/zulip [Deep R&D + Build Edition]"
+tags: [django, python, realtime, open-source, architecture, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/zulip/zulip (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of Zulip — the open-source team chat platform (Django/Python + PostgreSQL + RabbitMQ + Tornado websockets), ~20k stars, famous for engineering culture: 100% test coverage policy, strict type hints, world-class onboarding for new contributors. This page extracts monorepo-done-right lessons and contribution-path strategy.
+Deep-dive on Zulip's actual code organization and technology rationale (Django+Tornado split, RabbitMQ queues, mypy-strict culture), plus a buildable mini-chat — **"miniZulip": a topic-threaded chat with FastAPI + SQLite + SSE** — the single best portfolio-project candidate in this whole case-studies module. Feeds [[repo-fullstack-web-developer-path]] and [[build-project-playbook]].
 
-# Zulip — Large Django Monorepo
+# Zulip — Deep R&D
 
-## What It Is
+## Part 1 — The Code Inventory
 
-A full Slack-class product: threaded-topic chat, real-time sync, mobile/desktop clients, self-hosting. Backend Django + Tornado; frontend legacy JS moving to TypeScript/React. Its distinguishing feature is ENGINEERING PROCESS: every PR requires tests, full type annotations, and lint-clean code — enforced by CI and famously helpful review bots.
+| Component | Tech | Role |
+|-----------|------|------|
+| `zerver/` | Django (Python) | The heart: models (UserProfile, Stream, Recipient, Message…), REST API endpoints, views |
+| `zerver/tornado/` | Tornado | Long-lived websocket connections — pushes events to clients; receives events via RabbitMQ |
+| Queue workers | Python consumers over **RabbitMQ** | Async jobs: email, outgoing webhooks, thumbnailing, search index updates |
+| `analytics/`, `corporate/` apps | Django | Stats collection; separated open-source/proprietary boundary |
+| Frontend | TypeScript + React migration from legacy jQuery templates | Web client |
+| Storage | PostgreSQL (+ memcached) | Denormalized reads where hot paths demand |
+| Tooling | **mypy --strict**, 100%-coverage-on-new-code policy, custom lint bots | The famous quality gates |
 
-## How It Works (architecture sketch)
+**The message model insight**: Zulip routes every message through a generic `Recipient` table (stream / huddle / personal) — an indirection that makes permissions and threading uniform. Schema-first design visible in plain sight.
+
+## Part 2 — Why That Stack Was Used
+
+| Choice | Why | Trade-off Accepted |
+|--------|-----|--------------------|
+| **Django for CRUD/API** | Batteries: auth, ORM, admin; hiring pool | Monolith weight; async story historically weak |
+| **Tornado beside it** | Django/WSGI can't hold thousands of live websocket connections cheaply | Two frameworks to operate — solved by queue handoff |
+| **RabbitMQ between them** | DB write → event → fanout must be reliable & decoupled | Operational complexity (queues to monitor) |
+| **Postgres denormalization** | Chat reads are hot paths ("latest 50 messages") | Write-time duplication vs read joins |
+| **mypy strict + coverage gates** | Volunteer-driven codebase needs machine-enforced quality | Slower contribution velocity per PR — deliberately traded for sustainability |
+| **Topic-threading schema** | Product differentiator (async conversations) | Harder mental model than channel-only chat |
+
+**Second-order insight**: Zulip proves **process is architecture**. The same Django code without their gates would rot; the gates ARE why the monolith stays navigable.
+
+## Part 3 — Can I Build My Own Version?
+
+### Full version: ❌ (years, team)
+### Similar workflow: ✅ YES — "miniZulip", the best portfolio project in this module
+
+**Core spec** (Python, FastAPI or Django-lite):
 
 ```mermaid
 flowchart LR
-    W["Django web app<br/>(APIs, templates)"] --> P["PostgreSQL<br/>(denormalized reads)"]
-    W --> Q["RabbitMQ queues"] --> W2["Tornado<br/>(websocket push)"]
-    W --> S["Search / email /<br/>thumbnail workers"]
-    C["Clients: web/mobile/<br/>terminal"] -.websocket.-> W2
+    C1["Client A<br/>(web page)"] -->|POST message| API["FastAPI:<br/>POST /streams/{s}/messages"]
+    API --> DB[("SQLite:<br/>messages(id, stream,<br/>topic, sender, content, ts)")]
+    API --> BUS["In-process event bus<br/>(asyncio pub/sub)"]
+    BUS --> SSE["GET /events?stream=s<br/>Server-Sent Events stream"]
+    SSE --> C1 & C2["Client B sees message<br/>appear live under topic"]
 ```
 
-**Load-bearing lessons**:
-1. **Monorepo with tooling discipline**: one repo, strict typing (`--strict` mypy), coverage gates — proof that Python scales when process enforces quality ([[languages-python-advanced]] typing section)
-2. **Real-time layer separation**: Django handles CRUD; Tornado owns live events via queue — clean async/sync split
-3. **Onboarding as a feature**: their docs claim productive-first-PR in hours — contributor experience engineered deliberately
-4. **Topic-threaded model** as product differentiation — schema designed around it from day one
+| Milestone | Deliverable |
+|-----------|-------------|
+| M1 (weekend 1) | Streams + topics + messages CRUD; auth-lite (single user ok); tests |
+| M2 (weekend 2) | Live updates via SSE; two browser tabs see each other |
+| M3 (weekend 3) | Unread counts per topic; typing indicator (fun event-bus stretch) |
+| M4 | Deploy free tier; README with GIF |
 
-## What To Extract
+**Why topic-threading matters as a feature**: implementing Zulip's DIFFERENTIATOR (not another Slack clone) gives you a defensible interview narrative: "channels are synchronous noise; topics are async threads — here's how I modeled that in SQL."
 
-| Lesson | Application |
-|--------|-------------|
-| Test-coverage-as-culture | Your projects: coverage gates in CI ([[build-project-playbook]]) |
-| Type-hint everything | Gradual strictness path that actually completes |
-| First-contribution UX | Design your repos' READMEs/contributing for strangers |
-| Queue-decoupled realtime | Pattern for any chat/notification feature you build |
+### Failure modes while building
 
-## Failure Modes
+| Failure | Counter |
+|---------|---------|
+| Websocket rabbit hole | Use SSE first — one-way is enough for v0.1 |
+| Auth sprawl | Single-user until M3; token after |
+| Event-bus rewrite loops | asyncio.Queue-based bus is fine at your scale |
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Codebase overwhelm | 100k+ lines across apps | Trace ONE flow: "what happens when I send a message?" |
-| Setup abandonment | Dev env = many services | Their dev-env docs are excellent; follow verbatim, resist shortcuts |
-| Contribution stall | PR opened → silence → drift | Read their contributing guide FIRST; small fixes move fastest |
+## Part 4 — Life Integration
 
-**Premortem**: *Cloned Zulip to "study large codebases"; never ran it.* Counter: running it IS the study — provisioning teaches the architecture better than reading ([[modules/case-studies/index|study protocol]]).
+- This can BE your group's project tracker (dogfooding!) — real users from day one
+- Metrics: messages flowing, SSE reconnect robustness, tests passing
+- Interview stories: schema decisions, SSE-vs-websocket tradeoff, concurrent-write handling ([[interview-counter-guide]] STAR bank)
 
-## Life Integration
+## Checkpoint Questions
 
-- Best-in-class target for first open-source PR ([[curated-reading-list]] First Timers entry) — their reviewer culture welcomes newcomers
-- Architecture-study cadence: one subsystem/month during backend phases
-- Metrics: local instance running · flows traced · (stretch) merged PR
-
-## Example Checkpoint Questions
-
-1. Why does Zulip need BOTH Django and Tornado? What does each own?
-2. How does topic-threading shape its database schema differently than Slack's model?
-3. What three practices make its onboarding famous — and which could your repo adopt this week?
+1. Why does Zulip need BOTH Django and Tornado — what breaks if events go straight through Django?
+2. How would MY schema change if I added private groups tomorrow? Is that a migration or a redesign?
+3. What did the Recipient-table indirection buy them that direct stream_id on messages wouldn't?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[languages-python-advanced]] · [[modules/careers/index|Careers Hub]]
+[[modules/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[languages-python-advanced]] · [[build-project-playbook]]

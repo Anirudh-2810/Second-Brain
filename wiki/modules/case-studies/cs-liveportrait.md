@@ -1,66 +1,89 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 9 — KwaiVGI/LivePortrait"
-tags: [computer-vision, generative-ai, portrait-animation, research-code, case-study]
+unit: "Case Study 9 — KwaiVGI/LivePortrait [Deep R&D + Build Edition]"
+tags: [computer-vision, generative-ai, mediapipe, research-code, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/KwaiVGI/LivePortrait (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of LivePortrait (Kuaishou Technology, CVPR-era 2024): efficient portrait animation — driving a source portrait's expressions from a driving video, with stitching and retargeting controls. ~15k+ stars. This page analyzes how modern research code gets PACKAGED for adoption (Windows installer, HuggingFace/ComfyUI integrations) and the ethics dimension of face-driven generative models.
+Deep-dive on LivePortrait's model/pipeline inventory (implicit keypoints, warping, stitching, retargeting; PyTorch + ONNX/TensorRT exports) and WHY each piece exists. Full model retraining ❌ — but TWO buildable versions exist: **(A) packaged-pipeline app** (run their installer behind your own Gradio UI) and **(B) classical "face puppet"** (MediaPipe landmarks driving an avatar — zero ML training). Ethics rules embedded.
 
-# LivePortrait — Research Code as Product
+# LivePortrait — Deep R&D
 
-## What It Is
+## Part 1 — The Code/Model Inventory
 
-Implicit-keypoint-based portrait animation: animate a still photo using a driving video's expressions/head pose. Efficiency-focused (real-time-ish on consumer GPUs) vs diffusion-heavy approaches. Released with paper + code + Windows one-click installer + HF Spaces demo + ComfyUI nodes.
+| Piece | Tech | Role |
+|-------|------|------|
+| **Feature extractor** | PyTorch CNN (ResNet-family backbone) | Encodes source face into appearance features |
+| **Implicit keypoints + head pose estimation** | PyTorch heads | Sparse structural signal per frame (driving video) vs source |
+| **Warping module** | Learned dense warping field | Deforms source features to match driving pose/expression |
+| **Stitching module** | Small head predicting seam mask | Blends animated region into original image borders seamlessly |
+| **Retargeting modules** | Eyes/lips-specific heads | User-controllable exaggeration of eye/lip motion |
+| **Inference exports** | ONNX / TensorRT engines | Cross-platform speed (their Windows installer ships these) |
+| **Packaging** | Gradio app · HF Spaces · ComfyUI nodes · Windows zip w/ pinned env | Adoption layer |
 
-## How It Works (conceptual)
+## Part 2 — Why That Design
+
+| Choice | Rationale |
+|--------|-----------|
+| Implicit keypoints (not 3DMM meshes, not pure diffusion) | Controllable + fast: explicit structure steers generation precisely where end-to-end diffusion hallucinates |
+| Efficiency focus | Real-time-capable inference beat prettier-but-slow competitors in actual usage |
+| Stitching module | Naive warping leaves visible rectangle seams — seam prediction is what makes output shareable |
+| Packaging blitz (installer/HF/ComfyUI) | Research adoption is won on setup-friction, not leaderboard alone |
+
+## Part 3 — Can I Build My Own Version?
+
+### Retrain their model: ❌ (data + compute)
+### Version A: **Package-and-wrap pipeline** ✅ (1 weekend, after [[roadmap-ml-engineer]] Stage 2)
+Run their Windows installer → wrap the CLI/inference in YOUR Gradio/FastAPI UI with batch mode + ethics watermark flag → deploy demo. You learn the packaging/adoption layer ([[mlops-production-deployment]]), not the modeling.
+
+### Version B: **Classical Face Puppet** ✅ (flagship build — no training at all)
 
 ```mermaid
-flowchart TD
-    S["Source image:<br/>implicit keypoints +<br/>appearance features"] --> W["Warping module:<br/>driving keypoints<br/>guide source warping"]
-    D["Driving video:<br/>keypoints extracted"] --> W
-    W --> ST["Stitching + retargeting:<br/>seamless blending,<br/>eye/lip control"]
-    ST --> O["Animated output video"]
+flowchart LR
+    W["Webcam frames<br/>(OpenCV)"] --> LM["MediaPipe FaceMesh:<br/>468 landmarks"]
+    LM --> P["Parameter extraction:<br/>mouth-open ratio,<br/>smile width, eyebrow height,<br/>head yaw/pitch from landmarks"]
+    P --> A["Avatar rig: static cartoon face<br/>with layered mouth/eyes/brows"]
+    A --> T["Transform/warp avatar parts<br/>by live parameters -> display"]
 ```
 
-**Load-bearing lessons**:
-1. **Keypoints > pixels for controllability**: implicit keypoint representation gives precise steering where pure generative models hallucinate
-2. **Packaging IS adoption**: same model class exists in many repos — this one won attention via installer + ComfyUI/HF integrations ([[build-project-playbook]] learn-in-public mechanism at research scale)
-3. **Efficiency as a feature**: real-time-capable inference beat fancier-but-slow competitors in practical usage
+| Milestone | Deliverable |
+|-----------|-------------|
+| M1 | Landmarks drawn live on webcam feed |
+| M2 | Mouth-open value drives avatar mouth swap/stretch |
+| M3 | Eyebrows + head-tilt rotate avatar; smooth with EMA |
+| M4 | Record "avatar mirrors me" clip; README |
 
-## Failure Modes
+This is the SAME conceptual shape as LivePortrait (drive parameters → deform target) via classical CV — and it demystifies what the learned modules replace.
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Deepfake misuse | Face-animation tech is inherently dual-use | Ethics rule: only your own face/likeness; never impersonation; label synthetic media |
-| VRAM disappointment | Consumer-GPU limits on first run | Check model variant + resolution knobs; Colab fallback |
-| Research-code drift | Fast-moving deps break installs | Use their pinned env/installer; don't upgrade mid-study |
+### Failure modes while building
 
-**Premortem**: *"Cloned; CUDA error; abandoned."* Classic research-repo death. Their Windows installer exists to bypass exactly this — use the packaged path first, source second ([[modules/case-studies/index|study protocol]]).
+| Failure | Counter |
+|---------|---------|
+| Landmark jitter | EMA smoothing on parameters; it's also LivePortrait's stitching problem in miniature |
+| Lighting sensitivity | Histogram-equalize frames; document failure lighting |
+| Scope creep to full deepfake | v0.1 = mouth only. Ship that |
 
-## Study Value for This Vault
+## Part 4 — Ethics Layer (non-negotiable)
 
-| Angle | Extraction |
-|-------|-----------|
-| MLE packaging | How a research repo becomes product: installer, demos, integrations checklist |
-| CV depth | Keypoint/warping/stitching pipeline reading ([[python-datascience-topics]] CV section) |
-| Ethics practice | Draft a responsible-use note for any generative feature YOU ship |
+- Only animate YOUR OWN face or consented/illustrative avatars
+- Watermark/label synthetic outputs visibly
+- Never political/impersonation content — this tech's misuse history is the reason the ethics note exists
 
 ## Life Integration
 
-- Optional DL-stage exploration (after [[roadmap-ml-engineer]] Stage 2); run packaged version once for intuition
-- Metrics: pipeline stages explained · ethics-note drafted for own generative work
-- Interview angle: "how would you package a research model for adoption?" — this repo is the reference answer shape
+- Fits post-DL-stage as a fun applied project; webcam = daily test bench
+- Metrics: puppet params driven live · packaging-A deployed URL · ethics-note written
+- Interview angle: "I compared learned-warping vs landmark-classical approaches for face animation" — genuinely differentiated fresher story
 
-## Example Checkpoint Questions
+## Checkpoint Questions
 
-1. Why do implicit keypoints give better control than end-to-end generation?
-2. List three packaging decisions that made this repo adopted over equivalent research.
-3. What policy would you write for a face-animation feature in YOUR app?
+1. What does the stitching module fix that raw warping breaks?
+2. In your classical puppet, which parameter was hardest to stabilize — why (noise structure)?
+3. Where does LivePortrait's efficiency claim come from architecturally?
 
 ## Cross-Vault Links
 

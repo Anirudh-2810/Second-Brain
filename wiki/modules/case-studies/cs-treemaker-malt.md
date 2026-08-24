@@ -1,70 +1,86 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 13 — wesen/TreeMaker + bnpr/Malt (Niche Creative Tools)"
-tags: [d3, visualization, blender, creative-coding, niche-tools, case-study]
+unit: "Case Study 13 — wesen/TreeMaker + bnpr/Malt [Deep R&D + Build Edition]"
+tags: [d3, visualization, blender, python, creative-coding, niche-tools, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "medium"
-source: "https://github.com/wesen/TreeMaker + https://github.com/bnpr/Malt"
+source: "https://github.com/wesen/TreeMaker + https://github.com/bnpr/Malt (partial fetches; analysis from project knowledge — verify specifics in-repo)"
 ---
 
 ## For future agent
-Two niche creative-tool case studies combined. TreeMaker (wesen): D3.js-based genealogy/family-tree visualization tool generating interactive trees from GEDCOM-ish data. Malt (bnpr, Blender Material Utilities?): NME-related Blender add-on ecosystem tooling for texture/material baking workflows. Both prove the "niche tool, devoted users" pattern. Raw fetches partially failed — analysis from project knowledge `(confidence: medium; verify specifics in-repo)`.
+Deep-dive on both creative tools with code-level inventories (TreeMaker: D3 layouts over genealogy data; Malt: Blender bpy add-on architecture) and buildable versions — **your own family-tree D3 page** and **a first Blender add-on skeleton**. Both are weekend-scale and teach plugin/data-viz patterns transferable everywhere.
 
-# Niche Creative Tools — TreeMaker + Malt
+# Niche Creative Tools — Deep R&D
 
-## TreeMaker (D3 Genealogy Visualization)
+## Part 1A — TreeMaker Code Inventory
 
-**What it is**: web tool rendering family trees interactively using D3.js force/zoom techniques from structured genealogy data.
+| Piece | Tech | Mechanism |
+|-------|------|-----------|
+| Data loader | JS | Parses genealogy data (GEDCOM-derived/JSON) into person nodes + parent links |
+| **Layout engine** | **D3.js** tree/cluster layout | Computes x/y positions across generations; handles pan/zoom viewport |
+| Renderer | D3 + SVG | Nodes as cards (photo/name/dates), links as curved paths |
+| Interaction | D3 behaviors | Zoom-to-subtree, click-for-details |
 
-| Lesson | Detail |
-|--------|--------|
-| D3 as domain-mapper | Trees/pedigrees = graph-layout problems (tree layouts, pan/zoom) |
-| Niche depth wins | Genealogy community adopts purpose-built tools over general charting |
-| Data-format empathy | Real genealogy data is messy — input tolerance IS the product |
+**Why D3**: family trees are graph-layout problems where control matters more than convenience — D3 gives primitives (scales, shapes, zoom behavior) instead of a fixed chart.
 
-### Failure modes studying it
-- D3 API rabbit hole without a dataset → study with YOUR family/sample data loaded first
-- Layout math avoidance → the tree-positioning algorithm is the actual lesson
+## Part 1B — Malt Code Inventory (Blender add-on pattern)
 
-## Malt (Blender Material/Baking Tooling)
+| Piece | Tech | Mechanism |
+|-------|------|-----------|
+| `bl_info` manifest | Python dict | Add-on identity/version shown in Blender prefs |
+| **Operator classes** | `bpy.types.Operator` | The actions (bake material, export textures) with `execute()` |
+| **Panel classes** | `bpy.types.Panel` | UI sections in the sidebar via `layout` API |
+| **Property groups** | `bpy.props.*` | Persisted settings per scene |
+| Registration trio | `register()/unregister()` | Classes enrolled into Blender's type system on enable |
 
-**What it is**: Blender add-on ecosystem work around material baking workflows (NME — node-material-explorer era tooling), serving 3D artists' texture-baking pipelines.
+This triad (**Operator / Panel / PropertyGroup + register**) is the universal shape of EVERY Blender add-on — learn it once, read any add-on.
 
-| Lesson | Detail |
-|--------|--------|
-| Add-on engineering shape | Blender Python API plugins: registration, operators, UI panels — a complete micro-architecture |
-| Pipeline empathy | Tools succeed by slotting into existing artist workflows, not redesigning them |
-| Version-churn reality | Blender API breaks between releases — maintenance burden of platform-adjacent tools |
+## Part 2 — Why These Designs
 
-### Failure modes studying it
-- Blender-required dead end → only enter if Blender installed + interest real
-- Python-API skimming without an artist workflow in mind
+| Choice | Rationale |
+|--------|-----------|
+| TreeMaker: D3 not a chart library | Family trees need custom orientation/generational spacing; D3 = layout primitives you compose |
+| TreeMaker: client-side only | Genealogy data is private; zero-server tool respects that |
+| Malt: bpy Operator pattern | Blender's core is operator-centric (undo, scripting, hotkeys all route through operators) — add-ons inherit consistency for free |
+| Malt: panel-in-sidebar | Lives where artists already work — adoption through placement |
 
-## Combined Lessons (the niche-tool thesis)
+**Niche-tool thesis**: both succeed by serving ONE acute workflow deeply. Small audience × acute pain × deep fit > broad shallow tools.
 
-```mermaid
-flowchart TD
-    P{"The niche-tool pattern"} --> A["Small audience,<br/>acute pain"]
-    A --> B["Deep fit > broad features"]
-    B --> C{"Your equivalent?"}
-    C -->|"vault"| V["Second-brain scripts/plugins<br/>are YOUR niche tools"]
-    C -->|"freelance"| F["Client-specific automations<br/>= same shape ([[modules/automations/money/earn-with-n8n]])"]
+## Part 3 — Can I Build My Own Versions? ✅ BOTH weekend-scale
+
+### Build A: **Your Family Tree in D3** ✅
+```
+M1: CSV of 15+ relatives (id, name, birth, parents)
+M2: Parse → D3.tree layout → SVG render with names/dates
+M3: Pan/zoom; click node → detail card
+M4: Add spouse handling OR photos; deploy GitHub Pages
+Failure modes: cycles in bad data (validate DAG), huge trees
+(clip to descendants-of-root), privacy (use initials if publishing).
 ```
 
-**Premortem**: *Creative-tool study session = 2 hours of Blender eye-candy videos.* Counter: cap exploration; extraction target is the ADD-ON ARCHITECTURE (registration/operator/UI-panel triad) transferable to any plugin platform you touch later.
+### Build B: **First Blender Add-On Skeleton** ✅
+```
+M1: Installable empty add-on (manifest + register) showing panel "MyTools"
+M2: One operator: batch-rename selected objects with prefix input
+M3: One PropertyGroup setting persisted per scene
+M4: Real utility: e.g., auto-setup render settings for your vlogs
+Failure modes: Blender version API churn (pin version), UI-layout
+API verbosity (copy official template add-on shape).
+```
 
-## Life Integration
+## Part 4 — Life Integration
 
-- Optional track — enters only if a creative project demands it (vlog pipeline? 3D curiosity?)
-- Metrics: one D3 tree rendered with own data · one Blender add-on skeleton understood
-- Freelance angle: niche-tool thinking maps directly to selling small automations
+- Build A = genuine family artifact (gift potential!) + portfolio viz piece
+- Build B unlocks the entire plugin-economy skill (Blender/Obsidian/VSCode/Figma plugins share the registration-operator-panel DNA)
+- Metrics: artifacts used by real humans · add-on skeleton reusable
 
-## Example Checkpoint Questions
+## Checkpoint Questions
 
-1. What makes someone pay for/adopt a tool serving 500 people instead of 5 million?
-2. Which niche pain have YOU felt repeatedly that deserves its own TreeMaker-style tool?
+1. In your D3 tree, what breaks when two siblings marry into the same family (DAG vs tree)?
+2. Why does Blender route everything through Operators — what do undo/hotkeys gain?
+3. Which YOUR-workflow pain is one panel+operator away from solved?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[build-project-playbook]] · [[modules/automations/overview|Automations Module]]
+[[modules/case-studies/index|Field Index]] · [[build-project-playbook]] · [[modules/automations/money/earn-with-n8n]]

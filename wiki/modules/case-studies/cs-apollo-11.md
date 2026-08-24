@@ -1,68 +1,92 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 2 — chrislgarry/Apollo-11 (Guidance Computer Source)"
-tags: [apollo, assembly, history-of-computing, embedded, case-study]
+unit: "Case Study 2 — chrislgarry/Apollo-11 AGC [Deep R&D + Build Edition]"
+tags: [apollo, assembly, embedded, history-of-computing, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/chrislgarry/Apollo-11 (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of the Apollo 11 Guidance Computer (AGC) source code — Comanche055 (command module) and Luminary099 (lunar module) assembly listings, transcribed from MIT scans (~60k stars). This page extracts the engineering lessons from code written under the most extreme constraints in software history. Reading it is a meditation on constraints-as-design-teacher.
+Deep-dive on the Apollo Guidance Computer source: exact code inventory (AGC4 assembly, Comanche/Luminary, Executive, Interpreter, DSKY), WHY those choices existed (hardware reality), and buildable versions — a full AGC reimplementation is a multi-year effort, but an **AGC-style priority executive simulator** and a **DSKY emulator** are excellent weekend-scale builds. Feeds [[build-project-playbook]].
 
-# Apollo-11 Guidance Computer
+# Apollo-11 Guidance Computer — Deep R&D
 
-## What It Is
+## Part 1 — The Code Inventory
 
-The actual flight software that landed humans on the Moon (July 1969): AGC4 assembly language for a computer with ~36KB ROM ("cores" — wires woven by hand) and ~2KB RAM. Two codebases: **Comanche055** (CM) and **Luminary099** (LM — the one that landed). Famous routines: `BURN_BABY_BURN` (ignition), the landing radar executive, and the priority-scheduling executive that saved the landing during the 1202/1201 alarms.
+| Component | What It Actually Is |
+|-----------|--------------------|
+| **Comanche055** | Command Module flight program (AGC4 assembly, ~2,700 pages listing) |
+| **Luminary099** | Lunar Module flight program — the code that landed Eagle |
+| **AGC4 assembly** | The instruction set: ~34 instruction codes, 15-bit words, 1's complement arithmetic |
+| **Interpreter** | A virtual machine INSIDE the AGC: pseudo-instructions for vector/matrix ops (navigation math) implemented over AGC4 |
+| **Executive** (`EXECUTIVE` source) | Priority-based scheduler: jobs queued with priorities; runs on timer interrupts |
+| **Restart monitor** (`RESTART_MONITOR`/`DYNAMICALLY RESTARTABLE TABLES`) | Crash-only design: every state checkpointed so any overload triggers safe restart |
+| **DSKY routines** | Display/keyboard interface (the famous panel with VERB/NOUN keys) |
+| **Core rope memory** | Not code in repo, but the storage: programs physically WOVEN as wires through cores by textile workers |
 
-## How It Works
+Famous named routines you can find verbatim: `BURN_BABY_BURN -- MASTER IGNITION ROUTINE`, `ERASABLE ASSIGNMENTS`, `GROUND TRACKS`.
 
-```mermaid
-flowchart TD
-    I["Interpreter layer<br/>(virtual machine for<br/>vector math + interpretive ops)"] --> E["Executive / Restart protection<br/>(priority scheduler with<br/>core-set memory swapping)"]
-    E --> A["Application programs:<br/>servicing, landing, alignment"]
-    A --> H["Hardware: DSKY keypad,<br/>IMU gyros, rendezvous radar"]
+## Part 2 — Why That Code Was Used
+
+| Constraint (1966 hardware) | Forced Choice | Engineering Consequence |
+|----------------------------|---------------|-------------------------|
+| ~36KB fixed memory (core rope) + 2KB erasable | Hand-tuned assembly; zero abstraction slack | Every variable manually assigned to erasable banks (`ERASABLE ASSIGNMENTS` literally lists addresses) |
+| 2MHz-class CPU, no FPU | Interpreter VM for vector math | Navigation engineers wrote math-like code; interpreter translated |
+| Jobs MUST all eventually run | Priority executive | Radar job (high priority) could preempt navigation (lower) — this SAVED the landing |
+| Overload WILL happen (1202/1201 alarms during descent) | Restart protection everywhere | State tables designed so restart loses ≤ one cycle of work |
+| No way to patch in flight | Rope memory frozen pre-launch | Exhaustive simulation culture; Margaret Hamilton's systems testing |
+
+**The mechanism behind the famous 1202 alarm**: rendezvous radar was stealing CPU cycles (hardware switch phase issue) → executive overflowed its time slots → alarm → **executive shed low-priority work automatically** → guidance continued. The architecture absorbed a hardware fault. Software resilience as load-bearing structure.
+
+## Part 3 — Can I Build My Own Version?
+
+### Full version: ❌
+A faithful AGC emulation exists elsewhere (yaAGC project); building from scratch = years.
+
+### Buildable Version A: **AGC Executive Simulator** ✅ (flagship recommendation)
+Simulate the core idea — priority scheduling with restart protection:
+
+```
+Spec (Python or C, ~300 lines):
+- Task list: (name, priority, worst-case-time)
+- Timer interrupt every tick -> run highest-priority ready task slice
+- OVERFLOW event when low-priority tasks starve N ticks:
+    drop lowest-priority task, log alarm "1202", CONTINUE high-priority work
+- Checkpoint file per task state -> on simulated crash, restart from checkpoints
+Demo scenario: reproduce the 1202 story — add a rogue "radar" task eating
+cycles, watch executive shed it, landing task survives.
 ```
 
-**The load-bearing lessons**:
-1. **Priority scheduling saved the Moon landing**: the 1202 alarm meant executive overload — the system shed low-priority tasks and kept the landing job alive. Software resilience as a DESIGN decision, 1969.
-2. **Restart protection**: AGC assumed crashes WILL happen; every state transition was restartable. Modern "crash-only software" philosophy, decades early.
-3. **Comments as engineering prose**: Margaret Hamilton's team documented assumptions inline — readable 55 years later.
-4. **Constraints produce clarity**: no room for abstraction theater; every byte justified.
+**Why this build is gold**: it teaches priority scheduling, watchdog/restart design, and graceful degradation — concepts that map directly onto your later backend/MLOps work ([[systems-design-distributed]], [[mlops-production-deployment]]).
 
-## What To Extract
+### Buildable Version B: **DSKY Emulator** ✅ (UI-flavored alternative)
+Recreate the keypad/display: VERB+NOUN entry grammar, register display (R1/R2/R3, flashing), responding to a mock computer. Python/Tkinter or web. Teaches protocol/state-machine UI design.
 
-| Lesson | Modern Application |
-|--------|--------------------|
-| Priority-based degradation | Your services should degrade, not die ([[systems-design-distributed]]) |
-| Restart-safe state machines | Idempotent jobs, crash-safe pipelines ([[mlops-production-deployment]]) |
-| Commenting for future readers | Your vault notes ARE your Luminary099 |
-| Constraint-driven simplicity | Fresher projects: fewer features, deeper execution |
+### Similar workflow C: constraint-coding kata
+Pick ONE modern mini-project and impose Apollo rules: ≤4KB RAM budget, no dynamic allocation, full restart-safety. E.g., a sensor logger in C with static allocation only. Constraints-as-teacher exercise.
 
-## Failure Modes (studying it)
+## Part 4 — Failure Modes While Building
 
 | Failure | Counter |
 |---------|---------|
-| Assembly terror → quit at first `.EXTEND` listing | Don't learn AGC assembly; READ it like archaeology — comments carry the story |
-| Nostalgia without extraction | Each session ends with ONE modern-practice lesson logged |
-| Random file browsing | Guided path: DSKY → Executive → landing program order |
-
-**Premortem**: *Opened COMANCHE055.s, saw assembly wall, closed tab forever.* Counter: start with secondary sources on the 1202 alarm story, THEN read the actual executive code with context.
+| Trying to learn AGC4 assembly first | Read listings as ARCHAEOLOGY (comments carry narrative); simulator needs zero assembly |
+| Simulator scope creep (adding DSKY+interpreter) | v0.1 sentence: "rogue task gets shed while critical task survives" |
+| No visible drama | Log events colorfully ("** ALARM 1202 — shedding NAVIGATION **") |
 
 ## Life Integration
 
-- One-file-per-weekend archaeology sessions; each ends with "1969 lesson → my current project" mapping
-- Perfect interview-story material for "hardest constraint you've studied" questions
-- Metrics: files read with notes · modern-mappings written
+- Weekend archaeology: one source file/weekend with notes; each ends with a modern-mapping line
+- Interview story banked: "I built a priority executive that reproduces the 1202 rescue" — memorable at fresher level
+- Metrics: simulator demo working · restart-drill demonstrated · files-read-with-notes count
 
-## Example Checkpoint Questions
+## Checkpoint Questions
 
-1. How did the AGC survive the 1202 overload alarms during descent? Which design decision made that possible?
-2. Why was core-rope memory actually an advantage for mission reliability?
-3. Name one pattern in AGC code you could apply to YOUR current project this week.
+1. Which single design decision let the AGC survive hardware-induced overload?
+2. In my simulator, what replaces "core rope memory" as the immovable constraint?
+3. Where in MY current projects would restart-protection change the design?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[software-dev-general]] · [[systems-design-distributed]]
+[[modules/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[lr-build-your-own-x]] · [[modules/programming/cs50/week-1-c]]

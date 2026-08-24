@@ -335,3 +335,19 @@
 ### 2026-08-24 — mod-dh page added to productivity/ (completes the 30-repo intake)
 - Created productivity/mod-dh-keyboard-layouts.md: ergonomics decision framework + retraining-wall failure modes; fixed case-studies index link.
 - Full 30-repo intake now accounted for: 28 newly ingested + 2 already covered (wtfpython in languages-python-advanced, CIU as repo-coding-interview-university).
+
+### 2026-08-24 — Case-studies Deep R&D pass (what-code/why/can-I-build editions)
+- 13 case-study pages rewritten to 1.5-3k depth: code inventory tables (languages/services/files), WHY-each-choice rationale analysis, and explicit Can-I-Build-My-Version verdicts with concrete build specs:
+  - cs-twitter-algorithm: full component inventory (home-mixer/Earlybird/SimClusters/TwML/Heavy Ranker 48-output MaskNet); mini two-stage recommender build plan (4 weekends).
+  - cs-apollo-11: Comanche/Luminary/Executive/Interpreter/DSKY inventory; AGC executive simulator spec (1202 repro).
+  - cs-openusd: pxr lib inventory + LIVRPS rationale; miniUSD layered-opinions resolver spec.
+  - cs-zulip: zerver/tornado/RabbitMQ/model inventory; miniZulip topic-threaded chat spec (FastAPI+SQLite+SSE) - flagship portfolio candidate.
+  - cs-hydra-launcher: Electron IPC/download-manager/SQLite inventory; clean-room miniLauncher spec (torrent excluded).
+  - cs-systeminformer-spyplusplus: NT-API/phlib/driver inventory; 4-rung build ladder (miniTaskList C -> message viewer C#).
+  - cs-jj-vcs: op-log/working-copy-commit model inventory; mini-jj educational VCS direction.
+  - cs-dura-z-tinytools: snapshot-branch + frecency mechanisms; TWO builds: mini-z for PowerShell (daily use) + mini-dura Python.
+  - cs-snekbox: NSJAIL/Docker defense-stack inventory; mini-snek FastAPI+Docker eval sandbox w/ attack suite.
+  - cs-liveportrait: keypoint/warp/stitch model inventory; face-puppet MediaPipe build (no training) + packaging path.
+  - cs-treemaker-malt: D3/bpy add-on inventories; family-tree D3 + Blender add-on skeleton builds.
+  - cs-riot-actionscript: compiler/observer + spec inventories; micro-riot ~100-line framework + mini-spec parser builds.
+  - cs-gpt4free: registry/failover inventory; LEGAL unified-llm-client over official tiers + local models (flagship GenAI utility).

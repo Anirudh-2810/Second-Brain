@@ -1,68 +1,89 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 3 — PixarAnimationStudios/OpenUSD"
-tags: [usd, graphics, 3d, interchange-formats, case-study]
+unit: "Case Study 3 — PixarAnimationStudios/OpenUSD [Deep R&D + Build Edition]"
+tags: [usd, graphics, interchange-formats, cpp, python, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/PixarAnimationStudios/OpenUSD (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of OpenUSD (Universal Scene Description) — Pixar's open-source scene-description/interchange ecosystem (C++/Python), now an Alliance-backed industry standard (AOUSD) powering Pixar's pipeline, NVIDIA Omniverse, Apple visionOS, and 3D web efforts. Fetched 2026-08-24. Lesson focus: how an in-house library becomes industry infrastructure.
+Deep-dive on OpenUSD: the actual code inventory (C++ core libs, composition engine, Hydra imaging, Python bindings), WHY C++ and why layering/composition exist (film-pipeline history), plus a buildable mini-version — **"miniUSD": a layered-opinions scene format in Python** that teaches composition mechanics in ~500 lines. Feeds [[lr-build-your-own-x]].
 
-# OpenUSD — Universal Scene Description
+# OpenUSD — Deep R&D
 
-## What It Is
+## Part 1 — The Code Inventory
 
-Pixar's 3D scene description and file-format ecosystem: layered/overridable scene graphs (.usd/.usda/.usdc/.usdz), composition arcs (references, variants, inherits), C++/Python APIs, and tools (usdview). Originated for *Toy Story*-era pipelines; open-sourced 2016; now the interoperability backbone of modern 3D (film, games via Omniverse, spatial computing).
+| Component | Language | Role |
+|-----------|----------|------|
+| **pxr/base** (`tf`, `gf`, `js`, `trace`) | C++ | Foundation: threading (`tf`), math types (`gf`: vec/mat/quat), JSON, profiling |
+| **pxr/usd/sdf** | C++ | **Scene Description Foundations**: the low-level data model — layers, paths, specs, value resolution |
+| **pxr/usd/usd** | C++ | The composed **stage** API: opening `.usd*` files, prims, properties, traversals |
+| **pxr/usd/usdGeom / usdShade / usdSkel…** | C++ | Domain schemas: geometry, materials, skeletons — typed models over generic prims |
+| **pxr/usdImaging + hd** (Hydra) | C++ | Rendering architecture: scene delegates feeding render backends (Storm/HdStream…) |
+| **Python bindings** | pybind11-era wrappers | The entire API scriptable — TDs (technical directors) live here |
+| **File formats** | `.usda` (ASCII), `.usdc` (crate/binary), `.usdz` (zip package) | Human-readable ↔ fast binary ↔ shareable package |
 
-## How It Works (conceptual architecture)
+## Part 2 — Why That Code Was Used
 
-```mermaid
-flowchart TD
-    L["Layered files<br/>(sublayers with opinions)"] --> C["Composition engine:<br/>LIVRPS strength ordering<br/>(local, inherits, variants,<br/>references, payloads, specialsizes)"]
-    C --> S["Composed stage =<br/>one virtual scenegraph"]
-    S --> H["Hydra rendering framework<br/>(render delegates)"]
-    S --> A["Schemas: typed models<br/>(Mesh, Xform, materials)"]
+| Choice | Historical Driver | Technical Rationale |
+|--------|-------------------|--------------------|
+| **Layered files with opinions** | Dozens of artists/departments must touch ONE shot without stepping on each other | Nobody edits the master; each department writes an override layer. Composition resolves by strength order (**LIVRPS**: Local → Inherits → Variants → References → Payloads → Specializes) |
+| **Non-destructive overrides** | Re-rendering a shot must not destroy layout work | Opinions are additive/overridable per-property |
+| **References + Payloads** | Reuse assets across shots; defer loading heavy sets | References instance shared assets; payloads lazy-load big sets only when opened |
+| **Variants** | One asset, many states (car color, character costume) | Variant-sets switch authored alternatives at composition time |
+| **C++ core + Python surface** | Film-scale scenes = millions of prims; but artists/TDs script | C++ for speed/memory; Python for pipeline glue |
+| **Hydra separation** | Renderers change (RenderMan→Storm→Omniverse); scenes shouldn't care | Scene-delegate/backend decoupling |
+| **`.usdz` package** | AR delivery (Apple partnership) | Single zip of layered usdc + textures, streamable |
+
+**Second-order insight**: USD is proof that **the data model IS the product**. Pixar spent decades on composition semantics so every downstream tool (Maya, Houdini, Blender exporters, Omniverse) could interoperate without merging codebases.
+
+## Part 3 — Can I Build My Own Version?
+
+### Full version: ❌
+Decades of C++, edge-case-laden composition semantics, schema ecosystem.
+
+### Buildable Version A: **miniUSD — layered opinions resolver** ✅ (flagship)
 ```
+Spec (Python, ~500 lines):
+- Layer = ordered dict of {prim_path: {attr: value}}
+- Stage opens N layers with strength order (later file wins)
+- Resolution: for each prim/attr walk layers strongest->weakest,
+  first opinion wins; support 'references' (inline another layer file
+  under a prim) and one variant-set (choose variant name -> swaps subtree)
+- CLI: compose layers -> print resolved scenegree as indented tree
+Demo: base layer defines robot; paint layer overrides color;
+variants switch robot arm; references place 3 robots in a scene.
+```
+This teaches LIVRPS mechanics concretely — after building it, real USD docs read easily.
 
-**Load-bearing lessons**:
-1. **Non-destructive layering**: opinions override by strength order instead of editing originals — the same pattern as config overlays, CSS cascades, Git branches. USD industrialized "override culture."
-2. **Interchange formats win ecosystems**: whoever defines the FILE FORMAT owns collaboration. USD did for 3D what JSON did for web APIs.
-3. **20-year API patience**: USD evolves slowly and compatibly — infrastructure code has a different quality bar than apps.
+### Buildable Version B: **USD viewer skills track** ✅ (if graphics interest is live)
+Skip building; instead: install prebuilt usdview → load sample scenes → exercise references/variants/payloads interactively → document each arc's effect with screenshots in vault.
 
-## What To Extract
+### Similar workflow C: config-overlay library
+The same override-resolution pattern powers app configs: build `layerconf` — YAML layers where later layers override earlier (dev<staging<prod). Same lesson, infra-flavored ([[systems-design-distributed]]).
 
-| Lesson | Application |
-|--------|-------------|
-| Composition-over-modification design | Your configs/features should layer overrides, not fork copies |
-| Schema-first thinking | Define data contracts before writing services |
-| Ecosystem strategy | Formats/tools beat point solutions for leverage |
-| Large C++ codebase navigation | Schemas → lib/usd core → imaging layers as reading map |
+## Part 4 — Failure Modes While Building
 
-## Failure Modes
-
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Build-system wall | Heavy deps (Python bindings, materialx…) | Use prebuilt binaries/usdview first; build from source only when needed |
-| Concept overload | LIVRPS composition order memorized before use | Learn ONE arc at a time in usdview; references first |
-| No 3D context | Studying without any scene to play with | Only enter this case study if graphics interest is real — else skim lessons table |
-
-**Premortem**: *"Tried building USD from source for two days; gave up."* The README's quick-start path (prebuilt + usdview on sample scenes) exists precisely for this. Study the CONCEPTS through the viewer, source second.
+| Failure | Counter |
+|---------|---------|
+| Trying to match full LIVRPS on day one | Implement Local-wins + references first; variants second; stop there |
+| Path-handling bugs (`/Robot/Arm/Joint1` edge cases) | Normalize paths early; write path tests before features |
+| Format bikeshedding | Copy `.usda` indentation style; move on |
 
 ## Life Integration
 
-- Graphics-curious track only; not interview-relevant for your current targets unless 3D calls later
-- Metrics: usdview sessions · composition-arcs understood (target: references + variants)
-- Interview story angle even for non-graphics roles: "how an internal tool became an industry standard" — org-design narrative
+- Weekend project shape; pairs with any 3D curiosity or config-system need
+- Metrics: resolver passing arc-tests · demo scene composed from 3 layers · README with example
+- Interview angle even outside graphics: "override-resolution design" story
 
-## Example Checkpoint Questions
+## Checkpoint Questions
 
-1. Explain sublayers + opinions to a friend using Google-Docs-suggestion analogy.
-2. Why do industries standardize on interchange formats? Name two USD-analogues outside graphics.
-3. What does Hydra's render-delegate design decouple?
+1. In my resolver, which strength rule broke when I added references — and why does LIVRPS order references BELOW local?
+2. Where else have you met "opinions with strength order"? (CSS? Git? env overlays?)
+3. What would lazy-loading (payloads) mean in my Python version?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[software-dev-general]] · [[systems-design-distributed]]
+[[modules/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[lr-build-your-own-x]]

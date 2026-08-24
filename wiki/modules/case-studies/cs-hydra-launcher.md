@@ -1,61 +1,83 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 5 — hydralauncher/hydra"
-tags: [electron, tauri, game-launcher, desktop-app, case-study]
+unit: "Case Study 5 — hydralauncher/hydra [Deep R&D + Build Edition]"
+tags: [electron, desktop-app, typescript, launcher, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "medium"
 source: "https://github.com/hydralauncher/hydra (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of Hydra Launcher — a game launcher (Electron/React + TypeScript) with Steam-library integration and torrent-based downloads via Real-Debrid, one of 2024's fastest-growing repos (~30k+ stars in months). ⚠️ Note: its torrent functionality operates in legally gray territory depending on jurisdiction — study the ENGINEERING, not the use-case. Fetched 2026-08-24.
+Deep-dive on Hydra Launcher's code organization (Electron main/renderer IPC, React UI, SQLite state, download-manager workers) and rationale, plus a buildable clean-room version — **"miniLauncher": a local app/game library manager with playtime tracking and resumable HTTP downloads** (torrent functionality deliberately excluded — legally gray). Feeds [[build-project-playbook]].
 
-# Hydra Launcher
+# Hydra Launcher — Deep R&D
 
-## What It Is
+## Part 1 — The Code Inventory
 
-A desktop game launcher: library management, achievements tracking, torrent-based download engine, cross-platform (Windows/Linux). Stack: Electron + React + TypeScript + Node backend; downloads via aria2/torrent integration. Growth case-study itself: viral launch → rapid iteration.
+| Component | Tech | Role |
+|-----------|------|------|
+| Electron **main process** | TypeScript/Node | App lifecycle, window management, native integration, the security boundary |
+| **Renderer** | React + TS | The UI (library, downloads, settings, achievements) |
+| **IPC bridge** | Electron contextBridge/preload | Typed channel between sandboxed renderer and privileged main |
+| **Download manager** | Node workers wrapping download engines | Resumable, pausable transfers; torrent/debrid integration lives here `(gray-zone — excluded from your builds)` |
+| **SQLite** (better-sqlite3-class embedded driver) | Local store | Library entries, playtime logs, settings |
+| Packaging | electron-builder → installers per OS | Distribution |
 
-## How It Works (architecture sketch)
+## Part 2 — Why That Stack Was Used
 
-```mermaid
-flowchart LR
-    UI["Electron renderer<br/>(React UI)"] <--IPC--> M["Node main process<br/>(lifecycle, windows)"]
-    M --> D["Download manager<br/>(torrent/debrid workers)"]
-    M --> DB["SQLite<br/>(library, achievements)"]
-    D --> N["Network: torrent peers /<br/>debrid APIs"]
+| Choice | Why | Trade-off |
+|--------|-----|-----------|
+| **Electron** | Web-tech reuse (React skills), cross-platform binaries fast to ship | Memory footprint; community pressure toward Tauri/Rust `(TBC — migration discussions ongoing)` |
+| **Main/renderer split with IPC** | Chromium sandbox protects users from compromised UI code | Every feature crosses an async boundary — discipline required |
+| **SQLite embedded** | Zero-config local persistence; single-file backup | No server features — fine for single-user desktop |
+| **Worker-based downloads** | Long transfers must survive window close/restart | State-machine complexity (pause/resume/checksum) |
+| **Launch-first distribution** | Screenshots/branding/README drove viral GitHub growth | Product surface as engineering deliverable |
+
+## Part 3 — Can I Build My Own Version?
+
+### Full version incl. torrents: ❌ (legal gray-zone + heavy P2P engineering)
+### Clean-room similar workflow: ✅ YES — "miniLauncher"
+
+```
+Spec (Electron+React OR Tauri+React, ~2 weekends/MVP):
+- Library: register local apps/games (name, exe path, icon)
+- Launch button -> spawn process -> track runtime
+- Playtime: poll/watch process; aggregate daily totals in SQLite
+- Downloads v0.1: resumable HTTP fetch of a file (range requests)
+  into library folder, with progress bar + pause/resume
+- Stats page: "this week I played X for 4.2h" (Steam-style)
 ```
 
-**Load-bearing lessons**:
-1. **Electron IPC discipline**: main vs renderer process split — the #1 Electron security boundary
-2. **Long-running downloads as state machines**: pause/resume/retry across app restarts
-3. **SQLite for desktop apps**: embedded storage done right
-4. **Launch velocity**: README/branding/screenshots drove adoption — product surface matters ([[build-project-playbook]] learn-in-public)
-5. **Tauri migration signals**: community pressure toward Rust/Tauri for memory footprint — watch how they handle it `(TBC)`
+| Milestone | Deliverable |
+|-----------|-------------|
+| M1 | Register + launch app; process-watcher logs minutes |
+| M2 | SQLite schema + stats dashboard |
+| M3 | Resumable downloader component (Range header logic) |
+| M4 | Installer build (electron-builder); README + GIF |
 
-## Failure Modes
+**Why this is a great build**: touches desktop-app fundamentals (processes, IPC, embedded DB, packaging) that web projects never touch — and it's genuinely useful daily software.
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Legal gray-zone conflation | Studying code read as endorsing piracy | Study architecture; keep personal projects clean-room |
-| Electron security naivety | nodeIntegration enabled casually | Context-isolation + preload pattern from their code |
-| Desktop-app scope creep | Launchers sprawl (settings→social→store) | Their module boundaries show containment |
+### Failure modes while building
 
-**Premortem of studying it**: *Cloned, `npm install` wall (native modules), quit.* Counter: run their packaged release first, explore behavior, then source — matches [[modules/case-studies/index|study protocol]] build-first rule.
+| Failure | Counter |
+|---------|---------|
+| Process-watch flakiness across games (launchers spawning children) | Track process trees; whitelist by exe name; accept approximation |
+| IPC sprawl | Define typed channel constants module first |
+| Download resume bugs | Test against slow/throttled local server you control |
 
-## Life Integration
+## Part 4 — Life Integration
 
-- Relevant if a desktop-app idea ever enters your project list (your stock-agent could have a launcher-style shell someday)
-- Metrics: IPC flow traced · download state-machine documented
-- Interview story angle: "how a 2024 launch went viral" — distribution analysis for [[market-analysis-tech-2026]] thinking
+- Daily-use software = automatic dogfooding + visible artifact on your machine
+- Metrics: own-launcher usage days · downloader resume-success rate · installer size tracked
+- Interview angle: Electron security model + state-machine design stories
 
-## Example Checkpoint Questions
+## Checkpoint Questions
 
-1. Why must torrent sessions survive app restarts — what state machine does that imply?
-2. What does context-isolation prevent in Electron?
-3. From a distribution lens: what made Hydra's GitHub launch explode? Which elements are replicable for YOUR launches?
+1. What does context-isolation prevent, and which Hydra-style feature would tempt you to disable it?
+2. Design the download state machine: enumerate states + legal transitions.
+3. Where does YOUR architecture need main-process privilege vs renderer isolation?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[build-project-playbook]] · [[systems-design-distributed]]
+[[modules/case-studies/index|Field Index]] · [[build-project-playbook]] · [[repo-nodejs-best-practices]] · [[systems-design-distributed]]

@@ -1,66 +1,90 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 8 — tkellogg/dura + rupa/z (Tiny-Tool Design Studies)"
-tags: [git, cli-tools, rust, product-design, case-study]
+unit: "Case Study 8 — tkellogg/dura + rupa/z [Deep R&D + Build Edition]"
+tags: [git, cli-tools, rust, shell, frecency, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/tkellogg/dura + https://github.com/rupa/z"
 ---
 
 ## For future agent
-Two tiny-tool design studies combined — both prove that ~100–1000 line tools can be beloved infrastructure. Dura: background git snapshot daemon (Rust). z: frecency-based directory jumper (~300 lines shell/awk). This page extracts the tiny-tool design patterns and the "small tools, big leverage" career lesson.
+Deep-dive on both tiny tools with exact mechanism inventories (dura's snapshot-branch scheme; z's frecency file format and scoring), WHY each implementation choice exists (Rust daemon vs POSIX shell), and TWO buildable versions — **mini-z for PowerShell** (you'll use it daily on Windows) and **mini-dura in Python**. The most immediately practical builds in this module.
 
-# Tiny Tools: Dura + z
+# Tiny Tools: Dura + z — Deep R&D
 
-## What They Are
+## Part 1 — Code Inventory
 
-**Dura**: a background process watching your Git repos, committing uncommitted work to hidden branches WITHOUT touching HEAD/index. Recovery story from its README: *"checkout a dura branch and recover"* after any "oh snap." Zero workflow change — pure insurance.
+### dura (Rust)
+| Piece | Mechanism |
+|-------|-----------|
+| Watch loop | Scans registered repos for dirty worktrees (libgit2 bindings) |
+| Snapshot | `git add -A` equivalent internally → tree written → commit created → ref `refs/dura/<sha>` updated — **HEAD/index untouched** |
+| Recovery | Manual: `dura serve` logs recovery hints; you `git checkout <dura-branch>` when disaster strikes |
 
-**z**: tracks directories you `cd` into, weighted by frequency × recency ("frecency"), then jumps: `z proj` → deepest habit-match. ~300 lines of shell.
+### z (POSIX shell + awk)
+| Piece | Mechanism |
+|-------|-----------|
+| Hook | `$PROMPT_COMMAND`/chpwd appends `path\|rank\|last-time` to `~/.z` on every cd |
+| Score | On lookup: `frecency = rank × age-decay` (age buckets halve weight) |
+| Jump | Substring best-match over scores; winner becomes cd target |
 
-## How They Work
+## Part 2 — Why Those Implementations
 
-```mermaid
-flowchart TD
-    subgraph DURA["dura"]
-        W["Watch repos"] --> S["Snapshot uncommitted<br/>changes to dura branches"]
-        S --> R["Recover anytime:<br/>never lose WIP again"]
-    end
-    subgraph Z["z"]
-        H["Log cd history"] --> F["Frecency score =<br/>frequency × recency decay"]
-        F --> J["z partial-name → jump"]
-    end
+| Choice | Why |
+|--------|-----|
+| dura never touches HEAD/index | Trust: worst case dura adds refs — harmless by construction. Insurance must be provably harmless |
+| Rust daemon | Long-lived background reliability; single static binary distribution via cargo |
+| z as ~300-line shell+awk | Zero dependencies; readable/modifiable by any user; runs where bash runs |
+| Frecency (not MRU, not pure-frequency) | MRU forgets favorites; frequency traps stale dirs. Product × recency decay models habit correctly |
+
+**Design thesis both prove**: the best tools impose ZERO workflow change while removing a catastrophic tail-risk or micro-friction you'd stopped noticing.
+
+## Part 3 — Can I Build My Own Versions? ✅ BOTH — this weekend each
+
+### Build A: **mini-z for PowerShell** ✅ (daily-use flagship)
+
+```powershell
+# Spec (~60 lines): 
+# 1. Log: function cd wrapper (or custom jd) appends "path|timestamp" to $env:USERPROFILE\.cdhist
+# 2. Score: frecency = visits * exp(-daysSinceLast/14)  (14-day half-life-ish)
+# 3. jd <substring>: pick best-scoring match, Set-Location there
+# 4. Profile install: dot-source from $PROFILE; add jd to prompt-less usage
 ```
 
-**Load-bearing lessons**:
-1. **Zero-workflow-change insurance wins adoption** — dura asks nothing of you; that's why it works
-2. **Frecency: the general pattern** — frequency×recency ranking powers browser history, IDE files, keyboard launchers; learn it once, recognize it everywhere
-3. **Small surface, deep value**: both tools do ONE thing; no config spirals
-4. **Background-daemon pattern** (dura) and **shell-hook integration** (z) are reusable architectures for your own utilities
+| Milestone | Deliverable |
+|-----------|-------------|
+| M1 | Logging works across sessions (file grows) |
+| M2 | `jd vault` jumps to your Second-Brain dir |
+| M3 | Collision handling (list top-5 on ambiguity); prune command |
 
-## Failure Modes
+Failure modes: path-with-spaces parsing (use `|` delimiter strictly), OneDrive-synced profile weirdness (test), forgetting to log non-cd navigations (acceptable).
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Tool-collecting reflex | Installing 10 CLI toys, using none | Adopt only when a REAL pain repeats 3× |
-| Daemon blind trust | Assuming dura running when it died | Occasional recovery DRILL (practice before the crisis) |
-| z stale scores | Old projects outrank current | Learn the score-decay knobs; prune periodically |
+### Build B: **mini-dura in Python** ✅
 
-**Premortem**: *Installed z/dura; forgot both existed.* Root cause: installed without a pain-anchor. Counter: adopt tools as RESPONSES to felt pain, documented in vault dailies.
+```python
+# Spec (~120 lines):
+# 1. Config list of repo paths
+# 2. Every N minutes: for each repo -> if dirty:
+#      git add -A && git write-tree && commit-tree -> update refs/mini-dura/head
+#    (use subprocess git plumbing; NEVER touch HEAD)
+# 3. Recovery helper: mini-dura recover -> lists snapshots w/ timestamps
+```
 
-## Life Integration
+Failure modes: committing huge build artifacts (respect .gitignore — `add -A` honors it), lock contention if user runs git simultaneously (plumbing is atomic enough at your scale), Windows scheduled-task setup friction (Task Scheduler XML once).
 
-- Both slot into daily workflow invisibly once configured ([[Gotchas]] PowerShell note: z needs PS adaptation or use zoxide `(TBC)` on Windows)
-- Career lesson at scale: your n8n automations, vault scripts — same "tiny tool solving one real pain" pattern is a freelancing product shape ([[modules/automations/money/earn-with-n8n]])
-- Metrics: recovery-drills done · `z` hit-rate in daily navigation · own-tiny-tool shipped?
+## Part 4 — Life Integration
 
-## Example Checkpoint Questions
+- mini-z pays off EVERY terminal session from day two — fastest gratification build available
+- mini-dura insures THIS VAULT — your second brain deserves crash insurance beyond GitHub pushes
+- Metrics: jd-hit-rate daily · mini-dura snapshots count · one real recovery performed (the graduation event)
 
-1. Explain frecency to a friend with the browser-history analogy — what decays, what accumulates?
-2. Why does dura's "never touch HEAD" constraint make it trustworthy?
-3. What ONE repeated pain of yours deserves its own tiny tool this month?
+## Checkpoint Questions
+
+1. Derive why frecency beats pure-MRU after a 2-week vacation.
+2. Why is dura safe BY CONSTRUCTION — what's the invariant?
+3. What pain of yours repeats 3×/day that deserves its own tiny tool next?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[cs-jj-vcs]] · [[repo-art-of-command-line]] · [[software-dev-general]]
+[[modules/case-studies/index|Field Index]] · [[cs-jj-vcs]] · [[repo-art-of-command-line]] · [[Gotchas]]

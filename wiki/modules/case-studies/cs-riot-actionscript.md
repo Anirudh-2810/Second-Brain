@@ -1,71 +1,95 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 11 — riot/riot (Riot.js) + adobe-research/ActionScript4 (Language Lifecycle)"
-tags: [javascript, frameworks, language-design, dead-projects, case-study]
+unit: "Case Study 11 — Riot.js + ActionScript4 [Deep R&D + Build Edition]"
+tags: [javascript, frameworks, language-design, lifecycle, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/riot/riot + https://github.com/adobe-research/ActionScript4"
 ---
 
 ## For future agent
-Two lifecycle case studies combined — both teach through what they BECAME rather than what they are. Riot.js: minimal component-based UI library (~2013–2020s) that predates/parallels the component era, now low-activity. ActionScript4: Adobe's research spec for a modernized ActionScript that never shipped a product. Together: how frameworks compete, and how languages/platforms die. Study value = ecosystem-strategy wisdom.
+Deep-dive on both lifecycle studies with code-level inventories (Riot's compiler+observable runtime; AS4's spec/prototype structure) and buildable versions — **micro-riot: a ~100-line component framework** (the famous build-your-own-framework exercise) and **mini-spec: a language spec + tokenizer/parser skeleton**. These builds teach how frameworks and languages WORK from the inside.
 
-# Riot.js + ActionScript 4 — Lifecycle Studies
+# Riot.js + ActionScript 4 — Deep R&D
 
-## Riot.js — The Minimal Component Library
+## Part 1A — Riot.js Code Inventory
 
-**What it is/was**: "simple and elegant component-based UI library" — custom components, concise syntax, tiny size (~few KB), years before React's dominance solidified. Custom tags with scoped styles, observer pattern, no virtual DOM.
+| Piece | Tech | Mechanism |
+|-------|------|-----------|
+| **Compiler** | JS | `.riot` files: HTML-ish templates with `<script>` + `style` per component → compiled into JS factory functions |
+| **Runtime core** | Vanilla JS (~few KB) | `mount()`: instantiate component → build DOM from template → wire expressions |
+| **Reactivity** | Observer pattern (`observable`) | Component state changes → `update()` re-evaluates bound expressions → targeted DOM patches |
+| **Scoped styles** | CSS + generated attribute selectors | Per-component style isolation without shadow DOM |
+| **No VDOM** | Direct DOM updates | The design thesis: bindings can patch precisely without diffing |
 
-**Architecture sketch**: custom-tag compiler → runtime mounts components → observable store → DOM updates directly.
+## Part 1B — ActionScript4 Inventory
 
-| Lesson | Detail |
-|--------|--------|
-| Minimalism as thesis | Proved components needn't cost 40KB+ — influenced later "tiny framework" genre |
-| Ecosystem beats elegance | Superior design lost to React's ecosystem gravity (tooling, hiring pool, community) |
-| Maintenance reality | Low activity ≠ failure; mature libraries enter maintenance mode legitimately |
+| Piece | What Existed |
+|-------|--------------|
+| **Spec documents** | Language proposal: static types, modern runtime model, package system evolution beyond AS3 |
+| **Prototype toolchain** | Research compiler/playground experiments under adobe-research |
+| **The missing piece** | A shipped RUNTIME + browser/plugin distribution — Flash Player EOL (2020) removed the host platform entirely |
 
-### Failure modes studying it
-- **Nostalgia adoption**: building new products on declining ecosystems → check activity/health BEFORE adopting any library
-- **Design-only admiration**: reading source without building one mini-app in it → build a todo in Riot once to feel its model
+## Part 2 — Why Each Design/Decision Existed
 
-## ActionScript 4 — The Language That Never Shipped
+| Decision | Rationale |
+|----------|-----------|
+| Riot: compiler-in-userland vs JSX-build-step | 2014 era: no-build-page simplicity was a feature; tags looked like HTML |
+| Riot: observable + direct DOM | Size budget; simplicity; anti-VDOM stance ("diffing is a workaround for bad APIs") |
+| Riot lost anyway | React's ecosystem (devtools, patterns, hiring pool) outweighed elegance — **ecosystem > design** is the era's verdict |
+| AS4 as research-spec only | Flash platform EOL made shipping pointless; Adobe studied "what would modern AS look like" for institutional knowledge |
+| Spec-driven language death | Languages need RUNTIMES + communities; specs alone are museum artifacts |
 
-**What it is/was**: Adobe research project (~2017–2019) specifying a modernized ActionScript — static types, better performance model — intended to revive Flash-era development after Flash's browser death sentence (2017 EOL). Spec + prototype tooling; no mainstream product resulted.
+**Second-order insight**: both are answers to "what happens to good technical work when its platform/ecosystem context dies?" Riot survives as maintained niche; AS4 as pure case study.
 
-| Lesson | Detail |
-|--------|--------|
-| Platform death kills languages regardless of quality | AS was competent; the RUNTIME (Flash Player) died → language died |
-| Spec-first risk | A beautiful spec without shipping runtime/community = museum piece |
-| Migration economics | Existing devs had no migration incentive post-EOL |
+## Part 3 — Can I Build My Own Versions?
 
-### Failure modes studying it
-- Spec-reading rabbit hole without purpose → extract only: WHY did each revival attempt fail?
-- Cynicism overdose → balance with live-language study
+### Version A: **micro-riot** ✅ (flagship — ~100 lines)
 
-## Combined Life Lessons
+```
+Spec (vanilla JS):
+state = {count:0}
+template = '<button onclick="inc">Clicked {{count}} times</button>'
 
-```mermaid
-flowchart TD
-    Q{"Choosing a framework/language<br/>for YOUR projects?"}
-    Q --> C1["Ecosystem health > elegance:<br/>check commits, issues velocity,<br/>hiring mentions"]
-    Q --> C2["Runtime/platform dependence<br/>is existential risk"]
-    Q --> C3["Small libraries can be STUDIED<br/>even when not adopted -<br/>Riot source is readable in days"]
+1. compile(template): replace {{expr}} with data-bind spans
+2. mount(el, template, state): render once; attach event listeners
+   by scanning onclick= etc.
+3. update(): re-render ONLY bound spans from current state
+4. makeReactive(state): Proxy that calls update() on any set
+Demo: counter app in <100 lines total, then a todo list
 ```
 
-**Premortem (studying these)**: *Week on Riot internals + AS4 spec; zero application.* These are strategy case studies — cap study at 2 sessions each; extraction target is the ecosystem-wisdom table above, not fluency.
+| Milestone | Deliverable |
+|-----------|-------------|
+| M1 | Template interpolation renders |
+| M2 | Reactive state auto-updates DOM |
+| M3 | Event binding works (counter) |
+| M4 | Todo-list on your framework; README comparing to Riot/React mechanics |
 
-## Life Integration
+### Version B: **mini-spec + parser skeleton** ✅
+Write a SPEC (2 pages) for a tiny expression language (numbers, + - *, variables, let): grammar in EBNF → tokenizer (~80 lines) → recursive-descent parser producing AST printer. This is the honest way to touch "language design" without compiler-bootstrapping madness.
 
-- Framework-selection checklist for every future project: activity · ecosystem · platform-dependence risk
-- Metrics: selection-checklist applied to your next stack decision
-- Interview angle: senior-sounding answers about why technologies win/lose ([[market-analysis-tech-2026]] thinking)
+### Failure modes while building
 
-## Example Checkpoint Questions
+| Failure | Counter |
+|---------|---------|
+| Framework scope explosion (routing? components? lists?) | v0.1 = interpolation + events ONLY; list rendering via manual re-call of mount |
+| Parser rabbit hole | Stop at AST-printer; evaluation optional stretch |
+| Comparing to React mid-build | You're learning MECHANISMS, not competing |
 
-1. Name two technically-elegant tools that lost to ecosystem gravity — including one from YOUR own experience.
-2. What single dependency killed ActionScript? What's the equivalent existential dependency in YOUR current stack?
+## Part 4 — Life Integration
+
+- micro-riot doubles as interview prep: "explain React's core loop" becomes trivial after building one
+- Metrics: LOC of your framework · todo-app working on it · spec+parser committed
+- Ecosystem-wisdom metrics applied forward: every future stack choice runs through activity/health checklist ([[market-analysis-tech-2026]] lens)
+
+## Checkpoint Questions
+
+1. In YOUR framework, where exactly does reactivity live — and what does Riot's observer share with it?
+2. Why did Riot's direct-DOM thesis lose to VDOM commercially, even if partially vindicated by signals-based libs later?
+3. Which platform-dependency does YOUR favorite stack have that could become its Flash moment?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[web-development-resources]] · [[languages-polyglot]] · [[market-analysis-tech-2026]]
+[[modules/case-studies/index|Field Index]] · [[web-development-resources]] · [[lr-build-your-own-x]] · [[languages-polyglot]]

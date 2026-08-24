@@ -1,60 +1,89 @@
 ---
 course_code: "CASESTUDY"
 course_name: "Open-Source Case Studies"
-unit: "Case Study 6 — winsiderss/systeminformer + westoncampbell/SpyPlusPlus (Windows Internals)"
-tags: [windows, systems-programming, cpp, native, case-study]
+unit: "Case Study 6 — System Informer + Spy++ [Deep R&D + Build Edition]"
+tags: [windows, systems-programming, cpp, native, case-study, build-plan]
 last_updated: "2026-08-24"
 confidence: "high"
 source: "https://github.com/winsiderss/systeminformer + https://github.com/westoncampbell/SpyPlusPlus (fetched 2026-08-24)"
 ---
 
 ## For future agent
-Two Windows-internals tools combined into one study (same domain, different scale): System Informer (formerly Process Hacker — the 100k-line task-manager-on-steroids, C/C++ with kernel driver) and Spy++-style message spy utilities. This page extracts Windows-native development lessons and malware-analysis relevance. You're ON Windows — these are the closest "how my machine actually works" sources.
+Deep-dive on the Windows-internals pair. Adds exact API/code inventory (what calls make process tools and message spies work), WHY native C/C++ is mandatory there, and a buildable ladder — **miniTaskList in C → window-message viewer in C#** — both directly buildable on your own machine this week. Feeds [[lr-build-your-own-x]].
 
-# System Informer + Spy++ — Windows Internals
+# Windows Internals Tools — Deep R&D
 
-## What They Are
+## Part 1 — The Code Inventory
 
-**System Informer** (ex-Process Hacker): multi-purpose system monitor/debugger/malware-detection tool. C/C++ with a custom UI framework and an optional kernel driver for deep inspection. The open-source reference for "how do process tools see everything?"
+### System Informer (ex-Process Hacker)
+| Layer | Tech | What's There |
+|-------|------|--------------|
+| **phlib** | C utility library | Process/thread/module enumeration, symbol handling, provider loops |
+| **SystemInformer.exe** | C + custom UI toolkit | The GUI: tabs for processes/services/network/disk — every row backed by NT queries |
+| **Plugins** | C | Extended views (Toolchain, DbgView…) |
+| **KSystemInformer (driver)** | C kernel driver | Deep queries: handles, hidden-process detection; requires **test-signing or EV-cert signing** to load |
 
-**Spy++ lineage**: Microsoft's classic utility to snoop window messages (every WM_PAINT, mouse move) per window; community reimplementations show the Win32 message-loop machinery transparently.
+Key APIs its code leans on: `NtQuerySystemInformation` (SystemProcessInformation), `NtOpenProcess`/`NtQueryInformationProcess`, `EnumHandles` via `NtQuerySystemInformation(SystemHandleInformation)`, PDH/perf counters for graphs.
 
-## How They Work (conceptual)
+### Spy++-style tools
+| Mechanism | What It Shows |
+|-----------|---------------|
+| `EnumWindows` + `GetWindowText`/`FindWindowEx` | The window tree |
+| `SetWindowsHookEx`(WH_CBT/WH_CALLWNDPROC) or `SetWinEventHook` | Messages/events per window |
+| Message-loop inspection | The WM_* stream (paint/mouse/key) that IS a GUI app's heartbeat |
+
+## Part 2 — Why That Code Was Used
+
+| Choice | Why |
+|--------|-----|
+| **C/C++ native** | Direct NT-API access without runtime layers; performance at 100k+ handle enumeration; malware-analysis credibility requires showing your own internals honestly |
+| **Custom UI toolkit (not Qt)** | Zero external deps; precise control; decades-old codebase continuity |
+| **Kernel driver (optional)** | User-mode APIs can be hidden-from by rootkits; driver sees ground truth — hence signing complexity |
+| **Spy via hooks** | Windows' GUI = message queues; hooking intercepts the queue traffic itself |
+
+**Mechanism insight**: Task Manager hides HOW it knows things. These repos expose that "knowing" = documented-but-obscure NT calls + privilege. Once you've called `NtQuerySystemInformation` yourself, the OS stops being magic.
+
+## Part 3 — Can I Build My Own Version?
+
+### Full System Informer: ❌ (years; driver signing gauntlet)
+### Buildable Ladder: ✅ YES — on YOUR machine, starting tonight
 
 ```mermaid
 flowchart TD
-    U["User-mode GUI<br/>(custom framework, phlib)"] --> A["Windows APIs:<br/>NtQuerySystemInformation,<br/>toolhelp snapshots"]
-    K["Kernel driver<br/>(optional, signed)"] -->|"deep queries"| U
-    SPY["Spy-style tools"] --> H["Win32 hooks:<br/>SetWindowsHookEx /<br/>message-loop interception"]
+    R1["Rung 1: miniTaskList (C)<br/>Toolhelp32Snapshot -> loop<br/>print PID / name / threads"] --> R2["Rung 2: add CPU+RAM columns<br/>(GetProcessTimes, WorkingSet)"]
+    R2 --> R3["Rung 3: kill-by-PID<br/>(OpenProcess+TerminateProcess)"]
+    R3 --> R4["Rung 4 (C# WinForms):<br/>EnumWindows tree +<br/>SetWinEventHook message viewer"]
 ```
 
-**Load-bearing lessons**:
-1. **The API layer under Task Manager**: processes/threads/handles are queryable structures — demystifies "the OS"
-2. **Kernel/user boundary**: why some data needs drivers (and signing pain)
-3. **Every window is a message pump**: Spy-tools make the event model visible — pairs perfectly with the event-loop mental model from web dev ([[web-development-resources]])
-4. **Native toolchain reality**: MSVC builds, driver signing, PHNT headers — what "systems programming on Windows" costs
+| Rung | Skills Unlocked | Est. Time |
+|------|-----------------|-----------|
+| 1 | Toolhelp snapshot pattern; struct walking | 1 evening |
+| 2 | Process timing math; deltas between polls | 1 evening |
+| 3 | Handles, privileges, AccessDenied handling | 1 evening |
+| 4 | Window/message model; managed↔native contrast | 1 weekend |
 
-## Failure Modes
+### Failure modes while building
 
-| Failure | Mechanism | Counter |
-|---------|-----------|---------|
-| Driver rabbit hole | Kernel exploration without basics | User-mode APIs first; driver only after NT-concepts reading |
-| Antivirus false alarms scare-off | Unsigned kernel tools trigger AV | Understand WHY (raw disk/driver access = suspicious pattern) |
-| C++ overwhelm | 100k lines browsed randomly | Feature-trace: "list all processes" path through code |
+| Failure | Counter |
+|---------|---------|
+| Snapshot handle leaks | CloseHandle discipline; verify via Task Manager handle counts |
+| CPU% wrong (no delta baseline) | Sample twice; compute delta of kernel+user time over interval |
+| AV flags your .exe | Expected for process-tampering tools; sign/exclude locally; explain in README |
 
-**Premortem**: *Built System Informer; build errors; abandoned.* Their wiki documents build prereqs precisely — follow verbatim; the build IS lesson one in native toolchains.
+**Premortem**: *Rung 1 works but "looks boring vs System Informer" → abandoned.* Counter: define success as RUNG COMPLETION, not feature-parity with a 15-year project.
 
-## Life Integration
+## Part 4 — Life Integration
 
-- Directly relevant environment knowledge (your daily OS!) — doubles as Windows-internals prep if security/sysadmin curiosity grows
-- Metrics: features traced · NT-APIs understood · own mini-process-lister attempt (great [[lr-build-your-own-x]] candidate)
+- Your daily OS becomes the lab: every weird slowdown = reason to open YOUR tool
+- Metrics: rungs climbed · NT concepts explained from memory · own-tool usage during real slowdowns
+- Career signal: "I wrote a process monitor in C" separates you from pure-web cohorts instantly
 
-## Example Checkpoint Questions
+## Checkpoint Questions
 
-1. Why can user-mode enumeration miss hidden processes that a driver catches?
-2. In Spy terms, what actually happens between your click and a button's painted state?
-3. Which single NT API answers "list every running process" — and what could break it?
+1. Why does hiding a process from user-mode enumeration NOT hide it from a driver?
+2. What exactly does Toolhelp32Snapshot capture at call-time — a live view or a copy?
+3. In your Spy-rung, which WM_ message fires most often, and why does that explain GUI power costs?
 
 ## Cross-Vault Links
 
-[[modules/case-studies/index|Field Index]] · [[software-dev-general]] · [[modules/case-studies/cs-jj-vcs|cs-jj]] (tool-building siblings)
+[[modules/case-studies/index|Field Index]] · [[software-dev-general]] · [[modules/programming/cs50/week-4-memory]] · [[lr-build-your-own-x]]
