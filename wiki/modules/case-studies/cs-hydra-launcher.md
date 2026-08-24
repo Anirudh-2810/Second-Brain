@@ -66,6 +66,29 @@ Spec (Electron+React OR Tauri+React, ~2 weekends/MVP):
 | IPC sprawl | Define typed channel constants module first |
 | Download resume bugs | Test against slow/throttled local server you control |
 
+## Part 3.5 — R&D Extension: Electron Security Model + Download State Machine
+
+### The three Electron walls
+1. **Context isolation**: renderer's `window` doesn't expose Node — preload script exposes ONLY whitelisted functions via contextBridge
+2. **nodeIntegration:false** in renderer — UI compromise can't read disk directly
+3. **IPC channel allowlist**: main validates sender + args per channel
+Hydra's IPC bridge follows this shape; skipping it is how Electron apps get RCE'd via XSS.
+
+### Download state machine (your M3 spec)
+```
+States: IDLE -> CONNECTING -> DOWNLOADING -> PAUSED -> COMPLETING -> DONE | ERROR
+Events: start, pause, resume, cancel, connection-lost, complete, checksum-fail
+Key mechanics:
+- Resume: send Range: bytes=<received> header; server must support 206
+- Persistence: persist state+bytes-received to SQLite after each chunk flush
+- Chunked writes: stream to file, fsync periodically (crash-safe partials)
+- Retry policy: exponential backoff, max N attempts, jitter
+Edge cases: server ignores Range (restart from 0), size changed
+(restart + revalidate ETag), disk full mid-flight (pre-check free space).
+```
+Test rig: serve a file with a throttled local HTTP server you control; kill server mid-download; verify resume byte-count continuity.
+
+
 ## Part 4 — Life Integration
 
 - Daily-use software = automatic dogfooding + visible artifact on your machine

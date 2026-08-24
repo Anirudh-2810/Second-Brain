@@ -69,6 +69,42 @@ Failure modes: Blender version API churn (pin version), UI-layout
 API verbosity (copy official template add-on shape).
 ```
 
+## Part 3.5 — R&D Extension: D3 Layout Math + bpy Operator Anatomy
+
+### D3 tree layout intuition
+`d3.tree()` solves: given a hierarchy, assign x (position among leaves) and y (depth) so subtrees don't overlap. Nodes post-layout carry x,y — you draw links as bezier curves between parent-child coordinates. Your family twist: spouses are dual-node units (render couple card; children link to COUPLE midpoint, not one parent). Generational alignment breaks with marrying-cousins (DAG!) — detect cycles, fall back to force layout for weird subgraphs.
+
+```javascript
+const root = d3.hierarchy(familyData, d => d.children);
+d3.tree().nodeSize([cardW+gap, depthH])(root);
+svg.selectAll('g.node').data(root.descendants()).join(...) // cards
+svg.selectAll('path.link').data(root.links()).join(...)     // curves
+```
+
+### Blender add-on skeleton (the universal triad)
+```python
+bl_info = {"name":"MyTools","version":(0,1,0),"category":"Object"}
+import bpy
+class MYTOOLS_OT_rename(bpy.types.Operator):
+    bl_idname = "mytools.rename"; bl_label = "Prefix Rename"
+    prefix: bpy.props.StringProperty(default="obj_")
+    def execute(self, context):
+        for i, ob in enumerate(context.selected_objects):
+            ob.name = f"{self.prefix}{i:03d}"
+        return {'FINISHED'}
+class MYTOOLS_PT_panel(bpy.types.Panel):
+    bl_label = "MyTools"; bl_space_type='VIEW_3D'; bl_region_type='UI'
+    def draw(self, ctx):
+        self.layout.operator(MYTOOLS_OT_rename.bl_idname)
+classes = (MYTOOLS_OT_rename, MYTOOLS_PT_panel)
+def register():
+    for c in classes: bpy.utils.register_class(c)
+def unregister():
+    for c in reversed(classes): bpy.utils.unregister_class(c)
+```
+The triad transfers: VSCode/Obsidian/Figma plugins share register/action/UI DNA.
+
+
 ## Part 4 — Life Integration
 
 - Build A = genuine family artifact (gift potential!) + portfolio viz piece

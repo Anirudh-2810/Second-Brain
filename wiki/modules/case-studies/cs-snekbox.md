@@ -71,6 +71,39 @@ M4: Wire into a Discord bot OR an AI-agent tool-calling endpoint
 
 **Premortem**: *"Built it; never attacked it; assumed safe."* The unwargamed sandbox is theater. M2 is non-negotiable.
 
+## Part 3.5 — R&D Extension: Layer-by-Layer + Attack Suite Code
+
+### NSJAIL flag-by-flag (the eight walls mapped)
+| Flag | Wall | Kills |
+|------|------|-------|
+| `--mode=ONCE` (per-exec) | fresh jail per request | cross-request contamination |
+| `--disable_proc` | no /proc | host process/info leaks |
+| `--chroot` minimal rootfs | mount namespace | filesystem escape/read |
+| `--rlimit_as/mem` | memory cap | memory-bomb DoS |
+| `--rlimit_nproc` | proc cap | fork bombs |
+| seccomp policy | syscall allowlist | exotic kernel attack surface |
+| `--time_limit` | wall clock | infinite loops |
+| Docker `--network=none --cap-drop=ALL --read-only` | outer boundary | exfil, privilege, persistence |
+
+### Attack suite (M2 pytest cases — write BEFORE trusting v0.1)
+```python
+ATTACKS = {
+ "fork_bomb": "import os\nwhile True: os.fork()",
+ "passwd_read": "print(open('/etc/passwd').read())",
+ "net_probe": "import socket;socket.create_connection(('example.com',80))",
+ "infinite": "while True: pass",
+ "fs_write": "open('/tmp/x','w')",
+ "subprocess_escape": "import subprocess;subprocess.run(['whoami'])",
+}
+@pytest.mark.parametrize("name,code", ATTACKS.items())
+def test_attack(name, code, eval_endpoint):
+    r = eval_endpoint(code)
+    assert r["status"] in ("timeout", "error", "killed")
+    assert "root:" not in r.get("stdout", "")      # passwd must be empty/blocked
+```
+Graduation test: run suite against a NAIVE `subprocess.run(code, timeout=10)` endpoint and document EVERY escape that works — then re-run against mini-snek. The diff is your education.
+
+
 ## Part 4 — Life Integration
 
 - Reuse pattern for: AI-agent code tools, online-judge features, plugin systems

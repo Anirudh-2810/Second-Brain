@@ -66,3 +66,46 @@ flowchart TD
 ## Cross-Vault Links
 
 [[modules/case-studies/index|Field Index]] · [[cs-dura]] (VCS-safety sibling) · [[software-dev-general]]
+
+## Part 5 — R&D Extension: The Data Model In Detail
+
+### Two layers of state
+jj's repository has TWO state layers, and understanding them is the whole design:
+
+1. **Commits** — content snapshots: tree id + parent ids + **change-id** (stable identity that survives rebases — Git commits change ids on every rebase, breaking references) + description. Commits are ANONYMOUS by default; you name them only when useful.
+2. **Operations (op-log)** — every command writes an operation recording: which commits existed before/after, working-copy commit id, timestamp, description ("jj commit", "jj rebase"...). Repo view = HEAD operation applied to object store.
+
+This dual structure gives: `jj undo` (revert last op), `jj op log` (history of HISTORY itself), and conflict-free concurrent commands (operations merge like CRDT states). Git's reflog is an afterthought debugging tool; jj's op-log is a first-class product feature.
+
+### Conflicts as ordinary data
+Instead of blocking on merge conflicts, jj stores conflicted trees as first-class objects with conflict markers materialized in files. You can COMMIT conflicted states, rebase them around, resolve later in a separate operation. Git treats conflict as exceptional; jj treats it as ordinary state that flows through every other command unchanged.
+
+### Why Rust for this
+Content-addressed stores + tree walks + hashing are CPU-heavy; memory safety matters for a tool whose entire job is programmatically rewriting history. Plus single-binary distribution via cargo makes adoption friction near zero.
+
+### mini-jj build spec (~400 lines Python — flagship [[lr-build-your-own-x]] candidate)
+```
+Commands:
+  mj init                      -> .mj/objects/ + .mj/oplog.json
+  mj save <msg>                -> hash blobs -> write tree -> commit object ->
+                                  update branch ref -> append op entry
+  mj log                       -> render branch history from commit store
+  mj checkout <id>             -> restore tree into workdir + move ref
+  mj undo                      -> pop last op-log entry, restore prior view
+Data shapes:
+  blob:   sha256(content) -> content file
+  tree:   {path: blob_sha} json, itself content-hashed
+  commit: {tree_sha, parents[], msg, ts}
+  oplog:  [{op:"save", before_view, after_view, ts}]
+Build order: save/log first (80% of the insight lives here),
+checkout second, undo third — the op-log pays off at THIS step.
+Stretch goals: tree-diff between commits; named branches as moving
+pointers; garbage collection of unreferenced objects.
+```
+
+### Failure modes while building
+| Failure | Counter |
+|---------|---------|
+| Reinventing Git commands instead of the model | Design op-log FIRST on paper; commands fall out of it |
+| Hash-addressing confusion | One evening on content-addressable storage concept ([[cs-twitter-algorithm]]-style funnels don't apply here — it's simpler) |
+| Undo half-implemented | Undo is the demo centerpiece; do not ship without it |

@@ -69,6 +69,49 @@ Spec (~300 lines Python):
 | Interface drift between providers | Normalize at provider edge; canonical message format internally |
 | Ledger forgotten | Log call INSIDE router, not per-provider |
 
+## Part 3.5 — R&D Extension: Provider Interface + Router Failover Code
+
+### Provider interface (the abstraction that matters)
+```python
+class Provider(ABC):
+    name: str
+    cost_per_1k_out: float          # 0.0 for free tiers/local
+    priority: int                    # lower tried first
+
+    @abstractmethod
+    def available(self) -> bool: ... # quota left? health ping cached?
+
+    @abstractmethod
+    def chat(self, messages: list[dict], model: str,
+             temperature: float = 0.7) -> str: ...
+```
+Implementations: GroqProvider (official free tier), GeminiProvider (free tier), OpenRouterProvider (paid fallback), OllamaProvider (local offline last resort).
+
+### Router failover logic (the g4f lesson, legalized)
+```python
+class Router:
+    def __init__(self, providers): self.providers = sorted(providers, key=lambda p:p.priority)
+    def chat(self, messages, model):
+        last_err = None
+        for p in self.providers:
+            if not p.available(): continue
+            t0 = time.time()
+            try:
+                out = p.chat(messages, model)
+                ledger.log(p.name, tokens=len(str(messages))//4,
+                           latency=time.time()-t0, ok=True)
+                return out
+            except RateLimited as e:
+                ledger.log(p.name, ok=False, err="429")
+                self.cooldown[p.name] = time.time() + 300   # cool down 5 min
+                last_err = e
+            except Exception as e:
+                ledger.log(p.name, ok=False, err=str(e)[:200]); last_err = e
+        raise last_err or RuntimeError("no providers available")
+```
+Ledger schema: `(ts, provider, model, tokens_in, tokens_out, latency_ms, ok, err)`. Monthly report = GROUP BY provider → your personal cost/latency dashboard. This router + ledger IS the production pattern ([[roadmap-ml-engineer]] GenAI branch artifact).
+
+
 ## Part 4 — Life Integration
 
 - Becomes THE LLM layer under all your projects (agent brain, study tools)

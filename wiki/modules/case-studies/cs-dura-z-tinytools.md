@@ -73,6 +73,45 @@ Failure modes: path-with-spaces parsing (use `|` delimiter strictly), OneDrive-s
 
 Failure modes: committing huge build artifacts (respect .gitignore — `add -A` honors it), lock contention if user runs git simultaneously (plumbing is atomic enough at your scale), Windows scheduled-task setup friction (Task Scheduler XML once).
 
+## Part 3.5 — R&D Extension: Frecency Math + Build Code
+
+### z's scoring precisely
+Entry: `path|rank|timestamp`. On query, effective score = rank × weight(age), where weight halves per ~2-week bucket (implementation-specific decay). Rank increments per visit; old entries pruned below threshold. Tuning knobs: half-life, prune threshold, match semantics (substring vs word-boundary).
+
+### mini-z PowerShell implementation sketch (~60 lines)
+```powershell
+$script:CdHist = "$env:USERPROFILE\.cdhist"
+function jd {
+    param([Parameter(Mandatory)][string]$Target)
+    $entries = Get-Content $CdHist | ForEach-Object {
+        $p,$rank,$last = $_ -split '\|'
+        $days = ((Get-Date) - [datetime]$last).TotalDays
+        [pscustomobject]@{ Path=$p
+                           Score=[int]$rank * [math]::Exp(-$days/14) }
+    }
+    $best = $entries | Where-Object Path -like "*$Target*" |
+            Sort-Object Score -Descending | Select-Object -First 1
+    if ($best) { Set-Location $best.Path; Bump-CdHist $best.Path }
+    else { Write-Host "no match: $Target" }
+}
+function Bump-CdHist($path) { # increment rank, refresh timestamp
+}
+# profile install: dot-source this file; log via prompt function hook
+```
+Gotchas: OneDrive-roamed profile paths; spaces handled by strict `|` delimiter; prune entries older than 90 days weekly.
+
+### mini-dura git plumbing (why plumbing, not porcelain)
+Porcelain `git add/commit` mutates index+HEAD — dura's core promise forbids that. Plumbing avoids it:
+```
+git add -A --dry-run        # respect gitignore while computing file set
+git hash-object -w <files>  # blobs written, refs untouched
+git write-tree              # tree from current index snapshot
+git commit-tree <tree> -p <parent> -m "dura snapshot <ts>"
+git update-ref refs/mini-dura/<repo> <new_commit_sha>
+```
+HEAD, index, branches: untouched. Recovery = cherry-pick/checkout from your ref. Windows note: run via Task Scheduler hidden task; log to vault-adjacent file.
+
+
 ## Part 4 — Life Integration
 
 - mini-z pays off EVERY terminal session from day two — fastest gratification build available

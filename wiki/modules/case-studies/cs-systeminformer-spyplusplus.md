@@ -72,6 +72,34 @@ flowchart TD
 
 **Premortem**: *Rung 1 works but "looks boring vs System Informer" → abandoned.* Counter: define success as RUNG COMPLETION, not feature-parity with a 15-year project.
 
+## Part 3.5 — R&D Extension: The Actual Calls (Rung 1 in C)
+
+```c
+#include <windows.h>
+#include <tlhelp32.h>
+
+int list_processes(void) {
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snap == INVALID_HANDLE_VALUE) return 1;
+    PROCESSENTRY32 pe = { .dwSize = sizeof(pe) };
+    if (Process32First(snap, &pe)) {
+        do {
+            printf("%6lu %ls\n", pe.th32ProcessID, pe.szExeFile);
+        } while (Process32Next(snap, &pe));
+    }
+    CloseHandle(snap);              // forget this = handle leak
+    return 0;
+}
+```
+CPU% (rung 2) needs TWO samples: `GetProcessTimes` → (kernel+user delta) / (wall-clock delta × cores). RAM: `GetProcessMemoryInfo` WorkingSetSize. Kill (rung 3): `OpenProcess(PROCESS_TERMINATE,...)` + `TerminateProcess` — expect ERROR_ACCESS_DENIED on protected processes; that error IS the lesson about privileges.
+
+### Why System Informer needs a driver for some data
+User-mode enumeration only sees what the kernel exposes to your token. Rootkits hook those exact APIs. A signed driver querying kernel structures directly bypasses user-mode hooks — hence KSystemInformer, hence signing pain (test-signing mode for dev, EV cert for distribution).
+
+### Message-viewer rung (C#/WinForms)
+`EnumWindows(callback)` builds tree; `GetWindowText`/`GetClassName` label nodes; `SetWinEventHook(EVENT_OBJECT_*, WINEVENT_OUTOFCONTEXT)` streams events; display WM_ names via a lookup table. First session goal: click around Notepad and SEE WM_PAINT storms.
+
+
 ## Part 4 — Life Integration
 
 - Your daily OS becomes the lab: every weird slowdown = reason to open YOUR tool

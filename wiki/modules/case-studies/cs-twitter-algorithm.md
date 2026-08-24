@@ -77,6 +77,39 @@ flowchart LR
 
 **Interview yield**: this project legitimately supports "I've built a two-stage recommender with multi-signal ranking and temporal evaluation" — and you've read the industrial reference implementation to compare shapes.
 
+## Part 5 — R&D Extension: Inside the Machinery
+
+### The SimClusters math sketch
+SimClusters maps users and tweets into ~145k "community" vectors. Training consumes engagement events (favs, replies, follows) as bipartite-graph signals, factorized so users sharing communities share basis vectors. At serving time a tweet's cluster-vector comes from early engagers; your user-vector is a weighted sum of communities you engage with. Candidate scoring = dot-product proximity between user and tweet vectors.
+
+**Why sparse-interpretable beats dense here**: when a tweet underperforms, engineers can READ which community opinions caused the miss. Dense embeddings are stronger learners but opaque — an interpretability-for-power trade.
+
+### The Heavy Ranker's 48 heads
+Each head predicts one behavior: Favorite, Reply, GoodReply, Click, ProfileClick, PhotoExpand, VideoQuality, Dwell (continuous), NegativeFeedback... Serving blends them with product weights:
+
+`score = w1*P(fav) + w2*log(1+P(reply)) - wn*P(report) + w_d*log(dwell)`
+
+Weights ship weekly WITHOUT retraining the network — multi-task outputs decouple product tuning from model training. That separation is why the architecture survives strategy changes.
+
+### The candidate funnel in numbers
+500M posts/day → Earlybird+UTG+SimClusters+FRS pull ~1,500 candidates → Light Ranker prunes → Heavy Ranker scores a few hundred → heuristics/visibility filter → ~50 shown. Every stage trades recall for scoring budget; misses upstream are invisible downstream.
+
+### Extended build: light-ranker skeleton (weekend 3 of your build)
+```python
+def featurize(item, profile, now):
+    age_h = (now - item.ts).total_seconds()/3600
+    return {
+        "recency": math.exp(-age_h/24),
+        "source_affinity": profile.prior(item.source),
+        "cosine_tfidf": cosine(item.tfidf, profile.centroid),
+        "len_words": len(item.words),
+        "has_link": int(bool(item.link)),
+    }
+# Temporal split ONLY: train days 1..N-3, validate last 3 days.
+# Report precision@10 PER validation day — aggregates hide drift.
+```
+
+
 ## Part 4 — Checkpoint Questions
 
 1. Map Twitter's funnel onto my mini version — which component corresponds to Earlybird? To visibilitylib?

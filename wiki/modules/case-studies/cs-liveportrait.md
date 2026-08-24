@@ -67,6 +67,35 @@ This is the SAME conceptual shape as LivePortrait (drive parameters → deform t
 | Lighting sensitivity | Histogram-equalize frames; document failure lighting |
 | Scope creep to full deepfake | v0.1 = mouth only. Ship that |
 
+## Part 3.5 — R&D Extension: Pipeline Intuition + Face-Puppet Code
+
+### LivePortrait pipeline intuition (stage math)
+1. **Keypoints**: network predicts K sparse 3D points per face + pose (yaw/pitch/roll) — structure without pixels
+2. **Warping**: dense field moves source features toward driving keypoints — think per-pixel flow guided by keypoint distances
+3. **Stitching**: predicts a mask at region borders so animated face blends into ORIGINAL photo background (hair, shoulders stay frozen)
+4. **Retargeting**: scales eye/lip keypoint deltas — user knob for exaggeration
+Efficiency claim source: sparse keypoints + modest warping net ≪ diffusion iterations.
+
+### Face-puppet parameter extraction (MediaPipe)
+```python
+import mediapipe as mp, cv2, numpy as np
+lm_idx_mouth = (13, 14)   # upper/lower inner lip
+lm_idx_eyeL = (159, 145)  # eyelid pair
+def params(frame_landmarks):
+    mouth_open = dist(lm[13], lm[14]) / dist(lm[133], lm[33])  # normalized by face width
+    smile = dist(lm[61], lm[291]) / face_width
+    yaw = atan2(nose.x - face_center.x, face_depth_est)       # crude but works
+    return {"mouth": smooth(mouth_open), "smile": smooth(smile), "yaw": smooth(yaw)}
+# EMA smoothing: p = 0.7*p_prev + 0.3*p_new  (kills landmark jitter)
+# Avatar: swap mouth sprite by threshold buckets OR warp mouth region
+# between two anchor images via cv2.getAffineTransform
+```
+Failure lab: dim lighting breaks landmarks — document threshold; it teaches model-environment coupling.
+
+### Ethics watermark snippet
+`cv2.putText(out, 'SYNTHETIC', corner, ...)` burned-in + filename suffix `_syn`. Cheap, visible, non-negotiable.
+
+
 ## Part 4 — Ethics Layer (non-negotiable)
 
 - Only animate YOUR OWN face or consented/illustrative avatars

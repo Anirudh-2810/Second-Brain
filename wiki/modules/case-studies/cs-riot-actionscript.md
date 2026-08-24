@@ -78,6 +78,61 @@ Write a SPEC (2 pages) for a tiny expression language (numbers, + - *, variables
 | Parser rabbit hole | Stop at AST-printer; evaluation optional stretch |
 | Comparing to React mid-build | You're learning MECHANISMS, not competing |
 
+## Part 3.5 — R&D Extension: micro-riot Implementation + Parser Sketch
+
+### micro-riot in ~100 lines (actual implementation shape)
+```javascript
+function compile(template) {
+  const el = document.createElement('div'); el.innerHTML = template;
+  const exprs = [];
+  const walk = (node) => {
+    [...node.attributes].forEach(a => {
+      if (a.name.startsWith('on')) {
+        const ev = a.name.slice(2), fn = a.value;
+        node.removeAttribute(a.name);
+        node.addEventListener(ev, e => exprScope[fn](e));
+      }
+    });
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3 && n.textContent.includes('{{')) {
+        const expr = n.textContent.match(/{{(.+?)}}/)[1];
+        exprs.push({ node: n, expr });
+      } else walk(n);
+    });
+  };
+  walk(el);
+  return { el, render(state){
+    window.exprScope = state;                    // demo-scope; sandbox later
+    exprs.forEach(({node,expr}) =>
+      node.textContent = Function('with(this)return '+expr).call(state));
+  }};
+}
+function mount(sel, template, state) {
+  const c = compile(template);
+  document.querySelector(sel).append(c.el);
+  const reactive = new Proxy(state, {
+    set(t,k,v){ t[k]=v; c.render(reactive); return true; }
+  });
+  c.render(reactive); return reactive;
+}
+// Usage: mount('#app', '<button onclick="inc">{{count}}</button>', {count:0,
+//        inc(){ this.count++ }})
+```
+Building this once permanently demystifies: templates, reactivity proxies, declarative events. Then read Riot/React sources comparatively.
+
+### mini-spec parser sketch (expression language)
+```
+Grammar (EBNF):
+  expr   := term (('+'|'-') term)*
+  term   := factor (('*'|'/') factor)*
+  factor := NUMBER | IDENT | '(' expr ')'
+Tokenizer: regex scan -> [{type:'NUM',v:3},{type:'OP',v:'+'},...]
+Parser: recursive descent per rule -> AST nodes {type,val,left,right}
+Stretch: evaluator walking AST; 'let' bindings = env dict
+```
+This skeleton + spec page IS the deliverable — languages start exactly here.
+
+
 ## Part 4 — Life Integration
 
 - micro-riot doubles as interview prep: "explain React's core loop" becomes trivial after building one

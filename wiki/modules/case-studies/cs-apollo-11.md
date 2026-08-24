@@ -67,6 +67,26 @@ Recreate the keypad/display: VERB+NOUN entry grammar, register display (R1/R2/R3
 ### Similar workflow C: constraint-coding kata
 Pick ONE modern mini-project and impose Apollo rules: ≤4KB RAM budget, no dynamic allocation, full restart-safety. E.g., a sensor logger in C with static allocation only. Constraints-as-teacher exercise.
 
+## Part 3.5 — R&D Extension: AGC Internals Worth Knowing
+
+### Word format & memory banks
+AGC words: 15 bits + parity. Fixed memory in 2K-word banks (rope), erasable in 1K-word banks. Bank-switching was MANUAL via instructions — code had to know which bank it lived in (`EBANK=`, `FBANK=` directives pepper the listings). Erasable assignments were hand-allocated: `ERASABLE ASSIGNMENTS` source literally lists every variable's address with comments. Modern takeaway: explicit resource maps beat implicit hope when resources are tight.
+
+### The Interpreter (VM inside a VM)
+Navigation math needed vectors/matrices; hardware had none of it. Solution: an interpretive language layered over AGC4 — pseudo-instructions like `DV` (vector dot) executed by a threaded-code interpreter. Cost: slower execution. Benefit: guidance engineers wrote near-math pseudocode. This is the ancestor of every domain-specific VM argument (JVM bytecode, WASM).
+
+### Executive mechanics (what your simulator models)
+- Timer interrupt every 10ms → executive runs
+- Job queue ordered by priority; NO preemption mid-job except by higher priority
+- **Overflow alarm**: if no idle time in a second (all slots consumed) → 1202 (no VAC areas) / 1201 (no core sets) → executive deletes lowest-priority job, restarts cleanly
+- Restart tables: every critical state mirrored so a restart resumes correctly
+
+### Simulator extension ideas (post-v0.1)
+- Add task dependencies (landing needs radar done)
+- Count shed-tasks per minute → 'overload dashboard'
+- Toggle 'restart protection OFF' mode → show catastrophic difference (the teaching moment)
+
+
 ## Part 4 — Failure Modes While Building
 
 | Failure | Counter |

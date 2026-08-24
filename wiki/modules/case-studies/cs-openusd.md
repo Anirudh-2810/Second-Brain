@@ -64,6 +64,40 @@ Skip building; instead: install prebuilt usdview → load sample scenes → exer
 ### Similar workflow C: config-overlay library
 The same override-resolution pattern powers app configs: build `layerconf` — YAML layers where later layers override earlier (dev<staging<prod). Same lesson, infra-flavored ([[systems-design-distributed]]).
 
+## Part 3.5 — R&D Extension: Composition Walkthrough + miniUSD Skeleton
+
+### A resolution walkthrough (concrete)
+Layers loaded in order: `robot_base.usda`, `paint_red.usda`, `scene.usda` (references robot twice):
+
+```
+robot_base:  /Robot { color = grey, kind = "robot", arm = {...} }
+paint_red:   /Robot { color = red }          # opinion overrides grey
+scene:       /World { ref prepend /Robot as RobotA }
+                      ref prepend /Robot as RobotB (variant: rusty)
+```
+Composed stage: RobotA.color=red (paint beats base), RobotB uses variant subtree. The engine walks LIVRPS per prim/attribute: strongest opinion wins, weaker ones never evaluated. Your miniUSD replicates exactly this walk minus payloads/specializes.
+
+### crate vs ascii vs usdz
+- `.usda`: readable, diffable — learning format
+- `.usdc` (crate): mmapped binary sections — O(1) open on giant scenes
+- `.usdz`: uncompressed zip of usdc+textures — AR/streaming delivery
+Your mini version only needs ascii; understanding WHY crate exists (lazy mmap access patterns) is the lesson.
+
+### miniUSD resolver skeleton (start here)
+```python
+class Layer(dict): ...            # path -> {attr: value}
+def resolve(layers):              # strongest LAST in list
+    out = {}
+    for layer in reversed(layers):
+        for path, attrs in layer.items():
+            out.setdefault(path, {}).update(attrs)   # first-write-wins
+    return out
+# references: splice referenced layer under prim namespace before resolve
+# variants: pick variant subtree by name before resolve
+```
+Then add tests: override-wins, reference-splicing, variant-swap. Each test = one arc learned.
+
+
 ## Part 4 — Failure Modes While Building
 
 | Failure | Counter |

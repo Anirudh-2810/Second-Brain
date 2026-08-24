@@ -351,3 +351,20 @@
   - cs-treemaker-malt: D3/bpy add-on inventories; family-tree D3 + Blender add-on skeleton builds.
   - cs-riot-actionscript: compiler/observer + spec inventories; micro-riot ~100-line framework + mini-spec parser builds.
   - cs-gpt4free: registry/failover inventory; LEGAL unified-llm-client over official tiers + local models (flagship GenAI utility).
+
+### 2026-08-24 — Case-studies deep R&D expansion (code inventories + build plans)
+- All 13 case-study pages expanded with: exact code inventories (languages/services/files per repo), WHY-each-technology-choice rationale tables, and explicit Can-I-Build-My-Version verdicts with milestone-based build specs:
+  - twitter-algorithm: home-mixer/Earlybird/SimClusters/TwML/Heavy-Ranker(48-head MaskNet) inventory; SimClusters math sketch; 48-heads rationale; buildable 'For-You feed for your information diet' two-stage recommender (4-weekend plan w/ featurize code).
+  - apollo-11: word-format/bank-switching/Interpreter/Executive mechanics incl. 1202 overflow walkthrough; AGC executive simulator spec (~300 lines, Python/C).
+  - openusd: pxr lib tree + LIVRPS resolution walkthrough; miniUSD resolver skeleton code.
+  - zulip: end-to-end send-message flow trace; miniZulip SQLite DDL + FastAPI SSE endpoint sketch.
+  - hydra: three Electron walls; download state machine spec (states/events/edge cases).
+  - systeminformer-spy++: Toolhelp32 C snippet for rung-1; CPU-delta math; driver-vs-usermode mechanism.
+  - jj-vcs: dual-layer state (commits + op-log), conflicts-as-data, change-id concept; mini-jj ~400-line build spec (save/log/checkout/undo).
+  - dura+z: frecency scoring formula; mini-z full PowerShell sketch (~60 lines); mini-dura git-plumbing sequence (hash-object/write-tree/commit-tree/update-ref).
+  - snekbox: NSJAIL flag-by-flag wall mapping; M2 attack-suite pytest code (fork bomb/passwd/net/loop/write/subprocess).
+  - liveportrait: stage intuition (keypoints/warp/stitch/retarget); MediaPipe face-puppet parameter code + EMA smoothing; watermark rule.
+  - treemaker-malt: D3 tree-layout intuition + couple-node handling; full bpy add-on skeleton code (bl_info/Operator/Panel/register).
+  - riot-actionscript: micro-riot ~100-line implementation (compile/mount/Proxy reactivity); mini-spec EBNF+tokenizer/parser sketch.
+  - gpt4free: Provider ABC + Router failover code w/ usage ledger schema (legal equivalents only).
+- Word counts now 816-1200/page (dense technical prose + code); combined module ~12k words of case-study analysis.

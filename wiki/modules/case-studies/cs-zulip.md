@@ -73,6 +73,46 @@ flowchart LR
 | Auth sprawl | Single-user until M3; token after |
 | Event-bus rewrite loops | asyncio.Queue-based bus is fine at your scale |
 
+## Part 3.5 — R&D Extension: Message Flow + miniZulip Schema
+
+### Zulip's send-message flow (end-to-end trace worth memorizing)
+1. Client POSTs message → Django view validates (auth, stream perms, notification flags)
+2. Message INSERTed into PostgreSQL; Recipient row resolves audience
+3. Event queued to RabbitMQ (`missedmessage_` queues + user_events queues)
+4. Tornado workers consume → push `message` event over websocket to online recipients
+5. Offline users → email/push worker paths
+6. Client ACKs; server tracks per-client pointer for missed-event replay
+
+Every stage is idempotent-ish and replayable — the design survives any single component dying. THAT is the interview-grade insight.
+
+### miniZulip schema (SQLite DDL)
+```sql
+CREATE TABLE users(id INTEGER PRIMARY KEY, name TEXT UNIQUE);
+CREATE TABLE streams(id INTEGER PRIMARY KEY, name TEXT UNIQUE);
+CREATE TABLE messages(
+  id INTEGER PRIMARY KEY,
+  stream_id INT REFERENCES streams(id),
+  topic TEXT NOT NULL,
+  sender_id INT REFERENCES users(id),
+  content TEXT NOT NULL,
+  ts DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_msg_stream_topic ON messages(stream_id, topic, id);
+-- unread per (user,stream,topic): store last_read_message_id per membership
+```
+SSE endpoint sketch (FastAPI):
+```python
+@app.get('/events/{stream_id}')
+async def events(stream_id: int, request: Request):
+    q = asyncio.Queue(); bus.subscribe(stream_id, q)
+    async def gen():
+        while True:
+            if await request.is_disconnected(): bus.unsubscribe(stream_id,q); break
+            yield f'data: {await q.get()}\n\n'
+    return StreamingResponse(gen(), media_type='text/event-stream')
+```
+
+
 ## Part 4 — Life Integration
 
 - This can BE your group's project tracker (dogfooding!) — real users from day one
