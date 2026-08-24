@@ -57,7 +57,7 @@ Case studies of real open-source codebases selected by the user (2026-08-24). Ea
 | Page | Codebase | Core Lesson |
 |------|----------|-------------|
 | [[cs-gpt4free]] | gpt4free API reverse-engineering | Legal/ethical boundaries in gray-zone tooling ⚠️ |
-| [[mod-dh note]] (in productivity) | Colemak Mod-DH | Ergonomics as long-term optimization |
+| [[modules/productivity/mod-dh-keyboard-layouts|Colemak Mod-DH]] | Colemak Mod-DH | Ergonomics as long-term optimization |
 
 ## Study Protocol (any codebase)
 

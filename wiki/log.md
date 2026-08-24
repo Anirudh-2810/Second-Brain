@@ -331,3 +331,7 @@
 - careers/: tech-interview-handbook expanded page (Grind 75 scheduler integration).
 - Already-covered overlaps noted: jwasham/coding-interview-university = repo-coding-interview-university.md; satwikkansal/wtfpython integrated in languages-python-advanced.md.
 - Both catalogs updated (wiki/index.md + wiki/modules/index.md). All deep-edition layers present per user spec: failure modes, premortems/rescues, life integration.
+
+### 2026-08-24 — mod-dh page added to productivity/ (completes the 30-repo intake)
+- Created productivity/mod-dh-keyboard-layouts.md: ergonomics decision framework + retraining-wall failure modes; fixed case-studies index link.
+- Full 30-repo intake now accounted for: 28 newly ingested + 2 already covered (wtfpython in languages-python-advanced, CIU as repo-coding-interview-university).
