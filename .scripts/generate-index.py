@@ -1,7 +1,6 @@
-"""Generate index.html — a browser dashboard of the whole vault, grouped by domain.
+"""Generate index.html — browser dashboard of the whole vault, grouped by PARA domain.
 
 Run:  python .scripts/generate-index.py
-Output: index.html at vault root (Obsidian URIs for clickable links).
 """
 import os, html, datetime
 
@@ -10,12 +9,14 @@ WIKI = os.path.join(VAULT, 'wiki')
 VAULT_NAME = os.path.basename(VAULT)
 
 DOMAINS = [
-    ('💼 Business', 'business', ['careers', 'automations', 'quant-finance']),
-    ('💻 Programming & Coding', 'programming', None),   # None = root pages + subfolders
-    ('🤖 AI & Data Science', 'ai-data', ['data-science', 'ai', 'ai-ml']),
-    ('⚙️ Engineering', 'engineering', None),
-    ('🧠 Self-Development', 'self-dev', ['self-mastery', 'productivity', 'german']),
-    ('🔨 Builds (Your Systems)', 'builds', ['stock-agent', 'retrieval-agent', 'projects']),
+    ('🔨 Current Projects', '00-Current-Projects', None),
+    ('💼 Business', '01-Areas/Business', ['careers', 'automations', 'quant-finance']),
+    ('💻 Programming & Coding', '01-Areas/Programming', None),
+    ('🤖 AI & Data Science', '01-Areas/AI-Data', ['data-science', 'ai', 'ai-ml']),
+    ('⚙️ Engineering', '01-Areas/Engineering', None),
+    ('🧠 Self-Development', '01-Areas/Self-Dev', ['self-mastery', 'productivity', 'german']),
+    ('📚 Resources', '02-Resources', ['case-studies', 'learning-resources']),
+    ('🗺 Roadmaps Hub', '01-Areas/Roadmaps', None),
 ]
 
 def title_of(path):
@@ -32,13 +33,12 @@ def obsidian_uri(rel):
 def list_pages(folder):
     pages = []
     for root, dirs, files in os.walk(folder):
-        dirs[:] = [d for d in dirs if d not in ('.obsidian',)]
         for fn in files:
             if fn.endswith('.md'):
                 full = os.path.join(root, fn)
-                rel = os.path.relpath(full, VAULT)
-                depth = rel.replace(os.sep, '/').count('/')
-                pages.append((rel.replace(os.sep, '/'), fn[:-3], depth))
+                rel_dom = os.path.relpath(full, folder).replace(os.sep, '/')
+                rel_vault = os.path.relpath(full, VAULT).replace(os.sep, '/')
+                pages.append((rel_vault, fn[:-3], rel_dom.count('/')))
     return sorted(pages)
 
 rows = []
@@ -47,28 +47,24 @@ for label, folder, subs in DOMAINS:
     dom_path = os.path.join(WIKI, folder)
     if not os.path.isdir(dom_path):
         continue
-    dom_pages = []
+    all_pages = list_pages(dom_path)
+    rows.append(f'<h2>{html.escape(label)}</h2>')
+    rows.append(f'<p class="path">wiki/{folder}/</p>')
+    blocks = []
     if subs is None:
-        dom_pages = [(os.path.relpath(p, VAULT).replace(os.sep, '/'), b, d)
-                     for p, b, d in list_pages(dom_path)]
-        # group: root-level first, then each subdir block
-        root_pages = [x for x in dom_pages if x[2] == 2]
-        blocks = [('— root —', root_pages)]
-        for sub in sorted(d for d in os.listdir(dom_path)
-                          if os.path.isdir(os.path.join(dom_path, d))):
-            sp = [x for x in dom_pages if x[0].startswith(f'wiki/{folder}/{sub}/')]
+        blocks.append(('— root —', [p for p in all_pages if p[2] == 0]))
+        for sub in sorted(d for d in os.listdir(dom_path) if os.path.isdir(os.path.join(dom_path, d))):
+            sp = [p for p in all_pages if p[0].startswith(f'wiki/{folder}/{sub}/')]
             if sp:
                 blocks.append((sub, sp))
     else:
-        blocks = []
         for sub in subs:
-            sp = list_pages(os.path.join(dom_path, sub))
+            sp = [p for p in all_pages if p[0].startswith(f'wiki/{folder}/{sub}/')]
             if sp:
                 blocks.append((sub, sp))
-    # INDEX.md first within every block
-    rows.append(f'<h2>{html.escape(label)}</h2>')
-    rows.append(f'<p class="path">wiki/{folder}/</p>')
     for bname, pages in blocks:
+        if not pages:
+            continue
         if bname != '— root —':
             rows.append(f'<h3>{html.escape(bname)}/</h3>')
         rows.append('<ul>')
@@ -78,17 +74,6 @@ for label, folder, subs in DOMAINS:
             rows.append(f'<li{cls}><a href="{obsidian_uri(rel)}">{html.escape(name)}</a></li>')
             total += 1
         rows.append('</ul>')
-
-# roadmaps hub
-rm = os.path.join(WIKI, 'roadmaps')
-if os.path.isdir(rm):
-    rows.append('<h2>🗺 Roadmaps Hub</h2>')
-    rows.append('<ul>')
-    for p, b, _ in list_pages(rm):
-        rel = os.path.relpath(p, VAULT).replace(os.sep, '/')
-        rows.append(f'<li class="idx"><a href="{obsidian_uri(rel)}">{html.escape(b)}</a></li>')
-    total += 1
-    rows.append('</ul>')
 
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
 out = f"""<!DOCTYPE html>
@@ -105,11 +90,11 @@ out = f"""<!DOCTYPE html>
  .meta{{color:#6c7086;font-size:.85em}}
 </style></head><body>
 <h1>🧠 Second Brain — Vault Index</h1>
-<p class="meta">Generated {now} · {total} pages · regenerate with <code>python .scripts/generate-index.py</code><br>
+<p class="meta">Generated {now} · {total} pages · regenerate: <code>python .scripts/generate-index.py</code> · colors: <code>python .scripts/update-graph-colors.py</code><br>
 Click any link to open in Obsidian.</p>
 {chr(10).join(rows)}
 </body></html>"""
 
 with open(os.path.join(VAULT, 'index.html'), 'w', encoding='utf-8') as f:
     f.write(out)
-print(f'index.html generated: {total} pages across {len(DOMAINS)+1} sections')
+print(f'index.html regenerated: {total} pages')

@@ -18,8 +18,8 @@
 
 ## What is PENDING (start here tomorrow)
 1. **Update `NOTES.md`** — add the new 6th video (Daniel Barada 20h level-up) as a new section: summary + source registry entry + next actions.
-2. **Create a NEW wiki module folder** — suggested name: `wiki/modules/self-mastery/` (the video is self-mastery/psychology of belief/manifestation/discipline, distinct from the productivity task-systems module). Add comprehensive in-depth node pages + Mermaid/ASCII flowcharts. Full corpus: belief engineering, placebo/nocebo, delusional goals, every version of you exists, manifestation quadrant, inner architecture, subconscious rewiring, identity stack/self-talk, borrowed state/mirror, purpose antidote, wanting nothing, effortless achievement, unified life, two lines that predict life, high-frequency human, stop overthinking, design brain for discipline, crave hard things, boredom tolerance, brain god mode, learner's life, consistency & procrastination, hyperfocus, 1 daily habit, glitch in human productivity, achieve more in 1 week, 24-hour empire.
-3. **Update `wiki/modules/index.md`**, **`wiki/index.md`**, and append to **`wiki/log.md`**.
+2. **Create a NEW wiki module folder** — location: `wiki/01-Areas/Self-Dev/self-mastery/` (the video is self-mastery/psychology of belief/manifestation/discipline, distinct from the productivity task-systems module). Add comprehensive in-depth node pages + Mermaid/ASCII flowcharts. Full corpus: belief engineering, placebo/nocebo, delusional goals, every version of you exists, manifestation quadrant, inner architecture, subconscious rewiring, identity stack/self-talk, borrowed state/mirror, purpose antidote, wanting nothing, effortless achievement, unified life, two lines that predict life, high-frequency human, stop overthinking, design brain for discipline, crave hard things, boredom tolerance, brain god mode, learner's life, consistency & procrastination, hyperfocus, 1 daily habit, glitch in human productivity, achieve more in 1 week, 24-hour empire.
+3. **Update the domain INDEX**, **`wiki/index.md`**, and append to **`wiki/log.md`**.
 
 ## Convenience files (TEMP only, safe to regenerate with fetch_transcript.py + make_digest.py)
 - Temp dir: `C:\Users\VIJAYK~1\AppData\Local\Temp\opencode\`
@@ -31,4 +31,4 @@
 ## Wiki conventions (from Agent.md)
 - YAML frontmatter on every page: `course_code`/`module`, `course_name`/`topic`, `unit`, `tags`, `last_updated`.
 - Obsidian `[[wikilinks]]`, LaTeX math, language-tagged code blocks, Mermaid + ASCII flowcharts.
-- Append to `wiki/index.md`, `wiki/log.md`, `wiki/modules/index.md`.
+- Append to `wiki/index.md`, `wiki/log.md`, and the domain INDEX.

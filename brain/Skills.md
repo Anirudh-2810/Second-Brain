@@ -25,7 +25,7 @@ Slash commands live in `.opencode/commands/`, subagents in `.opencode/agents/`, 
 
 | Command | Purpose |
 |---------|---------|
-| `/om-ingest` | Distill a `raw-sources/` file into linked `wiki/modules/` concept pages (index + log updated) |
+| `/om-ingest` | Distill a `raw-sources/` file into linked `wiki/01-Areas/` concept pages (index + log updated) |
 | `/om-ingest-brain` | Chunk & embed `wiki/` pages into `brain_chunks` for retrieval agent (calls Edge Function `embed` mode) |
 | `/om-tidy` | Hygiene pass — orphans, broken links, oversized notes, stale thinking pads, index drift. Never deletes without confirmation |
 | `/om-correct` | Sweep a corrected fact: fix the single source plus every restatement (grep AND paraphrase), preserve dated history |

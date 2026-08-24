@@ -232,47 +232,51 @@
 - Cross-linked to existing modules: `[[wiki/modules/automations/overview]]` (n8n patterns), `[[wiki/modules/programming/SAAS_BUILD_NOTES]]` (Supabase Edge Function patterns), `[[wiki/modules/quant-finance/quant-toolkit-and-skills]]` (vector search in finance).
 - Updated `/wiki/index.md` (new **Retrieval Agent (Business Brain)** section under Cross-Cutting Modules).
 
-### 2026-08-24 — Ingest: niderhoff/knowledge-repository (full distillation ? wiki/modules/knowledge-repo/)
-- Fetched and processed the complete README (90KB, 916 lines) of github.com/niderhoff/knowledge-repository — a curated link collection (~500 resources, 81 commits, 2017-2021 era) for data science / computer science learning.
+### 2026-08-24 ï¿½ Ingest: niderhoff/knowledge-repository (full distillation ? wiki/modules/knowledge-repo/)
+- Fetched and processed the complete README (90KB, 916 lines) of github.com/niderhoff/knowledge-repository ï¿½ a curated link collection (~500 resources, 81 commits, 2017-2021 era) for data science / computer science learning.
 - Created /wiki/modules/knowledge-repo/ with 12 fully-linked pages (YAML frontmatter, ## For future agent preambles, staleness caveats, cross-links):
-  - overview.md — module hub: page map table, suggested reading order, source description, related vault modules.
-  - oadmaps-and-study-guides.md — 13 meta-roadmaps (Coding Interview University, Data Engineer Roadmap, ML roadmaps, OSSU DS degree, DeepMind resource list, HN Academy) + roadmap usage pattern.
-  - ml-theory-and-moocs.md — canonical references (Deep Learning Book, D2L, PRML code), course catalog tiered by start-here priority (fast.ai / D2L / CS231n / mlcourse.ai), concept explainers (Karpathy recipe, CNNs, GANs, imbalanced classes), interview prep banks.
-  - python-datascience-frameworks.md — pandas/sklearn foundation stack, gradient boosting trio (XGBoost/LightGBM/CatBoost), deep TensorFlow 2.x section (training mechanics, hyperparameter tuning, TensorBoard, TF1?2 migration, inference perf, DSL extensions incl. Einops), Keras advanced GitHub issues, PyTorch tooling.
-  - python-datascience-topics.md — problem-type organization: anomaly detection, computer vision with 15+ action-recognition repos tabulated, face recognition (face_recognition/OpenFace/DeepFaceLab), Detectron2, OCR, NLP (HuggingFace Transformers, ULMFiT), speech, time series (Open ML Course 9 + SARIMAX pitfalls), Microsoft Recommenders, RL environments (AirSim, RLTrader, SafetyGym), AutoML Zero, Featuretools.
-  - mlops-production-deployment.md — Ray (RLlib/Tune), TensorFlow production stack (TFRT/TFLite/TFJS/MKL inference), model interpretation & visualization (tf-explain, Gradio, TensorSpace).
-  - software-dev-general.md — Teach Yourself Computer Science, Big-O cheat sheet, Coding Interview University system, DS&A books/visualizations/practice platforms, software architecture (Fowler guide, AOSA, C4 model, O'Reilly patterns book), Google code review guide, CLI mastery (Art of Command Line, htop, explainshell, jq).
-  - languages-python-advanced.md — mastery books (Fluent/Effective Python), idioms & anti-patterns (wtfpython, pytudes), typing at scale (Dropbox case study, MonkeyType), async-vs-threads-vs-processes decision rule distilled from benchmarks, Django concurrency/background jobs, DB migrations/testing tooling, Telegram bots, web scraping ladder.
-  - language-rust.md — ordered official path (Book ? rustlings ? By Example ? Reference), intermediate depth (too-many-lists, Programming Rust, Rustonomicon), alternative on-ramps (Easy Rust, tl;dr Rust, Stanford CS110L), web framework selection; flagged quant-industry relevance.
-  - languages-polyglot.md — per-language mini-paths: C/C++ (K&R, Modern C, GoogleTest, safety-critical list), Go (Practical Go Lessons, Learn Go with Tests, learngo), Haskell (LYAH, Scheme-in-48-hours, Hutton lectures), Java/Scala (Helsinki MOOC, Jackson polymorphism), JavaScript deepest section (Eloquent JS, YDKJS, Build Your Own React, Mostly Adequate FP guide, d3).
-  - systems-design-distributed.md — System Design Primer, awesome-scalability, DDIA book reference, Hadoop texts, data serialization (FlexBuffers, Arrow Flight), Docker best practices (linting, build-time secrets, multi-stage), Kubernetes learn/mistake/tooling triad, workflow engines (Airflow on K8s, KEDA, Celery scaling), KeyDB/Prometheus/nginx-generator/Hoppscotch utilities.
-  - web-development-resources.md — MDN, event loop talk, DevTools, caniuse, BEM/SMACSS/CSS Grid architecture conventions, NN/g usability, Bootstrap/Foundation with Tailwind-era note, inspiration sources.
-  - curated-reading-list.md — ~190 high-signal links distilled from the repo's unsorted ~250-link reading list into 12 themes (ML practice/career, DL concepts incl. Distill essays, CV production cases, NLP, Python craft, data engineering/infra, statistics methods, trading-RL quant-adjacent, git recovery, career/mindset, aggregators) + ingestion notes documenting dropped links.
+  - overview.md ï¿½ module hub: page map table, suggested reading order, source description, related vault modules.
+  - 
+oadmaps-and-study-guides.md ï¿½ 13 meta-roadmaps (Coding Interview University, Data Engineer Roadmap, ML roadmaps, OSSU DS degree, DeepMind resource list, HN Academy) + roadmap usage pattern.
+  - ml-theory-and-moocs.md ï¿½ canonical references (Deep Learning Book, D2L, PRML code), course catalog tiered by start-here priority (fast.ai / D2L / CS231n / mlcourse.ai), concept explainers (Karpathy recipe, CNNs, GANs, imbalanced classes), interview prep banks.
+  - python-datascience-frameworks.md ï¿½ pandas/sklearn foundation stack, gradient boosting trio (XGBoost/LightGBM/CatBoost), deep TensorFlow 2.x section (training mechanics, hyperparameter tuning, TensorBoard, TF1?2 migration, inference perf, DSL extensions incl. Einops), Keras advanced GitHub issues, PyTorch tooling.
+  - python-datascience-topics.md ï¿½ problem-type organization: anomaly detection, computer vision with 15+ action-recognition repos tabulated, face recognition (face_recognition/OpenFace/DeepFaceLab), Detectron2, OCR, NLP (HuggingFace Transformers, ULMFiT), speech, time series (Open ML Course 9 + SARIMAX pitfalls), Microsoft Recommenders, RL environments (AirSim, RLTrader, SafetyGym), AutoML Zero, Featuretools.
+  - mlops-production-deployment.md ï¿½ Ray (RLlib/Tune), TensorFlow production stack (TFRT/TFLite/TFJS/MKL inference), model interpretation & visualization (tf-explain, Gradio, TensorSpace).
+  - software-dev-general.md ï¿½ Teach Yourself Computer Science, Big-O cheat sheet, Coding Interview University system, DS&A books/visualizations/practice platforms, software architecture (Fowler guide, AOSA, C4 model, O'Reilly patterns book), Google code review guide, CLI mastery (Art of Command Line, htop, explainshell, jq).
+  - languages-python-advanced.md ï¿½ mastery books (Fluent/Effective Python), idioms & anti-patterns (wtfpython, pytudes), typing at scale (Dropbox case study, MonkeyType), async-vs-threads-vs-processes decision rule distilled from benchmarks, Django concurrency/background jobs, DB migrations/testing tooling, Telegram bots, web scraping ladder.
+  - language-rust.md ï¿½ ordered official path (Book ? rustlings ? By Example ? Reference), intermediate depth (too-many-lists, Programming Rust, Rustonomicon), alternative on-ramps (Easy Rust, tl;dr Rust, Stanford CS110L), web framework selection; flagged quant-industry relevance.
+  - languages-polyglot.md ï¿½ per-language mini-paths: C/C++ (K&R, Modern C, GoogleTest, safety-critical list), Go (Practical Go Lessons, Learn Go with Tests, learngo), Haskell (LYAH, Scheme-in-48-hours, Hutton lectures), Java/Scala (Helsinki MOOC, Jackson polymorphism), JavaScript deepest section (Eloquent JS, YDKJS, Build Your Own React, Mostly Adequate FP guide, d3).
+  - systems-design-distributed.md ï¿½ System Design Primer, awesome-scalability, DDIA book reference, Hadoop texts, data serialization (FlexBuffers, Arrow Flight), Docker best practices (linting, build-time secrets, multi-stage), Kubernetes learn/mistake/tooling triad, workflow engines (Airflow on K8s, KEDA, Celery scaling), KeyDB/Prometheus/nginx-generator/Hoppscotch utilities.
+  - web-development-resources.md ï¿½ MDN, event loop talk, DevTools, caniuse, BEM/SMACSS/CSS Grid architecture conventions, NN/g usability, Bootstrap/Foundation with Tailwind-era note, inspiration sources.
+  - curated-reading-list.md ï¿½ ~190 high-signal links distilled from the repo's unsorted ~250-link reading list into 12 themes (ML practice/career, DL concepts incl. Distill essays, CV production cases, NLP, Python craft, data engineering/infra, statistics methods, trading-RL quant-adjacent, git recovery, career/mindset, aggregators) + ingestion notes documenting dropped links.
 - Cross-linked to existing modules: [[modules/ai/index]], [[modules/programming/cs50/index]], [[modules/object-oriented-programming/overview]], [[modules/quant-finance/applications-of-quantitative-finance]], [[modules/robotics/index]], [[modules/ai-ml/matching-engine-cpp]], [[modules/stock-agent/overview]], [[modules/automations/quick-start-guide]].
 - Updated /wiki/index.md (new **Knowledge Repository** section under Cross-Cutting Modules listing all 12 pages).
 - Ingestion corrections: fixed malformed source links where target identifiable, omitted dead/mismatched ones marked (TBC), dropped ~60 low-signal links (device tips, forum one-offs, duplicates) documented in curated-reading-list ingestion notes.
 
-### 2026-08-24 — knowledge-repo module upgraded: +14 Deep Guides (execution layer)
+### 2026-08-24 ï¿½ knowledge-repo module upgraded: +14 Deep Guides (execution layer)
 - Grounded roadmaps by fetching actual section structure of linked repos: coding-interview-university (main/README.md), system-design-primer, ossu/data-science, datastacktv/data-engineer-roadmap.
 - Market research via web search (Aug 2026 sources: Pragmatic Engineer, Robert Half 2026, Ravio/SignalFire/Stanford compilations, India salary guides) for the market analysis page.
 - Created 14 guide pages under /wiki/modules/knowledge-repo/, each with frontmatter, ## For future agent preamble, Mermaid flowcharts, exit tests, failure/quit-point tables, and example questions:
-  - how-to-self-teach.md — learning loop, never-zero rule, quit-point map w/ recovery protocols, diagnostic flowchart.
-  - oadmap-software-engineer.md — 6 stages from CIU curriculum headings; exit tests per stage.
-  - oadmap-data-scientist.md — OSSU-ordered stages; SQL-first emphasis; analyst-title entry note.
-  - oadmap-ml-engineer.md — DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 2026 India bands.
-  - market-analysis-tech-2026.md — sourced split-market analysis; entry-level collapse numbers; strategic response for BTech student; quarterly re-check caveat.
-  - interview-counter-guide.md — funnel anatomy, live-coding counter-script, STAR story bank method, negotiation basics.
-  - dsa-interview-playbook.md — 15-pattern table with recognition cues/templates, ladder practice system, worked examples.
-  - system-design-interview.md — scoring axes, 6-step framework flowchart, building-blocks vocabulary from SDP index, URL-shortener walkthrough.
-  - ml-interview-playbook.md — theory bank with answer skeletons (definition?why?when-it-breaks), case framework, ML system design layers.
-  - uild-project-playbook.md — selection matrix, v0.1 rule, build loop flowchart, failure-point table, README contract; retro-applied to user's retrieval-agent brain.
-  - math-for-ml-survival-guide.md — honest depth table, stats-first ordering, math-specific quit points, practice protocol.
-  - python-mastery-path.md — 6 stages w/ exit tests and mini-projects incl. vault-meta CLI suggestion.
-  - kaggle-and-practice-guide.md — three usage modes, competition playbook flowchart, leakage/pitfall tables, platform ladders.
-  - example-question-bank.md — ~40 drill questions across Python/SQL/DSA/ML/stats/CS-core/HR/GenAI with target-answer pointers.
+  - how-to-self-teach.md ï¿½ learning loop, never-zero rule, quit-point map w/ recovery protocols, diagnostic flowchart.
+  - 
+oadmap-software-engineer.md ï¿½ 6 stages from CIU curriculum headings; exit tests per stage.
+  - 
+oadmap-data-scientist.md ï¿½ OSSU-ordered stages; SQL-first emphasis; analyst-title entry note.
+  - 
+oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 2026 India bands.
+  - market-analysis-tech-2026.md ï¿½ sourced split-market analysis; entry-level collapse numbers; strategic response for BTech student; quarterly re-check caveat.
+  - interview-counter-guide.md ï¿½ funnel anatomy, live-coding counter-script, STAR story bank method, negotiation basics.
+  - dsa-interview-playbook.md ï¿½ 15-pattern table with recognition cues/templates, ladder practice system, worked examples.
+  - system-design-interview.md ï¿½ scoring axes, 6-step framework flowchart, building-blocks vocabulary from SDP index, URL-shortener walkthrough.
+  - ml-interview-playbook.md ï¿½ theory bank with answer skeletons (definition?why?when-it-breaks), case framework, ML system design layers.
+  - uild-project-playbook.md ï¿½ selection matrix, v0.1 rule, build loop flowchart, failure-point table, README contract; retro-applied to user's retrieval-agent brain.
+  - math-for-ml-survival-guide.md ï¿½ honest depth table, stats-first ordering, math-specific quit points, practice protocol.
+  - python-mastery-path.md ï¿½ 6 stages w/ exit tests and mini-projects incl. vault-meta CLI suggestion.
+  - kaggle-and-practice-guide.md ï¿½ three usage modes, competition playbook flowchart, leakage/pitfall tables, platform ladders.
+  - example-question-bank.md ï¿½ ~40 drill questions across Python/SQL/DSA/ML/stats/CS-core/HR/GenAI with target-answer pointers.
 - Updated overview.md hub (Deep Guides table + suggested order), /wiki/index.md (Deep Guides subsection).
 
-### 2026-08-24 — knowledge-repo: +17 linked-repo expansion pages (every major repo from the source README)
+### 2026-08-24 ï¿½ knowledge-repo: +17 linked-repo expansion pages (every major repo from the source README)
 - Batch-fetched raw READMEs of 14 linked repos to ground expansions in real structure (fullstack-web-developer-path, Resources-Front-End-Beginner, front-end-handbook-2017, ml-mindmap, ml-roadmap, ds-interviews, TheAlgorithms/Python, javascript-algorithms, art-of-command-line, mlcourse.ai, awesome-deep-learning-papers, nodebestpractices, awesome-scalability; + earlier CIU/SDP/OSSU/deroad). madd86/awesome-system-design fetch failed (branch rename); covered from catalog knowledge, marked accordingly.
 - Created 17 pages under /wiki/modules/knowledge-repo/ (frontmatter + For-future-agent + structure tables + usage protocols/flowcharts + failure points + checkpoint questions):
   - repo-coding-interview-university (full topic checklist, method rules, daily plan, vault integration flowchart)
@@ -295,7 +299,7 @@
 - Updated overview.md hub (Linked Repo Expansions table) and /wiki/index.md.
 - Module now totals 43 pages: hub + 12 reference + 14 deep guides + 17 repo expansions.
 
-### 2026-08-24 — Reorganized knowledge-repo module into field modules (43 pages redistributed)
+### 2026-08-24 ï¿½ Reorganized knowledge-repo module into field modules (43 pages redistributed)
 - User directive: field-first organization, not a monolithic knowledge-repo folder.
 - Created 4 new field modules with index hubs: data-science/ (17 pages + index), systems-design/ (4 + index), web-development/ (3 + index), careers/ (5 + index).
 - Moved into existing programming/ (13 pages): software-dev-general, languages-python-advanced, language-rust, languages-polyglot, python-mastery-path, dsa-interview-playbook, roadmap-software-engineer, repo-coding-interview-university, repo-teachyourselfcs, repo-algorithms-implementations, repo-art-of-command-line, repo-nodejs-best-practices, repo-dev-toolbox-minors.
@@ -305,26 +309,26 @@
 - Updated both catalogs: wiki/index.md (Knowledge Repository section replaced by 4 field sections) and wiki/modules/index.md (new field sections inserted).
 - No content deleted except the dissolved hub note (fully redistributed). Log history above intentionally retained as historical record of the pre-reorg structure.
 
-### 2026-08-24 — Deep Edition pass, batch 1 (6 pages upgraded to R&D depth)
+### 2026-08-24 ï¿½ Deep Edition pass, batch 1 (6 pages upgraded to R&D depth)
 - Expanded to deep edition (root-cause failure analysis, failure-mode taxonomies w/ early warnings, premortems, defeat-tackling flowcharts, life-integration systems, success metrics): roadmap-data-scientist, market-analysis-tech-2026, interview-counter-guide, build-project-playbook (careers/); dsa-interview-playbook + (programming/); system-design-interview (systems-design/).
 - Remaining pages queued for subsequent deep batches.
 
-### 2026-08-24 — Deep Edition pass, batches 2-3 (10 more pages at R&D depth)
+### 2026-08-24 ï¿½ Deep Edition pass, batches 2-3 (10 more pages at R&D depth)
 - Batch 2: roadmap-ml-engineer, ml-interview-playbook, math-for-ml-survival-guide (data-science/); python-mastery-path (programming/); kaggle-and-practice-guide (data-science/).
 - Batch 3: how-to-self-teach (productivity/) - failure engines + energy-scheduling R&D; example-question-bank (careers/) - drilling mechanism + expectation tags + failure-signal interpretation; ml-theory-and-moocs, python-datascience-frameworks, python-datascience-topics (data-science/).
 - Every deep edition adds: root-cause mechanisms, failure-mode taxonomies w/ early warnings, premortems, defeat-tackling flowcharts, life-integration systems, success metrics.
 - Remaining: reference pages + repo-expansion pages (~24) queued for batch 4+.
 
-### 2026-08-24 — Deep Edition pass, batch 4 (7 more reference-layer pages)
-- mlops-production-deployment (production-failure taxonomy, MLOps ladder, notebook-to-production gap), systems-design-distributed (distributed failure taxonomy, learning-order, K8s/Docker traps) [systems-design]; web-development-resources (frontend failure taxonomy F1-F6) [web-development]; software-dev-general, languages-python-advanced, language-rust, languages-polyglot (programming/) — compounding-vs-plateau mechanism, per-language failure modes + transfer upgrades, decision logic.
+### 2026-08-24 ï¿½ Deep Edition pass, batch 4 (7 more reference-layer pages)
+- mlops-production-deployment (production-failure taxonomy, MLOps ladder, notebook-to-production gap), systems-design-distributed (distributed failure taxonomy, learning-order, K8s/Docker traps) [systems-design]; web-development-resources (frontend failure taxonomy F1-F6) [web-development]; software-dev-general, languages-python-advanced, language-rust, languages-polyglot (programming/) ï¿½ compounding-vs-plateau mechanism, per-language failure modes + transfer upgrades, decision logic.
 - Remaining deep-edition targets: repo-expansion pages (17).
 
-### 2026-08-24 — Deep Edition pass, batch 5 (roadmap catalog + all 17 repo-expansion pages)
+### 2026-08-24 ï¿½ Deep Edition pass, batch 5 (roadmap catalog + all 17 repo-expansion pages)
 - roadmaps-and-study-guides: roadmap-failure mechanics, premortem, selection flowchart.
 - All 17 repo-expansion pages received Deep Edition Addenda: failure-mode tables specific to each repo's usage pattern, mini-premortems, rescue flowcharts, life-integration metrics. Compact-but-real depth appropriate to catalog-layer pages.
 - Deep-edition coverage now complete across the module: 23 full deep rewrites + 18 addenda = every page carries failure analysis, premortem/rescue guidance, and life-integration systems.
 
-### 2026-08-24 — New field modules: learning-resources (10 pages) + case-studies (14 pages); careers +1
+### 2026-08-24 ï¿½ New field modules: learning-resources (10 pages) + case-studies (14 pages); careers +1
 - User supplied 30 GitHub repos to analyze and ingest field-first.
 - NEW /wiki/modules/learning-resources/: index hub + 8 catalog pages (awesome meta, free-for-dev, free-programming-books, freeCodeCamp, 30-seconds-of-code + project-based-learning combined, developer-roadmap/roadmap.sh, OSSU computer-science, build-your-own-x) - each with anti-hoarding failure modes and integration routes into existing vault roadmaps. Grounded by fetches where available.
 - NEW /wiki/modules/case-studies/: index hub (with universal study protocol flowchart) + 13 case studies: twitter/the-algorithm (two-stage recsys pipeline), chrislgarry/Apollo-11 (AGC source; 1202 alarm resilience), PixarAnimationStudios/OpenUSD (interchange-format strategy), zulip/zulip (Django monorepo discipline), hydralauncher/hydra (Electron architecture; legal gray-zone noted), winsiderss/systeminformer + westoncampbell/SpyPlusPlus combined (Windows internals), jj-vcs/jj (VCS data-model redesign), tkellogg/dura + rupa/z combined (tiny-tool design patterns), KwaiVGI/LivePortrait (research-code packaging), python-discord/snekbox (sandbox defense-in-depth), riot/riot + adobe-research/ActionScript4 combined (ecosystem lifecycle), xtekky/gpt4free (?? ethics/legal study only), wesen/TreeMaker + bnpr/Malt combined (niche creative tools).
@@ -332,11 +336,11 @@
 - Already-covered overlaps noted: jwasham/coding-interview-university = repo-coding-interview-university.md; satwikkansal/wtfpython integrated in languages-python-advanced.md.
 - Both catalogs updated (wiki/index.md + wiki/modules/index.md). All deep-edition layers present per user spec: failure modes, premortems/rescues, life integration.
 
-### 2026-08-24 — mod-dh page added to productivity/ (completes the 30-repo intake)
+### 2026-08-24 ï¿½ mod-dh page added to productivity/ (completes the 30-repo intake)
 - Created productivity/mod-dh-keyboard-layouts.md: ergonomics decision framework + retraining-wall failure modes; fixed case-studies index link.
 - Full 30-repo intake now accounted for: 28 newly ingested + 2 already covered (wtfpython in languages-python-advanced, CIU as repo-coding-interview-university).
 
-### 2026-08-24 — Case-studies Deep R&D pass (what-code/why/can-I-build editions)
+### 2026-08-24 ï¿½ Case-studies Deep R&D pass (what-code/why/can-I-build editions)
 - 13 case-study pages rewritten to 1.5-3k depth: code inventory tables (languages/services/files), WHY-each-choice rationale analysis, and explicit Can-I-Build-My-Version verdicts with concrete build specs:
   - cs-twitter-algorithm: full component inventory (home-mixer/Earlybird/SimClusters/TwML/Heavy Ranker 48-output MaskNet); mini two-stage recommender build plan (4 weekends).
   - cs-apollo-11: Comanche/Luminary/Executive/Interpreter/DSKY inventory; AGC executive simulator spec (1202 repro).
@@ -352,7 +356,7 @@
   - cs-riot-actionscript: compiler/observer + spec inventories; micro-riot ~100-line framework + mini-spec parser builds.
   - cs-gpt4free: registry/failover inventory; LEGAL unified-llm-client over official tiers + local models (flagship GenAI utility).
 
-### 2026-08-24 — Case-studies deep R&D expansion (code inventories + build plans)
+### 2026-08-24 ï¿½ Case-studies deep R&D expansion (code inventories + build plans)
 - All 13 case-study pages expanded with: exact code inventories (languages/services/files per repo), WHY-each-technology-choice rationale tables, and explicit Can-I-Build-My-Version verdicts with milestone-based build specs:
   - twitter-algorithm: home-mixer/Earlybird/SimClusters/TwML/Heavy-Ranker(48-head MaskNet) inventory; SimClusters math sketch; 48-heads rationale; buildable 'For-You feed for your information diet' two-stage recommender (4-weekend plan w/ featurize code).
   - apollo-11: word-format/bank-switching/Interpreter/Executive mechanics incl. 1202 overflow walkthrough; AGC executive simulator spec (~300 lines, Python/C).
@@ -369,21 +373,21 @@
   - gpt4free: Provider ABC + Router failover code w/ usage ledger schema (legal equivalents only).
 - Word counts now 816-1200/page (dense technical prose + code); combined module ~12k words of case-study analysis.
 
-### 2026-08-24 — Ingest: YouTube video 'Man Who Masters His Temptations Masters His Fate' (BHATT, 51:43, uy24YeJutSM)
+### 2026-08-24 ï¿½ Ingest: YouTube video 'Man Who Masters His Temptations Masters His Fate' (BHATT, 51:43, uy24YeJutSM)
 - Transcripted via youtube-transcript-api (1,246 segments); raw saved to raw-sources/_transcripts/yt-uy24-man-who-masters-his-temptions.txt (gitignored per raw-sources policy).
 - Created wiki/modules/self-mastery/temptation-mastery.md: 8-part arc table (battlefield-within -> private-wars -> attention -> fortress-mind -> thought-chain -> old-vs-new-self -> vigilance -> sovereignty), fortress model table, refusal-vocabulary verbatim quotes, honest assessment layer (stated-confidence; mapped speaker claims onto evidence-backed mechanisms: environment design = atomic-habits laws, thought chain = CBT loop, vigilance = maintenance phase).
 - Updated wiki/index.md Self-Mastery block + self-mastery/overview.md source registry.
 
-### 2026-08-24 — Case-studies internals push (Part 6 sections on all 13 pages)
+### 2026-08-24 ï¿½ Case-studies internals push (Part 6 sections on all 13 pages)
 - Added Part 6 Internals Push sections: twitter (feature families, Earlybird inverted-index mechanics, Scala microservice rationale), jj (change-id vs commit-id side-table, conflict trees as objects, colocation, revsets DSL), snekbox (annotated NSJAIL config, seccomp allowlist-vs-blocklist mechanism, extended escape taxonomy), zulip (Recipient triangle worked example, queue-worker idempotency lifecycle, mypy-strict culture), apollo (Interpreter VM pseudo-instructions, DSKY Verb/Noun protocol, core-rope manufacturing), openusd (worked LIVRPS conflict, Hydra delegate contract triad, crate lazy-mmap perf), hydra (typed IPC channels pattern, playtime tracking approaches, desktop SQLite pragmatics), systeminformer-spy++ (NtQuerySystemInformation buffer walking, handle tables/injection detection, AV-flagging mechanism), liveportrait (warping field intuition, stitching mask math, puppet upgrade path), treemaker-malt (GEDCOM format primer, bpy registration type-system deep), riot-actionscript (Riot compile pipeline stages, AS4 death-chain autopsy, framework exercise rubric), dura-z (z scoring formula + full PowerShell mini-z sketch, mini-dura git plumbing sequence), gpt4free (Provider ABC + Router failover code w/ usage ledger, provider mortality taxonomy).
 - Word counts now 983-1419 per page (~14.1k words module-wide).
 
-### 2026-08-24 — temptation-mastery.md expanded to full 3k dump
+### 2026-08-24 ï¿½ temptation-mastery.md expanded to full 3k dump
 - Rewrote to ~3,000 words: complete 9-part coverage of the 51-min talk (opening frame, battlefield-within, private-wars, attention-battle, mind-fortress walls/guards/leadership, thought-to-destiny cascade, silence+structure training, refusal economy + spiritual promotions, old-vs-new self confrontation protocol, vigilance contract, sovereignty/reign).
 - Added 7 mermaid flowcharts: seed cascade, attack-window map, thought-to-destiny chain, momentum fork, confrontation protocol, complete system flowchart (awakening->sovereignty w/ feedback loop), plus fortress table and armor set.
 - Full verbatim quote bank (17 lines), practice protocol table (NOW/daily/attack-time/weekly/monthly/quarterly), honest assessment layer with integration moves.
 
-### 2026-08-24 — VAULT REORGANIZATION: domain-scoped structure (6 domains + roadmaps hub)
+### 2026-08-24 ï¿½ VAULT REORGANIZATION: domain-scoped structure (6 domains + roadmaps hub)
 - User directive: organize by life domains so agent scans ONLY the matching folder per question type (domain-scoped retrieval), fixing graph-view findability.
 - Created wiki/{business, programming, ai-data, engineering, self-dev, builds, roadmaps}; moved 27 module folders via git mv (history preserved): business<-careers/automations/quant-finance; programming absorbed old programming/* hoisted one level + OOP/web-dev/systems-design/case-studies/learning-resources; ai-data<-ai/ai-ml/data-science (split out of coding for scan precision); engineering<-SPM/eng-chem/drawing/math/physics/mathematics/physics/chemistry/robotics/excel-workflows; self-dev<-self-mastery/productivity/german; builds<-stock-agent/retrieval-agent/projects.
 - Patched 78 files' path-based links ([[modules/x/...]] -> new domain paths); zero stale remaining. Bare wikilinks unaffected.
@@ -392,3 +396,15 @@
 - Navigation: Home.md + wiki/index.md got Domain Map tables; .scripts/generate-index.py created -> generates index.html dashboard at vault root (282 pages, 7 sections, Obsidian URIs) - ran successfully.
 - .obsidian/graph.json colorGroups set per domain folder (user-approved graph fix).
 - Old catalog wiki/modules/index.md retained (links patched); primary catalogs now domain INDEXes + index.html.
+
+### 2026-08-25 — VAULT RESTRUCTURE v2: PARA numbered layout (Garden-of-Knowledge style) + per-module graph colors
+- User correction: wanted numbered PARA sidebar (00-Current-Projects / 01-Areas / 02-Resources / 98-Archive / 99-Unsorted like reference screenshot), DISTINCT graph color per module, and auto-sort-on-ingest. Previous flat domain folders renamed into PARA tree via git mv:
+  - 00-Current-Projects/ <- stock-agent, retrieval-agent, projects (+INDEX.md)
+  - 01-Areas/ <- Business/(careers,automations,quant-finance) Programming/(root+cs50+cs50p+c-programming+OOP+systems-design+web-dev) AI-Data/(data-science,ai,ai-ml) Engineering/(SPM,eng-*,math,phys,chem,robotics,excel) Self-Dev/(self-mastery,productivity,german) Roadmaps/
+  - 02-Resources/ <- case-studies, learning-resources (reference catalogs)
+  - 98-Archive/ + 99-Unsorted/ created (empty, .gitkeep)
+- wiki/modules/ DELETED (old catalog superseded by domain INDEXes + wiki/index.md); 29 files' [[modules/index links repointed to [[wiki/index.
+- Link patch pass: 72 wiki files + Home.md + AGENTS.md re-pointed ([[builds/ [[business/ [[ai-data/ etc -> numbered paths); retrieval-agent self-paths fixed; residual example-strings updated; brain/ historical entries intentionally preserved.
+- .scripts/update-graph-colors.py created: full-depth module discovery, golden-angle distinct hue per module -> 46 color groups written to .obsidian/graph.json (each module its own graph color; re-run after creating any new module).
+- .scripts/generate-index.py updated for PARA tree; index.html regenerated (283 pages, PARA-grouped).
+- AGENTS.md: auto-sort rule added to ingestion workflow (classify -> existing module else CREATE new module -> run update-graph-colors + generate-index; unsortable -> 99-Unsorted); .opencode command/agent docs updated to new paths.

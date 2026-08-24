@@ -10,7 +10,7 @@ Process this freeform dump. For each distinct piece of information:
    - Decisions → `brain/Key Decisions.md` (Decision Record template if it deserves its own note)
    - Gotchas → `brain/Gotchas.md` · Patterns → `brain/Patterns.md`
    - Wins → `brain/Wins.md` · Other durable facts → relevant `brain/` topic note
-   - Study material → `wiki/modules/<subject>/` following the ingestion workflow (frontmatter, cross-links, index + log update)
+   - Study material → `wiki/01-Areas/<Domain>/<module>/` following the ingestion workflow (auto-sort rule in AGENTS.md) (frontmatter, cross-links, index + log update)
    - Day-to-day log → today's `daily/` note
 4. **Frontmatter + links on everything**: `date`, `description`, `tags`, at least one `[[wikilink]]`
 5. **Update indexes** touched: `wiki/index.md`, `wiki/log.md`, `brain/Memories.md`

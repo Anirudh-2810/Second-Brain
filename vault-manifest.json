@@ -7,39 +7,44 @@
   "qmd_context": "Personal Second Brain: BTech coursework wiki (KJSCE) plus quant-finance self-study, daily habit tracking, and a persistent agent mind (goals, decisions, patterns, gotchas, wins) maintained by opencode.",
   "domains": {
     "business": {
-      "path": "wiki/business",
-      "index": "wiki/business/INDEX.md",
+      "path": "wiki/01-Areas/Business",
+      "index": "wiki/01-Areas/Business/INDEX.md",
       "scope": "career strategy, job market, interviews, freelancing, n8n automation business, client acquisition, trading & quant-finance"
     },
     "programming": {
-      "path": "wiki/programming",
-      "index": "wiki/programming/INDEX.md",
+      "path": "wiki/01-Areas/Programming",
+      "index": "wiki/01-Areas/Programming/INDEX.md",
       "scope": "coding craft: languages, CS50/C, DSA, interview drills, OOP, web dev, systems design, codebase case studies, learning-resource catalogs"
     },
     "ai-data": {
-      "path": "wiki/ai-data",
-      "index": "wiki/ai-data/INDEX.md",
+      "path": "wiki/01-Areas/AI-Data",
+      "index": "wiki/01-Areas/AI-Data/INDEX.md",
       "scope": "AI/ML/data science: theory, courses, TF/PyTorch, CV/NLP/time-series, MLOps, ML interviews, coursework AI notes"
     },
     "engineering": {
-      "path": "wiki/engineering",
-      "index": "wiki/engineering/INDEX.md",
+      "path": "wiki/01-Areas/Engineering",
+      "index": "wiki/01-Areas/Engineering/INDEX.md",
       "scope": "BTech coursework: SPM C-course, engineering chem/drawing/math/physics, JEE-level math/phys/chem revision, robotics/ROS2"
     },
     "self-dev": {
-      "path": "wiki/self-dev",
-      "index": "wiki/self-dev/INDEX.md",
+      "path": "wiki/01-Areas/Self-Dev",
+      "index": "wiki/01-Areas/Self-Dev/INDEX.md",
       "scope": "self-mastery, temptation/discipline, productivity systems, learning methodology, ergonomics, German A1"
     },
     "builds": {
-      "path": "wiki/builds",
-      "index": "wiki/builds/INDEX.md",
-      "scope": "user's OWN active systems: stock-agent platform, retrieval-agent RAG brain, GitHub portfolio projects (living docs)"
+      "path": "wiki/00-Current-Projects",
+      "index": "wiki/00-Current-Projects/INDEX.md",
+      "scope": "user's OWN active systems: stock-agent platform, retrieval-agent RAG brain, GitHub portfolio projects (living docs) — PARA 'Current Projects'"
     },
     "roadmaps": {
-      "path": "wiki/roadmaps",
-      "index": "wiki/roadmaps/INDEX.md",
+      "path": "wiki/01-Areas/Roadmaps",
+      "index": "wiki/01-Areas/Roadmaps/INDEX.md",
       "scope": "cross-domain hub linking every roadmap/study-plan page; no content pages live here"
+    },
+    "resources": {
+      "path": "wiki/02-Resources",
+      "index": "wiki/02-Resources/case-studies/INDEX.md",
+      "scope": "reference catalogs: codebase case studies + learning-resource mega-lists (cross-domain, consult on demand)"
     }
   }
 }

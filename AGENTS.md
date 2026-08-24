@@ -13,13 +13,13 @@ The wiki is organized into **6 content domains + a roadmaps hub** under `wiki/`.
 
 | Domain | Path | Scope (scan here for…) |
 |--------|------|------------------------|
-| business | `wiki/business/` | career strategy, job market, interviews, freelancing, n8n automation business, trading & quant-finance |
-| programming | `wiki/programming/` | languages, CS50/C, DSA, interview drills, OOP, web dev, systems design, codebase case studies, learning catalogs |
-| ai-data | `wiki/ai-data/` | ML/AI theory & courses, DS frameworks/topics, MLOps, ML interviews, coursework AI notes |
-| engineering | `wiki/engineering/` | BTech coursework: SPM/C, eng-chem/drawing/math/physics, JEE-level math/phys/chem revision, robotics |
-| self-dev | `wiki/self-dev/` | self-mastery, temptation/discipline, productivity systems, learning methodology, German |
-| builds | `wiki/builds/` | user's OWN active systems: stock-agent, retrieval-agent brain, portfolio projects — living docs |
-| roadmaps | `wiki/roadmaps/` | hub linking every roadmap page across domains (no content pages) |
+| business | `wiki/01-Areas/Business/` | career strategy, job market, interviews, freelancing, n8n automation business, trading & quant-finance |
+| programming | `wiki/01-Areas/Programming/` | languages, CS50/C, DSA, interview drills, OOP, web dev, systems design, codebase case studies, learning catalogs |
+| ai-data | `wiki/01-Areas/AI-Data/` | ML/AI theory & courses, DS frameworks/topics, MLOps, ML interviews, coursework AI notes |
+| engineering | `wiki/01-Areas/Engineering/` | BTech coursework: SPM/C, eng-chem/drawing/math/physics, JEE-level math/phys/chem revision, robotics |
+| self-dev | `wiki/01-Areas/Self-Dev/` | self-mastery, temptation/discipline, productivity systems, learning methodology, German |
+| builds | `wiki/00-Current-Projects/` | user's OWN active systems: stock-agent, retrieval-agent brain, portfolio projects — living docs |
+| roadmaps | `wiki/01-Areas/Roadmaps/` | hub linking every roadmap page across domains (no content pages) |
 
 Other root folders: `daily/`, `raw-sources/`, `brain/`, `thinking/`, `templates/`, `bases/`, `.opencode/`, `.scripts/`, `Home.md` (live dashboard + domain map), `index.html` (generated browser dashboard).
 
@@ -33,7 +33,7 @@ Other root folders: `daily/`, `raw-sources/`, `brain/`, `thinking/`, `templates/
 4. Cross into other domains ONLY when the INDEX's "Cross-Domain Bridges" section points there
 5. If nothing in-domain answers it, say so and name the closest cross-domain lead
 
-Examples: "what's the job market like" → read `wiki/business/INDEX.md` → `market-analysis-tech-2026`. "How does jj handle conflicts" → `wiki/programming/case-studies/cs-jj-vcs`. "My stock-agent bug" → `wiki/builds/stock-agent/deep-review-report`.
+Examples: "what's the job market like" → read `wiki/01-Areas/Business/INDEX.md` → `market-analysis-tech-2026`. "How does jj handle conflicts" → `wiki/01-Areas/Programming/case-studies/cs-jj-vcs`. "My stock-agent bug" → `wiki/00-Current-Projects/stock-agent/deep-review-report`.
 
 **Placement rule for NEW notes**: file new content under the domain whose INDEX scope it matches; if none fits cleanly, propose a new domain before creating an orphan folder. Every domain INDEX must link any new page created inside it.
 
@@ -88,7 +88,7 @@ Consult brain topics on demand: debugging → Gotchas, "how do we usually…" �
 
 ### Folder standards
 - `raw-sources/` — immutable original files (syllabus schemes, PPTs, code, CA prompts, lab manuals)
-- `wiki/modules/<subject>/` — concept pages organized by subject module
+- `wiki/01-Areas/<Domain>/<module>/` — concept pages organized by domain module (PARA: 00-Current-Projects / 01-Areas / 02-Resources / 98-Archive / 99-Unsorted)
 - `wiki/index.md` — master catalog by subject/module
 - `wiki/log.md` — append-only history of updates
 
@@ -111,10 +111,12 @@ last_updated: "YYYY-MM-DD"
 - Code blocks always specify language (`python`, `cpp`, `sql`, …)
 
 ### Ingestion workflow (`/om-ingest`)
+**Auto-sort rule**: every ingested note is CLASSIFIED into an existing module folder under the right Area (`wiki/01-Areas/<Domain>/<module>/` or `wiki/00-Current-Projects/<build>/`). If no module fits, CREATE a new module folder there, then run `python .scripts/update-graph-colors.py` (registers its graph color) and `python .scripts/generate-index.py` (refreshes the dashboard). Unclassifiable material goes to `wiki/99-Unsorted/` for later triage — never left loose.
+
 When processing files from `raw-sources/`:
 1. Read the raw document and map it to the relevant syllabus unit/module
 2. Extract definitions, key algorithms, proofs, and core implementations
-3. Create/update concept pages in `wiki/modules/`
+3. Create/update concept pages in `wiki/01-Areas/<Domain>/<module>/` (auto-sort rule above)
 4. Add full YAML frontmatter to every generated file
 5. Cross-link related algorithms and prerequisite concepts with `[[links]]`
 6. Update `wiki/index.md` and log the entry in `wiki/log.md`

@@ -18,13 +18,13 @@
 
 | Ask about… | Scan | Hub |
 |---|---|---|
-| 💼 Business / career / market / trading | `wiki/business/` | [[business/INDEX\|Business INDEX]] |
-| 💻 Coding / DSA / frameworks / case studies | `wiki/programming/` | [[programming/INDEX\|Programming INDEX]] |
-| 🤖 AI / ML / data science | `wiki/ai-data/` | [[ai-data/INDEX\|AI-Data INDEX]] |
-| ⚙️ College engineering / coursework | `wiki/engineering/` | [[engineering/INDEX\|Engineering INDEX]] |
-| 🧠 Mind / habits / discipline / German | `wiki/self-dev/` | [[self-dev/INDEX\|Self-Dev INDEX]] |
-| 🔨 My own builds (stock-agent, RAG brain) | `wiki/builds/` | [[builds/INDEX\|Builds INDEX]] |
-| 🗺 All roadmaps in one place | [[roadmaps/INDEX]] | — |
+| 💼 Business / career / market / trading | `wiki/01-Areas/Business/` | [[01-Areas/Business/INDEX\|Business INDEX]] |
+| 💻 Coding / DSA / frameworks / case studies | `wiki/01-Areas/Programming/` | [[01-Areas/Programming/INDEX\|Programming INDEX]] |
+| 🤖 AI / ML / data science | `wiki/01-Areas/AI-Data/` | [[01-Areas/AI-Data/INDEX\|AI-Data INDEX]] |
+| ⚙️ College engineering / coursework | `wiki/01-Areas/Engineering/` | [[01-Areas/Engineering/INDEX\|Engineering INDEX]] |
+| 🧠 Mind / habits / discipline / German | `wiki/01-Areas/Self-Dev/` | [[01-Areas/Self-Dev/INDEX\|Self-Dev INDEX]] |
+| 🔨 My own builds (stock-agent, RAG brain) | `wiki/00-Current-Projects/` | [[00-Current-Projects/INDEX\|Builds INDEX]] |
+| 🗺 All roadmaps in one place | [[01-Areas/Roadmaps/INDEX]] | — |
 
 Browser dashboard: open `index.html` at vault root.
 
