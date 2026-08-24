@@ -199,6 +199,7 @@
 - **[[modules/self-mastery/subconscious-reprogramming|Subconscious Reprogramming]]** — hysteresis/compression, theta rehearsal, identity stack, borrowed vs true state, purpose antidote.
 - **[[modules/self-mastery/psychological-execution|Psychological Execution]]** — overthinking, discipline design, dopamine protocol, boredom tolerance, god mode.
 - **[[modules/self-mastery/life-systems-design|Life Systems Design]]** — thermostat & 1-week/12-month, learner's life, consistency, hyperfocus, subtraction, 24-hour empire.
+- **[[modules/self-mastery/temptation-mastery|Temptation Mastery]]** - BHATT video distillation: 8-part arc, fortress model, refusal scripts + evidence-linked mechanisms. (2026-08-24)
 - **[[modules/self-mastery/self-mastery-flowcharts|Self-Mastery — Master Flowcharts]]** — all runbooks as Mermaid + ASCII state machines.
 
 ### Stock Agent

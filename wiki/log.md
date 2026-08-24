@@ -368,3 +368,8 @@
   - riot-actionscript: micro-riot ~100-line implementation (compile/mount/Proxy reactivity); mini-spec EBNF+tokenizer/parser sketch.
   - gpt4free: Provider ABC + Router failover code w/ usage ledger schema (legal equivalents only).
 - Word counts now 816-1200/page (dense technical prose + code); combined module ~12k words of case-study analysis.
+
+### 2026-08-24 — Ingest: YouTube video 'Man Who Masters His Temptations Masters His Fate' (BHATT, 51:43, uy24YeJutSM)
+- Transcripted via youtube-transcript-api (1,246 segments); raw saved to raw-sources/_transcripts/yt-uy24-man-who-masters-his-temptions.txt (gitignored per raw-sources policy).
+- Created wiki/modules/self-mastery/temptation-mastery.md: 8-part arc table (battlefield-within -> private-wars -> attention -> fortress-mind -> thought-chain -> old-vs-new-self -> vigilance -> sovereignty), fortress model table, refusal-vocabulary verbatim quotes, honest assessment layer (stated-confidence; mapped speaker claims onto evidence-backed mechanisms: environment design = atomic-habits laws, thought chain = CBT loop, vigilance = maintenance phase).
+- Updated wiki/index.md Self-Mastery block + self-mastery/overview.md source registry.

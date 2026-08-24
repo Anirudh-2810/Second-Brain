@@ -129,6 +129,7 @@ Collapsing the whole corpus into one repeatable loop for the modern self-develop
 
 ---
 
+- New (2026-08-24): **[[temptation-mastery]]** — BHATT video distillation (8-part arc: attention, fortress mind, old-vs-new self, vigilance).
 ## 6. Suggested Reading Order for a Newcomer
 
 1. [[belief-engineering]] — the science base: beliefs are inputs (Trainings 1–2).
