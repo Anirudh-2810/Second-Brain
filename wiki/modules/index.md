@@ -130,6 +130,15 @@ last_updated: "2026-08-13"
 - **[[repo-frontend-learning-resources]]** - Beginner resource list + FrontendMasters handbook expanded.
 - **[[repo-fullstack-web-developer-path]]** - Week-by-week fullstack plan with exit tests.
 
+
+## Learning Resource Catalogs (field module)
+
+> Hub: [[modules/learning-resources/index|Learning Resources Index]]. Mega-catalogs as systems: [[lr-awesome-meta]], [[lr-free-for-dev]], [[lr-free-programming-books]], [[lr-freecodecamp]], [[lr-30soc-pbl]], [[lr-developer-roadmap]], [[lr-ossu-computer-science]], [[lr-build-your-own-x]].
+
+## Open-Source Case Studies (field module)
+
+> Hub: [[modules/case-studies/index|Case Studies Index]]. Real codebases analyzed for architecture lessons: [[cs-twitter-algorithm]], [[cs-apollo-11]], [[cs-openusd]], [[cs-zulip]], [[cs-hydra-launcher]], [[cs-systeminformer-spyplusplus]], [[cs-jj-vcs]], [[cs-dura-z-tinytools]], [[cs-snekbox]], [[cs-liveportrait]], [[cs-treemaker-malt]], [[cs-riot-actionscript]], [[cs-gpt4free]].
+
 ## Careers, Market & Interview Prep (field module)
 
 > Hub: [[modules/careers/index|Careers Index]].

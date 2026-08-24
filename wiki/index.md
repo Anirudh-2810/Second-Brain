@@ -287,6 +287,17 @@
 > Resources + frontend/fullstack learning paths. Hub: `[[modules/web-development/index|Web Dev Index]]`.
 - **[[modules/web-development/web-development-resources|Web Dev Resources]]** · **[[modules/web-development/repo-frontend-learning-resources|Frontend Resources & Handbook]]** · **[[modules/web-development/repo-fullstack-web-developer-path|Fullstack Path (week-by-week)]]**
 
+### Learning Resource Catalogs (field module)
+> The mega-catalogs (awesome, freeCodeCamp, OSSU CS, build-your-own-x...) converted into systems with anti-hoarding protocols. Hub: `[[modules/learning-resources/index|Learning Resources Index]]`.
+- **[[modules/learning-resources/lr-awesome-meta|Awesome Meta-Catalog]]** · **[[modules/learning-resources/lr-free-for-dev|Free-for-Dev Tiers]]** · **[[modules/learning-resources/lr-free-programming-books|Free Programming Books]]** · **[[modules/learning-resources/lr-freecodecamp|freeCodeCamp]]** · **[[modules/learning-resources/lr-30soc-pbl|30-Seconds-of-Code + Project-Based Learning]]** · **[[modules/learning-resources/lr-developer-roadmap|roadmap.sh Developer Roadmaps]]** · **[[modules/learning-resources/lr-ossu-computer-science|OSSU Computer Science]]** · **[[modules/learning-resources/lr-build-your-own-x|Build Your Own X]]**
+
+### Open-Source Case Studies (field module)
+> Real codebases analyzed: architecture, extraction lessons, failure modes. Hub: `[[modules/case-studies/index|Case Studies Index]]`.
+- Production ML: **[[modules/case-studies/cs-twitter-algorithm|X/Twitter Recommendation Algorithm]]**
+- Historic/foundational: **[[modules/case-studies/cs-apollo-11|Apollo-11 Guidance Computer]]** · **[[modules/case-studies/cs-openusd|OpenUSD]]**
+- Applications & tools: **[[modules/case-studies/cs-zulip|Zulip]]** · **[[modules/case-studies/cs-hydra-launcher|Hydra Launcher]]** · **[[modules/case-studies/cs-systeminformer-spyplusplus|System Informer + Spy++]]** · **[[modules/case-studies/cs-jj-vcs|Jujutsu VCS]]** · **[[modules/case-studies/cs-dura-z-tinytools|Dura + z Tiny Tools]]** · **[[modules/case-studies/cs-snekbox|Snekbox Sandbox]]** · **[[modules/case-studies/cs-liveportrait|LivePortrait]]** · **[[modules/case-studies/cs-treemaker-malt|TreeMaker + Malt]]**
+- Lifecycle/ethics studies: **[[modules/case-studies/cs-riot-actionscript|Riot.js + ActionScript4]]** · **[[modules/case-studies/cs-gpt4free|gpt4free ⚠️ ethics study]]**
+
 ### Careers, Market & Interview Prep (field module)
 > 2026 market analysis, interview system, portfolio playbook. Hub: `[[modules/careers/index|Careers Index]]`.
 - **[[modules/careers/market-analysis-tech-2026|Market Analysis 2026 (sourced)]]** · **[[modules/careers/interview-counter-guide|Interview Counter-Guide]]** · **[[modules/careers/build-project-playbook|Build-Project Playbook]]** · **[[modules/careers/example-question-bank|Question Bank]]** · **[[modules/careers/roadmaps-and-study-guides|Roadmap Catalog]]**

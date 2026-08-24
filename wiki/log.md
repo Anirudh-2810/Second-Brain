@@ -323,3 +323,11 @@
 - roadmaps-and-study-guides: roadmap-failure mechanics, premortem, selection flowchart.
 - All 17 repo-expansion pages received Deep Edition Addenda: failure-mode tables specific to each repo's usage pattern, mini-premortems, rescue flowcharts, life-integration metrics. Compact-but-real depth appropriate to catalog-layer pages.
 - Deep-edition coverage now complete across the module: 23 full deep rewrites + 18 addenda = every page carries failure analysis, premortem/rescue guidance, and life-integration systems.
+
+### 2026-08-24 — New field modules: learning-resources (10 pages) + case-studies (14 pages); careers +1
+- User supplied 30 GitHub repos to analyze and ingest field-first.
+- NEW /wiki/modules/learning-resources/: index hub + 8 catalog pages (awesome meta, free-for-dev, free-programming-books, freeCodeCamp, 30-seconds-of-code + project-based-learning combined, developer-roadmap/roadmap.sh, OSSU computer-science, build-your-own-x) - each with anti-hoarding failure modes and integration routes into existing vault roadmaps. Grounded by fetches where available.
+- NEW /wiki/modules/case-studies/: index hub (with universal study protocol flowchart) + 13 case studies: twitter/the-algorithm (two-stage recsys pipeline), chrislgarry/Apollo-11 (AGC source; 1202 alarm resilience), PixarAnimationStudios/OpenUSD (interchange-format strategy), zulip/zulip (Django monorepo discipline), hydralauncher/hydra (Electron architecture; legal gray-zone noted), winsiderss/systeminformer + westoncampbell/SpyPlusPlus combined (Windows internals), jj-vcs/jj (VCS data-model redesign), tkellogg/dura + rupa/z combined (tiny-tool design patterns), KwaiVGI/LivePortrait (research-code packaging), python-discord/snekbox (sandbox defense-in-depth), riot/riot + adobe-research/ActionScript4 combined (ecosystem lifecycle), xtekky/gpt4free (?? ethics/legal study only), wesen/TreeMaker + bnpr/Malt combined (niche creative tools).
+- careers/: tech-interview-handbook expanded page (Grind 75 scheduler integration).
+- Already-covered overlaps noted: jwasham/coding-interview-university = repo-coding-interview-university.md; satwikkansal/wtfpython integrated in languages-python-advanced.md.
+- Both catalogs updated (wiki/index.md + wiki/modules/index.md). All deep-edition layers present per user spec: failure modes, premortems/rescues, life integration.
