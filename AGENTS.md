@@ -9,12 +9,41 @@ Two systems share one vault:
 
 ## Vault Structure
 
+The wiki is organized into **6 content domains + a roadmaps hub** under `wiki/`. Each domain folder has an `INDEX.md` declaring its scope and page map. `vault-manifest.json → "domains"` is the machine-readable registry.
+
+| Domain | Path | Scope (scan here for…) |
+|--------|------|------------------------|
+| business | `wiki/business/` | career strategy, job market, interviews, freelancing, n8n automation business, trading & quant-finance |
+| programming | `wiki/programming/` | languages, CS50/C, DSA, interview drills, OOP, web dev, systems design, codebase case studies, learning catalogs |
+| ai-data | `wiki/ai-data/` | ML/AI theory & courses, DS frameworks/topics, MLOps, ML interviews, coursework AI notes |
+| engineering | `wiki/engineering/` | BTech coursework: SPM/C, eng-chem/drawing/math/physics, JEE-level math/phys/chem revision, robotics |
+| self-dev | `wiki/self-dev/` | self-mastery, temptation/discipline, productivity systems, learning methodology, German |
+| builds | `wiki/builds/` | user's OWN active systems: stock-agent, retrieval-agent brain, portfolio projects — living docs |
+| roadmaps | `wiki/roadmaps/` | hub linking every roadmap page across domains (no content pages) |
+
+Other root folders: `daily/`, `raw-sources/`, `brain/`, `thinking/`, `templates/`, `bases/`, `.opencode/`, `.scripts/`, `Home.md` (live dashboard + domain map), `index.html` (generated browser dashboard).
+
+## Domain-Scoped Retrieval
+
+**When answering domain-specific questions, scan ONLY the matching domain folder — never the whole vault:**
+
+1. Identify the question's domain (business / coding / AI-data / engineering / self-dev / user's-builds)
+2. Read that domain's `INDEX.md` first → it maps every page and names entry points
+3. Search within `wiki/<domain>/**` only
+4. Cross into other domains ONLY when the INDEX's "Cross-Domain Bridges" section points there
+5. If nothing in-domain answers it, say so and name the closest cross-domain lead
+
+Examples: "what's the job market like" → read `wiki/business/INDEX.md` → `market-analysis-tech-2026`. "How does jj handle conflicts" → `wiki/programming/case-studies/cs-jj-vcs`. "My stock-agent bug" → `wiki/builds/stock-agent/deep-review-report`.
+
+**Placement rule for NEW notes**: file new content under the domain whose INDEX scope it matches; if none fits cleanly, propose a new domain before creating an orphan folder. Every domain INDEX must link any new page created inside it.
+
 | Folder | Purpose |
 |--------|---------|
-| `Home.md` | **Vault home** — live dashboard (tasks, North Star, mental health, habit heatmaps) + navigation. Start here. |
+| `Home.md` | **Vault home** — live dashboard + **domain map table** (top). Start here. |
+| `index.html` | Generated browser dashboard of the whole vault, grouped by domain. Regenerate: `python .scripts/generate-index.py`. |
 | `daily/` | Daily notes (`YYYY-MM-DD.md`) with Study/Exercise/Mood tracker fields. Index in `daily/index.md`. |
 | `raw-sources/` | Immutable originals — syllabi, PDFs, lecture notes, transcripts. Never edit; distill into `wiki/`. |
-| `wiki/` | Agent-maintained knowledge base. See **Wiki System** below. |
+| `wiki/<domain>/INDEX.md` | Domain hub: scope declaration + page map. Read first when scanning a domain. |
 | `brain/` | Persistent agent memory — see **Memory System** below. |
 | `thinking/` | Scratchpad for drafts. Promote findings, then delete. Named `YYYY-MM-DD-topic.md`. |
 | `templates/` | Obsidian templates. Always create notes from one. |
@@ -22,7 +51,7 @@ Two systems share one vault:
 | `.opencode/commands/` | Slash commands (`/om-*`). Catalog in `[[Skills]]`. |
 | `.opencode/agents/` | Subagents for heavy isolated work. |
 | `.opencode/plugins/mind.ts` | Validates markdown writes (frontmatter, wikilinks, size) after every write. |
-| `.scripts/` | Optional QMD semantic-search bootstrap. |
+| `.scripts/` | QMD semantic-search bootstrap + `generate-index.py` (vault dashboard). |
 
 ## Session Workflow
 

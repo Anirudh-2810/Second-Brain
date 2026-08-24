@@ -382,3 +382,13 @@
 - Rewrote to ~3,000 words: complete 9-part coverage of the 51-min talk (opening frame, battlefield-within, private-wars, attention-battle, mind-fortress walls/guards/leadership, thought-to-destiny cascade, silence+structure training, refusal economy + spiritual promotions, old-vs-new self confrontation protocol, vigilance contract, sovereignty/reign).
 - Added 7 mermaid flowcharts: seed cascade, attack-window map, thought-to-destiny chain, momentum fork, confrontation protocol, complete system flowchart (awakening->sovereignty w/ feedback loop), plus fortress table and armor set.
 - Full verbatim quote bank (17 lines), practice protocol table (NOW/daily/attack-time/weekly/monthly/quarterly), honest assessment layer with integration moves.
+
+### 2026-08-24 — VAULT REORGANIZATION: domain-scoped structure (6 domains + roadmaps hub)
+- User directive: organize by life domains so agent scans ONLY the matching folder per question type (domain-scoped retrieval), fixing graph-view findability.
+- Created wiki/{business, programming, ai-data, engineering, self-dev, builds, roadmaps}; moved 27 module folders via git mv (history preserved): business<-careers/automations/quant-finance; programming absorbed old programming/* hoisted one level + OOP/web-dev/systems-design/case-studies/learning-resources; ai-data<-ai/ai-ml/data-science (split out of coding for scan precision); engineering<-SPM/eng-chem/drawing/math/physics/mathematics/physics/chemistry/robotics/excel-workflows; self-dev<-self-mastery/productivity/german; builds<-stock-agent/retrieval-agent/projects.
+- Patched 78 files' path-based links ([[modules/x/...]] -> new domain paths); zero stale remaining. Bare wikilinks unaffected.
+- Wrote 7 hub files: business/INDEX.md, programming/INDEX.md, ai-data/INDEX.md, engineering/INDEX.md, self-dev/INDEX.md, builds/INDEX.md, roadmaps/INDEX.md - each with scope declaration + page map + cross-domain bridges.
+- Scoped-retrieval machinery: vault-manifest.json gained 'domains' map; AGENTS.md restructured (Vault Structure = domain table; NEW 'Domain-Scoped Retrieval' section: read domain INDEX first, scan folder only, cross-domain only via bridges, placement rule).
+- Navigation: Home.md + wiki/index.md got Domain Map tables; .scripts/generate-index.py created -> generates index.html dashboard at vault root (282 pages, 7 sections, Obsidian URIs) - ran successfully.
+- .obsidian/graph.json colorGroups set per domain folder (user-approved graph fix).
+- Old catalog wiki/modules/index.md retained (links patched); primary catalogs now domain INDEXes + index.html.

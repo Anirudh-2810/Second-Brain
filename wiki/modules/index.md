@@ -101,7 +101,7 @@ last_updated: "2026-08-13"
 
 ## Data Science & Machine Learning (field module)
 
-> Learning resources, roadmaps, and prep for the DS/ML field. Hub: [[modules/data-science/index|Data Science Field Index]].
+> Learning resources, roadmaps, and prep for the DS/ML field. Hub: [[ai-data/data-science/index|Data Science Field Index]].
 
 - **[[ml-theory-and-moocs]]** - Canonical references + tiered MOOC catalog + concept explainers.
 - **[[python-datascience-frameworks]]** - pandas/sklearn, XGBoost/LightGBM/CatBoost, TensorFlow 2 deep-dive, PyTorch.
@@ -115,7 +115,7 @@ last_updated: "2026-08-13"
 
 ## Systems Design & Distributed Systems (field module)
 
-> Hub: [[modules/systems-design/index|Systems Design Index]].
+> Hub: [[programming/systems-design/index|Systems Design Index]].
 
 - **[[systems-design-distributed]]** - Patterns, Docker/K8s best practices, workflow engines, infra utilities.
 - **[[system-design-interview]]** - 6-step framework, scoring axes, worked design.
@@ -124,7 +124,7 @@ last_updated: "2026-08-13"
 
 ## Web Development (field module)
 
-> Hub: [[modules/web-development/index|Web Dev Index]].
+> Hub: [[programming/web-development/index|Web Dev Index]].
 
 - **[[web-development-resources]]** - MDN, event loop, CSS conventions, UX, frameworks.
 - **[[repo-frontend-learning-resources]]** - Beginner resource list + FrontendMasters handbook expanded.
@@ -133,15 +133,15 @@ last_updated: "2026-08-13"
 
 ## Learning Resource Catalogs (field module)
 
-> Hub: [[modules/learning-resources/index|Learning Resources Index]]. Mega-catalogs as systems: [[lr-awesome-meta]], [[lr-free-for-dev]], [[lr-free-programming-books]], [[lr-freecodecamp]], [[lr-30soc-pbl]], [[lr-developer-roadmap]], [[lr-ossu-computer-science]], [[lr-build-your-own-x]].
+> Hub: [[programming/learning-resources/index|Learning Resources Index]]. Mega-catalogs as systems: [[lr-awesome-meta]], [[lr-free-for-dev]], [[lr-free-programming-books]], [[lr-freecodecamp]], [[lr-30soc-pbl]], [[lr-developer-roadmap]], [[lr-ossu-computer-science]], [[lr-build-your-own-x]].
 
 ## Open-Source Case Studies (field module)
 
-> Hub: [[modules/case-studies/index|Case Studies Index]]. Real codebases analyzed for architecture lessons: [[cs-twitter-algorithm]], [[cs-apollo-11]], [[cs-openusd]], [[cs-zulip]], [[cs-hydra-launcher]], [[cs-systeminformer-spyplusplus]], [[cs-jj-vcs]], [[cs-dura-z-tinytools]], [[cs-snekbox]], [[cs-liveportrait]], [[cs-treemaker-malt]], [[cs-riot-actionscript]], [[cs-gpt4free]].
+> Hub: [[programming/case-studies/index|Case Studies Index]]. Real codebases analyzed for architecture lessons: [[cs-twitter-algorithm]], [[cs-apollo-11]], [[cs-openusd]], [[cs-zulip]], [[cs-hydra-launcher]], [[cs-systeminformer-spyplusplus]], [[cs-jj-vcs]], [[cs-dura-z-tinytools]], [[cs-snekbox]], [[cs-liveportrait]], [[cs-treemaker-malt]], [[cs-riot-actionscript]], [[cs-gpt4free]].
 
 ## Careers, Market & Interview Prep (field module)
 
-> Hub: [[modules/careers/index|Careers Index]].
+> Hub: [[business/careers/index|Careers Index]].
 
 - **[[market-analysis-tech-2026]]** - Sourced 2026 market split + strategy for a BTech student.
 - **[[interview-counter-guide]]** - Round anatomy, live-coding script, STAR bank, negotiation.

@@ -14,6 +14,22 @@
 
 ---
 
+## 🗂 Domain Map (scoped retrieval — agent scans the matching folder only)
+
+| Ask about… | Scan | Hub |
+|---|---|---|
+| 💼 Business / career / market / trading | `wiki/business/` | [[business/INDEX\|Business INDEX]] |
+| 💻 Coding / DSA / frameworks / case studies | `wiki/programming/` | [[programming/INDEX\|Programming INDEX]] |
+| 🤖 AI / ML / data science | `wiki/ai-data/` | [[ai-data/INDEX\|AI-Data INDEX]] |
+| ⚙️ College engineering / coursework | `wiki/engineering/` | [[engineering/INDEX\|Engineering INDEX]] |
+| 🧠 Mind / habits / discipline / German | `wiki/self-dev/` | [[self-dev/INDEX\|Self-Dev INDEX]] |
+| 🔨 My own builds (stock-agent, RAG brain) | `wiki/builds/` | [[builds/INDEX\|Builds INDEX]] |
+| 🗺 All roadmaps in one place | [[roadmaps/INDEX]] | — |
+
+Browser dashboard: open `index.html` at vault root.
+
+---
+
 ## 🎯 North Star Alignment
 
 _The first block is what you committed to (live from [[North Star]]); the second scores it against what your vault says you actually did this week._
