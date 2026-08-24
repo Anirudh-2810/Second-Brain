@@ -296,6 +296,12 @@
 - **[[modules/knowledge-repo/math-for-ml-survival-guide|Math Survival Guide]]** · **[[modules/knowledge-repo/python-mastery-path|Python Mastery Path]]** · **[[modules/knowledge-repo/kaggle-and-practice-guide|Kaggle Guide]]** — skill ladders with quit points
 - **[[modules/knowledge-repo/example-question-bank|Example Question Bank]]** — cross-topic daily drill set
 
+**Linked Repo Expansions** (each major repo from the source README, expanded):
+- **[[modules/knowledge-repo/repo-coding-interview-university|Coding Interview University]]** · **[[modules/knowledge-repo/repo-system-design-primer|System Design Primer]]** · **[[modules/knowledge-repo/repo-teachyourselfcs|Teach Yourself CS]]** · **[[modules/knowledge-repo/repo-ossu-data-science|OSSU Data Science]]** — the four canonical curricula
+- **[[modules/knowledge-repo/repo-data-engineer-roadmap|Data Engineer Roadmap]]** · **[[modules/knowledge-repo/repo-fullstack-web-developer-path|Fullstack Web Path]]** · **[[modules/knowledge-repo/repo-frontend-learning-resources|Frontend Resources]]** · **[[modules/knowledge-repo/repo-ml-roadmaps-mindmaps|ML Roadmaps & Mindmaps]]**
+- **[[modules/knowledge-repo/repo-ds-interviews-grigorev|DS Interviews Bank]]** · **[[modules/knowledge-repo/repo-algorithms-implementations|Algorithm Libraries]]** · **[[modules/knowledge-repo/repo-art-of-command-line|Art of Command Line]]** · **[[modules/knowledge-repo/repo-mlcourse-ai|mlcourse.ai]]** · **[[modules/knowledge-repo/repo-awesome-deep-learning-papers|DL Papers Canon]]**
+- **[[modules/knowledge-repo/repo-nodejs-best-practices|Node Best Practices]]** · **[[modules/knowledge-repo/repo-scalability-catalogs|Scalability Catalogs]]** · **[[modules/knowledge-repo/repo-tf-pytorch-learning-stack|TF/PyTorch Stack]]** · **[[modules/knowledge-repo/repo-dev-toolbox-minors|Toolbox Minors]]**
+
 ---
 
 ## Ingest Checklist (per course)

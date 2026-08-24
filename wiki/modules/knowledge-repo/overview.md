@@ -69,6 +69,30 @@ Self-contained execution layer on top of the reference pages above — each with
 
 **Suggested order through the guides**: how-to-self-teach → pick one roadmap → its playbooks → question bank as daily drill → market analysis quarterly.
 
+## Linked Repo Expansions (added 2026-08-24)
+
+Each major repo linked from the source README gets its own expanded page (structure fetched from the actual repos):
+
+| Page | Repo(s) |
+|------|---------|
+| [[repo-coding-interview-university]] | jwasham/coding-interview-university — full topic checklist + method rules |
+| [[repo-system-design-primer]] | donnemartin/system-design-primer — topic index + solved questions + Anki |
+| [[repo-teachyourselfcs]] | teachyourselfcs.com — 9 subjects, book+course each |
+| [[repo-ossu-data-science]] | ossu/data-science — full course table w/ durations |
+| [[repo-data-engineer-roadmap]] | datastacktv/data-engineer-roadmap — stage sequence |
+| [[repo-fullstack-web-developer-path]] | shovanch/fullstack-web-developer-path — week-by-week plan |
+| [[repo-frontend-learning-resources]] | thedaviddias/Resources-Front-End-Beginner + FrontendMasters handbook |
+| [[repo-ml-roadmaps-mindmaps]] | mrdbourke/machine-learning-roadmap + dformoso mindmaps |
+| [[repo-ds-interviews-grigorev]] | alexeygrigorev/data-science-interviews — question clusters |
+| [[repo-algorithms-implementations]] | TheAlgorithms/Python + javascript-algorithms + C++ algorithms |
+| [[repo-art-of-command-line]] | jlevy/the-art-of-command-line — section map incl. Windows notes |
+| [[repo-mlcourse-ai]] | Yorko/mlcourse.ai — 12-week schedule through its assignments/comps |
+| [[repo-awesome-deep-learning-papers]] | terryum/awesome-deep-learning-papers — 12-paper spine reading order |
+| [[repo-nodejs-best-practices]] | goldbergyoni/nodebestpractices — architecture/errors/security checklists |
+| [[repo-scalability-catalogs]] | awesome-scalability + awesome-system-design — case-study mining protocol |
+| [[repo-tf-pytorch-learning-stack]] | eat_tf2_30d, keras-tuner, autokeras, ludwig, einops, torch2rt, botorch… |
+| [[repo-dev-toolbox-minors]] | MonkeyType, googletest, alembic, django-rq, Telethon, Hoppscotch… |
+
 ## Related Vault Modules
 
 - [[modules/ai/index|AI Module Hub]] — coursework-side AI notes; this module adds the *resource* layer

@@ -271,3 +271,26 @@
   - kaggle-and-practice-guide.md — three usage modes, competition playbook flowchart, leakage/pitfall tables, platform ladders.
   - example-question-bank.md — ~40 drill questions across Python/SQL/DSA/ML/stats/CS-core/HR/GenAI with target-answer pointers.
 - Updated overview.md hub (Deep Guides table + suggested order), /wiki/index.md (Deep Guides subsection).
+
+### 2026-08-24 — knowledge-repo: +17 linked-repo expansion pages (every major repo from the source README)
+- Batch-fetched raw READMEs of 14 linked repos to ground expansions in real structure (fullstack-web-developer-path, Resources-Front-End-Beginner, front-end-handbook-2017, ml-mindmap, ml-roadmap, ds-interviews, TheAlgorithms/Python, javascript-algorithms, art-of-command-line, mlcourse.ai, awesome-deep-learning-papers, nodebestpractices, awesome-scalability; + earlier CIU/SDP/OSSU/deroad). madd86/awesome-system-design fetch failed (branch rename); covered from catalog knowledge, marked accordingly.
+- Created 17 pages under /wiki/modules/knowledge-repo/ (frontmatter + For-future-agent + structure tables + usage protocols/flowcharts + failure points + checkpoint questions):
+  - repo-coding-interview-university (full topic checklist, method rules, daily plan, vault integration flowchart)
+  - repo-system-design-primer (topic index, solved-questions list, Anki decks, weekly mining protocol)
+  - repo-teachyourselfcs (9 subjects table w/ canonical book+course picks, owner-specific order flowchart)
+  - repo-ossu-data-science (11-stage course table w/ durations + checkboxes, compression notes, quit points)
+  - repo-data-engineer-roadmap (stage sequence mermaid, competence signals per stage, 2026 track rationale)
+  - repo-fullstack-web-developer-path (week-by-week table w/ exit tests, one-growing-project philosophy)
+  - repo-frontend-learning-resources (both repos combined: menu-vs-syllabus rule, handbook 3 parts, combined protocol)
+  - repo-ml-roadmaps-mindmaps (5 branches verbatim, mindmap sections, quarterly orientation flow, diagnostic Qs)
+  - repo-ds-interviews-grigorev (file map, 6 theory clusters, drilling protocol, sample answers with targets)
+  - repo-algorithms-implementations (3 repos grouped, attempt-first protocol, JS complexity-tables highlight)
+  - repo-art-of-command-line (real section map incl. Windows section mapped to this vault's PowerShell env)
+  - repo-mlcourse-ai (components from README headings, 12-week schedule, why-boosting-depth rationale)
+  - repo-awesome-deep-learning-papers (genealogy sections, 12-paper spine reading order, 3-pass reading protocol)
+  - repo-nodejs-best-practices (TOC condensed, language-agnostic gold table, checklist-as-review-rubric usage)
+  - repo-scalability-catalogs (awesome-scalability real sections, case-study mining protocol, starter case list incl. Discord/Netflix/Instagram)
+  - repo-tf-pytorch-learning-stack (learn/tune/extend/optimize grouping of ~10 repos, lifecycle flowchart)
+  - repo-dev-toolbox-minors (~20 utility repos indexed by function w/ two-line verdicts + reach-for-rules flowchart)
+- Updated overview.md hub (Linked Repo Expansions table) and /wiki/index.md.
+- Module now totals 43 pages: hub + 12 reference + 14 deep guides + 17 repo expansions.
