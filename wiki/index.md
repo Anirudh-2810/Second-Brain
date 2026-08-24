@@ -286,6 +286,16 @@
 - **[[modules/knowledge-repo/web-development-resources|Web Development]]** — MDN, event loop talk, caniuse, BEM/SMACSS/Grid, NN/g usability, framework landscape
 - **[[modules/knowledge-repo/curated-reading-list|Curated Reading List]]** — ~190 high-signal articles distilled by theme: ML practice/career, DL concepts (Distill), CV production cases, NLP, Python craft, data engineering, statistics, trading-RL, git recovery, mindset
 
+**Deep Guides (execution layer — flowcharts, exit tests, quit points, example Qs):**
+- **[[modules/knowledge-repo/how-to-self-teach|How to Self-Teach]]** — learning loop, quit-point map + recovery protocols, Anki setup
+- **[[modules/knowledge-repo/roadmap-software-engineer|SWE Roadmap]]** · **[[modules/knowledge-repo/roadmap-data-scientist|DS Roadmap]]** · **[[modules/knowledge-repo/roadmap-ml-engineer|MLE Roadmap]]** — stage-based with exit tests, projects, India notes
+- **[[modules/knowledge-repo/market-analysis-tech-2026|Market Analysis 2026]]** — sourced global+India snapshot; entry-level reality; strategic response
+- **[[modules/knowledge-repo/interview-counter-guide|Interview Counter-Guide]]** — round anatomy, live-coding script, STAR bank, negotiation
+- **[[modules/knowledge-repo/dsa-interview-playbook|DSA Playbook]]** — 15 patterns w/ cues+templates, ladder system · **[[modules/knowledge-repo/system-design-interview|System Design Playbook]]** — framework + worked example · **[[modules/knowledge-repo/ml-interview-playbook|ML Interview Playbook]]** — theory skeletons, case framework
+- **[[modules/knowledge-repo/build-project-playbook|Build-Project Playbook]]** — selection matrix, v0.1 rule, failure-point table, learn-in-public
+- **[[modules/knowledge-repo/math-for-ml-survival-guide|Math Survival Guide]]** · **[[modules/knowledge-repo/python-mastery-path|Python Mastery Path]]** · **[[modules/knowledge-repo/kaggle-and-practice-guide|Kaggle Guide]]** — skill ladders with quit points
+- **[[modules/knowledge-repo/example-question-bank|Example Question Bank]]** — cross-topic daily drill set
+
 ---
 
 ## Ingest Checklist (per course)

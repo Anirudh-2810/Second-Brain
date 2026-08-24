@@ -46,6 +46,29 @@ A personal knowledge repository of learning resources, examples, and links for d
 
 Each page preserves the source repo's grouping (General / MOOC / Framework / Topic…) with one-line descriptions pulled from the original annotations. Broken-formatting artifacts from the source were fixed during ingestion.
 
+## Deep Guides (added 2026-08-24)
+
+Self-contained execution layer on top of the reference pages above — each with flowcharts, exit tests, failure/quit points, and example questions:
+
+| Guide | Answers |
+|-------|---------|
+| [[how-to-self-teach]] | How do I learn anything optimally — and where will I want to quit? |
+| [[roadmap-software-engineer]] | Full SWE path: stages, exit tests, projects, grind plan |
+| [[roadmap-data-scientist]] | DS path with SQL/stats emphasis + analyst-title entry note |
+| [[roadmap-ml-engineer]] | MLE path incl. GenAI branch; India salary bands attached |
+| [[market-analysis-tech-2026]] | What's the 2026 market actually doing (sources) + strategy for a BTech student |
+| [[interview-counter-guide]] | How every round works, STAR stories, negotiation, India funnel |
+| [[dsa-interview-playbook]] | The 15 patterns, practice ladders, quit-point fixes |
+| [[system-design-interview]] | Framework, building blocks vocabulary, worked design |
+| [[ml-interview-playbook]] | ML theory bank w/ answer skeletons, case framework, ML system design |
+| [[build-project-playbook]] | Selecting/scoping/shipping portfolio projects; failure-point table |
+| [[math-for-ml-survival-guide]] | Honest math depth table, order that prevents quitting |
+| [[python-mastery-path]] | Python stages with exit tests and mini-projects |
+| [[kaggle-and-practice-guide]] | Practice as progression system, competition pitfalls |
+| [[example-question-bank]] | Cross-topic drill questions for daily self-quizzing |
+
+**Suggested order through the guides**: how-to-self-teach → pick one roadmap → its playbooks → question bank as daily drill → market analysis quarterly.
+
 ## Related Vault Modules
 
 - [[modules/ai/index|AI Module Hub]] — coursework-side AI notes; this module adds the *resource* layer

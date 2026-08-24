@@ -251,3 +251,23 @@
 - Cross-linked to existing modules: [[modules/ai/index]], [[modules/programming/cs50/index]], [[modules/object-oriented-programming/overview]], [[modules/quant-finance/applications-of-quantitative-finance]], [[modules/robotics/index]], [[modules/ai-ml/matching-engine-cpp]], [[modules/stock-agent/overview]], [[modules/automations/quick-start-guide]].
 - Updated /wiki/index.md (new **Knowledge Repository** section under Cross-Cutting Modules listing all 12 pages).
 - Ingestion corrections: fixed malformed source links where target identifiable, omitted dead/mismatched ones marked (TBC), dropped ~60 low-signal links (device tips, forum one-offs, duplicates) documented in curated-reading-list ingestion notes.
+
+### 2026-08-24 — knowledge-repo module upgraded: +14 Deep Guides (execution layer)
+- Grounded roadmaps by fetching actual section structure of linked repos: coding-interview-university (main/README.md), system-design-primer, ossu/data-science, datastacktv/data-engineer-roadmap.
+- Market research via web search (Aug 2026 sources: Pragmatic Engineer, Robert Half 2026, Ravio/SignalFire/Stanford compilations, India salary guides) for the market analysis page.
+- Created 14 guide pages under /wiki/modules/knowledge-repo/, each with frontmatter, ## For future agent preamble, Mermaid flowcharts, exit tests, failure/quit-point tables, and example questions:
+  - how-to-self-teach.md — learning loop, never-zero rule, quit-point map w/ recovery protocols, diagnostic flowchart.
+  - oadmap-software-engineer.md — 6 stages from CIU curriculum headings; exit tests per stage.
+  - oadmap-data-scientist.md — OSSU-ordered stages; SQL-first emphasis; analyst-title entry note.
+  - oadmap-ml-engineer.md — DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 2026 India bands.
+  - market-analysis-tech-2026.md — sourced split-market analysis; entry-level collapse numbers; strategic response for BTech student; quarterly re-check caveat.
+  - interview-counter-guide.md — funnel anatomy, live-coding counter-script, STAR story bank method, negotiation basics.
+  - dsa-interview-playbook.md — 15-pattern table with recognition cues/templates, ladder practice system, worked examples.
+  - system-design-interview.md — scoring axes, 6-step framework flowchart, building-blocks vocabulary from SDP index, URL-shortener walkthrough.
+  - ml-interview-playbook.md — theory bank with answer skeletons (definition?why?when-it-breaks), case framework, ML system design layers.
+  - uild-project-playbook.md — selection matrix, v0.1 rule, build loop flowchart, failure-point table, README contract; retro-applied to user's retrieval-agent brain.
+  - math-for-ml-survival-guide.md — honest depth table, stats-first ordering, math-specific quit points, practice protocol.
+  - python-mastery-path.md — 6 stages w/ exit tests and mini-projects incl. vault-meta CLI suggestion.
+  - kaggle-and-practice-guide.md — three usage modes, competition playbook flowchart, leakage/pitfall tables, platform ladders.
+  - example-question-bank.md — ~40 drill questions across Python/SQL/DSA/ML/stats/CS-core/HR/GenAI with target-answer pointers.
+- Updated overview.md hub (Deep Guides table + suggested order), /wiki/index.md (Deep Guides subsection).
