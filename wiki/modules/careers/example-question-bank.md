@@ -1,98 +1,122 @@
 ---
 course_code: "CAREERS"
 course_name: "Careers, Market & Interview Prep"
-unit: "Guide 14 — Example Question Bank (Cross-Topic Drill Set)"
-tags: [question-bank, interview-prep, python, sql, machine-learning, dsa, hr, practice]
+unit: "Guide 14 — Example Question Bank [Deep Edition]"
+tags: [question-bank, interview-prep, python, sql, machine-learning, dsa, hr, practice, spaced-repetition]
 last_updated: "2026-08-24"
 confidence: "high"
 ---
 
 ## For future agent
-Rapid-fire drill questions across every interview category with target answers (not full solutions — the playbooks hold those). Use for: self-quizzing in Anki style, mock-interview material, and pre-interview warmups. Each question names the skill it screens.
+Deep edition of the cross-topic question bank. Beyond questions + targets, adds: the retrieval-science drilling protocol (why out-loud beats written prep), difficulty/expectation tags per question, failure-signal interpretation (what your wrong answers reveal), a weekly rotation system, and integration with Anki. Full treatments per section live in the playbooks; this page is the daily drill weapon.
 
-# Example Question Bank
+# Example Question Bank — Deep Edition
 
-## Python (screens: language fluency)
+## Part 1 — Why Drilling Works (mechanism)
 
-1. What are `*args` and `**kwargs`? When have you actually used them?
-2. Shallow vs deep copy — give a case where the difference bites.
-3. Why can mutable default arguments be dangerous? Show the bug.
-4. List vs tuple: beyond syntax, when does the choice matter semantically (dict keys? thread-safety?).
-5. What's a generator, and when does it beat a list comprehension in memory terms?
-6. Explain GIL in two sentences. What do you do for CPU-bound parallelism?
-7. `is` vs `==`. When is `a is b` True unexpectedly (interning)?
-8. What does `if __name__ == "__main__":` actually check?
+Interviews test *retrieval under social pressure*, not knowledge possession. Reading answers builds recognition; answering OUT LOUD against a timer builds the actual tested skill — producing structured speech from partial memory while a stranger watches. Every protocol choice below serves that mechanism.
 
-## SQL (screens: data access — top screening skill)
+**The three laws of drilling**:
+1. **Out loud or it didn't happen** (subvocal reading = zero interview transfer)
+2. **Timer on** (pressure is part of the stimulus being trained)
+3. **Misses become cards** (spaced repetition closes individual gaps permanently)
 
-1. Difference between WHERE and HAVING.
-2. Write: second-highest salary without LIMIT/OFFSET. *(window function or subquery)*
-3. INNER vs LEFT JOIN — what does LEFT preserve exactly?
-4. Top-3-per-group problem — which window function and frame?
-5. What does an index cost on write-heavy tables?
-6. Given 10M-row table and slow query — first three things you check?
-
-## DSA Quick-Fire (screens: pattern recognition; full drills → [[dsa-interview-playbook]])
-
-1. Detect a cycle in a linked list. *(fast/slow pointers)*
-2. Longest substring with K distinct characters. *(sliding window + hashmap)*
-3. All permutations of a string. *(backtracking template)*
-4. Kth largest in a stream. *(size-k min-heap)*
-5. Valid parentheses. *(stack)*
-6. Number of connected components in undirected graph. *(union-find or DFS count)*
-
-## Machine Learning Theory (screens: fundamentals; skeletons → [[ml-interview-playbook]])
-
-1. Bias-variance tradeoff — define, then say how you'd DETECT which one you have.
-2. Why split data into train/validation/test? What breaks if you tune on test?
-3. Precision vs recall — pick the more important one for: cancer screening, spam filter, fraud blocking. Justify each.
-4. What is regularization doing mathematically and practically?
-5. Random forest vs gradient boosting — mechanism difference in one line each.
-6. How does k-fold CV prevent overfitting estimates? Where can it still leak?
-7. Your model has train acc 99%, val acc 70%. Diagnose + list three fixes in order of preference.
-8. What is concept drift? Name one monitoring signal.
-
-## Statistics & A/B (screens: experimentation maturity)
-
-1. p=0.04 — what does it mean EXACTLY, and what does it NOT mean?
-2. Type I vs II error in an A/B context with real consequences named for each.
-3. Why is peeking at an A/B test daily dangerous? *(multiple comparisons/inflation)*
-4. You must detect a 1% metric lift with noisy data — what changes about your test design? *(sample size/power intuition)*
-
-## CS Core (screens: foundations — services companies love these)
-
-1. Process vs thread — memory sharing difference.
-2. TCP vs UDP — name one app that genuinely wants UDP.
-3. What happens between typing a URL and seeing a page? *(DNS→TCP→TLS→HTTP→render; rehearse as a story)*
-4. Stack vs heap — who allocates each, who cleans each, what lives where?
-5. What is an HTTP status code family 4xx vs 5xx — one example each you've personally hit.
-
-## HR / Behavioral Rapid-Fire (stories → [[interview-counter-guide]])
-
-1. Tell me about yourself (60-second version — script it).
-2. A time you failed. *(must end with changed behavior)*
-3. Conflict with a teammate. *(no blame; resolution focus)*
-4. Why this company specifically? *(research-backed, one sentence proof)*
-5. Biggest weakness that is REAL but not disqualifying + mitigation.
-
-## GenAI / Modern Additions `(2026-relevant)`
-
-1. What is RAG and what problem does it solve over fine-tuning alone?
-2. Your LLM app hallucinated a citation — retrieval issue or generation issue? How to tell?
-3. What's an embedding, intuitively? Why cosine similarity for them?
-4. How would you evaluate an AI summarizer without ground truth?
-
-## Using This Bank
+## Part 2 — The Rotation System
 
 ```mermaid
-flowchart LR
-    D["Daily: 5 random Qs,<br/>answer OUT LOUD"] --> M{"Fumbled?"}
-    M -- yes --> A["Card it (Anki)<br/>+ drill its playbook section"]
-    M -- no --> D
-    W["Weekly: 20-min timed<br/>mock from mixed sections"] --> R["Log weak categories<br/>in vault dailies"]
+flowchart TD
+    D["Daily 20 min:<br/>5 random Qs across sections"] --> O["Answer OUT LOUD,<br/>60s each, timer visible"]
+    O --> J{"Fumbled any?"}
+    J -->|"yes"| A["Anki card w/ YOUR phrasing<br/>+ drill its playbook section"]
+    J -->|"clean"| N["Tomorrow: new 5"]
+    W["Weekly 45 min:<br/>timed mixed mock (10 Qs)"] --> R["Score: pass/partial/fail<br/>per section -> weak section<br/>gets next week's focus"]
 ```
+
+## Part 3 — The Bank (with expectation tags)
+
+Tag legend: `[F]` fresher-must-know · `[P]` product-company bar · `[S]` senior-probe
+
+### Python
+1. `[F]` `*args`/`**kwargs` — definition + one real use you've had.
+2. `[F]` Shallow vs deep copy — case where the difference bites.
+3. `[F]` Mutable default argument bug — show it, fix three ways.
+4. `[F]` List vs tuple — semantic (not syntactic) differences incl. dict keys.
+5. `[P]` Generators — when memory advantage is real vs theoretical.
+6. `[P]` GIL in two sentences + CPU-bound workaround.
+7. `[P]` `is` vs `==` with interning example.
+8. `[F]` What does `if __name__ == "__main__":` check?
+
+### SQL
+1. `[F]` WHERE vs HAVING — execution-order reasoning, not just definitions.
+2. `[P]` Second-highest salary WITHOUT LIMIT/OFFSET.
+3. `[F]` INNER vs LEFT JOIN — what exactly does LEFT preserve?
+4. `[P]` Top-3-per-group by revenue, ties alphabetical → window function + frame.
+5. `[P]` Index cost on write-heavy tables — what gets slower and why?
+6. `[S]` 10M-row slow query — first three diagnostics in order.
+
+### DSA quick-fire (patterns → [[modules/programming/dsa-interview-playbook]])
+1. `[F]` Cycle detection → fast/slow pointers.
+2. `[P]` Longest substring with K distinct → sliding window + hashmap.
+3. `[F]` All permutations → backtracking template.
+4. `[P]` Kth largest in stream → size-K heap.
+5. `[F]` Valid parentheses → stack.
+6. `[P]` Connected components → union-find or DFS count.
+
+### ML theory (skeletons → [[ml-interview-playbook]])
+1. `[F]` Bias-variance — define + HOW you'd detect which one you have.
+2. `[F]` Train/validation/test — what breaks if you tune on test?
+3. `[P]` Pick precision-vs-recall priority: cancer screen / spam filter / fraud block — justify each.
+4. `[P]` Regularization — mathematical action + practical effect.
+5. `[P]` RF vs gradient boosting — mechanism difference, one line each.
+6. `[F]` k-fold CV purpose + where leakage sneaks in.
+7. `[P]` train 99% / val 70% — diagnosis + three fixes ranked.
+8. `[S]` Concept drift — definition + one monitoring signal.
+
+### Statistics & A/B
+1. `[F]` p=0.04 — exact meaning AND the popular wrong meaning.
+2. `[P]` Type I vs II errors with real consequences named for each.
+3. `[P]` Why peeking daily at an A/B test invalidates it?
+4. `[S]` Detecting a 1% lift in noisy data — what changes in design?
+
+### CS Core
+1. `[F]` Process vs thread — memory-sharing difference.
+2. `[F]` TCP vs UDP — one app genuinely wanting UDP.
+3. `[P]` URL→page walkthrough as a rehearsed story (DNS→TCP→TLS→HTTP→render).
+4. `[F]` Stack vs heap — who allocates/cleans each; what lives where.
+5. `[P]` 4xx vs 5xx — one example of each you've personally hit.
+
+### HR/Behavioral (stories → [[interview-counter-guide]])
+1. `[F]` 60-second self-intro (scripted).
+2. `[F]` Failure story ending in changed behavior.
+3. `[F]` Conflict story — no blame, resolution-focused.
+4. `[P]` "Why this company?" — research-backed single sentence proof.
+5. `[F]` Real non-disqualifying weakness + mitigation.
+
+### GenAI `(2026-relevant)`
+1. `[P]` RAG vs fine-tuning alone — what problem does RAG solve?
+2. `[P]` Hallucinated citation — retrieval or generation problem? How to tell?
+3. `[P]` Embeddings intuitively + why cosine similarity fits them.
+4. `[S]` Evaluate a summarizer without ground truth — concrete rubric?
+
+## Part 4 — Failure-Signal Interpretation
+
+Your wrong answers are diagnostic data:
+
+| Signal | Likely Root Cause | Prescription |
+|--------|-------------------|--------------|
+| Knew it after seeing answer | Recognition≠recall gap | More out-loud reps; card was needed earlier |
+| Blank entirely | Concept never encoded | Return to source material, rebuild tiny demo |
+| Rambling past 90s | No internal skeleton | Answer-template practice (definition→why→breaks) |
+| Right answer, no confidence | Imposter loop, not knowledge | Record yourself; review recordings — calibration fixes itself |
+| Consistent section failures | Structural gap | That section's playbook page for a week |
+
+## Part 5 — Life Integration
+
+- Daily drill inside existing anchor slot (morning or commute-walk)
+- Weekly mock replaces one drill day
+- Pre-interview week: only YOUR fumble-cards, no new questions
+- Metrics: fumble-rate trend (should fall) · sections at green · mock scores streak · cards matured count
 
 ## Cross-Vault Links
 
-- [[dsa-interview-playbook]] · [[ml-interview-playbook]] · [[system-design-interview]] · [[interview-counter-guide]] — full treatments per section
-- [[example-question-bank]] feeds [[roadmap-software-engineer]] Stage 5
+[[dsa-interview-playbook]] · [[ml-interview-playbook]] · [[system-design-interview]] · [[interview-counter-guide]] · [[how-to-self-teach]]

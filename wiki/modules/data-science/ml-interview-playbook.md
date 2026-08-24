@@ -1,85 +1,113 @@
 ---
 course_code: "DATA-SCI"
 course_name: "Data Science & Machine Learning Field"
-unit: "Guide 9 — ML Interview Playbook (Theory, Cases, ML System Design)"
-tags: [machine-learning, interview-prep, ml-theory, case-study, mlops-interview]
+unit: "Guide 9 — ML Interview Playbook [Deep Edition]"
+tags: [machine-learning, interview-prep, ml-theory, case-study, mlops-interview, failure-analysis]
 last_updated: "2026-08-24"
 confidence: "high"
 ---
 
 ## For future agent
-The ML-specific rounds beyond coding: ML breadth/depth theory Q&A with model answers' skeletons, the ML-case framework (metrics-first thinking), and ML system design adapted from [[system-design-interview]] with data/model/deployment components. Sources: canonical interview banks ([[ml-theory-and-moocs]] interview section) + 2026 market format notes.
+Deep edition of the ML interview playbook. Adds mechanism-level analysis of what each ML round scores, failure-mode taxonomy (the six ways ML candidates die), premortem of a failed loop, rescue flowcharts for blanking/case-paralysis/math-grilling, answer-skeleton discipline, and life-integration prep schedule. Theory source layer: [[ml-theory-and-moocs]]; coding side: [[dsa-interview-playbook]].
 
-# ML Interview Playbook
+# ML Interview Playbook — Deep Edition
 
-## Round Types
+## Part 1 — Round Anatomy & What Each Actually Scores
 
 ```mermaid
 flowchart LR
-    A["ML Interview Loop"] --> B["Coding<br/>(standard DSA)"]
-    A --> C["ML Theory<br/>(breadth drill)"]
-    A --> D["ML Case /<br/>Applied"]
-    A --> E["ML System Design<br/>(product + model)"]
-    B --> F["See [[dsa-interview-playbook]]"]
+    A["ML Loop"] --> B["Coding<br/>(standard DSA)"]
+    A --> C["ML Breadth/Depth"]
+    A --> D["Applied Case"]
+    A --> E["ML System Design"]
+    B --> F["[[dsa-interview-playbook]]"]
 ```
 
-## ML Theory: The Core Question Bank
+| Round | Scored Signal | Hidden Failure |
+|-------|--------------|----------------|
+| Coding | Same as SWE | Candidates over-invest here because it's familiar; it's the *floor*, not the differentiator |
+| ML breadth | Model of your mental map: do concepts CONNECT or sit isolated? | Isolated fact recital ("dropout is p=0.5") without when/why web |
+| Applied case | Error-analysis instinct BEFORE solution instinct | Jumping to "try XGBoost" reveals tool-user, not thinker |
+| ML system design | Data→model→deployment as ONE connected system | Designing model in isolation; forgetting data/serving = instant senior-signal absence |
 
-Answer skeleton for every theory Q: **definition → intuition/why → when it breaks**. That third beat separates offers.
+**Mechanism insight**: interviewers escalate probes until they find YOUR boundary — that's information-gathering, not hostility. The winning posture is making your boundary easy to find and showing what you do at it.
 
-| Question | Answer Skeleton |
-|----------|----------------|
-| Bias-variance tradeoff? | Error = bias²+variance+noise; simple models high bias; complex high variance; tune via CV/regularization; breaks when distribution shifts |
-| Why regularization? | Penalizes complexity to cut variance; L1→sparsity/feature selection, L2→shrinkage; choose via validation |
-| Precision vs recall? | Precision: of flagged, how many right (cost of false alarm); recall: of actuals, how many caught (cost of miss); F1 balances; pick by business asymmetry |
-| How does XGBoost work? | Sequential trees fitting gradients of a loss + regularization terms; why it wins tabular: handles non-linearity + interactions + missing values natively |
-| Explain overfitting you've debugged | Have ONE real story: symptom (train≈99 val≈70) → diagnosis curve → fixes tried in order → result |
-| Transformer attention in one line | Each token computes weighted relevance to all others; weights = softmax of query·key; enables parallel context |
-| Handling imbalanced data | Resample inside CV folds only / class weights / threshold tuning / right metric (PR-AUC) — never plain accuracy |
-| k-fold CV purpose | Honest generalization estimate on limited data; also model selection; leakage = fitting scalers BEFORE splitting |
+## Part 2 — The Core Question Bank With Answer Skeletons
 
-## The ML Case Framework ("How would you improve X metric?")
+Universal skeleton for every theory answer: **Definition → Intuition/Why → When It Breaks**. The third beat is where offers live — most candidates stop at definition.
 
-1. **Clarify**: what's the metric now, target, why does it matter to business?
-2. **Error analysis FIRST**: split failures into buckets (data quality / label noise / hard cases / representation). Never propose models before looking at errors.
-3. **Lever tree**: more data? better features? different objective? model capacity? ensembling?
-4. **Cost-rank levers**, propose cheapest-highest-yield first
-5. **Validation plan** before shipping any change
+| Question | Skeleton |
+|----------|----------|
+| Bias-variance tradeoff? | Error=bias²+variance+noise → simple models err systematically, complex err randomly → detect which via learning curves; breaks under distribution shift |
+| Why regularization? | Complexity penalty cuts variance → L1 sparsity (feature selection geometry), L2 shrinkage → breaks: wrong penalty strength chosen without CV |
+| Precision vs recall? | Precision = alarm trustworthiness (false-alarm cost); recall = coverage (miss cost) → choose by business asymmetry → breaks when classes shift post-deployment |
+| How does XGBoost work? | Sequential trees fitting loss gradients + regularization → wins tabular via non-linearity+interactions+native missing handling → breaks: leakage sensitivity, less parallel than RF training |
+| Debug an overfit you OWNED | symptom(train 99/val 70) → curve diagnosis → fixes tried in order → result + prevention. Have ONE real story; this is asked ~always |
+| Attention in one line | Tokens compute softmax(QK^T)V relevance to all others → parallel context modeling → breaks: quadratic cost in sequence length |
+| Imbalanced data handling | Resample INSIDE folds only / class weights / threshold tuning / PR-AUC → never plain accuracy → breaks: resampling before split = leakage |
+| k-fold CV purpose | Honest generalization estimate + model selection → leakage = fitting scalers pre-split |
 
-## ML System Design (adapted framework)
+## Part 3 — Failure-Mode Taxonomy
 
-Same 6 steps as [[system-design-interview]], plus three ML-specific layers:
+| # | Failure Mode | Mechanism | Early Warning | Counter |
+|---|--------------|-----------|---------------|---------|
+| F1 | **Fact-recital collapse** | Facts memorized as islands; probes need connections | Fluent first sentence, silence on follow-up "why" | Study BY connections: every concept card includes one neighbor concept |
+| F2 | **Case paralysis** | Open-endedness overwhelms; waiting for THE right move | Long silence after case prompt | Pre-wired opener: "Before solutions — error analysis: how would we bucket failures?" |
+| F3 | **Math grill freeze** | Derivation anxiety spikes working memory away | "I know this… just give me a second" loops | Own exactly three derivations cold: GD update, logistic loss, backprop chain rule. Depth beats breadth |
+| F4 | **Project shallowness** | Built by following tutorial; own reasoning absent | Cannot explain WHY choices made in own project | Retro-audit your project: for each choice write the rejected alternative + why |
+| F5 | **Buzzword vulnerability** | Named LLM/RAG/agents without mechanics | Can't answer "what would break if retrieval returned garbage?" | For each buzzword used, prepare its failure-mode paragraph |
+| F6 | **Metric blindness in cases** | Optimizing without asking business cost matrix | Proposing models before asking "what does FP vs FN cost?" | Case rule #1: metrics conversation precedes models, always |
 
-- **Data layer**: sources, ingestion, feature store, training/serving skew guard
-- **Model layer**: candidate generation → ranking (two-stage pattern for recsys/search); offline metrics vs online A/B
-- **Deployment layer**: batch vs online inference, latency budget, monitoring drift, retraining cadence
+### Premortem (failed ML loop)
+*Five rounds, five rejections.* Autopsy: coding fine but breadth answers were isolated facts (F1); case opened with model proposal (F6); own-project questions exposed tutorial scaffolding (F4); said "transformer" six times, explained attention zero times (F5). Every finding was visible in mock #1's recording.
 
-**Worked micro-example**: "Design YouTube recommendations" → two-stage: candidate nets narrow millions→hundreds; ranking model scores; features = watch history/session context; serving = precomputed candidates + online ranking under 200ms; monitor watch-time drift; retrain daily.
+## Part 4 — Rescue Flowcharts
 
-## Fresher-Specific Guidance `(2026 market)`
+```mermaid
+flowchart TD
+    S["Stuck mid-answer"] --> T{"Which stuck?"}
+    T -->|"blank on concept"| N["Name neighbors: 'It relates to X;<br/>the core idea I'm confident about is...' -<br/>partial maps score"]
+    T -->|"case overwhelm"| EA["Drop to error analysis:<br/>'Let me look at failure buckets first'"]
+    T -->|"derivation lost"| M{"Remember structure?"}
+    M -->|"yes"| W["Walk shape: 'chain rule through<br/>these stages; sign from...'"]
+    M -->|"no"| HON["'Derivation escapes me now;<br/>I can state the RESULT and why<br/>it has that sign'"]
+    T & N & EA & W & HON --> K["Keep narrating reasoning.<br/>Silence reads as emptiness"]
+```
 
-- Product-company MLE fresher loops DO include ML theory + light case; full ML system design usually appears at intern-conversion and mid levels — but knowing the two-stage pattern scores even fresh
-- Expect AI-tooling questions increasingly: how do you verify an LLM's output? how would you evaluate RAG quality? ([[roadmap-ml-engineer]] branch A)
-- Your OWN deployed project is the case study — prepare its failure analysis as deeply as its success story
+## Part 5 — The Applied-Case Framework (full depth)
 
-## Quit Points & Fixes
+"Improve metric X for product Y":
 
-| Quit Point | Fix |
-|------------|-----|
-| Theory feels infinite | The table above covers ~80% of asked questions; drill it to fluency before reading anything wider |
-| Case paralysis | ALWAYS start with error analysis out loud — it structures everything after |
-| Math grilling fear | You need derivations for: gradient descent update, logistic loss, backprop chain rule — exactly three; own them |
+1. **Clarify**: current value? target? why does business care? (skipping = F6)
+2. **Error analysis FIRST**: bucket failures — data quality / label noise / hard cases / representation gaps
+3. **Lever tree**: more data? better features? different objective? capacity? ensembling?
+4. **Cost-rank levers**, cheapest-highest-yield first
+5. **Validation plan BEFORE shipping any change**
 
-## Example Question Set (quick-fire with one-line targets)
+ML system design variant adds three layers ([[system-design-interview]] base framework): data layer (sources, feature store, train/serve skew guard), model layer (candidate-gen → ranking two-stage pattern), deployment layer (batch vs online inference, drift monitoring, retrain cadence).
 
-1. Your model performs well offline, poorly online — top 3 suspects? *(skew, feedback loops, stale features)*
-2. Why not use accuracy for fraud detection? *(0.1% positives → 99.9% accuracy by predicting 'no')*
-3. When is a decision tree better than a neural net? *(tabular/small-data/explainability/fast iteration)*
-4. What's data leakage? Give one sneaky example. *(using future info; e.g., scaling before split)*
-5. How would you cut inference cost 10×? *(distillation, quantization, caching, batch, smaller model first — ask accuracy budget!)*
+Worked micro-example (YouTube recs): two-stage — candidates narrow millions→hundreds; ranker scores; features from watch history/session; serving = precomputed candidates + online ranking <200ms; monitor watch-time drift; daily retrains.
+
+## Part 6 — Life Integration (prep operating system)
+
+| Phase | Focus | Cadence |
+|-------|-------|---------|
+| Baseline (anytime) | One real owned-project with written decision log | ongoing |
+| −8 to −5 weeks | Question-bank out-loud drills; skeleton fluency | 30 min/day |
+| −4 to −2 | Mocks ×2/week recorded; fix ONE weakness per mock | 90 min×2/wk |
+| −1 week | Three derivations daily; project war-story rehearsal; sleep fixed | light |
+| Loop week | Debrief note within 10 min post-round → feeds next mock | per round |
+
+**Metrics**: skeletons delivered <60s each · mocks passed streak · case openers automatic (error-analysis-first reflex) · derivation confidence self-rating trend.
+
+## Example Checkpoint Questions
+
+1. Model good offline, bad online — top suspects AND the order you'd check them? *(skew → feedback loop → stale features)*
+2. Why is accuracy fraudulent for fraud detection? State the exact arithmetic that makes it so.
+3. Decision tree > neural net — three concrete regimes.
+4. Your RAG bot cites nonexistent sources — diagnose retrieval vs generation; what measurement separates them?
+5. Cut inference cost 10× — first question you ask before proposing anything?
 
 ## Cross-Vault Links
 
-- [[ml-theory-and-moocs]] — theory source layer + interview banks
-- [[roadmap-ml-engineer]] — when this prep happens in the plan
-- [[modules/ai/AI_MASTER_NOTES]] — coursework-side backing for theory answers
+[[ml-theory-and-moocs]] · [[repo-ds-interviews-grigorev]] · [[roadmap-ml-engineer]] · [[system-design-interview]] · [[example-question-bank]] · [[modules/ai/AI_MASTER_NOTES]]

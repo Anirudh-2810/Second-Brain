@@ -308,3 +308,9 @@
 ### 2026-08-24 — Deep Edition pass, batch 1 (6 pages upgraded to R&D depth)
 - Expanded to deep edition (root-cause failure analysis, failure-mode taxonomies w/ early warnings, premortems, defeat-tackling flowcharts, life-integration systems, success metrics): roadmap-data-scientist, market-analysis-tech-2026, interview-counter-guide, build-project-playbook (careers/); dsa-interview-playbook + (programming/); system-design-interview (systems-design/).
 - Remaining pages queued for subsequent deep batches.
+
+### 2026-08-24 — Deep Edition pass, batches 2-3 (10 more pages at R&D depth)
+- Batch 2: roadmap-ml-engineer, ml-interview-playbook, math-for-ml-survival-guide (data-science/); python-mastery-path (programming/); kaggle-and-practice-guide (data-science/).
+- Batch 3: how-to-self-teach (productivity/) - failure engines + energy-scheduling R&D; example-question-bank (careers/) - drilling mechanism + expectation tags + failure-signal interpretation; ml-theory-and-moocs, python-datascience-frameworks, python-datascience-topics (data-science/).
+- Every deep edition adds: root-cause mechanisms, failure-mode taxonomies w/ early warnings, premortems, defeat-tackling flowcharts, life-integration systems, success metrics.
+- Remaining: reference pages + repo-expansion pages (~24) queued for batch 4+.
