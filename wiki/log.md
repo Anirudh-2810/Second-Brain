@@ -415,3 +415,9 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Created folder-index stubs: c-programming/code-examples + memory-code-examples (named to match basename links).
 - WRAP-UP GUARANTEE: /om-wrap-up now ends with mandatory final repo commit+push (step 1 in command doc); AGENTS.md Session Workflow End states 'no session closes with unpushed work'.
 - AUTO-SORT assurance verified: AGENTS.md auto-sort rule + om-ingest.md both mandate classify -> existing module OR create new module -> update-graph-colors.py + generate-index.py.
+
+### 2026-08-25 — Orphan sweep: 18 orphans fixed to 0 + auto-sort-and-link hardened
+- Orphan sweep found 18 pages with zero inbound links (incl. user-flagged Budget_Tracker_Basic + FinancialAdvisor_RebuildNotes).
+- Fixes: automations README gained Complete Page Map (10 orphans) + research series prev/next nav chain; engineering-chem/INDEX.md created (6-page map); excel workflows/INDEX.md created (Budget Tracker + FinancialAdvisor, cross-linked to quant-finance foundations); thin-film revision linked from engineering-physics module-2; stock-agent interview-prep-guide linked from overview; yt info linked from Programming INDEX.
+- AGENTS.md auto-sort rule hardened: ingest now explicitly requires LINKING (module INDEX page map + >=1 inbound wikilink + log entry) in addition to sorting.
+- Orphan sweep re-run: 0 orphans.

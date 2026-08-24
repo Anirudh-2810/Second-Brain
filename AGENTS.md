@@ -111,7 +111,7 @@ last_updated: "YYYY-MM-DD"
 - Code blocks always specify language (`python`, `cpp`, `sql`, …)
 
 ### Ingestion workflow (`/om-ingest`)
-**Auto-sort rule**: every ingested note is CLASSIFIED into an existing module folder under the right Area (`wiki/01-Areas/<Domain>/<module>/` or `wiki/00-Current-Projects/<build>/`). If no module fits, CREATE a new module folder there, then run `python .scripts/update-graph-colors.py` (registers its graph color) and `python .scripts/generate-index.py` (refreshes the dashboard). Unclassifiable material goes to `wiki/99-Unsorted/` for later triage — never left loose.
+**Auto-sort rule**: every ingested note is CLASSIFIED into an existing module folder under the right Area (`wiki/01-Areas/<Domain>/<module>/` or `wiki/00-Current-Projects/<build>/`). If no module fits, CREATE a new module folder there, then run `python .scripts/update-graph-colors.py` (registers its graph color) and `python .scripts/generate-index.py` (refreshes the dashboard). Every ingested note must also be LINKED: added to its module INDEX page map, given at least one inbound wikilink from a related page, and logged in `wiki/log.md`. Unclassifiable material goes to `wiki/99-Unsorted/` for later triage — never left loose. After any ingest: run `python .scripts/update-graph-colors.py` and `python .scripts/generate-index.py`.
 
 When processing files from `raw-sources/`:
 1. Read the raw document and map it to the relevant syllabus unit/module

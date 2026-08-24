@@ -2021,3 +2021,6 @@ For 10 Gbps, the required OSNR is typically 15-20 dB, so this system is marginal
 ---
 
 *Last updated: 2026-08-17*
+
+## Related Revision
+- [[thin-film-interference-revision]] — companion exam-revision sheet for interference/thin-film problems

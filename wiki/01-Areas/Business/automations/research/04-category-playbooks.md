@@ -147,3 +147,6 @@ Build your service menu as a pyramid:
 - **Apex (moat):** AI Agent + DevOps/Data specialties — few competitors, premium rates
 
 Each delivered project should reuse components across categories (your Telegram notifier, your Sheets logger, your AI scorer are shared organs between all sixteen categories). That compounding library — not the category count — is the actual asset you're building.
+
+---
+*Research series: [[research/03-integration-universe|prev]] · [[research/05-exploitation-guide|next]]*

@@ -146,3 +146,6 @@ git clone --depth 1 https://github.com/Zie619/n8n-workflows.git
 ```
 
 With a local clone you own all 4,343 JSONs permanently — no rate limits, offline search, raw material for template products (see Research 05).
+
+---
+*Research series:   [[research/02-workflow-science|next]]*

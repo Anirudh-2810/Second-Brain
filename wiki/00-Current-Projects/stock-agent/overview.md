@@ -92,3 +92,6 @@ flowchart LR
 - [[what-works-and-fails]] — the honest scorecard
 - [[value-and-standalone]] — what it helps you do, where it stands alone
 - [[improvement-roadmap]] — prioritized path to make it better
+
+## Interview Prep
+- [[interview-prep-guide]] — how to present this project in interviews, including the known-bugs deflection strategy

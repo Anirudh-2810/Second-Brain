@@ -41,3 +41,5 @@ ML theory/models → `wiki/01-Areas/AI-Data/` · Your own running projects → `
 ## Cross-Domain Bridges
 
 ML interviews: [[ml-interview-playbook]] (ai-data) · Career/market context: [[market-analysis-tech-2026]] (business) · Roadmaps hub: [[01-Areas/Roadmaps/INDEX]]
+
+- [[yt info]] - source metadata for the 5-video programming corpus

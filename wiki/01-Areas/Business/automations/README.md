@@ -51,3 +51,13 @@ Open-source workflow automation tool (fair-code license). Connects 400+ apps via
 - Source analysis complete (repo snapshot: 4,343 workflows / 365 integrations / 29,445 nodes / 15 categories).
 - All monetization numbers are realistic market anchors, not guarantees.
 - Update this module whenever you ship a workflow that works — log it in the catalog's "My Builds" section.
+
+## Complete Page Map
+
+**Money**: [[money/earn-with-n8n|earn-with-n8n]] · [[money/client-acquisition-playbook|client-acquisition]] · [[money/pricing-and-packages|pricing-and-packages]]
+
+**Patterns**: [[patterns/webhook-response-pattern|webhook-response]] · [[patterns/data-sync-pattern|data-sync]]
+
+**Research series** (read in order): [[research/01-repo-architecture|01-repo-architecture]] → [[research/02-workflow-science|02-workflow-science]] → [[research/03-integration-universe|03-integration-universe]] → [[research/04-category-playbooks|04-category-playbooks]] → [[research/05-exploitation-guide|05-exploitation-guide]]
+
+**Company**: [[company/company-ops-automation|company-ops]] · **Daily**: [[daily/personal-daily-automation|personal-daily]] · **Categories**: [[categories/devops|devops]] · [[categories/marketing|marketing]] · **Templates**: [[templates/starter-workflows|starter-workflows]]

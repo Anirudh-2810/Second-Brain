@@ -85,3 +85,6 @@ Don't learn 365 services. Build your menu around two axes: **demand frequency** 
 | Content engine | RSS + OpenAI + WordPress + LinkedIn/X | Creators, content agencies |
 
 Depth beats breadth: five stacks done cold > fifty integrations half-known. The other 300+ services remain your lookup library when a niche client appears — clone the matching folder from the repo and adapt.
+
+---
+*Research series: [[research/02-workflow-science|prev]] · [[research/04-category-playbooks|next]]*

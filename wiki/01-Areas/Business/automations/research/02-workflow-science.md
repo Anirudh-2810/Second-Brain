@@ -131,3 +131,6 @@ Node `typeVersion` fields evolve; a workflow built for `typeVersion 1` of the Op
 ## 8. Meta-Observation — Why This Dataset Matters Strategically
 
 Four thousand real automations are a fossil record of what businesses actually ask for. Frequency analysis of the tree tells you demand: Telegram dominates delivery channels, OpenAI saturates new builds, Sheets/Gmail/Airtable anchor small business stacks, and webhook+scheduled triggers split roughly evenly between reactive and proactive automation. Every product decision you make — which niche to serve, which template pack to publish next, which retainer to pitch — can be grounded in this distribution instead of guesswork. The dataset is MIT-licensed: the fossils are yours to monetize.
+
+---
+*Research series: [[research/01-repo-architecture|prev]] · [[research/03-integration-universe|next]]*
