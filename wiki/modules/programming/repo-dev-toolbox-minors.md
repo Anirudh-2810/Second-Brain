@@ -77,6 +77,29 @@ flowchart TD
     C -->|"explain CNNs"| CE["cnn-explainer link<br/>in your notes"]
 ```
 
+## Deep Edition Addendum
+
+**Failure modes of toolbox pages** (including this one):
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Toolbox tourism | Installing 20 utilities, using none | Reach-for-rules flowchart = adopt on REAL need only |
+| Version archaeology | Studying stale tools as if current | `(TBC)` marks mean: verify activity before investing |
+| Utility substitution | Tool-learning replacing core-skill building | Tools attach to projects; never standalone study |
+
+**Premortem**: *"Optimized my setup" for a month.* Findings: MonkeyType run once, pytest configured twice, zero features shipped — setup perfectionism is procrastination with a productivity costume. Every entry here earns its place mid-project, not before it.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Toolbox overwhelm"] --> Q{"Real need<br/>right now?"}
+    Q -->|"yes"| P["Adopt exactly one tool<br/>for that need"]
+    Q -->|"no"| C["Close the toolbox page.<br/>Build something."]
+    P & C --> L["Tool counts when used<br/>in a shipped artifact"]
+```
+
+**Life integration**: revisit quarterly; prune entries unused for 6 months; metrics = tools-in-active-use count (small is healthy).
+
 ## Cross-Vault Links
 
 - [[languages-python-advanced]] · [[systems-design-distributed]] · [[python-datascience-topics]]

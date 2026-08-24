@@ -70,6 +70,31 @@ flowchart LR
 3. Explain LRU cache implementation choices (hash map + doubly-linked list).
 4. Difference between a process and a thread at memory level.
 
+## Deep Edition Addendum
+
+**Failure modes of CIU followers** (from its own "Don't Make My Mistakes" spirit):
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Checklist-as-progress | Ticking topics without cold re-solves | Topic counts ONLY when re-implemented blank-editor |
+| Video passive mode | Hours watched, zero code | Every video → immediate implementation |
+| Perfectionism restart | Restarting list after gaps | Resume mid-list; gaps are data |
+| Scope creep into extras | Red-black trees for weeks | His own note: extras are OPTIONAL; core first |
+
+**Premortem**: *Interview season; checklist 80% ticked; still failing mediums.* Autopsy: ticks were watch-events not solve-events; flashcards abandoned week 2; no mock interviews because "not ready yet" (ready comes FROM mocks).
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Stalled on CIU"] --> Q{"Where exactly?"}
+    Q -->|"topic confusion"| I["Implement it tiny +<br/>teach rubber duck"]
+    Q -->|"grind fatigue"| P["Problem variety day:<br/>only problems, no topic study"]
+    Q -->|"overwhelmed by length"| F["Skip-ahead test: attempt next<br/>section's exit problem cold.<br/>Pass = skip legitimately"]
+    I & P & F --> L["Log + continue"]
+```
+
+**Life integration**: CIU = the DSA ladder's curriculum backbone — pair daily topic-study (morning) with [[dsa-interview-playbook]] drills (evening); Sunday redo ritual decides advancement.
+
 ## Cross-Vault Links
 
 - [[roadmap-software-engineer]] — this repo powers its Stage 2+5

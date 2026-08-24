@@ -74,6 +74,31 @@ Fresher depth guidance and grading rubric: [[system-design-interview]].
 1. Design TinyURL / Pastebin / Instagram / Twitter / web crawler / KV store / unique-ID generator / newsfeed / chat / Dropbox.
 Start with URL shortener ([[system-design-interview]] has the walkthrough), then KV store, then newsfeed.
 
+## Deep Edition Addendum
+
+**Failure modes of primer users**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Read-only mode | 100k-star repo treated as a book | It's a GYM: weekly solved-question re-attempts are the membership |
+| Anki deck import bloat | 1000 cards imported, none earned | Cards only from YOUR missed comparisons |
+| Solution-peeking | Reading solutions before attempting | Attempt-first timer; solutions after 25 min |
+| Vocabulary without mechanism | Naming CAP/sharding without when/why | Each term must answer "what failure does this prevent?" |
+
+**Premortem**: *System design round failed despite "finishing the primer."* Autopsy: read linearly once, no re-attempt ritual, no recorded mock designs. The primer is a reference layer — [[system-design-interview]] framework + weekly practice loop is the operating system.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Stalled on primer"] --> Q{"Type?"}
+    Q -->|"topic opaque"| F["Name its failure class first -<br/>concepts stick via their scars"]
+    Q -->|"no time"| M["One solved-question/week<br/>minimum viable rhythm"]
+    Q -->|"interview soon"| P["Pastebin -> KV store -><br/>newsfeed in that order"]
+    F & M & P --> C["Record yourself designing;<br/>review = real feedback"]
+```
+
+**Life integration**: commute slot for its video lecture; Sunday 45-min re-attempt ritual; metrics = questions re-attempted cold, blocks named correctly in mocks.
+
 ## Cross-Vault Links
 
 - [[systems-design-distributed]] · [[repo-scalability-catalogs]] · [[roadmap-software-engineer]] Stage 3

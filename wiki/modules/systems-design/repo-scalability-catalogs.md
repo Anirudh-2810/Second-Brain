@@ -66,6 +66,30 @@ One case study per week beats ten skimmed.
 2. Why could Instagram scale on Django? Which layers absorbed the load?
 3. Pick any case: name its stability mechanisms (rate limit? breaker? backpressure?) explicitly.
 
+## Deep Edition Addendum
+
+**Failure modes of catalog readers**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Star-and-forget | Catalogs hoarded as identity | One-case-per-week protocol; unread stars are noise |
+| Big-tech cargo cult | Netflix stack copied for 100-user app | Extract PRINCIPLES, not stacks |
+| Passive consumption | Case studies read like news | The 3-question mining protocol (broke-first? options weighed? tradeoff chosen?) |
+
+**Premortem**: *"Studied scalability" = read 30 architecture posts, retained anecdotes.* Findings: no notes, no connection to own systems, selection by entertainment. Case studies compound only when each ends in a vault line: principle + where it applies to YOUR projects.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Catalog fatigue"] --> Q{"Weekly case<br/>ritual alive?"}
+    Q -->|"never started"| P["Pick ONE post this week:<br/>Discord messages OR Instagram Django"]
+    Q -->|"drifting"| M["Mining protocol:<br/>3 questions answered in vault"]
+    Q -->|"overwhelming volume"| F["Filter rule: only systems you<br/>ADMIRE or RESEMBLE"]
+    P & M & F --> B["Principle bank grows<br/>one entry/week"]
+```
+
+**Life integration**: commute reading slot (case studies are narrative-friendly); metrics = case-notes in vault (target 1/week), principles applied to own projects count.
+
 ## Cross-Vault Links
 
 - [[systems-design-distributed]] · [[repo-system-design-primer]] · [[system-design-interview]]

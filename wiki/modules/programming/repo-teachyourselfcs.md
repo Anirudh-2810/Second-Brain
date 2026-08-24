@@ -63,6 +63,31 @@ flowchart TD
 2. What does top-down networking mean by "application layer first" pedagogy?
 3. After CS186: what does an index actually store, and when does it hurt?
 
+## Deep Edition Addendum
+
+**Failure modes of TYCS followers**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Subject-hopping | 9 subjects sampled, none finished | Max 2 concurrent; finish-or-formally-drop rule |
+| Book-without-projects | Reading CSAPP without labs | Projects ARE the subject; no labs = no learning |
+| SICP-first trauma | Starting at the hardest abstraction course | Interview-track: start #3 (algorithms); return to SICP later |
+| Perfection paralysis | "Wrong book" debates | The curation is done — execute it |
+
+**Premortem**: *Two years "studying CS fundamentals," zero shipped.* Findings: 5 books simultaneously open; every project skipped as "not fundamental enough"; fundamentals used as procrastination from building. TYCS is a multi-year MARATHON designed for working adults — students should run its interview-relevant subset (#3, then #1-lite via CS61A, then #5/#6) alongside [[roadmap-software-engineer]], not before.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["TYCS stalled"] --> Q{"Where?"}
+    Q -->|"book dense"| V["Course track instead -<br/>video-first is legitimate"]
+    Q -->|"project too big"| SL["Do lab part-1 only;<br/>ship partial understanding"]
+    Q -->|"lost why"| W["Re-read subject's 'why it matters'<br/>row - or drop the subject honestly"]
+    V & SL & W --> C["One subject active per quarter"]
+```
+
+**Life integration**: college semester = natural pacing unit; one TYCS subject mapped per semester break; metrics = labs shipped (not chapters read).
+
 ## Cross-Vault Links
 
 - [[roadmap-software-engineer]] · [[repo-system-design-primer]] (for #9's practical side)

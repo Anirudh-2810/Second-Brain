@@ -65,6 +65,31 @@ flowchart LR
 2. Draw the process branch from memory; where does feature engineering sit relative to CV?
 3. Which math node appears in BOTH maps' math sections? Why is it non-negotiable?
 
+## Deep Edition Addendum
+
+**Failure modes of map-followers**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Map-as-achievement | Studying the map instead of the territory | One orientation pass/quarter max |
+| Node anxiety | Every unmapped branch = guilt node | Fuzzy nodes are the SYLLABUS, not the shame list |
+| Tool-node obsession | Chasing every library leaf | Concepts stable, tools drift — learn concepts |
+
+**Premortem**: *"Studied ML" for a year = studied MAPS of ML.* Findings: three mindmaps downloaded, zero models trained outside tutorials; roadmap re-read monthly as procrastination ritual. Maps orient; only building moves you.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Lost in the map"] --> Q{"Can I explain my<br/>current branch's nodes<br/>out loud?"}
+    Q -->|"some yes"| N["Fuzzy nodes = next month's<br/>syllabus. Pick ONE"]
+    Q -->|"mostly no"| B{"Built anything from<br/>this branch?"}
+    B -->|"no"| P["Stop mapping. Build smallest<br/>thing in this branch NOW"]
+    B -->|"yes"| R["Re-read map after build -<br/>it finally means something"]
+    N & P & R --> L["Update vault note"]
+```
+
+**Life integration**: quarterly orientation (30 min) tied to season changes so it's memorable; metrics = fuzzy-nodes-closed count per quarter, companion-notebook experiments run.
+
 ## Cross-Vault Links
 
 - [[ml-theory-and-moocs]] · [[roadmaps-and-study-guides]]

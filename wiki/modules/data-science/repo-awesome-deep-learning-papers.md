@@ -68,6 +68,31 @@ flowchart TD
 2. Why did batch norm allow larger learning rates?
 3. Name one thing attention replaced, and why that replacement scaled better.
 
+## Deep Edition Addendum
+
+**Failure modes of paper-list users**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Chronological grind | Reading 100 papers in citation order | Spine-of-12 first; clusters by need later |
+| Math wall on pass 1 | Proofs attempted too early | Passes are designed to DEFER math; trust protocol |
+| Collection without extraction | Papers "read", nothing retained | Vault note per paper: claim + why-mattered + 1 critique |
+| Era confusion | 2012 techniques judged by 2026 standards | Ask per paper: "what couldn't people do BEFORE this?" |
+
+**Premortem**: *"Read deep learning papers" phase lasted 3 weeks.* Findings: started with ResNet paper's appendices; no notes; no connection to any running experiment. Paper reading works only anchored to a current build ("I'm using attention — now read the paper").
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Paper reading stalled"] --> Q{"Which stuck?"}
+    Q -->|"can't finish pass 1"| T["10-min rule: abstract +<br/>figures + conclusion ONLY.<br/>Log one line, move on"]
+    Q -->|"math opaque"| M["Defer to pass 3;<br/>find a blog explainer first"]
+    Q -->|"no anchor"| A["Anchor: read ONLY papers behind<br/>tools your current project uses"]
+    T & M & A --> N["One-line vault log<br/>per paper - streak visible"]
+```
+
+**Life integration**: one spine-paper/week during DL stage; extraction line into vault daily-notes; metrics = spine completed, papers-with-notes ratio (target 100%), re-reads of own notes.
+
 ## Cross-Vault Links
 
 - [[ml-theory-and-moocs]] · [[curated-reading-list]] (Distill essays = modern readable versions of several ideas)

@@ -56,6 +56,31 @@ flowchart LR
 1. Name three tools from the handbook's tool categories you've actually used — what did each replace?
 2. Why does every serious resource start with MDN rather than W3Schools?
 
+## Deep Edition Addendum
+
+**Failure modes with resource lists**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Menu-browsing as learning | Bookmarks ≠ skills | Pick ONE item per section, in use |
+| Newsletter overload | Staying-current anxiety replacing building | One newsletter max; read weekly not daily |
+| Handbook-as-novel | Reading tool catalogs cover-to-cover | Part 1 once; parts 2–3 on-demand only |
+
+**Premortem**: *Month of "frontend prep": 40 bookmarks, zero pages built.* The list was consumed as content. Resources are groceries — value exists only when cooked.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Drowning in resources"] --> Q{"Have a build<br/>in progress?"}
+    Q -->|"no"| B["Start one NOW -<br/>[[repo-fullstack-web-developer-path]] week 1"]
+    Q -->|"yes"| T{"Specific blocker?"}
+    T -->|"yes"| L["Look up ONLY that topic<br/>in handbook/list"]
+    T -->|"no"| C["Close tabs. Build next feature."]
+    B & L & C --> G["Resource = reference,<br/>never curriculum"]
+```
+
+**Life integration**: resource-touching allowed only inside build sessions; metrics = builds shipped vs items bookmarked (ratio ≥1 is the health check).
+
 ## Cross-Vault Links
 
 - [[web-development-resources]] · [[languages-polyglot]] (JS books)

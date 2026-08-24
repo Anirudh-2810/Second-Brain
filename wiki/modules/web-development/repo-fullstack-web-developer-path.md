@@ -47,6 +47,32 @@ Full-stack is "competitive" tier in 2026 hiring — plenty of roles, deep applic
 2. JWT vs session cookies: one security tradeoff each.
 3. Your API takes 3s per request — first three things you profile.
 
+## Deep Edition Addendum
+
+**Failure modes of path followers**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Tutorial chapter-chaining | Next-video autopilot | Its own "coding log" habit: every session ends with something RUNNING |
+| Framework-first jump | React at week 2 because "nobody writes vanilla" | Weeks 1–6 exist to make React's VALUE legible |
+| Deploy-at-end myth | Deployment debt | Deploy skeleton day 1 (its Extra Goals section exists for a reason) |
+| Project restart loop | New todo-app per tutorial | ONE growing project across all stages — the path's core design |
+
+**Premortem**: *Month 3: five half-cloned apps, zero deployed.* Findings: tutorial-hell relapse (1:1 rule violated), auth skipped ("later"), no Git history discipline so progress invisible. The week-table's exit tests were never attempted.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Path stalled"] --> Q{"Where?"}
+    Q -->|"CSS/JS wall"| B["Build 3 static pages from<br/>screenshots - walls dissolve in output"]
+    Q -->|"React confusion"| R["Rebuild SAME app componentized;<br/>compare before/after"]
+    Q -->|"backend fear"| E["One endpoint: GET /health.<br/>Deploy it. Momentum starts"]
+    Q -->|"lost weeks"| W["Re-read week table;<br/>find current row; do its exit test"]
+    B & R & E & W --> C["Log artifact link"]
+```
+
+**Life integration**: weekend build-blocks (context-heavy work); daily floor = one commit; metrics = deployed-URL alive, exit-tests passed, Git commit streak.
+
 ## Cross-Vault Links
 
 - [[web-development-resources]] · [[repo-frontend-learning-resources]]

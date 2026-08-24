@@ -57,6 +57,32 @@ flowchart TD
 2. Kafka: what does a consumer group guarantee? When do duplicates appear?
 3. Your nightly Airflow DAG failed mid-backfill — what does idempotency mean for your tasks?
 
+## Deep Edition Addendum
+
+**Failure modes of DE-roadmap followers**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Tool sprawl paralysis | Learning 15 tools at surface level | Core five: Python+SQL+Spark+Airflow+one cloud |
+| Hadoop nostalgia trap | 2020-map followed literally | Learn concepts; deploy modern equivalents `(2026 reality)` |
+| No data to pipeline | Learning orchestration without real data | Pick a public dataset with daily updates FIRST |
+| Skipping SQL depth | Rushing to Spark | DE interviews screen SQL hardest at entry |
+
+**Premortem**: *"Data engineer in training" for a year; nothing pipelined.* Findings: Kafka studied before any producer existed; Airflow DAGs on fake data; zero warehouse experience because "free tiers feel limited." Fix pattern: one REAL dataset (e.g., city open-data dumps) flowing through every stage of the roadmap as it's learned.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["DE learning stalled"] --> Q{"Where?"}
+    Q -->|"Spark won't behave"| L["Local Dockerized Spark +<br/>tiny dataset. Scale later"]
+    Q -->|"Kafka abstract"| P["Producer = your own script<br/>streaming something you care about"]
+    Q -->|"Airflow confusing"| A["One DAG: extract->load,<br/>schedule daily, add retry"]
+    Q -->|"tool FOMO"| CORE["Re-read core-five list.<br/>Ignore the rest until employed"]
+    L & P & A & CORE --> G["Ship one working pipeline"]
+```
+
+**Life integration**: pipeline runs daily → its failures become your ops education; weekly review checks DAG health; metrics = days-pipeline-alive streak, stages completed against the map.
+
 ## Cross-Vault Links
 
 - [[systems-design-distributed]] · [[repo-system-design-primer]]

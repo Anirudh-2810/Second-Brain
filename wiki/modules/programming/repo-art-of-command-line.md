@@ -61,6 +61,30 @@ The famous section — e.g., quick web-server `python -m http.server`, diff via 
 2. Difference between `>` and `>>`; between `2>&1` placement before/after a pipe.
 3. In PowerShell 5.1, what replaces `grep -r` and why does `&&` fail there?
 
+## Deep Edition Addendum
+
+**Failure modes of CLI learners**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| One-liner paste hazards | Blind copy of `rm -rf`-class commands | explainshell EVERY unfamiliar pipeline |
+| Reference-as-curriculum | Reading sections linearly, retaining nothing | Absorb via tasks only: one new flag per real use |
+| GUI regression | Reverting to file manager under time pressure | Weekly: redo one GUI task via CLI deliberately |
+
+**Premortem**: *"Learned the command line" thrice; still GUI-dependent.* Findings: read the doc cover-to-cover twice (retention ≈ 0), never configured `.ssh/config`, PowerShell/Unix confusion never resolved into a deliberate map. The fluency protocol exists because command lines are motor skills.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["CLI learning stalled"] --> Q{"Which gap?"}
+    Q -->|"flags forgotten"| T["Task-first: next real task,<br/>learn its 2 flags only"]
+    Q -->|"PowerShell vs bash chaos"| M["Write your own mapping table<br/>(grep<->Select-String etc.) in vault"]
+    Q -->|"dangerous commands anxiety"| X["Practice in a sandbox dir;<br/>explainshell reflex"]
+    T & M & X --> F["Fluency = tasks done,<br/>not sections read"]
+```
+
+**Life integration**: this vault runs on Windows — every Unix idiom gets a PS-mapping line in [[Gotchas]]; metrics = CLI-tasks-per-week, explainshell lookups becoming rare (internalization signal).
+
 ## Cross-Vault Links
 
 - [[software-dev-general]] CLI mastery section

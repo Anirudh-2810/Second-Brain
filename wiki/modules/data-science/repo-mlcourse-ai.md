@@ -62,6 +62,33 @@ flowchart TD
 2. What does the learning rate control in gradient boosting's functional descent view?
 3. In the Alice comp, what made time-based validation splits essential?
 
+## Deep Edition Addendum
+
+**Failure modes of mlcourse.ai students**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Assignment walls → quit | Assignments are genuinely hard (by design) | Timebox 3h → active solution study → re-implement cold; bonus ones are OPTIONAL |
+| Article skimming | Long-form density defeats passive reading | One article = one notebook rep same day |
+| Competition skipping | Kaggle comps feel intimidating | They're learner-designed; the comp is where articles become skill |
+| English/math fatigue | Densest text in this whole module | Pair weeks: one mlcourse / one applied-light |
+
+**Premortem**: *mlcourse abandoned at assignment 3, twice.* Findings: bonus assignments attempted from pride (explicitly optional), no logging of stuck points, second attempt repeated identical path. The 12-week schedule exists to prevent freeform drift.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["mlcourse stalled"] --> Q{"Where?"}
+    Q -->|"assignment wall"| T["3h timebox -> solution -><br/>cold re-implement -> card"]
+    Q -->|"theory dense"| A["Article summary in own words<br/>BEFORE notebook - gaps visible"]
+    Q -->|"bored"| K{"Kaggle comp started?"}
+    K -->|"no"| KC["Start it - competition re-ignites"]
+    K -->|"yes"| P["One submission today,<br/>any score. Motion > polish"]
+    T & A & KC & P --> L["Weekly schedule check"]
+```
+
+**Life integration**: pairs with [[roadmap-data-scientist]] Stage 3 as its primary course option; metrics = assignments submitted (not understood-feelings), competition submissions count.
+
 ## Cross-Vault Links
 
 - [[ml-theory-and-moocs]] · [[roadmap-data-scientist]] Stage 3 alternative primary

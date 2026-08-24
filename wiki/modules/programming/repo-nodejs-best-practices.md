@@ -55,6 +55,31 @@ flowchart LR
 2. Why is per-technical-layer foldering ("all controllers here") considered harmful at scale?
 3. What breaks first if `/health` only checks process-alive but not DB connectivity?
 
+## Deep Edition Addendum
+
+**Failure modes of best-practices-list users**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Day-1 maximalism | 100 practices attempted → paralysis → none kept | Maturity ladder: config, errors, health-checks, secrets FIRST |
+| Language dismissal | "I write Python" skips the page | Sections 2 (errors), 5 (production), 6 (security) port 1:1 to any backend |
+| Checklist-as-ceiling | Practices adopted once, never re-audited | Use as PR-review rubric per project, quarterly refresh |
+
+**Premortem**: *"Read all the best practices"* then built a service violating half of them. Findings: read passively; no checklist converted into review template; build-time secrets shipped in image anyway (the classic). Lists change behavior only when converted into CHECKS.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Practices not sticking"] --> Q{"Converted to<br/>a checklist yet?"}
+    Q -->|"no"| C["Copy sections 2+6 into your<br/>project's PR template today"]
+    Q -->|"yes"| A{"Auditing each PR?"}
+    A -->|"no"| R["Self-review ritual:<br/>10 min pre-merge"]
+    A -->|"yes"| P["Add one practice/month,<br/>not ten"]
+    C & R & P --> H["Habits form from checks,<br/>not reads"]
+```
+
+**Life integration**: attach rubric to every backend build ([[build-project-playbook]] README contract); metrics = rubric-audited PRs, incidents caught by own review.
+
 ## Cross-Vault Links
 
 - [[systems-design-distributed]] · [[repo-fullstack-web-developer-path]] · [[modules/programming/SAAS_BUILD_NOTES]]

@@ -38,6 +38,33 @@ The meta-layer of the knowledge repo: complete learning paths and roadmaps creat
 3. **Pair with project-driven learning** ([[modules/programming/learn-python-fast-system]]) — each roadmap stage should end in something built
 4. Vault-specific mapping: CS fundamentals stages → [[modules/programming/cs50/index|CS50]]; ML theory → [[ml-theory-and-moocs]]; interview DS&A → [[software-dev-general]]
 
+## Deep Edition Addendum — Roadmap Failure Mechanics
+
+**Why roadmaps fail their followers** (mechanisms, not platitudes):
+
+| Mechanism | What Happens | Counter |
+|-----------|--------------|---------|
+| Roadmap-as-identity | Collecting/sharing roadmaps substitutes for following them | Max 2 bookmarked; one ACTIVE |
+| Stage-skipping | Jumping to exciting late stages without gates | Every roadmap here has stage order for dependency reasons |
+| Perfectionist restart | Restarting roadmap from zero after a gap | Resume where you left; gaps are data, not sin |
+| Wrong-roadmap lock-in | Months inside a path that doesn't match goal | Quarterly re-check against [[market-analysis-tech-2026]] |
+
+### Premortem
+*A year of "following roadmaps" produced nothing.* Autopsy: four roadmaps bookmarked, two restarted, zero exit-tests defined (this vault's versions fix that), no artifact shipped. The failure was in the FOLLOWING system, not the chosen map.
+
+### Selection flowchart
+
+```mermaid
+flowchart TD
+    P{"Pick ONE by current goal"} --> G{"Goal is..."}
+    G -->|"SWE job"| SWE["[[modules/programming/roadmap-software-engineer]]"]
+    G -->|"DS/analyst"| DS["[[roadmap-data-scientist]]"]
+    G -->|"ML systems"| MLE["[[roadmap-ml-engineer]]"]
+    G -->|"data infra"| DE["[[repo-data-engineer-roadmap]]"]
+    G -->|"web/fullstack"| FW["[[repo-fullstack-web-developer-path]]"]
+    SWE & DS & MLE & DE & FW --> C["Commit: write start-date<br/>+ finish criteria in daily note"]
+```
+
 ## Related Pages
 
 - [[modules/careers/index|Careers Hub]] — module hub

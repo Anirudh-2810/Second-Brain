@@ -57,6 +57,33 @@ The full path is excellent but heavy for someone also running college. Two legal
 2. After 18.05: explain why p-values mislead when you test 20 hypotheses.
 3. Final-project bar: does a stranger reproduce your result from your repo alone?
 
+## Deep Edition Addendum
+
+**Failure modes of OSSU followers**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Curriculum perfectionism | Waiting for "the right time to start the 2-year journey" | Start stage 1 this week; stages are independent-ish |
+| Math-stage residence | 18.05/18.06 becoming permanent homes | Time-box math per [[math-for-ml-survival-guide]]; test out of known parts |
+| Certificate collecting | Badges as goals | Exit tests on THIS page define done |
+| Solo isolation | No discussion, motivation decays | Its community exists; also pair with vault weekly review |
+
+**Premortem**: *Year 1 of OSSU: 3 courses "in progress," none complete.* Findings: parallel course starts (violating its own order rule), multivariable-calc rabbit hole despite ML track, zero final-project thinking. OSSU's own "How to use" section warns against all three.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["OSSU stalled"] --> Q{"Where?"}
+    Q -->|"course mid-way boring"| C{"Still needed for<br/>target role?"}
+    C -->|"no"| D["Formally drop; log why.<br/>Curriculum serves you"]
+    C -->|"yes"| NZ["Minimum pace: 2 videos +<br/>1 exercise daily"]
+    Q -->|"math wall"| MG[[math-for-ml-survival-guide<br/>intuition path]]
+    Q -->|"lost in catalog"| HUB["Re-read this page's table;<br/>pick CURRENT row only"]
+    D & NZ & MG & HUB --> G["One stage gate at a time"]
+```
+
+**Life integration**: semester-break windows = heavy stages (ML); exam weeks = never-zero reviews; metrics = stages closed (checkboxes above), assignment submission streaks, final-project scoping started by month 12.
+
 ## Cross-Vault Links
 
 - [[roadmap-data-scientist]] — compressed execution variant

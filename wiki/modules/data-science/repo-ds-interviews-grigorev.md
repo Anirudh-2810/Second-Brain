@@ -57,6 +57,31 @@ flowchart LR
 | Reading answers passively | Out-loud rule; reading feels like knowing ([[how-to-self-teach]]) |
 | Memorizing without categories | Cluster-first: every new question files into one of the 6 clusters above |
 
+## Deep Edition Addendum
+
+**Failure modes of question-bank users**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Silent reading | Recognition confused with production ability | Out-loud rule; record answers |
+| Answer-worship | Community answers treated as gospel | Verify surprising claims; answers vary in quality |
+| Random access | Questions in arbitrary order, no clustering | Cluster-first: file every miss into the 6 theory clusters |
+| One-pass illusion | "I went through the whole repo" | Spaced re-drill: day-3/day-14 on misses |
+
+**Premortem**: *Read all questions + answers twice; still bombed the ML screen.* Findings: zero out-loud practice; answers memorized as strings not connected webs; SQL section skipped as "easy" (it wasn't). The drilling protocol above exists because reading banks is necessary-but-insufficient.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Bank drilling stalled"] --> Q{"Type?"}
+    Q -->|"overwhelmed by volume"| F["6 clusters -> drill ONE<br/>cluster per week"]
+    Q -->|"answers feel foreign"| OW["Write YOUR answer first,<br/>then compare - generation effect"]
+    Q -->|"no time"| M["5 Qs/day inside morning<br/>anchor - 20 minutes"]
+    F & OW & M --> T["Track fumble-rate trend"]
+```
+
+**Life integration**: daily 20-min slot ([[example-question-bank]] rotation); metrics = fumble-rate falling, clusters at green, mock scores.
+
 ## Cross-Vault Links
 
 - [[ml-interview-playbook]] · [[example-question-bank]]

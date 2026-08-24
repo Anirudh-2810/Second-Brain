@@ -318,3 +318,8 @@
 ### 2026-08-24 — Deep Edition pass, batch 4 (7 more reference-layer pages)
 - mlops-production-deployment (production-failure taxonomy, MLOps ladder, notebook-to-production gap), systems-design-distributed (distributed failure taxonomy, learning-order, K8s/Docker traps) [systems-design]; web-development-resources (frontend failure taxonomy F1-F6) [web-development]; software-dev-general, languages-python-advanced, language-rust, languages-polyglot (programming/) — compounding-vs-plateau mechanism, per-language failure modes + transfer upgrades, decision logic.
 - Remaining deep-edition targets: repo-expansion pages (17).
+
+### 2026-08-24 — Deep Edition pass, batch 5 (roadmap catalog + all 17 repo-expansion pages)
+- roadmaps-and-study-guides: roadmap-failure mechanics, premortem, selection flowchart.
+- All 17 repo-expansion pages received Deep Edition Addenda: failure-mode tables specific to each repo's usage pattern, mini-premortems, rescue flowcharts, life-integration metrics. Compact-but-real depth appropriate to catalog-layer pages.
+- Deep-edition coverage now complete across the module: 23 full deep rewrites + 18 addenda = every page carries failure analysis, premortem/rescue guidance, and life-integration systems.

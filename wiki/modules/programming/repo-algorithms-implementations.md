@@ -54,6 +54,29 @@ flowchart LR
 2. In their DP section, find one top-down vs bottom-up pair — when is each preferable?
 3. From the JS repo's complexity table: average vs worst for quicksort — what causes the gap?
 
+## Deep Edition Addendum
+
+**Failure modes of implementation-library users**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Answer-key addiction | Reading before attempting → fluency illusion | Attempt-first 25-min timer is absolute |
+| Copy-paste "solving" | Working code ≠ owned code | Close source, re-implement cold, then diff |
+| Style cargo cult | Adopting clever one-liners unread | One-line journal: what their version does better |
+
+**Premortem**: *"Studied" three algorithm repos; interviews unchanged.* Findings: read implementations linearly like novels; never attempted-then-compared; complexity tables skimmed not memorized. The libraries are answer KEYS — keys without attempts are trivia.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Library use stalled"] --> Q{"Attempt-first<br/>habit intact?"}
+    Q -->|"no"| T["Reinstate timer today.<br/>Habit > volume"]
+    Q -->|"yes"| C["Compare ritual: ONE improvement<br/>per solution, journaled"]
+    T & C --> R["Redo schedule: day-3, day-14"]
+```
+
+**Life integration**: library opened ONLY after an attempt exists (browser tab discipline); metrics = attempt-before-read ratio, journal entries per week.
+
 ## Cross-Vault Links
 
 - [[dsa-interview-playbook]] · [[repo-coding-interview-university]]

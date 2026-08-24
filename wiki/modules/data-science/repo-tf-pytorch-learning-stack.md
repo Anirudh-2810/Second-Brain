@@ -67,6 +67,31 @@ flowchart LR
 2. Rewrite `x.transpose(0,2,3,1).reshape(b, -1, c)` as one einops call.
 3. When would declarative Ludwig beat writing Keras by hand? When never?
 
+## Deep Edition Addendum
+
+**Failure modes of learning-stack collectors**:
+
+| Failure | Mechanism | Counter |
+|---------|-----------|---------|
+| Tool-shopping as progress | New tuner tried instead of model trained | ONE tuner, ONE book — until shipped ([[build-project-playbook]]) |
+| Einops premature | DSL confusion layered on tensor confusion | Plain reshape/transpose fluency first; einops is a reward |
+| Hyperopt archaeology | Dead tools studied for completeness | 2026 defaults: keras-tuner or BoTorch/Ax `(TBC: check current)` |
+
+**Premortem**: *"Learned TF ecosystem"* = installed six tools, trained nothing. Findings: environment churn (each tool new env), zero experiment logs, tutorial repos never modified. The lifecycle flowchart exists so tools attach to a LIVE project stage, not to a collection hobby.
+
+**Rescue flowchart**:
+```mermaid
+flowchart TD
+    S["Stack stalled"] --> Q{"Have a training<br/>run in flight?"}
+    Q -->|"no"| T["Stop tooling. Train baseline<br/>on own dataset TODAY"]
+    Q -->|"yes"| N{"Next bottleneck?"}
+    N -->|"hyperparams"| HT["Add ONE tuner to the run"]
+    N -->|"serving"| SV["Ladder in [[mlops-production-deployment]]"]
+    T & HT & SV --> L["Tool adopted =<br/>one logged experiment using it"]
+```
+
+**Life integration**: tools enter only at their lifecycle stage; metrics = experiments logged with each tool, dead-tool count pruned quarterly.
+
 ## Cross-Vault Links
 
 - [[python-datascience-frameworks]] · [[mlops-production-deployment]] · [[roadmap-ml-engineer]] Stage 2
