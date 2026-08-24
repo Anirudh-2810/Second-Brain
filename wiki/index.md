@@ -271,37 +271,25 @@
 - **[[modules/retrieval-agent/retrieval-agent|Agent Behavior]]** — search-first, multi-search, refusal logic, confidence weighting
 - **[[modules/retrieval-agent/database-schema|Database Schema]]** — brain_chunks table, IVFFLAT index, RPC, RLS, maintenance
 
-### Knowledge Repository — Curated Learning Resources (niderhoff/knowledge-repository)
-> Full distillation of github.com/niderhoff/knowledge-repository (~500 curated links: data science, ML, software dev, systems design). Catalog + reading order: `[[modules/knowledge-repo/overview|Knowledge Repo Hub]]`. Links 2017–2021 era; concepts durable.
-- **[[modules/knowledge-repo/roadmaps-and-study-guides|Roadmaps & Study Guides]]** — ML/data-engineer/coding-interview paths, OSSU DS degree, DeepMind resource list
-- **[[modules/knowledge-repo/ml-theory-and-moocs|ML Theory & MOOCs]]** — Deep Learning Book, D2L, fast.ai, Stanford CS231n/CS224d, Karpathy's training recipe, CNN/GAN explainers, interview banks
-- **[[modules/knowledge-repo/python-datascience-frameworks|Python DS — Frameworks]]** — pandas/sklearn, XGBoost/LightGBM/CatBoost, TensorFlow 2 deep-dive (training/tuning/TensorBoard/inference), Keras advanced issues, PyTorch tooling
-- **[[modules/knowledge-repo/python-datascience-topics|Python DS — Topics]]** — anomaly detection, action recognition (15+ repos), face recognition, Detectron2, OCR, HuggingFace Transformers, time series, Microsoft Recommenders, RL environments (AirSim/RLTrader), AutoML Zero
-- **[[modules/knowledge-repo/mlops-production-deployment|MLOps & Production]]** — Ray distributed computing, TF production stack (TFRT/Lite/JS), model interpretation (tf-explain, Gradio, TensorSpace)
-- **[[modules/knowledge-repo/software-dev-general|Software Dev — General]]** — Teach Yourself CS, Big-O, Coding Interview University, algorithm visualizers, Fowler architecture guide, C4 model, Google code review, Art of Command Line
-- **[[modules/knowledge-repo/languages-python-advanced|Advanced Python]]** — Fluent/Effective Python, wtfpython, pytudes, type checking at scale, async-vs-threads decision rules, Django concurrency, DB migrations/testing, scraping
-- **[[modules/knowledge-repo/language-rust|Rust]]** — ordered path: Book → rustlings → too-many-lists → Programming Rust → Rustonomicon; Stanford CS110L
-- **[[modules/knowledge-repo/languages-polyglot|Other Languages]]** — C/C++ (K&R, Modern C), Go (Practical Go Lessons, Learn Go with Tests), Haskell (LYAH, Hutton lectures), Java/Scala (Helsinki MOOC), JS (Eloquent, YDKJS, Build Your Own React)
-- **[[modules/knowledge-repo/systems-design-distributed|Systems Design & Distributed]]** — System Design Primer, awesome-scalability, DDIA book, Docker/K8s best practices & common mistakes, Airflow/Celery/KEDA, Prometheus, nginx generator
-- **[[modules/knowledge-repo/web-development-resources|Web Development]]** — MDN, event loop talk, caniuse, BEM/SMACSS/Grid, NN/g usability, framework landscape
-- **[[modules/knowledge-repo/curated-reading-list|Curated Reading List]]** — ~190 high-signal articles distilled by theme: ML practice/career, DL concepts (Distill), CV production cases, NLP, Python craft, data engineering, statistics, trading-RL, git recovery, mindset
 
-**Deep Guides (execution layer — flowcharts, exit tests, quit points, example Qs):**
-- **[[modules/knowledge-repo/how-to-self-teach|How to Self-Teach]]** — learning loop, quit-point map + recovery protocols, Anki setup
-- **[[modules/knowledge-repo/roadmap-software-engineer|SWE Roadmap]]** · **[[modules/knowledge-repo/roadmap-data-scientist|DS Roadmap]]** · **[[modules/knowledge-repo/roadmap-ml-engineer|MLE Roadmap]]** — stage-based with exit tests, projects, India notes
-- **[[modules/knowledge-repo/market-analysis-tech-2026|Market Analysis 2026]]** — sourced global+India snapshot; entry-level reality; strategic response
-- **[[modules/knowledge-repo/interview-counter-guide|Interview Counter-Guide]]** — round anatomy, live-coding script, STAR bank, negotiation
-- **[[modules/knowledge-repo/dsa-interview-playbook|DSA Playbook]]** — 15 patterns w/ cues+templates, ladder system · **[[modules/knowledge-repo/system-design-interview|System Design Playbook]]** — framework + worked example · **[[modules/knowledge-repo/ml-interview-playbook|ML Interview Playbook]]** — theory skeletons, case framework
-- **[[modules/knowledge-repo/build-project-playbook|Build-Project Playbook]]** — selection matrix, v0.1 rule, failure-point table, learn-in-public
-- **[[modules/knowledge-repo/math-for-ml-survival-guide|Math Survival Guide]]** · **[[modules/knowledge-repo/python-mastery-path|Python Mastery Path]]** · **[[modules/knowledge-repo/kaggle-and-practice-guide|Kaggle Guide]]** — skill ladders with quit points
-- **[[modules/knowledge-repo/example-question-bank|Example Question Bank]]** — cross-topic daily drill set
+### Data Science & Machine Learning (field module)
+> Theory, frameworks, topics, roadmaps, interview prep + expanded learning-resource repos. Hub: `[[modules/data-science/index|Data Science Field Index]]`.
+- **[[modules/data-science/ml-theory-and-moocs|ML Theory & MOOCs]]** · **[[modules/data-science/python-datascience-frameworks|DS Frameworks]]** · **[[modules/data-science/python-datascience-topics|DS Topics]]** · **[[modules/data-science/mlops-production-deployment|MLOps & Production]]** · **[[modules/data-science/curated-reading-list|Curated Reading List (~190 essays)]]**
+- Roadmaps: **[[modules/data-science/roadmap-data-scientist|DS Roadmap]]** · **[[modules/data-science/roadmap-ml-engineer|MLE Roadmap (incl. GenAI branch)]]** — with exit tests & quit points
+- Prep: **[[modules/data-science/ml-interview-playbook|ML Interview Playbook]]** · **[[modules/data-science/kaggle-and-practice-guide|Kaggle Guide]]** · **[[modules/data-science/math-for-ml-survival-guide|Math Survival Guide]]**
+- Expanded repos: [[modules/data-science/repo-ossu-data-science|OSSU DS]] · [[modules/data-science/repo-ml-roadmaps-mindmaps|ML Roadmaps/Mindmaps]] · [[modules/data-science/repo-ds-interviews-grigorev|DS Interviews Bank]] · [[modules/data-science/repo-mlcourse-ai|mlcourse.ai]] · [[modules/data-science/repo-awesome-deep-learning-papers|DL Papers Canon]] · [[modules/data-science/repo-tf-pytorch-learning-stack|TF/PyTorch Stack]] · [[modules/data-science/repo-data-engineer-roadmap|Data Engineer Roadmap]]
 
-**Linked Repo Expansions** (each major repo from the source README, expanded):
-- **[[modules/knowledge-repo/repo-coding-interview-university|Coding Interview University]]** · **[[modules/knowledge-repo/repo-system-design-primer|System Design Primer]]** · **[[modules/knowledge-repo/repo-teachyourselfcs|Teach Yourself CS]]** · **[[modules/knowledge-repo/repo-ossu-data-science|OSSU Data Science]]** — the four canonical curricula
-- **[[modules/knowledge-repo/repo-data-engineer-roadmap|Data Engineer Roadmap]]** · **[[modules/knowledge-repo/repo-fullstack-web-developer-path|Fullstack Web Path]]** · **[[modules/knowledge-repo/repo-frontend-learning-resources|Frontend Resources]]** · **[[modules/knowledge-repo/repo-ml-roadmaps-mindmaps|ML Roadmaps & Mindmaps]]**
-- **[[modules/knowledge-repo/repo-ds-interviews-grigorev|DS Interviews Bank]]** · **[[modules/knowledge-repo/repo-algorithms-implementations|Algorithm Libraries]]** · **[[modules/knowledge-repo/repo-art-of-command-line|Art of Command Line]]** · **[[modules/knowledge-repo/repo-mlcourse-ai|mlcourse.ai]]** · **[[modules/knowledge-repo/repo-awesome-deep-learning-papers|DL Papers Canon]]**
-- **[[modules/knowledge-repo/repo-nodejs-best-practices|Node Best Practices]]** · **[[modules/knowledge-repo/repo-scalability-catalogs|Scalability Catalogs]]** · **[[modules/knowledge-repo/repo-tf-pytorch-learning-stack|TF/PyTorch Stack]]** · **[[modules/knowledge-repo/repo-dev-toolbox-minors|Toolbox Minors]]**
+### Systems Design & Distributed Systems (field module)
+> Building blocks, interview method, canonical study repo, case-study catalogs. Hub: `[[modules/systems-design/index|Systems Design Index]]`.
+- **[[modules/systems-design/systems-design-distributed|Systems Design Reference]]** · **[[modules/systems-design/system-design-interview|System Design Interview Playbook]]** · **[[modules/systems-design/repo-system-design-primer|System Design Primer Expanded]]** · **[[modules/systems-design/repo-scalability-catalogs|Scalability Case-Study Catalogs]]**
 
+### Web Development (field module)
+> Resources + frontend/fullstack learning paths. Hub: `[[modules/web-development/index|Web Dev Index]]`.
+- **[[modules/web-development/web-development-resources|Web Dev Resources]]** · **[[modules/web-development/repo-frontend-learning-resources|Frontend Resources & Handbook]]** · **[[modules/web-development/repo-fullstack-web-developer-path|Fullstack Path (week-by-week)]]**
+
+### Careers, Market & Interview Prep (field module)
+> 2026 market analysis, interview system, portfolio playbook. Hub: `[[modules/careers/index|Careers Index]]`.
+- **[[modules/careers/market-analysis-tech-2026|Market Analysis 2026 (sourced)]]** · **[[modules/careers/interview-counter-guide|Interview Counter-Guide]]** · **[[modules/careers/build-project-playbook|Build-Project Playbook]]** · **[[modules/careers/example-question-bank|Question Bank]]** · **[[modules/careers/roadmaps-and-study-guides|Roadmap Catalog]]**
 ---
 
 ## Ingest Checklist (per course)

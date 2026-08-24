@@ -294,3 +294,13 @@
   - repo-dev-toolbox-minors (~20 utility repos indexed by function w/ two-line verdicts + reach-for-rules flowchart)
 - Updated overview.md hub (Linked Repo Expansions table) and /wiki/index.md.
 - Module now totals 43 pages: hub + 12 reference + 14 deep guides + 17 repo expansions.
+
+### 2026-08-24 — Reorganized knowledge-repo module into field modules (43 pages redistributed)
+- User directive: field-first organization, not a monolithic knowledge-repo folder.
+- Created 4 new field modules with index hubs: data-science/ (17 pages + index), systems-design/ (4 + index), web-development/ (3 + index), careers/ (5 + index).
+- Moved into existing programming/ (13 pages): software-dev-general, languages-python-advanced, language-rust, languages-polyglot, python-mastery-path, dsa-interview-playbook, roadmap-software-engineer, repo-coding-interview-university, repo-teachyourselfcs, repo-algorithms-implementations, repo-art-of-command-line, repo-nodejs-best-practices, repo-dev-toolbox-minors.
+- Moved into existing productivity/ (1 page): how-to-self-teach (learning methodology).
+- Dissolved knowledge-repo/overview.md hub; its page maps redistributed into the 4 new field indexes. Source attribution preserved via each page's frontmatter source: field.
+- All moves via git mv (history preserved). Bare wikilinks survive moves (Obsidian resolves vault-wide); patched per-group: course_code/course_name frontmatter now reflects destination field; former [[overview]] hub links repointed to the correct field index.
+- Updated both catalogs: wiki/index.md (Knowledge Repository section replaced by 4 field sections) and wiki/modules/index.md (new field sections inserted).
+- No content deleted except the dissolved hub note (fully redistributed). Log history above intentionally retained as historical record of the pre-reorg structure.

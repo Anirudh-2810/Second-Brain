@@ -98,6 +98,48 @@ last_updated: "2026-08-13"
 - **[[matching-engine-cpp]]** — C++20 limit-order matching engine design & implementation.
 - **[[event-driven-backtesting]]** — Event-driven architecture, look-ahead discipline, cost models, Python + C++ skeleton.
 
+
+## Data Science & Machine Learning (field module)
+
+> Learning resources, roadmaps, and prep for the DS/ML field. Hub: [[modules/data-science/index|Data Science Field Index]].
+
+- **[[ml-theory-and-moocs]]** - Canonical references + tiered MOOC catalog + concept explainers.
+- **[[python-datascience-frameworks]]** - pandas/sklearn, XGBoost/LightGBM/CatBoost, TensorFlow 2 deep-dive, PyTorch.
+- **[[python-datascience-topics]]** - Problem-type map: anomaly detection, CV, NLP, time series, recsys, RL environments.
+- **[[mlops-production-deployment]]** - Ray, TF serving stack, model interpretation tools.
+- **[[curated-reading-list]]** - ~190 high-signal essays distilled by theme.
+- **[[math-for-ml-survival-guide]]** - Honest math depth table, quit-proof ordering.
+- Roadmaps: **[[roadmap-data-scientist]]**, **[[roadmap-ml-engineer]]** (stages, exit tests, quit points).
+- Prep: **[[ml-interview-playbook]]**, **[[kaggle-and-practice-guide]]**.
+- Expanded repos: **[[repo-ossu-data-science]]**, **[[repo-ml-roadmaps-mindmaps]]**, **[[repo-ds-interviews-grigorev]]**, **[[repo-mlcourse-ai]]**, **[[repo-awesome-deep-learning-papers]]**, **[[repo-tf-pytorch-learning-stack]]**, **[[repo-data-engineer-roadmap]]**.
+
+## Systems Design & Distributed Systems (field module)
+
+> Hub: [[modules/systems-design/index|Systems Design Index]].
+
+- **[[systems-design-distributed]]** - Patterns, Docker/K8s best practices, workflow engines, infra utilities.
+- **[[system-design-interview]]** - 6-step framework, scoring axes, worked design.
+- **[[repo-system-design-primer]]** - The canonical study repo expanded (topic index, solved questions, Anki).
+- **[[repo-scalability-catalogs]]** - Case-study mining protocol; Netflix/Discord/Uber/Instagram starters.
+
+## Web Development (field module)
+
+> Hub: [[modules/web-development/index|Web Dev Index]].
+
+- **[[web-development-resources]]** - MDN, event loop, CSS conventions, UX, frameworks.
+- **[[repo-frontend-learning-resources]]** - Beginner resource list + FrontendMasters handbook expanded.
+- **[[repo-fullstack-web-developer-path]]** - Week-by-week fullstack plan with exit tests.
+
+## Careers, Market & Interview Prep (field module)
+
+> Hub: [[modules/careers/index|Careers Index]].
+
+- **[[market-analysis-tech-2026]]** - Sourced 2026 market split + strategy for a BTech student.
+- **[[interview-counter-guide]]** - Round anatomy, live-coding script, STAR bank, negotiation.
+- **[[build-project-playbook]]** - Portfolio projects: selection matrix, v0.1 rule, failure points.
+- **[[example-question-bank]]** - Cross-topic drill bank (~40 questions).
+- **[[roadmaps-and-study-guides]]** - Meta-catalog of all major roadmaps.
+
 ## Robotics & ROS2 (cross-cutting)
 
 > Deep-researched study library for **robotics fundamentals + ROS 2 (Robot Operating System 2)** — sense–plan–act, sensors/kinematics/control/SLAM/planning, then the full ROS2 stack (nodes · topics · services · actions · DDS/QoS · colcon · tf2 · rviz2 · Gazebo · Nav2). Sources: docs.ros.org, design.ros2.org, docs.nav2.org, The Construct, Kevin Wood / Edouard Renard courses.
