@@ -1,39 +1,31 @@
-"""Assign a DISTINCT graph color to every module folder (full-depth discovery).
+"""Graph color scheme — curated dark-theme domain coding (canonical).
 
-Run after creating any new module:  python .scripts/update-graph-colors.py
+Run anytime (idempotent):  python .scripts/update-graph-colors.py
+
+Design:
+  - Domain-level colors only (sub-modules inherit parent) = readable legend
+  - Jewel tones, s~0.68 l~0.56: vivid on near-black, zero glare
+  - Builds = amber (active work pops warm), AI = violet, coding = emerald
+  - Archive/Unsorted fade to near-invisible gray
 """
-import os, json, colorsys
+import os, json
 
 VAULT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GP = os.path.join(VAULT, '.obsidian', 'graph.json')
-WIKI = os.path.join(VAULT, 'wiki')
 
-modules = []
-for root, dirs, files in os.walk(WIKI):
-    dirs[:] = [d for d in dirs if d != '.obsidian']
-    md_files = [f for f in files if f.endswith('.md') and f != 'log.md']
-    if not md_files:
-        continue
-    rel = os.path.relpath(root, VAULT).replace(os.sep, '/')
-    if rel == 'wiki':          # vault-level index/log — not a module
-        continue
-    name = os.path.basename(rel)
-    modules.append((rel, name))
-
-modules.sort()
-
-def rgb_int(hue_deg, s=0.95, l=0.62):
-    """Neuron-activator palette: vivid neon, max pop on dark canvas."""
-    r, g, b = colorsys.hls_to_rgb((hue_deg % 360) / 360, l, s)
-    return (int(r * 255) << 16) + (int(g * 255) << 8) + int(b * 255)
-
-groups = []
-for i, (rel, name) in enumerate(modules):
-    hue = i * 137.508
-    groups.append({
-        'query': f'path:"{rel}"',
-        'color': {'a': 1, 'rgb': rgb_int(hue)},
-    })
+SCHEME = [
+    # (query, hex, meaning)
+    ('path:"wiki/00-Current-Projects"',       0xf5a623, 'builds — amber: active work pops'),
+    ('path:"wiki/01-Areas/Programming"',      0x2ec4a0, 'programming — emerald'),
+    ('path:"wiki/01-Areas/AI-Data"',          0x9d6ff3, 'AI/data — violet'),
+    ('path:"wiki/01-Areas/Business"',         0x4a90d9, 'business — steel blue'),
+    ('path:"wiki/01-Areas/Engineering"',      0x7a8ba3, 'engineering — slate steel'),
+    ('path:"wiki/01-Areas/Self-Dev"',         0xe8637c, 'self-dev — coral'),
+    ('path:"wiki/01-Areas/Roadmaps"',         0x3fd4d4, 'roadmaps hub — bright cyan'),
+    ('path:"wiki/02-Resources"',              0x8fa663, 'resources — muted sage'),
+    ('path:"wiki/98-Archive"',                0x4a4a55, 'archive — fade out'),
+    ('path:"wiki/99-Unsorted"',               0x4a4a55, 'unsorted — fade out'),
+]
 
 cfg = {}
 if os.path.exists(GP):
@@ -41,8 +33,12 @@ if os.path.exists(GP):
         cfg = json.load(open(GP, encoding='utf-8'))
     except Exception:
         cfg = {}
-cfg['colorGroups'] = groups
+
+cfg['colorGroups'] = [
+    {'query': q, 'color': {'a': 1, 'rgb': rgb}} for q, rgb, _ in SCHEME
+]
 json.dump(cfg, open(GP, 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
-print(f'graph.json: {len(groups)} module color groups written\n')
-for g in groups:
-    print(f"  {g['query']:55s} {hex(g['color']['rgb'])}")
+
+print('graph.json — curated dark-theme domain scheme applied:\n')
+for q, rgb, note in SCHEME:
+    print(f'  #{rgb:06x}  {q:38s} {note}')
