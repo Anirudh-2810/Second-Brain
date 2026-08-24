@@ -304,3 +304,7 @@
 - All moves via git mv (history preserved). Bare wikilinks survive moves (Obsidian resolves vault-wide); patched per-group: course_code/course_name frontmatter now reflects destination field; former [[overview]] hub links repointed to the correct field index.
 - Updated both catalogs: wiki/index.md (Knowledge Repository section replaced by 4 field sections) and wiki/modules/index.md (new field sections inserted).
 - No content deleted except the dissolved hub note (fully redistributed). Log history above intentionally retained as historical record of the pre-reorg structure.
+
+### 2026-08-24 — Deep Edition pass, batch 1 (6 pages upgraded to R&D depth)
+- Expanded to deep edition (root-cause failure analysis, failure-mode taxonomies w/ early warnings, premortems, defeat-tackling flowcharts, life-integration systems, success metrics): roadmap-data-scientist, market-analysis-tech-2026, interview-counter-guide, build-project-playbook (careers/); dsa-interview-playbook + (programming/); system-design-interview (systems-design/).
+- Remaining pages queued for subsequent deep batches.

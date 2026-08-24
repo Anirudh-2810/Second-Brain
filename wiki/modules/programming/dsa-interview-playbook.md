@@ -1,92 +1,113 @@
 ---
 course_code: "PROGRAMMING"
 course_name: "Programming & Software Engineering Field"
-unit: "Guide 7 — DSA Interview Playbook (Patterns, Ladders, Drills)"
-tags: [dsa, interview-prep, leetcode, patterns, dynamic-programming, practice-system]
+unit: "Guide 7 — DSA Interview Playbook [Deep Edition]"
+tags: [dsa, interview-prep, leetcode, patterns, dynamic-programming, practice-system, failure-analysis]
 last_updated: "2026-08-24"
 confidence: "high"
 ---
 
 ## For future agent
-Pattern-first DSA preparation: the ~15 recurring patterns behind ~90% of interview problems, each with recognition cues, template pseudocode, and example questions with approach sketches. Includes a difficulty-ladder practice system and quit-point handling. Assumes [[roadmap-software-engineer]] Stage 2 in progress.
+Deep edition of the DSA playbook: the 15-pattern table plus mechanism-level analysis of WHY pattern recognition works, a full failure-mode taxonomy (plateau math, DP wall, timed-freeze), premortem of a failed prep season, defeat-tackling flowcharts per failure type, spaced-repetition problem scheduling, and life-integration cadence. Assumes [[roadmap-software-engineer]] Stage 2 in progress; method foundation in [[how-to-self-teach]].
 
-# DSA Interview Playbook
+# DSA Interview Playbook — Deep Edition
 
-## Core Insight
+## Part 1 — Why Pattern Recognition Works (mechanism)
 
-Interview problems are **pattern recognition under pressure**. ~15 patterns cover nearly everything asked. You're not memorizing 500 solutions; you're drilling 15 templates until recognition is instant.
+Interview problems are *isomorphic*: surface stories differ (robots, strings, meetings), underlying graphs/sequences/invariants repeat. Working memory can hold ~4 chunks under stress — so the winner is whoever has compressed solutions into single-chunk patterns. You're not memorizing 500 problems; you're building ~15 chunks until recognition is reflexive.
 
-## The Pattern Table
+**Evidence-shaped corollary**: struggling productively (retrieval + spacing) builds those chunks; passive reading does not. This is why the ladder system below looks like it does.
+
+## Part 2 — The Pattern Table
 
 | Pattern | Recognition Cue | Template Idea |
 |---------|----------------|---------------|
-| Two pointers | Sorted array, pair/triplet search, palindrome | Start ends inward / same-direction runners |
-| Sliding window | Contiguous subarray/substring + "longest/shortest/max sum" | Expand right, shrink left on violation |
-| Fast & slow pointers | Cycle detection, middle of list | Two speeds; meet ⇒ cycle |
-| Hash map counting | Frequencies, complements, anagrams | Dict of seen; check `target - x` |
-| Prefix sums | Range sum queries, subarray sum equals K | Precompute cumulative; `P[j]-P[i]` |
-| Stack monotonic | Next greater/smaller element, histogram | Keep stack decreasing; pop on smaller |
-| Binary search | Sorted OR monotone answer space ("minimize the maximum") | Search on answer, not just arrays |
-| BFS | Shortest path unweighted, level order | Queue + visited |
-| DFS/backtracking | Generate all, permutations, N-queens | Choose → recurse → un-choose |
-| Topological sort | Prerequisites, ordering tasks | Kahn's queue or DFS finish times |
-| Union-Find | Connectivity, components, cycle in undirected | Parent array + rank |
-| Heap / top-K | "K largest", streaming median | Size-K min-heap |
-| Greedy with sort | Intervals, "max meetings" | Sort by end/start; prove exchange locally |
-| DP (1D) | "min cost to reach step n" | `dp[i]` from `dp[i-1], dp[i-2]…` |
-| DP (knapsack/subset) | Choose items with constraint | Include/exclude table |
+| Two pointers | Sorted array; pair/triplet search | Ends inward / same-direction runners |
+| Sliding window | Contiguous subarray/substring + longest/shortest/max | Expand right, shrink left on violation |
+| Fast & slow pointers | Cycle detection; middle of list | Two speeds; meet ⇒ cycle |
+| Hash map counting | Frequencies, complements, anagrams | Dict of seen; `target - x` check |
+| Prefix sums | Range sums; subarray sum = K | Cumulative array; `P[j]-P[i]` |
+| Monotonic stack | Next greater/smaller; histogram | Keep decreasing stack; pop on smaller |
+| Binary search (on answer) | Sorted OR monotone feasibility ("minimize max") | Search answer space with predicate |
+| BFS | Shortest path unweighted; level order | Queue + visited set |
+| DFS/backtracking | Generate all; permutations; constraints | Choose → recurse → un-choose |
+| Topological sort | Prerequisites; ordering | Kahn's queue / DFS finish times |
+| Union-Find | Connectivity; components; undirected cycle | Parent array + union by rank |
+| Heap / top-K | K largest; streaming median | Size-K min-heap |
+| Greedy + sort | Intervals; scheduling | Sort by end/start; local exchange argument |
+| DP 1D | Min cost to reach step n | `dp[i]` from prior states |
+| DP knapsack/subset | Include/exclude under constraint | Table over items×capacity |
 
-## The Ladder System (don't grind randomly)
+## Part 3 — Failure-Mode Taxonomy
+
+| # | Failure Mode | Root Cause (mechanism) | Early Warning | Counter |
+|---|--------------|------------------------|---------------|---------|
+| F1 | **The DP Wall** | DP requires inventing state definition — a skill, not knowledge | Avoiding all DP tags for weeks | Confined diet: fib(memo)→climb stairs→house robber→coin change, recursion TREE drawn every time; clicks around problem #15 |
+| F2 | **The Plateau (~150 solved)** | Solving same-type problems again; recognition without stretch | Easy mediums feel samey; hards still impossible | Switch to random mixed sets + weekly timed contest; add ONE hard/week with full solution study |
+| F3 | **Timed freeze** | Pressure consumes working memory that practice had available | Untouched: fine. Clock on: blank | Weekly simulation: 2 problems/60min/clock visible; gradually raise stakes (mock partner) |
+| F4 | **Solution-reading addiction** | Reading feels like progress (fluency illusion) | Solve-rate dropping while "study" hours rise | Attempt-first rule enforced by timer; after reading ANY solution, close it and re-implement cold |
+| F5 | **Forgetting solved problems** | One-shot encoding, no retrieval schedule | Redoing an old medium fails | Spaced redo schedule: day-3, day-14, day-45 |
+| F6 | **Burnout grind** | Volume without recovery → resentment → quit | Dread before sessions; sloppy errors | Deload week (only easy problems); never-zero floor keeps streak |
+
+### Premortem (failed prep season)
+*Interview season arrived; coding rounds still failing.* Autopsy: 400 problems "done" but mostly easy-tag grinding (F2), no mocks so F3 hit live (F3 never simulated), DP skipped entirely since month one (F1 avoidance), old problems unsolvable on redo (F5). Every finding was visible weeks earlier via solve-rate metrics — the review cadence below exists to catch them.
+
+## Part 4 — Defeat-Tackling Flowcharts
 
 ```mermaid
 flowchart TD
-    W["Per pattern:<br/>1 easy + read solution<br/>if stuck > 25 min"] --> X["2 mediums solo"]
-    X --> Y{"Sunday:<br/>redo hardest<br/>from blank editor"}
-    Y -- pass --> Z["Next pattern"]
-    Y -- fail --> Y2["Same pattern,<br/>3 more mediums"]
-    Z --> W2["After all patterns:<br/>random mixed sets<br/>+ timed contests"]
+    S["Stuck 25 min in"] --> A{"Any approach<br/>stated yet?"}
+    A -->|"no"| B["Brute force aloud,<br/>then improve -<br/>never silent-stare past 10 min"]
+    A -->|"yes"| C{"Pattern cue<br/>recognized?"}
+    C -->|"no"| H["Hand-trace tiny input.<br/>Cues live in the trace"]
+    C -->|"yes but broken"| E{"Off-by-one /<br/>infinite loop?"}
+    E -->|"logic bug"| DBG["Print/trace 3 values<br/>through the loop by hand"]
+    E -->|"approach truly wrong"| RS["Read solution ACTIVELY:<br/>close -> re-implement -> card"]
+    B & H & DBG & RS --> L["Log outcome in<br/>problem journal"]
 ```
 
-Rules:
-- **25-minute rule**: after 25 min without an approach, READ the solution actively, then re-implement from memory, then card it in Anki. Struggling hours alone is not virtue; it's inefficient encoding.
-- **Re-do beats new**: solving 100 fresh problems < redoing 40 until fluent.
-- **Spaced repetition of problems**: revisit at day 3, day 14.
+**Post-failure ritual** (the part everyone skips): for each solved-with-help problem, write one line — *"cue I missed"*. That line is the actual curriculum.
 
-## Worked Example (pattern application in real time)
+## Part 5 — The Ladder System (with scheduling)
 
-**Problem**: "Longest substring without repeating characters."
-1. Cue scan: *substring* (contiguous) + *longest* → sliding window
-2. Brute force: check all substrings O(n³)→O(n²) — say it, then improve
-3. Window: expand right, hash map of char→last index; when repeat found at `c`, jump left to `map[c]+1`
-4. Track max length; single pass O(n)
-5. Edge: empty string, all-same chars, all-unique
+```mermaid
+flowchart TD
+    W["Per pattern:<br/>1 easy (+solution if stuck>25m)"] --> X["2-3 mediums solo"]
+    X --> Y{"Sunday: redo hardest<br/>from BLANK editor"}
+    Y -->|"pass"| Z["Next pattern"]
+    Y -->|"fail"| Y2["3 more mediums,<br/>same pattern"]
+    Z --> ALL["All 15 done"] --> MIX["Mixed random sets<br/>+ timed contests weekly"]
+```
 
-**Problem**: "Kth largest element in a stream."
-Cue: *streaming* + *kth* → size-k min-heap. New element pushes into heap; pop if size > k. Answer = heap top. O(log k) per add.
+**Daily shape (60–90 min)**: 40 min new problems (ladder position) · 20 min spaced redos (due queue) · 10 min Anki cards from today's misses.
+**Weekly**: 1 timed simulation + Sunday redo test + review metrics.
 
-## Quit Points & Fixes
+## Part 6 — Life Integration
 
-| Quit Point | Fix |
-|------------|-----|
-| DP feels like magic | Two weeks ONLY on: fib(memo) → climb stairs → house robber → coin change. Draw the recursion tree every time. It clicks around problem #15, not #3 |
-| Graphs overwhelming | Only 3 traversals matter first: BFS, DFS, topo-sort. Everything else builds there |
-| Plateau at ~LeetCode 150 | You're solving same-type problems; switch to random mixed sets + timed conditions |
-| Freeze during timed tests | Simulate pressure weekly: 2 problems / 60 min / clock visible ([[how-to-self-teach]] feedback principle) |
+- **Anchor to fixed slot** (morning or post-dinner) — decision fatigue kills evening plans
+- **Exam-week protocol**: drop to 15-min Anki-only days; ladder pauses, streak survives
+- **College synergy**: SPM/C course work doubles as pointer/array reps ([[modules/SPM/module-3-arrays]]); CS50 PSets count as ladder easies
+- **Metrics reviewed Sundays**: solo-solve rate (leading), redo pass-rate (retention), mock scores (outcome), days streak (consistency). If solo-rate flat 2 weeks → change difficulty mix, not effort.
 
-## Example Question Set (with expected pattern)
+## Part 7 — Example Question Set (pattern-labeled)
 
-1. "Container with most water" → two pointers
-2. "Subarray sum equals K" → prefix sums + hash map
-3. "Course schedule" → topological sort
-4. "Merge intervals" → greedy with sort
-5. "LRU cache" → hash map + doubly linked list
-6. "Word search on grid" → backtracking
-7. "Find minimum in rotated sorted array" → binary search on modified condition
-8. "Number of islands" → DFS/BFS flood fill
-9. "Longest increasing subsequence" → DP (then patience-sorting follow-up for senior loops)
+1. Container With Most Water → two pointers
+2. Subarray Sum Equals K → prefix sums + hashmap
+3. Course Schedule → topological sort
+4. Merge Intervals → greedy+sort
+5. LRU Cache → hashmap + doubly-linked list
+6. Word Search → backtracking
+7. Minimum in Rotated Sorted Array → binary search on modified condition
+8. Number of Islands → DFS flood fill
+9. Longest Increasing Subsequence → DP (patience-sort follow-up for senior loops)
+10. Kth Largest in Stream → size-K heap
+
+## Part 8 — Quick Answers to Doubts
+
+- *"Hards needed?"* — Fresher loops: rarely. Internship conversion at top companies: sometimes. Add 1/week only after mediums are stable.
+- *"Language for interviews?"* — The one you think in. Python acceptable everywhere `(India product cos included)`; switching languages mid-prep resets chunk-building.
+- *"Contests?"* — Yes for pressure training (F3 cure), ignore rating anxiety entirely.
 
 ## Cross-Vault Links
 
-- [[modules/programming/cs50/week-3-algorithms]] — foundation complexity work
-- [[roadmap-software-engineer]] — this playbook is its Stage 2+5 engine
-- [[example-question-bank]] — quick-fire variants
+[[repo-coding-interview-university]] · [[roadmap-software-engineer]] · [[how-to-self-teach]] · [[example-question-bank]] · [[interview-counter-guide]]
