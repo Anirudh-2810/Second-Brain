@@ -263,6 +263,14 @@
 - **[[modules/projects/algorithm101-aura|AURA — Neural Trend Engine (Algorithm101)]]** — YouTube music-trend dashboard with velocity scoring & viral prediction; quant-DNA cross-links.
 - **[[modules/projects/handsens101|handsens101]]** — MediaPipe hand-gesture mouse control; perception→action pipeline.
 
+### Retrieval Agent (Business Brain)
+> n8n + Supabase Edge Function grounded Q&A agent. Never answers from own knowledge — only from vector-searched brain. Catalog: `[[modules/retrieval-agent/overview|Retrieval Agent Overview]]`.
+- **[[modules/retrieval-agent/overview|System Overview]]** — architecture, components, data model, system prompt rules
+- **[[modules/retrieval-agent/n8n-setup|n8n Configuration]]** — Chat Trigger, AI Agent, HTTP Request tool, system prompt
+- **[[modules/retrieval-agent/edge-function|Supabase Edge Function]]** — Deno/TypeScript vector search API (embed + search modes)
+- **[[modules/retrieval-agent/retrieval-agent|Agent Behavior]]** — search-first, multi-search, refusal logic, confidence weighting
+- **[[modules/retrieval-agent/database-schema|Database Schema]]** — brain_chunks table, IVFFLAT index, RPC, RLS, maintenance
+
 ---
 
 ## Ingest Checklist (per course)

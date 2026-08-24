@@ -26,6 +26,7 @@ Slash commands live in `.opencode/commands/`, subagents in `.opencode/agents/`, 
 | Command | Purpose |
 |---------|---------|
 | `/om-ingest` | Distill a `raw-sources/` file into linked `wiki/modules/` concept pages (index + log updated) |
+| `/om-ingest-brain` | Chunk & embed `wiki/` pages into `brain_chunks` for retrieval agent (calls Edge Function `embed` mode) |
 | `/om-tidy` | Hygiene pass — orphans, broken links, oversized notes, stale thinking pads, index drift. Never deletes without confirmation |
 | `/om-correct` | Sweep a corrected fact: fix the single source plus every restatement (grep AND paraphrase), preserve dated history |
 | `/om-vault-audit` | Read-only health report — indexes, links, frontmatter, size signals, stale facts |
@@ -40,6 +41,14 @@ Invoke with `@name` in opencode.
 | `@cross-linker` | Missing wikilinks, orphans, broken backlinks, index drift (read-only) |
 | `@vault-librarian` | Deep maintenance — frontmatter repair, split proposals, index rebuilds |
 | `@correction-sweep` | Finds every restatement of a corrected fact, classifies authoritative/restatement/historical |
+
+## Retrieval Agent Commands (Proposed)
+
+| Command | Purpose |
+|---------|---------|
+| `/om-brain-search` | Query the business brain via Edge Function (test search without n8n) |
+| `/om-brain-ingest` | Full pipeline: chunk wiki → embed → upsert to brain_chunks → refresh index |
+| `/om-brain-stats` | Coverage report: chunks, notes, embedding %, missing embeddings, index health |
 
 ## The Mind Plugin
 

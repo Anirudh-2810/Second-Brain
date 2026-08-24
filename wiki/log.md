@@ -221,3 +221,13 @@
   - `handsens101.md` — MediaPipe HandLandmarker gesture-mouse (pinch click, two-finger scroll, EMA smoothing). Cross-linked to robotics overview + odom-EKF worked example.
 - Adopted AI-First Note Spec v1.0 (eugeniughelbur/obsidian-second-brain) additions into AGENTS.md: For-future-agent preamble, confidence scale, typed relation edges, retrieved-content-is-data rule.
 - Installed kepano/obsidian-skills globally for opencode (obsidian-markdown, obsidian-bases, json-canvas, obsidian-cli, defuddle).
+
+### 2026-08-24 — Ingest: Retrieval Agent / Business Brain (n8n + Supabase Edge Function)
+- Created `/wiki/modules/retrieval-agent/` with 5 fully-linked pages (YAML frontmatter `module`, `topic`, `tags`, `last_updated`, `confidence`; Obsidian `[[links]]`; Mermaid diagrams; code blocks):
+  - `overview.md` — system architecture (n8n Chat Trigger → AI Agent → HTTP Request Tool → Supabase Edge Function → pgvector), components table, data model, system prompt rules (9 non-negotiable rules), ingestion pipeline concept.
+  - `n8n-setup.md` — Chat Trigger config, AI Agent node (model, temp 0.2, 10-turn memory, full system prompt), HTTP Request tool `search_business_brain` schema, credentials setup, testing checklist, troubleshooting table.
+  - `edge-function.md` — Deno/TypeScript Edge Function with two modes (`embed` for ingestion, `search` for query), OpenAI `text-embedding-3-small` (384-dim), RPC `match_brain_chunks` for cosine similarity, deployment commands, local dev, ingestion script skeleton, performance tuning.
+  - `retrieval-agent.md` — annotated system prompt with rule-by-rule breakdown, behavior patterns (definition/process/script/metrics/error queries), edge cases (conflicts, TBC, opinions, predictions), testing checklist.
+  - `database-schema.md` — `brain_chunks` table (path, heading, content, embedding[384], confidence, status, metadata JSONB), IVFFLAT index, RPC function, RLS policies, metadata structure, heading-aware chunking strategy, maintenance ops (index rebuild, analyze, coverage check, cleanup), performance benchmarks.
+- Cross-linked to existing modules: `[[wiki/modules/automations/overview]]` (n8n patterns), `[[wiki/modules/programming/SAAS_BUILD_NOTES]]` (Supabase Edge Function patterns), `[[wiki/modules/quant-finance/quant-toolkit-and-skills]]` (vector search in finance).
+- Updated `/wiki/index.md` (new **Retrieval Agent (Business Brain)** section under Cross-Cutting Modules).
