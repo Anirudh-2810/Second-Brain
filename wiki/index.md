@@ -271,6 +271,21 @@
 - **[[modules/retrieval-agent/retrieval-agent|Agent Behavior]]** — search-first, multi-search, refusal logic, confidence weighting
 - **[[modules/retrieval-agent/database-schema|Database Schema]]** — brain_chunks table, IVFFLAT index, RPC, RLS, maintenance
 
+### Knowledge Repository — Curated Learning Resources (niderhoff/knowledge-repository)
+> Full distillation of github.com/niderhoff/knowledge-repository (~500 curated links: data science, ML, software dev, systems design). Catalog + reading order: `[[modules/knowledge-repo/overview|Knowledge Repo Hub]]`. Links 2017–2021 era; concepts durable.
+- **[[modules/knowledge-repo/roadmaps-and-study-guides|Roadmaps & Study Guides]]** — ML/data-engineer/coding-interview paths, OSSU DS degree, DeepMind resource list
+- **[[modules/knowledge-repo/ml-theory-and-moocs|ML Theory & MOOCs]]** — Deep Learning Book, D2L, fast.ai, Stanford CS231n/CS224d, Karpathy's training recipe, CNN/GAN explainers, interview banks
+- **[[modules/knowledge-repo/python-datascience-frameworks|Python DS — Frameworks]]** — pandas/sklearn, XGBoost/LightGBM/CatBoost, TensorFlow 2 deep-dive (training/tuning/TensorBoard/inference), Keras advanced issues, PyTorch tooling
+- **[[modules/knowledge-repo/python-datascience-topics|Python DS — Topics]]** — anomaly detection, action recognition (15+ repos), face recognition, Detectron2, OCR, HuggingFace Transformers, time series, Microsoft Recommenders, RL environments (AirSim/RLTrader), AutoML Zero
+- **[[modules/knowledge-repo/mlops-production-deployment|MLOps & Production]]** — Ray distributed computing, TF production stack (TFRT/Lite/JS), model interpretation (tf-explain, Gradio, TensorSpace)
+- **[[modules/knowledge-repo/software-dev-general|Software Dev — General]]** — Teach Yourself CS, Big-O, Coding Interview University, algorithm visualizers, Fowler architecture guide, C4 model, Google code review, Art of Command Line
+- **[[modules/knowledge-repo/languages-python-advanced|Advanced Python]]** — Fluent/Effective Python, wtfpython, pytudes, type checking at scale, async-vs-threads decision rules, Django concurrency, DB migrations/testing, scraping
+- **[[modules/knowledge-repo/language-rust|Rust]]** — ordered path: Book → rustlings → too-many-lists → Programming Rust → Rustonomicon; Stanford CS110L
+- **[[modules/knowledge-repo/languages-polyglot|Other Languages]]** — C/C++ (K&R, Modern C), Go (Practical Go Lessons, Learn Go with Tests), Haskell (LYAH, Hutton lectures), Java/Scala (Helsinki MOOC), JS (Eloquent, YDKJS, Build Your Own React)
+- **[[modules/knowledge-repo/systems-design-distributed|Systems Design & Distributed]]** — System Design Primer, awesome-scalability, DDIA book, Docker/K8s best practices & common mistakes, Airflow/Celery/KEDA, Prometheus, nginx generator
+- **[[modules/knowledge-repo/web-development-resources|Web Development]]** — MDN, event loop talk, caniuse, BEM/SMACSS/Grid, NN/g usability, framework landscape
+- **[[modules/knowledge-repo/curated-reading-list|Curated Reading List]]** — ~190 high-signal articles distilled by theme: ML practice/career, DL concepts (Distill), CV production cases, NLP, Python craft, data engineering, statistics, trading-RL, git recovery, mindset
+
 ---
 
 ## Ingest Checklist (per course)
