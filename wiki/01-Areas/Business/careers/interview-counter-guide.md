@@ -8,7 +8,7 @@ confidence: "high"
 ---
 
 ## For future agent
-Deep edition of the interview meta-guide. Adds: mechanism-level analysis of what interviewers actually score and why rounds exist, failure-mode taxonomy with early warnings, premortem for the whole hiring funnel, defeat-tackling flowcharts (blank-mind, rejection spiral, grilled-past-knowledge), life integration (the 6-week pre-interview operating system), and post-offer/negotiation depth. Round-specific playbooks: [[programming/dsa-interview-playbook]], [[programming/systems-design/system-design-interview]], [[ml-interview-playbook]].
+Deep edition of the interview meta-guide. Adds: mechanism-level analysis of what interviewers actually score and why rounds exist, failure-mode taxonomy with early warnings, premortem for the whole hiring funnel, defeat-tackling flowcharts (blank-mind, rejection spiral, grilled-past-knowledge), life integration (the 6-week pre-interview operating system), and post-offer/negotiation depth. Round-specific playbooks: [[01-Areas/Programming/dsa-interview-playbook]], [[01-Areas/Programming/systems-design/system-design-interview]], [[ml-interview-playbook]].
 
 # Interview Counter-Guide — Deep Edition
 

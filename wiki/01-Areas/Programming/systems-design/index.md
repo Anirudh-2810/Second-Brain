@@ -8,7 +8,7 @@ description: "Hub for systems design: building blocks, interview playbook, prime
 ---
 
 ## For future agent
-Index hub for the systems design field. Pages moved here from the former knowledge-repo module (2026-08-24); sources in each page's frontmatter. Complements backend craft in [[programming/overview|Programming Hub]].
+Index hub for the systems design field. Pages moved here from the former knowledge-repo module (2026-08-24); sources in each page's frontmatter. Complements backend craft in [[01-Areas/Programming/overview|Programming Hub]].
 
 # Systems Design — Field Index
 

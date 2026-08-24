@@ -564,4 +564,4 @@ $$\boxed{\text{(a) prints X twice} \qquad
 
 ## CROSS-REFERENCES
 
-- Related modules: [[module-1-spm-c-basics]] · [[module-3-arrays]] (loops drive array traversal) · [[module-4-user-defined-functions]] · [[programming/cs50/week-2-arrays]] · [[programming/cs50/week-1-c]]
+- Related modules: [[module-1-spm-c-basics]] · [[module-3-arrays]] (loops drive array traversal) · [[module-4-user-defined-functions]] · [[01-Areas/Programming/cs50/week-2-arrays]] · [[01-Areas/Programming/cs50/week-1-c]]

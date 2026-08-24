@@ -9,7 +9,7 @@ last_updated: "2026-08-10"
 
 > **Source:** [[raw-sources/_extracted/Handbook-on-Productivity-2015.txt]] (A. D. Kalaw Jr. et al., *Handbook on Productivity*, APO, 2015).
 
-The organizational/formal backbone of the theme: a rigorous definition, a management cycle, and a taxonomy of 31 productivity-enhancing initiatives grouped by the **Four P's** (People, Product, Process, Policy). Personal-productivity sources ([[:overview]]) are the individual-scale implementation of these.
+The organizational/formal backbone of the theme: a rigorous definition, a management cycle, and a taxonomy of 31 productivity-enhancing initiatives grouped by the **Four P's** (People, Product, Process, Policy). Personal-productivity sources ([[overview]]) are the individual-scale implementation of these.
 
 ---
 

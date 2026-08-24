@@ -641,4 +641,4 @@ $$\boxed{\approx 131\ \text{thousand frames before stack overflow}}$$
 
 ## CROSS-REFERENCES
 
-- Related modules: [[module-2-program-control-functions]] (loops vs. recursion, break/return) · [[module-3-arrays]] (array params = pointers) · [[module-1-spm-c-basics]] (memory layout: stack vs. heap) · [[programming/cs50/week-3-algorithms]] (recursion in context)
+- Related modules: [[module-2-program-control-functions]] (loops vs. recursion, break/return) · [[module-3-arrays]] (array params = pointers) · [[module-1-spm-c-basics]] (memory layout: stack vs. heap) · [[01-Areas/Programming/cs50/week-3-algorithms]] (recursion in context)

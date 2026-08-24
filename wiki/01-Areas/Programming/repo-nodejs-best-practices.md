@@ -82,4 +82,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-- [[systems-design-distributed]] · [[repo-fullstack-web-developer-path]] · [[programming/SAAS_BUILD_NOTES]]
+- [[systems-design-distributed]] · [[repo-fullstack-web-developer-path]] · [[01-Areas/Programming/SAAS_BUILD_NOTES]]

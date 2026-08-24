@@ -165,7 +165,7 @@
   - `flowcharts.md` — master flowcharts: class-design loop, inheritance-vs-composition, method-kind picker, dunder picker, pattern picker, learning loop (Mermaid + ASCII).
   - `interview-questions.md` — 34 curated Q&A across 5 levels (fundamentals → inheritance → dunders → design → modern Python) + 6 mini coding challenges.
 - Research sources consulted: Python official docs (Tutorial §9 Classes, Data Model, PEP 557/dataclasses), Real Python (OOP, Python Classes, Inheritance & Composition, SOLID, Magic Methods, Descriptors, Metaclasses, Data Classes), Refactoring Guru, Automate & Deploy patterns guide, how2.sh SOLID guide; all registered in `overview.md` §5 Source Registry.
-- Cross-linked to existing modules: foundations ↔ `[[programming/programming-cs-fundamentals]]` + `[[programming/cs50/index]]`, practice ↔ `[[programming/learn-python-fast-system]]`, OOP-as-backbone ↔ `[[quant-finance/quant-toolkit-and-skills]]` + `[[ai-ml/event-driven-backtesting]]`.
+- Cross-linked to existing modules: foundations ↔ `[[01-Areas/Programming/programming-cs-fundamentals]]` + `[[01-Areas/Programming/cs50/index]]`, practice ↔ `[[01-Areas/Programming/learn-python-fast-system]]`, OOP-as-backbone ↔ `[[quant-finance/quant-toolkit-and-skills]]` + `[[ai-ml/event-driven-backtesting]]`.
 - Updated `/wiki/modules/index.md` (new **Object-Oriented Programming in Python (cross-cutting)** section listing all 13 pages) and `/wiki/index.md` (new **Cross-Cutting Modules → Object-Oriented Programming (Python)** block).
 
 ### 2026-08-17 — Wire AI module into the brain (hub ↔ catalog ↔ home)
@@ -408,3 +408,10 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - .scripts/update-graph-colors.py created: full-depth module discovery, golden-angle distinct hue per module -> 46 color groups written to .obsidian/graph.json (each module its own graph color; re-run after creating any new module).
 - .scripts/generate-index.py updated for PARA tree; index.html regenerated (283 pages, PARA-grouped).
 - AGENTS.md: auto-sort rule added to ingestion workflow (classify -> existing module else CREATE new module -> run update-graph-colors + generate-index; unsortable -> 99-Unsorted); .opencode command/agent docs updated to new paths.
+
+### 2026-08-25 � Graph palette (per-module soft-dark) + link-integrity sweep + wrap-up guarantees
+- Graph: per-module colors restored (46 modules, soft multi-color palette darkened one notch: s=0.48 l=0.46) per user screenshot reference.
+- LINK INTEGRITY SWEEP: 2,445 wikilinks checked vault-wide. Fixed 20+ real breaks: <br/>-in-link artifacts (2), renamed case-study/learning-resource links (10), wrong quant page name (2), leading-colon typo (1), transcript .txt extension (1), [[programming/ -> [[01-Areas/Programming/ prefix normalization (42 files), value-momentum stub pages created (2, content lost pre-git). Remaining flags = escaped-pipe table artifacts (Obsidian-valid) + template placeholders + brain/ historical records (intentionally preserved).
+- Created folder-index stubs: c-programming/code-examples + memory-code-examples (named to match basename links).
+- WRAP-UP GUARANTEE: /om-wrap-up now ends with mandatory final repo commit+push (step 1 in command doc); AGENTS.md Session Workflow End states 'no session closes with unpushed work'.
+- AUTO-SORT assurance verified: AGENTS.md auto-sort rule + om-ingest.md both mandate classify -> existing module OR create new module -> update-graph-colors.py + generate-index.py.

@@ -26,7 +26,7 @@ description: "ROADMAPS hub - every roadmap and study-plan page across all domain
 
 - [[roadmaps-and-study-guides]] (business/) — all major external roadmaps compared
 - [[lr-developer-roadmap]] (learning-resources/) — roadmap.sh visual maps + anti-checkbox protocol
-- [[repo-ossu-computer-science]] · [[repo-ossu-data-science]] — full free-degree curricula
+- [[lr-ossu-computer-science]] · [[repo-ossu-data-science]] — full free-degree curricula
 - [[repo-teachyourselfcs]] — 9-subject canon
 
 ## Course & Exam Roadmaps (field-specific)

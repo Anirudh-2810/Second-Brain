@@ -9,7 +9,7 @@ source: "https://github.com/niderhoff/knowledge-repository#python-non-datascienc
 ---
 
 ## For future agent
-Deep edition of the advanced Python catalog. Adds per-area failure modes with mechanisms (the async trap, typing adoption failure, Django concurrency bugs), the mastery-path integration (this page is reference layer for [[python-mastery-path]]), defeat-tackling flowchart for ecosystem walls, and life integration. OOP theory lives in [[programming/object-oriented-programming/overview]].
+Deep edition of the advanced Python catalog. Adds per-area failure modes with mechanisms (the async trap, typing adoption failure, Django concurrency bugs), the mastery-path integration (this page is reference layer for [[python-mastery-path]]), defeat-tackling flowchart for ecosystem walls, and life integration. OOP theory lives in [[01-Areas/Programming/object-oriented-programming/overview]].
 
 # Advanced Python — Ecosystem & Craft [Deep Edition]
 
@@ -26,7 +26,7 @@ Deep edition of the advanced Python catalog. Adds per-area failure modes with me
 
 ## Part 2 — Idioms, Paradigms, Deep Features
 
-[Python 3 Patterns & Idioms](https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Singleton.html) · [FP in Python (free O'Reilly)](https://www.oreilly.com/programming/free/files/functional-programming-python.pdf) · **[Composing Programs](https://www.composingprograms.com/)** (SICP-in-Python; CS61A text) · [OOP basics (swaroopch)](https://python.swaroopch.com/oop.html) → deep: [[programming/object-oriented-programming/overview]] · **[wtfpython](https://github.com/satwikkansal/wtfpython)** interpreter surprises · [Anti-patterns book](https://docs.quantifiedcode.com/python-anti-patterns/) · **[pytudes (Norvig)](https://github.com/norvig/pytudes)** study-quality programs · [pysanity](https://github.com/rednafi/pysanity/) opinions
+[Python 3 Patterns & Idioms](https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Singleton.html) · [FP in Python (free O'Reilly)](https://www.oreilly.com/programming/free/files/functional-programming-python.pdf) · **[Composing Programs](https://www.composingprograms.com/)** (SICP-in-Python; CS61A text) · [OOP basics (swaroopch)](https://python.swaroopch.com/oop.html) → deep: [[01-Areas/Programming/object-oriented-programming/overview]] · **[wtfpython](https://github.com/satwikkansal/wtfpython)** interpreter surprises · [Anti-patterns book](https://docs.quantifiedcode.com/python-anti-patterns/) · **[pytudes (Norvig)](https://github.com/norvig/pytudes)** study-quality programs · [pysanity](https://github.com/rednafi/pysanity/) opinions
 
 **Failure mode**: idiom-collecting. Comprehensions/decorators adopted before the loop-version is understood produce unreadable cleverness. Rule: loop first, idiom as refactor.
 
@@ -44,7 +44,7 @@ Deep edition of the advanced Python catalog. Adds per-area failure modes with me
 | [Type hints explained](https://kunigami.blog/2019/12/26/python-type-hints/) | Syntax mechanics |
 | [MonkeyType](https://github.com/instagram/MonkeyType) | Runtime-traced hints bootstrap legacy code |
 
-Failure mode: `--strict` mypy on day one → wall of errors → typing abandoned. Correct path: hints on NEW functions only → gradual strictness ([[programming/object-oriented-programming/modern-oop-dataclasses-typing]]).
+Failure mode: `--strict` mypy on day one → wall of errors → typing abandoned. Correct path: hints on NEW functions only → gradual strictness ([[01-Areas/Programming/object-oriented-programming/modern-oop-dataclasses-typing]]).
 
 Dev resources gist: [AlmasM collection](https://gist.github.com/AlmasM/8a05355dbd84029eae03f92c5c61038f)
 
@@ -104,4 +104,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[python-mastery-path]] · [[programming/object-oriented-programming/overview]] · [[repo-dev-toolbox-minors]] · [[software-dev-general]]
+[[python-mastery-path]] · [[01-Areas/Programming/object-oriented-programming/overview]] · [[repo-dev-toolbox-minors]] · [[software-dev-general]]

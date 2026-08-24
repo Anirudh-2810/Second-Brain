@@ -8,7 +8,7 @@ confidence: "high"
 ---
 
 ## For future agent
-Deep edition of the Python mastery path. Adds per-stage failure-mode tables with mechanisms and early warnings, full premortem, defeat-tackling flowchart, the exit-test philosophy R&D (why stage gates beat hour-counting), life integration with college semesters, and metrics. Complements [[programming/object-oriented-programming/overview]]; ecosystem detail in [[languages-python-advanced]].
+Deep edition of the Python mastery path. Adds per-stage failure-mode tables with mechanisms and early warnings, full premortem, defeat-tackling flowchart, the exit-test philosophy R&D (why stage gates beat hour-counting), life integration with college semesters, and metrics. Complements [[01-Areas/Programming/object-oriented-programming/overview]]; ecosystem detail in [[languages-python-advanced]].
 
 # Python Mastery Path — Deep Edition
 
@@ -39,7 +39,7 @@ dict/list/set deep behavior, slicing, `collections` (`defaultdict`, `Counter`, `
 
 ### Stage 3 — Idiomatic Python (4–6 weeks)
 
-Comprehensions, unpacking, `*args/**kwargs`, exceptions done right, classes → [[programming/object-oriented-programming/oop-foundations]], f-strings, `pathlib`.
+Comprehensions, unpacking, `*args/**kwargs`, exceptions done right, classes → [[01-Areas/Programming/object-oriented-programming/oop-foundations]], f-strings, `pathlib`.
 
 Resources: [wtfpython](https://github.com/satwikkansal/wtfpython) · [pytudes](https://github.com/norvig/pytudes).
 
@@ -65,7 +65,7 @@ Files (`with`, encodings), `requests`+JSON APIs, SQLite basics, pytest first tes
 
 ### Stage 5 — Language Depth (interleaved ongoing)
 
-Context managers, generators/laziness, decorators, dunder survey → [[programming/object-oriented-programming/magic-methods-dunder]], typing hints, async reality-check (benchmarks show asyncio often loses to threads for HTTP servers — [[languages-python-advanced]]).
+Context managers, generators/laziness, decorators, dunder survey → [[01-Areas/Programming/object-oriented-programming/magic-methods-dunder]], typing hints, async reality-check (benchmarks show asyncio often loses to threads for HTTP servers — [[languages-python-advanced]]).
 
 - **Exit test**: retry-with-exponential-backoff decorator from scratch; explain generator memory advantage concretely.
 
@@ -132,4 +132,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[programming/cs50/week-6-python]] · [[programming/object-oriented-programming/overview]] · [[languages-python-advanced]] · [[how-to-self-teach]] · [[roadmap-data-scientist]]
+[[01-Areas/Programming/cs50/week-6-python]] · [[01-Areas/Programming/object-oriented-programming/overview]] · [[languages-python-advanced]] · [[how-to-self-teach]] · [[roadmap-data-scientist]]

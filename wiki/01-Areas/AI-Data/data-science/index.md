@@ -46,4 +46,4 @@ Index hub for the Data Science & ML field. Pages moved here from the former know
 
 ## Cross-Field Links
 
-Careers/market context: [[01-Areas/Business/careers/index|Careers Hub]] · General engineering: [[programming/overview|Programming Hub]]
+Careers/market context: [[01-Areas/Business/careers/index|Careers Hub]] · General engineering: [[01-Areas/Programming/overview|Programming Hub]]

@@ -111,7 +111,7 @@ Collapsing the whole corpus into one repeatable loop for the modern self-develop
 
 **Cross-module links:**
 - **Identity/thermostat ↔ [[01-Areas/Self-Dev/productivity/atomic-habits-systems|Atomic Habits]]** — both externalize the identity-first rule (votes, evidence).
-- **Boredom tolerance & hyperfocus ↔ [[programming/programming-cs-fundamentals|CS fundamentals §11 debugging focus]]** and [[programming/learn-python-fast-system|Learn Python FAST]] (deliberate practice needs exactly this).
+- **Boredom tolerance & hyperfocus ↔ [[01-Areas/Programming/programming-cs-fundamentals|CS fundamentals §11 debugging focus]]** and [[01-Areas/Programming/learn-python-fast-system|Learn Python FAST]] (deliberate practice needs exactly this).
 - **The 24-Hour Empire ↔ [[01-Areas/Business/quant-finance/quant-careers-and-industry|Quant careers]]** mindset: build once, sell infinitely, be visible.
 - **Deep work ↔ [[01-Areas/Self-Dev/productivity/deep-work-attention-economics|Deep Work (Newport)]]** — flush overlap: god-mode protocol ≈ Newport's deep-work fortress.
 - **Consistency/windows ↔ [[01-Areas/Self-Dev/productivity/overview|Productivity overview 8 pillars]]** — the execution engine that makes the whole wiki run.

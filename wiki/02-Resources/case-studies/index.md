@@ -31,8 +31,8 @@ Case studies of real open-source codebases selected by the user (2026-08-24). Ea
 |------|----------|-------------|
 | [[cs-zulip]] | Team chat platform | Large Django monorepo done right; open-source governance |
 | [[cs-hydra-launcher]] | Game launcher | Electron→Tauri migration; desktop distribution |
-| [[cs-systeminformer]] | Windows system monitor | Native Windows internals at scale |
-| [[cs-spyplusplus]] | Windows message spy utility | Small focused native tooling |
+| [[cs-systeminformer-spyplusplus]] | Windows system monitor | Native Windows internals at scale |
+| [[cs-systeminformer-spyplusplus]] | Windows message spy utility | Small focused native tooling |
 | [[cs-snekbox]] | Sandboxed Python executor | Security sandbox design |
 | [[cs-liveportrait]] | Portrait animation (Kuaishou research) | Research-code → usable product packaging |
 
@@ -41,15 +41,15 @@ Case studies of real open-source codebases selected by the user (2026-08-24). Ea
 | Page | Codebase | Core Lesson |
 |------|----------|-------------|
 | [[cs-jj-vcs]] | Jujutsu VCS | Rethinking Git's data model |
-| [[cs-dura]] | Crash-proof git snapshots | Tiny-tool product thinking |
-| [[cs-z-jump]] | `z` directory jumper | Frecency algorithms in 100 lines |
+| [[cs-dura-z-tinytools]] | Crash-proof git snapshots | Tiny-tool product thinking |
+| [[cs-dura-z-tinytools]] | `z` directory jumper | Frecency algorithms in 100 lines |
 
 ## Language & Ecosystem Artifacts
 
 | Page | Codebase | Core Lesson |
 |------|----------|-------------|
-| [[cs-riot-js]] | Riot.js component UI library | Minimal framework design; lifecycle of libraries |
-| [[cs-actionscript4]] | Adobe ActionScript 4 spec | How languages die; spec-driven design |
+| [[cs-riot-actionscript]] | Riot.js component UI library | Minimal framework design; lifecycle of libraries |
+| [[cs-riot-actionscript]] | Adobe ActionScript 4 spec | How languages die; spec-driven design |
 | [[cs-treemaker-malt]] | TreeMaker (genealogy viz) + Malt (Blender baking) | Niche creative-tool engineering |
 
 ## Cautionary / Gray-Zone

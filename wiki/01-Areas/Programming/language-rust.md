@@ -92,4 +92,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[software-dev-general]] · [[languages-polyglot]] · [[programming/cs50/week-4-memory]] · [[01-Areas/AI-Data/ai-ml/matching-engine-cpp]]
+[[software-dev-general]] · [[languages-polyglot]] · [[01-Areas/Programming/cs50/week-4-memory]] · [[01-Areas/AI-Data/ai-ml/matching-engine-cpp]]

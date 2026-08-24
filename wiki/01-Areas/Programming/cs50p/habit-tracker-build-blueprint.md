@@ -302,4 +302,4 @@ if __name__ == "__main__":
 - If you added a 9th function, add its `test_` too — every custom function the spec sees should be tested.
 - Commit often: `git add . && git commit -m "day N: ..."` after every green point.
 
-**Related:** [[cs50p/final-project-planner|CS50P planner (rules + submission)]] · [[cs50/final-project-planner|CS50x planner]] · [[c-programming/index|C notes]] · [[programming/overview|Programming module]]
+**Related:** [[cs50p/final-project-planner|CS50P planner (rules + submission)]] · [[cs50/final-project-planner|CS50x planner]] · [[c-programming/index|C notes]] · [[01-Areas/Programming/overview|Programming module]]

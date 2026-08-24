@@ -35,8 +35,8 @@ The meta-layer of the knowledge repo: complete learning paths and roadmaps creat
 
 1. **Pick ONE** matching current goal — stacking roadmaps is procrastination
 2. **Extract the sequence**, not every resource — first 3 items matter most
-3. **Pair with project-driven learning** ([[programming/learn-python-fast-system]]) — each roadmap stage should end in something built
-4. Vault-specific mapping: CS fundamentals stages → [[programming/cs50/index|CS50]]; ML theory → [[ml-theory-and-moocs]]; interview DS&A → [[software-dev-general]]
+3. **Pair with project-driven learning** ([[01-Areas/Programming/learn-python-fast-system]]) — each roadmap stage should end in something built
+4. Vault-specific mapping: CS fundamentals stages → [[01-Areas/Programming/cs50/index|CS50]]; ML theory → [[ml-theory-and-moocs]]; interview DS&A → [[software-dev-general]]
 
 ## Deep Edition Addendum — Roadmap Failure Mechanics
 
@@ -57,7 +57,7 @@ The meta-layer of the knowledge repo: complete learning paths and roadmaps creat
 ```mermaid
 flowchart TD
     P{"Pick ONE by current goal"} --> G{"Goal is..."}
-    G -->|"SWE job"| SWE["[[programming/roadmap-software-engineer]]"]
+    G -->|"SWE job"| SWE["[[01-Areas/Programming/roadmap-software-engineer]]"]
     G -->|"DS/analyst"| DS["[[roadmap-data-scientist]]"]
     G -->|"ML systems"| MLE["[[roadmap-ml-engineer]]"]
     G -->|"data infra"| DE["[[repo-data-engineer-roadmap]]"]

@@ -107,8 +107,8 @@ Every robotics decision is a point in this triangle:
 |---|---|---|
 | AI/ML | perception (CNN), RL control (PPO), planning | [[01-Areas/AI-Data/ai/index|AI Hub]] |
 | Mathematics | transforms (LinAlg), Bayes (prob), dynamics (ODE) | [[01-Areas/Engineering/mathematics/overview|Mathematics]] |
-| Programming/CS50 | every node is a program; data structures for grids/trees | [[programming/cs50/index|CS50]] |
-| OOP | node/interface/package architecture | [[programming/object-oriented-programming/overview|OOP]] |
+| Programming/CS50 | every node is a program; data structures for grids/trees | [[01-Areas/Programming/cs50/index|CS50]] |
+| OOP | node/interface/package architecture | [[01-Areas/Programming/object-oriented-programming/overview|OOP]] |
 | C++ systems | real-time loops, deterministic memory | [[01-Areas/AI-Data/ai-ml/matching-engine-cpp|Matching Engine]] |
 | Self-Mastery | running multi-week engineering builds | [[01-Areas/Self-Dev/self-mastery/overview|Self-Mastery]] |
 | Quant/backtesting | *same* discipline: data → model → decision loop, look-ahead bugs | [[01-Areas/AI-Data/ai-ml/event-driven-backtesting|Backtesting]] |

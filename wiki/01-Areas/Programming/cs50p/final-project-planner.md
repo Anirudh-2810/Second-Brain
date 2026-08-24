@@ -189,4 +189,4 @@ Phase 5  README + video + submit  ~500-word README, ≤3-min video, submit50, gr
 | Deadline | 2026-12-31T23:59:00+00:00 |
 | Gallery | https://cs50.harvard.edu/python/2022/gallery/ |
 
-**Related:** [[cs50p/habit-tracker-build-blueprint|Habit Tracker Build Blueprint — day-by-day HOW-TO with code skeletons, TDD order and test matrix]] · [[cs50/final-project-planner|CS50x final project planner]] (different rules — don't mix them) · [[learn-python-fast-system|Python fast-track]] · [[programming/programming-cs-fundamentals|CS fundamentals]]
+**Related:** [[cs50p/habit-tracker-build-blueprint|Habit Tracker Build Blueprint — day-by-day HOW-TO with code skeletons, TDD order and test matrix]] · [[cs50/final-project-planner|CS50x final project planner]] (different rules — don't mix them) · [[learn-python-fast-system|Python fast-track]] · [[01-Areas/Programming/programming-cs-fundamentals|CS fundamentals]]

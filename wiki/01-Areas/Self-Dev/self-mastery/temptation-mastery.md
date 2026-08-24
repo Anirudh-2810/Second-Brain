@@ -5,7 +5,7 @@ unit: "Temptation Mastery — Man Who Masters His Temptations Masters His Fate [
 tags: [self-mastery, temptation, discipline, attention, vigilance, mind-fortress, sovereignty, old-self, motivation]
 last_updated: "2026-08-24"
 confidence: "stated"
-source: "https://www.youtube.com/watch?v=uy24YeJutSM (BHATT, 51:43 audio talk; full timestamped transcript at [[raw-sources/_transcripts/yt-uy24-man-who-masters-his-temptations]])"
+source: "https://www.youtube.com/watch?v=uy24YeJutSM (BHATT, 51:43 audio talk; full timestamped transcript at [[raw-sources/_transcripts/yt-uy24-man-who-masters-his-temptations.txt]])"
 ---
 
 ## For future agent

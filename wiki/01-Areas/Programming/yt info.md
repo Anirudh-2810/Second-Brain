@@ -226,7 +226,7 @@ The five videos interlock into one coherent system for becoming a modern program
 ## 8. Next Actions
 
 - [ ] Read each wiki node under `[[wiki/index#programming--computer-science]]` for full depth (+ Mermaid flowcharts).
-- [ ] **Start the concrete curriculum:** [[programming/cs50/index|Harvard CS50x full course notes]] — the 11-week practiced backbone recommended by Video 5 (one long-form resource → execute its PSets).
+- [ ] **Start the concrete curriculum:** [[01-Areas/Programming/cs50/index|Harvard CS50x full course notes]] — the 11-week practiced backbone recommended by Video 5 (one long-form resource → execute its PSets).
 - [ ] Pick ONE Python resource from Video 5 and start the 6-step system.
 - [ ] Set up a daily Codewars kata + weekly small project (build-first, visible).
 - [ ] Optionally cross-link back to productivity (`[[overview]]`) — the discomfort-tolerance and build-fast principles are productivity in disguise.

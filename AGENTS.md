@@ -59,7 +59,7 @@ Examples: "what's the job market like" → read `wiki/01-Areas/Business/INDEX.md
 
 **During**: Talk naturally. Mention a decision, a gotcha, a win, something you studied — route each piece per the table below. Use `/om-dump` for big freeform captures.
 
-**End**: When the user says "wrap up" or similar, run `/om-wrap-up` automatically.
+**End**: When the user says "wrap up" or similar, run `/om-wrap-up` automatically. Wrap-up MUST end with a final repo commit + push (`git add -A; git commit; git push origin HEAD:main`) - no session closes with unpushed work.
 
 ### Routing — what goes where
 

@@ -41,7 +41,7 @@ last_updated: "2026-08-17"
 
 - **[[wiki/index|Modules Catalog]]** — index of all cross-cutting modules.
 - **[[wiki/index|Wiki Home]]** — vault root & navigation.
-- **[[programming/index|Programming Module Hub]]** — CS fundamentals & Python, the implementation layer for AI.
+- **[[01-Areas/Programming/index|Programming Module Hub]]** — CS fundamentals & Python, the implementation layer for AI.
 - **[[01-Areas/AI-Data/ai-ml/reinforcement-learning-ppo|Reinforcement Learning — PPO]]** — policy gradient → GAE → clipped PPO, actor-critic, PyTorch.
 - **[[01-Areas/AI-Data/ai-ml/transformers-attention-detail|Transformers & Attention]]** — self-attention math, multi-head, transformer block, from-scratch code.
 - **[[01-Areas/AI-Data/ai-ml/matching-engine-cpp|Matching Engine (C++)]]** — C++20 limit-order matching engine (systems side of ML pipelines).

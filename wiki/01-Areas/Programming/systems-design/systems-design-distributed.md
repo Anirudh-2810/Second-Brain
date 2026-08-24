@@ -119,4 +119,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[system-design-interview]] · [[repo-system-design-primer]] · [[repo-scalability-catalogs]] · [[repo-nodejs-best-practices]] · [[mlops-production-deployment]] · [[programming/SAAS_BUILD_NOTES]]
+[[system-design-interview]] · [[repo-system-design-primer]] · [[repo-scalability-catalogs]] · [[repo-nodejs-best-practices]] · [[mlops-production-deployment]] · [[01-Areas/Programming/SAAS_BUILD_NOTES]]

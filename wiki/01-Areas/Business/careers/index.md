@@ -8,7 +8,7 @@ description: "Hub for career strategy: 2026 market analysis, interview system, m
 ---
 
 ## For future agent
-Index hub for careers content. Pages moved here from the former knowledge-repo module (2026-08-24). Field-specific prep lives in its field: ML interviews in [[01-Areas/AI-Data/data-science/index|Data Science Hub]], DSA/system-design playbooks in [[programming/overview|Programming Hub]] and [[programming/systems-design/index|Systems Design Hub]].
+Index hub for careers content. Pages moved here from the former knowledge-repo module (2026-08-24). Field-specific prep lives in its field: ML interviews in [[01-Areas/AI-Data/data-science/index|Data Science Hub]], DSA/system-design playbooks in [[01-Areas/Programming/overview|Programming Hub]] and [[01-Areas/Programming/systems-design/index|Systems Design Hub]].
 
 # Careers — Field Index
 
@@ -24,4 +24,4 @@ Index hub for careers content. Pages moved here from the former knowledge-repo m
 
 Quarterly: re-read [[market-analysis-tech-2026]]. Once: [[roadmaps-and-study-guides]] to pick a track, then [[interview-counter-guide]] + [[build-project-playbook]] as standing systems; drill [[example-question-bank]] daily during hunt season.
 
-Cross-links: all field hubs — [[01-Areas/AI-Data/data-science/index|Data Science]] · [[programming/overview|Programming]] · [[programming/systems-design/index|Systems Design]] · [[programming/web-development/index|Web Dev]]
+Cross-links: all field hubs — [[01-Areas/AI-Data/data-science/index|Data Science]] · [[01-Areas/Programming/overview|Programming]] · [[01-Areas/Programming/systems-design/index|Systems Design]] · [[01-Areas/Programming/web-development/index|Web Dev]]

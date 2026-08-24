@@ -91,4 +91,4 @@ flowchart TD
 ## Cross-Vault Links
 
 - [[roadmap-software-engineer]] · [[repo-system-design-primer]] (for #9's practical side)
-- [[programming/cs50/index]] — lighter on-ramp before this curriculum
+- [[01-Areas/Programming/cs50/index]] — lighter on-ramp before this curriculum

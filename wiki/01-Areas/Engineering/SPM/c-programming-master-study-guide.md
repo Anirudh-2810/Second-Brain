@@ -1092,4 +1092,4 @@ int main(void)
 
 ## CROSS-REFERENCES
 
-- Related modules: [[module-1-spm-c-basics]] (compile pipeline & memory layout) · [[module-2-program-control-functions]] (control flow drills) · [[module-3-arrays]] (array operations & address formulas) · [[module-4-user-defined-functions]] (recursion, storage classes) · [[programming/cs50/week-2-arrays]] · [[programming/cs50/week-3-algorithms]] · [[programming/programming-cs-fundamentals]]
+- Related modules: [[module-1-spm-c-basics]] (compile pipeline & memory layout) · [[module-2-program-control-functions]] (control flow drills) · [[module-3-arrays]] (array operations & address formulas) · [[module-4-user-defined-functions]] (recursion, storage classes) · [[01-Areas/Programming/cs50/week-2-arrays]] · [[01-Areas/Programming/cs50/week-3-algorithms]] · [[01-Areas/Programming/programming-cs-fundamentals]]

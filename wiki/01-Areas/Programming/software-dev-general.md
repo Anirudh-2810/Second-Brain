@@ -63,7 +63,7 @@ Sedgewick C bundle · [DS&A with Java 4th](https://www.amazon.com/Data-Structure
 - [Architecture of Open Source Applications](http://aosabook.org/en/index.html) — real architects on real systems
 - [Software Architecture Patterns (free O'Reilly)](https://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf)
 - **[C4 Model](https://c4model.com/)** — Context/Containers/Components/Code diagramming standard
-- [SoftwareArchitect roadmap](https://github.com/justinamiller/SoftwareArchitect) · [GoF origins](https://en.wikipedia.org/wiki/Design_Patterns) → implementations [[programming/object-oriented-programming/design-patterns]]
+- [SoftwareArchitect roadmap](https://github.com/justinamiller/SoftwareArchitect) · [GoF origins](https://en.wikipedia.org/wiki/Design_Patterns) → implementations [[01-Areas/Programming/object-oriented-programming/design-patterns]]
 
 **Failure mode**: architecture vocabulary without a system to apply it to. Minimum: one project documented in C4 before reading deeper.
 
@@ -106,4 +106,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[dsa-interview-playbook]] · [[repo-teachyourselfcs]] · [[languages-python-advanced]] · [[language-rust]] · [[how-to-self-teach]] · [[programming/cs50/index]]
+[[dsa-interview-playbook]] · [[repo-teachyourselfcs]] · [[languages-python-advanced]] · [[language-rust]] · [[how-to-self-teach]] · [[01-Areas/Programming/cs50/index]]

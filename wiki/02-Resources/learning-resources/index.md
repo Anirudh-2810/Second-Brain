@@ -18,8 +18,8 @@ Index for the mega-catalog repos of learning resources. These pages exist to con
 | [[lr-free-for-dev]] | ripienaar/free-for-dev | Free developer tiers (cloud, APIs, tools) |
 | [[lr-free-programming-books]] | EbookFoundation/free-programming-books | Free books in every language/topic |
 | [[lr-freecodecamp]] | freeCodeCamp | Structured free curriculum + certifications |
-| [[lr-30-seconds-of-code]] | Chalarangelo/30-seconds-of-code | Snippet library for quick wins |
-| [[lr-project-based-learning]] | practical-tutorials/project-based-learning | Tutorial chains by language |
+| [[lr-30soc-pbl]] | Chalarangelo/30-seconds-of-code | Snippet library for quick wins |
+| [[lr-30soc-pbl]] | practical-tutorials/project-based-learning | Tutorial chains by language |
 | [[lr-developer-roadmap]] | kamranahmedse/developer-roadmap (roadmap.sh) | Visual role roadmaps |
 | [[lr-ossu-computer-science]] | ossu/computer-science | Free full CS degree curriculum |
 | [[lr-build-your-own-x]] | codecrafters-io/build-your-own-x | Learn-by-rebuilding (Git, DB, OS…) |
@@ -39,4 +39,4 @@ Failure mode common to ALL of these: **catalog-as-identity** — being "someone 
 
 ## Cross-links
 
-[[01-Areas/Business/careers/index|Careers Hub]] · [[01-Areas/AI-Data/data-science/index|Data Science Hub]] · [[programming/overview|Programming Hub]] · [[roadmaps-and-study-guides]]
+[[01-Areas/Business/careers/index|Careers Hub]] · [[01-Areas/AI-Data/data-science/index|Data Science Hub]] · [[01-Areas/Programming/overview|Programming Hub]] · [[roadmaps-and-study-guides]]

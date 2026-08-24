@@ -223,4 +223,4 @@ Month 12    Edge AI deployment (Jetson) + polish portfolio + apply
 - https://www.callmissed.com/blog/embodied-ai-robotics-2026 · https://www.singularitymoments.com/ai-robotics-2026/ — humanoid/industry state 2026
 - arXiv 2405.14093 — VLA survey; Open X-Embodiment (robotics-transformer-x.github.io); DROID dataset
 
-**Related:** [[01-Areas/Engineering/robotics/index|Robotics & ROS2 Hub]] · [[01-Areas/Engineering/robotics/robotics-fundamentals|Robotics Fundamentals]] · [[01-Areas/Engineering/robotics/ros2-beginner-guide|ROS2 Beginner Guide]] · [[01-Areas/AI-Data/ai/index|AI Hub]] · [[programming/index|Programming Module]] · [[01-Areas/Self-Dev/self-mastery/overview|Self-Mastery]]
+**Related:** [[01-Areas/Engineering/robotics/index|Robotics & ROS2 Hub]] · [[01-Areas/Engineering/robotics/robotics-fundamentals|Robotics Fundamentals]] · [[01-Areas/Engineering/robotics/ros2-beginner-guide|ROS2 Beginner Guide]] · [[01-Areas/AI-Data/ai/index|AI Hub]] · [[01-Areas/Programming/index|Programming Module]] · [[01-Areas/Self-Dev/self-mastery/overview|Self-Mastery]]

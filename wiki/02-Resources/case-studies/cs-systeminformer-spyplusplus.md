@@ -125,4 +125,4 @@ Raw disk opens, driver loads, cross-process memory reads, terminating protected 
 
 ## Cross-Vault Links
 
-[[02-Resources/case-studies/index|Field Index]] · [[software-dev-general]] · [[programming/cs50/week-4-memory]] · [[lr-build-your-own-x]]
+[[02-Resources/case-studies/index|Field Index]] · [[software-dev-general]] · [[01-Areas/Programming/cs50/week-4-memory]] · [[lr-build-your-own-x]]

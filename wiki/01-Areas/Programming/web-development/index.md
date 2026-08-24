@@ -8,7 +8,7 @@ description: "Hub for web development field: resources, frontend learning repos,
 ---
 
 ## For future agent
-Index hub for web development. Pages moved here from the former knowledge-repo module (2026-08-24). First-contact notes live in [[programming/cs50/week-8-html-css-javascript|CS50 Week 8]]; JS language books in [[languages-polyglot]].
+Index hub for web development. Pages moved here from the former knowledge-repo module (2026-08-24). First-contact notes live in [[01-Areas/Programming/cs50/week-8-html-css-javascript|CS50 Week 8]]; JS language books in [[languages-polyglot]].
 
 # Web Development — Field Index
 
@@ -22,4 +22,4 @@ Index hub for web development. Pages moved here from the former knowledge-repo m
 
 Orientation ([[repo-frontend-learning-resources]]) → build through [[repo-fullstack-web-developer-path]] → keep [[web-development-resources]] as reference layer.
 
-Cross-links: [[programming/overview|Programming Hub]] · [[01-Areas/Business/careers/index|Careers Hub]]
+Cross-links: [[01-Areas/Programming/overview|Programming Hub]] · [[01-Areas/Business/careers/index|Careers Hub]]

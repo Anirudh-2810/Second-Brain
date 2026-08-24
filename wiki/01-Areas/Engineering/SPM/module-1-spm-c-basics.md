@@ -661,4 +661,4 @@ $$\boxed{\text{(a) Stack — freed when main returns} \qquad
 
 ## CROSS-REFERENCES
 
-- Related modules: [[module-2-program-control-functions]] · [[module-3-arrays]] · [[module-4-user-defined-functions]] · [[programming/programming-cs-fundamentals]] · [[programming/cs50/week-1-c]]
+- Related modules: [[module-2-program-control-functions]] · [[module-3-arrays]] · [[module-4-user-defined-functions]] · [[01-Areas/Programming/programming-cs-fundamentals]] · [[01-Areas/Programming/cs50/week-1-c]]

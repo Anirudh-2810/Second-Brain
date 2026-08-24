@@ -93,6 +93,6 @@ Raw Notes (Markdown)
 
 ## Cross-Links
 
-- [[wiki/01-Areas/Business/automations/overview|Automations Overview]] — n8n patterns, workflow library
+- [[wiki/01-Areas/Business/automations/README|Automations Overview]] — n8n patterns, workflow library
 - [[wiki/01-Areas/Programming/SAAS_BUILD_NOTES|SaaS Build Notes]] — Supabase + Edge Functions patterns
 - [[wiki/01-Areas/Business/quant-finance/quant-toolkit-and-skills|Quant Toolkit]] — Vector search, embeddings in finance context

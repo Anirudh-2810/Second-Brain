@@ -116,7 +116,7 @@ flowchart TD
     T -->|"repo won't run"| E{"Env error or<br/>GPU/CUDA error?"}
     E -->|"env"| CONDA["Fresh conda env,<br/>pinned versions from repo README"]
     E -->|"cuda"| COLAB["Move to Colab/Kaggle GPU.<br/>Don't debug drivers for days"]
-    T -->|"paper math opaque"| PR[[math-for-ml-survival-guide<br/>intuition path]]
+    T -->|"paper math opaque"| PR[[math-for-ml-survival-guide]] intuition path
     T -->|"results garbage"| BL["Baseline check: does simple<br/>beat your complex? Then bug hunt"]
     T -->|"topic feels wrong"| SEL["Re-check selection logic:<br/>does target role need this?"]
     CONDA & COLAB & PR & BL & SEL --> L["Log + next experiment"]

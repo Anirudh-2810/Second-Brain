@@ -87,8 +87,8 @@ OOP models real-world entities as software objects: a `Car` has state (`speed`, 
 ```
 
 **Cross-module links:**
-- The general CS/base syntax this module builds on: [[programming-cs-fundamentals]] and the Python week of [[programming/cs50/index|CS50x]].
-- The 6-step Python fast-track that prescribes *practice* for these exact skills: [[programming/learn-python-fast-system]].
+- The general CS/base syntax this module builds on: [[programming-cs-fundamentals]] and the Python week of [[01-Areas/Programming/cs50/index|CS50x]].
+- The 6-step Python fast-track that prescribes *practice* for these exact skills: [[01-Areas/Programming/learn-python-fast-system]].
 - OOP is the backbone of the quant modules' Python: [[01-Areas/Business/quant-finance/quant-toolkit-and-skills]], [[ai-ml/event-driven-backtesting]] (event objects, backtest engine classes).
 
 ---
@@ -147,4 +147,4 @@ OOP models real-world entities as software objects: a `Car` has state (`speed`, 
 - **Design:** [[design-principles-solid]] · [[design-patterns]]
 - **Modern / advanced:** [[modern-oop-dataclasses-typing]] · [[advanced-metaprogramming]]
 - **Reference:** [[cheatsheet]] · [[flowcharts]] · [[interview-questions]]
-- Back to the catalog: [[wiki/index]] · [[programming/overview|Programming module]]
+- Back to the catalog: [[wiki/index]] · [[01-Areas/Programming/overview|Programming module]]

@@ -102,4 +102,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[languages-polyglot]] · [[repo-fullstack-web-developer-path]] · [[repo-frontend-learning-resources]] · [[programming/cs50/week-8-html-css-javascript]]
+[[languages-polyglot]] · [[repo-fullstack-web-developer-path]] · [[repo-frontend-learning-resources]] · [[01-Areas/Programming/cs50/week-8-html-css-javascript]]

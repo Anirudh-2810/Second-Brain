@@ -94,7 +94,7 @@ flowchart TD
 
 1. **Hardest bug**: symptom→hypothesis→test→fix→prevention arc (rehearse aloud)
 2. **A decision you'd reverse**: shows judgment maturity, not just success stories
-3. **What breaks at 100× scale**: connects your toy to systems thinking ([[programming/systems-design/system-design-interview]])
+3. **What breaks at 100× scale**: connects your toy to systems thinking ([[01-Areas/Programming/systems-design/system-design-interview]])
 4. **What you'd do with one more month**: roadmap thinking
 
 Your live examples: stock-agent (kill-switch saga), retrieval-agent brain (tool-error-vs-empty-result distinction — a genuinely sophisticated edge case most seniors miss).

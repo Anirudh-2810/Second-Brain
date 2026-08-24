@@ -85,7 +85,7 @@ flowchart TB
 ## Related Modules
 
 - **[[wiki/index|Modules Catalog]]** — index of all cross-cutting modules.
-- **[[programming/index|Programming Module Hub]]** — Python & CS fundamentals, the language ROS2 nodes are written in.
+- **[[01-Areas/Programming/index|Programming Module Hub]]** — Python & CS fundamentals, the language ROS2 nodes are written in.
 - **[[01-Areas/AI-Data/ai/index|AI / Machine Learning]]** — perception & decision layers of robots (vision, RL control).
 - **[[01-Areas/Engineering/mathematics/overview|Mathematics]]** — linear algebra, trigonometry & probability behind kinematics, Kalman filters & SLAM.
 - **[[01-Areas/AI-Data/ai-ml/reinforcement-learning-ppo|Reinforcement Learning — PPO]]** — learned control policies on top of the ROS2 stack.

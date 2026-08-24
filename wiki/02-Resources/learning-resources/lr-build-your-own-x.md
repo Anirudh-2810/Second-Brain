@@ -69,4 +69,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[02-Resources/learning-resources/index|Field Index]] · [[build-project-playbook]] · [[software-dev-general]] · [[lr-project-based-learning|30soc+PBL page]]
+[[02-Resources/learning-resources/index|Field Index]] · [[build-project-playbook]] · [[software-dev-general]] · [[lr-30soc-pbl|30soc+PBL page]]

@@ -76,4 +76,4 @@ flowchart TD
 ## Cross-Vault Links
 
 - [[web-development-resources]] · [[repo-frontend-learning-resources]]
-- [[programming/cs50/week-9-flask]] — alternative backend route
+- [[01-Areas/Programming/cs50/week-9-flask]] — alternative backend route

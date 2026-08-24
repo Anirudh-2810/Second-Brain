@@ -53,4 +53,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[02-Resources/learning-resources/index|Field Index]] · [[repo-fullstack-web-developer-path]] · [[lr-project-based-learning]]
+[[02-Resources/learning-resources/index|Field Index]] · [[repo-fullstack-web-developer-path]] · [[lr-30soc-pbl]]

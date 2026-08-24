@@ -123,15 +123,15 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 ### Programming & Computer Science
 > Source: [[raw-sources/youtube_transcript.txt]] + 5 timestamped transcripts + JSON in `/raw-sources/`. One-page digest: vault-root `NOTES.md`.
 > Main catalog: `[[wiki/index#programming--computer-science|Programming & CS in the modules catalog]]`.
-- **[[programming/overview|Programming — Theme Overview & Synthesis]]** — the 5-video "PROGRAM" operating loop + concept map + reading order (start here).
-- **[[programming/cs50/index|Harvard CS50x — Full Course Notes]]** — Scratch · C · Arrays · Algorithms · Memory · Data Structures · Python · SQL · HTML/CSS/JS · Flask · Cybersecurity + [[programming/cs50/problem-sets|PSet catalog]]. The practiced, 11-week embodiment of the fundamentals.
-- **[[programming/programming-cs-fundamentals|CS Fundamentals (21-segment deep dive)]]** — syntax, variables, conditionals, arrays, loops, errors, debugging, functions, imports, recursion, searching, pseudocode, language choice.
-- **[[programming/math-for-programming|Why Programming Needs Math]]** — the ASCII donut: rotation matrices, dot-product shading, the "1% math edge."
-- **[[programming/mathematics-of-creativity|The Mathematics of Creativity]]** — Genius = attempts × combinations × time × (chaos−order).
-- **[[programming/winning-in-tech-art-of-winning|The Art of Winning in Tech]]** — surfer vs spectator, build-first, visible work, short feedback loops.
-- **[[programming/learn-python-fast-system|Learn Python FAST — 6-Step System]]** — one course, embrace discomfort, AI-as-tutor, Codewars/Python Tutor, 30 Days of Python, build a SaaS.
-- **[[programming/programming-flowcharts|Programming — Master Flowcharts]]** — learning / debug / build loops (Mermaid + ASCII).
-- **[[programming/SAAS_BUILD_NOTES|SaaS Build Notes — JS Mastery LMS Course]]** — architectural roadmap, error mitigation matrix, 7-day execution plan, 10 vertical micro-SaaS concepts from the 3:56h Next.js/Supabase/Clerk/Stripe/Vapi course (XUkNR-JfHwo).
+- **[[01-Areas/Programming/overview|Programming — Theme Overview & Synthesis]]** — the 5-video "PROGRAM" operating loop + concept map + reading order (start here).
+- **[[01-Areas/Programming/cs50/index|Harvard CS50x — Full Course Notes]]** — Scratch · C · Arrays · Algorithms · Memory · Data Structures · Python · SQL · HTML/CSS/JS · Flask · Cybersecurity + [[01-Areas/Programming/cs50/problem-sets|PSet catalog]]. The practiced, 11-week embodiment of the fundamentals.
+- **[[01-Areas/Programming/programming-cs-fundamentals|CS Fundamentals (21-segment deep dive)]]** — syntax, variables, conditionals, arrays, loops, errors, debugging, functions, imports, recursion, searching, pseudocode, language choice.
+- **[[01-Areas/Programming/math-for-programming|Why Programming Needs Math]]** — the ASCII donut: rotation matrices, dot-product shading, the "1% math edge."
+- **[[01-Areas/Programming/mathematics-of-creativity|The Mathematics of Creativity]]** — Genius = attempts × combinations × time × (chaos−order).
+- **[[01-Areas/Programming/winning-in-tech-art-of-winning|The Art of Winning in Tech]]** — surfer vs spectator, build-first, visible work, short feedback loops.
+- **[[01-Areas/Programming/learn-python-fast-system|Learn Python FAST — 6-Step System]]** — one course, embrace discomfort, AI-as-tutor, Codewars/Python Tutor, 30 Days of Python, build a SaaS.
+- **[[01-Areas/Programming/programming-flowcharts|Programming — Master Flowcharts]]** — learning / debug / build loops (Mermaid + ASCII).
+- **[[01-Areas/Programming/SAAS_BUILD_NOTES|SaaS Build Notes — JS Mastery LMS Course]]** — architectural roadmap, error mitigation matrix, 7-day execution plan, 10 vertical micro-SaaS concepts from the 3:56h Next.js/Supabase/Clerk/Stripe/Vapi course (XUkNR-JfHwo).
 
 ### Artificial Intelligence & Machine Learning
 - Source: **5 Minutes Engineering — "Complete AI Artificial Intelligence in One Shot"** (Shridhar Mankar) — 9-hour YouTube course; video + playlist + video→module mapping in the hub.
@@ -162,18 +162,18 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 ### Object-Oriented Programming (Python)
 > Source: Python official docs (Tutorial §9 Classes, Data Model, PEP 557/dataclasses), Real Python (OOP, Classes, Inheritance & Composition, SOLID, Magic Methods, Descriptors, Metaclasses, Data Classes), Refactoring Guru (design patterns in Python), *Fluent Python* (Ramalho).
 > Main catalog: `[[wiki/index#object-oriented-programming-in-python-cross-cutting|OOP in the modules catalog]]`.
-- **[[programming/object-oriented-programming/overview|OOP in Python — Theme Overview & Synthesis]]** — the 4-pillar system, concept map, source registry, reading order, golden rules (start here).
-- **[[programming/object-oriented-programming/oop-foundations|OOP Foundations]]** — classes/objects/`self`/`__init__`, class vs instance attributes, 3 method kinds, `__dict__`, diagrams.
-- **[[programming/object-oriented-programming/the-four-pillars|The Four Pillars]]** — encapsulation · abstraction · inheritance · polymorphism as one system with a working mini-design.
-- **[[programming/object-oriented-programming/inheritance|Inheritance Deep Dive]]** — MRO, cooperative `super()`, diamond problem, mixins, ABCs, is-a vs has-a.
-- **[[programming/object-oriented-programming/polymorphism|Polymorphism Deep Dive]]** — duck typing, overriding, operator overloading, `Protocol`, `singledispatch`.
-- **[[programming/object-oriented-programming/magic-methods-dunder|Dunder Methods — Complete Reference]]** — every special method by category + protocols + idioms.
-- **[[programming/object-oriented-programming/properties-and-descriptors|Properties & Descriptors]]** — `@property`, descriptor protocol, attribute lookup chain, `__slots__`.
-- **[[programming/object-oriented-programming/design-principles-solid|SOLID Design Principles]]** — SRP/OCP/LSP/ISP/DIP with before/after Python + decision flowchart.
-- **[[programming/object-oriented-programming/design-patterns|Design Patterns (Pythonic GoF)]]** — Singleton/Factory/Strategy/Observer/Template-Method/State/Adapter/Decorator + language-feature shortcuts.
-- **[[programming/object-oriented-programming/modern-oop-dataclasses-typing|Modern OOP — Dataclasses & Typing]]** — `@dataclass` flags, `field()`, `__post_init__`, NamedTuple, Protocols, generics, pattern matching.
-- **[[programming/object-oriented-programming/advanced-metaprogramming|Advanced OOP & Metaprogramming]]** — `__new__`, metaclasses, lookup chain, introspection.
-- **[[programming/object-oriented-programming/cheatsheet|OOP Master Cheat Sheet]]** · **[[programming/object-oriented-programming/flowcharts|OOP Master Flowcharts]]** · **[[programming/object-oriented-programming/interview-questions|OOP Interview Q&A (34)]]** — reference + decision diagrams + interview bank.
+- **[[01-Areas/Programming/object-oriented-programming/overview|OOP in Python — Theme Overview & Synthesis]]** — the 4-pillar system, concept map, source registry, reading order, golden rules (start here).
+- **[[01-Areas/Programming/object-oriented-programming/oop-foundations|OOP Foundations]]** — classes/objects/`self`/`__init__`, class vs instance attributes, 3 method kinds, `__dict__`, diagrams.
+- **[[01-Areas/Programming/object-oriented-programming/the-four-pillars|The Four Pillars]]** — encapsulation · abstraction · inheritance · polymorphism as one system with a working mini-design.
+- **[[01-Areas/Programming/object-oriented-programming/inheritance|Inheritance Deep Dive]]** — MRO, cooperative `super()`, diamond problem, mixins, ABCs, is-a vs has-a.
+- **[[01-Areas/Programming/object-oriented-programming/polymorphism|Polymorphism Deep Dive]]** — duck typing, overriding, operator overloading, `Protocol`, `singledispatch`.
+- **[[01-Areas/Programming/object-oriented-programming/magic-methods-dunder|Dunder Methods — Complete Reference]]** — every special method by category + protocols + idioms.
+- **[[01-Areas/Programming/object-oriented-programming/properties-and-descriptors|Properties & Descriptors]]** — `@property`, descriptor protocol, attribute lookup chain, `__slots__`.
+- **[[01-Areas/Programming/object-oriented-programming/design-principles-solid|SOLID Design Principles]]** — SRP/OCP/LSP/ISP/DIP with before/after Python + decision flowchart.
+- **[[01-Areas/Programming/object-oriented-programming/design-patterns|Design Patterns (Pythonic GoF)]]** — Singleton/Factory/Strategy/Observer/Template-Method/State/Adapter/Decorator + language-feature shortcuts.
+- **[[01-Areas/Programming/object-oriented-programming/modern-oop-dataclasses-typing|Modern OOP — Dataclasses & Typing]]** — `@dataclass` flags, `field()`, `__post_init__`, NamedTuple, Protocols, generics, pattern matching.
+- **[[01-Areas/Programming/object-oriented-programming/advanced-metaprogramming|Advanced OOP & Metaprogramming]]** — `__new__`, metaclasses, lookup chain, introspection.
+- **[[01-Areas/Programming/object-oriented-programming/cheatsheet|OOP Master Cheat Sheet]]** · **[[01-Areas/Programming/object-oriented-programming/flowcharts|OOP Master Flowcharts]]** · **[[01-Areas/Programming/object-oriented-programming/interview-questions|OOP Interview Q&A (34)]]** — reference + decision diagrams + interview bank.
 
 ### Quant Finance
 - **Course**: _none assigned (self-study)_. Textbook: John C. Hull, *Options, Futures, and Other Derivatives*.
@@ -296,12 +296,12 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - Expanded repos: [[01-Areas/AI-Data/data-science/repo-ossu-data-science|OSSU DS]] · [[01-Areas/AI-Data/data-science/repo-ml-roadmaps-mindmaps|ML Roadmaps/Mindmaps]] · [[01-Areas/AI-Data/data-science/repo-ds-interviews-grigorev|DS Interviews Bank]] · [[01-Areas/AI-Data/data-science/repo-mlcourse-ai|mlcourse.ai]] · [[01-Areas/AI-Data/data-science/repo-awesome-deep-learning-papers|DL Papers Canon]] · [[01-Areas/AI-Data/data-science/repo-tf-pytorch-learning-stack|TF/PyTorch Stack]] · [[01-Areas/AI-Data/data-science/repo-data-engineer-roadmap|Data Engineer Roadmap]]
 
 ### Systems Design & Distributed Systems (field module)
-> Building blocks, interview method, canonical study repo, case-study catalogs. Hub: `[[programming/systems-design/index|Systems Design Index]]`.
-- **[[programming/systems-design/systems-design-distributed|Systems Design Reference]]** · **[[programming/systems-design/system-design-interview|System Design Interview Playbook]]** · **[[programming/systems-design/repo-system-design-primer|System Design Primer Expanded]]** · **[[programming/systems-design/repo-scalability-catalogs|Scalability Case-Study Catalogs]]**
+> Building blocks, interview method, canonical study repo, case-study catalogs. Hub: `[[01-Areas/Programming/systems-design/index|Systems Design Index]]`.
+- **[[01-Areas/Programming/systems-design/systems-design-distributed|Systems Design Reference]]** · **[[01-Areas/Programming/systems-design/system-design-interview|System Design Interview Playbook]]** · **[[01-Areas/Programming/systems-design/repo-system-design-primer|System Design Primer Expanded]]** · **[[01-Areas/Programming/systems-design/repo-scalability-catalogs|Scalability Case-Study Catalogs]]**
 
 ### Web Development (field module)
-> Resources + frontend/fullstack learning paths. Hub: `[[programming/web-development/index|Web Dev Index]]`.
-- **[[programming/web-development/web-development-resources|Web Dev Resources]]** · **[[programming/web-development/repo-frontend-learning-resources|Frontend Resources & Handbook]]** · **[[programming/web-development/repo-fullstack-web-developer-path|Fullstack Path (week-by-week)]]**
+> Resources + frontend/fullstack learning paths. Hub: `[[01-Areas/Programming/web-development/index|Web Dev Index]]`.
+- **[[01-Areas/Programming/web-development/web-development-resources|Web Dev Resources]]** · **[[01-Areas/Programming/web-development/repo-frontend-learning-resources|Frontend Resources & Handbook]]** · **[[01-Areas/Programming/web-development/repo-fullstack-web-developer-path|Fullstack Path (week-by-week)]]**
 
 ### Learning Resource Catalogs (field module)
 > The mega-catalogs (awesome, freeCodeCamp, OSSU CS, build-your-own-x...) converted into systems with anti-hoarding protocols. Hub: `[[02-Resources/learning-resources/index|Learning Resources Index]]`.

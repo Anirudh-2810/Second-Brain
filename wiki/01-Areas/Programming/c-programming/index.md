@@ -120,7 +120,7 @@ Companion module for the YouTube video **"C Programming and Memory Management �
 ## Cross-links
 
 - [[programming-cs-fundamentals|Programming & CS fundamentals]] — language-agnostic base (same concepts, no syntax).
-- [[programming/programming-flowcharts|Programming flowcharts]] — learning / debug / build loops.
+- [[01-Areas/Programming/programming-flowcharts|Programming flowcharts]] — learning / debug / build loops.
 - [[SPM/c-programming-master-study-guide|C master study guide (exam edition)]] — memory layout, pointers, recursion, and output-prediction drills for exams.
 - [[cs50/index|CS50x]] — Harvard's course with hands-on C problem sets to practice everything here.
 - [[c-programming/memory-management-deep-dive|Memory Management Deep Dive]] — analytical framework for this module

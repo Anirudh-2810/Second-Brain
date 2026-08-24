@@ -77,7 +77,7 @@ flowchart TD
     Q -->|"course mid-way boring"| C{"Still needed for<br/>target role?"}
     C -->|"no"| D["Formally drop; log why.<br/>Curriculum serves you"]
     C -->|"yes"| NZ["Minimum pace: 2 videos +<br/>1 exercise daily"]
-    Q -->|"math wall"| MG[[math-for-ml-survival-guide<br/>intuition path]]
+    Q -->|"math wall"| MG[[math-for-ml-survival-guide]] intuition path
     Q -->|"lost in catalog"| HUB["Re-read this page's table;<br/>pick CURRENT row only"]
     D & NZ & MG & HUB --> G["One stage gate at a time"]
 ```

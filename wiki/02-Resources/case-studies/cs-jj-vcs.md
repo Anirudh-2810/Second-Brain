@@ -79,7 +79,7 @@ A conflicted merge produces a TREE whose entries can be conflict records; materi
 
 ## Cross-Vault Links
 
-[[02-Resources/case-studies/index|Field Index]] · [[cs-dura]] (VCS-safety sibling) · [[software-dev-general]]
+[[02-Resources/case-studies/index|Field Index]] · [[cs-dura-z-tinytools]] (VCS-safety sibling) · [[software-dev-general]]
 
 ## Part 5 — R&D Extension: The Data Model In Detail
 

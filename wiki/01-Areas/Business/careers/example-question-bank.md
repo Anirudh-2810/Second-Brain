@@ -54,7 +54,7 @@ Tag legend: `[F]` fresher-must-know · `[P]` product-company bar · `[S]` senior
 5. `[P]` Index cost on write-heavy tables — what gets slower and why?
 6. `[S]` 10M-row slow query — first three diagnostics in order.
 
-### DSA quick-fire (patterns → [[programming/dsa-interview-playbook]])
+### DSA quick-fire (patterns → [[01-Areas/Programming/dsa-interview-playbook]])
 1. `[F]` Cycle detection → fast/slow pointers.
 2. `[P]` Longest substring with K distinct → sliding window + hashmap.
 3. `[F]` All permutations → backtracking template.

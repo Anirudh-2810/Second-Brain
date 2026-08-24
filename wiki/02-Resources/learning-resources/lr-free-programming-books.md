@@ -9,7 +9,7 @@ source: "https://github.com/EbookFoundation/free-programming-books"
 ---
 
 ## For future agent
-The canonical free programming books index (350k+ stars): thousands of free legal books/courses by language and topic, including multilingual editions. This page adds selection discipline — book-hoarding is the classic failure. Feeds [[software-dev-general]], [[programming/cs50/index]].
+The canonical free programming books index (350k+ stars): thousands of free legal books/courses by language and topic, including multilingual editions. This page adds selection discipline — book-hoarding is the classic failure. Feeds [[software-dev-general]], [[01-Areas/Programming/cs50/index]].
 
 # Free Programming Books — The Library Index
 

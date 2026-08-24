@@ -43,7 +43,7 @@ Choose **Python** (fastest feedback, this vault's ecosystem) or **C++** (SPM cou
 
 From CIU's curriculum: **memory (stack vs heap, pointers/references), compilation, binary/two's complement**, plus Teach Yourself CS's pick: *CS50* or *Nand2Tetris*.
 
-- Vault shortcut: [[programming/cs50/index]] weeks 1–4 cover exactly this with practice.
+- Vault shortcut: [[01-Areas/Programming/cs50/index]] weeks 1–4 cover exactly this with practice.
 - **Exit test**: explain what happens between `main()` call and `printf` output — stack frames, addresses, registers — in your own words.
 - **Failure point**: skipping this because "I just want to code" — it returns as inexplicable bugs and failed memory questions in interviews.
 
@@ -92,6 +92,6 @@ Two projects minimum, built per [[build-project-playbook]]:
 
 ## Cross-Vault Links
 
-- [[programming/cs50/index]] — Stage 1–3 practiced form
+- [[01-Areas/Programming/cs50/index]] — Stage 1–3 practiced form
 - [[dsa-interview-playbook]], [[system-design-interview]], [[interview-counter-guide]] — stage 5 weapons
 - [[roadmap-data-scientist]], [[roadmap-ml-engineer]] — alternate tracks

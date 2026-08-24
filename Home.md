@@ -36,7 +36,7 @@ _The first block is what you committed to (live from [[North Star]]); the second
 
 ![[North Star#Current Focus]]
 
-### Should vs Am — automatic audit
+### Should vs Aim — automatic audit
 
 ```dataviewjs
 const ns = dv.page("brain/North Star");

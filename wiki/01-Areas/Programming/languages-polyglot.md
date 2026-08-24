@@ -36,7 +36,7 @@ Learning a second language prematurely fragments fundamentals. Correct triggers:
 [C++ algorithms repo](https://github.com/priyankchheda/algorithms) · Testing: [GoogleTest](https://github.com/google/googletest/) · Jupyter kernel: [xeus-cling](https://github.com/jupyter-xeus/xeus-cling) · Safety-critical: [awesome-safety-critical](https://github.com/stanislaw/awesome-safety-critical/blob/master/README.md#coding-guidelines)
 
 **Failure mode**: manual-memory bugs treated as mysteries instead of lessons → fear-based avoidance. Counter: valgrind/ASan on every segfault until you PREDICT them before running.
-**Transfer upgrade**: pointers/stack/heap intuition that makes Rust, debugging, and interview memory questions trivial afterwards. Vault synergy: [[01-Areas/Engineering/SPM/module-1-spm-c-basics]], [[programming/cs50/week-4-memory]].
+**Transfer upgrade**: pointers/stack/heap intuition that makes Rust, debugging, and interview memory questions trivial afterwards. Vault synergy: [[01-Areas/Engineering/SPM/module-1-spm-c-basics]], [[01-Areas/Programming/cs50/week-4-memory]].
 
 ## Part 3 — Go
 
@@ -109,4 +109,4 @@ flowchart TD
 
 ## Cross-Vault Links
 
-[[software-dev-general]] · [[languages-python-advanced]] · [[language-rust]] · [[web-development-resources]] · [[programming/object-oriented-programming/design-principles-solid]]
+[[software-dev-general]] · [[languages-python-advanced]] · [[language-rust]] · [[web-development-resources]] · [[01-Areas/Programming/object-oriented-programming/design-principles-solid]]

@@ -22,7 +22,7 @@ Q-finance is not just pricing — it's an applied risk/return engineering discip
 | Market risk | VaR/CVaR/ES, stress | [[risk-management-value-at-risk]] |
 | Credit | CDS/CDO, copulas | [[risk-management-value-at-risk]] |
 | Execution/trading | impact models, algos, HFT | [[market-microstructure]] |
-| Alpha | ML, cointegration, forecasting | [[predictive-return-models]], [[machine-learning-model-selection]] |
+| Alpha | ML, cointegration, forecasting | [[predictive-return-models]], [[model-selection-and-model-risk]] |
 | ESG investing | scoring + portfolio constraints + tail-risk analysis | this module's focus |
 
 ---

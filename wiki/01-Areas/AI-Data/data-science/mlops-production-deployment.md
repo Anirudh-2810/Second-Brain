@@ -9,7 +9,7 @@ source: "https://github.com/niderhoff/knowledge-repository#data-science-deployme
 ---
 
 ## For future agent
-Deep edition of the MLOps page. Adds the production-failure taxonomy (the ways deployed models actually die), the notebook-to-production gap analysis (why fresher portfolios look identical and how deployment breaks the tie), a minimum-viable-MLOps ladder, defeat-tackling flowchart for deployment walls, and life integration. Tooling detail per framework in [[python-datascience-frameworks]]; infra layer in [[programming/systems-design/systems-design-distributed]].
+Deep edition of the MLOps page. Adds the production-failure taxonomy (the ways deployed models actually die), the notebook-to-production gap analysis (why fresher portfolios look identical and how deployment breaks the tie), a minimum-viable-MLOps ladder, defeat-tackling flowchart for deployment walls, and life integration. Tooling detail per framework in [[python-datascience-frameworks]]; infra layer in [[01-Areas/Programming/systems-design/systems-design-distributed]].
 
 # MLOps & Production ML — Deep Edition
 

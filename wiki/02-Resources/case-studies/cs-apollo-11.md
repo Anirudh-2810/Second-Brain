@@ -120,4 +120,4 @@ Programs physically woven: wire through core = 1, around = 0, threaded by textil
 
 ## Cross-Vault Links
 
-[[02-Resources/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[lr-build-your-own-x]] · [[programming/cs50/week-1-c]]
+[[02-Resources/case-studies/index|Field Index]] · [[systems-design-distributed]] · [[lr-build-your-own-x]] · [[01-Areas/Programming/cs50/week-1-c]]

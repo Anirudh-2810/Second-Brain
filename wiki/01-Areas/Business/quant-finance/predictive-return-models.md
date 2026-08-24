@@ -70,7 +70,7 @@ $$
 - **VECM (cointegrated VAR):** adds the error-correction term for $I(1)$ series.
 - **Granger causality** & impulse-response analysis flow from the VAR/VECM fit (see [[model-estimation]] for fitting details).
 
-Modern alternative: **forecast via factor models** (dynamic factor — observable + latent) and **ML** — see [[machine-learning-model-selection]] and [[transformers-attention-detail]].
+Modern alternative: **forecast via factor models** (dynamic factor — observable + latent) and **ML** — see [[model-selection-and-model-risk]] and [[transformers-attention-detail]].
 
 ---
 

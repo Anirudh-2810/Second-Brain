@@ -109,4 +109,4 @@ Full worked set (Pastebin, Instagram, chat, KV store…) in [[repo-system-design
 
 ## Cross-Vault Links
 
-[[systems-design-distributed]] · [[repo-system-design-primer]] · [[repo-scalability-catalogs]] · [[interview-counter-guide]] · [[programming/SAAS_BUILD_NOTES]]
+[[systems-design-distributed]] · [[repo-system-design-primer]] · [[repo-scalability-catalogs]] · [[interview-counter-guide]] · [[01-Areas/Programming/SAAS_BUILD_NOTES]]

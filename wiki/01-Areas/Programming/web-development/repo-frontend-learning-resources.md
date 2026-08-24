@@ -84,4 +84,4 @@ flowchart TD
 ## Cross-Vault Links
 
 - [[web-development-resources]] · [[languages-polyglot]] (JS books)
-- [[programming/cs50/week-8-html-css-javascript]]
+- [[01-Areas/Programming/cs50/week-8-html-css-javascript]]
