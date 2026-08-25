@@ -22,11 +22,14 @@ description: "ENGINEERING domain hub - BTech coursework: SPM/C, engineering chem
 | [[engineering-chem/module-1-water-technology-hardness|engineering-chem/]] | 6 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers |
 | [[engineering-math/module-1-matrices|engineering-math/]] | 5 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers |
 | [[engineering-physics/overview|engineering-physics/]] | 5 | Course physics |
+| [[BEE/INDEX|BEE/]] | 7 | Basic Electrical Engineering: DC circuits & theorems, AC circuits, transformers, DC machines & induction motors, installations/safety + formula sheet |
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
 | mathematics/formula-sheet-master | 4 | JEE-level math formula arsenal |
 | physics/ + chemistry/ | 10 | JEE-level formula sheets & reaction maps |
 
 ## Quick Answers
+
+- "BEE Thevenin / AC resonance / transformer efficiency?" → [[BEE/INDEX|BEE module]] + [[formula-sheet-bee]]
 
 - "SPM unit 3 arrays?" → SPM/module-3
 - "Orthographic projection rules?" → engineering-drawing pages
