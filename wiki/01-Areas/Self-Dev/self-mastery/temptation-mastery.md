@@ -154,6 +154,14 @@ flowchart TD
 
 Historical frame: ancient warriors mastered themselves years before battle; prophets/sages/kings endured testing seasons "not to break them but to prepare them."
 
+## The Curse of Discipline (user-collected, 2026-08-25)
+
+> **"The curse of discipline is that every day looks the same — but in the case of indiscipline, every year looks the same."**
+
+The mirror image of the momentum fork above. Discipline's daily sameness IS the compounding working — nothing visible changes day-to-day because change is logarithmic, not linear. Indiscipline feels varied day-to-day (novelty, impulses, exceptions) but produces zero drift, so the years stack into identical copies.
+
+Read the sameness correctly: a boring today is the receipt for a different tomorrow. When the graph heatmap shows the same color every day, that uniformity is evidence of motion, not the absence of it ([[atomic-habits-systems]], [[life-systems-design]]).
+
 ## Part 7 — Old Self vs New Self (The Final Battle)
 
 *"There's always a final battle — not with the world, not with your environment, not with your enemies, but with the man you used to be."*

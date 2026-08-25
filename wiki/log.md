@@ -436,3 +436,6 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Rules +3: index.html is generated (edit generator, never output); agent cannot see rendered Obsidian (flag manual-verification, never claim works from scripts); check wiki/log.md before re-solving.
 - AI-First Note Rules +1: clarity over grammar.
 - Roadmaps INDEX maintenance rule extended to cover execution plans.
+
+### 2026-08-25 — Captured: 'Curse of Discipline' quote (user-collected)
+- Added to temptation-mastery.md as 'The Curse of Discipline' section: daily sameness = compounding working (logarithmic change), indiscipline's daily novelty = zero drift (identical years). Paired with momentum-fork + heatmap-uniformity-as-evidence readings.
