@@ -19,9 +19,14 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 |--------|-------|--------|
 | [[self-mastery/overview|self-mastery/]] | 9 | LEVEL loop, belief engineering, manifestation quadrant, subconscious reprogramming, psychological execution, life systems design, flowcharts, **temptation-mastery (BHATT video deep-dive)** |
 | [[productivity/overview|productivity/]] | 13 | Deep work, PKM-CODE, atomic habits, GTD, mental models, **how-to-self-teach (learning system)**, mod-DH ergonomics |
-| [[german/overview|german/]] | 11 | A1 German: grammar, cases, verbs, vocabulary, practice |
+| [[german/overview|german/]]
+| [[motivation-self-belief|YouTube Distillations]] | 4 | Motivation/self-belief compilation, communication-mastery (2-video), vocabulary-building (50-word system), digital-wellness (dopamine/recovery protocol) — all at root level | 11 | A1 German: grammar, cases, verbs, vocabulary, practice |
 
 ## Quick Answers
+
+- "Communication / articulation / vocabulary for interviews?" → [[communication-mastery]] + [[vocabulary-building]]
+- "Motivation / self-belief / discipline?" → [[motivation-self-belief]]
+- "Phone addiction / digital wellness / dopamine?" → [[digital-wellness]]
 
 - "How do I stop procrastinating / master urges?" → [[temptation-mastery]], [[psychological-execution]]
 - "Optimal way to learn anything?" → [[how-to-self-teach]]

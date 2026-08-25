@@ -456,3 +456,11 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - formula-sheet-spm.md created (SPM/): C syntax quick reference - skeleton, data types + format specifiers, operator precedence, control flow, arrays/strings, functions (value vs reference, recursion patterns), pointers minimum, 7 exam program patterns, common-errors table + exam checklist.
 - Inbound links added from all 5 engineering-math module pages + 4 SPM module pages + SPM master guide + Engineering INDEX quick-answer.
 - Dashboard regenerated.
+
+
+### 2026-08-25 — YouTube distillations: 4 Self-Dev notes (motivation, communication, vocabulary, digital wellness)
+- J5v7XVGq51o → motivation-self-belief.md: ~15-speaker compilation on identity-level belief, obsession, discipline, risk-taking (114 lines, 13 wikilinks, 7 insights, failure taxonomy, 14 quotes).
+- FsxorSNJBaA + ldoYlkeq-w4 → communication-mastery.md: merged 2-video note — Ben's 3-level communication framework (Rookie → Natural) + Ali's 5 articulation techniques (207 lines, 6 wikilinks, 8 failure modes, 13 quotes).
+- uLN6IdRtDhg → vocabulary-building.md: 50 advanced words across 5 categories, precision-language system, interview vocabulary (193 lines, 5 wikilinks, 7 failure modes, 10 quotes).
+- KHd-luu3M8s → digital-wellness.md: Arthur Brooks on dopamine/tech addiction neuroscience, negative emotions, Emerson self-reliance, 3-part recovery protocol (161 lines, 8 wikilinks, 8 failure modes, 12 quotes).
+- Transcripts saved to raw-sources/yt/. Registered in Self-Dev INDEX. Dashboard regenerated.
