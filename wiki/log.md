@@ -471,3 +471,6 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - DC1F6XVNyjo → harvard-learning-system.md: BetterU's 6-step Harvard learning system — write-to-think, environment design, review periods, social pressure-testing, real-world application, speaking as active recall. 10 quotes.
 - 33mNNlz01-E → art-of-winning.md: Pattern recognition as intelligence, game-theory leverage, speed + delusional optimism, synthesis of winning as a system not talent. Chess score-sheet origin story. 10 quotes.
 - All at wiki/01-Areas/Self-Dev/. Registered in Self-Dev INDEX (now 7 root-level distillations). Dashboard regenerated.
+
+### 2026-08-25 — YouTube distillation: how-to-study-hard (Feynman/Carmack/Systrom/Karpathy)
+- YDV1mo7QlnA -> how-to-study-hard.md: Compilation of Feynman, Carmack, Systrom, Karpathy on hard work, 10000 hours, iterating through mistakes, comparing only to past self. Core quote: "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible." 9 quotes. Self-Dev now has 8 root-level distillations.

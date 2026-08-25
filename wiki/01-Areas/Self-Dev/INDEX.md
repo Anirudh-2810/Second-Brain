@@ -20,7 +20,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 | [[self-mastery/overview|self-mastery/]] | 9 | LEVEL loop, belief engineering, manifestation quadrant, subconscious reprogramming, psychological execution, life systems design, flowcharts, **temptation-mastery (BHATT video deep-dive)** |
 | [[productivity/overview|productivity/]] | 13 | Deep work, PKM-CODE, atomic habits, GTD, mental models, **how-to-self-teach (learning system)**, mod-DH ergonomics |
 | [[german/overview|german/]] | 11 | A1 German: grammar, cases, verbs, vocabulary, practice |
-| [[motivation-self-belief|YouTube Distillations]] | 7 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning |
+| [[motivation-self-belief|YouTube Distillations]] | 8 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard |
 
 ## Quick Answers
 - "Debate / argumentation / how to disagree productively?" → [[debate-and-argumentation]]
@@ -36,6 +36,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 - "Habit system?" → [[atomic-habits-systems]]
 - "German article/case rules?" → german/ pages
 
+- "How to study hard / Feynman technique / 10000 hours?" -> [[how-to-study-hard]]
 ## NOT Here
 
 Career/market strategy → `wiki/01-Areas/Business/` · Study roadmaps per field → `wiki/*/roadmap-*` + `wiki/01-Areas/Roadmaps/INDEX`
