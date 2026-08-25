@@ -1,0 +1,12 @@
+exclude:
+  - wiki/
+  - raw-sources/
+  - brain/
+  - thinking/
+  - daily/
+  - templates/
+  - bases/
+  - .opencode/
+  - .scripts/
+  - "*.md"
+  - node_modules/
