@@ -20,7 +20,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 | [[self-mastery/overview|self-mastery/]] | 9 | LEVEL loop, belief engineering, manifestation quadrant, subconscious reprogramming, psychological execution, life systems design, flowcharts, **temptation-mastery (BHATT video deep-dive)** |
 | [[productivity/overview|productivity/]] | 13 | Deep work, PKM-CODE, atomic habits, GTD, mental models, **how-to-self-teach (learning system)**, mod-DH ergonomics |
 | [[german/overview|german/]] | 11 | A1 German: grammar, cases, verbs, vocabulary, practice |
-| [[motivation-self-belief|YouTube Distillations]] | 8 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard |
+| [[motivation-self-belief|YouTube Distillations]] | 13 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard, **Napoleon Hill Master Key (5-page deep-dive)** |
 
 ## Quick Answers
 - "Debate / argumentation / how to disagree productively?" → [[debate-and-argumentation]]
@@ -37,6 +37,12 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 - "German article/case rules?" → german/ pages
 
 - "How to study hard / Feynman technique / 10000 hours?" -> [[how-to-study-hard]]
+- "Complete success philosophy / Napoleon Hill / 14 principles / decision-making framework?" -> [[napoleon-hill-master-key-overview]]
+- "Purpose clarity / definite major purpose / how to find what I want?" -> [[napoleon-hill-purpose-and-mind]]
+- "Self-discipline / going the extra mile / personal initiative / enthusiasm?" -> [[napoleon-hill-action-and-discipline]]
+- "Positive mental attitude / accurate thinking / creative imagination?" -> [[napoleon-hill-mental-mastery]]
+- "Learning from adversity / habit formation / making success automatic?" -> [[napoleon-hill-adversity-and-cosmic-force]]
+
 ## NOT Here
 
 Career/market strategy → `wiki/01-Areas/Business/` · Study roadmaps per field → `wiki/*/roadmap-*` + `wiki/01-Areas/Roadmaps/INDEX`

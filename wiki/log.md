@@ -474,3 +474,12 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 
 ### 2026-08-25 — YouTube distillation: how-to-study-hard (Feynman/Carmack/Systrom/Karpathy)
 - YDV1mo7QlnA -> how-to-study-hard.md: Compilation of Feynman, Carmack, Systrom, Karpathy on hard work, 10000 hours, iterating through mistakes, comparing only to past self. Core quote: "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible." 9 quotes. Self-Dev now has 8 root-level distillations.
+
+### 2026-08-25 — Napoleon Hill Master Key: 5-page deep-dive distillation (JfqDvi8b4gg)
+- JfqDvi8b4gg -> 5 pages at wiki/01-Areas/Self-Dev/:
+  - napoleon-hill-master-key-overview.md: Grand architecture of the 14-principle system, two sealed envelopes metaphor, complete decision-making framework (7-step filter), thinking spectrum (6 levels), QQMA compensation formula, system interconnection diagrams (3 mermaid flowcharts). ~4000 words.
+  - napoleon-hill-purpose-and-mind.md: Foundation layer — 3-step purpose activation process, Master Mind alliance building guide, applied faith vs fear spectrum, gratitude-before-receiving psychology, 14-point decision filter. 2 mermaid diagrams. ~3500 words.
+  - napoleon-hill-action-and-discipline.md: Execution layer — QQMA formula deep-dive, 10 benefits of extra mile, 7 areas of self-discipline, 16 attributes of personal initiative, enthusiasm as activation energy, daily action system. 2 mermaid diagrams. ~3500 words.
+  - napoleon-hill-mental-mastery.md: Mental operating system — 20 PMA practices, 30+ personality factors, 12 destructive habits, 7 rules for accurate thinking, synthetic vs creative imagination, 6-level thinking spectrum. 2 mermaid diagrams. ~3500 words.
+  - napoleon-hill-adversity-and-cosmic-force.md: Advanced principles — adversity reframe framework, seed of equivalent benefit, hypnotic rhythm vs positive habit force, complete 14-principle integration, life decision framework, thinking spectrum (complete). 3 mermaid diagrams. ~3500 words.
+- Transcript saved to raw-sources/yt/JfqDvi8b4gg.txt. Self-Dev INDEX updated (8 -> 13 root-level distillations). Dashboard regenerated.
