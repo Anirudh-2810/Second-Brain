@@ -1,4 +1,4 @@
-# 🏠 Home
+SS# 🏠 Home
 
 > Everything on this page pulls live from your notes — nothing to maintain manually.
 > The agent reads `AGENTS.md` and [[North Star]] every session.
@@ -114,7 +114,7 @@ if (!ns) {
             }
 
             const ev = hits.sort((a, b) => b.file.mday.toMillis() - a.file.mday.toMillis())
-                .slice(0, 3).map(p => p.file.link).array().join(" · ");
+                .slice(0, 3).map(p => p.file.link).join(" · ");
             rows.push([title,
                 hits.length ? `${hits.length} page${hits.length === 1 ? "" : "s"} touched: ${ev}` : "no activity in its domain this week",
                 badge(hits.length)]);
