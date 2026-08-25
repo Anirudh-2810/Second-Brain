@@ -97,4 +97,9 @@ Click any link to open in Obsidian.</p>
 
 with open(os.path.join(VAULT, 'index.html'), 'w', encoding='utf-8') as f:
     f.write(out)
-print(f'index.html regenerated: {total} pages')
+# GitHub Pages copy (served from /docs via Pages settings)
+docs = os.path.join(VAULT, 'docs')
+os.makedirs(docs, exist_ok=True)
+with open(os.path.join(docs, 'index.html'), 'w', encoding='utf-8') as f:
+    f.write(out)
+print(f'index.html regenerated (root + docs/): {total} pages')
