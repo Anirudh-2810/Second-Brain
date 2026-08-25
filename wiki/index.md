@@ -21,6 +21,7 @@
 | 🧠 Self-dev / habits | `wiki/01-Areas/Self-Dev/` | [[01-Areas/Self-Dev/INDEX]] |
 | 🔨 My builds | `wiki/00-Current-Projects/` | [[00-Current-Projects/INDEX]] |
 | 🗺 All roadmaps | — | [[01-Areas/Roadmaps/INDEX]] |
+| 📚 Papers / academic databases / reference catalogs | `wiki/02-Resources/` | [[02-Resources/academic-databases/INDEX|Academic DBs INDEX]] |
 
 Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`).
 
