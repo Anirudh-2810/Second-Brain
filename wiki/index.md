@@ -18,6 +18,7 @@
 | 💻 Coding / DSA / case studies | `wiki/01-Areas/Programming/` | [[01-Areas/Programming/INDEX]] |
 | 🤖 AI / ML / data science | `wiki/01-Areas/AI-Data/` | [[01-Areas/AI-Data/INDEX]] |
 | ⚙️ Engineering coursework | `wiki/01-Areas/Engineering/` | [[01-Areas/Engineering/INDEX]] |
+| ⚡ Basic Electrical Engineering (BEE) | \wiki/01-Areas/Engineering/BEE/\ | [[01-Areas/Engineering/BEE/INDEX|BEE INDEX]] |
 | 🧠 Self-dev / habits | `wiki/01-Areas/Self-Dev/` | [[01-Areas/Self-Dev/INDEX]] |
 | 🔨 My builds | `wiki/00-Current-Projects/` | [[00-Current-Projects/INDEX]] |
 | 🗺 All roadmaps | — | [[01-Areas/Roadmaps/INDEX]] |
