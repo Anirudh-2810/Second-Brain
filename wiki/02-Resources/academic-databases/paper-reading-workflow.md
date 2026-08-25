@@ -94,4 +94,4 @@ source: "raw-sources/papers/<field>/<file>.pdf"
 
 ## Related Pages
 
-[[academic-databases]] — the five databases in depth · [[modules/../01-Areas/Engineering/robotics/index|robotics module]] (IEEE-paper destination) · [[01-Areas/Business/quant-finance/pairs-trading-gatev-goetzmann-rouwenhorst|pairs-trading deep-dive]] (example of a distilled paper) · [[paper]]-tagged stubs across the vault
+[[academic-databases]] — the five databases in depth · [[modules/../01-Areas/Engineering/robotics/index|robotics module]] (IEEE-paper destination) · [[01-Areas/Business/quant-finance/pairs-trading-gatev-goetzmann-rouwenhorst|pairs-trading deep-dive]] (example of a distilled paper) · "paper"-tagged stubs across the vault
