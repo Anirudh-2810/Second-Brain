@@ -464,3 +464,10 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - uLN6IdRtDhg → vocabulary-building.md: 50 advanced words across 5 categories, precision-language system, interview vocabulary (193 lines, 5 wikilinks, 7 failure modes, 10 quotes).
 - KHd-luu3M8s → digital-wellness.md: Arthur Brooks on dopamine/tech addiction neuroscience, negative emotions, Emerson self-reliance, 3-part recovery protocol (161 lines, 8 wikilinks, 8 failure modes, 12 quotes).
 - Transcripts saved to raw-sources/yt/. Registered in Self-Dev INDEX. Dashboard regenerated.
+
+
+### 2026-08-25 — YouTube distillations: 3 more Self-Dev notes (debate, Harvard learning, art of winning)
+- _WjUFuW2J0A → debate-and-argumentation.md: Bo Seo (world debate champion, Harvard coach) on RISA framework for picking fights, active listening as strategy, side-switch exercises for empathy, judicious disagreement. 10 quotes.
+- DC1F6XVNyjo → harvard-learning-system.md: BetterU's 6-step Harvard learning system — write-to-think, environment design, review periods, social pressure-testing, real-world application, speaking as active recall. 10 quotes.
+- 33mNNlz01-E → art-of-winning.md: Pattern recognition as intelligence, game-theory leverage, speed + delusional optimism, synthesis of winning as a system not talent. Chess score-sheet origin story. 10 quotes.
+- All at wiki/01-Areas/Self-Dev/. Registered in Self-Dev INDEX (now 7 root-level distillations). Dashboard regenerated.
