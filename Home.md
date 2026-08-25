@@ -39,30 +39,36 @@ _The first block is what you committed to (live from [[North Star]]); the second
 ### Should vs Aim — automatic audit
 
 ```dataviewjs
+// Each North Star focus maps to the folder where its evidence lives.
+// Edit FOCUS_MAP when goals move or new domains appear.
+const FOCUS_MAP = [
+    [/robotics|\brai\b|kjsce/i,                    ["wiki/01-Areas/Engineering"]],
+    [/quant/i,                                     ["wiki/01-Areas/Business"]],
+    [/stock[- ]?agent/i,                           ["wiki/00-Current-Projects/stock-agent"]],
+    [/retrieval|\brag\b|second.?brain/i,           ["wiki/00-Current-Projects/retrieval-agent"]],
+    [/freelanc|n8n|client|automation business/i,   ["wiki/01-Areas/Business/automations", "wiki/01-Areas/Business/careers"]],
+    [/habit|streak/i,                              "HABIT"],
+];
+const NOISE = /(\/INDEX\.md$|\/log\.md$|^wiki\/index\.md$|^Home\.md$|^docs\/)/;
+
 const ns = dv.page("brain/North Star");
 if (!ns) {
     dv.paragraph("`brain/North Star.md` missing — create it.");
 } else {
-    const today = dv.date("today").startOf("day");
-    const cutoff = today.minus({ days: 7 });
-
-    const STOP = new Set(["the","and","for","with","this","that","your","from","into",
-        "start","keep","build","building","work","toward","track","project","focus",
-        "area","path","self","study"]);
+    const cutoff = dv.date("today").startOf("day").minus({ days: 7 });
 
     const focuses = ns.file.lists
         .where(l => l.section && /^current focus/i.test(l.section.subpath ?? ""))
         .map(l => String(l.text)).array();
 
-    const recent = dv.pages("")
+    const touched = dv.pages("")
         .where(p => p.file.mday && p.file.mday >= cutoff)
-        .where(p => { const f = p.file.folder;
-            return !f.startsWith("templates") && !f.startsWith("raw-sources"); })
-        .array();
+        .where(p => { const f = p.file.path;
+            return f.startsWith("wiki/") && !NOISE.test(f); }).array();
 
     const dailies = dv.pages('"daily"')
         .where(p => p.file.day && p.file.day >= cutoff).array();
-    const studyH = dailies.reduce((s, p) => s + (p.Study ? Number(p.Study) : 0), 0);
+    const studyH = dailies.reduce((s, p) => s + (Number(p.Study) || 0), 0);
 
     const badge = n => n >= 3 ? "🟢 on track" : n >= 1 ? "🟡 quiet" : "🔴 stalled";
 
@@ -74,7 +80,7 @@ if (!ns) {
             const m = String(raw).match(/\*\*(.+?)\*\*/);
             const title = (m ? m[1] : String(raw).split(/[—-]/)[0]).trim();
 
-            // Habit-style focus → judge by daily logging
+            // Habit-style focus → judged by daily logging
             if (/habit|streak/i.test(title)) {
                 const v = dailies.length >= 5 ? "🟢 on track"
                         : dailies.length >= 3 ? "🟡 quiet" : "🔴 stalled";
@@ -83,22 +89,38 @@ if (!ns) {
                 continue;
             }
 
-            // Knowledge/project focus → match keywords against touched notes
-            const kw = title.toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/)
-                .filter(w => w.length > 2 && !STOP.has(w));
-            const hits = [];
-            for (const p of recent) {
-                const tagStr = p.tags ? p.tags.array().join(" ") : "";
-                const hay = (p.file.path + " " + tagStr).toLowerCase();
-                if (kw.some(k => hay.includes(k))) hits.push(p);
+            // Goal → scoped-domain evidence (pages meaningfully touched this week)
+            const entry = FOCUS_MAP.find(([re]) => re.test(title));
+            let hits;
+            if (entry) {
+                hits = touched.filter(p => entry[1].some(f =>
+                    p.file.path.startsWith(f + "/")));
+            } else {
+                // unmapped goal: fall back to keyword search over wiki paths+tags
+                const kw = title.toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/)
+                    .filter(w => w.length > 2);
+                hits = touched.filter(p => {
+                    const tagStr = p.tags ? p.tags.array().join(" ") : "";
+                    const hay = (p.file.path + " " + tagStr).toLowerCase();
+                    return kw.some(k => hay.includes(k));
+                });
+                if (hits.length)
+                    rows.push([title + " ⚠️ unmapped — add to FOCUS_MAP",
+                        `${hits.length} generic hit${hits.length === 1 ? "" : "s"}`, "🟡"]);
+                else
+                    rows.push([title + " ⚠️ unmapped — add to FOCUS_MAP",
+                        "no vault activity this week", "🔴 stalled"]);
+                continue;
             }
-            const ev = hits.slice(0, 3).map(p => p.file.link).array().join(" · ");
+
+            const ev = hits.sort((a, b) => b.file.mday.toMillis() - a.file.mday.toMillis())
+                .slice(0, 3).map(p => p.file.link).array().join(" · ");
             rows.push([title,
-                hits.length ? `${hits.length} note${hits.length === 1 ? "" : "s"} touched: ${ev}` : "no vault activity this week",
+                hits.length ? `${hits.length} page${hits.length === 1 ? "" : "s"} touched: ${ev}` : "no activity in its domain this week",
                 badge(hits.length)]);
         }
         dv.table(["North Star says…", "…but the vault saw (7 days)", "Verdict"], rows);
-        dv.el("small", "🟢 ≥3 touches · 🟡 1–2 · 🔴 untouched. Heuristic — it reads note paths & tags; do work where it lives (wiki modules, brain notes) so it sees you.");
+        dv.el("small", "🟢 ≥3 meaningful touches · 🟡 1–2 · 🔴 untouched. Counts real page edits inside each goal's domain folder — INDEX/log/dashboard churn excluded.");
     }
 }
 ```
@@ -150,43 +172,6 @@ if (!open.length) dv.paragraph("No open threads 🎉");
 else {
     dv.table(["Task", "From"], open.slice(0, 20).map(o => [o.text, o.link]));
     if (open.length > 20) dv.paragraph(`…and ${open.length - 20} more`);
-}
-```
-
----
-
-## 🧠 Mental Health
-
-```dataviewjs
-const logged = dv.pages('"daily"').where(p => p.Mood != null && Number(p.Mood) > 0)
-    .sort(p => p.file.name, "desc");
-const arr = logged.array();
-if (!arr.length) {
-    dv.paragraph("Log `Mood` in your daily notes to see trends here.");
-} else {
-    const moods = arr.map(p => Number(p.Mood));
-    const avg = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
-    const week = moods.slice(0, Math.min(7, moods.length));
-    const prev = moods.slice(7, 14);
-    const w = avg(week), pv = avg(prev);
-    let trend = "";
-    if (w != null && pv != null)
-        trend = w > pv + 0.1 ? " 📈 better than prior week" : (w < pv - 0.1 ? " 📉 worse than prior week" : " ➖ steady vs prior week");
-    const exDays = arr.filter(p => p.Exercise === true || p.Exercise === "true").length;
-    const low = arr.filter(p => Number(p.Mood) <= 2);
-    const streak = (() => { // consecutive logged days with Mood >= 4 ending at most recent
-        let s = 0;
-        for (const m of moods) { if (m >= 4) s++; else break; }
-        return s;
-    })();
-    dv.table(["Signal", "Reading"], [
-        [`Avg mood — last ${week.length} logged`, w != null ? `${w.toFixed(1)} / 5${trend}` : "–"],
-        ["Good-day streak (mood ≥ 4)", streak ? `${streak} day${streak === 1 ? "" : "s"}` : "—"],
-        ["Exercise", `${exDays} of last ${arr.length} logged days`],
-        ["Rough days (mood ≤ 2)", low.length ? low.map(p => p.file.link).array().join(" · ") : "none recently 💪"],
-    ]);
-    if (low.length >= 3)
-        dv.paragraph("> ⚠️ Several rough days lately — worth a check-in with yourself. Sleep, sunlight, movement, someone to talk to.");
 }
 ```
 
