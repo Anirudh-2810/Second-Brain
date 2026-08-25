@@ -421,3 +421,8 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Fixes: automations README gained Complete Page Map (10 orphans) + research series prev/next nav chain; engineering-chem/INDEX.md created (6-page map); excel workflows/INDEX.md created (Budget Tracker + FinancialAdvisor, cross-linked to quant-finance foundations); thin-film revision linked from engineering-physics module-2; stock-agent interview-prep-guide linked from overview; yt info linked from Programming INDEX.
 - AGENTS.md auto-sort rule hardened: ingest now explicitly requires LINKING (module INDEX page map + >=1 inbound wikilink + log entry) in addition to sorting.
 - Orphan sweep re-run: 0 orphans.
+
+### 2026-08-25 — GitHub Pages dashboard live + sync documented in AGENTS.md
+- Vault dashboard published at https://anirudh-2810.github.io/Second-Brain/ (Pages source: main branch /docs folder; enabled via API using stored credentials - was already on, source updated to /docs).
+- generate-index.py now writes BOTH copies: root index.html (local) + docs/index.html (Pages source). Only the dashboard is public - note content stays in the private repo.
+- AGENTS.md updated: Vault Structure + index.html row + .scripts row + auto-sort rule now document the dual-write and the Pages sync chain (ingest -> generate -> wrap-up commit push -> live site refreshes ~1 min).

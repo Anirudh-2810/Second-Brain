@@ -21,7 +21,7 @@ The wiki is organized into **6 content domains + a roadmaps hub** under `wiki/`.
 | builds | `wiki/00-Current-Projects/` | user's OWN active systems: stock-agent, retrieval-agent brain, portfolio projects — living docs |
 | roadmaps | `wiki/01-Areas/Roadmaps/` | hub linking every roadmap page across domains (no content pages) |
 
-Other root folders: `daily/`, `raw-sources/`, `brain/`, `thinking/`, `templates/`, `bases/`, `.opencode/`, `.scripts/`, `Home.md` (live dashboard + domain map), `index.html` (generated browser dashboard).
+Other root folders: `daily/`, `raw-sources/`, `brain/`, `thinking/`, `templates/`, `bases/`, `.opencode/`, `.scripts/`, `Home.md` (live dashboard + domain map), `index.html` + `docs/index.html` (generated browser dashboard, published live at https://anirudh-2810.github.io/Second-Brain/ via GitHub Pages).
 
 ## Domain-Scoped Retrieval
 
@@ -40,7 +40,7 @@ Examples: "what's the job market like" → read `wiki/01-Areas/Business/INDEX.md
 | Folder | Purpose |
 |--------|---------|
 | `Home.md` | **Vault home** — live dashboard + **domain map table** (top). Start here. |
-| `index.html` | Generated browser dashboard of the whole vault, grouped by domain. Regenerate: `python .scripts/generate-index.py`. |
+| `index.html` + `docs/index.html` | Generated browser dashboard of the whole vault, grouped by domain. `generate-index.py` writes BOTH copies (root = local, `docs/` = GitHub Pages source). Regenerate: `python .scripts/generate-index.py`. Live at https://anirudh-2810.github.io/Second-Brain/ — auto-updates when the wrap-up commit pushes. |
 | `daily/` | Daily notes (`YYYY-MM-DD.md`) with Study/Exercise/Mood tracker fields. Index in `daily/index.md`. |
 | `raw-sources/` | Immutable originals — syllabi, PDFs, lecture notes, transcripts. Never edit; distill into `wiki/`. |
 | `wiki/<domain>/INDEX.md` | Domain hub: scope declaration + page map. Read first when scanning a domain. |
@@ -51,7 +51,7 @@ Examples: "what's the job market like" → read `wiki/01-Areas/Business/INDEX.md
 | `.opencode/commands/` | Slash commands (`/om-*`). Catalog in `[[Skills]]`. |
 | `.opencode/agents/` | Subagents for heavy isolated work. |
 | `.opencode/plugins/mind.ts` | Validates markdown writes (frontmatter, wikilinks, size) after every write. |
-| `.scripts/` | QMD semantic-search bootstrap + `generate-index.py` (vault dashboard). |
+| `.scripts/` | QMD semantic-search bootstrap + `generate-index.py` (vault dashboard, writes root + `docs/` for Pages) + `update-graph-colors.py` (per-module graph colors). |
 
 ## Session Workflow
 
@@ -111,7 +111,7 @@ last_updated: "YYYY-MM-DD"
 - Code blocks always specify language (`python`, `cpp`, `sql`, …)
 
 ### Ingestion workflow (`/om-ingest`)
-**Auto-sort rule**: every ingested note is CLASSIFIED into an existing module folder under the right Area (`wiki/01-Areas/<Domain>/<module>/` or `wiki/00-Current-Projects/<build>/`). If no module fits, CREATE a new module folder there, then run `python .scripts/update-graph-colors.py` (registers its graph color) and `python .scripts/generate-index.py` (refreshes the dashboard). Every ingested note must also be LINKED: added to its module INDEX page map, given at least one inbound wikilink from a related page, and logged in `wiki/log.md`. Unclassifiable material goes to `wiki/99-Unsorted/` for later triage — never left loose. After any ingest: run `python .scripts/update-graph-colors.py` and `python .scripts/generate-index.py`.
+**Auto-sort rule**: every ingested note is CLASSIFIED into an existing module folder under the right Area (`wiki/01-Areas/<Domain>/<module>/` or `wiki/00-Current-Projects/<build>/`). If no module fits, CREATE a new module folder there, then run `python .scripts/update-graph-colors.py` (registers its graph color) and `python .scripts/generate-index.py` (refreshes the dashboard). Every ingested note must also be LINKED: added to its module INDEX page map, given at least one inbound wikilink from a related page, and logged in `wiki/log.md`. Unclassifiable material goes to `wiki/99-Unsorted/` for later triage — never left loose. After any ingest: run `python .scripts/update-graph-colors.py` and `python .scripts/generate-index.py` (refreshes root + `docs/` dashboard; the GitHub Pages site at https://anirudh-2810.github.io/Second-Brain/ picks it up on the next commit push).
 
 When processing files from `raw-sources/`:
 1. Read the raw document and map it to the relevant syllabus unit/module
