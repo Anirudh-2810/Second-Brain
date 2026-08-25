@@ -1950,3 +1950,7 @@ eᵃˣ(1/f(D))V = eᵃˣ(1/f(D+a))V
 *Module 4 of 5 — [[engineering-math/module-3-homogeneous-functions|← Module 3]] | [[engineering-math/module-5-complex-numbers|Module 5 →]]*
 
 *End of Module 4: Linear Differential Equations*
+
+---
+
+*Revision: every formula from this module is on [[formula-sheet-am]].*

@@ -1781,3 +1781,7 @@ A⁻¹ = [  1/4   −1/2    3/4 ]
 *Module 1 of 5 — [[engineering-math/module-5-complex-numbers|← Module 5]] | [[engineering-math/module-2-partial-differentiation|Module 2 →]]*
 
 *End of Module 1: Matrices — Rank, Systems, Eigenvalues & Cayley-Hamilton*
+
+---
+
+*Revision: every formula from this module is on [[formula-sheet-am]].*

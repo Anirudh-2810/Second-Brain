@@ -1571,3 +1571,7 @@ P12: Product = e^(i·2π(0+1+...+(n-1))/n) = e^(i·2π(n-1)n/(2n)) = e^(iπ(n-1)
 *Module 5 of 5 — [[engineering-math/module-4-linear-differential-equations|← Module 4]] | [[engineering-math/module-1-matrices|Module 1 →]]*
 
 *End of Module 5: Complex Numbers*
+
+---
+
+*Revision: every formula from this module is on [[formula-sheet-am]].*

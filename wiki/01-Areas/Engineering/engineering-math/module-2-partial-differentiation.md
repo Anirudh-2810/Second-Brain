@@ -1870,3 +1870,7 @@ Minimum value: -√14  at (-1/√14, -2/√14, -3/√14)
 *Module 2 of 5 — [[engineering-math/module-1-matrices|← Module 1]] | [[engineering-math/module-3-homogeneous-functions|Module 3 →]]*
 
 *End of Module 2: Partial Differentiation*
+
+---
+
+*Revision: every formula from this module is on [[formula-sheet-am]].*

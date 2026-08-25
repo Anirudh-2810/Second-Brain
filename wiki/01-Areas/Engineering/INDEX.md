@@ -29,6 +29,8 @@ description: "ENGINEERING domain hub - BTech coursework: SPM/C, engineering chem
 
 ## Quick Answers
 
+- "AM formulas / C syntax for exams?" → [[formula-sheet-am]] · [[formula-sheet-spm]]
+
 - "BEE Thevenin / AC resonance / transformer efficiency?" → [[BEE/INDEX|BEE module]] + [[formula-sheet-bee]]
 
 - "SPM unit 3 arrays?" → SPM/module-3

@@ -519,3 +519,7 @@ Both are **O(n)** — the worst case for arrays, confirming the complexity table
 ## CROSS-REFERENCES
 
 - Related modules: [[module-2-program-control-functions]] (loops drive array ops) · [[module-4-user-defined-functions]] (arrays passed to functions, pointer params) · [[01-Areas/Programming/cs50/week-2-arrays]] · [[01-Areas/Programming/programming-cs-fundamentals]] (Big-O)
+
+---
+
+*Revision: every syntax pattern from this module is on [[formula-sheet-spm]].*

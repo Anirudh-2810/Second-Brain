@@ -1369,3 +1369,7 @@ where `π_i = p_i/p_1` are dimensionless groups. This is the essence of the **Bu
 *Module 3 of 5 — [[engineering-math/module-2-partial-differentiation|← Module 2]] | [[engineering-math/module-4-linear-differential-equations|Module 4 →]]*
 
 *End of Module 3: Homogeneous Functions — Euler's Theorem & Deductions*
+
+---
+
+*Revision: every formula from this module is on [[formula-sheet-am]].*
