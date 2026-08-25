@@ -52,7 +52,7 @@ Full reasoning: [[market-analysis-tech-2026]] strategy section.
 
 ## Maintenance Rule
 
-New roadmap page created anywhere in the vault → add its link here. This hub is the ONE place to answer "what's the plan".
+New roadmap page created anywhere in the vault → add its link here. Same for execution plans (`wiki/01-Areas/<Domain>/plans/<topic>.md` — no timing estimates, closed when done). This hub is the ONE place to answer "what's the plan".
 
 ## Related
 

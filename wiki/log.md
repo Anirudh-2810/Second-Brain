@@ -426,3 +426,13 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Vault dashboard published at https://anirudh-2810.github.io/Second-Brain/ (Pages source: main branch /docs folder; enabled via API using stored credentials - was already on, source updated to /docs).
 - generate-index.py now writes BOTH copies: root index.html (local) + docs/index.html (Pages source). Only the dashboard is public - note content stays in the private repo.
 - AGENTS.md updated: Vault Structure + index.html row + .scripts row + auto-sort rule now document the dual-write and the Pages sync chain (ingest -> generate -> wrap-up commit push -> live site refreshes ~1 min).
+
+### 2026-08-25 — AGENTS.md upgraded: North Star alignment + Definition of Done + plans discipline (adopted from obsidian-plugin-template agent conventions)
+- User supplied the dsebastien/obsidian-plugin-template agent instructions; 8 patterns adopted (plugin-specific ~70% skipped: Bun/manifest/catalog/Tailwind/releases/TS-config).
+- NEW '## North Star Alignment' section: significant work names its goal, anti-drift rule (unmapped work flagged before starting), wrap-up alignment note, compass updated in-session.
+- Session Workflow Start tightened: read latest daily '## Tomorrow' (open items/blockers) + grep wiki/log.md for prior fixes before re-solving; During names the NS goal served.
+- NEW '## Definition of Done' section: 7-point all-or-nothing checklist (frontmatter, outbound link, INDEX page map, log entry, graph-colors+dashboard scripts, committed AND pushed, manual-verification flagged).
+- NEW '### Plans' subsection under Wiki System: plans live at wiki/01-Areas/<Domain>/plans/<topic>.md (domain-scoped, no cross-cutting folder), NO timing estimates ever, actionable-only, updated-or-closed when done, linked from Roadmaps hub.
+- Rules +3: index.html is generated (edit generator, never output); agent cannot see rendered Obsidian (flag manual-verification, never claim works from scripts); check wiki/log.md before re-solving.
+- AI-First Note Rules +1: clarity over grammar.
+- Roadmaps INDEX maintenance rule extended to cover execution plans.
