@@ -439,3 +439,9 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 
 ### 2026-08-25 — Captured: 'Curse of Discipline' quote (user-collected)
 - Added to temptation-mastery.md as 'The Curse of Discipline' section: daily sameness = compounding working (logarithmic change), indiscipline's daily novelty = zero drift (identical years). Paired with momentum-fork + heatmap-uniformity-as-evidence readings.
+
+### 2026-08-25 — NEW 02-Resources module: academic-databases (IEEE/ACM/ASME/T&F/Web of Science)
+- User supplied five academic publisher/database URLs requesting study-access guidance. These are paywalled databases, not transcribable content - delivered as an access-and-use reference module instead.
+- Created wiki/02-Resources/academic-databases/ (3 pages): INDEX.md hub (five-at-a-glance table, free legal access ladder, cross-domain bridges); academic-databases.md (per-DB deep guide: holdings, fielded-search syntax tables, access routes incl. KJSCE library (TBC) + IEEE/ACM student memberships + OpenTOC + OA filters, study use mapped to vault fields - robotics->IEEE ICRA/IROS, quant->T&F Quantitative Finance, algorithms->ACM; cross-DB expert search strategy flowchart; topic-to-DB quick reference); paper-reading-workflow.md (legal access ladder flowchart - no piracy, Keshav three-pass reading, paper stub template w/ claim-evidence-limitation, Zotero+BetterBibTeX, literature-coming-to-you alert channels, failure modes).
+- Registered module: graph color (49 groups), dashboard regenerated (292 pages incl. new module), wiki/index.md domain-map Resources row added.
+- Ethics: legal access routes only (library/OA/arXiv/Unpaywall/author copies) - no piracy mirrors.

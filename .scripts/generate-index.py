@@ -15,7 +15,7 @@ DOMAINS = [
     ('🤖 AI & Data Science', '01-Areas/AI-Data', ['data-science', 'ai', 'ai-ml']),
     ('⚙️ Engineering', '01-Areas/Engineering', None),
     ('🧠 Self-Development', '01-Areas/Self-Dev', ['self-mastery', 'productivity', 'german']),
-    ('📚 Resources', '02-Resources', ['case-studies', 'learning-resources']),
+    ('📚 Resources', '02-Resources', ['case-studies', 'learning-resources', 'academic-databases']),
     ('🗺 Roadmaps Hub', '01-Areas/Roadmaps', None),
 ]
 
