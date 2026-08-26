@@ -278,6 +278,9 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 ### Projects (owner's GitHub — [Anirudh-2810](https://github.com/Anirudh-2810))
 > Portfolio repos distilled into wiki pages. Catalog: `[[00-Current-Projects/projects/index|Projects catalog]]`.
 - **[[00-Current-Projects/projects/inventory-system|StockOffline (inventory-system)]]** — offline-first inventory manager: zero-dep GUI/CLI + secured multi-user web tier, packaged as Windows exe.
+- **[[00-Current-Projects/foundry-backup|Foundry]]** — full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas landing page builder.
+- **[[00-Current-Projects/inventory-system|StockOffline (detailed)]]** — offline-first inventory: Tkinter dark GUI, CLI, JWT auth, Docker, PyInstaller, security-hardened.
+- **[[00-Current-Projects/understand-anything|Understand-Anything]]** — knowledge graph tool for codebases: multi-agent pipeline (tree-sitter + LLM), React dashboard, 9 skills + 10 agents.
 - **[[00-Current-Projects/projects/algorithm101-aura|AURA — Neural Trend Engine (Algorithm101)]]** — YouTube music-trend dashboard with velocity scoring & viral prediction; quant-DNA cross-links.
 - **[[00-Current-Projects/projects/handsens101|handsens101]]** — MediaPipe hand-gesture mouse control; perception→action pipeline.
 

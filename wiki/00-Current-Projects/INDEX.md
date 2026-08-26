@@ -27,6 +27,9 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[quote-pomodoro|quote-pomodoro]] | 1 | Tkinter Pomodoro timer: dark theme, quotes, beeps, notifications, presets |
 | [[react-calculator|react-calculator]] | 1 | React + Tailwind calculator: keyboard support, history, Lucide icons, gradient UI |
 | [[budget-tracker|budget-tracker]] | 1 | Excel/VBA Budget vs Actual vs Variance + Executive Dashboard (Mac/Win compatible) |
+| [[foundry-backup|foundry-backup]] | 1 | Full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas |
+| [[inventory-system|inventory-system]] | 1 | StockOffline: offline-first inventory with Tkinter GUI, CLI, JWT auth, Docker, PyInstaller |
+| [[understand-anything|understand-anything]] | 1 | Knowledge graph tool for codebases: multi-agent pipeline, tree-sitter + LLM, React dashboard |
 
 ## Quick Answers
 
