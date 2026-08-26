@@ -284,6 +284,30 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[00-Current-Projects/projects/algorithm101-aura|AURA — Neural Trend Engine (Algorithm101)]]** — YouTube music-trend dashboard with velocity scoring & viral prediction; quant-DNA cross-links.
 - **[[00-Current-Projects/projects/handsens101|handsens101]]** — MediaPipe hand-gesture mouse control; perception→action pipeline.
 
+### Business & Side Hustles
+> Financial planning, side income, study abroad, budgeting. Hub: `[[01-Areas/Business/INDEX|Business Domain Index]]`.
+- **[[01-Areas/Business/Financial-Independence/FI-Blueprint|Financial Independence Blueprint]]** — FIRE movement: budgeting, investments, multiple income streams, net worth tracking, early retirement planning.
+- **[[01-Areas/Business/Side-Hustles/Side-Hustles-Archive|Side Hustles]]** — AI copywriting, dropshipping, print-on-demand, SMMA, YouTube automation, Andrew Tate course material.
+- **[[01-Areas/Business/Study-Abroad/Study-Abroad-Guide|Study Abroad Guide]]** — SAT prep (English/Math/Reading) + Ankur Warikoo's 3-part study abroad series (planning, applying, adjusting).
+- **[[01-Areas/Business/Budgeting-VBA/Budgeting-VBA-Collection|Budgeting & VBA]]** — Excel budgeting workbooks 101-106 with VBA macros, user manuals, iterative development.
+
+### Engineering Formula Sheets
+> Printed physics/chemistry/maths formula sheets for quick revision. Hub: `[[01-Areas/Engineering/INDEX|Engineering Domain Index]]`.
+- **[[01-Areas/Engineering/Formula-Sheets/Formula-Sheets-Physics|Physics Formula Sheets]]** — kinematics (1D + 2D), units & dimensions, error analysis, revision capsule.
+- **[[01-Areas/Engineering/Formula-Sheets/Formula-Sheets-Chemistry|Chemistry Formula Sheets]]** — electric charges & field, electric potential, Gauss's law, capacitance, revision capsule.
+- **[[01-Areas/Engineering/Formula-Sheets/Formula-Sheets-Maths|Maths Formula Sheets]]** — inverse trigonometry (domains, ranges, identities, derivatives), basic maths fundamentals, revision capsule.
+
+### Programming — Personal Apps & Course Notes
+> Personal Python projects and CS50 course notes. Hub: `[[01-Areas/Programming/INDEX|Programming Domain Index]]`.
+- **[[01-Areas/Programming/Personal-Apps/Personal-Apps-Collection|Personal Apps Collection]]** — Python scripts: Calender.py, coreai.py, telegram_cbse_bot.py, Neural net v1/v2, Calculator, Focus app, SQLite databases.
+- **[[01-Areas/Programming/CS50/CS50-Course-Notes|CS50 Course Notes]]** — Harvard CS50x Weeks 0-8: binary/ASCII, compilation, memory, algorithms, data structures, virtual memory, SQL, web programming.
+
+### Self-Dev — Languages & Writing
+> Language learning and personal writing. Hub: `[[01-Areas/Self-Dev/INDEX|Self-Dev Domain Index]]`.
+- **[[01-Areas/Self-Dev/Language-German/German-A1-Mastery|German A1 Mastery]]** — CEFR A1 beginner German: greetings, numbers, family, daily routines, present tense, practical conversations.
+- **[[01-Areas/Self-Dev/Language-French/French-A1-Mastery|French A1 Mastery]]** — CEFR A1 beginner French: greetings, numbers, family, daily routines, present tense, practical conversations.
+- **[[01-Areas/Self-Dev/My-Writing/My-Writing-Archive|My Writing Archive]]** — Personal narratives: student daily routine, financial success story.
+
 ### Retrieval Agent (Business Brain)
 > n8n + Supabase Edge Function grounded Q&A agent. Never answers from own knowledge — only from vector-searched brain. Catalog: `[[00-Current-Projects/retrieval-agent/overview|Retrieval Agent Overview]]`.
 - **[[00-Current-Projects/retrieval-agent/overview|System Overview]]** — architecture, components, data model, system prompt rules

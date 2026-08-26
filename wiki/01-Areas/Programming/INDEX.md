@@ -25,6 +25,8 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 | [[web-development/web-development-resources|web-development/]] | 4 | Frontend/fullstack resources + paths |
 | [[case-studies/index|case-studies/]] | 14 | 13 real-codebase studies (Twitter algo, Apollo AGC, Zulip, jj, snekbox…) each with build plans |
 | [[learning-resources/index|learning-resources/]] | 9 | Mega-catalog systems: awesome, freeCodeCamp, OSSU CS, build-your-own-x, roadmap.sh… |
+| [[Personal-Apps/Personal-Apps-Collection|Personal-Apps/]] | 1 | Python scripts collection: Calender.py, coreai.py, telegram_cbse_bot.py, Neural net v1/v2, Calculator, Focus app, SQLite databases |
+| [[CS50/CS50-Course-Notes|CS50/]] | 1 | CS50x course notes: Weeks 0-8 (binary, compilation, memory, algorithms, data structures, SQL, web) |
 
 ## Quick Answers
 

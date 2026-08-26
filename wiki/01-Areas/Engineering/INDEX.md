@@ -26,6 +26,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM/C, engineering chem
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
 | mathematics/formula-sheet-master | 4 | JEE-level math formula arsenal |
 | physics/ + chemistry/ | 10 | JEE-level formula sheets & reaction maps |
+| [[Formula-Sheets/Formula-Sheets-Physics|Formula-Sheets/]] | 3 | Printed physics/chemistry/maths formula sheets: kinematics, electrostatics, inverse trigonometry, error analysis |
 
 ## Quick Answers
 
