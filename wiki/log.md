@@ -490,3 +490,15 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Cross-linked to [[math-for-programming]] (ASCII donut case study), [[mathematics-of-creativity]] (pattern sense), [[quantitative-finance-foundations]] (same matrices/calculus), [[Self-Dev/learning-methodology]].
 - Updated Programming INDEX.md (root pages 22â†’23, added margin-math-perspective entry, last_updatedâ†’2026-08-26).
 - Dashboard regenerated via generate-index.py.
+### 2026-08-26 — Mass Ingest: Desktop/Anirudh Personal Builds → wiki/00-Current-Projects/
+- Fetched and distilled 9 personal projects from Desktop/Anirudh/My apps/, Focus app/, Calculator/, aerofuse/, AI/, budgeting excel/
+- Created 9 new pages in wiki/00-Current-Projects/:
+  1. neural-engine.md — From-scratch NumPy NN library (500K neurons, 4 optimizers, dropout, L2, serialization)
+  2. stock-predictor.md — S&P 500 direction pipeline (yfinance + 20 indicators + NeuralEngine + trading sim)
+  3. aerofuse.md — ROS2 odometry diagnostic dashboard (trajectory comparison, covariance heatmap, live Q/R tuning)
+  4. web-access-ai.md — Streamlit chatbot (live DDG search, tools, PDF reading, JSON memory)
+  5. quote-pomodoro.md — Tkinter Pomodoro (dark theme, 10 quotes, winsound/plyer notifications, presets)
+  6. react-calculator.md — React + Tailwind calculator (keyboard, history, Lucide icons, gradient UI)
+  7. budget-tracker.md — Excel/VBA Budget/Actual/Variance + Dashboard (Mac/Win, INR, conditional formatting)
+- Updated Current Projects INDEX.md (3→12 modules, last_updated 2026-08-26)
+- Dashboard regenerated via generate-index.py (302+ pages)

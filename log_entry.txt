@@ -1,7 +1,0 @@
-### 2026-08-26 — Ingest: Margin Math Perspective (YouTube → wiki/01-Areas/Programming/)
-- Fetched video metadata for "CHANGING your PERSPECTIVE on MATHS fellas - Must Watch" (Margin, 1801s, video ID _OdqYVCTUqs).
-- Created `wiki/01-Areas/Programming/margin-math-perspective.md` with full YAML frontmatter, For-future-agent preamble, typed cross-links, Mermaid-ready structure.
-- Content: Margin's pedagogical philosophy (formula-last, intuition-first), the three-number pipeline (π from circles, e from growth, i from algebra) converging on Euler's identity e^(iπ)+1=0, ferris-wheel visualization of e^(ix)=cos x+i sin x, half-circle walk to e^(iπ)=-1.
-- Cross-linked to [[math-for-programming]] (ASCII donut case study), [[mathematics-of-creativity]] (pattern sense), [[quantitative-finance-foundations]] (same matrices/calculus), [[Self-Dev/learning-methodology]].
-- Updated Programming INDEX.md (root pages 22→23, added margin-math-perspective entry, last_updated→2026-08-26).
-- Dashboard regenerated via generate-index.py.
