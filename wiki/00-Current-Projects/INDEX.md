@@ -28,12 +28,13 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[react-calculator|react-calculator]] | 1 | React + Tailwind calculator: keyboard support, history, Lucide icons, gradient UI |
 | [[budget-tracker|budget-tracker]] | 1 | Excel/VBA Budget vs Actual vs Variance + Executive Dashboard (Mac/Win compatible) |
 | [[foundry-backup|foundry-backup]] | 1 | Full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas |
-| [[inventory-system|inventory-system]] | 1 | StockOffline: offline-first inventory with Tkinter GUI, CLI, JWT auth, Docker, PyInstaller |
+| [[inventory-system|inventory-system/]] | 3 | StockOffline: offline-first inventory with Tkinter GUI, CLI, JWT auth, Docker, PyInstaller. Deep review (2 critical bugs, 8 security concerns), improvement roadmap P0–P3 |
 | [[understand-anything|understand-anything]] | 1 | Knowledge graph tool for codebases: multi-agent pipeline, tree-sitter + LLM, React dashboard |
 
 ## Quick Answers
 
 - "What's wrong with stock-agent?" → [[deep-review-report]], [[improvement-roadmap]]
+- "What's wrong with inventory-system?" → [[inventory-system/deep-review-report]], [[inventory-system/improvement-roadmap]]
 - "How does my RAG brain work?" → retrieval-agent/overview + edge-function
 - "What do I show recruiters?" → [[projects/index]] + stock-agent interview-prep-guide
 
