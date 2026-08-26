@@ -483,3 +483,10 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
   - napoleon-hill-mental-mastery.md: Mental operating system — 20 PMA practices, 30+ personality factors, 12 destructive habits, 7 rules for accurate thinking, synthetic vs creative imagination, 6-level thinking spectrum. 2 mermaid diagrams. ~3500 words.
   - napoleon-hill-adversity-and-cosmic-force.md: Advanced principles — adversity reframe framework, seed of equivalent benefit, hypnotic rhythm vs positive habit force, complete 14-principle integration, life decision framework, thinking spectrum (complete). 3 mermaid diagrams. ~3500 words.
 - Transcript saved to raw-sources/yt/JfqDvi8b4gg.txt. Self-Dev INDEX updated (8 -> 13 root-level distillations). Dashboard regenerated.
+### 2026-08-26 â€” Ingest: Margin Math Perspective (YouTube â†’ wiki/01-Areas/Programming/)
+- Fetched video metadata for "CHANGING your PERSPECTIVE on MATHS fellas - Must Watch" (Margin, 1801s, video ID _OdqYVCTUqs).
+- Created `wiki/01-Areas/Programming/margin-math-perspective.md` with full YAML frontmatter, For-future-agent preamble, typed cross-links, Mermaid-ready structure.
+- Content: Margin's pedagogical philosophy (formula-last, intuition-first), the three-number pipeline (Ï€ from circles, e from growth, i from algebra) converging on Euler's identity e^(iÏ€)+1=0, ferris-wheel visualization of e^(ix)=cos x+i sin x, half-circle walk to e^(iÏ€)=-1.
+- Cross-linked to [[math-for-programming]] (ASCII donut case study), [[mathematics-of-creativity]] (pattern sense), [[quantitative-finance-foundations]] (same matrices/calculus), [[Self-Dev/learning-methodology]].
+- Updated Programming INDEX.md (root pages 22â†’23, added margin-math-perspective entry, last_updatedâ†’2026-08-26).
+- Dashboard regenerated via generate-index.py.

@@ -3,7 +3,7 @@ course_code: "PROG"
 course_name: "Programming & Coding Domain Index"
 unit: "Domain Hub"
 tags: [programming, coding, index, domain-hub]
-last_updated: "2026-08-24"
+last_updated: "2026-08-26"
 description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, OOP, web dev, systems design, codebase case studies, learning catalogs. Scan THIS folder for coding questions."
 ---
 
@@ -16,7 +16,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 
 | Module | Pages | Covers |
 |--------|-------|--------|
-| root pages | 22 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox) |
+| root pages | 23 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox), [[margin-math-perspective]] — intuitive math foundations |
 | [[cs50/index|cs50/]] | 15 | Full CS50x weeks 0–10 + PSets + final project |
 | cs50p/ | 2 | CS50P notes |
 | c-programming/ | 19 | C programming deep library |
