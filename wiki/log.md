@@ -524,3 +524,9 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Normalized legacy `$ARG1` args → `$ARGUMENTS` (opencode standard) in physics-deepdive + research-deep.
 - Added "Study & Research Deep-Dive" section to [[Skills]] catalog — all 12 commands now listed/linkable; re-verified 12/12 command files parse.
 - Verification suite re-run: 12 agents OK, 12 commands OK, Skills↔file names consistent, tree clean after push.
+
+### 2026-08-27 — Media-integrity case study: fabricated "Epstein final interview" (ingestion refusal → literacy note)
+- User requested ingestion of `xsq2tV597Pw` "JEFFREY EPSTEIN'S FINAL INTERVIEW (he exposes EVERYTHING)" (The Conspiracy Files channel). Classified as fabricated/synthetic content: subject died by suicide in custody Aug 10, 2019 → documentary-impossible; conspiracy-channel + clickbait framing + zero secondary sourcing. NOT ingested as fact.
+- Created `wiki/01-Areas/AI-Data/ai-ml/synthetic-media-literacy.md`: worked case study with evidence trail (ME ruling, DOJ OIG 2023, NYT June 2026), 7-point detection checklist (impossibility check, title stress test, channel provenance, secondary sourcing, date/archive, artifact limits, monologue-as-fact), verification protocol, harm profile, flagged-source register.
+- Flagged the source in [[Gotchas]] (Media Integrity section) so re-triggering the URL redirects here. Inbound links: AI-Data INDEX + Quick Answer row, wiki/index.md AI-Data implementation-depth line, [[Gotchas]].
+- Registered in AI-Data INDEX (ai-ml 4→5 pages). Dashboard regenerated via generate-index.py.

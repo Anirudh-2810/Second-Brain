@@ -19,7 +19,7 @@ description: "AI/DATA domain hub - ML theory+MOOCs, DS frameworks/topics, MLOps,
 |--------|-------|--------|
 | [[data-science/index|data-science/]] | 18 | Deep guides (DS/MLE roadmaps, ML interview playbook, math survival, Kaggle), framework/topic catalogs, MOOC distillations, curated reading list |
 | [[ai/AI_MASTER_NOTES|ai/]] | 8 | Coursework AI: 6-module master notes (agents, search, logic, fuzzy, planning+NN, GA) |
-| ai-ml/ | 4 | Implementation depth: PPO, transformers attention, C++ matching engine, event-driven backtesting |
+| ai-ml/ | 5 | Implementation depth: PPO, transformers attention, C++ matching engine, event-driven backtesting; synthetic-media/deepfake literacy |
 
 ## Quick Answers
 
@@ -28,6 +28,7 @@ description: "AI/DATA domain hub - ML theory+MOOCs, DS frameworks/topics, MLOps,
 - "ML interview question X" → [[ml-interview-playbook]], [[repo-ds-interviews-grigorev]]
 - "Math for backprop?" → [[math-for-ml-survival-guide]]
 - "How does Twitter rank tweets?" → [[cs-twitter-algorithm]] (programming domain — cross-link)
+- "Is this video/interview real, or AI-generated?" → [[synthetic-media-literacy]] (7-point detection checklist + flagged-source register)
 
 ## NOT Here
 
