@@ -1,7 +1,7 @@
 filters:
   or:
     - file.inFolder(".opencode/agents")
-    - 'file.name == "agent-definition.md"'
+    - file.name == "agent-definition.md"
 formulas:
   updated: file.mtime.format("YYYY-MM-DD")
 properties:

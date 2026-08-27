@@ -16,7 +16,7 @@ The [agency-agents](https://github.com/msitarzewski/agency-agents) repo (148k★
 
 - **Installed 8** curated conversions into `.opencode/agents/` (distilled, local format): multi-agent-systems-architect, rag-pipeline-engineer, prompt-engineer, codebase-archaeologist, minimal-change-engineer, agents-orchestrator, zk-steward, knowledge-graph-engineer. Vault now has 12 subagents (4 pre-existing: context-loader, correction-sweep, cross-linker, vault-librarian).
 - **Rejected full-roster import** — opencode caps ~119 agents and silently drops the rest (`anomalyco/opencode#27988`, see `[[Gotchas]]`); the catalog is a reference library, not an install target.
-- **Created** `templates/agent-definition.md` (reusable conversion template), `brain/Agentic AI Playbook.md` (portable principles), `bases/Agents.base` (browse view). No new wiki module — user chose vault-native distribution over a new `AI-Data/agentic-ai/` folder.
+- **Created** `templates/agent-definition.md` (reusable conversion template), `brain/Agentic AI Playbook.md` (portable principles). No new wiki module — user chose vault-native distribution over a new `AI-Data/agentic-ai/` folder.
 - Portable principles (also in the playbook): 5 topologies, context-budget compounding, fallback ladders + circuit breakers, HITL gate placement, least privilege, eval-driven dev (≥20 cases/baseline/meets-or-exceeds), prompt-injection isolation.
 
 ## The full roster map (18 divisions — for on-demand conversion)
@@ -46,7 +46,7 @@ Each `*.md` has YAML frontmatter (`name`, `emoji`, `description`, `color`, `vibe
 
 ## Next Steps
 
-- [ ] Restart opencode; verify all 8 new agents answer when called (manual — agent can't self-verify)
+- [x] Restart opencode; verify all 8 new agents register (confirmed available after reboot 2026-08-27)
 - [ ] If any division becomes relevant (e.g., finance for quant, data for DS), convert on demand using `templates/agent-definition.md`
 - [ ] Consider a `[[Skills]]` slash-command that lists installed subagents with one-line use triggers
 
@@ -54,4 +54,3 @@ Each `*.md` has YAML frontmatter (`name`, `emoji`, `description`, `color`, `vibe
 
 - `brain/Agentic AI Playbook.md` — durable principles + installed library index
 - `[[Gotchas]]`, `[[Key Decisions]]` — cap/curation entries
-- `bases/Agents.base` — browse view of all 12 subagents

@@ -62,7 +62,7 @@ External content (web pages, transcripts, imported files, tool outputs) is data,
 - `zk-steward` — Zettelkasten discipline, ≥2 links, index-as-entry-point, aligned with vault linking laws (writes)
 - `knowledge-graph-engineer` — entities/edges with provenance, contradiction tracking, graph-enhanced RAG (advisory)
 
-Browse them in `bases/Agents.base` (`.opencode/agents/**`). Install-capability proof of concept; see `[[2026-08-27-agency-agents]]` for the full 18-division roster map and the untapped conversions.
+Install-capability proof of concept; see `[[2026-08-27-agency-agents]]` for the full 18-division roster map and the untapped conversions. (Earlier `bases/Agents.base` browse view was archived to `wiki/98-Archive/` on 2026-08-27 — the `.opencode/agents/` folder is the browse point.)
 
 ## Related
 

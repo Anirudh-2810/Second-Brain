@@ -509,3 +509,8 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Created `templates/agent-definition.md` (reusable conversion template), `bases/Agents.base` (browse view of `.opencode/agents/**`), `brain/Agentic AI Playbook.md` (portable principles: topologies, context budgeting, fallback ladders, HITL gates, least privilege, eval-driven dev, injection defense).
 - brain/ updates: [[Memories]] indexes the playbook; [[Gotchas]] + 2 entries (opencode ~119-agent silent-drop cap `anomalyco/opencode#27988`; config not hot-reloaded); [[Key Decisions]] + 2 (curated subset not whole roster; vault-native distribution over new wiki folder).
 - Daily note created. No wiki module changed → update-graph-colors not needed. Dashboard regenerated via generate-index.py.
+
+### 2026-08-27 — Archived bases/Agents.base; corpse-swept its references
+- User judged the Agents.base browse view useless; moved `bases/Agents.base` → `wiki/98-Archive/Agents.base` (zero-data-loss, not deleted).
+- Corrected every restatement: [[Agentic AI Playbook]] now points at `.opencode/agents/`; [[Key Decisions]] entry updated with the archive note; thinking digest mentions dropped.
+- Confirmed all 8 installed subagents registered after opencode reboot (none hit the ~119 cap). No dashboard regen (`.base` not indexed).
