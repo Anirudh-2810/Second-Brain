@@ -1,0 +1,23 @@
+filters:
+  or:
+    - file.inFolder(".opencode/agents")
+    - 'file.name == "agent-definition.md"'
+formulas:
+  updated: file.mtime.format("YYYY-MM-DD")
+properties:
+  file.name:
+    displayName: Agent
+  description:
+    displayName: Role
+  formula.updated:
+    displayName: Updated
+views:
+  - type: table
+    name: Subagents
+    order:
+      - file.name
+      - description
+      - formula.updated
+    sort:
+      - property: file.mtime
+        direction: DESC

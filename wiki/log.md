@@ -397,7 +397,7 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - .obsidian/graph.json colorGroups set per domain folder (user-approved graph fix).
 - Old catalog wiki/modules/index.md retained (links patched); primary catalogs now domain INDEXes + index.html.
 
-### 2026-08-25 — VAULT RESTRUCTURE v2: PARA numbered layout (Garden-of-Knowledge style) + per-module graph colors
+### 2026-08-25 ï¿½ VAULT RESTRUCTURE v2: PARA numbered layout (Garden-of-Knowledge style) + per-module graph colors
 - User correction: wanted numbered PARA sidebar (00-Current-Projects / 01-Areas / 02-Resources / 98-Archive / 99-Unsorted like reference screenshot), DISTINCT graph color per module, and auto-sort-on-ingest. Previous flat domain folders renamed into PARA tree via git mv:
   - 00-Current-Projects/ <- stock-agent, retrieval-agent, projects (+INDEX.md)
   - 01-Areas/ <- Business/(careers,automations,quant-finance) Programming/(root+cs50+cs50p+c-programming+OOP+systems-design+web-dev) AI-Data/(data-science,ai,ai-ml) Engineering/(SPM,eng-*,math,phys,chem,robotics,excel) Self-Dev/(self-mastery,productivity,german) Roadmaps/
@@ -409,25 +409,25 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - .scripts/generate-index.py updated for PARA tree; index.html regenerated (283 pages, PARA-grouped).
 - AGENTS.md: auto-sort rule added to ingestion workflow (classify -> existing module else CREATE new module -> run update-graph-colors + generate-index; unsortable -> 99-Unsorted); .opencode command/agent docs updated to new paths.
 
-### 2026-08-25 — Graph palette (per-module soft-dark) + link-integrity sweep + wrap-up guarantees
+### 2026-08-25 ï¿½ Graph palette (per-module soft-dark) + link-integrity sweep + wrap-up guarantees
 - Graph: per-module colors restored (46 modules, soft multi-color palette darkened one notch: s=0.48 l=0.46) per user screenshot reference.
 - LINK INTEGRITY SWEEP: 2,445 wikilinks checked vault-wide. Fixed 20+ real breaks: <br/>-in-link artifacts (2), renamed case-study/learning-resource links (10), wrong quant page name (2), leading-colon typo (1), transcript .txt extension (1), [[programming/ -> [[01-Areas/Programming/ prefix normalization (42 files), value-momentum stub pages created (2, content lost pre-git). Remaining flags = escaped-pipe table artifacts (Obsidian-valid) + template placeholders + brain/ historical records (intentionally preserved).
 - Created folder-index stubs: c-programming/code-examples + memory-code-examples (named to match basename links).
 - WRAP-UP GUARANTEE: /om-wrap-up now ends with mandatory final repo commit+push (step 1 in command doc); AGENTS.md Session Workflow End states 'no session closes with unpushed work'.
 - AUTO-SORT assurance verified: AGENTS.md auto-sort rule + om-ingest.md both mandate classify -> existing module OR create new module -> update-graph-colors.py + generate-index.py.
 
-### 2026-08-25 — Orphan sweep: 18 orphans fixed to 0 + auto-sort-and-link hardened
+### 2026-08-25 ï¿½ Orphan sweep: 18 orphans fixed to 0 + auto-sort-and-link hardened
 - Orphan sweep found 18 pages with zero inbound links (incl. user-flagged Budget_Tracker_Basic + FinancialAdvisor_RebuildNotes).
 - Fixes: automations README gained Complete Page Map (10 orphans) + research series prev/next nav chain; engineering-chem/INDEX.md created (6-page map); excel workflows/INDEX.md created (Budget Tracker + FinancialAdvisor, cross-linked to quant-finance foundations); thin-film revision linked from engineering-physics module-2; stock-agent interview-prep-guide linked from overview; yt info linked from Programming INDEX.
 - AGENTS.md auto-sort rule hardened: ingest now explicitly requires LINKING (module INDEX page map + >=1 inbound wikilink + log entry) in addition to sorting.
 - Orphan sweep re-run: 0 orphans.
 
-### 2026-08-25 — GitHub Pages dashboard live + sync documented in AGENTS.md
+### 2026-08-25 ï¿½ GitHub Pages dashboard live + sync documented in AGENTS.md
 - Vault dashboard published at https://anirudh-2810.github.io/Second-Brain/ (Pages source: main branch /docs folder; enabled via API using stored credentials - was already on, source updated to /docs).
 - generate-index.py now writes BOTH copies: root index.html (local) + docs/index.html (Pages source). Only the dashboard is public - note content stays in the private repo.
 - AGENTS.md updated: Vault Structure + index.html row + .scripts row + auto-sort rule now document the dual-write and the Pages sync chain (ingest -> generate -> wrap-up commit push -> live site refreshes ~1 min).
 
-### 2026-08-25 — AGENTS.md upgraded: North Star alignment + Definition of Done + plans discipline (adopted from obsidian-plugin-template agent conventions)
+### 2026-08-25 ï¿½ AGENTS.md upgraded: North Star alignment + Definition of Done + plans discipline (adopted from obsidian-plugin-template agent conventions)
 - User supplied the dsebastien/obsidian-plugin-template agent instructions; 8 patterns adopted (plugin-specific ~70% skipped: Bun/manifest/catalog/Tailwind/releases/TS-config).
 - NEW '## North Star Alignment' section: significant work names its goal, anti-drift rule (unmapped work flagged before starting), wrap-up alignment note, compass updated in-session.
 - Session Workflow Start tightened: read latest daily '## Tomorrow' (open items/blockers) + grep wiki/log.md for prior fixes before re-solving; During names the NS goal served.
@@ -437,21 +437,21 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - AI-First Note Rules +1: clarity over grammar.
 - Roadmaps INDEX maintenance rule extended to cover execution plans.
 
-### 2026-08-25 — Captured: 'Curse of Discipline' quote (user-collected)
+### 2026-08-25 ï¿½ Captured: 'Curse of Discipline' quote (user-collected)
 - Added to temptation-mastery.md as 'The Curse of Discipline' section: daily sameness = compounding working (logarithmic change), indiscipline's daily novelty = zero drift (identical years). Paired with momentum-fork + heatmap-uniformity-as-evidence readings.
 
-### 2026-08-25 — NEW 02-Resources module: academic-databases (IEEE/ACM/ASME/T&F/Web of Science)
+### 2026-08-25 ï¿½ NEW 02-Resources module: academic-databases (IEEE/ACM/ASME/T&F/Web of Science)
 - User supplied five academic publisher/database URLs requesting study-access guidance. These are paywalled databases, not transcribable content - delivered as an access-and-use reference module instead.
 - Created wiki/02-Resources/academic-databases/ (3 pages): INDEX.md hub (five-at-a-glance table, free legal access ladder, cross-domain bridges); academic-databases.md (per-DB deep guide: holdings, fielded-search syntax tables, access routes incl. KJSCE library (TBC) + IEEE/ACM student memberships + OpenTOC + OA filters, study use mapped to vault fields - robotics->IEEE ICRA/IROS, quant->T&F Quantitative Finance, algorithms->ACM; cross-DB expert search strategy flowchart; topic-to-DB quick reference); paper-reading-workflow.md (legal access ladder flowchart - no piracy, Keshav three-pass reading, paper stub template w/ claim-evidence-limitation, Zotero+BetterBibTeX, literature-coming-to-you alert channels, failure modes).
 - Registered module: graph color (49 groups), dashboard regenerated (292 pages incl. new module), wiki/index.md domain-map Resources row added.
 - Ethics: legal access routes only (library/OA/arXiv/Unpaywall/author copies) - no piracy mirrors.
 
-### 2026-08-25 — NEW Engineering module: BEE (Basic Electrical Engineering, 7 pages)
+### 2026-08-25 ï¿½ NEW Engineering module: BEE (Basic Electrical Engineering, 7 pages)
 - User requested BEE basics and fundamentals; no raw-source PDF present, built from the standard Mumbai University first-year syllabus (confidence: high on standard content; confirm unit ordering against current MU scheme).
 - Created wiki/01-Areas/Engineering/BEE/: INDEX.md (hub + exam strategy), module-1-dc-circuits.md (Ohm/Kirchhoff, star-delta, mesh/nodal, Superposition/Thevenin/Norton/Max-Power + worked Thevenin example), module-2-ac-circuits.md (RMS/avg/form/peak factors, phasors, R-L-C series/parallel, impedance triangle, power triangle, resonance + Q/BW, worked 230V example), module-3-magnetic-circuits-and-transformers.md (MMF/flux/reluctance analogy, B-H + losses, EMF equation derivation, efficiency/regulation + max-efficiency condition, autotransformer, worked numerical), module-4-dc-machines-and-induction-motors.md (EMF equation, types table, back-EMF self-regulation, torque + speed equations, RMF, slip, rotor-loss = s x air-gap power, worked example), module-5-installations-safety-energy.md (wiring layout mermaid, fuse/MCB/ELCB comparison, earthing types, safety list, battery chemistry table, energy sources + audit), formula-sheet-bee.md (every formula by module + exam-day checklist).
 - Registered: graph color (50 modules), dashboard regenerated (299 pages), Engineering INDEX BEE row + quick-answer, wiki/index.md BEE row in domain map.
 
-### 2026-08-25 — Master sheets for AM + SPM (BEE-treatment parity)
+### 2026-08-25 ï¿½ Master sheets for AM + SPM (BEE-treatment parity)
 - formula-sheet-am.md created (engineering-math/): M1 matrices (inverse, Cayley-Hamilton, eigenvalues, diagonalization), M2 partial differentiation (Euler, max-min discriminant, Jacobians, errors, Taylor 2-var), M3 homogeneous functions (Euler deductions pattern), M4 linear DEs (first-order types table + higher-order CF root cases + PI shortcut table), M5 complex numbers (De Moivre, roots, cube roots of unity, Euler identities) + exam-day checklist.
 - formula-sheet-spm.md created (SPM/): C syntax quick reference - skeleton, data types + format specifiers, operator precedence, control flow, arrays/strings, functions (value vs reference, recursion patterns), pointers minimum, 7 exam program patterns, common-errors table + exam checklist.
 - Inbound links added from all 5 engineering-math module pages + 4 SPM module pages + SPM master guide + Engineering INDEX quick-answer.
@@ -502,3 +502,10 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
   7. budget-tracker.md â€” Excel/VBA Budget/Actual/Variance + Dashboard (Mac/Win, INR, conditional formatting)
 - Updated Current Projects INDEX.md (3â†’12 modules, last_updated 2026-08-26)
 - Dashboard regenerated via generate-index.py (302+ pages)
+
+### 2026-08-27 â€” Learned msitarzewski/agency-agents; installed 8 subagents (agent-tooling, not wiki content)
+- Deep-dive of the agency-agents repo (230+ agent definitions, 18 divisions, MIT): read README, divisions.json schema, sample agent anatomy, install paths. See digest `[[2026-08-27-agency-agents]]`.
+- Converted 8 definitions into `.opencode/agents/` in local format (`description`/`mode: subagent`/`permission`): multi-agent-systems-architect, rag-pipeline-engineer, prompt-engineer, codebase-archaeologist, minimal-change-engineer, agents-orchestrator, zk-steward, knowledge-graph-engineer. Vault now has 12 subagents.
+- Created `templates/agent-definition.md` (reusable conversion template), `bases/Agents.base` (browse view of `.opencode/agents/**`), `brain/Agentic AI Playbook.md` (portable principles: topologies, context budgeting, fallback ladders, HITL gates, least privilege, eval-driven dev, injection defense).
+- brain/ updates: [[Memories]] indexes the playbook; [[Gotchas]] + 2 entries (opencode ~119-agent silent-drop cap `anomalyco/opencode#27988`; config not hot-reloaded); [[Key Decisions]] + 2 (curated subset not whole roster; vault-native distribution over new wiki folder).
+- Daily note created. No wiki module changed â†’ update-graph-colors not needed. Dashboard regenerated via generate-index.py.

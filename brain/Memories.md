@@ -16,6 +16,7 @@ Persistent context and knowledge retained across sessions. Each topic lives in i
 - [[Wins]] — running log of achievements with evidence links
 - [[North Star]] — living goals document, read at session start
 - [[Skills]] — custom slash commands and workflows
+- [[Agentic AI Playbook]] — agent-swarm operating principles + the 8 installed subagents (from msitarzewski/agency-agents)
 
 ## Recent Context
 
