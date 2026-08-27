@@ -30,6 +30,7 @@ Slash commands live in `.opencode/commands/`, subagents in `.opencode/agents/`, 
 | `/om-tidy` | Hygiene pass — orphans, broken links, oversized notes, stale thinking pads, index drift. Never deletes without confirmation |
 | `/om-correct` | Sweep a corrected fact: fix the single source plus every restatement (grep AND paraphrase), preserve dated history |
 | `/om-vault-audit` | Read-only health report — indexes, links, frontmatter, size signals, stale facts |
+| `/om-agents` | Catalog dump — all 12 installed subagents, call-triggers, permissions, provenance |
 
 ## Subagents
 
@@ -41,6 +42,16 @@ Invoke with `@name` in opencode.
 | `@cross-linker` | Missing wikilinks, orphans, broken backlinks, index drift (read-only) |
 | `@vault-librarian` | Deep maintenance — frontmatter repair, split proposals, index rebuilds |
 | `@correction-sweep` | Finds every restatement of a corrected fact, classifies authoritative/restatement/historical |
+| `@multi-agent-systems-architect` | Advisory — topology, context budgeting, failure recovery, HITL gates, evals for agent pipelines |
+| `@rag-pipeline-engineer` | Advisory — chunking, embedding choice, hybrid search, re-ranker, RAGAS evals (retrieval-agent audits) |
+| `@prompt-engineer` | Writes — prompt-as-contract, ≥3 test cases (happy/edge/failure), versioned prompts |
+| `@codebase-archaeologist` | Audit — multi-session drift: reversed fallbacks, double-transforms, state-existence gaps, Drift Registry |
+| `@minimal-change-engineer` | Writes — smallest-diff fixes, refuses scope creep, line-by-line diff justification |
+| `@agents-orchestrator` | Delegates — plan → arch → [Dev↔QA loop] → integration via Task tool, ≤3 retries then escalate |
+| `@zk-steward` | Writes — Zettelkasten discipline: atomic notes, ≥2 links, index-as-entry-point, graph-first |
+| `@knowledge-graph-engineer` | Audit — entities/edges with provenance, contradiction tracking, graph-enhanced RAG |
+
+First 4 pre-date 2026-08-27; last 8 distilled from msitarzewski/agency-agents the same day (see `[[Agentic AI Playbook]]`).
 
 ## Retrieval Agent Commands (Proposed)
 

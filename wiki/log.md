@@ -514,3 +514,7 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - User judged the Agents.base browse view useless; moved `bases/Agents.base` → `wiki/98-Archive/Agents.base` (zero-data-loss, not deleted).
 - Corrected every restatement: [[Agentic AI Playbook]] now points at `.opencode/agents/`; [[Key Decisions]] entry updated with the archive note; thinking digest mentions dropped.
 - Confirmed all 8 installed subagents registered after opencode reboot (none hit the ~119 cap). No dashboard regen (`.base` not indexed).
+
+### 2026-08-27 — Added /om-agents command + fulled Skills subagent catalog
+- New slash command `.opencode/commands/om-agents.md` — dumps the installed subagent library (purpose, `@name` trigger, permissions, provenance) grouped by writes/audits/advisory.
+- [[Skills]] subagent table updated 4 → 12 rows with per-agent use triggers; `/om-agents` row added to command catalog. Digest checklist closed.

@@ -48,7 +48,7 @@ Each `*.md` has YAML frontmatter (`name`, `emoji`, `description`, `color`, `vibe
 
 - [x] Restart opencode; verify all 8 new agents register (confirmed available after reboot 2026-08-27)
 - [ ] If any division becomes relevant (e.g., finance for quant, data for DS), convert on demand using `templates/agent-definition.md`
-- [ ] Consider a `[[Skills]]` slash-command that lists installed subagents with one-line use triggers
+- [x] `[[Skills]]` slash-command lists installed subagents with one-line use triggers (`/om-agents`, added 2026-08-27)
 
 ## Feeds Into
 
