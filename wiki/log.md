@@ -538,3 +538,9 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Registered in Self-Dev INDEX YouTube Distillations (13→14) + Quick Answers; cross-linked inbound from [[synthetic-media-literacy]]; added to wiki/index.md AI-integrity catalog line. Dashboard regenerated via generate-index.py.
 - Generator fix in the same pass: `generate-index.py` previously skipped root-level pages for domains configured with subfolder lists (Self-Dev distillations, Business root pages) — added a `— root —` block to the subfolders branch so those pages now appear in the dashboard (320→337 pages).
 - Transcript archived to `raw-sources/yt/pF3GSmHn3N0.txt` (auto-captions, ~58.6KB) per raw-sources convention; note links to it.
+
+### 2026-08-28 — Study ingestion: Eng-Math normal form of matrix & rank (new) + BEE/Chem verified covered
+- User's day: BEE series/source transformation → confirmed covered in [[BEE/module-1-dc-circuits]] (series-parallel, Thevenin↔Norton, star-delta); Eng-Chem hardness of water → confirmed covered in [[engineering-chem/module-1-water-technology-hardness]] + units-of-hardness revision page. No changes needed for either.
+- **Eng-Math gap closed:** the **normal form (canonical form) method** for rank — reduce to $\begin{bmatrix}I_r&0\\0&0\end{bmatrix}$ via row AND column ops — was missing from [[engineering-math/module-1-matrices]]. Added §2.2.1 (definition, rank-preservation rationale, 5-step reduction algorithm, exam shortcut, REF-vs-normal-form table) + Problem 1b: full worked 3×4 example reducing to $[I_2\,0;0\,0]$ → rank 2. Tag `normal-form` added.
+- Added **Rank via normal form** row to [[formula-sheet-am]] M1 table.
+- Daily note `daily/2026-08-28.md` created (Study: true). No new module/page → graphs + dashboard not regenerated.

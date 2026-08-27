@@ -1,7 +1,7 @@
 ---
 module: "engineering-math"
 topic: "Module 1: Matrices — Rank, Systems, Eigenvalues & Cayley-Hamilton"
-tags: [matrices, linear-algebra, eigenvalues, eigenvectors, cayley-hamilton, rank, echelon]
+tags: [matrices, linear-algebra, eigenvalues, eigenvectors, cayley-hamilton, rank, echelon, normal-form]
 last_updated: "2026-08-18"
 prerequisites: ["Basic Algebra", "Determinants"]
 ---
@@ -558,6 +558,37 @@ For an n × n matrix:
 
 ---
 
+### 2.2.1 Normal Form (Canonical Form) — the row-and-column method (MU exam standard)
+
+**Definition (Normal Form):** A matrix $A$ of rank $r$ can be reduced by a **sequence of elementary row AND column operations** to its normal form:
+
+$$A \sim \begin{bmatrix} I_r & 0 \\ 0 & 0 \end{bmatrix}$$
+
+where $I_r$ is the $r \times r$ identity block and zeros fill every other block. **The number of 1s on the diagonal of the normal form equals $\mathrm{rank}(A) = r$.**
+
+**Why column operations are allowed here (but not in REF):** column operations multiply $A$ on the *right* by an invertible matrix — elementary matrices are always invertible, so both row ops (left) and column ops (right) preserve rank. Hence $\mathrm{rank}(A) = \mathrm{rank}\bigl(\begin{bmatrix}I_r & 0 \\ 0 & 0\end{bmatrix}\bigr) = r$. This is the only rank method that uses column operations.
+
+**Reduction algorithm (exam procedure):**
+
+1. Pick a nonzero pivot — target position (1,1). If $a_{11} = 0$, bring a nonzero element to (1,1) by a row or column interchange.
+2. **Row ops with $R_1$** — clear column 1 below the pivot: $R_i \to R_i - \frac{a_{i1}}{a_{11}} R_1$ for all $i \geq 2$.
+3. **Column ops with $C_1$** — clear row 1 right of the pivot: $C_j \to C_j - \frac{a_{1j}}{a_{11}} C_1$ for all $j \geq 2$.
+4. Repeat steps 1–3 on the remaining $(m-1) \times (n-1)$ submatrix (rows 2…m, cols 2…n).
+5. **Stop** when the leftover block is all zeros (then scale each pivot row to get leading 1s if you want the literal $I_r$ block).
+
+**Exam shortcut:** you may stop the moment the unprocessed block is all zeros — you do *not* need to build a literal identity matrix. Count the leading 1s: that is the rank. (Worked example: Problem 1b below.)
+
+**Normal form vs REF — when to use which:**
+
+| Method | Operations | Result | Rank read-off |
+|--------|-----------|--------|---------------|
+| Row echelon form | row ops only | triangular echelon | nonzero rows |
+| Normal form | row AND column ops | $\begin{bmatrix}I_r & 0 \\ 0 & 0\end{bmatrix}$ | number of 1s on diagonal |
+
+Normal form is the fastest when the matrix is nowhere near echelon form and the biggest-minor computation would be tedious (e.g., 4×4+ with proportional rows).
+
+---
+
 ### 2.3 Systems of Linear Equations
 
 **Matrix Form:** A system of m linear equations in n unknowns can be written as:
@@ -948,6 +979,80 @@ All 3 × 3 minors are zero (since the two rows [1 2 3] and [2 4 6] are proportio
 Since we found a nonzero 2 × 2 minor, rank ≥ 2. Since all 3 × 3 minors are zero, rank < 3.
 
 **rank(A) = 2** ✓
+
+---
+
+### Problem 1b: Find the Rank via Normal (Canonical) Form
+
+**Problem:** Reduce the matrix below to normal form and state its rank:
+
+```
+        [ 1   2   3   4 ]
+   A =  [ 2   4   6   8 ]
+        [ 1   1   1   1 ]
+```
+
+Note: $R_2 = 2R_1$, so the rank is ≤ 2 — a warning flag before any elimination.
+
+---
+
+**Solution: Normal Form Method**
+
+**Step 1:** $a_{11} = 1 \neq 0$ → pivot in place. Clear column 1 with row ops:
+
+```
+R2 → R2 − 2R1 = [2 4 6 8] − 2[1 2 3 4] = [0 0 0 0]
+R3 → R3 − R1  = [1 1 1 1] − [1 2 3 4]  = [0 −1 −2 −3]
+
+        [ 1   2   3   4 ]
+   A ~  [ 0   0   0   0 ]
+        [ 0  −1  −2  −3 ]
+```
+
+**Step 2:** Clear row 1 with column ops ($C_2 \to C_2 - 2C_1$, $C_3 \to C_3 - 3C_1$, $C_4 \to C_4 - 4C_1$):
+
+```
+C2: (2, 0, −1) − 2(1, 0, 0) = (0, 0, −1)
+C3: (3, 0, −2) − 3(1, 0, 0) = (0, 0, −2)
+C4: (4, 0, −3) − 4(1, 0, 0) = (0, 0, −3)
+
+        [ 1   0   0   0 ]
+   A ~  [ 0   0   0   0 ]
+        [ 0  −1  −2  −3 ]
+```
+
+**Step 3:** Descend to submatrix (rows 2–3, cols 2–4). Swap $R_2 \leftrightarrow R_3$ to bring a nonzero into position (2,2):
+
+```
+        [ 1   0   0   0 ]
+   A ~  [ 0  −1  −2  −3 ]
+        [ 0   0   0   0 ]
+```
+
+**Step 4:** Pivot $a_{22} = -1$. Clear row 2 with column ops ($C_3 \to C_3 - 2C_2$, $C_4 \to C_4 - 3C_2$):
+
+```
+C3: (0, −2, 0) − 2(0, −1, 0) = (0, 0, 0)
+C4: (0, −3, 0) − 3(0, −1, 0) = (0, 0, 0)
+
+        [ 1   0   0   0 ]
+   A ~  [ 0  −1   0   0 ]
+        [ 0   0   0   0 ]
+```
+
+**Step 5:** Scale $R_2 \to (-1) R_2$ to make the pivot +1:
+
+```
+        [ 1   0   0   0 ]
+   A ~  [ 0   1   0   0 ]   =   [ I₂  0 ]
+        [ 0   0   0   0 ]       [ 0   0 ]
+```
+
+This is the normal form $\begin{bmatrix} I_2 & 0 \\ 0 & 0 \end{bmatrix}$.
+
+**Count the 1s on the diagonal:** 2 → **rank(A) = 2** ✓
+
+(Cross-check via Problem 1 methods: REF gives 2 nonzero rows; largest nonzero minor is 2×2.)
 
 ---
 

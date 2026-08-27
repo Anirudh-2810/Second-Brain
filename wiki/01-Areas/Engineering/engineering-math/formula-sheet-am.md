@@ -19,6 +19,7 @@ Every AM (Engineering Mathematics F.E.) formula on one page, organized by the fi
 | Inverse | $A^{-1} = \dfrac{1}{|A|}\,\text{adj}(A)$; $A^{-1}$ exists ⟺ $|A| \neq 0$ |
 | Properties | $(AB)^{-1} = B^{-1}A^{-1}$ · $(A^T)^{-1} = (A^{-1})^T$ · $|AB| = |A||B|$ |
 | System $AX = B$ | Consistent ⟺ $\text{rank}(A) = \text{rank}(A|B)$; unique if rank $= n$, infinite if $< n$; inconsistent if ranks differ |
+| **Rank via normal form** | Reduce $A$ to $\begin{bmatrix}I_r & 0 \\ 0 & 0\end{bmatrix}$ using **row AND column** operations → rank = number of 1s = $r$ (only method that uses column ops) |
 | **Cayley–Hamilton** | Every square matrix satisfies its own characteristic equation $|A - \lambda I| = 0$ → use to compute $A^{-1}$ and higher powers ($A^2 = \text{tr}(A)A - \ldots$ from the equation) |
 | Eigenvalues | $|A - \lambda I| = 0$; $\sum\lambda_i = \text{tr}(A)$; $\prod\lambda_i = |A|$ |
 | Eigenvector | $(A - \lambda_i I)X = 0$ → nonzero solution |
