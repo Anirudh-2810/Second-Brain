@@ -1,8 +1,6 @@
-\---
-
+---
 description: Generates a complete, hands-on C programming study guide and reference manual based on the Bro Code C Full Course.
-
-\---
+---
 
 
 

@@ -518,3 +518,9 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 ### 2026-08-27 — Added /om-agents command + fulled Skills subagent catalog
 - New slash command `.opencode/commands/om-agents.md` — dumps the installed subagent library (purpose, `@name` trigger, permissions, provenance) grouped by writes/audits/advisory.
 - [[Skills]] subagent table updated 4 → 12 rows with per-agent use triggers; `/om-agents` row added to command catalog. Digest checklist closed.
+
+### 2026-08-27 — Repaired 3 command files + linked them in Skills catalog
+- Fixed escaped frontmatter delimiters (`\---` → `---`) in `c-programming.md`, `physics-deepdive.md`, `research-deep.md` (were failing strict YAML parse → risk of not registering as slash commands).
+- Normalized legacy `$ARG1` args → `$ARGUMENTS` (opencode standard) in physics-deepdive + research-deep.
+- Added "Study & Research Deep-Dive" section to [[Skills]] catalog — all 12 commands now listed/linkable; re-verified 12/12 command files parse.
+- Verification suite re-run: 12 agents OK, 12 commands OK, Skills↔file names consistent, tree clean after push.

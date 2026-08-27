@@ -32,6 +32,14 @@ Slash commands live in `.opencode/commands/`, subagents in `.opencode/agents/`, 
 | `/om-vault-audit` | Read-only health report — indexes, links, frontmatter, size signals, stale facts |
 | `/om-agents` | Catalog dump — all 12 installed subagents, call-triggers, permissions, provenance |
 
+### Study & Research Deep-Dive
+
+| Command | Purpose |
+|---------|---------|
+| `/c-programming` | Code-heavy C master guide from Bro Code 6-hour curriculum — memory maps, production snippets, worked drills |
+| `/physics-deepdive` | Exam-ready Engineering Physics modules — ASCII flowcharts, full derivations, solved numeric-problems, hardware maps |
+| `/research-deep` | Vault-gated deep research — scan local notes, identify gaps, external search, delta report with action items |
+
 ## Subagents
 
 Invoke with `@name` in opencode.

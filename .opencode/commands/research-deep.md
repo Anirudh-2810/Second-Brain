@@ -1,12 +1,10 @@
-\---
-
+---
 description: Execute vault-gated deep research with gap identification and external search delta report
-
-\---
-
+---
 
 
-Target: $ARG1
+
+Target: $ARGUMENTS
 
 
 
@@ -16,7 +14,7 @@ Execute Deep Research using the following pipeline:
 
 1\. VAULT SCAN:
 
-&#x20;  - Perform a local workspace scan using `ripgrep` (`rg`) to locate existing notes, technical specs, and references related to "$ARG1".
+&#x20;  - Perform a local workspace scan using `ripgrep` (`rg`) to locate existing notes, technical specs, and references related to "$ARGUMENTS".
 
 &#x20;  - Collect file paths and relevant excerpts.
 
@@ -24,7 +22,7 @@ Execute Deep Research using the following pipeline:
 
 2\. GAP IDENTIFICATION:
 
-&#x20;  - Compare local workspace context against the objective requirements for "$ARG1".
+&#x20;  - Compare local workspace context against the objective requirements for "$ARGUMENTS".
 
 &#x20;  - Highlight missing sub-topics, unverified technical assumptions, deprecated APIs, or missing architectural details.
 

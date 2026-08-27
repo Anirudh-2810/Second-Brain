@@ -1,12 +1,10 @@
-\---
-
+---
 description: Generates exhaustive, beginner-friendly, and exam-ready Engineering Physics modules with ASCII flowcharts, explicit proofs, worked problems, and hardware maps.
-
-\---
-
+---
 
 
-Generate an exhaustive, beginner-friendly, and exam-focused study guide for the following Engineering Physics topics: $ARG1
+
+Generate an exhaustive, beginner-friendly, and exam-focused study guide for the following Engineering Physics topics: $ARGUMENTS
 
 
 
