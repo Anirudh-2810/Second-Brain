@@ -32,6 +32,7 @@ Then apply three filters:
 ## Case study: "The Real American Psycho: Tom Cruise" (Patrick Cc:)
 
 - **Source confidence:** legitimate commentary channel (2.54M subs, real author, linked secondary sources such as Janet Reitman's *Inside Scientology*, Mike Rinder's *A Billion Years*, Vox reporting). NOT a fabrication (contrast: [[synthetic-media-literacy]]'s Epstein video).
+- **Transcript archive:** full english transcript (auto-captions, ~10,250 words) at `[[raw-sources/yt/pF3GSmHn3N0|raw-sources/yt/pF3GSmHn3N0.txt]]` — the 3-bucket tables above were distilled line-by-line from it.
 - **The essay's thesis (bucket 3, flagged):** framing Cruise via Christian Bale's documented "nothing behind the eyes" Bateman remark, the essay argues Cruise is either hostage-to, exploiter-of, or brainwashed-by Scientology — the essay itself ends by asking the viewer to pick. This is argument, not finding.
 - **Ingestion rule applied:** the video's *documented* content (Scientology structure, Cruise's public record) may enter the vault with `(stated)`; testimony-based material enters as allegations with the accuser named; the psycho-framing enters only as the essayist's interpretation.
 
