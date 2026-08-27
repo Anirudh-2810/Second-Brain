@@ -59,6 +59,7 @@ Run these **before** ingesting any interview/claim clip as knowledge:
 
 ## Related
 
+- [[critical-media-consumption]] — sibling note: how to read a *legitimate but persuasive* essay (the 3-bucket fact/allegation/interpretation audit) once content passes the fabrication check
 - [[digital-wellness]] — media-consumption hygiene, dopamine/tech exposure (same ecosystem that feeds on outrage content)
 - [[harvard-learning-system]] — source-quality discipline: write-to-think, pressure-testing ideas before accepting them
 - [[Gotchas]] — the flag itself, greppable if this URL reappears

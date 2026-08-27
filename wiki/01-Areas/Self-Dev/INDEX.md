@@ -20,7 +20,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 | [[self-mastery/overview|self-mastery/]] | 9 | LEVEL loop, belief engineering, manifestation quadrant, subconscious reprogramming, psychological execution, life systems design, flowcharts, **temptation-mastery (BHATT video deep-dive)** |
 | [[productivity/overview|productivity/]] | 13 | Deep work, PKM-CODE, atomic habits, GTD, mental models, **how-to-self-teach (learning system)**, mod-DH ergonomics |
 | [[german/overview|german/]] | 11 | A1 German: grammar, cases, verbs, vocabulary, practice |
-| [[motivation-self-belief|YouTube Distillations]] | 13 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard, **Napoleon Hill Master Key (5-page deep-dive)** |
+| [[motivation-self-belief|YouTube Distillations]] | 14 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard, **Napoleon Hill Master Key (5-page deep-dive)**, critical-media-consumption |
 | [[Language-German/German-A1-Mastery|Language-German/]] | 1 | German A1 beginner course: greetings, numbers, family, daily routines, present tense, practical conversations |
 | [[Language-French/French-A1-Mastery|Language-French/]] | 1 | French A1 beginner course: greetings, numbers, family, daily routines, present tense, practical conversations |
 | [[My-Writing/My-Writing-Archive|My-Writing/]] | 1 | Personal narratives: student daily routine, financial triumph story |
@@ -33,6 +33,8 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 - "Communication / articulation / vocabulary for interviews?" → [[communication-mastery]] + [[vocabulary-building]]
 - "Motivation / self-belief / discipline?" → [[motivation-self-belief]]
 - "Phone addiction / digital wellness / dopamine?" → [[digital-wellness]]
+
+- "How do I consume persuasive media / YouTube essays responsibly?" → [[critical-media-consumption]] (3-bucket fact/allegation/interpretation audit) + [[synthetic-media-literacy]] (fabricated-content detection)
 
 - "How do I stop procrastinating / master urges?" → [[temptation-mastery]], [[psychological-execution]]
 - "Optimal way to learn anything?" → [[how-to-self-teach]]

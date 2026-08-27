@@ -58,6 +58,7 @@ for label, folder, subs in DOMAINS:
             if sp:
                 blocks.append((sub, sp))
     else:
+        blocks.append(('— root —', [p for p in all_pages if p[2] == 0]))
         for sub in subs:
             sp = [p for p in all_pages if p[0].startswith(f'wiki/{folder}/{sub}/')]
             if sp:
