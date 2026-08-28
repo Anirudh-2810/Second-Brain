@@ -24,7 +24,8 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[stock-predictor|stock-predictor]] | 1 | S&P 500 direction forecasting pipeline (yfinance → 20+ indicators → NeuralEngine → trading sim) |
 | [[aerofuse|aerofuse]] | 1 | ROS2 odometry diagnostic dashboard: dual-path trajectory, covariance heatmap, live Q/R tuning |
 | [[web-access-ai|web-access-ai]] | 1 | Streamlit chatbot: live DuckDuckGo search, tools (calc/code/weather), PDF reading, memory |
-| [[quote-pomodoro|quote-pomodoro]] | 1 | Tkinter Pomodoro timer: dark theme, quotes, beeps, notifications, presets |
+| [[quote-pomodoro|quote-pomodoro]] | 1 | Tkinter Pomodoro timer: dark theme, quotes, beeps, notifications, presets (predecessor to roadtrip-focus) |
+| [[roadtrip-focus|roadtrip-focus]] | 1 | **Roadtrip Focus** — cross-country focus timer: highway canvas, road hum, intent field, Trip Log, Obsidian auto-sync to daily + brain history |
 | [[react-calculator|react-calculator]] | 1 | React + Tailwind calculator: keyboard support, history, Lucide icons, gradient UI |
 | [[budget-tracker|budget-tracker]] | 1 | Excel/VBA Budget vs Actual vs Variance + Executive Dashboard (Mac/Win compatible) |
 | [[foundry-backup|foundry-backup]] | 1 | Full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas |
