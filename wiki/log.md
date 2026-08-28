@@ -614,3 +614,15 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - **Fluid per-touch (GH: motion/react-spring/anime/GSAP — math only):** helpers `_ease_out_cubic/_in_out_cubic/_out_expo`, `_lerp/_lerp_color`, methods `_animate_button`, `_bind_fluid`, `_bind_control_fluid`, `_tween_progress`; central `after(16)` 60fps `_anim_frame` interpolates `progress` (`cur+(tgt-cur)*0.18`) + `dist`; `tick_ui` `_tween_progress` 420 ms `outCubic`, `update_quote` cross-fade 140 ms, theme/fullscreen spring `k 180 d 18`, every button `<Enter>/<Leave>/<ButtonPress>` bg `card->card2` 90 ms. Verified `after(16)` tween `0->20` reaches `17.1` at 0.2s, `draw 93` items, button hover.
 
 - **Vault doc:** updated `roadtrip-focus.md` `+design-system +spring +fluid` tags, `+` §5.4 with token table + GH refs, `+` Overhaul & fluid smoke in §9; logged here.
+
+### 2026-08-29 — Roadtrip Focus final polish: dark-only, squircle, bottom-touch, car & HALFWAY & jitter
+
+- **User images:** windowed intent white / time black mismatch, road jittery, car missing, HALFWAY text, square ends, light trash, fullscreen gap.
+- **Fixed `roadtrip_focus.py`:**
+  - **Theme:** `intent_entry` `bg #111111`→`THEME["entry_bg"] #0f1419` + highlight, `time_entry` `bg #000000`→`THEME["card"]` + highlight, `route_menu`/`volume_scale` themed, `_apply_theme` now also updates `Entry`/`OptionMenu`/`Scale` (not just Frames). **Dark-only:** deleted `THEME_LIGHT` + `Dark/Light` toggle (`has theme btn False`), `THEME = THEME_DARK` forced, `self.dark_mode=True`.
+  - **Squircle:** added `_round_rect`/`_draw_rounded_bg` (r 6-10, not pill) and wired `for _fr in 9 chrome → _draw_rounded_bg(r)` + fallback `highlightthickness=1 highlightbackground=THEME["outline"]` for 8-pt cards (visual polished curve, not fully round). Buttons `r=8`, entries `r=6`.
+  - **Road bottom:** `y = horizon*(1-pt)+(h-6)*pt` → `h` and fullscreen `h = sh` (was `sh-80`) → polygon `max y == h` (150 windowed, 1080 fs, verified gap gone).
+  - **HALFWAY:** `for pct in (0.25,0.5,0.75,1.0)` with `HALFWAY/CRUISING` → `for pct in (0.25,0.75)` no labels (count 0).
+  - **Car:** `car_w/h` before `car_x`, `car_x` clamped `max(car_w+4, min(w-car_w-4,…))`, `car_y = h-18+bob`, outline `width 2 #ffaa00` contrast, verified `1` rect `fill #ffcc33` both modes.
+  - **Jitter:** `bob 0.7→0.45`, `lean 0.22→0.14`, `dash 0.18→0.09` slower, hills stable, `dist_render` spring.
+- **Vault doc:** `roadtrip-focus.md` ` -light-mode +squircle` tags, `description` dark-only, `§5.3` title, `§5.4` follow-up, new `§5.5` with table, `§9` dark-only & bottom-touch smoke; logged here.

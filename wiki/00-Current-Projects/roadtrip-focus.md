@@ -1,24 +1,24 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, light-mode, fullscreen, hud, design-system, spring, fluid]
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle]
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — perspective-correct winding road, 3-layer parallax hills with fog + stars, scrolling dashes, route-biome palettes, trees/bushes/rocks/poles with fade, detailed car with headlight cones + lean-steer bob, 30fps interpolated scroll, dark-default with light toggle, fullscreen HUD (FocusFlight-style) over winding road, continuous road hum, intent, Trip Log, Obsidian auto-sync. Thread-safe via root.after, silent fallback."
+description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — perspective-correct winding road (touches bottom), 3-layer parallax hills with fog + stars, scrolling dashes, route-biome palettes, squircle cards (r8-10, not pill), dark-only midnight neon, fullscreen HUD (FocusFlight-style), jitter-free 60fps, car always visible, continuous road hum, intent, Trip Log, Obsidian auto-sync. Thread-safe via root.after, silent fallback."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
 
 > **Repo:** `C:/Users/Vijaykumar/My apps/RoadtripFocus/` (fresh folder — `2)b` choice)
 > **Stack:** `tkinter` + `ttk`, `threading`, `sounds.py` (`numpy` + `sounddevice`, optional), `sessions.py`, `vault_sync.py`
-> **Theme:** Road trip (Coastal Hop → Cross-Country) — distinct from FocusFlight's aviation, now an endless **Slow Roads** cruise: *no destination, just winding road + continuous sound* — same spatial-progress insight, opposite arrival semantics. **Default dark** (night highway) with light toggle (day white-road variant like screenshot, same winding math) + **fullscreen HUD** (FocusFlight-style: canvas fills screen, stats float)
+> **Theme:** Road trip (Coastal Hop → Cross-Country) — distinct from FocusFlight's aviation, now an endless **Slow Roads** cruise: *no destination, just winding road + continuous sound* — same spatial-progress insight, opposite arrival semantics. **Dark-only midnight neon** (squircle cards r8-10, road touches bottom) + **fullscreen HUD** (FocusFlight-style: canvas fills screen, stats float)
 > **Obsidian:** Direct vault writes (no REST API) — see `vault_sync.py` section
 
 ---
 
 ## For future agent
-This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a polished Slow Roads endless cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a procedurally winding night highway (day white-road variant on toggle, same winding math) through biome-tinted 3-layer parallax hills (fog + stars) with scrolling dashes and trees/bushes/rocks/poles while the car stays fixed with lean-steer bob + headlight cones at 30fps, boots **dark** by default with a light toggle plus a **fullscreen HUD** (canvas fills screen, floating stats like FocusFlight), and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
+This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a polished Slow Roads endless cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a procedurally winding night highway through biome-tinted 3-layer parallax hills (fog + stars) with scrolling dashes and trees/bushes/rocks/poles while the car stays fixed with lean-steer bob + headlight cones at 60fps, **dark-only midnight neon** with squircle cards (r8-10, not pill) and road that touches bottom, plus a **fullscreen HUD** (canvas fills screen, floating stats like FocusFlight), and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
 
 ---
 
@@ -166,7 +166,7 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 
 **Verification:** `py_compile` OK; withdrawn-Tk for routes Coastal/Desert/Mountain/Cross at `0/0.25/0.5/0.75/1`, `dist` linear, road clamped, items 87-98, smooth frame while running, hills stable, biome tints distinct.
 
-### 5.3 Immersive — dark default + light toggle + SlowRoads winding preserved + fullscreen HUD
+### 5.3 Immersive — dark default + SlowRoads winding preserved + fullscreen HUD (light removed in 5.4)
 
 **User (Image 1 + “dark, plus the road style let it be like the slowroad one and make a fullscreen option where the whole screen the car going is shown and in floating windows the stats are shown just like focus flight”):**
 
@@ -195,6 +195,22 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 - Central `after(16)` (60fps) loop: `_anim_frame` now interpolates `progress` (`cur + (tgt-cur)*0.18` per frame) and `dist`, draws road, syncs HUD. `tick_ui` now calls `_tween_progress` (`easeOutCubic` 420 ms) instead of snap. `update_quote` cross-fades via bg->muted 140 ms. `toggle_theme`/`toggle_fullscreen` animate via spring `k=180 d=18` (thumb `x`, `t_dark` lerp). Every button gets `<Enter>/<Leave>/<ButtonPress>` bindings for `card to card2` bg lerp + press `card2` 90 ms snap-back. `on_route_pick`/`apply_preset` road center tweens 400 ms `outCubic`.
 
 **Verification:** `py_compile` OK; withdrawn-Tk 10-frame `pack_info` before/after identical, `toggle_fullscreen()` hide `9` chrome `hud 2` `sw x sh` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
+- **Dark-only & squircle & bottom-touch smoke (2026-08-29):** `intent #0f1419` `time #0f1419` (not white/black), `Light` btn removed, `HALFWAY` 0, road `max y == h` 150/1080, `cars 1`, `pack_info` identical, `after(16)` still smooth.
+
+**Follow-up (this build): dark-only, squircle, bottom-touch, car, HALFWAY, jitter — see §5.5.**
+
+### 5.5 Polish — dark-only, squircle (r8-10), road touches bottom, car visible, HALFWAY removed, jitter cut
+
+**User (Image 1/2): “have a look it look so unfinished the theme is not maintained the time part is black and the intent is white and similar more, plus the animation of the road is very jittery and plus where is the car also remove the half way point” + “make all the square ends polished and curved not round fully, also just remove light mood, also in fullscreen the road is not fully touching the bottom”**
+
+- **Theme not maintained → fixed:** `intent_entry` was `bg #111111`, `time_entry` `bg #000000` hard-coded vs `THEME["card"] #0f1419` → now `fg=THEME["entry_fg"] bg=THEME["entry_bg"] highlightbackground=THEME["outline"]` for both, plus `route_menu` `bg=THEME["card"] fg=THEME["fg"]`, `volume_scale` `trough THEME["card2"]`, `Quick` pills and buttons via `_apply_theme` now iterate all `Entry`/`OptionMenu`/`Scale`/`Progressbar` (not just Frames). Light mode removed: `THEME_LIGHT` + `Dark/Light` toggle deleted, `THEME = THEME_DARK` dark-only, `self.dark_mode=True` forced, `config.json {dark}` ignored.
+- **Squircle (polished, not fully round):** added `suffix` helpers `_round_rect` + `_draw_rounded_bg` (r 6-10, not pill `r≈h/2`) and wired `for _fr in [intent,route,timer,ctrl,sound,presets,quote,stats,canvas_wrap] → _draw_rounded_bg(_fr,r)` plus fallback `highlightthickness=1 highlightbackground=THEME["outline"]` for 8-pt cards (visual radius via border, not square). Buttons get `r=8`, entries `r=6`, canvas wrap `r=10`.
+- **Road touches bottom:** `draw_road` `y = horizon*(1-pt)+(h-6)*pt` → `h` and `h = sh` when fullscreen (was `sh-80` leaving gap) → polygon bottom `max y == h` (verified `150` windowed, `1080` fs). `road_half` scales `*w/CANVAS_W`.
+- **HALFWAY removed:** `for pct in (0.25,0.5,0.75,1.0)` with `label HALFWAY/CRUISING` → `for pct in (0.25,0.75)` no labels, side markers only.
+- **Car visible:** `car_w/h` defined before `car_x`, `car_x = max(car_w+4, min(w-car_w-4, ...))` clamped, `car_y = h-18+bob` lifted, outline `width 2` `#ffaa00` for contrast vs `ROAD_COLOR`, ensure draw after hills/road. Verified `1` car rect `fill #ffcc33` at `150` and `1080`.
+- **Jitter cut:** `bob 0.7→0.45`, `lean 0.22→0.14`, `dash_phase 0.18→0.09` slower, hills already stable (`x+off` not `dist` wobble), `dist_render` spring `k 120` in `_anim_frame`.
+
+**Verification:** `py_compile` OK; withdrawn-Tk `intent bg #0f1419` `time bg #0f1419` (not white/black), no `Light` btn, `has theme btn False`, `has fs True`, `HALFWAY` count 0, road `max y == h` (150/1080), `cars 1` both modes, `pack_info` still identical, `after(16)` smooth.
 
 ---
 
@@ -250,6 +266,7 @@ pip install numpy sounddevice plyer
 - **Slow Roads rewrite smoke (2026-08-29):** `draw_road` at `0/0.1/0.25/0.5/0.75/0.9/1.0` for totals 25 m (`dist 0→9450`) / 120 m (`0→45360`) with seeds `0.1/0.5/0.9/0.01/0.99` + an extreme `A1=70,A2=35` — `dist` linear via `_dist_for_progress`, road stays inside canvas (clamped `max_offset`), scenery bounded (~59-65 items), per-session reseed verified, `self.dist` updated in `tick_ui`. Manual-verification flagged: parallax hill speeds, curve amplitude/frequency, tree/pole spacing need an eyeball run (run `python roadtrip_focus.py` and watch a 1–2 min drive).
 - **Polish smoke (2026-08-29):** same + perspective `_perspective_t` (`1-(1-t)^1.65`), scrolling dashes `phase=(dist*0.18)%1`, 22-band sky + stars + fog, hills stable (`x+off` not `dist` wobble), biome tints (4 routes → distinct sky/hill), scenery 5 kinds with fade (items 87-98), car cones/lean/steer/bob, 30fps `_anim_frame` interpolates `elapsed=(total-remaining)+frac` between ticks — all py_compile + withdrawn-Tk at 4 biomes `0/0.25/0.5/0.75/1` and running-frame (`total 60 remaining 60 frac 0.4`) passed. Appearance still manual: scroll speed, fog, star twinkle, biome contrast.
 - **Overhaul & fluid smoke (2026-08-29):** `pack_info` 10 frames identical before/after fullscreen (fill/expand/padx/pady/side/anchor), `toggle_fullscreen()` hide `9` chrome `hud 2` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
+- **Dark-only & squircle & bottom-touch smoke (2026-08-29):** `intent #0f1419` `time #0f1419` (not white/black), `Light` btn removed, `HALFWAY` 0, road `max y == h` 150/1080, `cars 1`, `pack_info` identical, `after(16)` still smooth.
 - **Immersive smoke (2026-08-29):** dark boot (`dark True`, `Light` btn), light toggle → `dark False` sky `#4a9ad4` road white greens, winding still at `0/0.5/1` Coastal/Desert, `toggle_fullscreen()` → `is_fullscreen True` `hud 2` `canvas 1920×(1080-80)` `draw 109` items `w=sw` road scales `*w/CANVAS_W`, exit restores `false` `hud 0` `620×150`, `config.json {"dark":bool,"fullscreen":bool}` persists, `Esc`/`F11`/`F` binds.
 - `sounds` buffer shape `(176400, 2)` float32, peak `~0.076` at vol 0.12 — OK; `sounds.available()` true when deps present, false path disables checkbox without crash
 - `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after immersive)
