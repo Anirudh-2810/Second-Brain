@@ -5,7 +5,7 @@ tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsi
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with Slow Roads-style endless cruise — procedurally winding road through 3-layer parallax hills + scrolling roadside trees/poles, car fixed with engine bob, continuous road hum, session intent, local Trip Log, and Obsidian auto-sync. Dark theme, thread-safe via root.after, silent fallback without numpy/sounddevice."
+description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — perspective-correct winding road, 3-layer parallax hills with fog + stars, scrolling dashes, route-biome palettes, trees/bushes/rocks/poles with fade, detailed car with headlight cones + lean-steer bob, 30fps interpolated scroll, continuous road hum, intent, Trip Log, Obsidian auto-sync. Dark theme, thread-safe via root.after, silent fallback."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
@@ -18,7 +18,7 @@ description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with Slow Road
 ---
 
 ## For future agent
-This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into an endless Slow Roads-style cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a night highway that procedurally winds through 3-layer parallax hills with scrolling trees/poles while the car stays fixed with an engine bob, and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
+This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a polished Slow Roads endless cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a night highway that procedurally winds through biome-tinted 3-layer parallax hills (fog + stars) with scrolling dashes and trees/bushes/rocks/poles while the car stays fixed with lean-steer bob + headlight cones at 30fps, and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
 
 ---
 
@@ -115,16 +115,18 @@ Volume default `0.12` — intentionally quiet per FocusFlight's hearing-safety n
 
 ---
 
-## 5. Canvas — Slow Roads endless cruise
+## 5. Canvas — Slow Roads endless cruise (polished)
 
 `draw_road(progress: 0..1)` (`roadtrip_focus.py`):
 
-- **Endless, not arrival.** `progress` drives a counter/bar; the *world* distance is `dist = progress * total * (SCENERY_SPEED*0.35)` — constant cruise speed so every route feels the same, only duration differs. The road never ends; `HALFWAY`/`CRUISING` markers are perspective mile posts, not a bay.
-- **Winding road ribbon.** 18 depth stations from horizon (`visible_world=140`) to bumper (`h-6`). At station `depth_world` the road center = `W/2 + _road_center(dist+depth_world)` where `_road_center` is a seeded two-sine sum (`A1 sin(w1·d+p1)+A2 sin(w2·d+p2)`, `A1∈[38,62]`, `A2∈[16,28]`, `w1∈[0.035,0.055]`, `w2∈[0.10,0.16]`). Width tapers `half_far 42 → half_near 262`. The polygon is left-far→left-near plus right-near→right-far; shoulders follow the edges with smoothing, center dashes follow the winding center (every other segment, 45% length, width perspective-scaled).
-- **Parallax hills — 3 layers.** Far (`#0e1a14`, speed `0.22`, tile `420`), mid (`#132019`, `0.45`, `360`), near (`#16261d`, `0.85`, `300`). Each is a tiled sine silhouette whose `x` offset = `-(dist*speed) % tile`; amplitude modulated by a second harmonic so hills don't alias.
-- **Scrolling scenery.** Deterministic poles/trees beside the road, spaced `18` world units. For `world_d` in `[dist-12, dist+visible+18]` and `depth=world_d-dist` in `[4, visible-2]`, hash `(int(seed*100000), int(world_d))` picks side/kind: tree (triangle foliage `#1a3326` + trunk `#2b1a0e`) or pole (`#3a3a3a` + cap `#c9a86a`). Perspective `scale = 0.28+0.72*t` where `t=1-depth/visible`; jitter ±5. At most ~9 on-screen; pure canvas.
-- **Car — fixed.** Near road center (`centers[-1]`) with a lean `0.12*(centers[-1]-centers[-3])` that follows local curvature and an engine bob `0.9 sin(dist*0.55 + progress*13)`. Gentle shrink `scale=1 - min(0.18, progress*0.18)` so long trips feel slightly farther. Shadow/body/windshield/wheels as before, plus a headlight glint. World scrolls, car stays.
-- **Overlays.** Kept `pct%` + route label, plus a new `dist_km = dist/42.0` cruise readout (`"X.X km · CRUISE"` top-right).
+- **Endless, not arrival.** `progress` drives the bar; world distance `dist = progress * total * (SCENERY_SPEED*0.35)` — constant cruise speed so every route feels the same, only duration differs. The road never ends; `HALFWAY`/`CRUISING` markers are perspective mile posts, not a bay. A 30fps `root.after(32)` loop interpolates `elapsed = (total-remaining)+frac` while the 1s timer ticks, so the scroll is buttery.
+- **Sky + stars + fog.** 22-band gradient `SKY_TOP→SKY_HORIZON` per biome, plus deterministic stars (`hash(sx,seed)` twinkle `sin(dist*0.02+...)`) and 6-line horizon fog (`#0a1410` → stipple) that lifts the hills off the road.
+- **Winding ribbon — perspective-correct.** 18 stations `visible_world=140`, but `pt=_perspective_t(t_lin)` (`1-(1-t)^1.65`) drives both `y = horizon*(1-pt)+(h-6)*pt` and `half = 42*(1-pt)+262*pt`. Center `W/2+_road_center(dist+depth)` (seeded `A1 sin(w1·d+p1)+A2 sin(w2·d+p2)`, `A1∈[42,68]`, `A2∈[14,26]`, `w1∈[0.028,0.048]`, `w2∈[0.11,0.17]`) with clamped `max_offset` and smoothed ` _road_center_smooth` for lean. Road polygon left-far→near + right-near→far, shoulders inset 8px with smoothing.
+- **Center line — scrolling.** Not static: `dash_phase=(dist*0.18)%1`, dense walk over `seg_lens` with `dash 14 / gap 14` pattern, clipping to segment and interpolating `x0y0→x1y1` with perspective `lw=3.2*(0.35+0.65*tmid)` — true forward motion (Slow Roads reference).
+- **Parallax hills — 3 layers, stable.** Far (`speed 0.22 tile 420 amp 22 freq 0.018`), mid (`0.45/360/18/0.024`), near (`0.85/300/14/0.032`). Offset `-(dist*speed)%tile`, bump `sin((x+off*0.7)*freq+phase)` (no `dist` wobble), second harmonic added. Biome-tinted via `ROUTE_BIOMES` (see 5.1).
+- **Scrolling scenery — varied + fading.** Spacing `18`, `world_d∈[dist-12, dist+visible+18]`, `depth∈[4,visible-2]`, `t=1-depth/visible`, `scale=0.28+0.72*t`, jitter ±5. Hash `kind%10`: 0-2 pine (two-tone `TREE_COLOR`/`TREE_COLOR_2`), 3 bush (`BUSH_COLOR` double-oval), 6 tall pine, 4-5 pole (`POLE_COLOR`+cap fades `#c9a86a→#8a7350`), 7 rock (`ROCK_COLOR` boulder). Distance fade logic dims far objects; biome `tree_mul/bush_mul` probabilistically thins trees/bushes per route.
+- **Car — detailed, fixed.** At `centers[-1]` with `lean=0.22*(c[-1]-c[-3])`, `steer=0.06*(_smooth(dist+28)-_smooth(dist+8))`, `bob=0.7 sin(dist*0.62+progress*9.5)`, shrink `1-min(0.16,progress*0.16)`. Shadow stretched, headlight cones (two faint `gray50` trapezoids to `centers[-3]/ys[-4]`), body `CAR_COLOR` + cabin `#3a3a32`, windshield `#88ccee` with glare streak, wheels `#1a1a1a`+hub, twin headlights `#fff7b2`. World scrolls, car stays.
+- **Overlays.** `pct%` + route label + `dist_km=dist/42` CRUISE tag (top-right, `#2a5a44`).
 
 No image assets — pure `tk.Canvas` primitives, so the binary stays small and the build stays portable.
 
@@ -147,6 +149,22 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 - Correction sweep: every `DESTINATION/EXIT/bay/slide_start` reference removed in this pass (Write-Correctness Law #2).
 
 **Verification:** py_compile + withdrawn-Tk smoke at `progress 0/0.1/0.25/0.5/0.75/0.9/1.0` and totals 25 m/120 m → `dist` linear, road stays inside canvas for seeds `0.1/0.5/0.9/0.01/0.99` and an extreme `A1=70,A2=35`, scenery count bounded (~65 items), reseeding verified. Manual-verification flagged: parallax speed, curve gentleness, tree/pole pacing need an eyeball run.
+
+### 5.2 Polish (2026-08-29): Better — perspective, scroll, biomes, 30fps
+
+**User:** "make it beter" (build mode).
+
+**What improved on top of 5.1:**
+
+- **Perspective-correct road:** `y` and `half` now use `pt=_perspective_t(t_lin)` (`1-(1-t)^1.65`) → more road near camera, true Slow Roads foreshortening; `visible_world` still 140 but mapping is non-linear.
+- **Scrolling dashes:** replaced every-other-segment with a dense length-walk and `dash_phase=(dist*0.18)%1`, `dash 14 / gap 14` clipped to segment and interpolated — dashes visibly flow while cruising, not static.
+- **Sky + fog + stars:** 22-band biome-tinted gradient + deterministic twinkling stars (`hash(sx,seed)` + `sin(dist*0.02)`) + 6-line horizon fog with stipple; hills now stable (bump uses `x+off*0.7` not `dist` wobble) and biome-tinted.
+- **Route biomes:** `ROUTE_BIOMES` dict — Coastal Hop (cool sea, sparse trees), Desert Stretch (warm dunes, bushy), Mountain Pass (dark dense pines), Cross-Country (balanced). Sky/hills scrolled via biome; scenery `tree_mul/bush_mul` probabilistically thins.
+- **Scenery variety + fade:** 5 kinds — pine (two-tone), bush (double-oval `BUSH_COLOR`), tall pine, pole (cap fades), rock (boulder `ROCK_COLOR`); far-fade `fade=(t-0.15)/0.65`; up to ~98 items.
+- **Car — detailed:** lean `0.22` + steer `0.06*(smooth(dist+28)-smooth(dist+8))`, bob `0.7 sin(dist*0.62+9.5*progress)`, shrink `1-min(0.16,progress*0.16)`, stretched shadow, headlight cones (trapezoids to `centers[-3]`), cabin, windshield glare streak, wheel hubs, twin headlights.
+- **30fps interpolation:** new `self._anim_job/_last_tick_time` + `_schedule_anim/_anim_frame` (`root.after(32)`) — while running `elapsed=(total-remaining)+min(0.999,now-lastTick)`, `prog=elapsed/total`, `dist=_dist_for_progress(prog)`, `draw_road(prog)` — so the road glides between the 1s timer ticks. `start_timer` sets `_last_tick_time`, `tick_ui` refreshes it, `toggle_pause` resets it on resume, `__init__` seeds and schedules.
+
+**Verification:** `py_compile` OK; withdrawn-Tk for routes Coastal/Desert/Mountain/Cross at `0/0.25/0.5/0.75/1`, `dist` linear, road clamped, items 87-98, smooth frame while running, hills stable, biome tints distinct.
 
 ---
 
@@ -197,11 +215,12 @@ pip install numpy sounddevice plyer
 
 ## 9. Verification (2026-08-29)
 
-- `python -m py_compile` — 3 files OK (re-verified after Slow Roads rewrite)
+- `python -m py_compile` — 3 files OK (re-verified after polish)
 - Smoke test (`Tk()` withdrawn): route pick, time helpers, `draw_road` at 0/0.25/0.5/0.9/1.0, `open_trip_log`, `refresh_trip_stats` — all passed (`Second-Brain/roadtrip_focus.py:verified 2026-08-29`)
 - **Slow Roads rewrite smoke (2026-08-29):** `draw_road` at `0/0.1/0.25/0.5/0.75/0.9/1.0` for totals 25 m (`dist 0→9450`) / 120 m (`0→45360`) with seeds `0.1/0.5/0.9/0.01/0.99` + an extreme `A1=70,A2=35` — `dist` linear via `_dist_for_progress`, road stays inside canvas (clamped `max_offset`), scenery bounded (~59-65 items), per-session reseed verified, `self.dist` updated in `tick_ui`. Manual-verification flagged: parallax hill speeds, curve amplitude/frequency, tree/pole spacing need an eyeball run (run `python roadtrip_focus.py` and watch a 1–2 min drive).
+- **Polish smoke (2026-08-29):** same + perspective `_perspective_t` (`1-(1-t)^1.65`), scrolling dashes `phase=(dist*0.18)%1`, 22-band sky + stars + fog, hills stable (`x+off` not `dist` wobble), biome tints (4 routes → distinct sky/hill), scenery 5 kinds with fade (items 87-98), car cones/lean/steer/bob, 30fps `_anim_frame` interpolates `elapsed=(total-remaining)+frac` between ticks — all py_compile + withdrawn-Tk at 4 biomes `0/0.25/0.5/0.75/1` and running-frame (`total 60 remaining 60 frac 0.4`) passed. Appearance still manual: scroll speed, fog, star twinkle, biome contrast.
 - `sounds` buffer shape `(176400, 2)` float32, peak `~0.076` at vol 0.12 — OK; `sounds.available()` true when deps present, false path disables checkbox without crash
-- `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after Slow Roads tests)
+- `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after polish)
 
 ---
 

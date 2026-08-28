@@ -579,3 +579,17 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
   - `draw_road(progress)` fully rewritten: sky → 3 parallax hill layers (`offset=-(dist*speed)%tile`, amped sine silhouette) → 18-station winding ribbon (`W/2+_road_center(dist+depth)`, `half 42→262`, clamped `max_offset`) + shoulders + every-other center dashes → mile markers (`HALFWAY/CRUISING`) at perspective t → deterministic scenery (`spacing 18`, hash-picked tree/pole, `scale 0.28+0.72*t`, jitter, ≤80 scan) → fixed car at `centers[-1]` with lean `0.12*(c[-1]-c[-3])` + bob `0.9 sin(dist*0.55+progress*13)` + gentle `scale=1-min(0.18,progress*0.18)` + glint → overlays `pct%` + `dist_km=dist/42` CRUISE tag. `start_timer()` re-seeds curve + resets `dist`; `tick_ui()` sets `self.dist`; `reset_timer()` resets `dist`. Scope strictly canvas; threading/sound/sessions/vault_sync unchanged (still `vault_sync.py:1`).
   - Verification: `py_compile` OK; withdrawn-Tk smoke at `0/0.1/0.25/0.5/0.75/0.9/1.0` and totals 25 m (`dist 0→9450`) / 120 m (`0→45360`) for seeds `0.1/0.5/0.9/0.01/0.99` + extreme `A1=70,A2=35` — road stays inside (clamped), scenery bounded (~59-65 items), reseed verified. Manual-verification flagged for parallax/curve/tree pacing.
 - **Vault doc**: rewrote `wiki/00-Current-Projects/roadtrip-focus.md` §§5/5.1 (now §5 Slow Roads endless cruise + §5.1 Evolution supersedes slide), frontmatter `description` + tags `+slow-roads,endless-cruise,parallax`, `## For future agent` + theme line + §9; correction sweep: removed every `DESTINATION/EXIT/bay/slide_start` restatement.
+
+### 2026-08-29 — Roadtrip Focus polish: better Slow Roads (perspective, scroll, biomes, 30fps)
+
+- User: "make it beter" (build mode) — polish the Slow Roads cruise.
+- **Improved** `roadtrip_focus.py`:
+  - **Perspective:** `y`/`half` via `pt=_perspective_t(t_lin)` (`1-(1-t)^1.65`) → true foreshortening; 18 stations still `visible 140` but non-linear; clamped `max_offset`.
+  - **Scrolling dashes:** replaced static every-other with dense length-walk `seg_lens` + `dash_phase=(dist*0.18)%1`, `dash 14 / gap 14` clipped + interpolated with perspective `lw`; dashes now flow.
+  - **Sky/fog/hills:** 22-band biome-tinted gradient + deterministic stars + 6-line horizon fog; hills stable (`bump` uses `x+off*0.7` not `dist` wobble), biome-tinted.
+  - **Biomes:** `ROUTE_BIOMES` — Coastal (cool sea, sparse trees 0.6), Desert (warm dunes, bushy 0.7), Mountain (dark dense 1.2), Cross-Country (balanced) — sky/hills + `tree_mul/bush_mul` thins.
+  - **Scenery:** 5 kinds (pine two-tone + bush double-oval + tall pine + pole faded cap + rock boulder) with `fade=(t-0.15)/0.65`; up to ~98 items.
+  - **Car:** lean `0.22` + steer `0.06*delta` + bob `0.7 sin(dist*0.62+9.5p)` + shrink `1-min(0.16,p*0.16)`, stretched shadow, headlight cones to `centers[-3]`, cabin, glare, hubs, twin lights.
+  - **30fps loop:** `self._anim_job/_last_tick_time` + `_schedule_anim/_anim_frame` (`after 32`) interpolates `elapsed=(total-remaining)+frac` while running; `start_timer` sets `_last_tick_time`, `tick_ui` refreshes, `toggle_pause` resets on resume, `__init__` seeds+schedules.
+  - Verification: `py_compile` OK; withdrawn-Tk 4 biomes `0/0.25/0.5/0.75/1` + running frame `frac 0.4` — road clamped, items 87-98, smooth frame, hills stable.
+- **Vault doc:** updated `roadtrip-focus.md` §§5 + new §5.2 Polish + frontmatter `description` + tags + `## For future agent` + §9; logged here.
