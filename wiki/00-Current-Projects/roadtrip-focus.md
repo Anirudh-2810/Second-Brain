@@ -1,24 +1,24 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax]
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, light-mode, fullscreen, hud]
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — perspective-correct winding road, 3-layer parallax hills with fog + stars, scrolling dashes, route-biome palettes, trees/bushes/rocks/poles with fade, detailed car with headlight cones + lean-steer bob, 30fps interpolated scroll, continuous road hum, intent, Trip Log, Obsidian auto-sync. Dark theme, thread-safe via root.after, silent fallback."
+description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — perspective-correct winding road, 3-layer parallax hills with fog + stars, scrolling dashes, route-biome palettes, trees/bushes/rocks/poles with fade, detailed car with headlight cones + lean-steer bob, 30fps interpolated scroll, dark-default with light toggle, fullscreen HUD (FocusFlight-style) over winding road, continuous road hum, intent, Trip Log, Obsidian auto-sync. Thread-safe via root.after, silent fallback."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
 
 > **Repo:** `C:/Users/Vijaykumar/My apps/RoadtripFocus/` (fresh folder — `2)b` choice)
 > **Stack:** `tkinter` + `ttk`, `threading`, `sounds.py` (`numpy` + `sounddevice`, optional), `sessions.py`, `vault_sync.py`
-> **Theme:** Road trip (Coastal Hop → Cross-Country) — distinct from FocusFlight's aviation, now an endless **Slow Roads** cruise: *no destination, just winding road + continuous sound* — same spatial-progress insight, opposite arrival semantics
+> **Theme:** Road trip (Coastal Hop → Cross-Country) — distinct from FocusFlight's aviation, now an endless **Slow Roads** cruise: *no destination, just winding road + continuous sound* — same spatial-progress insight, opposite arrival semantics. **Default dark** (night highway) with light toggle (day white-road variant like screenshot, same winding math) + **fullscreen HUD** (FocusFlight-style: canvas fills screen, stats float)
 > **Obsidian:** Direct vault writes (no REST API) — see `vault_sync.py` section
 
 ---
 
 ## For future agent
-This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a polished Slow Roads endless cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a night highway that procedurally winds through biome-tinted 3-layer parallax hills (fog + stars) with scrolling dashes and trees/bushes/rocks/poles while the car stays fixed with lean-steer bob + headlight cones at 30fps, and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
+This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a polished Slow Roads endless cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a procedurally winding night highway (day white-road variant on toggle, same winding math) through biome-tinted 3-layer parallax hills (fog + stars) with scrolling dashes and trees/bushes/rocks/poles while the car stays fixed with lean-steer bob + headlight cones at 30fps, boots **dark** by default with a light toggle plus a **fullscreen HUD** (canvas fills screen, floating stats like FocusFlight), and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
 
 ---
 
@@ -166,6 +166,18 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 
 **Verification:** `py_compile` OK; withdrawn-Tk for routes Coastal/Desert/Mountain/Cross at `0/0.25/0.5/0.75/1`, `dist` linear, road clamped, items 87-98, smooth frame while running, hills stable, biome tints distinct.
 
+### 5.3 Immersive — dark default + light toggle + SlowRoads winding preserved + fullscreen HUD
+
+**User (Image 1 + “dark, plus the road style let it be like the slowroad one and make a fullscreen option where the whole screen the car going is shown and in floating windows the stats are shown just like focus flight”):**
+
+- **Dark default, winding preserved:** boot palette `THEME_DARK` (`bg #000000`, `ROAD_COLOR #1a1a1a`, `LANE #00ff88`) — SlowRoads math unchanged (18 stations, `pt=1-(1-t)^1.65`, `A1∈[42,68]`, scrolling `phase=(dist*0.18)%1`, biomes). Light toggle keeps the *same winding road* but re-skins to day: sky `#4a9ad4→#87ceeb`, road `#ffffff` with gray lane/shoulder, fields/hills screenshot greens (`#6b8a3a/#8aa06a/#a0b57a`), stars hide, cones dim. No flat-road branch.
+- **Toggle:** pill `Dark/Light` (topbar right, next to `⛶ Fullscreen`) — `toggle_theme()` flips `self.dark_mode`, persists `~/.roadtrip_focus/config.json {"dark": bool}`, calls `_apply_theme()` (lerps shell `bg/card/fg/muted/phase/stats/accent` across header/intent/route/timer/ctrl/sound/presets/quote/stats) and redraws canvas. Button text shows target (“Light” when dark).
+- **Layout — like screenshot but dark:** `CANVAS_H` ~170-190 via fullscreen-aware `h=int(h*0.28)` horizon; below-canvas two-card row still planned but windowed keeps existing `timer_row` (time + `ttk.Progressbar`) + controls; floating HUD replaces it in fullscreen.
+- **Fullscreen HUD (FocusFlight-style):** `is_fullscreen` + `CONFIG_PATH` + `_hud_frames/_pre_full_geo` + `root.bind <F11>/<F>/<Escape>`. `_enter_fullscreen()` saves `geometry()`, `attributes("-fullscreen", True)` (fallback `state("zoomed")`), hides chrome via `_set_chrome_visible(False)` (`pack_forget` all `/_header/_intent_row/.../_stats_row` except `_canvas_wrap` which `pack(fill="both", expand=True, pady=0)`), calls `_show_hud(True)` (two `place` frames: top `relx 0.5 rely 0.02` with `intent_var`+`route_var`+phase, bottom `relx 0.5 rely 0.92` with cloned `time_var`+`ttk.Progressbar`+`Exit Fullscreen (Esc)`), resizes `canvas` to `sw×(sh-80)` and uses `w=sw` in `draw_road` (so winding road fills 1920). `_exit_fullscreen()` restores `geometry`, `attributes("-fullscreen", False)`, `_set_chrome_visible(True)`, destroys HUD, restores `620×150`. `draw_road` now fullscreen-aware: `w=sw/h=sh-80` when `is_fullscreen`, else `winfo_width` fallback, horizon `h*0.28`, `road_half` scaled `*w/CANVAS_W`.
+- **Keeps SlowRoads:** `draw_road` still `dist=_dist_for_progress(progress)` winding, `30fps _anim_frame` interpolates `elapsed=(total-remaining)+frac` while running and syncs HUD phase/progress.
+
+**Verification:** `py_compile` OK; withdrawn-Tk dark boot (`dark True`), light toggle (`dark False` → sky `#4a9ad4`, road white, acreage greens), winding still at `0/0.5/1` for Coastal/Desert, fullscreen `toggle_fullscreen()` → `is_fullscreen True` `hud 2` `canvas sw×sh` `draw 109` items, exit restores `620×150` + chrome, `config.json` persists.
+
 ---
 
 ## 6. Vault sync — contract
@@ -215,12 +227,13 @@ pip install numpy sounddevice plyer
 
 ## 9. Verification (2026-08-29)
 
-- `python -m py_compile` — 3 files OK (re-verified after polish)
+- `python -m py_compile` — 3 files OK (re-verified after immersive)
 - Smoke test (`Tk()` withdrawn): route pick, time helpers, `draw_road` at 0/0.25/0.5/0.9/1.0, `open_trip_log`, `refresh_trip_stats` — all passed (`Second-Brain/roadtrip_focus.py:verified 2026-08-29`)
 - **Slow Roads rewrite smoke (2026-08-29):** `draw_road` at `0/0.1/0.25/0.5/0.75/0.9/1.0` for totals 25 m (`dist 0→9450`) / 120 m (`0→45360`) with seeds `0.1/0.5/0.9/0.01/0.99` + an extreme `A1=70,A2=35` — `dist` linear via `_dist_for_progress`, road stays inside canvas (clamped `max_offset`), scenery bounded (~59-65 items), per-session reseed verified, `self.dist` updated in `tick_ui`. Manual-verification flagged: parallax hill speeds, curve amplitude/frequency, tree/pole spacing need an eyeball run (run `python roadtrip_focus.py` and watch a 1–2 min drive).
 - **Polish smoke (2026-08-29):** same + perspective `_perspective_t` (`1-(1-t)^1.65`), scrolling dashes `phase=(dist*0.18)%1`, 22-band sky + stars + fog, hills stable (`x+off` not `dist` wobble), biome tints (4 routes → distinct sky/hill), scenery 5 kinds with fade (items 87-98), car cones/lean/steer/bob, 30fps `_anim_frame` interpolates `elapsed=(total-remaining)+frac` between ticks — all py_compile + withdrawn-Tk at 4 biomes `0/0.25/0.5/0.75/1` and running-frame (`total 60 remaining 60 frac 0.4`) passed. Appearance still manual: scroll speed, fog, star twinkle, biome contrast.
+- **Immersive smoke (2026-08-29):** dark boot (`dark True`, `Light` btn), light toggle → `dark False` sky `#4a9ad4` road white greens, winding still at `0/0.5/1` Coastal/Desert, `toggle_fullscreen()` → `is_fullscreen True` `hud 2` `canvas 1920×(1080-80)` `draw 109` items `w=sw` road scales `*w/CANVAS_W`, exit restores `false` `hud 0` `620×150`, `config.json {"dark":bool,"fullscreen":bool}` persists, `Esc`/`F11`/`F` binds.
 - `sounds` buffer shape `(176400, 2)` float32, peak `~0.076` at vol 0.12 — OK; `sounds.available()` true when deps present, false path disables checkbox without crash
-- `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after polish)
+- `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after immersive)
 
 ---
 
