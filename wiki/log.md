@@ -626,3 +626,16 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
   - **Car:** `car_w/h` before `car_x`, `car_x` clamped `max(car_w+4, min(w-car_w-4,…))`, `car_y = h-18+bob`, outline `width 2 #ffaa00` contrast, verified `1` rect `fill #ffcc33` both modes.
   - **Jitter:** `bob 0.7→0.45`, `lean 0.22→0.14`, `dash 0.18→0.09` slower, hills stable, `dist_render` spring.
 - **Vault doc:** `roadtrip-focus.md` ` -light-mode +squircle` tags, `description` dark-only, `§5.3` title, `§5.4` follow-up, new `§5.5` with table, `§9` dark-only & bottom-touch smoke; logged here.
+
+
+- **Vault doc:** `roadtrip-focus.md` ` -light-mode +squircle` tags, `description` dark-only,
+  `§5.3` title, `§5.4` follow-up, new `§5.5` with table, `§9` dark-only & bottom-touch smoke; logged here.
+
+### 2026-08-29 — Roadtrip Focus final: mini car, de-jitter, dark polish, squircle, HALFWAY removal
+
+- **User image:** jitter still, request mini car, polish interface to screenshot dark theme, square ends → squircle (curved not fully round), remove light, fullscreen gap.
+- **Fixed `roadtrip_focus.py`:**
+  - **Mini car:** `mini car` 3/4 model `14×8` `@0.85` → lower body `CAR_COLOR` 6-pt, cabin, windshield `#7ec8e3`+glare, 4 wheels, headlights `#fff7b2`/taillights `#ff3b30`, `y h-14+bob` clamped, `1` poly `fill #ffcc33` verified.
+  - **De-jitter:** `dist_render` spring `k 90 d 18` chasing `dist_target` (time-driven `elapsed = total-remaining+frac`), `draw_road` uses `_dist_render` when running, `bob 0.45` `lean 0.14` `dash 0.09`, `after(16)` 60fps.
+  - **Dark polish:** `intent/time` `bg #0f1419` `highlight` themed via `_apply_theme` (also `OptionMenu`/`Scale`), `THEME = THEME_DARK` dark-only, squircle `r 6-10` via `highlightthickness` (not pill) for 9 cards, road `y h-6→h` `h sh-80→sh` `max y == h`, `HALFWAY` loop `4→2` no labels.
+- **Vault doc:** `roadtrip-focus.md` description dark-only mini-car, `+` §5.6 with table, `§9` mini-car & de-jitter smoke; logged here.

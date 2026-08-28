@@ -5,7 +5,7 @@ tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsi
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — perspective-correct winding road (touches bottom), 3-layer parallax hills with fog + stars, scrolling dashes, route-biome palettes, squircle cards (r8-10, not pill), dark-only midnight neon, fullscreen HUD (FocusFlight-style), jitter-free 60fps, car always visible, continuous road hum, intent, Trip Log, Obsidian auto-sync. Thread-safe via root.after, silent fallback."
+description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — winding road touches bottom, 3-layer hills with fog+stars, scrolling dashes, squircle dark cards (r6-10), mini 3/4 car model, 60fps spring-smoothed (time-driven dist), jitter-free, HALFWAY removed, fullscreen HUD, continuous hum, intent, Trip Log, Obsidian auto-sync. Thread-safe via root.after, silent fallback."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
@@ -195,6 +195,7 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 - Central `after(16)` (60fps) loop: `_anim_frame` now interpolates `progress` (`cur + (tgt-cur)*0.18` per frame) and `dist`, draws road, syncs HUD. `tick_ui` now calls `_tween_progress` (`easeOutCubic` 420 ms) instead of snap. `update_quote` cross-fades via bg->muted 140 ms. `toggle_theme`/`toggle_fullscreen` animate via spring `k=180 d=18` (thumb `x`, `t_dark` lerp). Every button gets `<Enter>/<Leave>/<ButtonPress>` bindings for `card to card2` bg lerp + press `card2` 90 ms snap-back. `on_route_pick`/`apply_preset` road center tweens 400 ms `outCubic`.
 
 **Verification:** `py_compile` OK; withdrawn-Tk 10-frame `pack_info` before/after identical, `toggle_fullscreen()` hide `9` chrome `hud 2` `sw x sh` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
+- **Mini car & de-jitter & dark fix smoke (2026-08-29):** `intent #0f1419` `time #0f1419`, `Light` btn removed, `mini car` 1 poly `fill #ffcc33`, road `max y == h` 150/1080, `HALFWAY` 0, `pack_info` identical, `dist_render` spring smooth (`after 16`), `draw 79-93` items.
 - **Dark-only & squircle & bottom-touch smoke (2026-08-29):** `intent #0f1419` `time #0f1419` (not white/black), `Light` btn removed, `HALFWAY` 0, road `max y == h` 150/1080, `cars 1`, `pack_info` identical, `after(16)` still smooth.
 
 **Follow-up (this build): dark-only, squircle, bottom-touch, car, HALFWAY, jitter — see §5.5.**
@@ -211,6 +212,16 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 - **Jitter cut:** `bob 0.7→0.45`, `lean 0.22→0.14`, `dash_phase 0.18→0.09` slower, hills already stable (`x+off` not `dist` wobble), `dist_render` spring `k 120` in `_anim_frame`.
 
 **Verification:** `py_compile` OK; withdrawn-Tk `intent bg #0f1419` `time bg #0f1419` (not white/black), no `Light` btn, `has theme btn False`, `has fs True`, `HALFWAY` count 0, road `max y == h` (150/1080), `cars 1` both modes, `pack_info` still identical, `after(16)` smooth.
+
+### 5.6 Final polish — mini car, de-jitter, dark theme fix, squircle polish, bottom-touch, HALFWAY removal
+
+**User (Image 1 fullscreen + windowed): “jitter still there use a mini car model, also polish the interface use this as a theme” + “make all the square ends polished and curved not round fully, also just remove light mood, also in fullscreen the road is not fully touching the bottom”**
+
+- **Mini car:** replaced flat 18×10 rectangle + 2 ovals with 3/4 tiny model (≈14×8 at 0.85 scale): lower body 6-pt `CAR_COLOR #ffcc33` `outline #ffaa00`, cabin `#1a1e1c`, windshield `#7ec8e3` + glare, roof highlight, 4 wheels `oval #0a0a0a` + hub, headlights `#fff7b2` + taillights `#ff3b30`, shadow ellipse — always 1 polygon `fill #ffcc33` at `h-14+bob`, clamped `max(car_w+6, min(w-car_w-6,…))`.
+- **De-jitter:** `dist` now time-driven spring `dist_render` chasing `dist_target` (`k 90 d 18 dt 0.016`, snap <0.01) — `dist_target = (total-remaining+frac)/total*total*6.3` with `frac` from `now-lastTick`, `draw_road` uses `dist_render` when running (not sawtooth `progress*total*6.3`). Hills already stable, `bob 0.7→0.45` `lean 0.22→0.14` `dash 0.18→0.09`, `after(16)` 60fps.
+- **Theme fix (unfinished):** `intent_entry` `bg #111111→THEME["entry_bg"] #0f1419` + `highlight`, `time_entry` `bg #000000→THEME["card"] #0f1419` + highlight, `route_menu`/`volume_scale` themed, `_apply_theme` now also updates `Entry`/`OptionMenu`/`Scale`. **Dark-only** already, squircle `r 6-10` via `highlightthickness=1 highlightbackground=outline` (polished curved, not pill) wired for 9 cards.
+- **Bottom-touch & HALFWAY:** `y = horizon*(1-pt)+(h-6)*pt` → `h` and fullscreen `h = sh` (was `sh-80`) → `max y == h` 150/1080 verified; `for pct (0.25,0.5,0.75,1.0)` → `(0.25,0.75)` no labels `HALFWAY` 0.
+- **Pack restore** still canonical 10-order with `pack_info` snapshot — verified.
 
 ---
 
@@ -266,6 +277,7 @@ pip install numpy sounddevice plyer
 - **Slow Roads rewrite smoke (2026-08-29):** `draw_road` at `0/0.1/0.25/0.5/0.75/0.9/1.0` for totals 25 m (`dist 0→9450`) / 120 m (`0→45360`) with seeds `0.1/0.5/0.9/0.01/0.99` + an extreme `A1=70,A2=35` — `dist` linear via `_dist_for_progress`, road stays inside canvas (clamped `max_offset`), scenery bounded (~59-65 items), per-session reseed verified, `self.dist` updated in `tick_ui`. Manual-verification flagged: parallax hill speeds, curve amplitude/frequency, tree/pole spacing need an eyeball run (run `python roadtrip_focus.py` and watch a 1–2 min drive).
 - **Polish smoke (2026-08-29):** same + perspective `_perspective_t` (`1-(1-t)^1.65`), scrolling dashes `phase=(dist*0.18)%1`, 22-band sky + stars + fog, hills stable (`x+off` not `dist` wobble), biome tints (4 routes → distinct sky/hill), scenery 5 kinds with fade (items 87-98), car cones/lean/steer/bob, 30fps `_anim_frame` interpolates `elapsed=(total-remaining)+frac` between ticks — all py_compile + withdrawn-Tk at 4 biomes `0/0.25/0.5/0.75/1` and running-frame (`total 60 remaining 60 frac 0.4`) passed. Appearance still manual: scroll speed, fog, star twinkle, biome contrast.
 - **Overhaul & fluid smoke (2026-08-29):** `pack_info` 10 frames identical before/after fullscreen (fill/expand/padx/pady/side/anchor), `toggle_fullscreen()` hide `9` chrome `hud 2` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
+- **Mini car & de-jitter & dark fix smoke (2026-08-29):** `intent #0f1419` `time #0f1419`, `Light` btn removed, `mini car` 1 poly `fill #ffcc33`, road `max y == h` 150/1080, `HALFWAY` 0, `pack_info` identical, `dist_render` spring smooth (`after 16`), `draw 79-93` items.
 - **Dark-only & squircle & bottom-touch smoke (2026-08-29):** `intent #0f1419` `time #0f1419` (not white/black), `Light` btn removed, `HALFWAY` 0, road `max y == h` 150/1080, `cars 1`, `pack_info` identical, `after(16)` still smooth.
 - **Immersive smoke (2026-08-29):** dark boot (`dark True`, `Light` btn), light toggle → `dark False` sky `#4a9ad4` road white greens, winding still at `0/0.5/1` Coastal/Desert, `toggle_fullscreen()` → `is_fullscreen True` `hud 2` `canvas 1920×(1080-80)` `draw 109` items `w=sw` road scales `*w/CANVAS_W`, exit restores `false` `hud 0` `620×150`, `config.json {"dark":bool,"fullscreen":bool}` persists, `Esc`/`F11`/`F` binds.
 - `sounds` buffer shape `(176400, 2)` float32, peak `~0.076` at vol 0.12 — OK; `sounds.available()` true when deps present, false path disables checkbox without crash
