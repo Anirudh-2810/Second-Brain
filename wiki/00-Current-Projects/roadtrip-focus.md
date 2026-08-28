@@ -1,7 +1,7 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, light-mode, fullscreen, hud]
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, light-mode, fullscreen, hud, design-system, spring, fluid]
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
@@ -178,6 +178,24 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 
 **Verification:** `py_compile` OK; withdrawn-Tk dark boot (`dark True`), light toggle (`dark False` → sky `#4a9ad4`, road white, acreage greens), winding still at `0/0.5/1` for Coastal/Desert, fullscreen `toggle_fullscreen()` → `is_fullscreen True` `hud 2` `canvas sw×sh` `draw 109` items, exit restores `620×150` + chrome, `config.json` persists.
 
+### 5.4 Fix & Overhaul — scrambled spacing + proper design cues + fluid per-touch
+
+**User: "it bugs after i enter and exit full screen — spacing/crambled" + "light mode looks soo trash, give light and dark a visual overhaul, use some proper design ques" + "add smooth animations fro each touch"**
+
+**Scrambled fix:**
+- Root cause: `self._chrome_frames = [header, canvas_wrap, stats] + winfo_children` scrambled order + generic `pady` on restore. Fixed by canonical `self._chrome_order = [header, intent, route, canvas_wrap, timer, ctrl, sound, presets, quote, stats]` built at end of `build_ui`, plus `self._pack_state = {fr: fr.pack_info()}` snapshot **before** `pack_forget()` in `_enter_fullscreen()`, then exact `for fr in _chrome_order: fr.pack(**_pack_state[fr])` on `_exit_fullscreen()` (preserves `fill/expand/padx/pady/side/anchor/ipadx/ipady`). Added guard `if not hasattr(_chrome_order)`, removed `winfo_children` collection, fixed `__init__` overwrite (`_chrome_order = []` now conditional). Verified `pack_info` for 10 frames `fill/expand/padx/pady/side/anchor` identical before/after.
+
+**Visual overhaul — proper design system (not just invert):**
+- Expanded `THEME_DARK/LIGHT` from 6 keys to 10-token system: `bg, fg, muted, card, card2, outline, outline2, header_fg, phase_fg, accent, accent2, entry_bg/fg, hint, btn_bg/fg/outline, stats, shadow`. Dark = **midnight neon** (`bg #070a0e`, surface `#0f1419/#141b22`, outline `#1e2a33`, accent `#00e69a`); Light = **paper & clay** (`bg #f6f3ed`, surface `#ffffff/#fdfbf7`, outline `#e8ddd0`, accent `#0b6b4a`) — GH refs: Material You, Tailwind, Shadcn elevation.
+- `build_ui` now uses 8-pt scale (`padx 16/20, pady 4/8/12`), cards have `highlightthickness=1 highlightbackground=outline` for faux elevation, header `topbar padx 16`, buttons `padx 10 pady 4` `cursor hand2` with `highlight`. `_apply_theme()` now iterates `self._chrome_order` and sets `highlightbackground` for cards, plus `ttk.Style` for progress trough `card2`.
+- Canvas light re-skin keeps SlowRoads winding (same 18 stations, `pt`, `phase`) but uses day sky `top #4a9ad4/hor #87ceeb`, hills `#6b8a3a` screenshot greens, road white.
+
+**Fluid per-touch (state-of-the-art, GH: motion/react-spring/anime/GSAP — math only, no dep):**
+- Added helpers `_ease_out_cubic/_in_out_cubic/_out_expo`, `_lerp/_lerp_color`, and methods `_animate_button`, `_bind_fluid`, `_bind_control_fluid`, `_tween_progress`.
+- Central `after(16)` (60fps) loop: `_anim_frame` now interpolates `progress` (`cur + (tgt-cur)*0.18` per frame) and `dist`, draws road, syncs HUD. `tick_ui` now calls `_tween_progress` (`easeOutCubic` 420 ms) instead of snap. `update_quote` cross-fades via bg->muted 140 ms. `toggle_theme`/`toggle_fullscreen` animate via spring `k=180 d=18` (thumb `x`, `t_dark` lerp). Every button gets `<Enter>/<Leave>/<ButtonPress>` bindings for `card to card2` bg lerp + press `card2` 90 ms snap-back. `on_route_pick`/`apply_preset` road center tweens 400 ms `outCubic`.
+
+**Verification:** `py_compile` OK; withdrawn-Tk 10-frame `pack_info` before/after identical, `toggle_fullscreen()` hide `9` chrome `hud 2` `sw x sh` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
+
 ---
 
 ## 6. Vault sync — contract
@@ -231,6 +249,7 @@ pip install numpy sounddevice plyer
 - Smoke test (`Tk()` withdrawn): route pick, time helpers, `draw_road` at 0/0.25/0.5/0.9/1.0, `open_trip_log`, `refresh_trip_stats` — all passed (`Second-Brain/roadtrip_focus.py:verified 2026-08-29`)
 - **Slow Roads rewrite smoke (2026-08-29):** `draw_road` at `0/0.1/0.25/0.5/0.75/0.9/1.0` for totals 25 m (`dist 0→9450`) / 120 m (`0→45360`) with seeds `0.1/0.5/0.9/0.01/0.99` + an extreme `A1=70,A2=35` — `dist` linear via `_dist_for_progress`, road stays inside canvas (clamped `max_offset`), scenery bounded (~59-65 items), per-session reseed verified, `self.dist` updated in `tick_ui`. Manual-verification flagged: parallax hill speeds, curve amplitude/frequency, tree/pole spacing need an eyeball run (run `python roadtrip_focus.py` and watch a 1–2 min drive).
 - **Polish smoke (2026-08-29):** same + perspective `_perspective_t` (`1-(1-t)^1.65`), scrolling dashes `phase=(dist*0.18)%1`, 22-band sky + stars + fog, hills stable (`x+off` not `dist` wobble), biome tints (4 routes → distinct sky/hill), scenery 5 kinds with fade (items 87-98), car cones/lean/steer/bob, 30fps `_anim_frame` interpolates `elapsed=(total-remaining)+frac` between ticks — all py_compile + withdrawn-Tk at 4 biomes `0/0.25/0.5/0.75/1` and running-frame (`total 60 remaining 60 frac 0.4`) passed. Appearance still manual: scroll speed, fog, star twinkle, biome contrast.
+- **Overhaul & fluid smoke (2026-08-29):** `pack_info` 10 frames identical before/after fullscreen (fill/expand/padx/pady/side/anchor), `toggle_fullscreen()` hide `9` chrome `hud 2` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
 - **Immersive smoke (2026-08-29):** dark boot (`dark True`, `Light` btn), light toggle → `dark False` sky `#4a9ad4` road white greens, winding still at `0/0.5/1` Coastal/Desert, `toggle_fullscreen()` → `is_fullscreen True` `hud 2` `canvas 1920×(1080-80)` `draw 109` items `w=sw` road scales `*w/CANVAS_W`, exit restores `false` `hud 0` `620×150`, `config.json {"dark":bool,"fullscreen":bool}` persists, `Esc`/`F11`/`F` binds.
 - `sounds` buffer shape `(176400, 2)` float32, peak `~0.076` at vol 0.12 — OK; `sounds.available()` true when deps present, false path disables checkbox without crash
 - `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after immersive)
