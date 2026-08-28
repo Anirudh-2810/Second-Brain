@@ -556,3 +556,14 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - **Eng-Math gap closed:** the **normal form (canonical form) method** for rank — reduce to $\begin{bmatrix}I_r&0\\0&0\end{bmatrix}$ via row AND column ops — was missing from [[engineering-math/module-1-matrices]]. Added §2.2.1 (definition, rank-preservation rationale, 5-step reduction algorithm, exam shortcut, REF-vs-normal-form table) + Problem 1b: full worked 3×4 example reducing to $[I_2\,0;0\,0]$ → rank 2. Tag `normal-form` added.
 - Added **Rank via normal form** row to [[formula-sheet-am]] M1 table.
 - Daily note `daily/2026-08-28.md` created (Study: true). No new module/page → graphs + dashboard not regenerated.
+
+### 2026-08-29 — Roadtrip Focus enhancement: destination-slide animation (straight then exit)
+
+- User removed flashcard scope; requested the car ride straight and, when the destination appears on the left/right, slide toward it and park.
+- **Implemented** in `C:/Users/Vijaykumar/My apps/RoadtripFocus/roadtrip_focus.py`:
+  - `destination_side` random per session (`random.choice left/right` in `__init__` + re-rolled in `start_timer()`; spec: random per session).
+  - New constants `DEST_BAY_COLOR/EDGE/LABEL`; helpers `_slide_window(total)=min(0.06, 60/total)`, `_slide_start()`, `_destination_geometry(...)` (bay `56×20` at `top_x0-62` / `top_x1+62`, `y=horizon_y+10`, branch connector).
+  - `draw_road(progress)` now two-phase: straight center until `slide_start`, then `easeOutCubic` lateral slide `center→bay_cx` + 35% `y` convergence to bay; parked dead-center at 1.0. Blink cues: bay chevron + car glint (`int(t*10)%2`). Bay drawn from frame 0 with `DESTINATION` label + `EXIT LEFT/RIGHT` hint; scope is **only car-slide** (no confetti/chase-lights/flashcards in this pass, per user).
+  - Slide timing: last 6% capped at 60 s (`window = min(0.06, 60/total)`, `slide_start=1-window`) — e.g. 25 m → 60 s, 120 m → 60 s, 10 m → 36 s.
+  - Verification: `py_compile` OK; withdrawn-Tk smoke for both sides at `0 / 0.5 / 0.94 / 0.96 / 0.98 / 0.995 / 1.0` and totals 25 m/50 m/120 m — `car_x==center` before slide, `bay_cx` at 1.0, blink toggles, 55/58 canvas items as expected. Manual-verification flagged for the visual feel (must eyeball the turn-in).
+- **Vault doc**: updated `wiki/00-Current-Projects/roadtrip-focus.md` (frontmatter + For-future-agent + new §5.1 + §9 verification entry; new `animation` tag).

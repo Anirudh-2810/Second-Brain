@@ -1,11 +1,11 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound]
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation]
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with perspective highway canvas, continuous road hum, session intent field, local Trip Log, and Obsidian auto-sync to daily notes + brain history. Dark theme, thread-safe via root.after, silent fallback without numpy/sounddevice."
+description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with perspective highway canvas — car rides straight then slides to a random left/right destination bay — continuous road hum, session intent field, local Trip Log, and Obsidian auto-sync to daily notes + brain history. Dark theme, thread-safe via root.after, silent fallback without numpy/sounddevice."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
@@ -18,7 +18,7 @@ description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with perspecti
 ---
 
 ## For future agent
-This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a virtual drive. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a highway-at-night canvas, and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
+This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a virtual drive. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a highway-at-night canvas where the car rides straight then slides to a random left/right destination bay, and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
 
 ---
 
@@ -117,16 +117,32 @@ Volume default `0.12` — intentionally quiet per FocusFlight's hearing-safety n
 
 ## 5. Canvas — perspective highway
 
-`draw_road(progress: 0..1)` (`roadtrip_focus.py:155-250`):
+`draw_road(progress: 0..1)` (`roadtrip_focus.py`):
 
 - Sky gradient (18 bands, `#0a0a0a` → `#1a1a2a`)
 - Horizon line at `y=42`
 - Road trapezoid `top_w=80` → `bot_w=520`, fill `#1a1a1a`, shoulders `#3a3a3a`
 - Center dashed line: 10 dashes, width narrows toward horizon, color `#00ff88`
 - Mile markers at 25/50/75/100% (posts on both edges; labels HALFWAY / ARRIVAL at 50% & 100%)
-- **Car:** rectangle `#ffcc33` + windshield `#88ccee` + wheels, scaled by `1.0 - progress*0.55` so it shrinks toward horizon. `car_y` interpolates bottom → horizon. Shadow + arrival flash on landing.
+- **Destination bay:** a parking bay drawn from the start on the randomly-chosen side (`left` offset `top_x0-62`, `right` offset `top_x1+62`, size `56×20`, `y=horizon_y+10`) with a `DESTINATION` label, a branch connector from the road edge, and an `EXIT LEFT/RIGHT` tag. The bay highlights (`#243a2e` fill, `#00ff88` edge) once the slide begins.
+- **Car — two-phase drive:** until `slide_start` the car rides straight down the center (`car_x = w//2`, `car_y` interpolates bottom → horizon, scale `1.0 - progress*0.55`). After `slide_start` its `x` eases from center → bay center via `easeOutCubic` (`eased = 1-(1-t)^3`, `t=(progress-slide_start)/(1-slide_start)`) and its `y` converges 35% toward the bay so the exit reads as a diagonal. At `progress=1.0` the car is parked dead-center in the bay. During the slide a blinking amber turn-signal glint appears on the car and a filled amber chevron on the bay (`int(t*10)%2==0` blink).
+- **Slide window:** `window = min(0.06, 60/total_seconds)`, `slide_start = 1 - window`. So the maneuver is always the last 6% of the trip but never longer than 60 s (25 m → last 60 s, 120 m → last 60 s, 10 m → last 36 s, 1 m → last 3.6 s).
 
 No image assets — pure `tk.Canvas` primitives, so the binary stays small and the build stays portable.
+
+### 5.1 Enhancement (2026-08-29): Destination slide — straight then exit
+
+**Motivation:** the original car just shrank toward a static horizon; the new behavior makes the arrival feel like a *maneuver* — you see where you're heading from the start and the car actually turns off.
+
+**What changed** (`roadtrip_focus.py`):
+
+- New constants `DEST_BAY_COLOR / DEST_BAY_EDGE / DEST_BAY_LABEL`.
+- `RoadtripFocus.__init__` now picks `self.destination_side = random.choice(("left","right"))`.
+- `start_timer()` re-rolls `destination_side` per session (random per session, as decided) before resetting `total/remaining` and calling `draw_road(0.0)`.
+- New helpers `_slide_window(total)`, `_slide_start()`, `_destination_geometry(...)` encapsulate the slide math and bay placement.
+- `draw_road()` now draws the destination bay + branch + label from frame 0, computes `slide_start` from `self.total` (fallback `selected_route_min*60` when previewing), and applies the two-phase car path + blink cues described above. `tick_ui()` and `finish_phase()` need no logic change — they already call `draw_road(progress)` which reads `self.destination_side`.
+
+**Verification:** py_compile + withdrawn-Tk smoke at `progress 0 / 0.5 / 0.94 / 0.96 / 0.98 / 0.995 / 1.0` for both sides and for totals 25 m / 50 m / 120 m; `exp_car_x` asserts center before `slide_start` and `bay_cx` at 1.0. Appearance requires an eyeball check — flagged as manual-verification.
 
 ---
 
@@ -177,8 +193,9 @@ pip install numpy sounddevice plyer
 
 ## 9. Verification (2026-08-29)
 
-- `python -m py_compile` — 3 files OK
+- `python -m py_compile` — 3 files OK (re-verified after slide patch)
 - Smoke test (`Tk()` withdrawn): route pick, time helpers, `draw_road` at 0/0.25/0.5/0.9/1.0, `open_trip_log`, `refresh_trip_stats` — all passed (`Second-Brain/roadtrip_focus.py:verified 2026-08-29`)
+- **Slide patch smoke (2026-08-29):** `draw_road` at `0 / 0.5 / 0.94 / 0.96 / 0.98 / 0.995 / 1.0` for both `left` and `right` bays; totals 25 m (`start 0.96`), 50 m (`0.98`), 120 m (`0.99167`) — window `min(0.06, 60/total)`, lateral `easeOutCubic`, blink toggles, `car_x == center` before `slide_start` and `== bay_cx` at 1.0 — all passed. Appearance/manual-verification flagged: turn-in feel, bay placement, blink timing need an eyeball run.
 - `sounds` buffer shape `(176400, 2)` float32, peak `~0.076` at vol 0.12 — OK; `sounds.available()` true when deps present, false path disables checkbox without crash
 - `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned
 
