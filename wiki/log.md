@@ -633,6 +633,15 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 
 ### 2026-08-29 — Roadtrip Focus final: mini car, de-jitter, dark polish, squircle, HALFWAY removal
 
+### 2026-08-29 — Roadtrip Focus web stitch: React + Motion (motion-only) + GSAP + Pixi + Lottie, no new dirs, A+B
+
+- **User gave 8 GH refs:** `motion`, `GSAP`, `anime`, `auto-animate`, `react-spring`, `AOS`, `PixiJS`, `lottie-web` — pulled `motion` (spring `stiffness 90/180 damping 18` for car `lean/steer/bob` + `dist_render` + `progress` + HUD `AnimatePresence`), `GSAP.ticker` for `dash_phase`, `anime` easings as `easeOutCubic` 15 LOC, `Pixi` `TilingSprite` for 3 hills (no `delete` flicker), `lottie` arrival check; `react-spring`/`auto-animate`/`AOS` as preset/reference not runtime (motion-only per user “mtoion only”).
+- **Built:** `C:/Users/Vijaykumar/My apps/RoadtripFocus/roadtrip_web.html` single file `importmap` → `react@18`/`framer-motion@10`/`gsap@3`/`pixi.js@7`/`lottie-web@5` via `esm.sh` (no `web/` dir, no `vite`/`npm`), ported `THEME_DARK`, `ROUTE_BIOMES`, `A1/A2/w1/w2`, `pt=1-(1-t)^1.65`, `visible 140`, `SCENERY_SPEED 18`, mini 3/4 `14×8@0.85`, squircle `r 6-10`, `max y==h`, `HALFWAY` 0. Copy to `docs/roadtrip.html` (existing `docs/` Pages root, no new folder) for `https://anirudh-2810.github.io/Second-Brain/roadtrip.html`.
+- **Stitch:** `roadtrip_focus.py --web` → `pywebview` `Api` (`get_config/save_config/get_state/save_session/play_hum`) reuses `sessions.py`/`vault_sync.py`/`sounds.py` (no new server, fallback to Tk if `pywebview` missing). `file://` pure uses `localStorage` + `Download .md`. Dark-only, squircle, bottom-touch kept.
+- **Vault doc:** `roadtrip-focus.md` `+web +react +motion +pixi +gsap +lottie` tags, `+` §10 Web (A+B, motion-only), `§9` with GH-ref table; `docs/roadtrip.html` added; `generate-index.py` still 338.
+
+### 2026-08-29 — Roadtrip Focus final: mini car, de-jitter, dark polish, squircle, HALFWAY removal
+
 - **User image:** jitter still, request mini car, polish interface to screenshot dark theme, square ends → squircle (curved not fully round), remove light, fullscreen gap.
 - **Fixed `roadtrip_focus.py`:**
   - **Mini car:** `mini car` 3/4 model `14×8` `@0.85` → lower body `CAR_COLOR` 6-pt, cabin, windshield `#7ec8e3`+glare, 4 wheels, headlights `#fff7b2`/taillights `#ff3b30`, `y h-14+bob` clamped, `1` poly `fill #ffcc33` verified.

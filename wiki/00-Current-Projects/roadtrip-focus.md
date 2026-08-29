@@ -1,24 +1,24 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle]
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle, web, react, motion, pixi, gsap, lottie]
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Tkinter road-trip focus timer (25/50/90/120/Custom) with polished Slow Roads endless cruise — winding road touches bottom, 3-layer hills with fog+stars, scrolling dashes, squircle dark cards (r6-10), mini 3/4 car model, 60fps spring-smoothed (time-driven dist), jitter-free, HALFWAY removed, fullscreen HUD, continuous hum, intent, Trip Log, Obsidian auto-sync. Thread-safe via root.after, silent fallback."
+description: "Roadtrip Focus — Tkinter + Web (React+motion) endless cruise. Tk dark-only squircle, mini 3/4 car, 60fps spring, bottom-touch road, HALFWAY removed, fullscreen HUD. Web: single-file roadtrip_web.html (React 18 + framer-motion + GSAP + PixiJS + lottie-web via esm.sh, no new dirs) with same winding math, requestAnimationFrame, Pixi TilingSprite hills, motion springs, Lottie check, pywebview bridge to sessions/vault_sync. Thread-safe, silent fallback."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
 
 > **Repo:** `C:/Users/Vijaykumar/My apps/RoadtripFocus/` (fresh folder — `2)b` choice)
-> **Stack:** `tkinter` + `ttk`, `threading`, `sounds.py` (`numpy` + `sounddevice`, optional), `sessions.py`, `vault_sync.py`
+> **Stack:** `tkinter` + `ttk` (Tk fallback) **+ Web** `React 18 + framer-motion + GSAP + PixiJS + lottie-web` via `esm.sh` in one `roadtrip_web.html` (no new dirs, copy to `docs/roadtrip.html` for Pages) + `pywebview` bridge (`--web`) to `sessions.py`/`vault_sync.py` + `threading`, `sounds.py`
 > **Theme:** Road trip (Coastal Hop → Cross-Country) — distinct from FocusFlight's aviation, now an endless **Slow Roads** cruise: *no destination, just winding road + continuous sound* — same spatial-progress insight, opposite arrival semantics. **Dark-only midnight neon** (squircle cards r8-10, road touches bottom) + **fullscreen HUD** (FocusFlight-style: canvas fills screen, stats float)
 > **Obsidian:** Direct vault writes (no REST API) — see `vault_sync.py` section
 
 ---
 
 ## For future agent
-This is a **personal productivity build** — a road-trip-themed focus timer that turns each deep-work block into a polished Slow Roads endless cruise. Extends the proven `[[quote-pomodoro]]` Tkinter threading/UI pattern, swaps the flight metaphor for a procedurally winding night highway through biome-tinted 3-layer parallax hills (fog + stars) with scrolling dashes and trees/bushes/rocks/poles while the car stays fixed with lean-steer bob + headlight cones at 60fps, **dark-only midnight neon** with squircle cards (r8-10, not pill) and road that touches bottom, plus a **fullscreen HUD** (canvas fills screen, floating stats like FocusFlight), and **auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
+This is a **personal productivity build** — Tk + Web (React + motion) endless cruise. Tk is dark-only squircle `_chrome_order` + `pack_info` restore, mini 3/4 car, `max y==h`, `HALFWAY` 0, 60fps spring. Web is one `roadtrip_web.html` (React 18 + framer-motion spring only + GSAP ticker + Pixi TilingSprite + lottie) via `esm.sh` (no new dirs, copy to `docs/roadtrip.html`), `requestAnimationFrame`, same winding math, `motion` springs for car/progress/HUD. `pywebview --web` stitches JS rendering to Python `sessions`/`vault_sync`/`sounds`. **Auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
 
 ---
 
@@ -284,6 +284,14 @@ pip install numpy sounddevice plyer
 - `vault_sync` end-to-end (dummy `Session` → `daily/2026-08-29.md` + `brain/Roadtrip Focus History.md`) — both writes verified, then cleaned (re-cleaned after immersive)
 
 ---
+
+## 10. Web — React + Motion stitch (A+B, no new dirs, motion-only)
+
+**Single file** `C:/Users/Vijaykumar/My apps/RoadtripFocus/roadtrip_web.html` (and copy `docs/roadtrip.html` — existing `docs/` is Pages root, no new folder) — `React 18` + `framer-motion` (only spring) + `GSAP` ticker + `PixiJS` `TilingSprite` + `lottie-web` via `importmap` `https://esm.sh` (no `npm`/`vite`).
+
+- **Same winding math** as Tk: `THEME_DARK`, `ROUTE_BIOMES`, `A1/A2/w1/w2`, `pt=1-(1-t)^1.65`, `visible 140`, `SCENERY_SPEED 18`, `CAR_COLOR`, squircle `r 6-10`, `max y==h`. `motion` `useSpring({stiffness:90,damping:18})` for `dist_render`/`lean`/`bob`/`progress`, `GSAP.ticker` for `dash_phase`, `Pixi` for 3 hill `TilingSprite` (no `delete("all")` flicker), `lottie` for arrival check.
+- **Stitch:** `roadtrip_focus.py --web` → `pywebview` `Api` (`get_config/save_config/get_state/save_session/play_hum`) reuses `sessions.py`/`vault_sync.py`/`sounds.py` (no new server). `file://` or `https://anirudh-2810.github.io/Second-Brain/roadtrip.html` (pure) uses `localStorage` fallback + `Download .md`.
+- **No light:** dark-only kept, `THEME = THEME_DARK`.
 
 ## 10. Future — web build
 
