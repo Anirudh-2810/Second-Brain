@@ -657,4 +657,11 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - **Web `roadtrip_web.html` (`My apps` only, no `docs/` copy):** same 4 picks + `vol` in HUD `sound` row, Web Audio `AudioContext` 4 s `AudioBuffer` loop with identical pink/brown/rain generation (JS `b0..b6` Kellet, brown integrator), `hum` drone `55+110 Hz`, `kind` select swaps `AudioBufferSourceNode` without gap, `isRunning && !isPaused` resumes after `Hit the road` gesture. `pywebview` bridge already handles `save_session`.
 - **Vault doc:** `roadtrip-focus.md` `+white-noise +brown-noise +pink-noise` tags, `description` + `§6` White-noise section, `## For future agent` + white-noise; `roadtrip_web.html` already motion-only `React+GSAP+Pixi+lottie` via `esm.sh` (single file, `My apps` only) — blank-page fixed via `htm`.
 
+### 2026-08-29 — Roadtrip Focus HUD: traffic dots removed, Fullscreen into floating HUD
+
+- **User:** “move into a floating hud, plus remove the red, orange and green circles on the top left”
+- **Tk:** `topbar` `Fullscreen` pill removed (was `self._fs_btn` in `topbar`), header now centered `ROADTRIP FOCUS` only, no `traffic` (was never in Tk, but web had `● ● ●`). `hud-bottom` now Apple Music floating pill `r 14` `blur 16px` at `relx 0.5 rely 0.92` with `time` + `progress` + `▶/⏸/↻` + `Fullscreen/Exit` (`_hud_fs_btn`) — created in `_show_hud(True)` (was `topbar`), bottom HUD now also holds playback controls, not just `Exit`. `topbar` fluid bindings for `_fs_btn` removed.
+- **Web `RoadtripFocus/roadtrip_web.html` (`My apps` only, no `docs/` copy per “different on, i.e. from my apps dir only”):** removed `traffic` CSS/HTML (`● ● ●`) and `top-actions Fullscreen`, added `hud-bottom` floating pill `bottom 12` `r 12` with `time` + `progress` + `Fullscreen` toggle (`document.documentElement.requestFullscreen` + `fullscreenchange` sync). Dark-only squircle kept.
+- **Vault doc:** `§5.5` + `HUD` note, `§5.6` title + `HUD + traffic`, `§9` with `traffic 0` + `Fullscreen in hud-bottom`.
+
 
