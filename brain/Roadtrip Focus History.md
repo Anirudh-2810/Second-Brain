@@ -9,9 +9,9 @@ tags: [focus, productivity, roadtrip, history]
 ## For future agent
 This note is the **single source** for Roadtrip Focus aggregate stats. Each completed drive appends here and to the daily note. Totals and streak are machine-updated; do not hand-edit the stats comment.
 
-> **Totals (as of 2026-08-29)** — 6 completed / 6 sessions · 30 min (0.5 h) · streak: 1 day(s)
+> **Totals (as of 2026-08-29)** — 7 completed / 7 sessions · 31 min (0.5 h) · streak: 1 day(s)
 
-<!-- stats: {"total_min": 30, "total_sessions": 6, "total_completed": 6, "streak": 1, "last_date": "2026-08-29"} -->
+<!-- stats: {"total_min": 31, "total_sessions": 7, "total_completed": 7, "streak": 1, "last_date": "2026-08-29"} -->
 
 ## Recent Trips
 
@@ -23,6 +23,7 @@ This note is the **single source** for Roadtrip Focus aggregate stats. Each comp
 | 2026-08-29 15:35 | Custom · 1m | 1 | cs50 | ✓ |
 | 2026-08-29 15:36 | Custom · 1m | 1 | cs50 | ✓ |
 | 2026-08-29 15:47 | Custom · 1m | 1 | (no intent) | ✓ |
+| 2026-08-29 17:43 | Custom · 1m | 1 | (no intent) | ✓ |
 
 ## See Also
 
