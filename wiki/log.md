@@ -648,3 +648,13 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
   - **De-jitter:** `dist_render` spring `k 90 d 18` chasing `dist_target` (time-driven `elapsed = total-remaining+frac`), `draw_road` uses `_dist_render` when running, `bob 0.45` `lean 0.14` `dash 0.09`, `after(16)` 60fps.
   - **Dark polish:** `intent/time` `bg #0f1419` `highlight` themed via `_apply_theme` (also `OptionMenu`/`Scale`), `THEME = THEME_DARK` dark-only, squircle `r 6-10` via `highlightthickness` (not pill) for 9 cards, road `y h-6→h` `h sh-80→sh` `max y == h`, `HALFWAY` loop `4→2` no labels.
 - **Vault doc:** `roadtrip-focus.md` description dark-only mini-car, `+` §5.6 with table, `§9` mini-car & de-jitter smoke; logged here.
+
+### 2026-08-29 — Roadtrip Focus white-noise for studying (brown/pink/white/rain)
+
+- **User:** “also the pomodoro road app which were building must have a white noise sort smth to help while studing” + “use the whole 30 mins wisely” — production white-noise in 30-min sprint.
+- **Tk `sounds.py`:** extended `_build_buffer(volume, kind, hum)` — `white` rand, `pink` Kellet 6-pole, `brown` leak `*0.998` `*1.8`, `rain` pink + droplet `exp(-t/120)` every 0.7s, mixed with 55/110 Hz hum `0.6/0.3` + shimmer, `tanh` soft-clip, stereo `8ms` decorrelation, 4 s `float32` loop via `sounddevice` callback (gapless). `start(volume, kind, hum)` + `_ensure_buffer` now caches `kind/hum`, `set_volume(kind,hum)` + `set_kind` live-swap. Silent fallback if `numpy/sounddevice` missing.
+- **Tk `roadtrip_focus.py`:** `sound_row` now `Road hum` `checkbox` + `vol 0-0.5` `Scale` + `Kind ▾ brown/pink/white/rain` `OptionMenu` → `on_noise_kind`/`on_sound_toggle`/`on_volume_change` call `sounds.start(vol,kind,hum)` and persist `~/.roadtrip_focus/config.json {noise_kind, vol}` (no new dir). `_apply_theme` now also themes `OptionMenu`. Default `brown` + hum ON (warm, study-friendly, keeps road feel).
+- **Web `roadtrip_web.html` (`My apps` only, no `docs/` copy):** same 4 picks + `vol` in HUD `sound` row, Web Audio `AudioContext` 4 s `AudioBuffer` loop with identical pink/brown/rain generation (JS `b0..b6` Kellet, brown integrator), `hum` drone `55+110 Hz`, `kind` select swaps `AudioBufferSourceNode` without gap, `isRunning && !isPaused` resumes after `Hit the road` gesture. `pywebview` bridge already handles `save_session`.
+- **Vault doc:** `roadtrip-focus.md` `+white-noise +brown-noise +pink-noise` tags, `description` + `§6` White-noise section, `## For future agent` + white-noise; `roadtrip_web.html` already motion-only `React+GSAP+Pixi+lottie` via `esm.sh` (single file, `My apps` only) — blank-page fixed via `htm`.
+
+

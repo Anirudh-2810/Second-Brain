@@ -1,11 +1,11 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle, web, react, motion, pixi, gsap, lottie]
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle, web, react, motion, pixi, gsap, lottie, white-noise, brown-noise, pink-noise]
 last_updated: "2026-08-29"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
-description: "Roadtrip Focus — Tkinter + Web (React+motion) endless cruise. Tk dark-only squircle, mini 3/4 car, 60fps spring, bottom-touch road, HALFWAY removed, fullscreen HUD. Web: single-file roadtrip_web.html (React 18 + framer-motion + GSAP + PixiJS + lottie-web via esm.sh, no new dirs) with same winding math, requestAnimationFrame, Pixi TilingSprite hills, motion springs, Lottie check, pywebview bridge to sessions/vault_sync. Thread-safe, silent fallback."
+description: "Roadtrip Focus — Tkinter + Web (React+motion) endless cruise with white-noise for studying. Tk dark-only squircle, mini 3/4 car, 60fps spring, bottom-touch road, HALFWAY removed, fullscreen HUD, selectable white/pink/brown/rain + hum. Web: single-file roadtrip_web.html (React 18 + framer-motion + GSAP + Pixi + lottie via esm.sh, no new dirs) same winding, requestAnimationFrame, Pixi hills, motion springs, Lottie, Web Audio white-noise. Thread-safe, silent fallback."
 ---
 
 # Roadtrip Focus — Cross-Country Focus Timer
@@ -18,7 +18,7 @@ description: "Roadtrip Focus — Tkinter + Web (React+motion) endless cruise. Tk
 ---
 
 ## For future agent
-This is a **personal productivity build** — Tk + Web (React + motion) endless cruise. Tk is dark-only squircle `_chrome_order` + `pack_info` restore, mini 3/4 car, `max y==h`, `HALFWAY` 0, 60fps spring. Web is one `roadtrip_web.html` (React 18 + framer-motion spring only + GSAP ticker + Pixi TilingSprite + lottie) via `esm.sh` (no new dirs, copy to `docs/roadtrip.html`), `requestAnimationFrame`, same winding math, `motion` springs for car/progress/HUD. `pywebview --web` stitches JS rendering to Python `sessions`/`vault_sync`/`sounds`. **Auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
+This is a **personal productivity build** — Tk + Web (React + motion) endless cruise with white-noise. Tk dark-only squircle, mini 3/4 car, `max y==h`, `HALFWAY` 0, 60fps spring, **selectable white/pink/brown/rain + hum** for studying. Web is one `roadtrip_web.html` (React 18 + framer-motion spring only + GSAP ticker + Pixi TilingSprite + lottie + Web Audio) via `esm.sh` (no new dirs), `requestAnimationFrame`, same winding, `pywebview --web` stitches JS to Python `sessions`/`vault_sync`/`sounds`. **Auto-logs every completed trip into the vault** (the edge FocusFlight cannot have). Cross-links: [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]], [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]], `brain/Roadtrip Focus History`.
 
 ---
 
@@ -224,6 +224,14 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 - **Pack restore** still canonical 10-order with `pack_info` snapshot — verified.
 
 ---
+
+## 6. White-noise for studying
+
+**Study aid:** `sounds.py` now builds 4 selectable procedural beds + optional hum, all 4 s gapless stereo via `sounddevice` (same as road hum). Web `roadtrip_web.html` mirrors with Web Audio `AudioContext` 4 s `AudioBuffer` loop.
+
+- **Kinds:** `white` (equal), `pink` (Paul Kellet 6-pole), `brown` (leak integrator `*0.998`), `rain` (pink + sparse 0.7s droplet `exp(-t/120)` ticks) — `brown` default (warm, least fatigue, keeps hum feel).
+- **Tk:** `sound_row` → `Road hum` `checkbox` + `vol 0-0.5` `Scale` + `Kind ▾ brown/pink/white/rain` `OptionMenu` + `Preview` handled via `on_noise_kind`/`on_volume_change` → `sounds.start(vol, kind, hum=True)` live-swap, persisted `~/.roadtrip_focus/config.json {noise_kind, vol, hum}` (no new dir). Silent fallback if `numpy/sounddevice` missing.
+- **Web:** same 4 picks + `vol` in HUD `sound` row, `AudioContext` 4 s buffer loop, `hum` drone `55+110 Hz`, `kind` select swaps `AudioBufferSourceNode` without gap, `isRunning && !isPaused` resumes after user gesture (`Hit the road`).
 
 ## 6. Vault sync — contract
 
