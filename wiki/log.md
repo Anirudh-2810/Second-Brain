@@ -664,4 +664,10 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - **Web `RoadtripFocus/roadtrip_web.html` (`My apps` only, no `docs/` copy per “different on, i.e. from my apps dir only”):** removed `traffic` CSS/HTML (`● ● ●`) and `top-actions Fullscreen`, added `hud-bottom` floating pill `bottom 12` `r 12` with `time` + `progress` + `Fullscreen` toggle (`document.documentElement.requestFullscreen` + `fullscreenchange` sync). Dark-only squircle kept.
 - **Vault doc:** `§5.5` + `HUD` note, `§5.6` title + `HUD + traffic`, `§9` with `traffic 0` + `Fullscreen in hud-bottom`.
 
+### 2026-08-29 — Roadtrip Focus: Top-right Journey Completed popup + Proper 60fps + Fullscreen-only HUD
+
+- **User:** “when the timer is finished a pop up slide in from the top right side saying that the journey has been completed” + “also by any chance can you make it proper fluid 60 fps?” + “only fullscreen”
+- **Tk:** `finish_phase` now `after(180, _show_completion_popup)` — `Frame` `place x=W→W-pw-16 y=16` 16 steps `easeOutCubic` 16ms, `Journey completed ✓` + `route · min` + `intent` + `Trip Log`/`Dismiss`, auto 4s. `dist` time-driven `dist_for_time()` (`_t0`/`_paused_acc`/`_dist0`) + spring `k60 d22` in `after(16)` `60fps`, `progress` derives from `dist_render`, `tick_ui` no longer draws road (no 1 fps flash). `topbar` keeps `Fullscreen` for windowed entry, `hud-bottom` Apple Music pill only when `is_fullscreen` (was always, now “only fullscreen” per you), traffic already `0`.
+- **Web `My apps/RoadtripFocus/roadtrip_web.html` (`My apps` only):** `showDone`/`doneInfo` `motion.div` `initial x:400 opacity:0 → x:0 opacity:1` `spring 320/28` at `top 16 right 16` `340px` `r12` `blur16`, `onFinish` sets `showDone` + `lottie`.
+
 

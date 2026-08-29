@@ -196,6 +196,7 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 
 **Verification:** `py_compile` OK; withdrawn-Tk 10-frame `pack_info` before/after identical, `toggle_fullscreen()` hide `9` chrome `hud 2` `sw x sh` -> restore pads `(12,0)/(10,6)/(2,6)/(6,4)/(4,0)/(10,2)/(2,0)/(6,0)/(8,0)/(6,8)`, light toggle `THEME_LIGHT` `bg #f6f3ed` `outline #e8ddd0` vs dark `bg #070a0e` `outline #1e2a33`, winding still SlowRoads, `after(16)` tween `progress 0->20` reaches `17.1` at 0.2s, button `<Enter>` bg `card->card2`, quote fade, `draw 93` items at 60fps.
 - **Mini car & de-jitter & dark fix smoke (2026-08-29):** `intent #0f1419` `time #0f1419`, `Light` btn removed, `mini car` 1 poly `fill #ffcc33`, road `max y == h` 150/1080, `HALFWAY` 0, `pack_info` identical, `dist_render` spring smooth (`after 16`), `draw 79-93` items.
+- **Proper 60fps & popup smoke (2026-08-29):** `dist_target` linear `0.32` per `0.05s` `~6.3` u/s constant (no 6.3 jump per sec), `dist_render` spring smooth, `after(16)` budget `<10 ms`, `isRunning` `dist` 0→1.5 in 0.25s, `popup` `place x W→W-pw-16` `16` steps `easeOutCubic` auto 4s, web `motion` `x 400→0` spring.
 - **Dark-only & squircle & bottom-touch smoke (2026-08-29):** `intent #0f1419` `time #0f1419` (not white/black), `Light` btn removed, traffic `0`, `Fullscreen` in `hud-bottom` (not topbar), `HALFWAY` 0, road `max y == h` 150/1080, `mini car` 1, `pack_info` identical, `after(16)` still smooth.
 
 **Follow-up (this build): dark-only, squircle, bottom-touch, car, HALFWAY, jitter — see §5.5.**
@@ -222,6 +223,14 @@ No image assets — pure `tk.Canvas` primitives, so the binary stays small and t
 - **Theme fix (unfinished):** `intent_entry` `bg #111111→THEME["entry_bg"] #0f1419` + `highlight`, `time_entry` `bg #000000→THEME["card"] #0f1419` + highlight, `route_menu`/`volume_scale` themed, `_apply_theme` now also updates `Entry`/`OptionMenu`/`Scale`. **Dark-only** already, squircle `r 6-10` via `highlightthickness=1 highlightbackground=outline` (polished curved, not pill) wired for 9 cards.
 - **Bottom-touch & HALFWAY:** `y = horizon*(1-pt)+(h-6)*pt` → `h` and fullscreen `h = sh` (was `sh-80`) → `max y == h` 150/1080 verified; `for pct (0.25,0.5,0.75,1.0)` → `(0.25,0.75)` no labels `HALFWAY` 0.
 - **Pack restore** still canonical 10-order with `pack_info` snapshot — verified.
+
+### 5.7 Production — Top-right Journey Completed + Proper 60fps + Fullscreen-only HUD
+
+**User: “when the timer is finished a pop up slide in from the top right side saying that the journey has been completed” + “also by any chance can you make it proper fluid 60 fps?” + “only fullscreen”**
+
+- **Popup:** `Tk` `def _show_completion_popup(session)` — `Frame` `bg THEME["card"]` `r 12` `place x=W y=16 anchor ne` off-screen `x=W` → `x=W-pw-16` via `after(16)` 16 steps `easeOutCubic`, content `Journey completed ✓` `route · min` `intent` + `Trip Log`/`Dismiss` + auto `after(4000)` destroy, hover pause. `Web` `roadtrip_web.html` `showDone` + `doneInfo` `motion.div` `initial x:400 opacity:0 → x:0 opacity:1` `spring 320/28` at `top 16 right 16` `340px` `r 12` `backdrop-blur 16px` inside `AnimatePresence`, `onFinish` sets `showDone` + `lottie` check.
+- **60fps proper:** `dist` is now time-driven `dist = _dist0 + (now - _t0 - _pausedAcc)*SCENERY_SPEED*0.35` (constant 6.3 u/s, not `progress*total` stair-step 6.3 per sec). `_anim_frame` `after(16)` spring `dist_render` chasing `dist_target` `k 60 d 22` (softer, no overshoot), `progress` derives from `dist_render` (`prog = dist_render / (total*6.3)`), `tick_ui` only updates `time_var` + `progress` bar, not `draw_road`. `Pause` stores `_paused_at`, `Resume` adds to `_paused_acc`. Web `requestAnimationFrame` already time-driven, now also uses `smoothDist` single spring.
+- **Fullscreen only HUD:** `topbar` keeps `Fullscreen` pill for windowed entry (`_fs_btn_top` in `header`), `hud-bottom` Apple Music pill `r 14` at `rely 0.92` only when `is_fullscreen` (windowed has no HUD, as you said “only fullscreen”). `traffic ●●●` already removed (header centered). `pack_info` canonical 10-order restore keeps `pady` `(12,0)/(10,6)/…` identical.
 
 ---
 
