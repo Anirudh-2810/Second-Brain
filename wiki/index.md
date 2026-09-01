@@ -31,13 +31,17 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 ## Semester 1
 
 ### Courses
-- _(none ingested yet)_
+- **316U06C107 Structured Programming Methodology (SPM) — 2026-27 (30h, CO1-CO4):**
+  - [[01-Areas/Engineering/SPM/syllabus-316U06C107|Syllabus Hub (all modules)]] — 4 modules, CO map, books (source: [[raw-sources/SPM_Syllabus_316U06C107]])
+  - [[01-Areas/Engineering/SPM/lesson-plan-2026-27|Lesson Plan 17 Aug–4 Dec 2026]] — 16 weeks, MSE/OST, Diwali, quiz
+  - Concepts: [[01-Areas/Engineering/SPM/module-1-spm-c-basics|M1 SPM/C Basics (SDLC, compile, memory)]] · [[01-Areas/Engineering/SPM/module-2-program-control-functions|M2 Control (branching/loops)]] · [[01-Areas/Engineering/SPM/module-3-arrays|M3.1 Arrays]] · [[01-Areas/Engineering/SPM/module-3-strings|M3.2 Strings]] · [[01-Areas/Engineering/SPM/module-4-user-defined-functions|M4.1 UDFs/Recursion]] · [[01-Areas/Engineering/SPM/module-4-structures-unions-pointers|M4.2-4.3 Structs/Unions/Pointers/File Handling]] · Cram: [[01-Areas/Engineering/SPM/c-programming-master-study-guide|Master Study Guide]] · [[01-Areas/Engineering/SPM/formula-sheet-spm|Formula Sheet (Syntax)]]
 
 ### Labs
-- _(none yet)_
+- [[01-Areas/Engineering/SPM/lab-ca-and-experiments|SPM Lab CA 50 — EXP1-8 + Assignments (rubric, attendance, schedule)]] — covers all 10 experiments per [[raw-sources/SPM_FY_List_Exp_2026-27]] (Weeks 3-15) + buffer weeks
 
 ### Assessments
-- _(none yet)_
+- [[01-Areas/Engineering/SPM/assessment-guide-ese-ost-quiz|SPM Assessment Guide — ESE 50 (Sec A/B Q1-Q4b) + OST 15 + Quiz 15]] — sources: [[raw-sources/SPM_ESE_Pattern_316U06C107]] · [[raw-sources/SPM_LAB_CA_2026-27]]
+- Lab CA components: EXP & Assignments 15 + Attendance 5 + OST 15 (MSE 26-30 Oct) + Quiz 15 (30 Nov-4 Dec)
 
 ## Semester 2
 

@@ -671,3 +671,23 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - **Web `My apps/RoadtripFocus/roadtrip_web.html` (`My apps` only):** `showDone`/`doneInfo` `motion.div` `initial x:400 opacity:0 â†’ x:0 opacity:1` `spring 320/28` at `top 16 right 16` `340px` `r12` `blur16`, `onFinish` sets `showDone` + `lottie`.
 
 
+
+### 2026-09-02 — Ingest: SPM 316U06C107 — Official Syllabus + Lesson Plan + Lab CA + ESE Pattern (vault sync)
+
+- Sources ingested into aw-sources/ (6 PDFs transcribed):
+  - SPM_Syllabus_316U06C107.md (30 hrs, CO1-4, modules 1-4 + self-learning, 10 recommended books/links)
+  - SPM_Lesson_Plan_2026-27.md (16 weeks 17 Aug–4 Dec 2026, theory vs labs, MSE week 11 OST, Diwali W13, revision W16 quiz, TW 8 Dec)
+  - SPM_LAB_CA_2026-27.md (Lab CA 50: EXP+Assignments 15 + Attendance 5 + OST 15 + Quiz 15, rubrics L4-L1)
+  - SPM_FY_List_Exp_2026-27.md (EXP1-8 + Assignment 1,2 with CO/PO mapping)
+  - SPM_ESE_Pattern_316U06C107.md (ESE 50: Sec A Q1 10 1/2 + Q2 15 1/2; Sec B Q3 10 compulsory + Q4a 5 algorithm + Q4b 10 2/3)
+  - divyam_dawar_ai_learning_resources.md (25 AI playlists — catalogued under AI-Data, not SPM)
+- Wiki: created wiki/01-Areas/Engineering/SPM/ hub pages (YAML frontmatter + For-future-agent + confidence + wikilinks):
+  - syllabus-316U06C107.md — single-source registry: course metadata (03 credits, 04 hrs teaching, CA 50 + ESE 50 + LAB 50), CO table, 4-module unit breakdown with hours, topic checklist, bridge links
+  - lesson-plan-2026-27.md — week-by-week table (W1-16 + TW), at-a-glance milestones, per-week theory?lab?CA mapping, buffer/weeks handling
+  - lab-ca-and-experiments.md — 50-mark distribution, weighted rubric (Logic 35%/Debug 15%/Write-up 30%/Timely 20%), attendance table (=75%?5), OST spec (45+15 min, 10+5), Quiz spec (20 min, 5+5+5), 10-experiment table with lab-week + CO/PO, checklist
+  - ssessment-guide-ese-ost-quiz.md — ESE 50 pattern table + time strategy (Q4a?Q3?Q4b?Q1/Q2), CO-wise prep map, OST tactics, Quiz drill kit with 7-min splits
+  - module-3-strings.md — NEW M3.2: char array vs pointer literal, '\\0' terminator, R/W (scanf/fgets), library handlers table, from-scratch impl (myStrlen/strcpy/strcmp/strcat) with exam traps, predict-output drill
+  - module-4-structures-unions-pointers.md — NEW M4.2-4.3 + self-learning: struct declaration/init/array-of-structs/padding/sizeof, union vs struct layout diagram, pointers (decl, scaled arithmetic, ptr-to-ptr, array-pointer duality, func pointers table), pass-by-reference/returning pointers, file handling modes table + fopen/fclose/fgets pattern
+- Updated wiki/01-Areas/Engineering/INDEX.md (SPM 5?12 pages, syllabus/plan/lab/assessment quick answers, last_updated 2026-09-02) and wiki/index.md Semester 1 catalog (316U06C107 courses/labs/assessments populated with raw-source links).
+- Cross-links: syllabus hub links every module page; lesson plan ? lab ? assessment interlinked; new M3.2/M4 pages inbound from syllabus + lesson plan + engineering INDEX; raw-sources wikilinks verified.
+- Scripts: python .scripts/update-graph-colors.py (per-module colors) + python .scripts/generate-index.py (root + docs/ dashboard) — manual graph verification flagged per Definition of Done.
