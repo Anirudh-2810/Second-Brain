@@ -326,3 +326,5 @@ The brief was "Both Web + Desktop" with Tkinter first. The desktop MVP above is 
 - [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]] — deep work theory (the "why" behind the timer)
 - [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]] — focus minimalism
 - `brain/Roadtrip Focus History` — live aggregate stats (created on first landing)
+
+> **Intentional desync — end indication (2026-09-02):** `elapsed*6.3 60fps` continuous vs `progress 1fps` desync left as feature — `12% easeOutCubic 0.88→1` tail coasts the last `3m` of `25m` into town, so the road visibly slows before `0:00` as a gentle “prepare to stop” cue, not lag. `distRef/distRenderRef 0.14` spring + `displayDistRef 200ms` throttled UI keep `60fps` draw buttery. See `RoadtripFocus/index.html:319` `// desync intentional`.
