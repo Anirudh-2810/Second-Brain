@@ -1,8 +1,8 @@
 ---
 module: "current-projects"
 topic: "Roadtrip Focus — Cross-Country Focus Timer with Second Brain Sync"
-tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle, web, react, motion, pixi, gsap, lottie, white-noise, brown-noise, pink-noise]
-last_updated: "2026-08-29"
+tags: [builds, productivity, tkinter, focus, deep-work, roadtrip, pomodoro, obsidian, vault-sync, threading, canvas, ambient-sound, animation, slow-roads, endless-cruise, parallax, dark-mode, fullscreen, hud, design-system, spring, fluid, squircle, web, react, motion, pixi, gsap, lottie, white-noise, brown-noise, pink-noise, cover, landing]
+last_updated: "2026-09-03"
 confidence: "high"
 source: "C:/Users/Vijaykumar/My apps/RoadtripFocus/ (fresh repo, extends flightproductivity.py pattern)"
 description: "Roadtrip Focus — Tkinter + Web (React+motion) endless cruise with white-noise for studying. Tk dark-only squircle, mini 3/4 car, 60fps spring, bottom-touch road, HALFWAY removed, fullscreen HUD, selectable white/pink/brown/rain + hum. Web: single-file roadtrip_web.html (React 18 + framer-motion + GSAP + Pixi + lottie via esm.sh, no new dirs) same winding, requestAnimationFrame, Pixi hills, motion springs, Lottie, Web Audio white-noise. Thread-safe, silent fallback."
@@ -328,3 +328,5 @@ The brief was "Both Web + Desktop" with Tkinter first. The desktop MVP above is 
 - `brain/Roadtrip Focus History` — live aggregate stats (created on first landing)
 
 > **Intentional desync — end indication (2026-09-02):** `elapsed*6.3 60fps` continuous vs `progress 1fps` desync left as feature — `12% easeOutCubic 0.88→1` tail coasts the last `3m` of `25m` into town, so the road visibly slows before `0:00` as a gentle “prepare to stop” cue, not lag. `distRef/distRenderRef 0.14` spring + `displayDistRef 200ms` throttled UI keep `60fps` draw buttery. See `RoadtripFocus/index.html:319` `// desync intentional`.
+
+> **Cover — Ready to hit the road? → Let's roll (2026-09-03):** Web `RoadtripFocus/index.html` adds a full-viewport cover overlay (`cover-overlay` `rgba(7,10,14,0.78)` + `blur 18px` over idle-drift canvas, `AnimatePresence` `opacity 0→1` / card `y 18→0 spring 320/26`) — eyebrow `READY TO ROLL` `#00e69a`, title `Are you ready to hit the road?`, sub, **intent `<input>` on cover** (syncs to `intent` state + sheet `sheet-intent`), CTA `Let's roll →` `btn primary` `whileTap 0.97`, hint `Road keeps idling behind`. Dismiss sets `sessionStorage rf_cover_dismissed=1` (once per tab, not per load) and `setShowCover(false)`; `Enter` in intent also dismisses, overlay click (outside card) dismisses. Keeps 60fps `requestAnimationFrame` `distRenderRef` idle drift behind blur. `docs/roadtrip.html` is copy of this file for Pages. See `RoadtripFocus/index.html:158 cover CSS / 233 showCover+dismissCover / 659 cover JSX`.
