@@ -706,3 +706,9 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 ### 2026-09-03 — Per-row delete for IN TRANSIT (flat fix, no blank)
 
 - Flat fix: keep ROUTES.map 4 READY + slice(0,3) in On the road (RoadtripFocus/index.html:698/702), add per-row ? .sheet-row-del 24px at 8,8 e.stopPropagation()?deleteTransit(finished_at) for each IN TRANSIT row index.html:702 with paddingRight 28px. Helpers deleteTransit at index.html:484 filters localStorage rf_sessions by inished_at, loadLogs() refresh, closes detail if deleted. Detail modal adds Delete when in-transit index.html:730. CSS .sheet-row{position:relative} .sheet-row-del at index.html:170. Keeps cover + 60fps, no nested html IIFE so no blank. docs/roadtrip.html 63259B resynced, main only.
+### 2026-09-03 — Production PR1 P0 — backup + palette/glass/meter + unified RAF + persistence + notify
+
+- Backup: tags ackup/prod-PR1-2026-09-03 on both repos (69a64ef/ffe6aaf 63259B), zip 	hinking/backup-prod-PR1-2026-09-03.zip 38782B (index.html 63259B + roadtrip.py 91581B), docs/roadtrip.html fc identical copy verified before PR1.
+- Visual P0: :root slate #09090B/#121212/#1a1a1e + gba(255,255,255,0.08) outline + emerald #10B981/#059669 glow   0 20px rgba(16,185,129,0.3) + 	ext-shadow (header/time), canvas-wrap/sheet-map-wrap glow, frosted inputs g white/5 border white/10 blur16px, meter 6px + linear-gradient + glow + pct%, all at RoadtripFocus/index.html:22/30/55/139/137.
+- Func P0: keyboard Space/R/M/F 445 INPUT guard, timer single RAF 321 no setInterval loor(elapsed) + onFinish, persistence f_state load/save/clear 212, notification equestPermission + onFinish ? Notification + 880Hz chime + remove rf_state.
+- docs/roadtrip.html 67457B resynced, push main only, dashboard regen 344.
