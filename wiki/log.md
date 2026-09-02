@@ -703,3 +703,6 @@ oadmap-ml-engineer.md ï¿½ DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 ### 2026-09-03 — Revert: On-the-road live+delete ? blank, keep cover (plan A)
 
 - Blank page after 5efe9ba/3076952 On-the-road fix (nested html IIFE + live-card + delete). Reverted RoadtripFocus main hard to e3b3bd2 cover-only (sessionStorage Let's roll, 61949B) + force-with-lease push to oadtrip-pomodoro/main. Vault docs/roadtrip.html back to 61949B copy, wiki/00-Current-Projects/roadtrip-focus.md:334 On-the-road block replaced with revert note, dashboard regen 344 pages. Tags roken/blank-5efe9ba-2026-09-03 + roken/vault-3076952-2026-09-03 pushed before reset. main only kept.
+### 2026-09-03 — Per-row delete for IN TRANSIT (flat fix, no blank)
+
+- Flat fix: keep ROUTES.map 4 READY + slice(0,3) in On the road (RoadtripFocus/index.html:698/702), add per-row ? .sheet-row-del 24px at 8,8 e.stopPropagation()?deleteTransit(finished_at) for each IN TRANSIT row index.html:702 with paddingRight 28px. Helpers deleteTransit at index.html:484 filters localStorage rf_sessions by inished_at, loadLogs() refresh, closes detail if deleted. Detail modal adds Delete when in-transit index.html:730. CSS .sheet-row{position:relative} .sheet-row-del at index.html:170. Keeps cover + 60fps, no nested html IIFE so no blank. docs/roadtrip.html 63259B resynced, main only.
