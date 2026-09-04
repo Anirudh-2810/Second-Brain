@@ -1,0 +1,24 @@
+# Roadtrip Focus: cross-country focus timer.
+
+# hill color changes verified in session: dark mode #051510/#0a201a/#153025; light mode #4a7c59/#6aa07a/#8ab59a
+# web: hills #051510/#0a201a/#153025; fillStyle #2b1a0e; pole/rock #2a2a2a
+
+# [Objective]
+# Roadtrip Focus: cross-country focus timer.
+
+# hill color changes from verified session (teal-charcoal / sage greens)
+if self.dark_mode:
+    # dark mode: teal-charcoal sequence with #00e69a accent undertone
+    hill_defs = [
+        ("#051510",  0.22, 420, 22, 0.018, 0),    # dark teal-green charcoal (far)
+        ("#0a201a",  0.45, 360, 18, 0.024, 1.1),  # medium teal-charcoal (mid)
+        ("#153025",  0.85, 300, 14, 0.032, 2.4),  # darkest teal-charcoal (near)
+    ]
+else:
+    # light day - unmuted green
+    hill_defs = [
+        ("#4a7c59",  0.22, 420, 22, 0.018, 0),    # soft sage green far
+        ("#6aa07a",  0.45, 360, 18, 0.024, 1.1),  # medium sage green mid
+        ("#8ab59a",  0.85, 300, 14, 0.032, 2.4),  # light sage green near
+    ]
+PYEOF
