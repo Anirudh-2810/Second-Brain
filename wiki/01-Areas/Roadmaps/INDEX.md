@@ -36,6 +36,8 @@ description: "ROADMAPS hub - every roadmap and study-plan page across all domain
 - [[python-mastery-path]] · [[math-for-ml-survival-guide]] — skill ladders (programming/ai-data)
 - [[01-Areas/Business/quant-finance/learning-roadmap-and-study-plan]] — quant self-study plan (business)
 - [[german/overview]] — German A1 8-week plan (self-dev)
+- [[spanish/overview]] — Spanish A1 via VideoEle 8-week plan (self-dev)
+- [[00-Current-Projects/roadtrip-focus-production-plan]] — Roadtrip Focus → production-level build (builds, open plan)
 - College coursework gates → see [[01-Areas/Engineering/INDEX]]
 
 ## The Combined Master Sequence (suggestion)
@@ -52,7 +54,7 @@ Full reasoning: [[market-analysis-tech-2026]] strategy section.
 
 ## Maintenance Rule
 
-New roadmap page created anywhere in the vault → add its link here. Same for execution plans (`wiki/01-Areas/<Domain>/plans/<topic>.md` — no timing estimates, closed when done). This hub is the ONE place to answer "what's the plan".
+New roadmap page created anywhere in the vault → add its link here. Same for execution plans (`wiki/01-Areas/<Domain>/plans/<topic>.md` **and** `wiki/00-Current-Projects/<plan>.md` for build plans — no timing estimates, closed when done). This hub is the ONE place to answer "what's the plan".
 
 ## Related
 

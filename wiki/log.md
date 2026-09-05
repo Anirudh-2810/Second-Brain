@@ -746,3 +746,10 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 - Security: `next.config.ts:1` HSTS/DENY/nosniff, RLS everywhere, Zod server-side, bcryptjs 12, `.env.example:1` with `!.env.example` in `.gitignore`, `email_logs` audit.
 - Vault: created `wiki/00-Current-Projects/pomodoro-web/{overview,architecture,email-integration,security}.md` (each with frontmatter + wikilinks to [[quote-pomodoro]]/[[roadtrip-focus]]), updated `wiki/00-Current-Projects/INDEX.md` (new row + 4 pages), ran `python .scripts/generate-index.py` + `update-graph-colors.py` (next step).
 - Next: import repo into Vercel (Root `/`), add `NEXT_PUBLIC_SUPABASE_URL/ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `AUTH_SECRET`, `NEXT_PUBLIC_APP_URL`, apply `001_init.sql` in Supabase SQL Editor, verify `https://roadtrip-pomodoro.vercel.app` + legacy `https://anirudh-2810.github.io/roadtrip-pomodoro/legacy/` + `GET /api/health`.
+
+### 2026-09-06 — Roadtrip Focus → Production-Level Plan (open plan)
+
+- Staged **open plan** `wiki/00-Current-Projects/roadtrip-focus-production-plan.md` for next working session: take the **full Roadtrip Focus endless-road web experience** to production (auth + Supabase/RLS persistence + Vercel + optional email), modeled on [[pomodoro-web/overview]] but preserving the winding-road canvas + sound bed + cover + trip log (pomodoro-web stripped the road for a simple timer).
+- Scope = P0 migrate road into Next.js (from single-file `RoadtripFocus/index.html`), P0 Supabase `sessions` RLS + guest-claim flow, P0 Vercel deploy + health, P1 email/digest + dashboard + landing, P2 security pass. 4 open decisions flagged to confirm first (repo reuse vs new; road-visual port; auth; email).
+- Linked: Builds INDEX (new row + Open Plans section), [[roadtrip-focus]] See Also, Roadmaps hub (maintenance rule extended to build plans in `00-Current-Projects`), created `daily/2026-09-06.md` with Tomorrow = roadtrip production + maths revision.
+- No dashboard/graph regen needed (no new module dir; single page update).

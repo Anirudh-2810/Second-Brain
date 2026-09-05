@@ -26,6 +26,7 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[web-access-ai|web-access-ai]] | 1 | Streamlit chatbot: live DuckDuckGo search, tools (calc/code/weather), PDF reading, memory |
 | [[quote-pomodoro|quote-pomodoro]] | 1 | Tkinter Pomodoro timer: dark theme, quotes, beeps, notifications, presets (predecessor to roadtrip-focus) |
 | [[roadtrip-focus|roadtrip-focus]] | 1 | **Roadtrip Focus** — cross-country focus timer: highway canvas, road hum, intent field, Trip Log, Obsidian auto-sync to daily + brain history |
+| [[roadtrip-focus-production-plan|roadtrip → production (open plan)]] | 1 | **Open plan**: take full road experience to production (auth + Supabase/RLS persistence + Vercel + email), modeled on pomodoro-web — not the stripped timer |
 | [[pomodoro-web/overview|pomodoro-web/]] | 4 | **Production Pomodoro Web** — Next.js 16 + Supabase + Resend on Vercel (`roadtrip-pomodoro`, `9494111`): guest Continue without signup + claim, auto-email a+b, RLS, rate limiting, `supabase/migrations/001_init.sql` |
 | [[react-calculator|react-calculator]] | 1 | React + Tailwind calculator: keyboard support, history, Lucide icons, gradient UI |
 | [[budget-tracker|budget-tracker]] | 1 | Excel/VBA Budget vs Actual vs Variance + Executive Dashboard (Mac/Win compatible) |
@@ -42,7 +43,11 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 
 ## NOT Here
 
-How to BUILD projects generally → [[build-project-playbook]] (business) · Reference architectures studied → `wiki/01-Areas/Programming/case-studies/`
+How to BUILD projects generally → [[build-project-playbook]] (business) · Reference architectures studied → `wiki/01-Areas/Programming/case-studies/` · Execution plans live at `wiki/00-Current-Projects/<plan>.md` (e.g. [[roadtrip-focus-production-plan]])
+
+## Open Plans
+
+- [[roadtrip-focus-production-plan]] — take Roadtrip Focus to production-level (2026-09-06, open)
 
 ## Cross-Domain Bridges
 

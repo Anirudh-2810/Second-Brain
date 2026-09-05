@@ -322,6 +322,7 @@ The brief was "Both Web + Desktop" with Tkinter first. The desktop MVP above is 
 
 ## See Also
 
+- [[roadtrip-focus-production-plan]] — **open plan** to take the full road experience to production (auth + Supabase + Vercel), modeled on [[pomodoro-web/overview]]
 - [[quote-pomodoro]] — predecessor Pomodoro on which this extends the threading/UI pattern
 - [[wiki/01-Areas/Self-Dev/productivity/deep-work-attention-economics]] — deep work theory (the "why" behind the timer)
 - [[wiki/01-Areas/Self-Dev/productivity/focus-minimalism-babauta]] — focus minimalism
