@@ -158,7 +158,7 @@ frontend_rows = [
 
 story=[]
 story.append(Paragraph("Interview Revision Sheet - Basic (Python | ML | LLM | 2 Repos)", s_title))
-story.append(Paragraph("Anirudh Vijaykumar  |  1st Year B.Tech RAI, KJSCE  |  Orion Coding Club Prep &nbsp;|&nbsp; English only  |  1 row = 30-sec answer: Definition - Why - When breaks", s_sub))
+story.append(Paragraph("Anirudh Vijaykumar  |  1st Year B.Tech RAI, KJSCE  |  Odyssey Prep &nbsp;|&nbsp; English only  |  1 row = 30-sec answer: Definition - Why - When breaks", s_sub))
 story.append(Paragraph(
     "How to use: Tonight filter <b>Must</b> only (about 30 rows). Speak each aloud &lt;60s. Set Status Done. Use skeleton not verbatim. For reports: explain via STAR: what you built - choice - rejected alternative + why - metric - failure fixed.",
     ParagraphStyle("tip", parent=s_cell, fontSize=6.5, textColor=HexColor("#444444"), leading=7.5, alignment=TA_LEFT, borderPadding=(4,4,4), backColor=HexColor("#FFF2CC"))
@@ -201,7 +201,7 @@ section("06 - FRONTEND BASIC  (10 Qs)", "HTML/CSS/JS roles, semantic, box model,
 
 story.append(Spacer(1,6))
 story.append(Paragraph(
-    "Last page tip for Orion: When asked 'Tell me about your project' use 60-sec STAR for each repo: (S) Problem you solved for yourself, (T) Stack, (A) Hardest part + fix (thread-safety / jitter), (R) What you shipped + 1 improvement you would do next (CSV log for Pomodoro, ROS2 for handsens). Keep demo ready: video 20s screen-record on phone.",
+    "Last page tip for Odyssey: When asked 'Tell me about your project' use 60-sec STAR for each repo: (S) Problem you solved for yourself, (T) Stack, (A) Hardest part + fix (thread-safety / jitter), (R) What you shipped + 1 improvement you would do next (CSV log for Pomodoro, ROS2 for handsens). Keep demo ready: video 20s screen-record on phone.",
     ParagraphStyle("tip2", parent=s_cell, fontSize=6.5, leading=7.5, backColor=HexColor("#E2EFDA"), borderPadding=(5,5,5), textColor=HexColor("#375623"))
 ))
 
@@ -220,7 +220,7 @@ def footer(canvas, doc):
     canvas.saveState()
     canvas.setFont("Helvetica", 6)
     canvas.setFillColor(HexColor("#888888"))
-    canvas.drawCentredString(A4[0]/2, 8*mm, f"Anirudh Vijaykumar  |  First-Year B.Tech RAI, KJSCE  |  Orion Prep  |  Page {doc.page}  |  github.com/Anirudh-2810")
+    canvas.drawCentredString(A4[0]/2, 8*mm, f"Anirudh Vijaykumar  |  First-Year B.Tech RAI, KJSCE  |  Odyssey Prep  |  Page {doc.page}  |  github.com/Anirudh-2810")
     canvas.setStrokeColor(BORDER)
     canvas.line(9*mm, 9*mm, A4[0]-9*mm, 9*mm)
     canvas.restoreState()
@@ -235,6 +235,6 @@ print("pages", len(d))
 print(d[0].get_text()[:600].replace("\n"," | "))
 # Verify key needles
 txt = "".join([pg.get_text() for pg in d])
-for needle in ["PYTHON BASIC","LLM BASIC","Quote Pomodoro","handsens101","Orion"]:
+for needle in ["PYTHON BASIC","LLM BASIC","Quote Pomodoro","handsens101","Odyssey"]:
     print(needle, needle in txt)
 

@@ -722,6 +722,13 @@ oadmap-ml-engineer.md � DS-vs-MLE comparison, MLOps stage, GenAI branch w/ 202
 
 - Move header header 25 19px center full-width ~66px outside content-area → inside sheet-wrap as .sheet-title padding 14px 14px 10px text-align:left bg var(--surface) border-bottom var(--outline) h1 14px 0.8px + .phase 11px (hide p pick a route), sheet-map-wrap 81 min-height420→0 align-self stretch, #root flex column keeps content-area 45/725 flex1 margin 12px 20px now first child → height 100vh-24px vs 100vh-90px gains ~66px vertical, map canvas-wrap 82 flex1 fills sheet-map-wrap full height top to bottom, isFullscreen 41 + 726 hides title, mobile 90 42vh intact. docs/roadtrip.html 68999B, main only.
 
+### 2026-09-05 — Odyssey Resume Swap + Simple Cheat Sheet (PDF both)
+
+- **Resume:** Rebuilt Odyssey variant via `.scripts/rebuild_resume_odyssey.py` (copy of `rebuild_resume_orion.py`, renamed Orion → Odyssey, strengthens eager-to-learn: Objective rewrites to “eager to join Odyssey as hands-on learner… Fast learner with growth mindset…”, Skills adds Eager to Learn/Growth Mindset, Commitment adds “Highly motivated to learn, take feedback… quick to ramp…”). Generates `raw-sources/Anirudhcv101_Odyssey.pdf` + overwrites `raw-sources/Anirudhcv101.pdf` (1 page, 5556 B, verified Odyssey True, Orion False, Eager/Growth True, Apple False). Preserves `Anirudhcv101_Orion.pdf` archive + `Anirudhcv101_Retail_Apple.pdf`.
+- **Revision sheets:** Patched `.scripts/generate_revision,pdf.py` (subtitle/tip/footer Orion → Odyssey) and regenerated `raw-sources/Interview_Revision_Sheet_Basic.pdf` (2 pages, 14109 B, Odyssey True) + `Interview_Revision_Sheet_Basic.xlsx` (7 sheets, 78 Qs).
+- **Simple cheat sheet (new, plain English):** Created `.scripts/generate_simple_cheatsheet_odyssey.py` → `raw-sources/Simple_Cheatsheet_Odyssey.pdf` (2 pages, 11988 B) — sections: Resume 30-sec, handsens101 5 steps + smoothing 5.0 + 85% + 8 Qs, Pomodoro 2 workers + root.after chit + flags + 8 Qs, Error handling overall, Frontend 9 Qs (HTML/CSS/JS/box/flex/grid/let/const/DOM/fetch/responsive) — all “Definition → Why → When breaks” in simple words, STAR scripts included.
+- **Verification:** `pymupdf` 1-page resume, 2-page cheats both pass content checks; no � char. All 4 PDFs present in `raw-sources/`.
+
 ### 2026-09-05 — Production Pomodoro Web — Next.js + Supabase + Resend (Vercel, guest Continue without signup, email a+b)
 
 - Migrated `roadtrip-pomodoro` from Tk/single-file to **Next.js 16 App Router** production web (tag `pre-next` preserves `legacy/index.html` 68 999B + `legacy/roadtrip.py` 91 581B). Repo `Anirudh-2810/roadtrip-pomodoro` now at `9494111` on `main`.
