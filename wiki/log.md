@@ -784,10 +784,12 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Cloud:** `sessions` was 0 rows (trips lived only in localStorage; POST failures were swallowed). Finish popup now shows sync state (✓ Saved to cloud / Saving… / failed-kept-locally / guest). RLS verified owner-only — cross-browser "same account" is persistent Supabase session (remember-me), not a leak.
 - **Verify:** `tsc` clean, webpack build green, pushed `57aa520` → Vercel Production Ready, `/api/health` supabase configured. Open: user runs one authed trip → expect exactly 1 row in `sessions`, 1 Delivered row, IST times, "Saved to cloud". Resend `missing RESEND_API_KEY` runtime flag still open.
 
-### 2026-09-08 — Roadtrip duplicate, second attempt (stable run-id guard)
-- **Evidence:** user screenshot showed pairs persisting under the live IST build — old guard keyed on `startedAtRef.current`, but finish nulls that ref, so the stale second RAF fire minted a fresh timestamp and slipped past (`1c823c5`).
+### 2026-09-08 — Roadtrip duplicate, second attempt (stable run-id guard)- **Evidence:** user screenshot showed pairs persisting under the live IST build — old guard keyed on `startedAtRef.current`, but finish nulls that ref, so the stale second RAF fire minted a fresh timestamp and slipped past (`1c823c5`).
 - **Fix:** dedicated `runIdRef` counter assigned in `doStart`, `finishedRunRef` stores the finished run id; repeats for the same run return immediately regardless of ref nulling. Reload-resume safe (refs reset → one finish allowed).
 - **Verify:** `tsc` clean, webpack green, pushed → Vercel Production Ready. User test: Clear Trip Log once (old dup rows predate all fixes), run one 1-min Custom → exactly 1 Delivered row.
+
+### 2026-09-09 — Roadtrip break-timer design recorded (open plan, for discussion)
+- User request: break timer where the car stops at the side and refuels. Recorded as [[roadtrip-break-timer-plan]] (frontmatter + For-future-agent + 4 options + code anchors + 6 open questions + DoD), linked in Builds INDEX. Default: manual pull-over v1, auto-cycle later. Do NOT implement before tomorrow's discussion. Also noted in `daily/2026-09-09.md` Tomorrow alongside Resend-redeploy + live trip check.
 
 ### 2026-09-08 — Roadtrip empty cloud: Vercel secrets empty + wrong guard (deployed)
 - **Evidence:** live `vercel logs` showed `POST /api/sessions` arriving but `sessions` count 0; `/api/health` log carried `[env] validation warning` — `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `AUTH_SECRET`, `CSRF_SECRET` all below min length at runtime (names exist, values empty). Same gap explains `/api/email/session → 502` in logs.
