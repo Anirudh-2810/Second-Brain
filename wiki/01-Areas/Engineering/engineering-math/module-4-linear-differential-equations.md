@@ -1940,6 +1940,52 @@ eᵃˣ(1/f(D))V = eᵃˣ(1/f(D+a))V
 
 ---
 
+## 5. FIRST-ORDER APPLICATIONS — MECHANICS & CIRCUITS EXAM BANK (dump extension, 2026-09-09)
+
+> Sources: `Differential Equations/4. APPLICATION OF DIFFERENTIAL EQUATIONS.pdf` + `5. some more problems on Applications of DE.pdf` (KJSCE "Self Learning Topics", Class (b) 6-mark problems). The circuits/cooling overview in §4 above is the theory; this section adds the dump's fully-worked 6-mark problems. Method pattern is uniform: recognise type (linear / separable / Bernoulli $v^2 = y$ substitution) → solve → apply $t = 0$ data.
+
+### Worked example 1 — falling body with quadratic drag (terminal velocity)
+
+$$\frac{dv}{dt} = g - kv^2, \qquad v(0) = 0$$
+
+Separable: $\dfrac{dv}{g-kv^2} = dt$. With $a^2 = g/k$ this integrates via $\tanh^{-1}$ to $\boxed{v(t) = a\tanh\!\left(\tfrac{gt}{a}\right)}$, and since $v = dx/dt$, $\boxed{x(t) = \tfrac{a^2}{g}\ln\!\cosh\!\left(\tfrac{gt}{a}\right)}$ (with $x(0) = 0$). **Limit:** as $t \to \infty$, $\tanh \to 1$, so $v \to a = \sqrt{g/k}$ — the **terminal (limiting) velocity**; the dump asks this as an explicit follow-up ("show velocity approaches a limiting value"). Exam trap: the $t \to \infty$ limit, not the formula, is the marked point.
+
+### Worked example 2 — aeroplane stability equation
+
+$$\frac{dv}{dt} = g\cos\alpha - kv, \qquad v(0) = 0$$
+
+Linear with $P = k$, $Q = g\cos\alpha$: IF $= e^{kt}$, $v\,e^{kt} = \int g\cos\alpha\,e^{kt}dt + C = \tfrac{g\cos\alpha}{k}e^{kt} + C$. With $v(0) = 0$, $C = -\tfrac{g\cos\alpha}{k}$, so $\boxed{v(t) = \tfrac{g\cos\alpha}{k}\left(1 - e^{-kt}\right)}$ ✓. Same skeleton as the RL-circuit answer below — learn one, get both.
+
+### Worked example 3 — RL circuit, time to 90% of max current
+
+$$L\frac{di}{dt} + Ri = E, \qquad i(0) = 0$$
+
+Linear: $\tfrac{di}{dt} + \tfrac{R}{L}i = \tfrac{E}{L}$ → $\boxed{i(t) = \tfrac{E}{R}\left(1 - e^{-Rt/L}\right)}$, max $I = E/R$ as $t \to \infty$. Set $i = 0.9I$: $e^{-Rt/L} = 0.1$ → $\boxed{t = \tfrac{L}{R}\ln 10}$. With $L = 640\,\mathrm{H}$, $R = 250\,\Omega$, $E = 500\,\mathrm{V}$: $t = \tfrac{640}{250}\ln 10 \approx \boxed{5.89\,\mathrm{s}}$ ✓ (dump's numbers).
+
+### Further dump problems (statements for practice; same methods)
+
+- **Falling chain (Bernoulli):** $xv\,\tfrac{dv}{dx} + v^2 = gx$. Put $y = v^2$ so $2v\,\tfrac{dv}{dx} = \tfrac{dy}{dx}$ → linear $\tfrac{dy}{dx} + \tfrac{2}{x}y = 2g$, IF $= x^2$ → $v^2x^2 = \tfrac{2g}{3}x^3 + C$.
+- **RC charging:** $R\tfrac{dq}{dt} + q/C = V$, $q(0) = 0$ → $\boxed{q(t) = CV\left(1 - e^{-t/RC}\right)}$, charging current $i = \tfrac{dq}{dt} = \tfrac{V}{R}e^{-t/RC}$.
+- **Parachutist:** distance-$x$ version of Example 1 (set up $dv/dt$ with drag, integrate twice) — in file 5, Examples 4–5.
+
+**Exam traps.** (a) Always kill the constant with the $t = 0$ condition *before* boxing the answer. (b) $\ln 10 \approx 2.303$ is expected numerically. (c) Quadratic-drag problems are separable, linear-drag are IF — classify first, one line.
+
+---
+
+## SOURCE MAP — `Differential Equations/` dump → this module
+
+| Dump file | Status in this module |
+|-----------|----------------------|
+| `BASICS OF DIFFERENTIAL EQUATIONS.pdf`, `3. Linear Differential Equations.pdf`, `6.Complementary Function.pdf` | already covered — §1.2–1.3, §2.1–2.3 |
+| `1.Exact DE.pdf`, `2. Integrating Factors.pdf` | covered — §2.1 exactness + IF (see also [[formula-sheet-am]] first-order table) |
+| `7.PI WHEN RHS= e^ax (1).pdf`, `8.PI WHEN RHS Sin ax, cos_ax.pdf`, `9.PI WHEN RHS x^m.pdf`, `10. PI WHEN RHS e^ax V.pdf`, `11.General method to find PI.pdf` | covered — §1.4 + §2.4 PI operator rules (incl. shift $e^{ax}\tfrac{1}{F(D)}V$) |
+| `12.METHOD OF VARIATION OF PARAMETERS.pdf`, `Application of DE and Variation of Parameters.pdf` | covered — §1.5 + §2.5 |
+| `13.Cauchys Equation.pdf` | covered — §1.6 + §2.6 |
+| `4. APPLICATION OF DIFFERENTIAL EQUATIONS.pdf`, `5. some more problems on Applications of DE.pdf` | **new §5 above** (3 worked + 3 practice) |
+| `Integration Formula List.pdf`, `Practice Problems/` (3 files) | practice pool — IF/integration drills; ISE-grade picks on [[ise-exam-prep-am1]] |
+
+---
+
 ## CROSS-REFERENCES
 
 - [[engineering-math/module-1-matrices|Module 1: Matrices]] — Systems of linear ODEs (ẋ = Ax) are solved by matrix diagonalization: eigenvalues give the characteristic roots, and eigenvectors form the transformation matrix P. The Cayley-Hamilton theorem enables computation of e^{At} without full diagonalization.

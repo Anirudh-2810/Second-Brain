@@ -1561,6 +1561,37 @@ P12: Product = e^(i·2π(0+1+...+(n-1))/n) = e^(i·2π(n-1)n/(2n)) = e^(iπ(n-1)
 
 ---
 
+## 9. DE MOIVRE APPLICATIONS — MULTIPLE-ANGLE & POWER EXPANSIONS (dump extension, 2026-09-09)
+
+> Source: `Complex/Self Learning Topic.pdf` (Dr. Rachana Desai, KJSCE). §2.3 above states the theorem and §3 Problem 3 proves $\cos 3\theta$; this section adds the dump's *expansion system*: $\cos n\theta$/$\sin n\theta$ as polynomials, $\tan n\theta$ as a quotient, and powers ($\sin^3\theta$ etc.) as multiple angles — a recurring 6-mark pattern.
+
+**Master method.** Write $(\cos\theta + i\sin\theta)^n$ two ways — De Moivre ($\cos n\theta + i\sin n\theta$) and binomial expansion — then **equate real and imaginary parts**.
+
+**Worked example 1 — $\cos 3\theta$, $\sin 3\theta$, $\tan 3\theta$.** $(\cos\theta+i\sin\theta)^3 = \cos^3\theta + 3i\cos^2\theta\sin\theta - 3\cos\theta\sin^2\theta - i\sin^3\theta$. Real: $\boxed{\cos 3\theta = 4\cos^3\theta - 3\cos\theta}$; imaginary: $\boxed{\sin 3\theta = 3\sin\theta - 4\sin^3\theta}$; quotient: $\boxed{\tan 3\theta = \tfrac{3t - t^3}{1 - 3t^2}}$, $t = \tan\theta$.
+
+**Worked example 2 — power to multiple angles.** From Euler forms, $2i\sin\theta = e^{i\theta} - e^{-i\theta}$; cubing and regrouping gives $\boxed{\sin^3\theta = \tfrac{1}{4}(3\sin\theta - \sin 3\theta)}$ (and $\cos^3\theta = \tfrac{1}{4}(3\cos\theta + \cos 3\theta)$). Direction matters: *multiple-angle from powers* uses binomial-on-De Moivre; *powers from multiple angles* uses Euler-form subtraction — the dump examines both directions, so label which one you're doing in line 1.
+
+**Standard results to quote (then prove one):** $\sin 5\theta = 16\sin^5\theta - 20\sin^3\theta + 5\sin\theta$ (already §7 P3); $\cos 4\theta = 8\cos^4\theta - 8\cos^2\theta + 1$ (§8 P10 answer).
+
+**Exam traps.** (a) Divide numerator and denominator by $\cos^n\theta$ when forming $\tan n\theta$ — the step students skip. (b) Sign errors in odd powers of $i$ ($i^3 = -i$); expand $(a+b)^n$ fully before collecting. (c) Always state De Moivre + binomial in the first line; the solution scheme awards method marks for it.
+
+---
+
+## SOURCE MAP — `Complex/` dump → this module
+
+| Dump file | Status in this module |
+|-----------|----------------------|
+| `1_COMPLEX NUMBERS- REVIEW.pdf`, `1_Complex Numbers - Review ppt.pdf` | covered — §1.1 forms table, §2.1 algebra |
+| `2_De Moivres Theorem related examples.pdf` | covered — §2.3 + §3 Problem 1/3 |
+| `3_ Roots of Complex Numbers.pdf` | covered — §2.4 + §3 Problem 2 |
+| `4_HYPERBOLIC and Circular functions.pdf`, `5_... examples.pdf`, `Hyperbolic Function Formulae.pdf` | covered — §2.5 |
+| `6_inverse HYPERBOLIC functions.pdf` | covered — §2.5 inverse-hyperbolic logarithmic forms |
+| `7_Logarithm of complex number.pdf` | covered — §2.6 + §3 Problem 5 |
+| `Self Learning Topic.pdf` | **new §9 above** (multiple-angle system) |
+| `Practice Problems/` (4 files: De Moivre/roots set, hyperbolic/log set, 2 question banks) | practice pool — ISE-grade picks on [[ise-exam-prep-am1]] |
+
+---
+
 ## CROSS-REFERENCES
 
 - [[engineering-math/module-1-matrices|Module 1: Matrices]] — Complex eigenvalues arise when the characteristic polynomial of a real matrix has negative discriminant; the resulting complex eigenvectors encode oscillatory modes in systems of differential equations.

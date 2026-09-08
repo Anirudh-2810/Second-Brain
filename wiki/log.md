@@ -784,7 +784,8 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Cloud:** `sessions` was 0 rows (trips lived only in localStorage; POST failures were swallowed). Finish popup now shows sync state (✓ Saved to cloud / Saving… / failed-kept-locally / guest). RLS verified owner-only — cross-browser "same account" is persistent Supabase session (remember-me), not a leak.
 - **Verify:** `tsc` clean, webpack build green, pushed `57aa520` → Vercel Production Ready, `/api/health` supabase configured. Open: user runs one authed trip → expect exactly 1 row in `sessions`, 1 Delivered row, IST times, "Saved to cloud". Resend `missing RESEND_API_KEY` runtime flag still open.
 
-### 2026-09-08 — Roadtrip duplicate, second attempt (stable run-id guard)- **Evidence:** user screenshot showed pairs persisting under the live IST build — old guard keyed on `startedAtRef.current`, but finish nulls that ref, so the stale second RAF fire minted a fresh timestamp and slipped past (`1c823c5`).
+### 2026-09-08 — Roadtrip duplicate, second attempt (stable run-id guard)
+- **Evidence:** user screenshot showed pairs persisting under the live IST build — old guard keyed on `startedAtRef.current`, but finish nulls that ref, so the stale second RAF fire minted a fresh timestamp and slipped past (`1c823c5`).
 - **Fix:** dedicated `runIdRef` counter assigned in `doStart`, `finishedRunRef` stores the finished run id; repeats for the same run return immediately regardless of ref nulling. Reload-resume safe (refs reset → one finish allowed).
 - **Verify:** `tsc` clean, webpack green, pushed → Vercel Production Ready. User test: Clear Trip Log once (old dup rows predate all fixes), run one 1-min Custom → exactly 1 Delivered row.
 
@@ -795,3 +796,13 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Evidence:** live `vercel logs` showed `POST /api/sessions` arriving but `sessions` count 0; `/api/health` log carried `[env] validation warning` — `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `AUTH_SECRET`, `CSRF_SECRET` all below min length at runtime (names exist, values empty). Same gap explains `/api/email/session → 502` in logs.
 - **Code (`f0e5aef` → Vercel Ready):** sessions/claim guards now require URL+ANON (the creds the RLS insert actually uses) and 503 loudly when missing — no more fake `{ok,mocked}` success; client treats any `mocked` reply as not-saved; dashboard empty state dev note removed. Since ANON is present at runtime, authed trips now insert even before secrets are re-entered.
 - **User action (Vercel dashboard):** re-enter real `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `AUTH_SECRET`, `CSRF_SECRET` → Redeploy → `/api/health` email configured, per-session emails resume, CSRF HMAC fully bound. Upstash optional.
+
+### 2026-09-09 — Sem-1 Drive dumps ingested (443 files → detailed notes)
+- **Sources:** `raw-sources/drive-download-20260908T190927Z-1-001` (438 files: Sem-1 Drawing/Maths/Physics/SPM/Bee/Bio/Chem + labs, Sem-2 folders) + `SEM I-20260908T193519Z-1-001` (optics MODULE 1-4, board photos). Six parallel workers; 3 hit image-budget failures, retried lean (≤8 Reads, filename cataloging, python-docx for .docx).
+- **Maths:** extended modules 1/4/5 (LI-LD vectors, Jacobi/Seidel, DE applications bank, De Moivre expansions) + source maps; NEW `ise-exam-prep-am1` (ISE Oct 2025 deconstructed), `prerequisite-toolkit`, formula top-up.
+- **Physics:** NEW `module-1-addendum-sem1-numericals-derivations` (thin-film derivation + 12 solved numericals from board photos) + `source-map-physics-sem1`; MODULE 2-4 empty in dump, lab manual deferred.
+- **SPM:** NEW `spm-pic-question-bank` (26+59+107 Q + solved C via python-docx) + `spm-lab-exp-guides` (EXP1/7/8); PPTX/PDFs filename-only.
+- **Drawing:** extended overview/orthographic/isometric + NEW `projection-of-points-lines-planes`, `development-of-surfaces`, `autocad-lab-and-exam-prep` (filename-cataloged).
+- **Chem/Bio/BEE:** 7 eng-chem pages (green chem, named reactions, 4 labs + map), 4 BEE (3-phase, 2 lab pages + map), NEW `engineering-biology/` module (8 pages: cell bio, bioinformatics, fermentation, systems).
+- **Sem-2:** `sem2-source-map.md` survey only (Maths-II richest, EVS empty, PBL maker track, ESE = 4 papers).
+- **Close-out:** Engineering INDEX counts + biology/sem2 rows + SPM sub-rows updated; graph + dashboard regenerated.

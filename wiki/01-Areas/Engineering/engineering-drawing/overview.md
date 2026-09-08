@@ -1,12 +1,19 @@
 ---
+course_code: "BTech-Sem1-ED (TBC)"
+course_name: "Engineering Drawing"
+unit: "0 - Drawing basics, BIS conventions, scales (TBC)"
+tags: [btech, engineering-drawing, overview, drawing-basics, bis, sp46, lines, lettering, dimensioning, scales, beginner]
+last_updated: "2026-09-09"
+description: "Entry point to Sem-1 Engineering Drawing: instruments, BIS line types, sheets, scales, lettering, dimensioning, module reading order and raw-source map."
 module: "engineering-drawing"
-topic: "Engineering Drawing — Module Overview & Beginner's Guide"
-tags: [engineering-drawing, overview, drawing-basics, bis, sp46, lines, lettering, dimensioning, scales, beginner]
-last_updated: "2026-08-21"
-prerequisites: ["None — start here"]
+prerequisites: ["None - start here"]
+confidence: high
 ---
 
 # Engineering Drawing — Overview & Beginner's Guide
+
+## For future agent
+This is the entry point to the Sem-1 Engineering Drawing module: BIS basics plus the reading order for the whole topic chain. Sources were cataloged by filename only (Sept 2026 intake, KJSCE-style syllabus TBC) — detailed constructions live in the linked pages, not here.
 
 > Engineering Drawing is the **universal language of engineers** — the way we describe a 3D object on a flat sheet so anyone (anywhere, any language) can build it exactly. This module breaks it into small, visual chunks. Start here.
 
@@ -142,8 +149,10 @@ Every dimension tells the maker a size. Rules (BIS 11669):
 ## What's next (reading order)
 
 1. **[[orthographic-projections]]** — the single most important topic: seeing a 3D object as 2D views (front, top, side). ~40% of the syllabus.
-2. **[[isometric-and-sections]]** — drawing the 3D "picture" (isometric) and cutting objects open to see inside (sections).
-3. Then practise: curves (ellipse, parabola), development of surfaces, intersections — all build on the same projection logic.
+2. **[[projection-of-points-lines-planes]]** — exam-heavy constructions: points in 4 quadrants, lines (traces, true length, θ/φ), planes (3-stage method). Built from Module 2 + key-points sheets.
+3. **[[isometric-and-sections]]** — drawing the 3D "picture" (isometric) and cutting objects open to see inside (sections).
+4. **[[development-of-surfaces]]** — sections of solids + flat-pattern developments (prism, cylinder, pyramid, cone). Built from Module 3 + Section-and-development PDFs.
+5. **[[autocad-lab-and-exam-prep]]** — AutoCAD lab files, IA/MSE pattern, worksheets and sketch-book practice plan.
 
 ---
 
@@ -165,8 +174,18 @@ Every dimension tells the maker a size. Rules (BIS 11669):
 - **K.L. Narayana & P. Kannaiah** — *Engineering Drawing*
 - **Dhananjay A. Jolhe** — *Engineering Drawing*
 
+### Sem-1 raw-source map (cataloged by filename 2026-09-09, contents NOT opened)
+- Textbook (78 MB): `EDrawing N.H DUBEY.pdf` — full theory + problem bank (TBC)
+- Orthographic core: `1.2 Orthographic Projections & 1.3 Sectional Orthographic Projejctions.pdf` → feeds [[orthographic-projections]] + [[isometric-and-sections]]
+- Lines: `Module 2_Projection of Lines_25-26_R1.pdf`, `key points for lines.pdf` → feeds [[projection-of-points-lines-planes]]
+- Planes: `key points for planes.pdf` → feeds [[projection-of-points-lines-planes]]
+- Solids + development: `Module 3 - Projection of Solids.pdf`, `Section and development of solids.pdf` → feeds [[development-of-surfaces]]
+- Exam pattern: `ED_IA Assessment Distribution and Test Syllabus Sept 2025.pdf`, `ED_MSE with solution_Afternoon Session.pdf` → feeds [[autocad-lab-and-exam-prep]]
+- Practice: `Questions & Worksheets/ED Booklet 4th Aug 2025.pdf`, `ED Sketch book Aug Nov 2025.pdf`, `ED ACAD Aug Dec 2025.pdf` → feeds [[autocad-lab-and-exam-prep]]
+- AutoCAD (needs AutoCAD — never opened): `Everything.dwg`, `Lab sessions.dwg`, `ED Autocad Lab_Rubrics Aug Nov 2025.pdf`, `ED practical video autocad resources.docx` → feeds [[autocad-lab-and-exam-prep]]
+
 ## CROSS-REFERENCES
 
-- [[orthographic-projections]] · [[isometric-and-sections]]
+- [[orthographic-projections]] · [[isometric-and-sections]] · [[projection-of-points-lines-planes]] · [[development-of-surfaces]] · [[autocad-lab-and-exam-prep]]
 - Related: [[01-Areas/Engineering/engineering-physics/overview|Engineering Physics]] · [[01-Areas/Engineering/engineering-math/module-1-matrices|Engineering Math]]
 - [[wiki/index#engineering-drawing-cross-cutting|Module catalog entry]]

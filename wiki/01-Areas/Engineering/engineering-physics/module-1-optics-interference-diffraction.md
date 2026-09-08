@@ -1,8 +1,12 @@
 ---
 module: "engineering-physics"
+course_code: "EP-SEM1"
+course_name: "Engineering Physics Sem 1"
+unit: "Module 1 — Wave Optics"
 topic: "Module 1: Optics — Interference, Diffraction & Polarization"
-tags: [optics, interference, diffraction, polarization, wave-optics, ydse, fresnel, fraunhofer, thin-film, newtons-rings, grating, malus-law, brewster]
-last_updated: "2026-08-17"
+tags: [optics, interference, diffraction, polarization, wave-optics, ydse, fresnel, fraunhofer, thin-film, newtons-rings, grating, malus-law, brewster, engineering-physics, btech]
+last_updated: "2026-09-09"
+description: "Wave optics Module 1: interference, thin-film, Newton's rings, diffraction, grating, resolving power and polarization with derivations and numericals."
 prerequisites: ["Wave Motion", "SHM", "Basic Trigonometry", "Trigonometric Identities"]
 ---
 
@@ -27,6 +31,9 @@ prerequisites: ["Wave Motion", "SHM", "Basic Trigonometry", "Trigonometric Ident
 11. [Common Mistakes](#11-common-mistakes)
 12. [Worked Numerical Examples](#12-worked-numerical-examples)
 13. [Complete Formula Reference Table](#13-complete-formula-reference-table)
+14. [Sem-1 Addendum 2026-09-09 — Textbook Derivation + Source Numericals](#14-sem-1-addendum-2026-09-09--textbook-derivation--source-numericals)
+
+> **Sem-1 addendum (2026-09-09):** textbook thin-film reflected-light derivation transcribed from `SEM I/MODULE 1` scans ($2\mu t\cos r$ + $\lambda/2$ Stokes rule) and 12 source numericals with full solutions moved to [[module-1-addendum-sem1-numericals-derivations]] to keep this page bounded; full filename catalog in [[source-map-physics-sem1]]. Base conditions: reflected bright $2\mu t\cos r=(2n-1)\lambda/2$, dark $2\mu t\cos r=n\lambda$ (one $\pi$ change); grating $(a+b)\sin\theta=n\lambda$.
 
 ---
 

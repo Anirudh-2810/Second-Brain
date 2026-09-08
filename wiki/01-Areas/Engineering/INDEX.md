@@ -17,11 +17,14 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 
 | Module | Pages | Covers |
 |--------|-------|--------|
-| [[SPM/syllabus-316U06C107|SPM/]] | 12 | **316U06C107 Structured Programming Methodology (2026-27, 30h, CO1-4)** — syllabus hub + lesson plan + lab CA + ESE guide + master study guide |
+| [[SPM/syllabus-316U06C107|SPM/]] | 14 | **316U06C107 Structured Programming Methodology (2026-27, 30h, CO1-4)** — syllabus hub + lesson plan + lab CA + ESE guide + master study guide + PIC question bank + lab exp guides |
+| [[sem2-source-map|sem2-source-map]] | 1 | **Semester-2 source survey** — 10 subjects mapped from the second Drive dump (Maths-II richest, EVS empty, PBL maker track); ingest order for a future session |
 | [[SPM/syllabus-316U06C107|SPM/syllabus-316U06C107]] | — | Official syllabus registry — 4 modules, CO mapping, recommended books (source: [[raw-sources/SPM_Syllabus_316U06C107]]) |
 | [[SPM/lesson-plan-2026-27|SPM/lesson-plan-2026-27]] | — | Week-by-week timeline 17 Aug–4 Dec 2026 — theory vs labs, MSE/OST, Diwali, quiz |
 | [[SPM/lab-ca-and-experiments|SPM/lab-ca-and-experiments]] | — | Lab CA 50 (rubric: logic/debug/write-up/timely, attendance) + EXP1-8 + assignments (source: [[raw-sources/SPM_LAB_CA_2026-27]]) |
 | [[SPM/assessment-guide-ese-ost-quiz|SPM/assessment-guide-ese-ost-quiz]] | — | ESE 50 (Sec A/B Q1-Q4b) + OST 15 + Quiz 15 patterns + prep tactics |
+| [[SPM/spm-pic-question-bank|SPM/spm-pic-question-bank]] | — | **NEW:** 26+59+107 PIC drills (conditionals/loops/arrays) + solved C |
+| [[SPM/spm-lab-exp-guides|SPM/spm-lab-exp-guides]] | — | **NEW:** EXP1/7/8 write-ups + skeletons + viva |
 | SPM/module-1-spm-c-basics | — | M1: SDLC, compilation pipeline, memory layout (Text/Data/BSS/Heap/Stack) |
 | SPM/module-2-program-control-functions | — | M2: if/switch/loops, break/continue/goto, for-step semantics |
 | SPM/module-3-arrays | — | M3.1: 1D/2D arrays, row-major vs col-major, address formulas, search/sort |
@@ -30,11 +33,12 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | [[SPM/module-4-structures-unions-pointers|SPM/module-4-structures-unions-pointers]] | — | **M4.2-4.3 NEW:** structs/unions, struct vs union, pointers, pointer arithmetic, file handling |
 | SPM/c-programming-master-study-guide | — | 4-chapter cram guide (compile→control→arrays→functions) |
 | SPM/formula-sheet-spm | — | One-page syntax sheet (program skeleton → common errors) |
-| [[engineering-drawing/overview|engineering-drawing/]] | 3 | Orthographic projections, isometric views, sections |
-| [[engineering-chem/module-1-water-technology-hardness|engineering-chem/]] | 6 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers |
-| [[engineering-math/module-1-matrices|engineering-math/]] | 5 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers |
-| [[engineering-physics/overview|engineering-physics/]] | 5 | Course physics |
-| [[BEE/INDEX|BEE/]] | 7 | Basic Electrical Engineering: DC circuits & theorems, AC circuits, transformers, DC machines & induction motors, installations/safety + formula sheet |
+| [[engineering-drawing/overview|engineering-drawing/]] | 6 | Orthographic projections, points/lines/planes, isometric views, sections, developments, AutoCAD lab + exam prep |
+| [[engineering-chem/module-1-water-technology-hardness|engineering-chem/]] | 14 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers + green chemistry, named reactions, 4 chem labs |
+| [[engineering-math/module-1-matrices|engineering-math/]] | 8 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers + ISE prep + prerequisite toolkit |
+| [[engineering-physics/overview|engineering-physics/]] | 7 | Course physics + Module-1 numericals addendum |
+| [[BEE/INDEX|BEE/]] | 11 | Basic Electrical Engineering: DC circuits & theorems, AC circuits, three-phase, transformers, DC machines & induction motors, installations/safety + labs + formula sheet |
+| [[engineering-biology/INDEX|engineering-biology/]] | 8 | **NEW Sem-1 Bio for engineers**: biomolecules, cell biology, bioinformatics, fermentation, systems biology |
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
 | mathematics/formula-sheet-master | 4 | JEE-level math formula arsenal |
 | physics/ + chemistry/ | 10 | JEE-level formula sheets & reaction maps |

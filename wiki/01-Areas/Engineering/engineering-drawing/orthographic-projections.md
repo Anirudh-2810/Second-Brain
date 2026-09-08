@@ -1,12 +1,19 @@
 ---
+course_code: "BTech-Sem1-ED (TBC)"
+course_name: "Engineering Drawing"
+unit: "1 - Orthographic projections, first/third angle, points to solids (TBC)"
+tags: [btech, engineering-drawing, orthographic, projections, first-angle, third-angle, hp, vp, views, beginner]
+last_updated: "2026-09-09"
+description: "Core orthographic projection guide: glass-box model, HP/VP quadrants, first vs third angle, point/line/plane/solid projection rules and 3-view method."
 module: "engineering-drawing"
-topic: "Orthographic Projections — Beginner's Guide (1st & 3rd Angle, Views, Points→Solids)"
-tags: [engineering-drawing, orthographic, projections, first-angle, third-angle, hp, vp, views, beginner]
-last_updated: "2026-08-21"
-prerequisites: ["[[overview]] — line types, drawing basics"]
+prerequisites: ["[[overview]] - line types, drawing basics"]
+confidence: high
 ---
 
 # Orthographic Projections
+
+## For future agent
+This is the single most-examined ED topic: first-angle orthographic views and the point→line→plane→solid projection ladder. Full exam-grade constructions for lines/planes moved to [[projection-of-points-lines-planes]]; solids + development moved to [[development-of-surfaces]]. Source PDF `1.2 Orthographic Projections & 1.3 Sectional Orthographic Projejctions.pdf` was cataloged by name only.
 
 > The **most important topic** in the subject. Idea in one line: a 3D object is described by drawing its **flat shadows** from different directions (front, top, side). Read carefully — this builds up step by step.
 
@@ -146,7 +153,7 @@ A point has **no size** — just a dot. We locate it by its distances from HP an
         •
 ```
 
-> Once you get a point right, lines are just **two points connected**, and planes/solids are just **many points connected**. Master the point → everything follows.
+> Once you get a point right, lines are just **two points connected**, and planes/solids are just **many points connected**. Master the point → everything follows. Full construction drill (traces, TL by rotation/trapezoid, θ/φ, plane 3-stage method) lives in [[projection-of-points-lines-planes]] — this page keeps the summary rules.
 
 ---
 
@@ -195,7 +202,7 @@ Solids (cube, prism, pyramid, cylinder, cone, sphere). The plan is usually drawn
 - **Resting on HP** = base on the floor; **resting on VP** = base on the wall.
 - **Sections** through a solid give shapes: cone cut by a plane parallel to base → circle; pyramid cut vertically → triangle; etc.
 
-**General method for any solid:**
+**General method for any solid (summary — full version in [[development-of-surfaces]]):**
 1. Draw the **plan** (top view) of the solid in its resting position.
 2. Project **up** to get the front view (elevation).
 3. If inclined, first draw in a simple position, then **rotate** using the axis — never try to draw the inclined position directly.
@@ -258,5 +265,5 @@ Given a 3D pictorial, produce front/top/side views:
 
 ## CROSS-REFERENCES
 
-- [[overview]] (line types, scales) · [[isometric-and-sections]] (3D views & cutting)
+- [[overview]] (line types, scales) · [[isometric-and-sections]] (3D views & cutting) · [[projection-of-points-lines-planes]] (exam constructions) · [[development-of-surfaces]] (solids detail) · [[autocad-lab-and-exam-prep]] (MSE/IA pattern)
 - [[wiki/index#engineering-drawing-cross-cutting|Module catalog]]

@@ -95,6 +95,18 @@ $a_0\dfrac{d^ny}{dx^n} + \dots + a_ny = X$; symbolic: $F(D)y = X$
 | Euler identities | $\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}$ · $\sin\theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i}$ |
 | log of complex | $\log z = \log r + i\theta$ |
 
+## Dump Additions (2026-09-09 — from Sem-1 drive dump)
+
+| Module | Formula / Rule |
+|--------|----------------|
+| M1 LI/LD ([[module-1-matrices]] §5) | Vectors as columns of $A$: $\mathrm{rank}(A) = m$ → LI; $< m$ → LD with $m - r$ free parameters |
+| M1 Jacobi/Seidel ([[module-1-matrices]] §6) | $x = \frac{b_1 - a_{12}y - a_{13}z}{a_{11}}$ (cyclic); converge if $\|a_{ii}\| > \sum_{j \ne i}\|a_{ij}\|$; Seidel reuses latest values immediately |
+| M4 terminal velocity ([[module-4-linear-differential-equations]] §5) | $\frac{dv}{dt} = g - kv^2$ → $v = a\tanh(gt/a)$, $a = \sqrt{g/k}$; $v \to a$ as $t \to \infty$ |
+| M4 RL charging ([[module-4-linear-differential-equations]] §5) | $i = \frac{E}{R}(1 - e^{-Rt/L})$; time to $90\%$: $t = \frac{L}{R}\ln 10$ |
+| M4 RC charging ([[module-4-linear-differential-equations]] §5) | $q = CV(1 - e^{-t/RC})$, $i = \frac{V}{R}e^{-t/RC}$ |
+| M5 multiple angles ([[module-5-complex-numbers]] §9) | $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$ · $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$ · $\tan 3\theta = \frac{3t-t^3}{1-3t^2}$ · $\sin^3\theta = \frac{3\sin\theta - \sin 3\theta}{4}$ |
+| Exam paper | Full ISE Oct 2025 breakdown + question-bank map: [[ise-exam-prep-am1]] · Prerequisite trig/diff/integral drills: [[prerequisite-toolkit]] |
+
 ## Exam-Day Checklist
 
 1. Matrices: state Cayley–Hamilton before using it; verify $\sum\lambda = $ trace

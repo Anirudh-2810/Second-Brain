@@ -1876,6 +1876,68 @@ A⁻¹ = [  1/4   −1/2    3/4 ]
 
 ---
 
+## 5. LINEAR DEPENDENCE / INDEPENDENCE OF VECTORS (dump extension, 2026-09-09)
+
+> Source: `Matrices/7_Linear Dependence Linear Independence.pdf` (KJSCE AM-I, Module-2 / Sub-module 2.4). The rest of Module 1 above covers rank, REF, and systems; this section adds the *vector* viewpoint the dump teaches: LD/LI is decided by the rank of the matrix whose **columns are the vectors**.
+
+**Definitions.** Vectors $X_1, X_2, \dots, X_m$ (each $n \times 1$) are **linearly dependent (LD)** if there exist scalars $k_1, \dots, k_m$, *not all zero*, with $k_1X_1 + k_2X_2 + \cdots + k_mX_m = 0$. Equivalently, at least one vector is a linear combination of the others: if $k_1 \neq 0$ then $X_1 = \mu_2X_2 + \cdots + \mu_mX_m$ with $\mu_i = -k_i/k_1$. They are **linearly independent (LI)** if $k_1X_1 + \cdots + k_mX_m = 0 \implies k_i = 0$ for all $i$.
+
+**Rank test (exam procedure).** The equation $k_1X_1 + \cdots + k_mX_m = 0$ is a homogeneous system $AK = 0$ in the unknowns $k_i$, where $A$ has the $X_i$ as columns. Row-reduce $A$ only (row ops) and find $r = \mathrm{rank}(A)$:
+
+| Case | Condition | Verdict |
+|------|-----------|---------|
+| (i) | $r = m$ (rank = number of vectors) | only trivial solution → **LI** |
+| (ii) | $r < m$ | $m - r$ free parameters → **LD**; set free $k$'s as parameters to read off the dependence relation |
+
+**Worked example 1 (LD).** Are $X_1 = (1,3,4,2)$, $X_2 = (3,-5,2,6)$, $X_3 = (2,-1,3,4)$ dependent? If so express $X_1$ via the others.
+
+*Solution.* $k_1X_1+k_2X_2+k_3X_3 = 0$ gives a $4 \times 3$ system. Row-reducing ( $R_2-3R_1$, $R_3-4R_1$, $R_4-2R_1$, scale, $R_3-R_2$ ) yields two nonzero rows, so $r = 2 < 3 = m$ → **dependent**. Back-substitution: $k_1 + 3k_2 + 2k_3 = 0$, $2k_2 + k_3 = 0$. Put $k_3 = -2t$: $k_2 = t$, $k_1 = t$. Hence $tX_1 + tX_2 - 2tX_3 = 0$, i.e. $X_1 + X_2 - 2X_3 = 0$, so $\boxed{X_1 = -X_2 + 2X_3}$ ✓
+
+**Worked example 2 (LI).** $X_1 = (3,1,1)^T$, $X_2 = (2,0,-1)^T$, $X_3 = (4,2,1)^T$. Row-reducing the $3 \times 3$ coefficient matrix (swap $R_1 \leftrightarrow R_3$ first to get a 1-pivot, then $R_2-R_1$, $R_3-3R_1$, $R_3-5R_2$) gives an echelon form with pivot $-4$ in row 3: $r = 3 = m$ → only $k_1 = k_2 = k_3 = 0$ → **independent** ✓
+
+**Worked example 3 (spanning check).** $X_1=(1,2,4)$, $X_2=(2,-1,3)$, $X_3=(0,1,2)$ are LI ($r=3$), while adding $X_4=(-3,7,2)$ makes the set of four LD ($r=3<4$); solving gives $-9X_1+12X_2-5X_3+5X_4 = 0$ up to scale, i.e. $\boxed{X_4 = \tfrac{9}{5}X_1 - \tfrac{12}{5}X_2 + X_3}$. Moral: any $n+1$ vectors in $\mathbb{R}^n$ are LD — the dump's standard "express $X_4$" question.
+
+**Exam traps.** (a) Column order doesn't matter but *row-only* ops must be used — column ops would scramble which $k_i$ is which. (b) A set containing the zero vector is always LD. (c) "Show $X_4$ depends on $X_1,X_2,X_3$" = first prove the three are LI, then solve the 4-vector system.
+
+---
+
+## 6. ITERATIVE NUMERICAL METHODS — GAUSS-JACOBI & GAUSS-SEIDEL (dump extension, 2026-09-09)
+
+> Source: `Matrices/8_Numerical Methods for system of equations.pdf` (Sub-module 2.5) + ISE Oct 2025 Q3.1. Direct Gaussian elimination (§1.2 above) is exact but the syllabus also examines these *approximate* iterative schemes — typically "take three iterations".
+
+**Setup.** Rearrange each equation to isolate one variable: $x = \tfrac{1}{a_{11}}(b_1 - a_{12}y - a_{13}z)$, and similarly for $y, z$. Start from an initial guess (if none given, $x_0 = y_0 = z_0 = 0$).
+
+**Convergence condition (sufficient).** The coefficient matrix must be **strictly (or irreducibly) diagonally dominant**: $|a_{ii}| > \sum_{j \ne i}|a_{ij}|$ for every row $i$. If not, **reorder the equations first** so it becomes so (the dump's Example 2 does exactly this: it moves $15x+2y+z=18$ to the top).
+
+**Jacobi vs Seidel.** Jacobi uses *only previous-iteration* values for every variable; Seidel uses the *latest available* value as soon as it is computed (find $x_{k+1}$, then use it immediately in the $y$ formula, then both in the $z$ formula). Everything else — rearrangement, convergence check — is identical. Seidel converges faster and is the one the ISE asked.
+
+**Worked example (Jacobi, from dump).** $20x+y-2z = 17$, $3x+20y-z = -18$, $2x-3y+20z = 25$; diagonally dominant ✓. Rearranged: $x = \tfrac{1}{20}(17-y+2z)$, $y = \tfrac{1}{20}(-18-3x+z)$, $z = \tfrac{1}{20}(25-2x+3y)$.
+
+- Iter 1 from $(0,0,0)$: $x_1 = 17/20 = 0.85$, $y_1 = -18/20 = -0.9$, $z_1 = 25/20 = 1.25$.
+- Iter 2: $x_2 = \tfrac{1}{20}(17+0.9+2.5) = 1.02$, $y_2 = \tfrac{1}{20}(-18-2.55+1.25) = -0.965$, $z_2 = \tfrac{1}{20}(25-1.7-2.7) = 1.03$.
+- Iters 3–4 converge to $\boxed{x \approx 1.0004,\ y \approx -1.0000,\ z \approx 0.9997}$ (exact: $1, -1, 1$).
+
+**Worked example (Seidel, from dump).** $3x-0.1y-0.2z = 7.85$, $0.1x+7y-0.3z = -19.3$, $0.3x-0.2y+10z = 71.4$. Iter 1: $x = 7.85/3 = 2.6167$; immediately reuse → $y = \tfrac{1}{7}(-19.3-0.1\cdot2.6167) = -2.7945$; reuse both → $z = \tfrac{1}{10}(71.4-0.3\cdot2.6167+0.2\cdot(-2.7945)) = 7.0056$. After three iterations $\boxed{x = 3,\ y = -2.5,\ z = 7}$ exactly.
+
+**ISE Oct 2025 Q3.1 (for practice):** Seidel, three iterations, $15x+y+z = 17$, $2x+15y+z = 18$, $x+2y+15z = 18$ — diagonally dominant as given; full paper breakdown is on [[ise-exam-prep-am1]].
+
+**Exam traps.** (a) Always *verify/reorder to* diagonal dominance first — marks depend on it. (b) In Jacobi, never mix a just-computed value into the same iteration (that silently turns it into Seidel). (c) State the iteration count and the starting vector explicitly.
+
+---
+
+## SOURCE MAP — `Matrices/` dump → this module
+
+| Dump file | Status in this module |
+|-----------|----------------------|
+| `1_Basics of Matrices Types.pdf`, `2_ Basics of sum of Matrices-2.pdf`, `3_Orthogonal Unitary Matrix.pdf` | already covered — §1.1 types table (orthogonal/unitary incl.) |
+| `4_Rank of a Matrix.pdf` | already covered — §1.3 + §2.1 |
+| `5_System of Linear equations (Non-homogeneous).pdf`, `6_homogeneous System of Linear equations.pdf` | already covered — §1.4 + §2.3 |
+| `7_Linear Dependence Linear Independence.pdf` | **new §5 above** (3 worked examples) |
+| `8_Numerical Methods for system of equations.pdf` | **new §6 above** (Jacobi + Seidel) |
+| `Questions/` (6 files: rank banks, system/LI-LD set, numerical set) | practice pool — see [[ise-exam-prep-am1]] for the ISE-grade picks |
+
+---
+
 ## CROSS-REFERENCES
 
 - [[engineering-math/module-2-partial-differentiation|Module 2: Partial Differentiation]] — The Jacobian matrix (Module 2, §2.5) is built from partial derivatives arranged as a matrix; eigenvalue analysis of the Hessian (Module 2, §2.6) classifies critical points. Matrix methods from this module provide the computational engine behind the Jacobian and Hessian frameworks.

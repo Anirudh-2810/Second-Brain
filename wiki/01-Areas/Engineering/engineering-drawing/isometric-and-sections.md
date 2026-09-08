@@ -1,12 +1,19 @@
 ---
+course_code: "BTech-Sem1-ED (TBC)"
+course_name: "Engineering Drawing"
+unit: "4 - Isometric views and sectional views (TBC)"
+tags: [btech, engineering-drawing, isometric, isometric-projection, sections, sectional-views, hatching, cutting-plane, dimensioning, beginner]
+last_updated: "2026-09-09"
+description: "Isometric 3D-view method (axes, box method, circles-as-ellipses) plus sectional views: cutting planes, hatching rules, section types and exam checklist."
 module: "engineering-drawing"
-topic: "Isometric Views & Sectional Views — Beginner's Guide"
-tags: [engineering-drawing, isometric, isometric-projection, sections, sectional-views, hatching, cutting-plane, dimensioning, beginner]
-last_updated: "2026-08-21"
 prerequisites: ["[[overview]]", "[[orthographic-projections]]"]
+confidence: high
 ---
 
 # Isometric & Sectional Views
+
+## For future agent
+This page covers the two pictorial skills: isometric 3D views and sectional (cut-open) views. It assumes [[orthographic-projections]] first-angle basics. Solid-section true shapes + flat-pattern development are split out to [[development-of-surfaces]]; AutoCAD/lab + exam pattern to [[autocad-lab-and-exam-prep]].
 
 > Two skills that make your drawings come alive: **Isometric** shows the object as a 3D "picture"; **Sections** show what's *inside* by cutting the object open. Both are exam favourites and easier than they look.
 
@@ -152,5 +159,5 @@ Thick **dash-dot** line with arrows at the ends, labelled like **A–A** or **X�
 
 ## CROSS-REFERENCES
 
-- [[overview]] (line types for cutting planes, lettering) · [[orthographic-projections]] (reading views to build isometric from)
+- [[overview]] (line types for cutting planes, lettering) · [[orthographic-projections]] (reading views to build isometric from) · [[development-of-surfaces]] (sectional-solids detail + true shape) · [[projection-of-points-lines-planes]] (projection foundations) · [[autocad-lab-and-exam-prep]] (lab + MSE pattern)
 - [[wiki/index#engineering-drawing-cross-cutting|Module catalog]]
