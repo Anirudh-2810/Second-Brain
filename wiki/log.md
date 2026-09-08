@@ -783,3 +783,8 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Timing:** all trip times rendered raw UTC ISO (5.5h behind IST). New `src/lib/datetime.ts` `formatIST()` (Asia/Kolkata) applied to dashboard, Delivered, Trip Log, guest dashboard; storage stays UTC; md export keeps ISO.
 - **Cloud:** `sessions` was 0 rows (trips lived only in localStorage; POST failures were swallowed). Finish popup now shows sync state (✓ Saved to cloud / Saving… / failed-kept-locally / guest). RLS verified owner-only — cross-browser "same account" is persistent Supabase session (remember-me), not a leak.
 - **Verify:** `tsc` clean, webpack build green, pushed `57aa520` → Vercel Production Ready, `/api/health` supabase configured. Open: user runs one authed trip → expect exactly 1 row in `sessions`, 1 Delivered row, IST times, "Saved to cloud". Resend `missing RESEND_API_KEY` runtime flag still open.
+
+### 2026-09-08 — Roadtrip duplicate, second attempt (stable run-id guard)
+- **Evidence:** user screenshot showed pairs persisting under the live IST build — old guard keyed on `startedAtRef.current`, but finish nulls that ref, so the stale second RAF fire minted a fresh timestamp and slipped past (`1c823c5`).
+- **Fix:** dedicated `runIdRef` counter assigned in `doStart`, `finishedRunRef` stores the finished run id; repeats for the same run return immediately regardless of ref nulling. Reload-resume safe (refs reset → one finish allowed).
+- **Verify:** `tsc` clean, webpack green, pushed → Vercel Production Ready. User test: Clear Trip Log once (old dup rows predate all fixes), run one 1-min Custom → exactly 1 Delivered row.
