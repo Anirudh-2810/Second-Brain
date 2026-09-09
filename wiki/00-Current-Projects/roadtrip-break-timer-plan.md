@@ -14,7 +14,7 @@ Design record for the roadside break timer (user request 2026-09-09, build NOT s
 
 # Roadtrip Break Timer — car pulls over & refuels (plan)
 
-> **Status:** OPEN — discussion tomorrow. **North Star:** builds (roadtrip is the favourite build; breaks complete the Pomodoro loop).
+> **Status:** OPTION LOCKED 2026-09-09 — build tomorrow. Locked: **A (manual pull-over) first, B later, C deferred** (user confirmed). **North Star:** builds (roadtrip is the favourite build; breaks complete the Pomodoro loop).
 
 ## Concept
 
@@ -42,12 +42,12 @@ Every route burns fuel (progress = fuel draining); breaks are refuel stops; gaug
 
 ## Open questions for tomorrow
 
-1. Manual-first (A) vs auto-cycle (B)? Default recorded: A first, B later.
+1. Manual-first (A) vs auto-cycle (B)? ~~Default recorded: A first, B later.~~ **Decided 2026-09-09: A first, B later.**
 2. Break presets: 2/5/10/15 or custom input like routes?
 3. Auto-return when countdown ends vs manual "Back on road"? (Auto-return risks yanking attention; manual risks forgotten breaks.)
 4. Sound: fade hum to silence, keep noise bed, or engine-off click? (Noise bed toggle already exists.)
 5. Should breaks appear anywhere in Trip Log/stats, or fully invisible? (Default: invisible.)
-6. Mid-route pit stops (C) in v1 scope or deferred?
+6. Mid-route pit stops (C) in v1 scope or deferred? **Decided 2026-09-09: deferred.**
 
 ## Definition of done (when built)
 
