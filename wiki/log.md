@@ -806,3 +806,9 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Chem/Bio/BEE:** 7 eng-chem pages (green chem, named reactions, 4 labs + map), 4 BEE (3-phase, 2 lab pages + map), NEW `engineering-biology/` module (8 pages: cell bio, bioinformatics, fermentation, systems).
 - **Sem-2:** `sem2-source-map.md` survey only (Maths-II richest, EVS empty, PBL maker track, ESE = 4 papers).
 - **Close-out:** Engineering INDEX counts + biology/sem2 rows + SPM sub-rows updated; graph + dashboard regenerated.
+
+### 2026-09-09 — Spanish A1 lecture ingested (clase fundamentos)
+- **Source:** pasted class notes + 4 worksheet images (Woodward profesiones poster, Saludos match-up + Pedro–Raul dialogue, ClassroomIQ greetings bank, 1st-conjugation -ar bank) + YouTube/VideoEle/LearningApps/Kahoot link bank.
+- **New:** `wiki/01-Areas/Self-Dev/spanish/clase-2026-09-09-a1-fundamentos.md` — pronombres, SER/TENER tables + negation, regular AR/ER/IR + llamarse, adjetivos agreement, articulos, form-filling vocab, noun→pronoun map, 20 profesiones, grouped practice bank, worksheet keys. Linked from `spanish/overview.md` cross-links.
+- **Gaps flagged in-note (TBC):** Spanish-speaking countries list not in pasted notes — pull from VideoEle Paises unit; one Kahoot ID repeats for two titles (verify before hosting); `buenas dias` in worksheet bank should be `buenos dias`.
+- **Close-out:** graph + dashboard regenerated.

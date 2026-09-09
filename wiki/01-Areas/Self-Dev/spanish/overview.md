@@ -127,6 +127,7 @@ Separate section: listen to song while reading lyrics → interactive gap-fill. 
 ## Cross-links
 
 - [[alphabet-and-pronunciation]] · [[grammar-essentials]] · [[vocabulary-and-phrases]] · [[phrasebook-cheatsheet]] · [[practice-and-exercises]]
+- [[clase-2026-09-09-a1-fundamentos|Clase 2026-09-09 — A1 fundamentos (SER/TENER, presente regular, profesiones, form-filling)]] — lecture distillation + YouTube/LearningApps/Kahoot bank + worksheets
 - German parallel: [[01-Areas/Self-Dev/german/overview|German A1 Overview]]
 - Learning system: [[01-Areas/Self-Dev/productivity/how-to-self-teach]]
 
