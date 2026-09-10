@@ -819,3 +819,4 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Break Option A (`aa077e2`):** `🅿 Pull over` → 2/5/10/15 picker → `parkedRef` shoulder-ease + hazard blink + frozen dash, local countdown + fuel bar, silence via pause-path + engine-off click, auto-return + 660→880 chime (user picks), zero `sessions` rows. Break guards in Hit/Pause/Reset/Custom/routes/pills.
 - **Pushed** `Anirudh-2810/roadtrip-pomodoro` main (Vercel auto-deploys). Vault: `roadtrip-focus.md` + `roadtrip-break-timer-plan.md` (A built) updated.
 - **Pending user-side:** phone screenshots (home sheet, road view, login); 1-min live trip → 1 row; one break → 0 new rows; header-crowding/fullscreen-exit only if screenshots show problems.
+- **Follow-up same day (`032b684`):** parked car sat off-road (edge + 26px → dark corner per screenshot). Moved onto the edge line + cinematic 4.5s/3s transitions with 1s delayed resume. Pushed; eyeball check pending.
