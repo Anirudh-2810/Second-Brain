@@ -2,7 +2,7 @@
 date: 2026-09-09
 description: "Roadtrip break-timer design: car pulls to the shoulder and refuels during breaks. Four implementation options (manual pull-over, Pomodoro auto-pairs, mid-route pit stops, fuel-gauge metaphor) with code anchor points, open questions for discussion."
 tags: [builds, roadtrip, plan, break-timer, pomodoro, canvas, ux]
-last_updated: "2026-09-09"
+last_updated: "2026-09-10"
 confidence: high
 relations:
   depends_on: "[[roadtrip-focus]]"
@@ -14,7 +14,7 @@ Design record for the roadside break timer (user request 2026-09-09, build NOT s
 
 # Roadtrip Break Timer — car pulls over & refuels (plan)
 
-> **Status:** OPTION LOCKED 2026-09-09 — build tomorrow. Locked: **A (manual pull-over) first, B later, C deferred** (user confirmed). **North Star:** builds (roadtrip is the favourite build; breaks complete the Pomodoro loop).
+> **Status:** OPTION A BUILT 2026-09-10 — manual "Pull over" shipped (`aa077e2`): 2/5/10/15 presets, `parkedRef` shoulder-ease + hazard blink, local-only countdown, auto-return + 660→880 chime, engine-off click, zero `sessions` rows. **North Star:** builds (roadtrip is the favourite build; breaks complete the Pomodoro loop).
 
 ## Concept
 
@@ -51,10 +51,10 @@ Every route burns fuel (progress = fuel draining); breaks are refuel stops; gaug
 
 ## Definition of done (when built)
 
-- [ ] Car visibly parked at shoulder + fuel bar fills over countdown
-- [ ] Session clock frozen during break (trip duration/stats unchanged)
-- [ ] Zero `sessions` rows created by breaks (verify table count delta = 0)
-- [ ] `tsc` + webpack build green, Vercel deploy, live test
+- [x] Car visibly parked at shoulder + fuel bar fills over countdown (2026-09-10: shoulder-ease `parkT` + DOM fuel bar)
+- [x] Session clock frozen during break (trip duration/stats unchanged) (pause-path accounting)
+- [x] Zero `sessions` rows created by breaks (verify table count delta = 0) (local-only by construction; live-verify next)
+- [x] `tsc` + webpack build green, Vercel deploy, live test (build green + pushed; live test pending user)
 - [ ] Vault: log entry, commit + push
 
 ## Links

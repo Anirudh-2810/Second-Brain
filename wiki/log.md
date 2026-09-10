@@ -812,3 +812,10 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **New:** `wiki/01-Areas/Self-Dev/spanish/clase-2026-09-09-a1-fundamentos.md` — pronombres, SER/TENER tables + negation, regular AR/ER/IR + llamarse, adjetivos agreement, articulos, form-filling vocab, noun→pronoun map, 20 profesiones, grouped practice bank, worksheet keys. Linked from `spanish/overview.md` cross-links.
 - **Gaps flagged in-note (TBC):** Spanish-speaking countries list not in pasted notes — pull from VideoEle Paises unit; one Kahoot ID repeats for two titles (verify before hosting); `buenas dias` in worksheet bank should be `buenos dias`.
 - **Close-out:** graph + dashboard regenerated.
+
+### 2026-09-10 — Roadtrip mobile batch + break timer Option A (builds)
+- **Backup:** tag `pre-mobile-fix-2026-09-10` + `thinking/backup-mobile-fix-2026-09-10.zip` before breaking anything.
+- **Mobile batch (`4d42ec1`):** 16px inputs on mobile (iOS auto-zoom guard, `sm:` smaller on desktop); `app-shell`/`fs-full` `100dvh` + `100vh` fallback; done popup `w-[min(340px,100vw-32px)]` + dvh-capped + scroll; 44px touch targets (play/reset/dock/exit + `touch-44`). `tsc` + webpack green.
+- **Break Option A (`aa077e2`):** `🅿 Pull over` → 2/5/10/15 picker → `parkedRef` shoulder-ease + hazard blink + frozen dash, local countdown + fuel bar, silence via pause-path + engine-off click, auto-return + 660→880 chime (user picks), zero `sessions` rows. Break guards in Hit/Pause/Reset/Custom/routes/pills.
+- **Pushed** `Anirudh-2810/roadtrip-pomodoro` main (Vercel auto-deploys). Vault: `roadtrip-focus.md` + `roadtrip-break-timer-plan.md` (A built) updated.
+- **Pending user-side:** phone screenshots (home sheet, road view, login); 1-min live trip → 1 row; one break → 0 new rows; header-crowding/fullscreen-exit only if screenshots show problems.
