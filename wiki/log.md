@@ -823,3 +823,4 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Follow-up (`0d8f471`):** drive-model rewrite — car steers over while world decelerates (no more slide-on-ice), hum fades with speed, countdown from settled, merge from current position. Pushed; eyeball check pending.
 - **Follow-up (`24c0efe`):** resume audio flash (full → mute → ramp) fixed — loop starts silent, cruise claims level. Pushed; ear-check pending.
 - **Follow-up (`71b183d`):** mobile stacked layout — full panel reachable, road 38dvh below, desktop untouched. Pushed; user-confirmed working on phone 2026-09-10.
+- **2026-09-10 — Roadtrip feature freeze:** app handed to testers. No new features until tester bugs come back — debug-only mode. Break Option B and emails stay parked so the vibe isn't ruined.
