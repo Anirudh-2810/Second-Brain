@@ -822,4 +822,4 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Follow-up same day (`032b684`):** parked car sat off-road (edge + 26px → dark corner per screenshot). Moved onto the edge line + cinematic 4.5s/3s transitions with 1s delayed resume. Pushed; eyeball check pending.
 - **Follow-up (`0d8f471`):** drive-model rewrite — car steers over while world decelerates (no more slide-on-ice), hum fades with speed, countdown from settled, merge from current position. Pushed; eyeball check pending.
 - **Follow-up (`24c0efe`):** resume audio flash (full → mute → ramp) fixed — loop starts silent, cruise claims level. Pushed; ear-check pending.
-- **Follow-up (`71b183d`):** mobile stacked layout — full panel reachable, road 38dvh below, desktop untouched. Pushed; screenshot check pending.
+- **Follow-up (`71b183d`):** mobile stacked layout — full panel reachable, road 38dvh below, desktop untouched. Pushed; user-confirmed working on phone 2026-09-10.
