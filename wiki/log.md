@@ -824,3 +824,4 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Follow-up (`24c0efe`):** resume audio flash (full → mute → ramp) fixed — loop starts silent, cruise claims level. Pushed; ear-check pending.
 - **Follow-up (`71b183d`):** mobile stacked layout — full panel reachable, road 38dvh below, desktop untouched. Pushed; user-confirmed working on phone 2026-09-10.
 - **2026-09-10 — Roadtrip feature freeze:** app handed to testers. No new features until tester bugs come back — debug-only mode. Break Option B and emails stay parked so the vibe isn't ruined.
+- **2026-09-10 — Odyssey CAD & Design interview prep:** new page `engineering-drawing/cad-design-interview-prep.md` (AutoCAD rapid-fire, UCS/EXTRUDE, Blender, tolerances, drone structures, rehearsal Qs, project-answer script) for the Somaiya drone-team technical round; linked from ED overview.

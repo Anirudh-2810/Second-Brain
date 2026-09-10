@@ -186,6 +186,6 @@ Every dimension tells the maker a size. Rules (BIS 11669):
 
 ## CROSS-REFERENCES
 
-- [[orthographic-projections]] · [[isometric-and-sections]] · [[projection-of-points-lines-planes]] · [[development-of-surfaces]] · [[autocad-lab-and-exam-prep]]
+- [[orthographic-projections]] · [[isometric-and-sections]] · [[projection-of-points-lines-planes]] · [[development-of-surfaces]] · [[autocad-lab-and-exam-prep]] · [[cad-design-interview-prep]] (Odyssey drone-team CAD & Design round)
 - Related: [[01-Areas/Engineering/engineering-physics/overview|Engineering Physics]] · [[01-Areas/Engineering/engineering-math/module-1-matrices|Engineering Math]]
 - [[wiki/index#engineering-drawing-cross-cutting|Module catalog entry]]
