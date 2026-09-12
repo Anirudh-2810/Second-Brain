@@ -129,6 +129,18 @@ Standard sheet flow: model views (Front/Top/Isometric) → dimensions pulled fro
 
 ---
 
+## 12. Large-assembly strategy (when part counts explode)
+
+**The performance cliff (awareness — TBC per hardware):** small assemblies (<50 parts) forgive everything; medium (50–300) demand discipline; large (300+) demand ARCHITECTURE (sub-assemblies as modules, lightweight discipline, envelope-first navigation — TBC depth: full large-assembly practice is its own discipline, confirm with CAD-admin references NOT this page). Know which regime you're in BEFORE modeling (a 500-part machine modeled like a 20-part bracket rebuilds like molasses — the architecture must precede the parts).
+
+**Sub-assembly modularity (the org chart as CAD):** functional modules (drive unit / frame / guarding / controls — the machine's REAL subsystems from [[shredders-recycling-machines]] §1 generalized!) → each module = one sub-assembly with defined INTERFACES (mounting faces, envelope limits, connector positions — the §11-top-down layout enforced per module) → modules mate at TOP level only (never reach INTO a sub-assembly to mate its internals — encapsulation! — TBC per PDM practice; internal restructuring must not break top-level mates).
+
+**Lightweight + SpeedPak discipline (TBC exact UX per version):** lightweight open by DEFAULT for big work (graphics-only until edited — the RAM habit from §10-hardware extended) → SpeedPak configs for reference modules (graphics + mating faces, no history — supplier models arrive this way; TBC per exchange practice) → simplified working configs per §8 (holes off, fillets off, decals off — the config habit at assembly scale) → the golden rule: open HEAVY only what you're EDITING (everything else rides lightweight — discipline, not hardware, is the performance strategy).
+
+**Envelope + skeleton assemblies (navigate without loading):** top-level skeleton sketch (all module positions — the §11-layout at full-machine scale!) → envelope parts per module (bounding volumes for clash + space-claim — TBC per systems practice) → clash detection RUNS (interference at TOP level with envelopes — full-detail clash comes later; envelopes catch 90% in 10% of the time) → publish geometry discipline (TBC depth: controlled sharing between teams — awareness that it exists).
+
+---
+
 ## 11. Top-down vs bottom-up + master-model technique (assembly architecture)
 
 **Bottom-up (parts → assembly):** model each part solo, mate together. Strengths: simple, portable files, bought-out friendly. Weaknesses: interfaces drift (hole patterns misalign across separately-modeled parts — the §6-mismatch failure). Default for small assemblies + standard hardware. Fix the drift: derive shared interfaces from ONE layout sketch (the [[sketch-mastery]] §12 pattern) even in bottom-up builds.

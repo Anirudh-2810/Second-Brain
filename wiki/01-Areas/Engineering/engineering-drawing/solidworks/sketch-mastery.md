@@ -150,6 +150,16 @@ Amateurs draw-then-constrain (rough shape, then fight it into definition). Profe
 
 ---
 
+## 14. Sketch performance + audit rituals (speed at scale)
+
+**Sketch weight discipline (complex sketches stay fast):** entity count awareness (100+ entity sketches solve slowly — TBC per hardware; SPLIT at ~50 into staged sketches with derived references — the §4-simple-sketches rule quantified) → construction geometry costs too (hidden doesn't mean free — purge dead construction monthly per §10-hygiene) → spline point economy (§13-fewer-points restated as performance: every point is solver load) → pattern-in-sketch vs pattern-as-feature (pattern the FEATURE — sketch patterns multiply solver load per instance; TBC per version behavior).
+
+**The 60-second sketch audit (run on EVERY sketch before exiting):** all black? (status bar, not vibes) → drag-test survivors? (grab each region once — nothing moves) → dims minimal? (count vs §11-strategy: relations-heavy?) → references stable? (planes/origin, not faces — the §9-ladder check) → intent readable? (would a stranger dimension-edit correctly? — the §4-name-everything habit applied to dims: rename driving dims `MountSpacing`, `WallThk` — TBC per version's dim-naming UX).
+
+**Sketch reuse ladder (never redraw twice):** Copy Entities within sketch (quick duplicates) → Derived Sketch across features/parts (linked copies — change master, all follow; TBC per version) → Blocks for mechanisms/symbols (§12) → Library Features for standard details ([[dressup-productivity]] §9) → the progression: copy (fast, dumb) → derive (linked, smart) → block (movable, mechanism-grade) → library (managed, team-grade). Climb it as reuse frequency justifies — one-off copies stay copies, ten-time details become library assets.
+
+---
+
 ## 13. Spline mastery + conic curves (curvature you command)
 
 **Spline anatomy (control points vs poles — TBC exact terminology per version):** through-points the curve PASSES (interpolating — predictable, stable) vs control vertices it BENDS toward (approximating — smoother, looser). Beginners grab whichever default appears; professionals CHOOSE per need (interpolation for must-hit datums like mounting points, approximation for fair styling where smoothness beats precision).

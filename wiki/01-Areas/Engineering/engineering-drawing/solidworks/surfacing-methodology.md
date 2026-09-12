@@ -116,6 +116,20 @@ Before clicking: decompose the object into regions of *consistent curvature beha
 
 ---
 
+## 11. Continuity math without tears (what C0/C1/C2 MEAN geometrically)
+
+**Position (C0): endpoints coincide.** Two curves share an endpoint — the joint has a corner (angle). Surfaces: edges touch. That is ALL C0 promises. Visible creases are C0 telling the truth — creases aren't failures where style lines live (helmet ridges, chine rails, parting edges from §9-applications). Beginners fear all creases; professionals PLACE them (crease-as-design per [[lofted-boundary-surfaces]] §3-seam-planning).
+
+**Tangency (C1): endpoints coincide + tangent DIRECTIONS match.** Same direction, possibly different curvature (a straight line meeting a circle tangentially: direction continuous, bend jumps 0→1/R — the highlight "hesitates" but doesn't break). The working standard for visible consumer skins. Achieving it: tangent relations on sketches (the §5-comb discipline's payoff), tangent edge constraints on fills/lofts (the setting, not luck), zebra verification (hesitation visible = C1 confirmed, kink = still C0 somewhere).
+
+**Curvature (C2): direction + CURVATURE match (same bend rate AND center side).** Reflections flow unbroken — the premium read. Costs: curvature-continuous rails/guides (conics help per [[sketch-mastery]] §13!), C2 edge settings all around, zebra-comb iteration. Budget per [[artistic-organic]] §9-finish-spec: gloss hero zones earn C2; textured/hidden zones never will.
+
+**Beyond (C3/G3 awareness — TBC depth):** curvature-RATE continuity (highway/aero surfacing where reflections must not merely flow but flow SMOOTHLY — TBC: confirm with Class-A references, NOT this page). Know it exists; never chase it on consumer parts (diminishing returns past C2 for 99% of products — TBC per surfacing practice).
+
+**Continuity debugging ladder (kink found → fix in order):** edge settings first (raise C0→C1→C2, re-zebra each step — cheapest fix) → profile sketch fairness second (combs per §5 — the usual culprit) → guide rails third (unfair rails poison fair profiles) → patch count fourth (too FEW patches force unfair spans? No — too few profiles under-constrain; add an intermediate section per the §6-wrinkle rule) → rebuild-from-shared-derivation fifth (both sides from ONE parent curve = continuity by construction, the nuclear option that always works).
+
+---
+
 ## 10. Reverse-engineering master appendix (scan-to-CAD at learning level)
 
 **Measurement toolkit (ranked by access):** calipers + radius gauges + contour gauge (the $50 kit that measures 90% of parts — TBC per sourcing; contour gauges copy curves mechanically!) → phone photogrammetry (multi-angle photo sets → mesh via free apps — TBC per app quality; meshes are REFERENCE, not product — §10-sculpt rule restated) → borrowed CMM time (college/makerspace — TBC per access; datums + patience required) → 3D scanner ( structured-light/handheld — TBC per access; shiny/transparent parts need spray — TBC per scanning practice).

@@ -184,3 +184,13 @@ Every beginner meets these five errors. What they MEAN, not just what to click:
 
 ## CROSS-REFERENCES
 - [[INDEX]] (hub) · [[sketch-mastery]] · [[part-assembly-drawing-workflow]] · [[../overview]] (drawing conventions behind the 3D)
+
+---
+
+## 11. Hardware + license reality (student setup that works)
+
+**Which SolidWorks (student access paths — TBC: confirm CURRENT offerings, NOT this page):** EDU/student licenses through college (ask your department — KJSCE-class programs usually include seats; TBC per institution) → free trials (time-boxed sprints — plan a project INTO the trial window, don't "explore") → makerspace/lab machines (version-mismatch warning per §9-future-version: check lab version BEFORE modeling at home!) → the version question dissolves if you work where you'll present (lab machines for college submissions, own install for portfolio).
+
+**Hardware minimums that matter (TBC per version + assembly size):** RAM over GPU for big assemblies (integrated graphics survive learning; 8 GB RAM chokes past small assemblies — TBC per hardware; close browsers while modeling!) → SSD for load/save sanity (spinning-disk CAD is a patience test, not a workflow) → mouse WITH middle button + wheel (non-negotiable — trackpads model at 1/3 speed; TBC per pain tolerance) → second monitor for video+CAD side-by-side (the playlist workflow assumes you can SEE the video while modeling — phone-on-desk works at zero cost).
+
+**First-install checklist (extends §2-setup):** templates saved per §8 → library folders created per §10-file-hygiene → ONE test part modeled + rebuilt + drawn + exported (STEP + STL + PDF — the full pipeline proof from [[part-assembly-drawing-workflow]] §7 BEFORE starting page 1 of real work) → backup folder syncing confirmed (per §10) → version noted in your daily log (future-you debugging version issues thanks present-you).
