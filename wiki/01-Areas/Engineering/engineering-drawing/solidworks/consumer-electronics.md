@@ -95,6 +95,18 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 8. PCB + standoff layout math (the invisible engineering)
+
+**Board mounting geometry:** M2.5/M3 mounting holes on the PCB (TBC per board — measure YOUR board, never assume) → standoff height = tallest bottom-side component + 1 clearance (TBC: confirm per assembly; shorted USB shields against standoffs is the classic smoke event — TBC per horror-story count) → boss OD vs keep-out zones (no copper/traces under boss flanges — TBC: confirm with PCB-layout rules; mechanical vs electrical coordination is a real job function).
+
+**Port alignment (the assembly that must JUST WORK):** USB/HDMI/audio openings positioned FROM the PCB edge connector positions (in-context: board placed first, shell openings derived — never the reverse!) → opening oversize +0.5 per side minimum (TBC illustrative: connector insertion needs forgiveness; tight ports fail assembly) → recess depth vs plug length (plug must seat fully — TBC per connector datasheet) → shield-finger contact (EMI grounding through the shell — TBC depth: awareness that it exists).
+
+**Thermal path (plastic + heat = design work):** hot components (CPU, regulators, LEDs — TBC per board: identify by datasheet power) get copper pours + vias (board-side, TBC) + air gap or thermal pad to shell (TBC per wattage) → vent slots positioned for CONVECTION (low-in, high-out — hot air rises; vents at the wrong height recirculate — TBC: confirm with thermal references) → shell material choice notes on drawing (standard ABS vs heat-stabilized — TBC per operating temp). Plastic enclosures don't cool; they INSULATE — every hot box needs an explicit thermal story.
+
+**Battery bay appendix (the safety-critical cavity):** Li-ion needs containment thinking (puncture = fire — TBC: confirm with battery-safety references, NOT this page) → bay sized to cell + protection circuit + wire routing (no sharp edges on wire paths — grommets modeled where wires cross walls, TBC) → retention (strap/foam/compression — rattling cells fret through insulation) → service access (cells get replaced; glued-shut bays are e-waste design — TBC per product philosophy) → vent path for off-gassing (TBC: confirm with safety standards for real products).
+
+---
+
 ## 7. Shower-head + flashlight appendix (water + light discipline)
 
 **Shower head (#71/#82-class):** dome (lofted surface, §6-handle logic at larger scale) + face plate (flat-ish, nozzle field) → nozzles as patterned silicone-jet envelopes (rub-clean nubs — TBC: confirm real jet geometry with plumbing references; model count × layout, not micro-detail) → water inlet thread (modeled learning-grade, seal face for washer — the washer face matters more than the thread!) → flow path check in section (inlet → chamber → jets: uniform plenum depth? dead corners collect limescale — TBC: confirm with plumbing references) → chrome appearance + anti-scald awareness (TBC: thermostatic mixing is device-level, not CAD — know it exists).

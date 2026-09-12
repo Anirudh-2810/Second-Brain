@@ -106,5 +106,17 @@ A 120×80×6 plate holding a Ø40 motor boss with a cable hook — exercises ext
 
 **Next:** [[lofted-boss-boundary]] for morphing shapes.
 
+---
+
+## 9. Revolve deep pass: thin features, grooves, and lips
+
+**Thin-feature revolve (vessels in one shot):** open profile (no closure needed — the thin wall closes it) + wall thickness inward (outer exact — the styling rule from [[bottles-containers]]) → vessels, cups, housings without a separate shell step. Direction discipline: thin-side flips change which face is exact — inward for visible outsides, outward for packaging-critical insides (bores that must fit shafts stay exact → thin outward).
+
+**Grooves + lips (the seal/retention details):** O-ring groove = revolved rectangular cut sized to seal tables (groove width/depth per cross-section — TBC: confirm with seal datasheets, e.g., standard static-face tables, NOT this page) → retaining-ring groove (thin deep cut + sharp corners KEPT — circlips need square shoulders; filleting a circlip groove ruins retention — the anti-fillet rule) → rolled lip (thin revolve folded over an edge — can rims, drum edges; stiffness + safety in one curl — TBC depth).
+
+**Multi-body revolve strategy:** separate closed profiles in ONE sketch revolve into SEPARATE bodies automatically (hub + rim + web as concentric bodies fused or kept apart — TBC per design: fuse for one-part, separate for multi-material). Fewer features, same control — the sketch does the decomposition work.
+
+**Revolve vs Turned-part honesty:** revolved CAD mirrors lathe manufacturing (the model IS the turning sequence: face → turn → groove → part — TBC depth: real turning order constrains chucking, confirm with machining references). If a part will be turned, revolve it in chucking order and the shop reads your tree like a process sheet.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[sketch-mastery]] · [[lofted-boss-boundary]] · [[dressup-productivity]] · [[beginner-exercises]]

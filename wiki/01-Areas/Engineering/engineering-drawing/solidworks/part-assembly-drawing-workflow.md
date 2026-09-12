@@ -129,6 +129,16 @@ Standard sheet flow: model views (Front/Top/Isometric) → dimensions pulled fro
 
 ---
 
+## 10. Drawing detailing deep pass (the contract, filled out)
+
+**View selection (the 3-view habit from [[../orthographic-projections]], applied):** front (most informative face) + top + side + ONE isometric (3D readability for the shop) + sections where interiors hide (housings, gearboxes, manifolds — if it has guts, it gets a section) + detail views for small features (threads, grooves, O-ring seats at 2:1 scale — TBC per complexity). Aligned views (projected, associative) over random placements — move the parent, children follow.
+
+**Dimensioning discipline (manufacturing reads these, not your 3D):** dimension FUNCTION (mounting holes, mating diameters, thicknesses) not every edge — over-dimensioned drawings get ignored, and ignored drawings get misbuilt; hole callouts FROM Hole Wizard data (quantity + size + depth + thread in one leader — never hand-type what the feature knows); datums on mating faces (the A-B-C discipline is full GD&T territory — TBC depth; awareness: datums exist, flatness/position callouts follow in pro work, confirm with drafting standards NOT this page); general tolerance block in the title area (untoleranced dims default here — e.g., ISO 2768-m — TBC per shop standard) so the drawing is COMPLETE (a dimension without tolerance is a wish, not a spec).
+
+**BOM + balloons (assembly drawings):** item-numbered balloons to every part (no orphans!) → BOM table (part no, description, qty, material) → revision column (REV A/B/C with change notes — the engineering-change habit; TBC per company process). Fasteners listed with full spec (M6×20 SHCS, not "screw") — purchasing buys from the BOM, and vague BOMs buy wrong parts.
+
+---
+
 ## 9. Mates deep pass: DOF thinking (the 10-minute mastery)
 
 Every rigid part has 6 degrees of freedom (3 translations + 3 rotations). Each mate REMOVES specific ones — count them and assemblies stop being trial-and-error:

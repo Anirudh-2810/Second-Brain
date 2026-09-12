@@ -99,6 +99,18 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 8. Labels, decoration + cap-torque appendix (the shelf-facing details)
+
+**Label panel engineering:** flat-ish zone sized to label + applicator tolerance (TBC: confirm with packaging references — illustrative: label minus 2 per side) → recess 0.3–0.5 (TBC illustrative) so edges don't peel on conveyors → panel positioned for the FILL LINE (label must clear liquid-level sight strips where applicable — TBC per product) → shrink-sleeve alternative (full-body decoration needs NO panel — body must then be sleeve-smooth; TBC per decoration process).
+
+**Decoration in CAD (honest tiers):** paper-label zone (split-line boundary only — the printer does the rest) → direct-print (pad/screen zones split-lined + artwork callout on drawing — TBC per vendor) → embossed logo (modeled relief 0.3–0.5 high — TBC illustrative: embossing needs draft on the relief walls, confirm with molding references) → never model label TEXT as geometry (rebuild pain for zero manufacturing value — decal/appearance only, TBC per version).
+
+**Cap-torque + seal appendix (closures that actually seal):** liner/seal compression sets the torque window (too loose = leaks, too tight = stripped threads / stressed caps — TBC: torque specs come from closure vendors, NOT this page) → tamper band + bridge geometry (band must BREAK on first open while surviving shipping vibration — TBC: confirm with packaging references; model the bridges, note the spec) → application angle (caps applied to a rotational position for logo alignment — TBC per premium-packaging practice; awareness, not CAD).
+
+**Fill-line + headspace (the product inside matters):** fill volume drives body sizing (500 ml means 500 ml UNDER the neck start, not total vessel volume — TBC per filling practice) → headspace for thermal expansion + carbonation pressure (TBC: confirm with beverage-packaging references for real products) → sight-stripes where users dose (detergent caps, oil bottles — TBC per product). CAD the product cavity, not just the shell.
+
+---
+
 ## 7. Jug-handle engineering appendix (#58-class deep pass)
 
 Handles carry full vessels by a curved arm — the highest-loaded plastic on the product. Design sequence:
