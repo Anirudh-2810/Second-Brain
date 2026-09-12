@@ -87,6 +87,16 @@ flowchart TD
 
 **Strainer appendix (#73):** bowl per spoon above → hole pattern (Ø3 on 6 grid, TBC illustrative) via Fill Pattern on the bowl face → rim roll (swept bead for stiffness + safe edge) → handle. Pattern AFTER thickening (cut the solid — §4's lesson restated).
 
+---
+
+## 7. Handle-path design + overmold thinking (the professional layer)
+
+**Path-first handle design:** draw the handle CENTERLINE path before any sections (side view spline = the ergonomic gesture: drop angle, palm swell position, hook at end?). Sections get placed ALONG it at 3–5 stations, each sized for its station's job (palm zone fattest, neck thinnest, end flared anti-slip — TBC: confirm with grip-design references for real products). Path-first keeps handles honest; section-first produces lumpy accidents. This ordering generalizes: path → stations → sections → loft/sweep → dress-up.
+
+**Overmold construction (rubber handle #56-class):** hard PP core (extruded/lofted, WITH mechanical interlocks — undercuts, holes, ribs the soft shot grips; chemical bonding alone is a TBC claim, confirm with materials references) → soft TPE grip (offset-surface shell over the core zones, 1.5–2.5 mm — TBC illustrative) → assembly of two materials with interference ZERO (kiss fit) + shutoff faces where the mold halves meet. Model as multi-body part (Core + Grip bodies, different appearances/densities) or assembly — TBC taste; multi-body keeps the interlock references live.
+
+**Metal utensil appendix (fork #72-class):** tines via patterned extruded cuts or formed sheet (TBC per construction) → tine-tip radii (mouth safety — generous) → neck-to-handle transition (the stress zone: cyclic bending every use → fatigue awareness, TBC depth; generous fillets + no sharp section changes) → hanging hole + edge breaks. Stamped construction reads as uniform-thickness sheet with bend radii — model it that way (constant gauge!).
+
 **Verify in-app:** model the spoon end-to-end, section it for wall uniformity, then the hook path + sections. Run the hook through SimulationXpress once — even a rough run teaches where stress lives.
 
 **Next:** [[complex-showcase]].

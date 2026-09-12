@@ -82,6 +82,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 **Verify in-app:** model the 2 m flat version, then tilt a copy 15° and add cleats + skirts — the delta between the two is the angular-mounting lesson.
 
+---
+
+## 7. Cost + safety appendix (the plant-level thinking)
+
+**Cost drivers in order (design for them):** length (steel by the meter!) → belt width/grade → drive size → custom vs standard pulleys/idlers (bought-out catalog parts beat modeled customs 10:1 on price — TBC: confirm with supplier catalogs) → guards + access platforms (safety scope rivals machine scope on real installs). Model standard sizes from the start (catalog-first part selection, not round-number invention).
+
+**Safety scope (awareness — TBC regulatory depth, confirm with local machinery-safety standards, NOT this page):** nip-point guards at every pulley (head/tail/snub/take-up — the in-running nip draws hands in), pull-cord e-stops along the length, belt-break containment on inclines, lockout points on the drive. Model guards CLOSED with fasteners + interlock envelopes (the "guard removed for clarity" config never ships). A conveyor model without guards is a student exercise; with guards, it's a proposal.
+
+**Take-up travel math (illustrative — TBC per belt spec):** fabric belts stretch ~1–2% over life (TBC: confirm with belt references) → 2 m conveyor needs ~20–40 mm take-up travel MINIMUM → model slots + screw length to match. Short take-ups top out within a year and the belt slips forever after — the maintenance lesson hiding in a slot length.
+
 **Next:** [[presses-forming-drone]].
 
 ## CROSS-REFERENCES

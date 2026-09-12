@@ -88,6 +88,16 @@ Before clicking: decompose the object into regions of *consistent curvature beha
 
 **Cost honesty (why solids-first matters):** each surface feature + knit edge adds rebuild time and failure surface. A 12-patch quilt that an extrude+fillet could have matched is not skill — it's debt. Count your patches; justify each against the flowchart in §1. The professional question is never "can I surface this?" but "does this NEED surfacing?"
 
+---
+
+## 7. Continuity in plain sight (train your eyes before your hands)
+
+**The reflection test you can do without SolidWorks:** pick up any glossy object (phone, mug, bottle) and rock it under a light. Styling lines where reflections kink = C0 seams (deliberate — designers PUT seams on style lines). Broad faces where reflections glide = C1/C2. Dull matte objects hide everything (texture forgives curvature sins — TBC: grain depth ~0.05–0.1 mm typical kills reflections; confirm with molding references). Do this with five objects on your desk right now — you're calibrating the instrument (your eyes) that zebra stripes will later formalize.
+
+**Continuity budget (where to spend C2 effort):** hero surfaces (top shell, outer body) get C2 attention; hidden zones (bottom plates, internal ribs) get C0 and zero guilt; transition zones get C1. A beginner spends C2 effort everywhere and burns out; a professional budgets it where eyes land. Every playlist build implicitly follows this budget — rewatch any finish pass and notice WHERE the YouTuber fusses (visible skin) vs where they accept (hidden closures).
+
+**The two-sentence continuity summary for interviews/shop talk:** "Patches meet at contact, tangent, or curvature continuity — I match the joint to the surface's job: hidden zones get contact, visible skins get tangent minimum, hero reflections get curvature." Say it once, correctly, and you sound like you belong.
+
 **Verify in-app:** rebuild PL1 #9's demo from `raw-sources/solidworks/transcripts/` (three-arc sketch → extruded surface both-directions 30/30) → knit → thicken. Then deliberately leave a gap, watch knit/thicken fail, repair it. That failure rep is the lesson.
 
 **Next:** [[lofted-boundary-surfaces]] → [[filled-knit-trim-thicken]] → [[surfacing-utilities-troubleshooting]].

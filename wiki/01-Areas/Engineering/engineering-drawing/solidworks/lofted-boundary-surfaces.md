@@ -98,6 +98,16 @@ The #44-class problem as lofted surface first, then boundary — feel the differ
 
 **Verify in-app:** build both versions, zebra-stripe the outlet joint on each, screenshot the difference. Then change outlet Ø25→Ø20 and confirm both rebuild — the guide-piercing quality decides.
 
+---
+
+## 7. Connector surgery + Direction-2 mastery (the advanced reps)
+
+**Connector surgery drill (15 minutes, do it once):** loft a square (4 sharp corners) to a circle. Default connectors will map square-corner-1 to circle-seam — twist. Fix sequence: (1) add split points to the circle at 0/90/180/270° (now 4 segments, matching the square); (2) drag each connector to its corresponding corner; (3) preview — clean. Now ROTATE one profile 45° in its sketch and watch the twist return; fix by re-dragging. This drill teaches that connectors are MAPPINGS, not decorations — you now understand loft at the level most users never reach.
+
+**Direction-2 design (Boundary's real power):** beginners treat Direction 2 as "extra guides." Reframe: Direction 1 says WHERE the surface goes (profile to profile), Direction 2 says HOW it behaves along the way (flat? crowned? S-curved?). Same profiles + straight Direction-2 rails = honest transition; same profiles + crowned Direction-2 = bellied showpiece. The profiles didn't change — the behavior did. Practice: rebuild the §6 nozzle with three different Direction-2 sets (straight / crowned / S-curved) and zebra all three. One model, three characters — that's Boundary fluency.
+
+**Continuity ladder, applied:** rebuild the nozzle-to-pipe joint three times (C0 / C1 / C2 on the outlet edge) and zebra each. C0: visible crease line (acceptable inside, never on show surfaces). C1: smooth but highlight hesitates (the working standard). C2: reflections flow (the premium read). Knowing what each LOOKS like beats memorizing definitions — your eyes become the spec.
+
 **Next:** [[filled-knit-trim-thicken]].
 
 ## CROSS-REFERENCES

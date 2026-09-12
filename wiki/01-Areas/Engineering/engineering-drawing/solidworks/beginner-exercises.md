@@ -96,6 +96,19 @@ flowchart TD
 
 **Ex 207 (#53: Lofted + Trim + Filled) + Ex 230 (#57):** full-pipeline reps under time pressure — run the §2 flowchart strictly (unaided attempt → single-step help only when stuck 15+ min → audit). These two are graduation exams for the beginner tier: 9/10 on the rubric = ready for [[bottles-containers]].
 
+---
+
+## 6. The 4-week exercise arc (scope, not schedule)
+
+- **Week A (solids fluency):** #19–#23 zone + Ex 92 — extrude/revolve/sweep only, rubric target 8/10. Failure mode to conquer: under-defined sketches (blue lines = redo).
+- **Week B (first surfaces):** #28/#34/#36 + Ex 117/146 — extruded surfaces, first knit/thicken attempts. Failure mode: naked edges (extend/trim repair reps).
+- **Week C (combos):** Ex 154/167 + #47-pattern + #58 jug — multi-patch quilts, mutual trims. Failure mode: connector twists + trim-keep/remove flips.
+- **Week D (graduation):** Ex 207 + Ex 230 timed (single sitting each, no pauses) — full pipeline under pressure. 9/10 = product-family ready.
+
+**Timing discipline (the honest version):** untimed practice builds understanding; TIMED reps build speed; only timed reps reveal which skills are actually automatic. Alternate: learn untimed → drill timed → audit → repeat. An exercise you can only finish by pausing the video every 30 seconds isn't learned yet — it's transcribed. Redo it solo within the week.
+
+**Log template per exercise (daily note, 5 lines):** time taken · rubric score · feature-choice audit (any wrong picks?) · one failure + fix · one trick worth keeping. Ten exercises logged this way = a personal textbook no playlist can give you.
+
 **Next:** [[bottles-containers]] (first product family).
 
 ## CROSS-REFERENCES

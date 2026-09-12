@@ -83,6 +83,18 @@ The PL1 #43-class handle as a SOLID loft (surface version lives in [[lofted-boun
 
 **Verify in-app:** build the handle, then change neck Ø24→Ø30 and profile spacing 120→150 — clean rebuild means your guides were properly pierced/constrained; failures point at the exact weak reference (fix it, that's the rep).
 
+---
+
+## 6. Loft planning lab: three transitions, three decisions
+
+**Round-to-square duct adapter (HVAC-style):** circle Ø100 → 80×80 square, 60 apart. Decision: solid loft is FINE (it's a fabricated transition, TBC: real duct adapters are sheet-metal developments — the solid version is your geometric proof before unfolding). Segment compatibility: circle (1) vs square-with-fillets (4+ straights + 4 fillets = 8 entities!) → split the circle into 8 arcs at matching angular positions FIRST. Skip this and the twist is guaranteed. Guides: 4 corner rails (the square's corners mapped to circle quadrants) — the loft then behaves.
+
+**Ergonomic knob (sphere-ish swell on a shaft):** shaft Ø20 → swell Ø45 → shaft Ø20, total 70. Decision: THREE profiles (in/mid/out) not two — two profiles give a football, three give a designed swell with controllable crown position. Guides optional here (short transition, symmetric) — connectors + tangency do the work. End constraints: Tangent into the shaft shoulders both ends (no crease where fingers grip).
+
+**Y-branch duct (one-to-two split):** inlet Ø80 → two Ø50 outlets at 45°. Decision: NOT one loft — two separate lofts (inlet→left, inlet→right) sharing the inlet profile, then Combine (Add) the bodies. Branching in a single loft feature self-intersects; the multi-body + combine pattern is the standard escape (TBC per version: Combine → Add merges them; fillet the crotch generously — stress + flow both punish sharp crotches).
+
+**The segment-count rule, stated once more because it decides 80% of loft outcomes:** both profiles must have the SAME number of segments, mapped corner-to-corner. Count segments (every split point counts!) before lofting, split the simpler profile to match, THEN loft. Five minutes of splitting saves an hour of connector wrestling.
+
 **Next:** [[dressup-productivity]] (fillets/patterns that finish these bodies) → surfacing track [[surfacing-methodology]].
 
 ## CROSS-REFERENCES
