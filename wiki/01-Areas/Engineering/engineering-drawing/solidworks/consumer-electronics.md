@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 11. Audio + haptics appendix (products that speak and shake)
+
+**Speaker integration (sound as a packaging problem — TBC: confirm with acoustic references, NOT this page):** driver envelope + front volume (sealed air space ahead of the cone — TBC per driver spec; volume tunes response!) → rear chamber (ported vs sealed alignments change bass — TBC per enclosure design; the port is a TUNED pipe, not a hole — length/diameter from the alignment math!) → passive radiators (mass-tuned alternative to ports — TBC per design) → waterproofing vs acoustics (membranes pass sound, block water — TBC per material; the §9-ingress lesson at the speaker) → CAD consequence: acoustic volumes modeled as SEALED solid bodies first (volume readout = tuning data!), driver/port/membrane features cut second.
+
+**Microphone integration (the reverse path):** port hole to outside (sized + positioned per mic datasheet — TBC; blocked/resonant ports kill call quality) → acoustic sealing around the mic (front-only sound entry — rear leakage causes echo/cancellation failure — TBC per design) → waterproof membrane with KNOWN acoustic loss (TBC per material — budget the loss in the audio chain!) → multi-mic arrays (beamforming spacings are LAYOUT law — TBC per algorithm; model positions exactly, never "about there") → CAD consequence: mic ports are DATUM-grade features (position-toleranced on the drawing — TBC per tolerance practice).
+
+**Haptics (the feel channel — TBC: confirm with haptics references, NOT this page):** LRA vs ERM mounting (spring-axis orientation decides feel direction — TBC per motor spec) → mass coupling (actuator hard-mounted to the feel zone, isolated from rattling neighbors — TBC per design) → resonant tuning (drive at the assembly's resonance — TBC per measurement; CAD provides the mass/stiffness inputs!) → the test: fingertip-blind comparison (TBC taste: A/B housings, same electronics — feel differences isolate to mechanics, the experimental discipline).
+
+---
+
 ## 10. Wearables + handhelds appendix (bodies as constraints)
 
 **Wearables (watches/bands/earbuds — the body is the datum):** strap curvature from WRIST geometry (TBC: anthropometric data, NOT this page — confirm with ergonomics references; one-size curves fit bell curves, not people) → skin-contact materials (biocompatible + sweat-proof + hypoallergenic callouts — TBC per material/regulatory) → sensor windows (optical HR needs skin contact + light sealing — TBC per sensor practice; model the window + gasket explicitly!) → charging interface (pogo pins/wireless coil envelopes — TBC per design; coil alignment tolerances are TIGHT — TBC) → button tactility through seals (sealed buttons feel mushy — TBC per UX practice; model the button stack: cap + seal + dome switch as an assembly!).

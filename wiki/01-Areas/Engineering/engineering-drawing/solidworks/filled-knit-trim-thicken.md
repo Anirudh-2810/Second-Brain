@@ -117,6 +117,18 @@ Close the loop on the §6 mouse shell plan — bottom cap from opening to solid-
 
 ---
 
+## 11. Fill-constraint mastery + n-sided patch strategy (closures without fear)
+
+**Constrain-curve design (the curves that rescue fills):** center spine (lengthwise camber control — the §7-mouse-camber generalized: spine height sets crown) → cross ribs (2–3 transverse curves controlling section shape at stations — the loft-profile habit inside a fill!) → diagonal stabilizers (X-brace curves killing twist ambiguity in 4+-sided holes — TBC per behavior; diagonals disambiguate the solver's hardest case) → boundary-hugging rails (offset-inward copies of the loop pulling the fill off the edges smoothly — TBC taste) → FEWER + FAIRER beats many + noisy (each constrain curve must itself pass the comb test — constraining garbage just distributes it).
+
+**N-sided hole strategy (count sides, pick weapons):** 3-sided (triangular — fills cleanly, minimal constraints) → 4-sided (the sweet spot — Boundary-thinking applies: two direction pairs) → 5–6 sided (add ONE center constrain point/curve — TBC per version: point-constrained fills exist, find YOUR option) → 7+ sided / irregular (SUBDIVIDE with split curves into 3–4 sided sub-holes — the multi-body philosophy from [[lofted-boss-boundary]] §7 applied to holes: complexity distributed, fills stay simple!) → slot-shaped (extreme aspect — treat as two rails + end caps, not one fill).
+
+**Curvature-continuous closures (the invisible fill):** C2 all-around + constrain curves matching neighbor flow (the §5-nozzle-joint standard applied to holes) → zebra ACROSS the fill (not just around it — interior fairness is the test) → the mirror test (reflect the model — asymmetric fill flaws pop in mirror view; TBC taste: artists' flip-canvas trick, digitized) → when fills stay visible despite C2 (patch DENSITY mismatch — dense neighbors vs sparse fill telegraph differently under zebra; TBC per display behavior — match segmentation roughly).
+
+**Fill-then-trim vs trim-then-fill ordering (strategy, not taste):** fill-then-trim (oversized fill cut to exact boundary — clean edges, extra steps — DEFAULT for show surfaces) → trim-then-fill (boundaries cut first, fill to exact loop — fewer steps, dirtier edges — acceptable for hidden closures) → the §8-ordering doctrine restated: show faces get the expensive order, hidden faces the cheap one. Budget accordingly.
+
+---
+
 ## 10. Thicken-direction strategy + thin-wall design (walls as decisions)
 
 **Direction semantics (choose per face's job):** inward (outer styling exact — consumer shells, helmets, visible housings) → outward (inner packaging exact — bores, cavities, board envelopes that must fit contents) → mid-plane (symmetric walls, no critical face — internal brackets, hidden ribs' parents). WRONG direction is silent corruption (looks fine, fits nothing) — verify direction against the critical-face list, not by eye. (TBC: some versions default outward — check YOUR default once and set the habit.)

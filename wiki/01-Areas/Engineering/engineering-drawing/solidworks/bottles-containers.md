@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 12. Pail/drum handling + automation appendix (packaging at industrial scale)
+
+**Handling features (hands + machines grip these):** bail ears (pivot strength for full weight + swing clearance vs body — TBC per pail standard) → handholds (integrated grip recesses with finger clearance per §7-fist-rule — TBC) → lifting lugs on drums (crane-rated points with WLL marks — TBC: confirm with handling references, NOT this page; lugs carry the FULL drum — the §6-hook lesson at container scale!) → fork pockets on IBCs/pallets (forklift interface dimensions — TBC per pallet standards) → CAD consequence: handling points modeled FIRST (they constrain body geometry more than styling ever will — structure follows handling, beauty follows structure).
+
+**Filling-line compatibility (your bottle meets a $1M machine):** base stability on conveyors (punt + diameteryes? No — punt depth vs conveyor transfers: deep punts rock on dead plates — TBC per line practice) → neck-ring conveying (air conveyors GRIP the neck ring — ring dimensions to conveyor spec, TBC per line!) → label orientation (notch/registration for oriented labeling — TBC per line) → cap application torque window (the §10-torque spec as LINE parameter — TBC per capper) → CAD consequence: the FINISH (neck) is a machine interface first, a closure seat second, styling never (priority order for every dimension on the neck!).
+
+**Pallet + ship testing (the packaged PRODUCT proves itself):** vibration profiles (truck/rail/air spectra — TBC: confirm with distribution-testing references like ASTM D4169, NOT this page) → compression (warehouse stacking per §9 + vehicle stacking — TBC per test) → drop (handling drops per product tier — TBC per standard) → CAD consequence: design margins you can NAME (which drop height? which stack load? — TBC per spec; untested margins are wishes, and wishes break in transit).
+
+---
+
 ## 11. Beverage + hot-fill + aerosol appendix (liquid-specific packaging)
 
 **Carbonated beverage (pressure packaging — TBC: confirm with beverage references, NOT this page):** PET with pressure-rated base (champagne-style punt + petaloid feet — 5-point base spreading pressure load, TBC per bottle design) → neck ring (transfer bead for conveying + tamper band support — TBC per finish standard) → fill height + headspace for CO2 expansion (warm storage pressurizes — TBC per volumes) → cap torque + liner spec'd for pressure retention (the §10-closure lesson with stakes: flat soda = failed product) → CAD consequence: base geometry is STRUCTURAL (pressure vessels wear bottle costumes — section + pressure-thinking, TBC depth).

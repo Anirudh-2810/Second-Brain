@@ -104,6 +104,16 @@ The signature offset application from §1 — outer styling skin in, comfort lin
 
 ---
 
+## 9. Extend + offset-distance strategy (the gap killers, mastered)
+
+**Extend-surface tactics (gap repair's first weapon — TBC exact types per version: linear vs same-curvature extension):** same-curvature extension preserves fairness (preferred — extends the math, not a tangent guess) → linear extension for trim-stock only (overshoot-then-trim per §3, never as final geometry) → extension DISTANCE discipline (extend 2–3× the gap, no more — long extensions amplify parent unfairness; TBC per behavior) → extend BOTH sides into overlap, then mutual-trim (the §5-repair-playbook's core move formalized: overlap-then-resolve beats butt-joint-then-pray, always).
+
+**Offset-distance strategy (beyond the §5-liner):** uniform offsets for walls/liners (the liner case) → VARIABLE offsets (thicker at mounts, thinner at fields — TBC per version availability; zoned thickness from [[filled-knit-trim-thicken]] §10 via offset instead of thicken!) → zero-distance offset COPIES (duplicate faces for independent surgery — operate on the copy, keep the original as reference — TBC taste: non-destructive workflow) → offset-then-scale patterns (cooling channels, double-wall ducts — TBC per application) → the self-intersection ceiling (offset distance < minimum concave radius EVERYWHERE — check with curvature display first; TBC: the offset that works on 90% fails at the tightest 10%, and the tightest 10% is always where it matters).
+
+**Replace-face + delete-face surgery (direct editing inside history — TBC per version):** delete-face-and-fill (remove fillets/chamfers/holes without tree surgery — defeature for analysis/simplification!) → replace-face (swap a face's geometry keeping downstream alive — imported-model repair superpower — TBC depth) → move-face (translate/offset/rotate faces directly — late-stage tweaks without sketch edits — TBC per version) → the direct-editing philosophy: history for DESIGN, direct for REPAIR (imported junk + late changes go direct; never build primary geometry direct — unparameterized models are dead ends).
+
+---
+
 ## 8. Diagnostic deep pass: reading stripes like an engineer (the trained eye)
 
 **Stripe vocabulary (what each pattern MEANS):** parallel even flow = fair C1/C2 (good) → sharp V-kink = C0 crease (intended style line or accidental seam — check intent!) → bunching/convergence = curvature spike (the underlying spline wiggles — fix the SKETCH, §2's rule restated) → stripes diving into a point = pole/pinch (spheres/cones apexes, revolve poles — TBC: poles are topologically unavoidable, manage don't eliminate) → wavy drift = unfair guide rails (rebuild rails, not patches) → broken/discontinuous = naked edges or knit gaps (forensics per [[filled-knit-trim-thicken]] §9).
