@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 13. Conveyor + elevator drive appendix (gearboxes with somewhere to be)
+
+**Belt-conveyor drives (the §10-conveyor world powered right):** head-shaft direct (flange + torque arm per §10-mounting!) → backstop MANDATORY on inclines (the §6-conveyor-incline lesson with hardware: sprag/roller-ramp devices, TBC per device catalogs!) → take-up + stretch compensation (belt elongates — drive alignment must TOLERATE take-up travel, TBC per layout!) → dusty duty sealing (the §13-dust lesson at the drive: labyrinth + purge where washdown hits!) → CAD consequence: drive modeled IN the conveyor assembly (alignment across the whole machine, not per-component optimism!).
+
+**Bucket-elevator + vertical drives (lifting bulk — TBC: confirm with elevator references):** head-shaft bending (belt/chain tension BOTH sides + sprocket overhung loads — TBC per shaft analysis!) → service-factor uplift (starting LOADED after power cuts — TBC: worst-case torque, not running torque, sizes the drive!) → platforms + access at the head (maintenance at height — TBC per safety: caged ladders, tie-offs, NOT this page!) → CAD consequence: head section modeled as a MAINTAINABLE module (bearings + drive removable without crane-class disassembly — TBC per design!).
+
+**Free swivel + slew-ring drives (rotating machines fed right):** center-pivot irrigation-style (TBC depth) → crane-slew per §9-slewing (planetary + pinion + ring at the §8-decision-map's big end!) → cable/hose management across rotation (festoon vs slip-ring vs rotary union per medium — TBC per system!) → CAD consequence: rotation ENVELOPES + service-loop volumes modeled (the §11-travel-envelope habit: moving services need DESIGNED space, not leftover gaps!).
+
+---
+
 ## 12. High-speed + precision appendix (when RPM and accuracy climb)
 
 **High-speed behavior (pitch-line velocity rules — TBC: confirm with gear references, NOT this page):** dynamic loads grow with speed × error (precision grade matters MORE as speed climbs — TBC per AGMA quality grades; coarse gears at high speed hammer themselves to death!) → balancing (rotating assembly balance grade per speed — TBC per ISO balance practice; model balance-correction features: drill spots? weld beads? — TBC per shop!) → windage + churning (oil drag at speed = heat + power loss — TBC per velocity limits; jet lube + scavenging per §10!) → CAD consequence: speed RATING on the nameplate (§7-documentation habit: max continuous RPM stated, not implied!).

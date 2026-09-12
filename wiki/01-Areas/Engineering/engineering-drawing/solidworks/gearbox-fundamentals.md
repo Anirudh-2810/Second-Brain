@@ -107,6 +107,16 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 11. Noise + vibration appendix (gearboxes heard before seen — TBC: confirm with NVH references, NOT this page)
+
+**Noise sources ranked (find it before fixing it):** mesh impact (tooth-pass frequency = teeth × RPM — TBC per measurement; the §11-spur-whine restated as frequency!) → imbalance (1× RPM signature — TBC per vibration analysis!) → bearing distress (characteristic defect frequencies per bearing geometry — TBC per catalog formulas!) → resonance (housing natural frequencies excited by mesh harmonics — TBC per modal analysis!) → CAD consequence: NONE directly (noise is measured, not modeled, at this level!) — but the DESIGN for quiet lives in CAD (precision grades per §11-high-speed + mesh quality per §9-inspection + isolation mounts per below!).
+
+**Isolation + damping (quiet by construction):** elastomer mounts (stiffness tuned BELOW excitation frequencies — TBC per isolation theory: transmissibility <1 only above √2× natural frequency!) → mass law covers (heavy + damped panels per §13-noise thinking generalized!) → shaft couplings as filters (elastomer spiders absorb torsional spikes — the §10-coupling lesson restated acoustically!) → CAD consequence: mount + cover + coupling STIFFNESSES as design parameters (not afterthoughts — TBC per analysis; soft where isolation matters, stiff where alignment matters, NEVER both by accident!).
+
+**Condition monitoring ports (hearing aids designed in — TBC per reliability practice):** accelerometer pads (flat machined spots at bearing locations — TBC per sensor mounting!) → oil sampling + sight per §8 (debris + level trends!) → temperature taps (winding/bearing RTDs — TBC per criticality!) → CAD consequence: EVERY sensor needs a modeled mount + route (the §9-controls lesson restated: unmounted monitoring never happens!).
+
+---
+
 ## 10. Coupling + mounting appendix (gearbox meets the world)
 
 **Coupling selection (shaft-to-shaft joints — TBC: confirm with coupling references, NOT this page):** rigid/flange (perfect alignment assumed — TBC per installation reality: foundations settle, alignment drifts!) → jaw/spider elastomer (misalignment-tolerant + shock-absorbing — the shredder-friendly choice per [[shredders-recycling-machines]] §9-transmission!) → gear-tooth couplings (high torque + misalignment — TBC per duty) → fluid couplings (soft-start for high-inertia loads — TBC per mining/conveyor practice!) → torque limiters (mechanical fuse per §8-jam thinking — shear pins vs friction vs electronic trip — TBC per protection philosophy!) → CAD consequence: coupling ENVELOPES + guard (rotating couplings get CLOSED guards with inspection windows — the §8-safety habit: guards designed, not retrofitted!).

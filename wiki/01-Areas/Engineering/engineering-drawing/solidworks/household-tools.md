@@ -103,6 +103,16 @@ flowchart TD
 
 ---
 
+## 12. Measuring + marking tools appendix (precision you hold — TBC: confirm with metrology references)
+
+**Squares, levels + straightedges (truth made physical):** blade straightness (the reference edge IS the instrument — TBC per grade: hardened + ground + certified flat to light-bands? TBC per metrology!) → stock + blade joint (the 90° that matters — pinned + adjustable? TBC per tool class!) → vial sensitivity (arc-minutes per 2 mm bubble travel — TBC per level spec!) → CAD consequence: reference faces modeled + CALLED OUT (flatness/square callouts on the drawing per §10-drawing discipline — the tool's spec sheet starts as YOUR geometry notes!).
+
+**Tapes + rules (the flexible datum — TBC per measuring practice):** blade curvature (concave stand-out stiffness — TBC per tape physics!) → hook-end play (the RIVETED LOOSE hook compensates its own thickness inside/outside — TBC per design genius; model the play explicitly!) → case ergonomics per §7-grip rules + belt clip + drop survival per §9-electronics (jobsite drops onto concrete — the §13-drop lesson generalized!) → CAD consequence: hook-play modeled as a CONFIGURATION pair (pushed-in/out states per §11-mechanism-states habit!).
+
+**Marking gauges + knives (layout tools — TBC per woodworking references):** pin/cutter geometry (marking KNIFE severs fibers where pencils crush — TBC per cut quality!) → fence registration faces (the reference that matters — TBC per accuracy!) → micro-adjust mechanisms (threaded advance — TBC per premium tools!) → CAD consequence: wear-part thinking (§8-maintenance: pins/cutters replaceable + stocked!).
+
+---
+
 ## 11. Power-tool housings appendix (motors meet hands, at volume)
 
 **Clamshell architecture (the two-half universe — TBC: confirm with power-tool references):** parting plane THROUGH the motor axis (bearings seat half-in-each-half — alignment from the split faces, not hope!) → screw bosses bridging halves (through-bosses with shoulders setting the stack height — TBC per design; overtightening warps alignment, TBC per torque spec!) → motor cradle ribs (axial + rotational location — TBC per motor frame) → cord/boot integration at the rear split (strain relief TRAPPED between halves — the §9-appliance lesson restated!) → CAD consequence: halves modeled as ONE body split LATE (the §5-split discipline: perfect match guaranteed, then diverge details per half!).

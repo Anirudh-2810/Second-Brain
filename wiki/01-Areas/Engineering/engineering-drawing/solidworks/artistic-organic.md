@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 14. Sculptural lighting + public-art appendix (scale, weather, liability — TBC per public-art/structural references)
+
+**Wind + structure (art that stands outside — TBC: confirm with structural references, NOT this page):** wind-load areas (sail area × pressure = overturning moment — TBC per code!) → foundation discipline (depth + mass + anchors per the §11-tank-foundation habit generalized!) → vortex shedding on slender forms (TBC depth: tuned dampers exist for a reason!) → CAD consequence: load-path modeling from day one (the §7-H-frame habit: draw the force loop before the form! — art with hidden structure reads magic, art WITHOUT hidden structure reads tragedy!).
+
+**Materials outdoors (decades, not seasons — TBC: confirm with architectural-materials references):** weathering steel vs stainless vs bronze vs coated carbon (patina-as-finish vs maintenance contracts — TBC per material!) → drainage + bird detailing (water + droppings destroy detailing that ignores them — TBC per practice; weeps + slopes + sacrificial drip edges!) → vandal + climb resistance (TBC per site: sharp deterrents vs liability law DIVERGE by jurisdiction — confirm, NOT this page!) → CAD consequence: material + finish CALLED OUT with maintenance interval (the §12-jewelry-finish habit at architectural scale + time!).
+
+**Light as material (night identity — TBC per lighting-design references):** integrated vs uplight strategies (built-in LED channels vs ground fixtures — TBC per maintenance access!) → power + data routing (conduit paths in the structure — the §13-wearable-cable lesson at civic scale!) → light-pollution + neighbor discipline (shielding + curfews programmed — TBC per regulation!) → CAD consequence: fixture + access + wiring modeled (unmaintainable light sculptures go dark within years — design the RELAMP path like the §7-maintenance habit demands!).
+
+---
+
 ## 13. Toy + sporting-goods appendix (play has engineering too)
 
 **Toy safety architecture (regulations shape geometry — TBC: confirm with toy-safety standards like ISO 8124/EN 71/ASTM F963, NOT this page):** small-parts cylinders (choking hazard gauges by age grade — TBC per standard; design ABOVE the gauge or label DOWN the age!) → sharp points/edges tests (TBC per standard protocol — the §8-edge-policy with legal force behind it!) → battery compartments requiring TOOLS to open (coin-cell ingestion kills — TBC per regulation; screw-closed, never snap-only!) → cord/strap strangulation lengths (TBC per standard) → CAD consequence: compliance DIMENSIONS on the drawing (gauge-passing sizes called out like tolerances — safety specs travel with geometry!).
