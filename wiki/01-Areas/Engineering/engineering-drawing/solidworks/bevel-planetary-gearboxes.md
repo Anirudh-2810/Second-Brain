@@ -77,6 +77,18 @@ flowchart TD
 | Box locks when rotated | No backlash modeled (perfect mesh = jammed mesh) → back off mesh slightly / verify tooth clearance (TBC values = manufacturing data) |
 | Carrier missing | Planets floating → model carrier plate + pins before assembly |
 
+---
+
+## 6. Worked example: 3-planet set with numbers + Willis awareness
+
+**Teeth (the assembly condition for equally-spaced planets):** $(z_{sun} + z_{ring}) / \text{planets}$ must be an integer (TBC: confirm with planetary-design references — the rule prevents half-tooth misalignment). Pick sun 24, ring 72 → (24+72)/3 = 32 ✓ integer. Planets: $(72-24)/2 = 24$ teeth each.
+**Module 1.5 (compact learning size — TBC per build):** sun pitch Ø36, planet Ø36, ring pitch Ø108 (internal). All three share the module — planetary sets MUST (meshing gears share module, always).
+**Parts:** sun (external, + input shaft) → 3× identical planet (bore + needle/pin fit — TBC per size) → planet pins pressed in carrier plate (carrier = two cheek plates + pins, the forgotten part) → ring (internal teeth cut into a bored ring + flange + housing register) → input/output arrangement: ring FIXED to housing, sun IN, carrier OUT (the classic reduction layout — TBC: other fixings give other ratios).
+**Willis equation (awareness, the ratio machine):** $(n_s - n_c)/(n_r - n_c) = -z_r/z_s$ — plug ring-fixed ($n_r = 0$): ratio sun→carrier = $1 + z_r/z_s = 1 + 72/24 = 4$. One equation, whole family (fix carrier instead → different ratio from identical hardware — TBC: work all three fixings on paper once; it's the cheapest deep understanding in machine design).
+**CAD assembly order:** ring fixed to housing first → carrier + pins → planets onto pins (concentric) → sun last down the middle → gear mates sun↔planet (24:24 = 1:1 spin, opposite) + planet↔ring (internal mate — TBC exact mate setup per version; verify rotation directions by hand) → rotate sun: carrier crawls at ¼ speed. If it binds: backlash (perfect internal mesh jams — back planets off a hair radially? TBC: confirm proper internal-mesh clearance practice, don't guess large).
+
+**Bevel-blank appendix (#343-class numbers):** 90° shafts, 20/30 teeth, module 2 → pitch cones at $\arctan(20/30) ≈ 33.7°$ / $56.3°$ (TBC: confirm bevel-geometry references — pitch-cone angles sum to shaft angle). Blank = revolve of the cone-frustum profile (back cone included at this level? TBC depth — note it, move on) → teeth patterned about each cone axis → layout sketch with INTERSECTING axes (the single non-negotiable) → thrust shoulders BOTH sides (separating forces!).
+
 **Verify in-app:** assemble a single-stage planetary (sun + 3 planets + carrier + ring), gear-mate it, rotate the sun and confirm carrier output is slower. If it moves correctly, you understand planetary; if not, the ratio/mate is the bug, never the geometry.
 
 **Next:** [[shredders-recycling-machines]].

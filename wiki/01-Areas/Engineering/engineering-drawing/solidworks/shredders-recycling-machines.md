@@ -64,7 +64,24 @@ Hoppers = tapered boxes from sheet: model with Sheet Metal tools (base flange + 
 | Screen holes kill rebuild | Thousands of patterned cuts → pattern a small zone + cosmetic rest, or suppress for working config (configurations!) |
 | No stripper combs | Chamber packs in reality → add interleaving combs (lesson, not just geometry) |
 
-**Verify in-app:** model a 6-blade mini chamber (2 shafts, spacers, screen arc, side plates), assemble, rotate shafts by hand checking blade interleave clearance. Scale the recipe toward #329's 36 blades only after the mini works.
+---
+
+## 6. Worked example: 6-blade mini chamber (dimensions + equations)
+
+Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: confirm cutting geometry with shredder references for real builds).
+
+**Chamber:** inner width 120 (fits 6 blades × 12 + 5 spacers × 8 + 2 end discs × 4 = 72+40+8 = 120 ✓ — the width equation; make it an actual equation so blade-count changes propagate).
+**Shafts:** 2× hex 24 A/F (hex drives blades — no keys!), centers 90 apart vertically-staggered? No — side-by-side horizontal, center distance set by blade overlap: blade Ø100 → centers ≈ 75 (interleave depth 25 — TBC: confirm overlap practice; too deep = clash, too shallow = unshredded strips slip through).
+**Blades:** Ø100 discs, 12 thick, 3 claw hooks each (sketch ONE hook profile → circular pattern ×3 per blade → blade pattern ×6 along shaft with 60° stagger between adjacent blades — the stagger is the cutting action; aligned blades = one wide knife, staggered = continuous shear).
+**Spacers:** Ø60 × 8 (smaller than blade root so they don't touch material — TBC: confirm; spacers set cut WIDTH).
+**Combs:** static stripper fingers between adjacent blades on both shafts (interleave! — 5 combs per shaft from the side plates; TBC exact mounting per video).
+**Side plates:** 10 MS plate with bearing seats (pillow-block envelopes — bought out at this scale? TBC per build) + screen arc below (Ø-matched arc, Ø6 holes on 10 grid over the bottom 120° — pattern a ZONE then cosmetic-rest per §5).
+**Hopper:** 4-sided sheet-metal taper (inlet 300×200 → throat 130×110 — TBC illustrative) with 60°+ wall angles (material mustSLIDE, not bridge — TBC: confirm flow angles per material; steep is safe).
+**Drive:** motor → 1:2 chain/belt (TBC per video) → gearbox per [[helical-spur-gearboxes]] → hex shafts. Torque check: shredding torque is violent and spiky (flywheel effect helps — TBC: confirm with shredder references; awareness that steady-state math underestimates).
+
+**Single-shaft appendix (#330-class):** one rotor + fixed bed knife (adjustable gap! — slotted mounts, TBC: knife gap sets cut quality, confirm per material) + screen — simpler, louder, hungrier for sharp knives. Model the knife adjustment explicitly (it's a maintenance feature, not a detail).
+
+**Verify in-app:** model the 6-blade mini chamber, assemble, rotate shafts by hand checking blade interleave clearance. Scale the recipe toward #329's 36 blades only after the mini works.
 
 **Next:** [[conveyors-material-handling]].
 

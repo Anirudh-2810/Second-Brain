@@ -82,6 +82,27 @@ flowchart TD
 4. Backlash/clearance eyeball: teeth must NOT touch both flanks (TBC: exact backlash values are manufacturing data, not this page).
 5. Exploded view + BOM: every part listed, no missing fasteners/seals.
 
+---
+
+## 6. Worked example: 1:2 single-stage on paper first (the 10-minute math)
+
+Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with different numbers.
+
+**Given:** input 1440 RPM motor (standard 4-pole — TBC per sourcing), wanted output ≈ 720 RPM → $i = 2$.
+**Teeth:** pinion $z_1 = 20$ (minimum to avoid undercut at 20° pressure angle is ~17 — TBC: confirm with gear references; 20 is safe and round) → wheel $z_2 = 40$.
+**Module:** pick $m = 2$ mm (printable + reasonable size — TBC per build; bigger module = chunkier teeth = stronger + coarser).
+**Center distance:** $a = m(z_1+z_2)/2 = 2(60)/2 = 60$ mm. Shafts sit EXACTLY 60 apart — this number goes into the layout sketch and everything downstream obeys it.
+**Pitch diameters:** $d_1 = mz_1 = 40$, $d_2 = 80$. Blank ODs ≈ pitch + 2m (addendum = 1 module standard — TBC: confirm gear-formula references): 44 / 84.
+**Output check:** $n_2 = 1440/2 = 720$ RPM ✓. Torque ≈ 2× minus ~2–5% mesh loss (TBC: confirm efficiency references — illustrative).
+**Face width:** ~8–10× module starting point (16–20 mm here — TBC: confirm with gear-design references; wider = more load capacity + more misalignment sensitivity).
+
+**Bearing-fit basics (the number system that makes assemblies work):**
+- Shaft seats for bearings: k6/m6-class transition fits (bearing bore grips the shaft — TBC: confirm fit tables like ISO 286, NOT this page).
+- Housing bores: H7-class clearance-ish (outer race slides in, located axially by shoulders/circlips).
+- In CAD: model NOMINAL sizes (Ø20 shaft, Ø20 bore) and put fits on the DRAWING — modeling actual tolerance offsets into 3D parts is a pro-MBD workflow (TBC depth), not beginner practice. The drawing carries: `Ø20 k6`, `Ø47 H7` (TBC example values — compute per your bearing datasheet).
+
+**Lubrication shopping list (model ALL of these or the box is a toy):** drain plug (lowest point!), filler/breather on top, level sight-glass or dipstick (TBC per box), oil seals at every shaft exit, gasket groove on the split line. Each is 5 minutes of modeling and 100% of the realism.
+
 **Next:** [[helical-spur-gearboxes]] → [[bevel-planetary-gearboxes]].
 
 ## CROSS-REFERENCES
