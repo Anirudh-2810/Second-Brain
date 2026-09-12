@@ -107,6 +107,16 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 10. Coupling + mounting appendix (gearbox meets the world)
+
+**Coupling selection (shaft-to-shaft joints — TBC: confirm with coupling references, NOT this page):** rigid/flange (perfect alignment assumed — TBC per installation reality: foundations settle, alignment drifts!) → jaw/spider elastomer (misalignment-tolerant + shock-absorbing — the shredder-friendly choice per [[shredders-recycling-machines]] §9-transmission!) → gear-tooth couplings (high torque + misalignment — TBC per duty) → fluid couplings (soft-start for high-inertia loads — TBC per mining/conveyor practice!) → torque limiters (mechanical fuse per §8-jam thinking — shear pins vs friction vs electronic trip — TBC per protection philosophy!) → CAD consequence: coupling ENVELOPES + guard (rotating couplings get CLOSED guards with inspection windows — the §8-safety habit: guards designed, not retrofitted!).
+
+**Mounting configurations (foot vs flange vs shaft — TBC per vendor catalogs):** foot-mounted (sole plates + foundation bolts + grout? epoxy vs cementitious — TBC per installation; soft-foot/eliminated by shimming to 0.05 feeler — TBC per alignment practice!) → flange-mounted (machine-face register + bolt circle — the §5-pump-gearbox interface generalized!) → shaft-mounted with torque arm (gearbox RIDES the driven shaft — arm to ground takes reaction — TBC per design; the arm needs FLEX-direction freedom + rigid torque direction — TBC!) → CAD consequence: mounting faces modeled FLAT + called out (machined pads per §8-housing appendix — cast faces never mount!).
+
+**Alignment discipline (the #1 rotating-equipment killer — TBC: confirm with alignment references, NOT this page):** laser vs dial methods (TBC per practice) → thermal growth offsets (hot-running machines align COLD with calculated offset — TBC per analysis; aligning hot machines hot is the alternative!) → soft-foot elimination BEFORE alignment (TBC per procedure) → CAD consequence: jacking screws + shimmable feet + dowel provisions modeled (alignment FEATURES designed in — TBC per practice; field alignment without provisions is prayer!).
+
+---
+
 ## 9. Sizing walkthrough: 5 kW conveyor drive (paper-to-CAD, end to end)
 
 **Duty (illustrative — TBC: confirm with drive-application references, NOT this page):** 5 kW at 1440 in, ~360 out (i ≈ 4) → steady torque out ≈ 5000×9550/360/1000... torque (N·m) = 9550×kW/RPM = 9550×5/360 ≈ 133 N·m steady → service factor 1.5 (moderate shock per §8) → DESIGN torque ≈ 200 N·m → output shaft sized for torsion + bending (combined-shaft formula — TBC: confirm with machine-design references!) → bearings from shaft diameters (bore-first selection: pick available bore, design around it — catalog-first per §8-cost thinking!).

@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 12. High-speed + precision appendix (when RPM and accuracy climb)
+
+**High-speed behavior (pitch-line velocity rules — TBC: confirm with gear references, NOT this page):** dynamic loads grow with speed × error (precision grade matters MORE as speed climbs — TBC per AGMA quality grades; coarse gears at high speed hammer themselves to death!) → balancing (rotating assembly balance grade per speed — TBC per ISO balance practice; model balance-correction features: drill spots? weld beads? — TBC per shop!) → windage + churning (oil drag at speed = heat + power loss — TBC per velocity limits; jet lube + scavenging per §10!) → CAD consequence: speed RATING on the nameplate (§7-documentation habit: max continuous RPM stated, not implied!).
+
+**Precision-grade economics (accuracy costs — TBC: confirm with gear-quality references):** grade 10–12 (as-hobbed/cut — utility duty) → grade 7–9 (shaved/ground light — general industrial) → grade ≤6 (ground/polished — servo/robotics/turbine — TBC per application!) → cost DOUBLES-ish per 1–2 grade steps (TBC per quoting reality; tolerance accordingly — the §9-inspection lesson restated as money!) → CAD consequence: quality grade CALLED OUT on the drawing (inspection plans + quotes key off it — ungraded gears get utility-grade quotes and precision expectations, the classic mismatch!).
+
+**Servo/robotics gearing (zero-backlash world — TBC depth):** preloaded split gears (spring-take-up — TBC per design) → harmonic/strain-wave reducers (flexspline mechanics — TBC: confirm with robotics-drive references, NOT this page; 50–100:1 in one stage with near-zero backlash!) → cycloidal reducers (eccentric + pins — TBC per design; shock-tolerant, compact!) → CAD consequence: these are BOUGHT assemblies at learning level (envelopes + interfaces per §3-bought-out discipline!) — model the MOUNT, buy the magic (the §9-bought-vs-built judgment restated!).
+
+---
+
 ## 11. Double-helical + crossed-helical appendix (the thrust story completed)
 
 **Single-helical thrust math (awareness — TBC: confirm with gear references, NOT this page):** axial force ≈ tangential × tan(helix angle) (15–20° helix → ~27–36% of tangential as thrust — TBC per formula; NOT negligible!) → thrust bearings/washers sized for CONTINUOUS thrust (not peak — every revolution pushes, all day) → housing shoulders BOTH flanks (thrust reverses on direction change — bidirectional boxes trap both ways!) → the §4-failure restated with numbers: unaddressed thrust walks shafts until gears unmesh or seals die.

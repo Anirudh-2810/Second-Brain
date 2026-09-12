@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 13. Toy + sporting-goods appendix (play has engineering too)
+
+**Toy safety architecture (regulations shape geometry — TBC: confirm with toy-safety standards like ISO 8124/EN 71/ASTM F963, NOT this page):** small-parts cylinders (choking hazard gauges by age grade — TBC per standard; design ABOVE the gauge or label DOWN the age!) → sharp points/edges tests (TBC per standard protocol — the §8-edge-policy with legal force behind it!) → battery compartments requiring TOOLS to open (coin-cell ingestion kills — TBC per regulation; screw-closed, never snap-only!) → cord/strap strangulation lengths (TBC per standard) → CAD consequence: compliance DIMENSIONS on the drawing (gauge-passing sizes called out like tolerances — safety specs travel with geometry!).
+
+**Ball + impact sports gear (energy management — TBC: confirm with sports-equipment references):** helmet liners per [[complex-showcase]] §8 (multi-density foams tuned to impact spectra — TBC per standard testing!) → bat/racket balance + moment-of-inertia tuning (swing weight is engineERED — TBC per sport; CAD mass properties + tungsten inserts? — TBC per tier!) → protective shells (hard outer spreading load + soft inner absorbing — the §8-helmet sandwich generalized!) → grip tapes/overmolds per §7-handle rules (sweat changes everything — TBC per material!).
+
+**Water toys + floatation (buoyancy is math — TBC: confirm with marine-safety references, NOT this page):** displaced volume ≥ weight + margin (Archimedes as design input!) →flotation foam volumes (closed-cell, TBC per material; waterlogged foam sinks swimmers — TBC!) → bright colors + whistle/attachment points (visibility + signaling designed in — TBC per standard!) → CAD consequence: volume readout per body (the §11-speaker-volume habit generalized: displaced-volume bodies modeled explicitly, buoyancy budget on paper!).
+
+---
+
 ## 12. Jewelry-scale precision appendix (small is a different sport)
 
 **Scale effects (physics changes below ~20 mm — TBC: confirm with micro-manufacturing references):** tolerances tighten proportionally (a 0.1 slip on a bracelet is VISIBLE — same slip on a helmet vanishes; TBC per finishing practice) → knit tolerance paradox (§9-forensics restated: absolute tolerances bite at small scale — loosen JUDICIOUSLY per [[consumer-electronics]] §5-earphone rule, document the exception!) → fillet minimums (0.2–0.3 mm modeled radii at jewelry scale — TBC illustrative; below that, geometry exists but manufacturing doesn't!) → pattern counts explode (pavé settings = hundreds of stones — TBC per jewelry practice; model ONE + pattern + SIMPLIFY for working configs per the §2-mesh tiers!).

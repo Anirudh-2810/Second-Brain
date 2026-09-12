@@ -103,6 +103,16 @@ flowchart TD
 
 ---
 
+## 11. Power-tool housings appendix (motors meet hands, at volume)
+
+**Clamshell architecture (the two-half universe — TBC: confirm with power-tool references):** parting plane THROUGH the motor axis (bearings seat half-in-each-half — alignment from the split faces, not hope!) → screw bosses bridging halves (through-bosses with shoulders setting the stack height — TBC per design; overtightening warps alignment, TBC per torque spec!) → motor cradle ribs (axial + rotational location — TBC per motor frame) → cord/boot integration at the rear split (strain relief TRAPPED between halves — the §9-appliance lesson restated!) → CAD consequence: halves modeled as ONE body split LATE (the §5-split discipline: perfect match guaranteed, then diverge details per half!).
+
+**Gearcase + hammer mechanisms (the violent end — TBC depth):** metal gearcase insert in plastic shell (heat + loads exceed plastic — TBC per duty; insert molded-in with pull-out ribs? post-assembled with screws? — TBC per tier!) → hammer/pounding actions (pneumatic piston or mechanical cam — TBC per tool class; impact forces dwarf static loads — TBC per measurement!) → grease zones (sealed-for-life gear grease — TBC per NLGI grade; the §10-lube lesson at small scale!) → CAD consequence: isolate the violence (gearcase module separable for service — TBC per tier; cheap tools seal it forever, pro tools open it!).
+
+**Dust + service reality (jobsites eat tools — TBC: confirm with tool references):** sealed bearings + switches (concrete/masonry dust conducts + abrades — TBC per IP practice adapted!) → brush/service access (motor brushes wear — TBC per motor type; brushless eliminates, brushed needs windows! — TBC) → cord armor at the tool entry (jobsite yanks — TBC per failure data!) → the serviceability audit (which parts die first? can users reach them? — the §7-maintenance habit at handheld scale: design the top-3 failure replacements as 5-minute jobs!).
+
+---
+
 ## 10. Garden + outdoor tools appendix (weather, soil, and abuse)
 
 **Weatherproofing (outdoor tools live outside — TBC: confirm with outdoor-product references):** drainage (every cavity drains — weep holes at TRUE lowest points accounting for use-angles, not modeled level! — TBC per practice) → UV stability (material + color callouts — TBC per polymer references; black lasts, bright colors chalk — the purchasing note) → corrosion pairs (dissimilar metals + rain = galvanic cells — TBC: confirm with corrosion references; isolate with bushings/coatings, model the isolators!) → fastener sealing (water wicks threads — sealant notes on the drawing, TBC per practice).
