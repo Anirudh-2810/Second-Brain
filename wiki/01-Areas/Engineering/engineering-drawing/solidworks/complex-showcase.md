@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 13. Magnetic + hinge + latch micro-mechanisms appendix (the details that delight)
+
+**Magnetic closures (the premium feel — TBC: confirm with magnet-application references, NOT this page):** magnet + keeper sizing (pull force vs size/grade — TBC per magnet spec; N52 tiny vs ferrite chunky — TBC!) → steel shunt plates (flux concentration DOUBLES useful pull — TBC per magnetic-circuit practice!) → pockets + retention (press-fit? adhesive? overmolded? — TBC per assembly; LOOSE magnets in shipping = returns + bad reviews!) → polarity planning (multi-magnet arrays need mapped polarities — TBC per design; wrong polarity REPELS at the customer!) → CAD consequence: magnet pockets modeled with insertion draft + adhesive grooves (TBC per process) + polarity marks on the DRAWING (assembly instruction, not geometry!).
+
+**Hinge micro-design (laptop/phone/tablet lid hinges and beyond — TBC: confirm with hinge references):** friction vs detent (free-stop positioning needs CONSTANT torque across angles — TBC per clutch design; cams + springs, not just tight pivots!) → cycle life (30k+ open-closes for laptops — TBC per spec; wear-tracked, not hope-tracked!) → cable routing THROUGH the hinge (display/data lines cross the pivot — service loop + bend-radius discipline, TBC per flex-circuit practice!) → CAD consequence: hinge modeled at 3 angles minimum (closed/90/open — interference + cable sweep checked at ALL THREE, not mid-travel complacency per §11-tripper lesson!).
+
+**Latch + eject mechanisms (the click that satisfies):** push-push card slots (heart-cam track geometry — TBC depth: the track IS the mechanism, confirm with mechanism references!) → spring-loaded ejectors (battery/SIM trays — TBC per force) → snap-latch cantilever math (deflection + strain vs fatigue life — TBC: confirm with snap-fit references; the §4-enclosure lesson restated at precision scale!) → CAD consequence: latch states as configurations (latched/unlatched/ejecting — the §11-dispensing-states habit generalized: mechanisms get modeled in EVERY state!).
+
+---
+
 ## 12. Appliance platform thinking (families, not one-offs)
 
 **Platform strategy (how brands really build — TBC per business practice):** shared chassis/motor/pump across 5–10 SKUs (the expensive engineered core amortized!) → differentiated skins/trim/colors per SKU (surfacing variations on a common platform — YOUR surfacing skills applied to business logic!) → feature-ladder planning (base/mid/premium differ by ADDED modules, never redesigned cores — TBC per product management) → CAD consequence: platform parts in a SHARED library folder (never copied per SKU — the §10-file-hygiene habit at business scale!) + SKU assemblies differing ONLY in trim/feature configs (the [[dressup-productivity]] §8-config habit as product strategy!).

@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 11. Shuttle + tripper + feeder appendix (moving the load point)
+
+**Tripper conveyors (discharge ANYWHERE along the run):** traveling tripper carriage on rails above the belt (TBC: confirm with tripper references) → belt lifted through tripper pulleys into a discharge chute that moves WITH the carriage (the belt path changes with position — model min/max travel extremes!) → winch/cable drive for carriage motion (TBC per design) → chute telescoping/flexible sections (TBC per travel) → CAD consequence: TWO configurations minimum (tripper at each END of travel — interference + belt-length checks at BOTH extremes, not mid-travel complacency!).
+
+**Shuttle conveyors (whole-machine traverse):** machine on rails/wheels traversing perpendicular (stockpile building, ship loading — TBC per application) → travel drives + rail/wheel envelopes (TBC per load) → festoon/cable-reel power feed (moving machines need moving power — TBC per electrical practice; festoon sag + bend radii modeled!) → end-stop buffers + derail containment (TBC per safety) → CAD consequence: travel envelope swept volumes (the machine + load at EVERY position vs structures — swept-volume clash check, TBC per method).
+
+**Feeders (controlled discharge FROM storage):** belt feeders (short belts under hoppers with adjustable gates — TBC per rate control) → apron feeders (overlapping steel pans on chains for heavy/large feed — TBC per mining-duty practice) → vibratory feeders (tuned-spring resonance drive — TBC depth: the tuning IS the design, confirm with vibration references NOT this page) → rotary valves/airlocks (metered + pressure-sealing discharge — TBC per valve practice) → CAD consequence: rate-control features (gates, VFDs, stroke adjustments) modeled WITH their adjustment ranges (the §6-take-up lesson generalized: adjustable things show their RANGE!).
+
+---
+
 ## 10. Screw + bucket + pneumatic appendix (the conveying family beyond belts)
 
 **Screw conveyors (augers):** helical flighting on a center tube inside a U-trough (the §6-turbine geometry doing bulk work!) → pitch ≈ diameter standard-ish (TBC: confirm with CEMA screw-conveyor references, NOT this page) → hanger bearings every ~3 m (TBC per length: long screws whip without support — critical-speed awareness, TBC depth) → variable pitch options (metering/feeding duty — TBC per application) → CAD consequence: flights as patterned helical sweeps (rebuild-heavy — suppress in working configs per the §8-config habit) + trough clearance rotate-checked (the turbine lesson restated).

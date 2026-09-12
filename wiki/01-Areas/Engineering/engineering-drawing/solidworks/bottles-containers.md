@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 13. Pumps, sprayers + dispensing closures appendix (products that MOVE liquid)
+
+**Trigger sprayers (the mechanism in every cleaning aisle — TBC: confirm with dispensing references, NOT this page):** piston + cylinder bore (toleranced sliding fit — TBC per seal practice) → spring return (metal vs plastic spring per chemical compatibility — TBC) → ball-check valves in/out (cracking pressure sets prime reliability — TBC per design) → nozzle insert (spray/stream/foam patterns via insert geometry — TBC per product) → shroud styling over the mechanism (the §10-closure lesson: mechanism first, styling second!) → CAD consequence: BORE-first modeling (cylinder bores are the datums; everything hangs off bore position + diameter!).
+
+**Lotions + pumps (airless vs dip-tube — TBC per dispensing references):** dip-tube length to container depth (TBC per fill — short tubes strand product, the consumer complaint!) → airless piston-follower (vacuum-take-up as product dispenses — TBC per mechanism; no dip tube, no air contact — premium preservation!) → dosage metering (stroke volume per actuation — TBC per spec; pharma dosing is REGULATED — TBC per standard!) → lock-up/lock-down closures (shipping vs use positions — TBC per design; two-state mechanisms modeled in BOTH states!) → CAD consequence: stroke + states as CONFIGURATIONS (shipped-locked, priming, dispensing, empty — the §8-config habit applied to mechanisms!).
+
+**Caps + dosing cups (measured pour — TBC per product):** cup graduations (molded raised ribs, not print — TBC per durability) → dual-chamber (mix-at-use chemistry — TBC per formulation; barrier + burst mechanism modeled!) → child-resistance per §10 (squeeze-turn geometries with spring fingers — TBC per regulation; test with REAL hands across ages — TBC per protocol, NOT this page!) → CAD consequence: graduation CAD as equation-driven pattern (units right FIRST time — metric/imperial per market, TBC per SKU!).
+
+---
+
 ## 12. Pail/drum handling + automation appendix (packaging at industrial scale)
 
 **Handling features (hands + machines grip these):** bail ears (pivot strength for full weight + swing clearance vs body — TBC per pail standard) → handholds (integrated grip recesses with finger clearance per §7-fist-rule — TBC) → lifting lugs on drums (crane-rated points with WLL marks — TBC: confirm with handling references, NOT this page; lugs carry the FULL drum — the §6-hook lesson at container scale!) → fork pockets on IBCs/pallets (forklift interface dimensions — TBC per pallet standards) → CAD consequence: handling points modeled FIRST (they constrain body geometry more than styling ever will — structure follows handling, beauty follows structure).

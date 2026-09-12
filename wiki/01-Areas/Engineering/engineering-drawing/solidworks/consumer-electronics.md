@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 12. Display + input appendix (screens, keys, and touch)
+
+**Display integration (the glass that sells the product — TBC: confirm with display-integration references, NOT this page):** LCD/OLED module envelopes (active area + bezel + thickness + connector exit — TBC per panel datasheet; model the MODULE, buy the panel!) → cover lens (chemically-strengthened glass envelopes + print borders hiding the inactive rim — TBC per lens spec) → bonding (air-gap vs full-lamination: optical + touch performance vs cost/reworkability — TBC per process; full-lam rejects are expensive — TBC!) → backlight/thermal (LCD backlights heat sealed boxes — the §8-thermal story with a glowing source!) → CAD consequence: display FIRST in the stack layout (the thinnest, most fragile, most expensive part constrains everything around it — datum-grade positioning per §8-PCB rules!).
+
+**Keypads + buttons (tactile UX in plastic/rubber — TBC: confirm with input-device references):** silicone keypads (carbon pills + domes in ONE molded mat — TBC per construction; travel + force from dome geometry — TBC per spec!) → scissor/mechanical keys (notebook vs desktop depths — TBC per product) → sealed front panels (membrane overlays with embossed keys — TBC per industrial-product practice; IP-rated + wipeable!) → haptic confirmation where travel is zero (touchscreens need the §11-haptic channel — cross-domain design!) → CAD consequence: key travel + force notes ON the drawing (UX specs travel with geometry, or manufacturing "optimizes" them away!).
+
+**Touch surfaces (the zero-travel extreme — TBC depth):** capacitive electrode patterns (TBC per controller spec: ITO/film + tail routing!) → glove/water false-touch mitigation (firmware + bezel design share the job — TBC per system) → cover thickness limits (capacitive field decays with distance — TBC per controller; thick pretty glass kills sensitivity — the §9-finish-vs-function tradeoff restated!) → CAD consequence: electrode KEEP-OUTS modeled (metal near touch fields detunes — the §9-antenna lesson generalized: fields need empty space, and empty space must be DESIGNED!).
+
+---
+
 ## 11. Audio + haptics appendix (products that speak and shake)
 
 **Speaker integration (sound as a packaging problem — TBC: confirm with acoustic references, NOT this page):** driver envelope + front volume (sealed air space ahead of the cone — TBC per driver spec; volume tunes response!) → rear chamber (ported vs sealed alignments change bass — TBC per enclosure design; the port is a TUNED pipe, not a hole — length/diameter from the alignment math!) → passive radiators (mass-tuned alternative to ports — TBC per design) → waterproofing vs acoustics (membranes pass sound, block water — TBC per material; the §9-ingress lesson at the speaker) → CAD consequence: acoustic volumes modeled as SEALED solid bodies first (volume readout = tuning data!), driver/port/membrane features cut second.
