@@ -103,6 +103,16 @@ flowchart TD
 
 ---
 
+## 10. Garden + outdoor tools appendix (weather, soil, and abuse)
+
+**Weatherproofing (outdoor tools live outside — TBC: confirm with outdoor-product references):** drainage (every cavity drains — weep holes at TRUE lowest points accounting for use-angles, not modeled level! — TBC per practice) → UV stability (material + color callouts — TBC per polymer references; black lasts, bright colors chalk — the purchasing note) → corrosion pairs (dissimilar metals + rain = galvanic cells — TBC: confirm with corrosion references; isolate with bushings/coatings, model the isolators!) → fastener sealing (water wicks threads — sealant notes on the drawing, TBC per practice).
+
+**Soil-contact parts (shovels, tines, blades — TBC: confirm with agri-tool references):** abrasion-resistant edges (hardfaced/through-hardened zones CALLED OUT, not modeled — TBC per material) → replaceable wear tips (bolted, not welded — field replacement in minutes — TBC per design) → self-sharpening profiles (laminated hard/soft steels wearing differentially — TBC depth: awareness that edge metallurgy is a discipline) → handle sockets (tapered + pinned/doweled — TBC per construction; socket depth ≥ ~2× handle diameter illustrative for leverage loads).
+
+**Leverage + force paths (long handles multiply BOTH ways):** grip-to-load ratios (5:1 handle = 5× force at the head AND 5× shock at the hands on strikes — TBC per physics; fiberglass/hickory damping matters — TBC per material) → overstrike guards (missed swings hit the handle below the head — sacrificial collar zone, TBC per tool design) → hanging/storage (peg holes + balance points so tools hang head-DOWN safely — TBC per shop practice; falling sharp tools are the accident report).
+
+---
+
 ## 9. Racket + trimmer + agri-tool appendix (shaft-and-head architecture)
 
 **The architecture (generalizes across #65/#70/#75):** long shaft/handle (sweep or tube — bending loads dominate, TBC: confirm with structural references per duty) + working head (the business end: strings/blades/tines) + grip (the §7-handle rules) + joint(s) between them (the failure point — ALWAYS the joint; design joint FIRST, not last).

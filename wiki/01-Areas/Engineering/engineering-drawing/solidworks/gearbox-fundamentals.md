@@ -107,6 +107,18 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 9. Sizing walkthrough: 5 kW conveyor drive (paper-to-CAD, end to end)
+
+**Duty (illustrative — TBC: confirm with drive-application references, NOT this page):** 5 kW at 1440 in, ~360 out (i ≈ 4) → steady torque out ≈ 5000×9550/360/1000... torque (N·m) = 9550×kW/RPM = 9550×5/360 ≈ 133 N·m steady → service factor 1.5 (moderate shock per §8) → DESIGN torque ≈ 200 N·m → output shaft sized for torsion + bending (combined-shaft formula — TBC: confirm with machine-design references!) → bearings from shaft diameters (bore-first selection: pick available bore, design around it — catalog-first per §8-cost thinking!).
+
+**Stage split decision (§8-math applied):** 4:1 single mesh? Pinion 20 → wheel 80 (bulky wheel, pinion near undercut floor — TBC per §6-minimums) vs 2×2 two-stage (compact, more parts) → CHOOSE two-stage (wheel Ø sane, pinions safe, housing shorter-fat vs long-thin — TBC per space claim) → stage ratios 2×2 EVEN as starting point (§8) → modules: fast stage m2 (low torque), slow stage m2.5–3 (high torque — the growing-module insight from §8 executed!) → center distances per stage → LAYOUT SKETCH with both distances + motor + output positions (the §5-discipline at full assembly scale!).
+
+**Verification cascade (the §5-ladder at system scale):** ratio math (2×2=4 ✓) → per-mesh center distances ✓ → CAD mates + gear ratios (2.0 + 2.0) → hand-rotation (output = input/4 EXACTLY?) → interference full-rotation both meshes → backlash eyeball per mesh → thermal sanity (5 kW losses ~3–5% = 150–250 W to dissipate — fins? fan? ambient? — TBC: confirm with thermal references; small boxes cook!) → BOM (every seal/plug/fastener per §7) → drawing set (housing + shafts + gears + assembly + BOM per §10-drawing discipline).
+
+**What this walkthrough proves:** machine design is ARITHMETIC + CAD transcription, not inspiration — ratio → torque → shafts → bearings → housing → mates → verify. Run these rails and PL2's 20 gearboxes collapse into ONE repeatable procedure with different numbers. That collapse is the entire point of this page.
+
+---
+
 ## 8. Ratio-splitting + service-factor thinking (sizing like an engineer)
 
 **Why multi-stage exists (the §5 math extended):** single-mesh ratios above ~1:5–7 get geometrically absurd (giant wheel, pinion below undercut minimum — TBC: confirm with gear-design references) → SPLIT across stages ($i_{total} = i_1 \times i_2 \times ...$). Even splits as starting point (1:9 ≈ 3×3 — TBC: confirm optimal-split practice per efficiency/weight tradeoff, NOT this page) → high-speed stage FIRST (small teeth, fast, light — mesh losses scale with torque, so reduce torque early? No: power is constant-ish; the fast stage sees LOW torque — smaller teeth suffice; the slow stage sees HIGH torque — chunkier module justified. Module can GROW stage by stage — the sizing insight that marks real design.)

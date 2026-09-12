@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 12. Jewelry-scale precision appendix (small is a different sport)
+
+**Scale effects (physics changes below ~20 mm — TBC: confirm with micro-manufacturing references):** tolerances tighten proportionally (a 0.1 slip on a bracelet is VISIBLE — same slip on a helmet vanishes; TBC per finishing practice) → knit tolerance paradox (§9-forensics restated: absolute tolerances bite at small scale — loosen JUDICIOUSLY per [[consumer-electronics]] §5-earphone rule, document the exception!) → fillet minimums (0.2–0.3 mm modeled radii at jewelry scale — TBC illustrative; below that, geometry exists but manufacturing doesn't!) → pattern counts explode (pavé settings = hundreds of stones — TBC per jewelry practice; model ONE + pattern + SIMPLIFY for working configs per the §2-mesh tiers!).
+
+**Setting + finding construction (TBC: confirm with jewelry references, NOT this page):** prong/bezel/pavé envelopes (stone dimensions to setter spec — TBC per stone cutting standards; seats cut AFTER casting in reality — model seats as machining ops, not as-cast!) → findings as bought parts (clasps, joints, catches — envelopes + interfaces, per the §2-flagship bought-out discipline) → articulation (bracelet links NEED motion ranges modeled + tested per the §9-DOF habit — stiff bracelets don't sell!) → finishing notes (polish vs matte zones SPLIT-LINED per [[dressup-productivity]] §5 — zones, not wishes!).
+
+**Metal behavior notes (awareness — TBC: confirm with jewelry-manufacturing references):** springback in forming (TBC per alloy) → porosity in casting (sprue/vent design is its own craft — TBC depth) → work-hardening (formed zones harden — TBC per metallurgy; annealing steps in the process plan, NOT the CAD) → CAD consequence: model the FINISHED geometry + note the process chain on the drawing (cast → tumble → set → polish — the traveler that shops quote from, TBC per practice).
+
+---
+
 ## 11. Furniture + lighting design appendix (scale you live with)
 
 **Chair ergonomics (the sit test — TBC: confirm with ergonomics references, NOT this page):** seat height ≈ popliteal (back-of-knee) height (TBC: ~400–450 mm illustrative for adults) → seat depth < buttock-knee minus clearance (TBC illustrative) → backrest lumbar zone positioned (not just present — POSITIONED at L3–L5 height, TBC) → the Panton (§6) re-examined: its single ribbon MUST hit all three zones with one curve (the genius + the constraint — comfort failures in iconic chairs are anthropometric, not aesthetic, TBC per review literature) → CAD consequence: human-figure envelopes (seated manikin blocks — TBC per dataset) IN the assembly from day one (design around bodies, not bounding boxes).

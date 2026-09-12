@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 12. Appliance platform thinking (families, not one-offs)
+
+**Platform strategy (how brands really build — TBC per business practice):** shared chassis/motor/pump across 5–10 SKUs (the expensive engineered core amortized!) → differentiated skins/trim/colors per SKU (surfacing variations on a common platform — YOUR surfacing skills applied to business logic!) → feature-ladder planning (base/mid/premium differ by ADDED modules, never redesigned cores — TBC per product management) → CAD consequence: platform parts in a SHARED library folder (never copied per SKU — the §10-file-hygiene habit at business scale!) + SKU assemblies differing ONLY in trim/feature configs (the [[dressup-productivity]] §8-config habit as product strategy!).
+
+**Variant management in CAD (the mechanics of families):** design tables driving dimensions per SKU (TBC per version: Excel-linked tables — learn YOUR table UX once) → suppressed-feature ladders (premium gets the chrome trim + extra jet zones; base suppresses them — the [[dressup-productivity]] §8-ladder restated) → color/material configs (appearances per SKU — renders per config for marketing BEFORE tooling! — TBC per workflow) → the cardinal rule: platform changes propagate TO ALL SKUs (change the shared chassis = revalidate every SKU's interfaces — the layout-sketch discipline from [[sketch-mastery]] §12 at family scale!).
+
+**Cost-down redesigns (the sequel every product gets — TBC per business practice):** part-count reduction drives (combine two parts? eliminate a fastener? — TBC per DFM analysis) → material substitution (validated by re-testing, never by hope — TBC per QA) → supplier-driven changes (second-source equivalence proofs — TBC per procurement) → CAD consequence: revision discipline per [[part-assembly-drawing-workflow]] §10 (REV letters + change notes + revalidation checklist PER SKU affected). Cost-down without revalidation is how recalls happen — the ethics note that belongs in an engineering page.
+
+---
+
 ## 11. SpaceX-Dragon + water-tank appendix (big envelopes, modeled smart)
 
 **Capsule bodies (#91-class method):** pressure-vessel base (revolved + domed ends — the vessel logic from [[bottles-containers]] §9-beverage generalized: pressure shapes are round for physics, not style) → heat-shield base (blunt ablative envelope + separation plane — TBC: confirm with aerospace references for anything beyond CAD practice; model the INTERFACE (bolt circle + separation springs envelope — TBC), not the chemistry) → SuperDraco/pod protrusions (repeated lofted pods per §2-pattern logic — model ONE pod, pattern + mirror!) → docking/berthing interface envelope (TBC per standard: androgynous vs probe-drogue is mission architecture — awareness, NOT this page) → TPS tile/panel breaks as split-line zones (TBC taste: maintenance access patterns read as design detail).
