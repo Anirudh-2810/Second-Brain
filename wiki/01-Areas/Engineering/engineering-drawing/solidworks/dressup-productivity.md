@@ -112,5 +112,15 @@ A 70×50×25 motion-sensor box: base + lid split, PCB posts, vents, wall mount �
 
 **Next:** the surfacing track — [[surfacing-methodology]].
 
+---
+
+## 7. Feature-order chess: sequencing for editability (the master skill)
+
+**The order doctrine (expanded from §2's rule):** datum/reference features (planes, layout sketches) → base volumes (biggest shape) → major form (cuts/adds changing silhouette) → functional details (holes, threads, grooves) → pattern/mirror multiplication → dress-up (fillets/chamfers) → finishes (shell last-ish, split lines anytime) → cosmetic (appearances, decals). Every violation has a price: fillets before holes = hole edges land on fillets and fail; shell before bosses = bosses float off thin walls; patterns before the seed's final position = pattern rebuilds on move (actually GOOD if intentional — patterns FOLLOW seed edits, which is why seed placement is design).
+
+**Reorder surgery (fixing inherited trees):** dragged-feature reorder works when parents travel WITH dependents (drag the parent + its children as a block — TBC: multi-select drag per version) → fails when children reference later geometry (the red flags tell you exactly which reference is time-traveling — reattach it upward). Inherited messy tree? Don't rebuild from scratch immediately: try (1) rename pass (understanding first), (2) reorder pass (parents up, dress-up down), (3) suppress-dead pass (kill fossils), and ONLY then (4) selective rebuild of the worst 20%. Full rebuilds feel productive and waste the archaeology that teaches tree-reading.
+
+**Rollback-bar thinking (design in stages):** roll back to base → verify → roll forward one feature → verify — the binary-search debugging from [[flowcharts-master]] §8 applied continuously, not just in failure. Professionals keep the bar parked at their current work frontier (tea-break test: roll back, roll forward — if it rebuilds clean cold, the tree is healthy). Fold Feature (TBC per availability) hides history branches for presentation without deleting them — the tidy-desk version of the same tree.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[lofted-boss-boundary]] · [[surfacing-methodology]] · [[beginner-exercises]] · [[solidworks-cheatsheet]]

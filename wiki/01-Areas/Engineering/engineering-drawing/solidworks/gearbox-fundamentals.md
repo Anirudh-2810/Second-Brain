@@ -107,6 +107,18 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 8. Ratio-splitting + service-factor thinking (sizing like an engineer)
+
+**Why multi-stage exists (the §5 math extended):** single-mesh ratios above ~1:5–7 get geometrically absurd (giant wheel, pinion below undercut minimum — TBC: confirm with gear-design references) → SPLIT across stages ($i_{total} = i_1 \times i_2 \times ...$). Even splits as starting point (1:9 ≈ 3×3 — TBC: confirm optimal-split practice per efficiency/weight tradeoff, NOT this page) → high-speed stage FIRST (small teeth, fast, light — mesh losses scale with torque, so reduce torque early? No: power is constant-ish; the fast stage sees LOW torque — smaller teeth suffice; the slow stage sees HIGH torque — chunkier module justified. Module can GROW stage by stage — the sizing insight that marks real design.)
+
+**Service factors (the reality multiplier — awareness):** catalog ratings assume smooth duty; real loads shock (shredders!), reverse (conveyors on incline — TBC), start/stop (everything). Service factor multiplies the design torque (TBC: 1.0 gentle → 2.0+ heavy-shock per AGMA-ish practice — confirm with gear-rating references, NOT this page). CAD consequence: NOTHING visible — but the module/face-width choices upstream encode it. Note your assumed factor in the layout sketch comments (design decisions documented where the NEXT engineer looks).
+
+**Backlash budgeting across stages (awareness):** each mesh contributes play; multi-stage stacks it (robot arms and positioning drives care — TBC depth: anti-backlash techniques like split-gear springs exist, confirm with precision-drive references). CAD consequence: model nominal, budget on paper, verify on bench (the §5 ladder extended: rotate input, measure output play TOTAL, divide by stages for per-mesh sanity).
+
+**Thermal + breather appendix (boxes cook):** mesh losses → heat → pressure (sealed boxes weep without breathers — §7's 50-rupee part restated with physics) → oil viscosity drops with temperature (cold-start starvation vs hot-thin film — TBC: confirm with lubrication references) → cooling fins on the housing for continuous duty (patterned thin walls — the pattern feature doing thermal work!) → sight glass + magnetic drain plug (wear-debris monitoring — maintenance reads the plug like a doctor reads bloodwork; TBC per practice).
+
+---
+
 ## 7. Fasteners, seals & lubrication hardware (the BOM that makes it real)
 
 **Bolted joints (split line + feet + cover):** one diameter per joint family (M8 split-line, M12 feet — TBC per load; consistency beats optimization at this level) → through-bolts with nuts vs tapped holes (tapped in cast iron holds; tapped in aluminum strips — TBC: confirm with fastener references; model thread depth 1.5× diameter minimum engagement — TBC) → patterned from ONE seed hole (never placed individually) → washers under nuts on soft housings (embedment — TBC awareness).

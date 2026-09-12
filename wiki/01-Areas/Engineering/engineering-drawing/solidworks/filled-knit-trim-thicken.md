@@ -115,5 +115,15 @@ Close the loop on the §6 mouse shell plan — bottom cap from opening to solid-
 
 **Next:** [[surfacing-utilities-troubleshooting]] (offset, freeform, swept/revolved/extruded surfaces, delete-hole + diagnostics).
 
+---
+
+## 9. Knit-tolerance philosophy + gap forensics (the honesty chapter)
+
+**Why tight tolerance is a virtue, not a preference:** knit tolerance is the maximum gap the software will PRETEND isn't there. Every pretense becomes a downstream lie — thicken walls of fantasy thickness, molds that flash, shells with paper-thin spots, drawings of geometry that doesn't exist. Professionals keep tolerance at default-or-tighter and fix REAL gaps because they've paid the downstream tuition. Beginners crank tolerance and pay it later with interest. (TBC exact default value per version — find yours in Tools → Options → Document Properties → Image quality... no: knit tolerance lives in the Knit PropertyManager itself; note YOUR default in your daily log once.)
+
+**Gap forensics (reading the failure):** knit fails and highlights edges — READ them: hairline highlight along a full edge = offset/position mismatch (re-derive one patch from the other's edge — shared derivation beats independent modeling); point highlight at corners = trim overshoot/undershoot (extend + re-trim that corner only); flickering highlight = overlapping (not gapped!) surfaces fighting (trim back the overlap, don't knit harder); whole-loop highlight = wrong patch entirely (continuity mismatch or gross misplacement — rebuild, don't coax).
+
+**The three-gap rule (workflow stop-loss):** more than THREE repair cycles on one seam means the STRATEGY is wrong (wrong patch layout, wrong trim order, wrong profile derivation) — step back and re-plan the region per [[surfacing-methodology]] §6 patch-planning instead of grinding the seam. Experts re-plan early; beginners grind late. The rule makes the expert move automatic.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[surfacing-methodology]] · [[lofted-boundary-surfaces]] · [[surfacing-utilities-troubleshooting]] · [[bottles-containers]]

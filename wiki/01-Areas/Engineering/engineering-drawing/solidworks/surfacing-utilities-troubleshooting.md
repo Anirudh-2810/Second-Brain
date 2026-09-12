@@ -102,5 +102,25 @@ The signature offset application from §1 — outer styling skin in, comfort lin
 
 **Next:** build libraries — [[beginner-exercises]] → [[bottles-containers]] → …
 
+---
+
+## 7. Swept vs lofted vs boundary: the selection matrix (stop guessing)
+
+| Situation | Pick | Why |
+|---|---|---|
+| Constant section along ANY path | Swept surface | One profile + path = minimal input, maximal robustness |
+| Section MORPHS along path | Lofted (2–3 profiles) | Profiles capture the morph; add ONE guide if path curves hard |
+| Section morphs + behavior control needed | Boundary (profiles + Direction 2) | Direction 2 dictates HOW the morph flows (crown/S/flat) |
+| Round/axisymmetric skin | Revolved surface | One profile, perfect symmetry, zero twist risk |
+| Flat-ish wall off an edge | Extruded surface | The §9-demo move — fast base patches |
+| Closing a loop | Filled (Tangent+) | Built for closures; constrain curves for hard ones |
+| Copy at distance (liners, clearance) | Offset | Exact parallel copy — no remodeling |
+| Organic tweak on finished quilt | Freeform (small moves!) | Last-touch tool, never a construction tool |
+| Hole that shouldn't exist | Delete Hole | Heal without rebuilding |
+
+**The 10-second selection habit:** name the section behavior (constant? morphing? closed loop? copy?) BEFORE opening any PropertyManager — the table answers from the behavior, not from vibes. Beginners pick the last-used feature; professionals pick from the behavior. Ten seconds of classification saves ten minutes of wrong-feature rework, every single time.
+
+**Hybrid builds (real playlist models mix 3–4 of these):** mouse = lofted top + extruded walls + filled bottom (§6-methodology plan); jug = revolved body + swept handle + mutual trim; helmet = boundary zones + filled closures + offset liner. No flagship build uses ONE surface feature — fluency means switching tools per region without friction. Drill: take any finished model and re-derive its region→tool map on paper (the decomposition exam from [[complex-showcase]] applied to surfaces).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[surfacing-methodology]] · [[filled-knit-trim-thicken]] · [[beginner-exercises]] · [[flowcharts-master]] · [[solidworks-cheatsheet]]
