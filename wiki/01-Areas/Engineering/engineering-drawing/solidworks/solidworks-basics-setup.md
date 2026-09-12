@@ -160,5 +160,17 @@ Why an L-bracket and not something exciting: brackets expose every fundamental (
 
 **Next:** [[sketch-mastery]] → then [[part-assembly-drawing-workflow]].
 
+---
+
+## 9. Rebuild survival guide (your first month of breakage, decoded)
+
+Every beginner meets these five errors. What they MEAN, not just what to click:
+
+1. **"The sketch is over-defined"** — you dimensioned something twice (e.g., width dim + two edge-to-origin dims that already fix width). SolidWorks is telling you your dimensions DISAGREE or duplicate. Fix: delete the newest dim; if numbers must all show, make one a REFERENCE dim (driven, gray — documents without constraining).
+2. **Dangling relations (brown entities)** — a feature you referenced is gone/suppressed. The sketch is homesick. Fix: right-click the dangling relation → replace with a plane/origin reference (stable) instead of re-attaching to another face (fragile). Rule: planes outlive faces, faces outlive edges, edges outlive vertices — reference UP the stability ladder.
+3. **"Rebuild errors" (red traffic light + ! in tree)** — work TOP-DOWN: fix the FIRST failed feature (lowest ! in the tree); later failures are usually its children crying, not independent bugs. Suppress-half debugging: roll back the bar above the suspect, rebuild forward one feature at a time.
+4. **Zero-thickness geometry** — a cut or extrude that touches at exactly one point/edge (tangent cone tip, coincident faces). Reality can't have zero thickness; neither can the kernel. Fix: overlap generously (0.5 mm into the body) or gap deliberately — never exact-touch.
+5. **"Future version" files (awareness)** — SolidWorks is NOT backward compatible: a file saved in 2026 won't open in 2024. Before sharing with college labs/teammates, confirm their version FIRST (File → Find References shows version info — TBC exact path per version). Neutral formats (STEP/Parasolid) bridge versions but LOSE the feature tree (dumb solids — fine for manufacturing, dead for editing).
+
 ## CROSS-REFERENCES
 - [[INDEX]] (hub) · [[sketch-mastery]] · [[part-assembly-drawing-workflow]] · [[../overview]] (drawing conventions behind the 3D)

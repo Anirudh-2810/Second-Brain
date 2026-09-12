@@ -100,6 +100,16 @@ A 70×50×25 motion-sensor box: base + lid split, PCB posts, vents, wall mount �
 
 **Verify in-app:** build the housing, then change 70→90: posts track (pattern from edges), vents refill (Up To Reference), shell holds. Every tracking success is design intent paying rent.
 
+---
+
+## 6. Draft + parting-line design (the molding literacy add-on)
+
+**Reading a part for moldability (30-second audit):** pick the pull direction (the axis the mold halves separate along — usually the longest straight axis) → every face must slope AWAY from the parting line along pull (draft!) → faces perpendicular to pull are either parting-line faces or undercuts. Do this audit on every plastic part BEFORE modeling details — late undercut discoveries scrap weeks.
+
+**Parting-line placement strategy:** silhouette edge (the mold split hides on the visual edge — the mouse/housing standard) → shutoff surfaces where openings cross the parting (windows, slots need steel meeting steel — model the shutoff faces explicitly, TBC depth) → side-actions for unavoidable undercuts (holes perpendicular to pull need sliding cores — awareness: adds mold cost/complexity; redesign to eliminate side-actions is the professional reflex, TBC per project economics).
+
+**Rib design rules (numbers-first):** rib thickness ~50–60% of wall (thicker sinks opposite — TBC: confirm with molding references), height ≤ ~3× wall (taller buckles), draft 0.5–1° per side (TBC), generous base fillet (stress + flow), gusseted ends. A ribbed tub floor carries like a solid block at a fraction of the weight and sink risk — the lightweighting move behind every electronics housing in [[consumer-electronics]].
+
 **Next:** the surfacing track — [[surfacing-methodology]].
 
 ## CROSS-REFERENCES

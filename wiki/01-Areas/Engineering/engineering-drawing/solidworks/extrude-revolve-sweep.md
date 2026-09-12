@@ -94,6 +94,16 @@ A 120×80×6 plate holding a Ø40 motor boss with a cable hook — exercises ext
 
 **Verify in-app:** model the plate above, run the intent audit (step 5), then rebuild the boss as a REVOLVE (half-profile + centerline) and compare trees — same geometry, different edit behavior. Prefer the one whose edits match how the design actually changes.
 
+---
+
+## 8. Sweep mastery: frames, coils, and path discipline
+
+**Profile-vs-path checklist (run before every sweep):** path smooth and tangent-continuous? (Kinks become creases — fillet path corners FIRST.) Profile ⊥ path start with Pierce? (Pierce keeps it tracking through curves; a statically-placed profile twists on bends.) Path curvature radius ≥ ~3× profile size everywhere? (Tighter = self-intersection — the §6 failure restated as a design rule, not a surprise.) Guide curves for non-circular profiles? (Ovals/rectangles need orientation control or they roll.)
+
+**Coil/spring worked mini-example:** helix (pitch 8, 6 turns, Ø30 mean — TBC illustrative) + circle profile Ø3 pierced to helix start → Swept Boss → flat-ground ends? (Closed ends need extra helix pitch regions or ground faces — TBC: real springs specify end treatment; note it, model plain closed ends at this level.) Variable pitch (soft-then-stiff rates) via variable-pitch helix (TBC per version) — the advanced rep that turns a spring from geometry into a designed component (TBC: rate math follows spring formulas, confirm with machine-design references).
+
+**Frame/tube structures (TBC taste — weldments vs sweep):** single bent tubes (handlebars, guards, drone landing skids) sweep beautifully; multi-member welded frames belong to Weldments ([[shredders-recycling-machines#3-frames-weldments]]), not 20 sweep features. One bent tube = sweep; ten joined tubes = weldment skeleton. Choosing wrong costs an order of magnitude in editability.
+
 **Next:** [[lofted-boss-boundary]] for morphing shapes.
 
 ## CROSS-REFERENCES

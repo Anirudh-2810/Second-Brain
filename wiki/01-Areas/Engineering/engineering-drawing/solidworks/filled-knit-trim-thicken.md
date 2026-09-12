@@ -101,6 +101,18 @@ Close the loop on the §6 mouse shell plan — bottom cap from opening to solid-
 
 **Verify in-app:** run the full combo from §5 on a simple two-patch + fill test case (Ex-154-class), then on the mouse bottom above. Break the fill (delete constrain curve), watch knit/thicken complain, repair. The repair rep is the skill.
 
+---
+
+## 8. Trim strategy: standard vs mutual vs sketch-driven (choose like a pro)
+
+**Standard trim (trim tool + trimming entity):** ONE patch cut by a surface/sketch/plane — openings, windows, slots, parting boundaries. Fast, predictable, the 80% case. Keep-pieces vs remove-pieces preview discipline (the §6 failure restated: always preview, mutual trims doubly so).
+
+**Mutual trim (surfaces cut each other):** intersecting skins resolved pairwise — handle-into-body, jug-handle-into-vessel, pipe intersections. Select BOTH surfaces, choose keep/remove per side per surface. The jug (#58) is the canonical demo: handle overshoots INTO the body, mutual trim resolves the intersection loop, fillet finishes the seam. Without mutual trim you'd be lofting exactly-to-boundary (fragile) instead of overshooting (robust).
+
+**Trim-with-sketch (projected boundaries):** sketch the opening shape on a plane → project/trim onto the curved patch (visor curves, decal zones, grille fields). Sketch-driven openings EDIT cleanly (change the sketch, re-trim) where hand-trimmed edges fossilize. Rule: openings defined by sketches, never by eyeballed trim clicks.
+
+**Trim ORDER in a quilt build:** big intersections first (mutual trims that define regions) → openings second (slots, windows) → edge cleanups last (tiny slivers). Trimming small details before big intersections resolve = rework when the big trim moves your edges. Order is strategy.
+
 **Next:** [[surfacing-utilities-troubleshooting]] (offset, freeform, swept/revolved/extruded surfaces, delete-hole + diagnostics).
 
 ## CROSS-REFERENCES

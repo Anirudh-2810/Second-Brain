@@ -130,5 +130,20 @@ The profile you'll reuse in [[bottles-containers]] — right half of a 60 mm-dia
 
 **Next:** [[part-assembly-drawing-workflow]].
 
+---
+
+## 11. Constraint strategy: the order professionals sketch in
+
+Amateurs draw-then-constrain (rough shape, then fight it into definition). Professionals constrain-while-drawing in a fixed order that minimizes rework:
+
+1. **Origin + centerlines first** (before ANY geometry): the skeleton everything hangs on. Two minutes here saves twenty later.
+2. **Shape relations second** (Equal, Symmetric, Tangent, Concentric): lock the DESIGN (a square stays square, holes stay coaxial) before sizes exist.
+3. **Position third** (Coincident to origin/planes, Midpoint): lock WHERE it sits.
+4. **Size last** (Smart Dimensions, fewest possible): lock HOW BIG. Functional dims only — ask "what would change in a redesign?" and dimension exactly those.
+
+**Why this order:** relations are cheap and stable; dimensions are expensive and brittle. A sketch defined by 12 relations + 3 dims edits gracefully; the same shape with 2 relations + 13 dims fights every change. Count your dims per sketch — trending DOWN over weeks means you're learning (target: simple profiles fully defined with ≤6 dims + relations).
+
+**Construction geometry (the invisible scaffolding):** any entity toggled "For construction" (dashed) constrains without becoming solid — centerlines, symmetry axes, clearance envelopes, bolt-circle guides. Heavy construction geometry + light solid geometry = the professional sketch signature. If your sketches have no dashed lines, you're under-scaffolding.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[solidworks-basics-setup]] · [[part-assembly-drawing-workflow]] · [[surfacing-methodology]] (why sketches decide surface quality)

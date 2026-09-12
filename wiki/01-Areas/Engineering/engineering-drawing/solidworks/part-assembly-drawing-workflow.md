@@ -127,5 +127,24 @@ Standard sheet flow: model views (Front/Top/Isometric) → dimensions pulled fro
 
 **Next:** solid features — [[extrude-revolve-sweep]].
 
+---
+
+## 9. Mates deep pass: DOF thinking (the 10-minute mastery)
+
+Every rigid part has 6 degrees of freedom (3 translations + 3 rotations). Each mate REMOVES specific ones — count them and assemblies stop being trial-and-error:
+
+| Mate | Removes | Leaves |
+|---|---|---|
+| Concentric (shaft in hole) | 4 (all but axial slide + spin) | Slide + spin |
+| Coincident faces | 1 (axial) | — |
+| Concentric + Coincident | 5 | Spin only |
+| + Parallel/second Coincident | 6 | Fully fixed |
+| Distance / Angle | 1 (parameterized!) | Restrained but adjustable |
+| Gear mate | Couples rotations by ratio | Motion WITH relationship |
+
+**Deliberate under-definition (advanced habit):** leave exactly the motion DOF free (a hinge keeps 1 rotation; a slider keeps 1 translation) and VERIFY by dragging — then lock with limit mates (Angle/Distance with min/max) so the mechanism can't travel past reality. Mechanisms modeled fully-fixed can't be tested; mechanisms left floppy fall apart. One free DOF + limits = testable truth.
+
+**Mate errors decoded:** "over-defined assembly" = two mates fighting (e.g., two distance mates on the same axis) — suppress mates one-by-one from the bottom until it solves; the last unsuppressed is the conflict. "Flipped mate" after edits = reference face vanished — reattach to planes (the stability ladder from [[solidworks-basics-setup#9-rebuild-survival-guide]]).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[sketch-mastery]] · [[extrude-revolve-sweep]] · [[gearbox-fundamentals]] (assembly-heavy) · [[../overview]]
