@@ -113,6 +113,16 @@ flowchart TD
 
 ---
 
+## 8. Stuck-protocol + peer-review system (learning HOW to learn CAD)
+
+**The 15-minute stuck protocol (from §2's flowchart, expanded):** minutes 0–5: re-read the error + roll back one feature (is the parent healthy?) → minutes 5–10: simplify (suppress everything after the suspect; does it solve solo?) → minutes 10–15: ONE targeted help lookup (exact error text into search, or the single video timestamp, or the exact module page section — never "rewatch the whole video") → past 15: LOG it and move to a different exercise (stuck-brain doesn't unstick by grinding; the logged error gets solved tomorrow in 5 minutes with fresh eyes — TBC: confirm against your own log hit-rate, not my claim). The protocol's output isn't just unblocked models — it's a personal ERROR CATALOG that becomes your most valuable page (start it in your daily note TODAY).
+
+**Peer-review checklist (trade models with a friend/classmate monthly):** tree readability (can THEY edit your part without asking?) → sketch definition (any blue?) → feature choice audit (their extrude-where-you-lofted = a conversation worth more than a video) → rebuild test (change one dimension on THEIR machine — version/format issues surface here, per [[solidworks-basics-setup]] §9-future-version) → drawing completeness (could a THIRD person manufacture from it?). Reviewing others' trees teaches faster than building your own — every foreign tree is a new technique sample.
+
+**Plateau-breaking guide (when exercises feel easy but products feel impossible):** the gap is DECOMPOSITION, not features (you know the tools; you can't see the regions — [[complex-showcase]] §1 is the medicine) → bridge exercises: remodel a finished exercise with 30% fewer features (forces tool consolidation) → remodel it MIRRORED (forces plane discipline) → remodel it 2× scale (forces equation-driven dims over hard numbers) → teach it aloud to someone (the §7 narrate-drill graduated: teaching exposes every shallow spot).
+
+---
+
 ## 7. Transcript-grounded micro-lessons (from the 15 secured transcripts)
 
 These patterns repeat across the actual primer narrations in `raw-sources/solidworks/transcripts/` — distilled habits, not generic advice:

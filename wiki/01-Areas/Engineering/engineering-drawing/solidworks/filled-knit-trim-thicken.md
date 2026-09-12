@@ -117,6 +117,18 @@ Close the loop on the §6 mouse shell plan — bottom cap from opening to solid-
 
 ---
 
+## 10. Thicken-direction strategy + thin-wall design (walls as decisions)
+
+**Direction semantics (choose per face's job):** inward (outer styling exact — consumer shells, helmets, visible housings) → outward (inner packaging exact — bores, cavities, board envelopes that must fit contents) → mid-plane (symmetric walls, no critical face — internal brackets, hidden ribs' parents). WRONG direction is silent corruption (looks fine, fits nothing) — verify direction against the critical-face list, not by eye. (TBC: some versions default outward — check YOUR default once and set the habit.)
+
+**Thin-wall failure modes (physics, not settings):** curvature tighter than wall thickness (inside corner radius < wall = self-intersection at thicken — fair the curve or thin the wall; the §7-forensics restated as prevention) → thickness steps (abrupt 2→4 mm jumps sink/warp in molding AND stress-concentrate — ramp over ≥3× the step length, TBC: confirm with molding references) → tall thin walls (buckling under load/service pressure — ribs per [[dressup-productivity]] §6, not thicker walls) → knit-then-thin vs thin-then-knit ordering (thicken individual patches BEFORE knitting when walls differ per region — TBC taste: test both on a two-thickness quilt and keep notes).
+
+**Wall-audit procedure (every thickened body, 5 minutes):** section view at 3+ stations (uniform? steps ramped?) → thickness analysis tool (Evaluate — TBC per version: find YOUR thickness checker and run it) → min-radius vs wall comparison at every inside corner → draft re-check post-thicken (thickening can EAT draft on steep walls — re-run draft analysis AFTER thickening, not just on the quilt — the sequencing trap).
+
+**Multi-thickness quilts (real products vary):** grip zones thicker (comfort + strength), walls nominal, rims reinforced (edge roll per [[complex-showcase]] §5) — build regions as SEPARATE thicken features (not one compromise thickness!) → knit the thickened solids (boolean, not surface knit — TBC per version behavior) → fillet the thickness steps. One thickness everywhere is beginner uniformity; zoned thickness is product design.
+
+---
+
 ## 9. Knit-tolerance philosophy + gap forensics (the honesty chapter)
 
 **Why tight tolerance is a virtue, not a preference:** knit tolerance is the maximum gap the software will PRETEND isn't there. Every pretense becomes a downstream lie — thicken walls of fantasy thickness, molds that flash, shells with paper-thin spots, drawings of geometry that doesn't exist. Professionals keep tolerance at default-or-tighter and fix REAL gaps because they've paid the downstream tuition. Beginners crank tolerance and pay it later with interest. (TBC exact default value per version — find yours in Tools → Options → Document Properties → Image quality... no: knit tolerance lives in the Knit PropertyManager itself; note YOUR default in your daily log once.)

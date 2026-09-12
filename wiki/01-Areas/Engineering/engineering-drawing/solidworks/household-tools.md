@@ -103,6 +103,18 @@ flowchart TD
 
 ---
 
+## 9. Racket + trimmer + agri-tool appendix (shaft-and-head architecture)
+
+**The architecture (generalizes across #65/#70/#75):** long shaft/handle (sweep or tube — bending loads dominate, TBC: confirm with structural references per duty) + working head (the business end: strings/blades/tines) + grip (the §7-handle rules) + joint(s) between them (the failure point — ALWAYS the joint; design joint FIRST, not last).
+
+**Racket (#65-class):** head loop (swept oval tube — string bed inside) → throat (Y-split loft, the stress zone — TBC: confirm with racket-design references; throats crack, generous transitions mandatory) → shaft (tapered tube) → grip (octagonal-ish flare for orientation feel — TBC per sport) → strings as cosmetic pattern (TBC: real stringing is tensioned gut/synthetic — model the bed plane + grommet strip, never 200 modeled strings) → balance point note (head-heavy vs handle-heavy changes play — TBC: confirm with sport references; CAD the balance via mass properties + TAPE the real thing).
+
+**Trimmer/agri (#70/#75-class):** power head envelope (motor/engine mount + vibration isolation — TBC: confirm with equipment references; vibration destroys cheap mounts AND hands) → shaft tube (straight or bike-handle bent — TBC per use) → cutting head (line/bump-feed envelope + guard shroud MANDATORY — thrown debris blinds; TBC: confirm with safety standards, NOT this page) → harness mounts (weight distribution for hours of use — TBC per ergonomics) → fuel/battery packaging (balance + access + spill/leak thinking — TBC per power source).
+
+**Joint-first design mantra (restated generally):** shafts are easy, heads are fun, JOINTS decide survival — throat welds/overlaps, handle-to-head transitions, mount interfaces get designed FIRST with the highest safety factors and the most generous fillets, everything else hangs off them. Review any failed tool (yours or a warranty photo) and find the joint — the lesson is always there.
+
+---
+
 ## 8. Sharp edges, heat-treat + food-safety appendix (the invisible specs)
 
 **Edge policy (every edge on every tool gets a decision):** user-touch edges (handles, rims, grips) → generous radii 2–5 mm (TBC per product: comfort + safety) → working edges (knife/chisel/cutter — TBC depth: edge GEOMETRY is blade science, confirm with tool references) stay crisp BY DESIGN (document "sharp — do not break" on the drawing, or the shop will deburr your cutting edge!) → non-touch structural edges → 0.5–1 mm break (handling safety + coating adhesion — TBC: confirm with finishing references; sharp corners shed paint/powder).

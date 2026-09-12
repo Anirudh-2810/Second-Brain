@@ -99,6 +99,18 @@ The PL1 #43-class handle as a SOLID loft (surface version lives in [[lofted-boun
 
 ---
 
+## 8. Guide-curve design + tangency-weight mastery (the loft artist's toolkit)
+
+**Guide-curve sourcing (where rails come from):** silhouette edges of the design (the visible character lines — guides that ARE styling) → projected curves from orthographic views (trace front/side character onto planes, use as rails — the reverse-engineering move from [[artistic-organic]] applied to rails) → 3D-spline freehand (last resort: hardest to constrain, drifts on edits — stabilize with pierce points at every profile crossing) → derived edges (offset/copy of existing model edges — the robust choice: guides that UPDATE with the model instead of fossilizing).
+
+**Pierce discipline (the constraint that matters):** EVERY guide MUST pierce EVERY profile it influences (Pierce relation at each crossing — a guide merely touching/near a profile constrains nothing and confuses the solver). Audit: section-view through each profile plane, confirm pierce markers on all guides. Unpierced guides are decoration that occasionally explodes — the solver tries to honor them without attachment and produces the mystery wrinkles beginners blame on "SolidWorks bugs."
+
+**End-constraint weighting in solids (carrying §7-boundary's dial back to Boss):** lofted BOSS end tangency carries the same weight concept (TBC exact UI per version — look for tangency magnitude/draft angle fields in the Loft PropertyManager): short-weight blends for crisp mechanical transitions (housing meets mounting face), long-weight for organic flows (grip meets palm swell). Same profiles, different weights, different products — practice both on the §5 handle and feel the character change.
+
+**Profile-count minimalism challenge (from [[lofted-boundary-surfaces]] §8, solid edition):** rebuild the §5 handle with 2 profiles + 2 guides instead of 2 profiles + 1 guide — then with 3 profiles + 0 guides. Compare trees, rebuild times (Tools → Evaluate → Performance? TBC per version — find YOUR rebuild timer and use it), and zebra-equivalent (curvature display on solids — TBC). Fewest inputs that hold the shape wins — the efficiency endgame restated for solids.
+
+---
+
 ## 7. Multi-body lofting + combine strategies (complex transitions without tears)
 
 **Why multi-body:** a transition with branches, shelves, or uneven wall behavior won't loft in one feature — loft the SIMPLE SUB-VOLUMES as separate bodies, then Combine (Add/Subtract/Common). Each body lofts cleanly because each is simple; complexity lives in the combination, not in tortured profiles. (TBC exact Combine UX per version — Insert → Features → Combine; bodies must overlap/Touch for Add.)
