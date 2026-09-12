@@ -114,6 +114,16 @@ A 70×50×25 motion-sensor box: base + lid split, PCB posts, vents, wall mount �
 
 ---
 
+## 8. Pattern mastery + equation-driven design (multiply with intelligence)
+
+**Pattern types beyond linear/circular (TBC exact availability per version):** curve-driven (rollers along a conveyor path — [[conveyors-material-handling]] §6's idlers done right) → fill/boundary-defined (holes filling an irregular face — strainer bowls from [[household-tools]] §6 without manual placement) → sketch-driven (arbitrary maps from a point sketch — the §5-housing vent alternative when walls aren't rectangular) → variable pattern (spacing/size evolving per instance — the §5-gradient language restated: instances carry FORMULAS, not just copies).
+
+**Equations (design that computes):** width-equation from §6-shredder (`blades×12 + spacers×8 + discs×4`) generalized — EVERY counted layout becomes an equation (hole counts from lengths, rib counts from spans, pocket counts from areas) → global variables (wall_thickness, clearance, pitch — named ONCE in Tools → Equations, referenced everywhere — change wall 2→2.5 globally in seconds) → equation-driven patterns (instance count = floor(length/pitch) — length changes propagate counts automatically; TBC exact syntax per version — learn YOUR equation editor once).
+
+**Configurations as product families (the catalog mindset):** small/medium/large driven by ONE design table (Excel-embedded? TBC per version — or manual configs at learning level) → suppressed-vs-unsuppressed features per size (small skips the gussets big needs — TBC per load) → drawing-per-config (one drawing, config-switched views — TBC per version) → the business read: families sell (S/M/L SKUs from one model file = inventory leverage; TBC per business practice — awareness that CAD structure IS product strategy).
+
+---
+
 ## 7. Feature-order chess: sequencing for editability (the master skill)
 
 **The order doctrine (expanded from §2's rule):** datum/reference features (planes, layout sketches) → base volumes (biggest shape) → major form (cuts/adds changing silhouette) → functional details (holes, threads, grooves) → pattern/mirror multiplication → dress-up (fillets/chamfers) → finishes (shell last-ish, split lines anytime) → cosmetic (appearances, decals). Every violation has a price: fillets before holes = hole edges land on fillets and fail; shell before bosses = bosses float off thin walls; patterns before the seed's final position = pattern rebuilds on move (actually GOOD if intentional — patterns FOLLOW seed edits, which is why seed placement is design).

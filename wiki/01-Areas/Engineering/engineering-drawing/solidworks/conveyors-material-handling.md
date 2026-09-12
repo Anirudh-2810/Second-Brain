@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 9. Transfer chutes + dust control appendix (where conveyors meet reality)
+
+**Transfer design (the highest-wear zone of any plant):** falling-stream trajectory from head-pulley velocity (TBC: confirm with transfer-chute references — hood geometry follows the stream, not aesthetics) → rock-box (dead-material bed absorbs impact — sacrificial wear surface, replaceable liners per §8-wear thinking generalized) vs curved spoon (low-degradation flow for friable product — TBC per material) → skirt/seal at the receiving belt (dust + spillage containment — TBC per practice) → impact idlers/bed under the stream landing (bare-belt impact destroys belts AND idlers — TBC per practice).
+
+**Dust + spillage (the compliance layer):** enclosure around transfers with extraction stubs (TBC per environmental regs — dust is a health AND explosion hazard with organics/metals; TBC: confirm with safety standards, NOT this page) → return-belt cleaners (V-plows + diagonal blades keep carryback off the structure — TBC per practice; carryback mistracks belts AND buries idlers) → walkway + access (every inspection point reachable WITHOUT climbing structure — TBC per safety practice; unmaintainable designs get neglected, neglected conveyors fail) → spill containment below (drip trays/grading — TBC per site).
+
+**Commissioning checklist (the model-to-plant handoff):** belt tension + tracking verified (take-up position logged — §6-travel math closed out) → all guards closed + interlocks tested (TBC per lockout procedure) → pull-cords + e-stops function-tested full length → first-material run at REDUCED rate (witness tracking/discovers before full load — TBC per commissioning practice) → punch-list modeled back into CAD (as-BUILT revision — the drawing must match reality, or maintenance works from fiction; TBC per document-control practice).
+
+---
+
 ## 8. Idler/roller deep pass + belt specification (the rotating details)
 
 **Idler anatomy (troughing 3-roll set, bulk duty):** center horizontal roll + 2 wing rolls angled 20–35° (TBC: confirm with CEMA/idler references — trough angle sets belt cross-section and capacity) → rolls spin on dead (non-rotating) shafts pressed into support brackets (live-shaft vs dead-shaft choice is a maintenance fork: dead shafts change rolls without touching alignment — TBC per practice) → labyrinth seals (dust kills bearings; sealed-for-life vs regreasable is a duty decision — TBC per environment) → spacing: carrying-side every ~1–1.2 m (TBC illustrative; sag between idlers must stay ~1–2% of spacing or the belt flaps — TBC: confirm with belt-sag references), return-side every ~3 m flat singles.

@@ -92,6 +92,18 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 8. Housing design appendix (cast boxes that survive)
+
+**Split-line strategy (restated generally):** shafts define the split PLANE (through all shaft axes — the §4 rule) → split LOCATION along the plane (mid-bearing? offset for deep sump? — TBC per lubrication: sump depth sets oil volume; confirm with gearbox references) → stepped splits (offset planes joined by steps for stiffness + sealing length — TBC per casting practice; straight splits are easiest to machine AND leak easiest — the tradeoff) → split-line fastener spacing (clamping pressure must close the gasket uniformly — TBC: ~4–6× bolt diameter spacing illustrative, confirm with joint references).
+
+**Bearing seats (the precision zone):** bored AFTER casting (as-cast ±1 mm, bored to H7 — TBC: confirm with machining references; model nominal, drawing carries the bore callout + surface finish) → shoulder + circlip groove per side (axial trap BOTH directions — the §4 rule restated with hardware) → cap-side vs blind-side (through-bores for assembly access where shafts insert; blind where sealing matters — TBC per design) → seat-to-seat alignment (split-line machining in ONE setup keeps bores coaxial — TBC: confirm with machining practice; the manufacturing note that justifies stepped-split caution).
+
+**Feet + mounting (the forgotten interface):** foot thickness ≥ wall ×1.5 (TBC illustrative: feet flex otherwise) → mounting holes slotted ONE direction (installation forgiveness — TBC per practice; slots absorb foundation error) → machined mounting pads (spotface/boss around holes — cast faces aren't flat! — TBC per machining practice) → lifting eyes for heavy boxes (TBC per weight: overhead-lift planning starts in CAD, confirm with handling references) → dowel pins for precision reassembly after service (TBC per practice: split-line dowels relocate covers exactly).
+
+**Sump + breather + sight (oil system completeness from §6 restated as checklist):** drain at TRUE lowest point (tilt the assembly in CAD and check! — installed tilt differs from modeled level; TBC per installation) → fill above operating level with funnel access → sight glass at mid-level (visible without disassembly) → breather at top away from splash (baffled — TBC per design) → magnetic plug (wear monitoring per §6) → oil/spec plate (grade + volume on the nameplate per §7-fasteners — the loop closed).
+
+---
+
 ## 7. Manufacturing routes appendix (how teeth get cut — awareness that shapes CAD)
 
 **Hobbing (the workhorse):** rotating cutter generates teeth progressively — needs tool runout clearance (grooves beside herringbone apexes, shoulder clearance beside helical pinions — TBC: confirm with gear-manufacturing references). CAD consequence: leave cutter clearance in your blank design (tight shoulders against tooth faces = unmakable; TBC per hob specs).

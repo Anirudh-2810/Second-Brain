@@ -147,3 +147,13 @@ Amateurs draw-then-constrain (rough shape, then fight it into definition). Profe
 
 ## CROSS-REFERENCES
 - [[INDEX]] · [[solidworks-basics-setup]] · [[part-assembly-drawing-workflow]] · [[surfacing-methodology]] (why sketches decide surface quality)
+
+---
+
+## 12. Sketch blocks + layout sketches (design at the top level)
+
+**Blocks (reusable sketch mechanisms):** belt/chain layouts (pulley circles + tangent lines as a BLOCK — insert per conveyor, resize parametrically — TBC per version's block behavior) → linkage mechanisms (4-bar sketch blocks that actually MOVE in-sketch: drag to verify motion BEFORE modeling links — the §3-gripper habit from [[solidworks-project-ideas]] generalized) → logo/symbol library (one master sketch block, inserted everywhere — change once, update all).
+
+**Layout sketches (the master-control pattern):** ONE top-level sketch in the assembly (or master part) carrying ALL interface dimensions (shaft centers, mounting holes, envelope limits — the gearbox layout from [[helical-spur-gearboxes]] §5, the conveyor layout from [[conveyors-material-handling]] §6, the drone layout from [[presses-forming-drone]] §7 — same pattern thrice because it IS the pattern) → parts derive via Convert/derived sketches (single source of truth — change the layout, all parts follow; TBC: derived-sketch update behavior per version — test the propagation once and trust it thereafter) → layout sketch lock-down (fully define + FOLDER it at the tree top + name it `MASTER-LAYOUT-DO-NOT-DELETE` — future-you protection).
+
+**Envelope sketches (packaging-first modeling):** maximum-allowed volumes sketched FIRST (motor envelopes, battery boxes, hand clearances, swing radii — TBC per project) → parts must fit INSIDE envelopes (interference WITH envelopes = design violation caught in seconds, not at assembly) → envelope configs (max-component vs nominal — tolerance-stack thinking at sketch level, TBC depth). Envelopes turn "oops it doesn't fit" from assembly-day disasters into sketch-day notifications.
