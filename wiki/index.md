@@ -252,6 +252,10 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Engineering/engineering-drawing/overview|Overview — Beginner's Guide]]** — the universal language of engineers: tools, line types, scales, lettering, dimensioning.
 - **[[01-Areas/Engineering/engineering-drawing/orthographic-projections|Orthographic Projections]]** — first/third angle, HP/VP, points → lines → planes → solids.
 - **[[01-Areas/Engineering/engineering-drawing/isometric-and-sections|Isometric & Sections]]** — 3D views + cut-open sectional views.
+- **[[01-Areas/Engineering/engineering-drawing/projection-of-points-lines-planes|Projection of Points, Lines & Planes]]** — Module-2 constructions: 4-quadrant points, 9 line positions, HT/VT traces, plane 3-stage method.
+- **[[01-Areas/Engineering/engineering-drawing/development-of-surfaces|Projection of Solids, Sections & Development]]** — Module-IV: classification, prism/pyramid vocab + naming, Q1-Q19 position catalog, tilt method, true-shape, parallel/radial development.
+- **[[01-Areas/Engineering/engineering-drawing/autocad-lab-and-exam-prep|AutoCAD Lab & Exam Prep]]** — lab file map, IA/MSE pattern, 4-week sketch plan.
+- **[[01-Areas/Engineering/engineering-drawing/cad-design-interview-prep|CAD Design Interview Prep]]** — AutoCAD rapid-fire, tolerances, UCS/EXTRUDE, project-answer script (Odyssey/drone-team round).
 
 ### Mathematics
 - Source: `/raw-sources/math/` (Algebra, Calculus, Coordinate, Trigonometry, Vector 3D, Math IIT Kota notes, Formula sheets). One-page digest: vault-root `NOTES.md`.
