@@ -103,6 +103,16 @@ flowchart TD
 
 ---
 
+## 15. Clamp + vise + workholding appendix (holding work IS the work — TBC per workholding references)
+
+**Clamp mechanics (force without damage — TBC: confirm with clamp references):** screw vs toggle vs cam vs wedge actions (speed vs force vs holding-permanence triangle — TBC per selection!) → throat depth vs clamping force tradeoff (deep reach bends frames — TBC per deflection!) → jaw faces (serrated? padded? V-grooved for rounds? — TBC per workpiece!) → CAD consequence: clamp modeled OPEN + CLOSED (the §11-states habit: stroke extremes verified against real workpieces!).
+
+**Vise architecture (the bench anchor — TBC per vise practice):** fixed + dynamic jaw alignment (slide + gibs adjustable for wear — TBC!) → anvil + pipe-jaw extras (the §12-multi-use habit!) → swivel base with locks (angle work without re-indicating — TBC!) → CAD consequence: jaw PARALLELISM called out (the working faces ARE the spec — TBC per tolerance!) + mounting bolt pattern to bench standards (TBC!).
+
+**Vacuum + magnetic holding (setup-free gripping — TBC per workholding practice):** vacuum zones + seal cords (porous vs non-porous workpieces differ — TBC!) → magnetic chucks on/off (residual magnetism demag cycles — TBC!) → CAD consequence: holding FORCE math on paper first (cutting forces vs holding margin — TBC per calculation; parts that shift mid-cut scrap themselves AND endanger!).
+
+---
+
 ## 14. Fastener + joinery appendix (holding wood and the world together — TBC per woodworking references)
 
 **Screw science in wood (the everyday joint — TBC: confirm with wood-joinery references):** pilot diameters per screw + species (splitting hardwoods vs stripping softwoods bracket the pilot — TBC per tables!) → thread engagement lengths (withdrawal scales with penetration — TBC per formula!) → pocket-hole angle jigs (15°-ish self-contained joints — TBC per jig spec!) → CAD consequence: pilot + clearance + countersink modeled as a THREE-STEP hole habit (the §10-hole-wizard discipline generalized: every screw gets the full stack!).

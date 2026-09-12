@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 17. Kinetic + interactive appendix (work that MOVES with viewers — TBC per kinetic-art/engineering references)
+
+**Wind-driven motion (passive choreography — TBC: confirm with kinetic-sculpture practice):** bearing selection for perpetual rotation (sealed, low-torque, oversized for decades — TBC!) → balance tuning (aerodynamic + mass balance TOGETHER — TBC per testing!) → storm survival (furling/braking/lock-down per §14-public-art wind thinking!) → CAD consequence: rotation ENVELOPES + bearing seats modeled (the §9-slew habit at sculpture scale!) + maintenance access to every bearing (the §7-habit: unmaintainable motion dies quietly!).
+
+**Motorized + sensor-responsive (active choreography — TBC per interactive-installation practice):** actuator envelopes (servos/steppers with duty margins — TBC!) → sensor positions (presence/light/sound per §11-drone-FOV habit generalized to humans!) → fail-safe poses (power loss parks gracefully, never mid-gesture catastrophically — TBC per safety!) → CAD consequence: motion STATES modeled (rest/perform/parked per §11-states!) + cable service loops at EVERY joint (the §9-slew-cable lesson!) + control-cabinet + power routing (the §9-controls thinking for culture!).
+
+**Water + fire integration (elemental drama, engineered — TBC: confirm with fountain/special-effects references, NOT this page):** pump + filtration + chemistry envelopes (TBC per water-feature practice!) → gas plumbing + flame supervision (certified burners + flame-failure shutoffs — TBC per gas code, NOT this page!) → wind + splash containment (TBC per site!) → CAD consequence: utilities FIRST (water/gas/power/drain routed before sculpture details — infrastructure precedes art, always!).
+
+---
+
 ## 16. Wayfinding + signage appendix (reading rooms at distance — TBC per environmental-graphic references)
 
 **Legibility math (letterforms that work — TBC: confirm with signage/ADA references, NOT this page):** cap-height vs viewing distance ratios (TBC: ~25 mm per 7–8 m illustrative for normal vision!) → stroke contrast + typeface neutrality (TBC per legibility research!) → tactile/Braille zones (raised + domed per standard — TBC per accessibility code!) → CAD consequence: letterforms as EXTRUDED/EMBOSSED features per §10-marking discipline (height + draft + contrast-zone split lines!).

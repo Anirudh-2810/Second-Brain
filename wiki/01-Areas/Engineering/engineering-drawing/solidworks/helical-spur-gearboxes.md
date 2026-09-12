@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 16. commissioning + acceptance appendix (new gearboxes proving themselves — TBC per commissioning practice)
+
+**No-load spin (the first truth — TBC: confirm with gearbox-commissioning references):** hand rotation BEFORE power (binds? roughness? the §9-inspection habit with fingers!) → uncoupled motor bump (direction correct? — backwards gearboxes pump oil wrong + starve meshes!) → coupled no-load run (listen: uniform hum vs cyclic thump per §11-NVH! → temperature baseline per §10-lube!) → CAD consequence: NONE (running-in happens in steel, not screens!) — but the BASELINES get recorded against the serial (the §13-reliability habit: day-one data is gold!).
+
+**Load ramp protocol (earning full duty — TBC per practice):** 25/50/75/100% steps with dwell (temperatures stabilize per step — TBC per thermal!) → vibration + temperature + noise logged per step (the §13-commissioning habit at gearbox scale!) → oil sample at first change EARLY (break-in debris per §10-contact/lapping! — first oil tells the bedding story!) → CAD consequence: as-built + nameplate + manual UPDATED with actuals (rated vs achieved recorded — the §10-documentation habit closed!).
+
+**Acceptance criteria (pass/fail written BEFORE testing — TBC per contract!):** vibration limits (velocity/displacement bands per standard — TBC per ISO 10816-class practice!) → temperature rise caps (TBC per class!) → noise caps at distance (TBC per spec!) → efficiency spot-check (input vs output power — TBC per test!) → CAD consequence: the acceptance PLAN referenced on the drawing set (tests exist on paper before steel spins — hope is not a test plan!).
+
+---
+
 ## 15. Mill + crusher gearbox appendix (the brutal end of duty — TBC per heavy-industry references)
 
 **Shock-factor reality (crushers don't do steady-state — TBC: confirm with crusher-drive references, NOT this page):** uncrushable events (tramp iron through jaws/cones — TBC per protection: torque limiters + hydraulic tramp release PER §10-coupling-fuse lesson at maximum stakes!) → cyclic overload signatures (the §14-failure-reading habit: spalled teeth with impact morphology = shock, NOT wear!) → flywheel effect as protection (inertia rides through spikes — TBC per sizing!) → CAD consequence: torque-limiter + flywheel modeled as FIRST-CLASS citizens (not accessories — the protection IS the design!).

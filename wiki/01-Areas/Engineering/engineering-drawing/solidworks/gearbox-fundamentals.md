@@ -107,6 +107,16 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 14. Standards + spec appendix (the alphabet soup, decoded for beginners — TBC per standards bodies, NOT this page)
+
+**Gear rating standards (what "rated" MEANS — TBC: confirm with AGMA/ISO 6336 references!):** bending vs pitting ratings (two failure modes, two numbers — TBC per calculation!) → application factors (the §8-service-factor lesson formalized!) → quality grades feeding ratings (the §12-precision lesson as input data!) → CAD consequence: NONE in geometry (ratings live in CALC sheets!) — but the RATING lives in the design record beside the CAD (unnumbered confidence is hope with a deadline!).
+
+**Bearing life standards (L10 thinking — TBC: confirm with ISO 281/SKF references!):** dynamic vs static ratings (rotation vs stationary loads differ! — TBC!) → life exponents (ball vs roller differ — TBC per formula!) → reliability adjustments (90% baseline vs higher demands — TBC!) → CAD consequence: bearing SELECTION documented (bore → load → life → part number — the §6-bore-first habit with the math attached!).
+
+**Drawing standards that matter daily (TBC: confirm with ISO/ASME Y14.5 references!):** projection method declared (first/third angle symbol — the [[../orthographic-projections]] habit on every sheet!) → surface finish marks (machined vs as-cast vs ground zones CALLED — TBC per symbol practice!) → edge condition notes (the §8-edge-policy formalized!) → revision discipline (the §10-habit: REV + change + revalidation, every send!).
+
+---
+
 ## 13. Efficiency + selection appendix (buying right, running lean — TBC per vendor/energy references)
 
 **Efficiency mapping (losses itemized — TBC: confirm with gear-efficiency references, NOT this page):** mesh sliding (worm/hypoid worst, spur/helical ~98–99% per mesh illustrative — TBC!) → churning/seals/bearings (the §10-lube + §8-bearing lessons as loss terms!) → part-load penalty (oversized boxes loafing at low load run LESS efficient — TBC per motor-drive system curves!) → CAD consequence: NONE in geometry (efficiency is selection + operation!) — but the SELECTION lives in your notes (ratio + type + size justified against duty per §8-sizing — documented decisions beat inherited guesses!).
