@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 10. Closure engineering appendix (caps as mechanisms, not lids)
+
+**Thread-form selection (beyond §6's modeled helix):** continuous-thread (CT) beverage style (single-start, fast application — TBC per closure standards) → lug/bayonet (quarter-turn pharma/food — TBC per standard) → snap-bead (press-on + tamper evidence — TBC) → cork/crown (glass-bottle legacy systems — TBC depth). Each pairs with a NECK FINISH standard (the finish name, e.g., 28-400-class, encodes thread + seal + dimensions — TBC: confirm with packaging-closure references, NOT this page). CAD rule: model the NECK to the finish spec FIRST (it constrains everything), design the cap to mate — never freelance thread geometry on real packaging.
+
+**Seal systems (what actually keeps product in):** liner compression (foam/foil liners squeezed by application torque — TBC per closure spec) → plug seals (cap skirt plugs the bore — tolerance-critical diameters, TBC per spec) → induction foil (hermetic + tamper-evident for food/pharma — TBC per process; the seal head is line equipment, your CAD provides the flat land it seals to!) → venting closures (carbonated/aggressive chemistry needs pressure management — TBC: confirm with packaging references). Model the SEAL LAND (flat concentric face, controlled finish — TBC per spec) with more care than the threads — threads retain, seals seal, and leaking bottles fail at seals.
+
+**Application + removal torque window (TBC numbers per closure vendor — the spec YOU request, not invent):** over-torque strips/cracks (especially hot-filled thin walls — TBC per application) → under-torque leaks + backs off in transit (vibration loosens — TBC per distribution testing) → removal must suit the user (elderly/child-resistant regulations DIVERGE — TBC: confirm with packaging regulations, NOT this page) → torque testers exist (production QA equipment — TBC per practice; design for testability = consistent grip features).
+
+---
+
 ## 9. Jug + pail + drum appendix (scaling vessels up)
 
 **Handle-load scaling (physics restated at size):** teaspoons ignore handle stress; 20 L pails hang 20 kg on one grip (TBC: confirm with packaging references) → handle cross-section AND joint design scale with filled weight (not volume — DENSITY matters: oil vs water vs pellets differ 2×; TBC per product) → metal bails (wire/strap handles pivoting on ear mounts — the hardware-store solution: model ears + pivot + bail sweep, TBC per pail construction) vs integrated plastic grips (molded hollow handles — blow-molded INTO the body, TBC depth: blow molding is its own process universe, confirm with packaging references NOT this page).

@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 9. Drop, ingress + regulatory appendix (why casings are engineered, not styled)
+
+**Drop survival (the test every phone/mouse ships through — TBC: confirm with reliability references, NOT this page):** corner/edge impact concentrates force (design sacrificial crush zones AWAY from PCB mounts — TBC per practice) → internal clearance for board FLEX (rigid-mounted boards crack solder joints on impact; compliant mounts + gap absorb — TBC per design) → battery retention under shock (ejected cells in a drop = thermal event + returned product; TBC: confirm with battery-safety references) → test drops in CAD review (which corner? which face? — the test plan EXISTS before tooling; TBC per reliability practice) → Simulation DROP module awareness (explicit dynamics — TBC license depth; the student move is reasoning + physical drop tests on prints, documented).
+
+**Ingress ratings (dust/water — the IP system, awareness):** IP5X/6X dust (sealed seams + filtered vents — TBC per IEC 60529, NOT this page) → IPX4 splash → IPX7 immersion (pressure-equalization vent membranes that pass air, block water — TBC per component practice) → port covers/gaskets (every opening rated or the rating is void — the weakest-opening rule) → model ALL seals + covers + membranes (no "seal TBD" in shipped CAD — TBD seals leak).
+
+**Regulatory marks (the label nobody designs but everybody needs — TBC: confirm with compliance references, NOT this page):** CE/FCC/UL marks + model numbers + serial space + battery warnings molded/printed on the housing (reserve the flat zone EARLY — §8-label-panel thinking extended) → RF keep-outs for antennas (metal near antennas detunes — TBC per RF practice; antenna clearance volumes are LAYOUT law) → accessibility of the battery for replacement regulations (TBC per jurisdiction — glued-shut designs face regulatory headwinds; the serviceability debate from §8 restated as law).
+
+---
+
 ## 8. PCB + standoff layout math (the invisible engineering)
 
 **Board mounting geometry:** M2.5/M3 mounting holes on the PCB (TBC per board — measure YOUR board, never assume) → standoff height = tallest bottom-side component + 1 clearance (TBC: confirm per assembly; shorted USB shields against standoffs is the classic smoke event — TBC per horror-story count) → boss OD vs keep-out zones (no copper/traces under boss flanges — TBC: confirm with PCB-layout rules; mechanical vs electrical coordination is a real job function).

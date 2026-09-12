@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 10. Water-tap + valve internals appendix (plumbing that seals)
+
+**Cartridge systems (what's INSIDE the shiny body — TBC: confirm with plumbing references, NOT this page):** ceramic-disc cartridges (two lapped discs shearing flow ports — the modern standard; model the cartridge ENVELOPE + seat diameters, buy the cartridge — TBC per size) → compression stems (legacy rising-spindle with washer — TBC depth) → thermostatic mixers (wax element + sliding piston — TBC depth; awareness that temperature regulation lives INSIDE, not in the handle) → CAD consequence: bodies are SHELLS around cartridge envelopes (design the cavity FIRST from cartridge dims, style the outside second — inside-out discipline restated).
+
+**Sealing + seats (where taps actually fail):** seat faces (replaceable seat rings vs machined-in — TBC per tier; modeled as separate ring parts when replaceable!) → O-ring grooves on spout/shower joints (swivel joints need DYNAMIC seals — TBC: confirm with seal references; static groove tables don't apply to rotating joints!) → aerator threads + flow straighteners (honeycomb insert envelope — TBC per part; limescale service access modeled — TBC per maintenance) → water-path section audit (the §5-plumber's check formalized: inlet → cartridge → spout outlet, no dead legs harboring stagnant water — TBC per hygiene practice for potable systems).
+
+**Finish durability (chrome lives or dies here):** substrate (brass body — TBC per standard; zinc die-cast for budget with thicker plate — TBC) → nickel + chrome layer stack (TBC: confirm with plating references; CAD models the SUBSTRATE, drawings note the plate spec + thickness) → sharp edges plate thin and corrode first (generous radii aren't styling — they're corrosion engineering, TBC per finishing practice) → crevice corrosion at joints (seal + drain, never trap water against chrome — TBC).
+
+---
+
 ## 9. Lampshade + small-appliance appendix (light, heat, and cords)
 
 **Lampshade (#92-class):** shade profile (revolve/loft per silhouette — opaque vs diffuser zones SPLIT the design: opaque outer + translucent inner diffuser as separate bodies with an air gap? TBC per lighting practice) → bulb envelope + socket mount (E27/screw-shell dimensions — TBC per standard; model the socket, not just a hole — retention + electrical contact are real features) → heat chimney (hot air MUST exit top — vents sized per wattage, TBC: confirm with lighting-thermal references; trapped heat kills LEDs and yellows plastics) → cord grip + strain relief (cords pull — the grip takes the load, not the terminals — TBC per electrical-safety practice) → harp/finial mounts (the mechanical interface language of lamps — TBC per standard parts).

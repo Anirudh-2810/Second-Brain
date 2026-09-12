@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 10. Sculpt-to-product pipeline (art that ships)
+
+**From sculpture to SKU (the commercialization path):** concept sculpt (freeform-heavy, fairness-loose — speed over quality at ideation) → engineering rebuild (production patches per this module's discipline — the sculpt becomes REFERENCE, rebuilt cleanly; TBC per studio practice: sculpts rarely tool directly) → parting + draft retrofit (the §6-mold triage applied to organic forms — often requires re-posing the design; budget the iteration!) → wall/thickness engineering (hollow vs solid vs foam-filled — TBC per process/cost) → hardware integration (mounts, fasteners, electronics per the showcase-support systems in [[complex-showcase]] §6) → finish spec (per §9-finish-spec thinking) → packaging (the product needs a box — TBC per scope; unboxing experience is designed, confirm with packaging practice NOT this page).
+
+**Scale models → full size (the growth path):** maquette FIRST (small, fast, cheap materials — TBC: 3D-print at 1:5 to feel the form in-hand before CAD-finalizing) → scan-vs-remodel decision (3D-scan the maquette as reference? TBC per scanner access; scans are MESH — rebuild NURBS over them per §1-reverse-engineering, never tool from mesh directly at this level — TBC depth) → human-factors validation at FULL scale (cardboard/foam mockups BEFORE tooling — TBC: confirm with product-design references; CAD lies about feel, foam doesn't).
+
+**Limited-run production (the indie path — TBC per process vendors):** resin casting from printed masters (silicone molds + pour resin — TBC: confirm with casting references; draft still matters, shrinkage differs from injection — TBC per material) → small-batch CNC (machined organics in ren board/aluminum — TBC per shop) → numbered editions (variation as FEATURE: hand-finishing per unit — TBC per art-business practice) → cost reality (hand-finishing dominates unit cost past ~50 units — TBC per business references; design SIMPLIFIES as volumes grow, not the reverse).
+
+---
+
 ## 9. Organic modeling masterclass: curvature thinking (the artist-engineer bridge)
 
 **Curvature vocabulary (say what you see):** convex (dome — reflects tight), concave (bowl — collects light), saddle (pringle — curves opposite ways; C2-demanding, loft hates saddles without guides — TBC per behavior), flat (dead — shows every defect; flats need the FAIRTEST patches, counter-intuitively), inflection (convex-to-concave flip — zebra stripes S-bend here; inflections are styling power tools AND fairness landmines). Walk your desk objects naming each region's curvature type — the vocabulary turns "looks off" into "the saddle-to-flat inflection at the shoulder needs a guide."
