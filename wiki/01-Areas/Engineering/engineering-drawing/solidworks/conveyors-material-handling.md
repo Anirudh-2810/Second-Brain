@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 14. Idler-frame + structure appendix (steel that holds belts — TBC per structural references)
+
+**Idler support frames (the repeated module — TBC: confirm with conveyor-structure practice):** drop-bracket vs stringer-mount idler sets (TBC per duty: change-out speed differs!) → frame spacing matched to idler spacing (structure rhythm follows belt rhythm — the §4-layout habit extended!) → adjustable troughing (wing-angle shims for belt training tweaks — TBC per commissioning!) → CAD consequence: ONE parametric idler-frame module patterned full length (the §8-config habit: change once, update everywhere!) + splice joints at transport lengths (shipped in pieces — TBC per logistics!).
+
+**Stringers + bents (the long steel — TBC: confirm with structural references, NOT this page):** trussed vs beam stringers (span-dependent — TBC per loading!) → bent spacing + foundations (soil + anchor design outsourced to civil — TBC per discipline split; YOUR model provides LOADS + baseplates!) → walkway ONE side minimum (inspection access per §9-safety!) + crossovers where people pass under (headroom + kick plates — TBC per safety!) → CAD consequence: structural ENVELOPES with connection zones (steel detailers do connections — TBC per trade split; model member LINES + loads, not bolts!).
+
+**Head/tail frames (the loaded ends):** drive torque reaction (holdback + torque-arm loads INTO structure — TBC per analysis!) → take-up mass towers (gravity take-up weights + travel — TBC per belt spec!) → pulley removal space (change-out envelopes — bearings + pulleys extract WITHOUT cutting steel — TBC per maintenance!) → CAD consequence: end-frame assemblies as MAINTAINABLE modules (the §7-housing-split lesson at conveyor scale: design the DISASSEMBLY, not just the assembly!).
+
+---
+
 ## 13. Commissioning + handover appendix (day one to day done — TBC per commissioning practice)
 
 **Pre-startup review (paper before power — TBC: confirm with pre-startup-safety-review practice, NOT this page):** guard/interlock inventory vs model (every §9 guard present + tagged?) → lubrication filled + labeled (grade + level per §10-lube!) → torque verification sample (foundation + coupling bolts torqued + marked? — TBC per procedure!) → electrical + controls checkout (e-stop categories tested per §9!) → CAD consequence: the AS-BUILT redline round (field changes marked on prints DURING install — the model updates AFTER, or maintenance inherits fiction per §9!).

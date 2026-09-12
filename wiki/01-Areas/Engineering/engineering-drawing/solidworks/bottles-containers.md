@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 16. Pouch + carton + bag-in-box appendix (flexibles that stiff CAD must respect — TBC per flexible-packaging references)
+
+**Pouch architecture (structure from films — TBC: confirm with pouch references, NOT this page):** stand-up (doypack) bottom gussets (the fold geometry that stands — TBC per film behavior!) → fitments (spouts + caps heat-sealed in — TBC per application!) → zip + slider closures (reclosure mechanics — TBC per consumer testing!) → CAD consequence: FLAT pattern thinking (pouches are 2D seals forming 3D — model the SEAL MAP first, inflated volume second!) + fitment interface dims (seal-zone flatness + width per §10-seal-land discipline!).
+
+**Cartons (paperboard engineering — TBC: confirm with carton references):** flute profiles (A/B/C/E/F + micro — TBC per strength/print tradeoff!) → box styles (RSC/overlap/full-telescope per duty — TBC!) → scores + slots (crush vs cut scores per fold direction — TBC per board!) → CAD consequence: 2D dieline FIRST (the flat pattern IS the product — 3D folding previews second!) + print zones avoiding scores (ink cracks on folds — TBC per print practice!).
+
+**Bag-in-box (liquid in flexibles in rigids — TBC per BiB references):** bag film barriers (oxygen/moisture per product — TBC per shelf-life!) → tap/gland interface (puncture + seal in one action — TBC per dispenser!) → outer box stacking per §9-pallet rules (TBC!) → CAD consequence: THREE coordinated models (bag + tap + box with interface dims SHARED — the §12-top-down layout habit across materials!).
+
+---
+
 ## 15. Closures-for-food + pharma appendix (regulated mouths — TBC per food/pharma packaging regs, NOT this page)
 
 **Food-contact compliance (the material law — TBC: confirm with FDA/EU 10-2011-class frameworks!):** approved-contact layers (virgin barrier vs recycled content limits — TBC per regulation!) → migration testing awareness (time × temperature × food-type protocols exist — TBC per lab practice; CAD notes the GRADE, labs prove compliance!) → taint/odor neutrality (recycled streams risk off-notes — TBC per sourcing!) → CAD consequence: material SPEC on the drawing (grade + supplier-type, not "plastic"! — purchasing buys compliance, not geometry!).

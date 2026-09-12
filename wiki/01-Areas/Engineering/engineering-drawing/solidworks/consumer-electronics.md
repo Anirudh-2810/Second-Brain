@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 15. Camera + optics appendix (glass stacks in plastic bodies — TBC per camera-module references)
+
+**Module anatomy (the stack — TBC: confirm with module datasheets, NOT this page):** sensor + lens barrel + VCM autofocus (voice-coil travel — TBC per throw spec!) + OIS suspension (stabilization axes with travel limits — TBC!) → cover glass over the stack (the §9-finish-vs-function tradeoff at optical stakes: cover flatness + coating matter! — TBC!) → CAD consequence: OPTICAL AXIS as datum (decenter/tilt tolerances TIGHT — TBC per module spec; the §8-PCB-datum habit at micron scale!).
+
+**Multi-camera arrays (the bump — TBC per phone-teardown reality):** baseline spacings for depth/stereo (TBC per algorithm — fixed at layout, NEVER tweaked late!) → height matching (parallax calibration assumes coplanarity — TBC per tolerance!) → decorative vs functional lenses (TBC per SKU honesty — model what ships!) → CAD consequence: camera DECK as a module (the §11-top-down habit: deck interfaces — connector + keep-outs + heights — frozen early!).
+
+**Flash + sensors beside lenses (the supporting cast — TBC per component practice):** flash-to-lens spacing (red-eye + shadow geometry — TBC!) → laser-AF/proximity windows (the §11-sensor-window lesson restated!) → flicker sensors + color temp (TBC per imaging pipeline!) → CAD consequence: window CLUSTER layout (all apertures positioned from ONE datum on the deck — the §8-port-alignment lesson at optical precision!).
+
+---
+
 ## 14. Sustainability + repairability appendix (design for the decade — TBC per eco-design practice)
 
 **Repairability scoring (the coming regulation + the present virtue — TBC: confirm with right-to-repair frameworks!):** disassembly depth (battery + display replaceable with COMMON tools in <15 min? — TBC per scoring rubrics!) → fastener sanity (ONE driver size preferred + NO glue on service parts — the §6-fastener strategy restated as ethics!) → spare-parts horizon (7–10 year availability modeled into BOM thinking — TBC per brand promise!) → documentation (service manuals with exploded views FROM your CAD — the §9-toolchain animations doing aftermarket duty!) → CAD consequence: service splits designed FIRST (the §6-parting lesson with a screwdriver in hand: every internal gets a removal path!).

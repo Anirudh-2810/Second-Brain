@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 16. Museum + retail display appendix (products presenting products — TBC per exhibition/retail references)
+
+**Display-case engineering (the invisible vitrine — TBC: confirm with case references):** low-iron glass (edge-green eliminated — TBC per glass spec!) → UV filtration (conservation per §13-exhibit lighting!) → microclimate sealing (silica-gel buffers + gasketed doors — TBC per conservation!) → security layers (laminated + alarmed + anchored — TBC per risk!) → CAD consequence: case + mount + object as ONE assembly (sightlines per §13 + seal paths + service access modeled together!).
+
+**Retail fixtures (selling at scale — TBC per retail-design practice):** planogram footprints (shelf modules standardized — TBC per retailer!) → theft vs access balance (locked vs open-sell per SKU value — TBC per loss-prevention!) → lighting integration (the §11-luminaire lesson at shelf scale: lit product outsells dark 2:1-ish — TBC per retail research!) → CAD consequence: fixture FAMILY per §12-platform thinking (posts/arms/shelves/bases recombined per store — the module habit at retail scale!).
+
+**Pop-up + demountable (impermanent permanence — TBC per exhibition practice):** tool-free assembly (cam/dowel/knob systems per §11-flat-pack generalized!) → crate-to-display duality (shipping cases UNFOLD into plinths — TBC per sustainable-exhibit practice!) → CAD consequence: assembly SEQUENCE as deliverable (numbered install order with crew-size + time estimates — TBC per production! — the §9-commissioning habit for culture instead of conveyors!).
+
+---
+
 ## 15. Finish-schedule + CMF appendix (color-material-finish as engineering — TBC per CMF practice)
 
 **CMF documentation (design intent for surfaces — TBC: confirm with CMF references, NOT this page):** finish schedule per part (substrate + process + color + gloss + texture depth — the §9-finish-spec habit formalized into a TABLE!) → master samples (physical chips approved + retained — renders lie about color; TBC per procurement practice!) → texture standards (MT/VDI grain references called by NUMBER — TBC per mold-texture practice; "leather grain" is not a spec, MT-11010 is!) → CAD consequence: texture zones SPLIT-LINED per §9 + draft re-verified PER TEXTURE (deep grains need MORE draft — TBC per molding practice; texture without draft analysis is a locked mold!).
