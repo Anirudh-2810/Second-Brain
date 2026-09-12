@@ -1,0 +1,90 @@
+---
+course_code: "BTech-Sem1-ED (TBC)"
+course_name: "Engineering Drawing"
+unit: "SolidWorks - dress-up and productivity"
+tags: [btech, engineering-drawing, solidworks, cad, fillet, pattern, mirror, split-line, shell]
+last_updated: "2026-09-12"
+description: "Beginner guide to finishing features: fillet/chamfer, shell, draft, patterns, mirror, split lines — plus the speed combos used across both playlists."
+module: "engineering-drawing"
+prerequisites: [["extrude-revolve-sweep"], ["lofted-boss-boundary"], ["INDEX"]]
+confidence: high
+---
+
+# Dress-Up & Productivity: Fillets, Shells, Patterns, Mirror, Split Lines
+
+## For future agent
+Third solid-features page — the "finish and multiply" kit. Grounded in PL1 #43 (Split Line + Offset + Thicken combo) and recurring playlist patterns (linear pattern vary in #101, shells on bottles/enclosures). All version-stable core features.
+
+> **Why last in modeling order but first in speed:** dress-up features are cheap individually, but their *combos* (mirror-half-then-pattern, split-line-then-fillet-control, shell-then-boss) are what make playlist modelers fast. Learn the combos, not just the buttons.
+
+---
+
+## 1. Edge treatment: Fillet vs Chamfer (and when each)
+
+| | Fillet (round) | Chamfer (flat bevel) |
+|---|---|---|
+| Looks | Soft, molded, ergonomic | Machined, crisp, industrial |
+| Stress | Spreads load (stronger) | Concentrates slightly less well |
+| Cost | Needs ball-endmill/form tool | Single chamfer mill pass — cheaper |
+| Rule | Consumer/pretty/stress-critical edges | Screw heads seating, deburr edges, machined parts |
+
+**Real-world anchor:** a sharp internal corner on a molded part is a crack waiting to happen (stress concentration) AND a mold that can't fill. Fillets aren't decoration — on plastic and cast parts they're structural. On machined parts, chamfers break sharp edges so nobody gets cut and screws seat flat.
+
+**Selection tricks:** select a *face* to fillet all its edges at once; use **variable-size fillet** for ergonomic swells; **face fillet** blends two non-touching faces (surface-model territory).
+
+## 2. Shell, Draft, Rib — the plastic-part trio
+
+- **Shell** (hollow out): pick the open face(s), set wall thickness → uniform walls instantly. Bottles, enclosures, housings. Shell near the END (it eats faces later features may need).
+- **Draft** (taper faces): mold release angle on vertical walls. If it will be injection-molded or cast, it needs draft — 1–3° typical (confirm with molder; TBC as universal spec).
+- **Rib** (strength without weight): thin triangular gussets sketched with one line. Electronics enclosures and brackets stay light and stiff via ribs, not thick walls.
+- **Mounting Boss** (PL1 #81): the little screw-post feature — cylindrical post + gussets in one shot, the standard way PCBs and covers screw into plastic housings.
+
+## 3. Multiply: Mirror, Pattern, and the combos
+
+**Mirror** (about a plane): model HALF the symmetric part, mirror the *features or bodies*. Half the work, guaranteed symmetry — the single biggest speed habit in the playlists. Mirror solids/bodies, not dozens of faces.
+
+**Patterns:**
+
+| Pattern | Use | Playlist sighting |
+|---|---|---|
+| Linear | Rows/columns of holes, fins, vents | #101 gradient hole cover — **Instances to Vary** changes size along the row! |
+| Circular | Bolt circles, fan blades, gear teeth layouts | Gearbox covers, propeller (#15) |
+| Curve/Table-driven | Irregular spacing | Conveyor rollers, custom layouts |
+| Sketch-driven | Arbitrary positions from a sketch | One-off mounting maps |
+
+**The combos (memorize these four):**
+1. **Mirror-half + pattern-detail:** symmetric base → mirror → pattern the repeated detail once. (Nearly every symmetric playlist build.)
+2. **Split Line + control:** PL1 #43 pattern — split a face to *isolate* a region, then fillet/offset/thicken only that region. Split lines are how you tell SolidWorks "here, not everywhere."
+3. **Shell + boss + rib:** hollow the enclosure, add mounting bosses, stiffen with ribs — the complete plastic housing loop.
+4. **Pattern + configurations:** one model, pattern counts driven per-configuration (small/medium/large variants) — product-family modeling.
+
+```mermaid
+flowchart TD
+    A[Symmetric part?] -->|Yes| B[Model HALF → Mirror]
+    A -->|No| C[Model full]
+    B --> D{Repeated detail?}
+    C --> D
+    D -->|Regular rows/circle| E[Pattern it]
+    D -->|One-off positions| F[Sketch-driven pattern\nor manual]
+    E --> G{Region-specific finish?}
+    F --> G
+    G -->|Yes| H[Split Line → finish\nonly that region]
+    G -->|No| I[Fillet/chamfer directly]
+```
+
+## 4. Failure clinic
+
+| Symptom | Cause → Fix |
+|---|---|
+| Fillet fails on one edge | Edge too short/tangent tangle → fillet in sets (big radii first, small last), or reorder before the consuming feature |
+| Shell fails / disappears faces | Wall thicker than local geometry, or sharp internal corners → add fillets BEFORE shelling, reduce thickness locally |
+| Pattern goes wrong direction | Wrong seed/reference edge → flip direction, check spacing vs extent math |
+| Mirror creates duplicate/gap | Asymmetric leftovers or face-level mirror → mirror bodies/features, verify the half was truly symmetric |
+| Split line won't select region | Sketch must fully divide the face (extend past boundaries) or project cleanly onto it |
+
+**Verify in-app:** model half a symmetric bracket → mirror → linear-pattern 6 holes with Instances-to-Vary → split-line a logo zone → shell a small box → add a mounting boss + ribs. That's the whole page in one exercise.
+
+**Next:** the surfacing track — [[surfacing-methodology]].
+
+## CROSS-REFERENCES
+- [[INDEX]] · [[lofted-boss-boundary]] · [[surfacing-methodology]] · [[beginner-exercises]] · [[solidworks-cheatsheet]]

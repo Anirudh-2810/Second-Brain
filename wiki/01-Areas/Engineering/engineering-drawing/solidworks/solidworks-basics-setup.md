@@ -1,0 +1,136 @@
+---
+course_code: "BTech-Sem1-ED (TBC)"
+course_name: "Engineering Drawing"
+unit: "SolidWorks - setup and interface"
+tags: [btech, engineering-drawing, solidworks, cad, beginner, setup, interface]
+last_updated: "2026-09-12"
+description: "Beginner-first SolidWorks setup: what CAD is, interface tour, CommandManager and standard views, documents, design intent, and a first-week practice plan."
+module: "engineering-drawing"
+prerequisites: [["../overview"], ["INDEX"]]
+confidence: high
+---
+
+# SolidWorks Basics & Setup
+
+## For future agent
+Page 1 of the foundation track. Covers interface literacy + design intent for an absolute beginner, grounded in PL1 primer transcripts (#4 standard views, #9/#30 surface basics intros). Menu paths are 2021–2026-era UI; if a tab moved, press `S` and search. No prior CAD assumed.
+
+> **Why this page exists:** every confusing moment in later pages traces back to one of five things — planes, sketches, relations, the FeatureManager tree, or design intent. Learn them once, properly, and the other 25 pages are just combinations.
+
+---
+
+## 1. What SolidWorks actually is (30-second version)
+
+SolidWorks is **parametric solid modeling software**: you describe a part as a history of operations (extrude this sketch 60 mm, cut that hole, round these edges), and the software keeps that history editable. Change the 60 to 80 and the whole part rebuilds.
+
+Three facts that shape everything:
+
+1. **History-based** — the FeatureManager tree (left panel) is a recipe, listed top-to-bottom in creation order. You can go back, edit step 2, and steps 3–10 update. This is your superpower and your biggest foot-gun (more in §5).
+2. **Sketch-driven** — almost every 3D shape starts as a 2D sketch on a flat plane. Weak sketches → weak models. [[sketch-mastery]] is the highest-leverage page in this module.
+3. **Three document types** — **Part** (one component), **Assembly** (parts mated together), **Drawing** (2D manufacturing sheet from the 3D model). PL1 lives almost entirely in Part; PL2 lives in Part + Assembly. The full pipeline is [[part-assembly-drawing-workflow]].
+
+**Real-world anchor:** industry doesn't pay for pretty models — it pays for models that survive change. A bracket modeled with design intent (symmetric about planes, dimensions driven from mounting holes) updates in seconds when the hole pattern changes; a bracket drawn with random lines takes a rebuild from scratch. Employers test this.
+
+---
+
+## 2. Interface tour (know these five zones)
+
+```
+┌─────────────────────────────────────────────────┐
+│ Menu bar + CommandManager tabs (Features/Sketch/│
+│ Surfaces/Sheet Metal/...)          ▲ Search (S)  │
+├──────────┬──────────────────────────┬───────────┤
+│ Feature- │                          │ Property- │
+│ Manager  │      GRAPHICS AREA       │ Manager   │
+│ tree     │   (your model lives      │ (options  │
+│ (history │    here; middle-mouse    │  for the  │
+│  recipe) │    rotates, wheel zooms) │  active   │
+│          │                          │  command) │
+├──────────┴──────────────────────────┴───────────┤
+│ Status bar: sketch state, units, edit mode       │
+└─────────────────────────────────────────────────┘
+```
+
+| Zone | What it does | Beginner habit |
+|---|---|---|
+| **CommandManager** | Tabbed toolbars (Features, Sketch, Surfaces…). Right-click it → enable the **Surfaces** tab now, you'll live there | PL1 #4 shows setting **standard views** here — follow it once |
+| **FeatureManager tree** | History of your part, top = oldest. Expand `+` to see the sketches inside each feature | Name features as you go (`Base-Extrude`, not `Boss-Extrude1`) |
+| **PropertyManager** | Options for whatever command is active (depth, direction, profiles) | Read every checkbox once — defaults bite later |
+| **Graphics area** | The model. Middle-mouse drag = rotate, wheel = zoom, right-drag = pan | Learn these three before anything else |
+| **Status bar** | Shows units (set **MMGS**: millimeter-gram-second) and whether a sketch is under/fully defined | Glance at it every time you exit a sketch |
+
+**Setup checklist (do once):**
+- [ ] Units → MMGS (Tools → Options → Document Properties → Units). The playlists use mm throughout.
+- [ ] Enable Surfaces + Sheet Metal tabs (right-click CommandManager → Tabs).
+- [ ] Set standard views per PL1 #4 (front/top/right mapped sensibly — this matters when your sketches land on the "wrong" plane later).
+- [ ] Dark background off if screenshots confuse you (your call; model readability first).
+
+---
+
+## 3. Planes, origin, and the first sketch
+
+Every Part starts with three default planes: **Front, Top, Right** — infinite flat grids intersecting at the **origin** (the most important point in your model; anchor symmetric geometry to it).
+
+```mermaid
+flowchart TD
+    A[New Part] --> B{What shape?}
+    B -->|Flat/prismatic| C[Sketch on a default plane]
+    B -->|Round symmetric| C
+    C --> D[Draw rough shape near origin]
+    D --> E[Add relations + dimensions]
+    E --> F{Fully defined? black lines}
+    F -->|No - blue lines| E
+    F -->|Yes| G[Exit sketch → pick a Feature]
+```
+
+Your first 10 minutes (do this now):
+1. File → New → Part → OK.
+2. Click **Front Plane** → **Sketch** tab → **Rectangle** → draw one crossing the origin.
+3. **Smart Dimension** → set 100 × 60. Lines turn black = fully defined (the goal, always).
+4. Exit sketch → **Features** → **Extruded Boss/Base** → 30 mm → green tick. You made a solid. Rotate it.
+
+That loop — *plane → sketch → dimension → feature* — is 90% of all CAD. Everything else is vocabulary.
+
+---
+
+## 4. Design intent (the professional habit)
+
+**Design intent** = modeling so future edits are easy. Four rules, worth more than any feature tutorial:
+
+1. **Anchor to origin and default planes.** Center symmetric parts on the origin; dimension from planes, not from random edges. When the design changes, anchored models flex instead of breaking.
+2. **Dimension the design, not the drawing.** Ask "what would the engineer change?" (mounting-hole spacing, wall thickness, overall height) and make *those* the driving dimensions.
+3. **Simple sketches, many features.** One sketch = one simple profile. A 40-entity mega-sketch that extrudes five things is uneditable; five clean sketches are self-documenting.
+4. **Name everything.** Features, sketches, mates. Future-you (and interviewers, teammates, manufacturers) read the tree like code.
+
+```mermaid
+flowchart LR
+    A[Change request:\nholes move 10mm] --> B{Model has intent?}
+    B -->|Yes: holes dimensioned\nfrom planes| C[Edit 1 dimension\nrebuilds clean]
+    B -->|No: lines drawn\nfreehand| D[Rebuild from scratch\n+ tears]
+```
+
+---
+
+## 5. Failure modes beginners hit (from the playlists)
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Sketch lines stay blue | Under-defined (missing dims/relations) | Keep adding Smart Dimensions until all black |
+| Feature fails after editing an old sketch | Child references lost (dangling relations) | Edit sketch → repair red/brown dangling entities; prefer plane/origin references over face references |
+| Model looks right but shell/fillet fails later | Tiny gaps, overlapping entities, zero-thickness spots in sketch | Tools → Sketch Tools → **Check Sketch for Feature**; zoom into corners |
+| Rebuild takes forever / tree is chaos | Mega-sketches, dozens of redundant features | Roll back, split into simple features, delete dead sketches |
+| "It worked in the video but not for me" | Different plane selected, or direction flipped (blind vs symmetric) | Compare your PropertyManager to the video's, checkbox by checkbox |
+
+---
+
+## 6. Your first week (scope, not schedule)
+
+- [ ] Setup checklist above + the 10-minute first extrude
+- [ ] [[sketch-mastery]] drills until fully-defined sketches feel automatic
+- [ ] Rebuild PL1 #9's simple demo model from the transcript in `raw-sources/solidworks/transcripts/` (extruded surface from a three-arc sketch — your first surface)
+- [ ] Verify in-app: create a part, fully define two sketches, extrude + cut, rename all features, change one dimension and watch a clean rebuild
+
+**Next:** [[sketch-mastery]] → then [[part-assembly-drawing-workflow]].
+
+## CROSS-REFERENCES
+- [[INDEX]] (hub) · [[sketch-mastery]] · [[part-assembly-drawing-workflow]] · [[../overview]] (drawing conventions behind the 3D)
