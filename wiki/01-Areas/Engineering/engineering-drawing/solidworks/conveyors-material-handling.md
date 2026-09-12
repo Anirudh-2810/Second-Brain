@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 13. Commissioning + handover appendix (day one to day done — TBC per commissioning practice)
+
+**Pre-startup review (paper before power — TBC: confirm with pre-startup-safety-review practice, NOT this page):** guard/interlock inventory vs model (every §9 guard present + tagged?) → lubrication filled + labeled (grade + level per §10-lube!) → torque verification sample (foundation + coupling bolts torqued + marked? — TBC per procedure!) → electrical + controls checkout (e-stop categories tested per §9!) → CAD consequence: the AS-BUILT redline round (field changes marked on prints DURING install — the model updates AFTER, or maintenance inherits fiction per §9!).
+
+**No-load → load ramp (the first hours — TBC per practice):** rotation checks uncoupled (direction correct BEFORE coupling? — backwards conveyors destroy chutes!) → belt tracking empty (take-up centered per §6-travel math!) → ramp rate stepped (25/50/75/100% with tracking checks each step — TBC per procedure!) → vibration + temperature baselines logged (future diagnostics compare against DAY ONE — TBC per reliability practice: baselines are the most valuable data nobody collects!) → CAD consequence: baseline readings FILED with the equipment record (the §12-failure-resume habit at plant scale!).
+
+**Handover package (the deliverable owners pay for — TBC per contract practice):** as-built drawings + BOM + spares list (§8-wear + §12-spares!) → O&M manuals with procedures (lockout, tensioning, tracking, lube schedule — TBC per vendor docs!) → training records (operators + maintainers signed off — TBC per site!) → warranty terms + contact tree (TBC per contract!) → CAD consequence: the FINAL model revision matches reality (the loop closed: site → redlines → model → archive — the §-toolchain single-source rule at project scale!).
+
+---
+
 ## 12. Stacker/reclaimer + ship-loader appendix (bulk handling at scale — TBC per bulk-handling references)
 
 **Stackers (building stockpiles systematically):** radial luffing + slewing motions stacking in windrows (TBC per yard practice) → tripper-fed boom conveyors (the §11-tripper lesson at 50 m scale!) → boom deflection under load (lattice vs box boom — TBC per structural practice; CAD the boom as weldment per §4-frames!) → wheel/bogey travel on yard rails (the §11-shuttle lesson scaled!) → CAD consequence: stockpile footprints as SITE envelopes (live + dead storage zones — TBC per yard planning; the §11-Dragon scale-model discipline applied to dirt!).

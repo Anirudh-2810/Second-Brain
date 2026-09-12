@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 14. Sustainability + repairability appendix (design for the decade — TBC per eco-design practice)
+
+**Repairability scoring (the coming regulation + the present virtue — TBC: confirm with right-to-repair frameworks!):** disassembly depth (battery + display replaceable with COMMON tools in <15 min? — TBC per scoring rubrics!) → fastener sanity (ONE driver size preferred + NO glue on service parts — the §6-fastener strategy restated as ethics!) → spare-parts horizon (7–10 year availability modeled into BOM thinking — TBC per brand promise!) → documentation (service manuals with exploded views FROM your CAD — the §9-toolchain animations doing aftermarket duty!) → CAD consequence: service splits designed FIRST (the §6-parting lesson with a screwdriver in hand: every internal gets a removal path!).
+
+**Material passports (circularity needs data — TBC per materials-passport practice):** resin IDs molded in (recycling symbols + flame-retardant marks — TBC per marking standards!) → mono-material preference (mixed inseparables = landfill — TBC per recycling economics; design snap-fits over overmolds where service allows!) → disassembly for streams (battery out in seconds for e-waste per §12-shredder e-waste rules! — design the extraction path!) → CAD consequence: material CALLOUTS per part (grade + recycled content + coating — the BOM as environmental document!).
+
+**Longevity engineering (the anti-obsolescence stance — TBC per durability references):** connector cycles rated (USB-C 10k+ matings — TBC per spec; cheap connectors die first — TBC per field data!) → battery replaceability vs glued slimness (the tradeoff stated openly in the brief — TBC per product philosophy!) → software-support horizon (hardware that outlives its updates is e-waste with extra steps — TBC per industry critique!) → CAD consequence: NOTHING here is geometry-first (philosophy constrains geometry: replaceable battery ⇒ bay + fasteners + seals — the §8-battery lesson as worldview!).
+
+---
+
 ## 13. Power + charging appendix (batteries in, heat out, safety always)
 
 **Cell selection (the energy budget — TBC: confirm with battery references, NOT this page):** cylindrical vs pouch vs prismatic (form + cooling + swelling behavior differ — TBC per cell type; pouch cells swell and need compression frames — TBC!) → capacity vs discharge rate (mAh lies without the C-rating — TBC per spec reading; peak loads sag weak cells into brownouts!) → protection circuits (PCM/BMS envelopes + sense wiring — TBC per pack design; unprotected packs are fire starters, not products!) → CAD consequence: cell + BMS + wiring modeled as a PACK assembly with retention + isolation (the §8-battery-bay lesson electrified!).

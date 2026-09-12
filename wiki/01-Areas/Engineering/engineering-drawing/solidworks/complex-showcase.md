@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 15. Finish-schedule + CMF appendix (color-material-finish as engineering — TBC per CMF practice)
+
+**CMF documentation (design intent for surfaces — TBC: confirm with CMF references, NOT this page):** finish schedule per part (substrate + process + color + gloss + texture depth — the §9-finish-spec habit formalized into a TABLE!) → master samples (physical chips approved + retained — renders lie about color; TBC per procurement practice!) → texture standards (MT/VDI grain references called by NUMBER — TBC per mold-texture practice; "leather grain" is not a spec, MT-11010 is!) → CAD consequence: texture zones SPLIT-LINED per §9 + draft re-verified PER TEXTURE (deep grains need MORE draft — TBC per molding practice; texture without draft analysis is a locked mold!).
+
+**Corrosion + environment planning (finishes die outdoors — TBC: confirm with corrosion-protection references):** galvanic isolation at mixed joints (the §10-garden lesson restated!) → coating systems (pretreat + primer + topcoat stacks per exposure class — TBC per spec!) → maintenance repaint access (ladders/platforms to every coated face? — TBC per facility design; unmaintainable coatings fail on schedule!) → CAD consequence: faying-surface notes (sealed vs bare interfaces CALLED OUT — the §11-NVH-cover lesson with chemistry!).
+
+**Perceived-quality engineering (gaps, flush, feel — TBC: confirm with PQ references):** gap/flush tolerances tighter than function needs (the §7-door-gap lesson generalized: PQ ±0.5 where function allows ±1.5 — TBC per brand standard!) → effort/feel specs (door-close energy, button force, hinge torque — TBC per UX measurement!) → squeak/rattle prevention (clearances + isolators + torque discipline — TBC per NVH practice!) → CAD consequence: PQ dims FLAGGED separately from functional dims (two tolerance philosophies, one drawing — the §10-drawing discipline with a second lens!).
+
+---
+
 ## 14. Crowns, guards + machine-canopy appendix (covers that protect AND sell)
 
 **Machine guarding as product design (the §9-conveyor + §10-press safety lessons merged — TBC: confirm with machinery-safety standards like ISO 14120/12100, NOT this page):** fixed vs movable vs adjustable guards (access frequency decides — daily-access points get interlocked doors, annual points get bolted panels! — TBC per risk assessment) → viewing windows (polycarbonate rated for impact/process — TBC per material; operators MUST see the process or they open guards!) → ventilation + noise integration (guarded machines cook and deafen — the §9-ventilation + §13-noise lessons inside the guard design!) → CAD consequence: guard MODULES with quick-release + interlock envelopes (the §11-top-down module habit: guards are modules with interfaces, not afterthought panels!).

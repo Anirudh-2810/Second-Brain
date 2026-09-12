@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 15. Closures-for-food + pharma appendix (regulated mouths — TBC per food/pharma packaging regs, NOT this page)
+
+**Food-contact compliance (the material law — TBC: confirm with FDA/EU 10-2011-class frameworks!):** approved-contact layers (virgin barrier vs recycled content limits — TBC per regulation!) → migration testing awareness (time × temperature × food-type protocols exist — TBC per lab practice; CAD notes the GRADE, labs prove compliance!) → taint/odor neutrality (recycled streams risk off-notes — TBC per sourcing!) → CAD consequence: material SPEC on the drawing (grade + supplier-type, not "plastic"! — purchasing buys compliance, not geometry!).
+
+**Pharma closures (the strictest mouths — TBC: confirm with pharmacopeia/packaging regs!):** child-resistance + senior-friendliness TESTED protocols (TBC per panel testing — design iterates against human panels, not opinions!) → tamper evidence MANDATED (bands, seals, break features — TBC per regulation!) → desiccant integration (built-in canisters/caps for moisture-sensitive drugs — TBC per stability!) → track-and-trace serialization (2D codes per pack — TBC per regulation; print zone reserved EARLY per §8-label thinking!) → CAD consequence: compliance FEATURES dimensioned + toleranced like functional geometry (regulators measure what you model!).
+
+**Aseptic + sterile barrier (the microbiology envelope — TBC: confirm with aseptic-packaging references!):** seal integrity as THE spec (leak rates, burst minimums — TBC per test!) → sterilization compatibility (gamma/EtO/steam each attacks materials differently — TBC per modality; design + material chosen TOGETHER!) → peel-system mechanics (controlled peel force windows — TBC per spec; too strong frustrates, too weak fails sterile!) → CAD consequence: seal FLANGES dimensioned for the process window (width + flatness + material per §10-seal-land discipline at pharma stakes!).
+
+---
+
 ## 14. Glass container appendix (glass as engineered packaging — TBC per glass-packaging references)
 
 **Glass forming (how bottles are really born — awareness, TBC: confirm with glass-manufacturing references, NOT this page):** gob forming + blow-and-blow vs press-and-blow (narrow-neck vs wide-mouth processes differ! — TBC per process) → mold seams VERTICAL on glass (parting witness is EXPECTED, not a defect — TBC per quality!) → annealing lehrs (controlled cooling sets strength — TBC per thermal practice; unannealed glass shatters from internal stress!) → CAD consequence: generous radii EVERYWHERE (glass hates sharp inside corners more than plastic does — TBC per fracture practice!) + wall stock for the process (parisons distribute unevenly — TBC per forming!).
