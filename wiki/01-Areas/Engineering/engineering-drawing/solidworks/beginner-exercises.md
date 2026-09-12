@@ -111,5 +111,21 @@ flowchart TD
 
 **Next:** [[bottles-containers]] (first product family).
 
+---
+
+## 7. Transcript-grounded micro-lessons (from the 15 secured transcripts)
+
+These patterns repeat across the actual primer narrations in `raw-sources/solidworks/transcripts/` — distilled habits, not generic advice:
+
+**Dimension-first narration:** the instructor dimensions WHILE sketching (100 mm here, 115 gap there — real numbers from #9's transcript), not after. Copy the rhythm: draw rough → dimension immediately → watch black. Beginners who postpone dimensioning accumulate blue spaghetti and debug for hours; the videos never show that struggle because the habit prevents it.
+
+**Mid-plane defaults:** extrusions go symmetric (30 + 30 via Mid-Plane, per #9's 60-bi-directional demo) unless asymmetry is designed. Default symmetric, justify asymmetric — the rule behind half the playlist's robustness.
+
+**Plane-per-profile discipline:** every new profile gets its own plane or a clear face (right plane sketch → top plane sketch → next part). The transcripts never loft two profiles off one plane — profile separation is structural to the workflow, not a suggestion.
+
+**Circle-line-verify micro-loop:** circle pair + connecting lines + verticality check + three dims (35/20/40-gap pattern from #9) — small closed profiles built from primitives + relations, never freehand blobs. When your profile misbehaves, decompose it into circles/lines/arcs the same way and constrain each joint.
+
+**Narrate-your-clicks drill (steal the teaching method):** model any exercise while speaking every click aloud ("select top plane, sketch, circle, dimension 35..."). Verbalization exposes skipped steps (the moment you go silent is the moment you're guessing) — the same reason the videos work as teaching. Record one session on your phone and audit the silences; each silence maps to exactly one page of this module to restudy.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[extrude-revolve-sweep]] · [[dressup-productivity]] · [[bottles-containers]] · [[solidworks-cheatsheet]]

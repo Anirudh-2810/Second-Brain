@@ -94,5 +94,17 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 **Next:** [[presses-forming-drone]].
 
+---
+
+## 8. Idler/roller deep pass + belt specification (the rotating details)
+
+**Idler anatomy (troughing 3-roll set, bulk duty):** center horizontal roll + 2 wing rolls angled 20–35° (TBC: confirm with CEMA/idler references — trough angle sets belt cross-section and capacity) → rolls spin on dead (non-rotating) shafts pressed into support brackets (live-shaft vs dead-shaft choice is a maintenance fork: dead shafts change rolls without touching alignment — TBC per practice) → labyrinth seals (dust kills bearings; sealed-for-life vs regreasable is a duty decision — TBC per environment) → spacing: carrying-side every ~1–1.2 m (TBC illustrative; sag between idlers must stay ~1–2% of spacing or the belt flaps — TBC: confirm with belt-sag references), return-side every ~3 m flat singles.
+
+**Roller conveyor details (#365/#305-class):** gravity rollers (unpowered: tube + pressed bearings + spring-loaded hex axle that pops into frame holes — tool-free replacement is the feature!) → slope for gravity flow ~2–5% grade (TBC illustrative: too flat stalls, too steep runs away — confirm per load) → powered line-shaft (one rotating shaft drives ALL rollers via bands/chains — TBC per system: accumulation zones need clutches/zero-pressure logic, awareness level) → chain-driven (sprockets per roller — positive drive, no slip, heavier + noisier) → curve sections (tapered rollers or differential speeds steer the load — TBC depth; curves are their own engineering).
+
+**Belt specification reading (order like a buyer):** width (load cross-section + edge clearance — TBC per capacity calc) → cover grade (abrasion/oil/heat/chemical per material — TBC per belt catalogs) → ply/strength rating (tension calc per §6 incline math extended — TBC: confirm full DIN/ISO belt-selection method, NOT this page) → splice type (vulcanized endless vs mechanical fasteners: vulcanized runs quieter/stronger, mechanical splices on-site fast — TBC per operation) → model belt thickness into pulley diameters + take-up travel (thick belts need bigger pulleys — TBC: confirm minimum-pulley tables per belt spec).
+
+**Discharge + transfer appendix:** head-pulley trajectory (material leaves tangentially — hood shaped to the trajectory, not to aesthetics — TBC: confirm with transfer-chute references) → transfer chutes between conveyors (rock boxes vs curved spoon chutes for wear/segregation control — TBC depth; chute wear liners as replaceable plates — model the liner pattern!) → dust suppression at transfers (enclosure + extraction stubs — TBC per environmental compliance; dust is explosive with some materials — TBC: confirm with safety references, NOT this page) → impact beds/cradles at loading (belt support under the drop zone — bare idlers dent under impact; TBC per practice).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[shredders-recycling-machines]] · [[presses-forming-drone]] · [[gearbox-fundamentals]] (drives) · [[part-assembly-drawing-workflow]]

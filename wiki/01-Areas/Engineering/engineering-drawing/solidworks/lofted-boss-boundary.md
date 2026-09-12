@@ -97,5 +97,19 @@ The PL1 #43-class handle as a SOLID loft (surface version lives in [[lofted-boun
 
 **Next:** [[dressup-productivity]] (fillets/patterns that finish these bodies) → surfacing track [[surfacing-methodology]].
 
+---
+
+## 7. Multi-body lofting + combine strategies (complex transitions without tears)
+
+**Why multi-body:** a transition with branches, shelves, or uneven wall behavior won't loft in one feature — loft the SIMPLE SUB-VOLUMES as separate bodies, then Combine (Add/Subtract/Common). Each body lofts cleanly because each is simple; complexity lives in the combination, not in tortured profiles. (TBC exact Combine UX per version — Insert → Features → Combine; bodies must overlap/Touch for Add.)
+
+**Branch pattern (Y-duct from §6, built properly):** body-inlet loft (inlet profile → branch-plane profile, straightforward) + left-limb loft + right-limb loft (each from the branch profile outward) → Combine Add all three → crotch fillets LAST and GENEROUS (flow + stress both punish the crotch — TBC: confirm with flow/structural references per duty). Three easy lofts + one combine beats one impossible loft every time.
+
+**Subtractive lofting (cores and cavities):** loft a NEGATIVE body (the void you want: mold cavity, fluid passage, ergonomic hollow) → Combine Subtract from the main body. Lofted cooling channels, hollow grips, variable-section bores — all subtractive lofts. The void gets the same connector/guide discipline as solid lofts (a twisted void twists the product!).
+
+**Common (intersection) for symmetric tooling:** loft two overlapping forms → Combine Common keeps ONLY the intersection (lens shapes, interference-fit zones, mold shutoff proofs — TBC per application). Rare but irreplaceable when needed.
+
+**Body bookkeeping discipline:** name bodies on creation (`Inlet-Body`, `Limb-L`, `Void-Cooling` — the tree's Bodies folder is a second recipe to maintain) → hide/show per work stage (work on one body with neighbors hidden, combine at the end) → delete/merge dead bodies before drawings (phantom bodies confuse BOMs and mass properties — audit with the Bodies folder + mass check per body).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[extrude-revolve-sweep]] · [[lofted-boundary-surfaces]] (surface twins) · [[consumer-electronics]] · [[../development-of-surfaces]] (the projection theory behind profile morphing)

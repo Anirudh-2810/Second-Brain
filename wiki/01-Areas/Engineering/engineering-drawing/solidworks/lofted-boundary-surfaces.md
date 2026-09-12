@@ -110,5 +110,17 @@ The #44-class problem as lofted surface first, then boundary — feel the differ
 
 **Next:** [[filled-knit-trim-thicken]].
 
+---
+
+## 8. Surface continuity showcase: fender-crown exercise (eyes-first training)
+
+**The exercise (no dimensions — pure fairness training):** loft 3 profiles (flat-ish ends + crowned middle, all same width) → Boundary the SAME profiles with C2 end rails → zebra both → overlay-compare. The loft shows end kinks (C0-ish leaves); the Boundary flows. Same inputs, different math respect — the lesson is visceral, not verbal. Screenshot the pair into your daily note; revisit monthly as your fairness eye develops (it WILL develop — stripe-reading is a trained sense, TBC: confirm with your own before/after archive, not my claim).
+
+**Guide-rail count experiment:** rebuild any loft with 0 → 1 → 2 → 4 guides, zebra each stage. Watch: 0 guides = shortest-path (often wrong character), 1 = direction set, 2 = character locked, 4 = diminishing returns + rebuild cost. The experiment teaches the budget: guides are the MOST EXPENSIVE loft input (each must pierce cleanly forever) — spend 1–2 where they change character, never 6 where 2 suffice.
+
+**Tangency-weight tuning (Boundary's hidden dials — TBC exact labels per version):** start/end constraints carry WEIGHT/magnitude values (how FAR the tangency influence reaches). Low weight = tight local blend (crisp styling break); high weight = long flowing blend (soft transitions). Same C1, different character — tune weights while watching zebra COMB movement (the comb slides with weight — visual feedback for an abstract number). This dial separates Boundary operators from Boundary artists; practice it on the §6 nozzle outlet until the joint reads premium.
+
+**Profile-reduction challenge (advanced discipline):** take any working 4-profile loft and rebuild it with 3, then 2 (adding guides to compensate). If the 2-profile version matches the 4-profile zebra, the extra profiles were scaffolding you didn't need — delete them permanently (fewer profiles = faster rebuilds + fewer failure points). Minimal-profile modeling is the efficiency endgame of this entire page.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[surfacing-methodology]] · [[filled-knit-trim-thicken]] · [[lofted-boss-boundary]] (solid twins) · [[consumer-electronics]]
