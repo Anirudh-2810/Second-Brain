@@ -82,7 +82,23 @@ flowchart TD
 | Mirror creates duplicate/gap | Asymmetric leftovers or face-level mirror → mirror bodies/features, verify the half was truly symmetric |
 | Split line won't select region | Sketch must fully divide the face (extend past boundaries) or project cleanly onto it |
 
-**Verify in-app:** model half a symmetric bracket → mirror → linear-pattern 6 holes with Instances-to-Vary → split-line a logo zone → shell a small box → add a mounting boss + ribs. That's the whole page in one exercise.
+---
+
+## 5. Worked example: plastic sensor housing (the full loop in one part)
+
+A 70×50×25 motion-sensor box: base + lid split, PCB posts, vents, wall mount — every combo firing.
+
+1. **Base box:** Top Plane → 70×50 centered on origin → Extrude Mid-Plane 25. Rename `Main-Body`.
+2. **Split for lid:** Front-offset plane at 18 (lid = top 7 mm) → **Split** feature (or Cut-Extrude a 0.5 gap? cleaner: Split with two bodies → `Save Bodies` into `Housing-Base` + `Housing-Lid` as an assembly later — TBC per your assembly strategy; simplest learning path: keep one part, two configs).
+3. **Shell the base:** Shell 2 mm, remove the TOP face (open tub). Fillets BEFORE shell would have gone here — note the order: box → fillet outer verticals 3 mm → shell. (If you shelled first, the fillet now fails on thin edges — try it, watch it fail, reorder, learn permanently.)
+4. **PCB posts:** 4× mounting bosses (Mounting Boss feature) on 60×40 pattern, height to hold PCB 5 above floor → ribs auto-included by the feature.
+5. **Vents:** one slot sketch (10×2) on a side wall → Linear Pattern along the wall (12 instances) → mirror to opposite wall. One seed, patterned twice — the combo.
+6. **Lid detail:** split-line a logo zone on top → 0.5 deboss (Cut 0.5) → perimeter tongue-and-groove lip (swept profile around the rim — TBC exact lip geometry per enclosure practice; a simple 1×1 step reads as a seal groove at this level).
+7. **Wall-mount:** back face → 2× keyhole slots (circle + slot + wider circle — sketch once, mirror) → split-line keep-out around them.
+
+**Pattern mastery notes:** Linear Pattern options that matter — Spacing AND Instances (Up To Reference beats both when filling a wall: set the wall length, count follows); **Vary Sketch** rebuilds each instance from the seed sketch (slow, powerful — curved-surface patterns); Geometry Pattern skips end-condition solving (fast for simple repeats — TBC per version label). Instances-to-Vary (PL1 #101) sizes/steps instances along the row — gradient vents, directional ribs.
+
+**Verify in-app:** build the housing, then change 70→90: posts track (pattern from edges), vents refill (Up To Reference), shell holds. Every tracking success is design intent paying rent.
 
 **Next:** the surfacing track — [[surfacing-methodology]].
 

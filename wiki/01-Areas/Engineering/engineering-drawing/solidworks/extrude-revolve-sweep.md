@@ -78,7 +78,21 @@ Every Boss has a Cut twin (same dialog, removes material). Prefer **Hole Wizard*
 | Cut goes the wrong way / blind misses | Wrong direction or end condition → Flip Side, or switch to Up-To-Surface |
 | Rebuild errors after edit | Child lost its reference face → re-attach sketch plane to a plane, not a face |
 
-**Verify in-app:** model a bracket (extrude + cut + hole wizard), a shaft (revolve), a hook (sweep on an arc path) — change each driving dimension once and confirm clean rebuilds.
+---
+
+## 7. Worked example: motor-mount plate (all three workhorses, one part)
+
+A 120×80×6 plate holding a Ø40 motor boss with a cable hook — exercises extrude (plate), revolve (boss), sweep (hook), Hole Wizard, and end-condition thinking.
+
+1. **Plate:** Top Plane → rectangle 120×80 anchored to origin → fully define → Extrude **Mid-Plane 6** (symmetric — stackable either face up).
+2. **Motor boss:** Front Plane sketch? No — boss stands ON the plate: sketch on plate top face (or better: Top-offset plane for stability — TBC taste; face is fine while learning) → two concentric circles Ø40/Ø30 → **Extruded Boss Up-To-Surface? No — Blind 25** (a fixed-height boss is the design) → then **Extruded Cut** the inner Ø30 **Up To Next? Through All** (a through-bore for the motor shaft — Through All survives height changes; Blind would strand material if the boss grows).
+3. **Cable hook:** Right Plane → arc path (radius 15, 180°) positioned at the plate corner → profile circle Ø4 at path start with **Pierce** relation → **Swept Boss**. If it twists: path too tight for Ø4? No — R15 vs Ø4 is generous; check pierce + profile ⊥ path.
+4. **Mounting:** Hole Wizard M5 ×4 on 110×70 (10 from edges — pattern one hole linearly both directions, don't place four) → 2 mm edge fillets LAST.
+5. **Design-intent audit:** change plate 120→140 — holes track (edge-dimensioned), boss stays put (face-anchored — hmm, SHOULD it recenter? If the design says "boss centered," dimension boss position from plate MID-planes/origin, not from one edge — redo that dimension now and feel the difference).
+
+**Hole Wizard deep pass (worth 10 minutes once):** Hole Types tab (Clearance/Threaded/Tapered/Counterbore/Countersink) → Standard: ISO + M5 → End Condition Through All → Positions tab → click faces/points. Counterbore/countersink for socket-head vs flat-head screws (head MUST sit — a socket head modeled into a countersink hole is a shop-floor argument; match head to hole). Cosmetic vs modeled threads: cosmetic for drawings/performance (default!), modeled only for 3D-print threading or close-up renders.
+
+**Verify in-app:** model the plate above, run the intent audit (step 5), then rebuild the boss as a REVOLVE (half-profile + centerline) and compare trees — same geometry, different edit behavior. Prefer the one whose edits match how the design actually changes.
 
 **Next:** [[lofted-boss-boundary]] for morphing shapes.
 

@@ -130,6 +130,34 @@ flowchart LR
 - [ ] Rebuild PL1 #9's simple demo model from the transcript in `raw-sources/solidworks/transcripts/` (extruded surface from a three-arc sketch — your first surface)
 - [ ] Verify in-app: create a part, fully define two sketches, extrude + cut, rename all features, change one dimension and watch a clean rebuild
 
+---
+
+## 7. Guided first model: L-bracket, start to finish (with numbers)
+
+Build this exact bracket — every click listed, nothing assumed. Units MMGS.
+
+1. File → New → Part → OK. In the tree, right-click Front Plane → **Sketch**.
+2. Sketch tab → **Corner Rectangle**: draw one roughly 80 wide × 60 tall, left edge near (not on) the origin.
+3. **Add Relation**: select the left vertical line + the origin → Coincident (the line now passes through origin). Select the bottom horizontal line → **Horizontal** relation (it likely has it already — verify in the PropertyManager's Existing Relations).
+4. **Smart Dimension**: width → 80, height → 60. All entities black? Check the status bar: "Fully Defined." If blue remains, drag-test to find the free entity (probably horizontal position — add a dimension from the origin to the right edge, or coincident the bottom-left corner to origin instead of the edge).
+5. Exit sketch (top-right tick) → Features → **Extruded Boss/Base** → 10 mm, Blind → tick. Rename the feature in the tree: slow-double-click → `Base-Plate-10mm`.
+6. Click the TOP face of the plate → Sketch (this starts a sketch on that face — note the tree now shows the sketch nested under nothing yet; it belongs to the next feature). Draw two **Circles** Ø11, positioned 10 mm from each adjacent edge (dimension center-to-edge twice per hole: 10 + 10).
+7. Exit → **Hole Wizard** instead of plain cut (practice the professional habit now): Positions tab → click both circle centers (use the sketched points via Convert? simpler: place Hole Wizard holes directly — delete the sketch circles first to avoid clutter). M6 clearance, Through All → tick. Rename `M6-Mount-Holes`.
+8. Features → **Fillet** → 2 mm → select the two long vertical outer edges → tick. Rename `Edge-Break-2mm`.
+9. Save as `L-Bracket-01.sldprt`. Now the design-intent test: double-click `Base-Plate-10mm`, change 80 → 100, rebuild (traffic-light icon). Holes stay 10 mm from edges? They should — you dimensioned from edges, so they track. Change back.
+10. **Break it on purpose:** edit the sketch, delete the width dimension, exit — watch downstream survive-or-fail, then undo. Knowing what breaks is the lesson from §5 made physical.
+
+Why an L-bracket and not something exciting: brackets expose every fundamental (anchoring, hole positioning, dress-up order, rebuild testing) with zero surfacing noise. Speed here transfers everywhere.
+
+---
+
+## 8. Setup customization that pays off (one-time, 20 minutes)
+
+- **Document templates:** after the setup checklist, File → Save As → Part Templates (*.prtdot) with MMGS + your preferred drafting standard. New parts inherit good settings forever.
+- **Mouse gestures:** right-drag flick in each of 4/8 directions → assign your most-used commands (Smart Dimension, Trim, Exit Sketch, Normal To). Rebuilds the same gestures across Sketch and Part modes (TBC exact customization path per version — Tools → Customize → Mouse Gestures).
+- **Keyboard:** `S` shortcut bar — drag your top-10 commands onto it (Extrude, Cut, Fillet, Smart Dimension, Trim, Mirror, Measure, Section View, Rebuild, Save). This bar alone is worth ~20% speed within a month.
+- **Options discipline:** System Options (all documents: colors, performance, gestures) vs Document Properties (this file: units, drafting standard, image quality) — beginners mix these up and wonder why new files "forgot" settings. Units live in the TEMPLATE, not in today's file.
+
 **Next:** [[sketch-mastery]] → then [[part-assembly-drawing-workflow]].
 
 ## CROSS-REFERENCES

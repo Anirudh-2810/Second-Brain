@@ -103,6 +103,31 @@ PL1 #100 imports an image to trace (art vase). Workflow: Tools → Sketch Tools 
 3. Spline car-door-ish curve with tangent ends, fully defined via spline points (prepares surfacing).
 4. Import any simple image via Sketch Picture, scale, trace (prepares [[artistic-organic]]).
 
+---
+
+## 9. Worked example: bottle-half profile, fully defined (follow click-by-click)
+
+The profile you'll reuse in [[bottles-containers]] — right half of a 60 mm-diameter, 150 mm-tall bottle, revolved later. Front Plane, MMGS.
+
+1. **Centerline:** Sketch tab → Centerline → draw vertical through origin, 0 to 150. This is your revolve axis AND mirror axis AND dimension backbone.
+2. **Profile polyline (rough, left-to-right from base):** Line tool → start at origin → right 30 (base radius) → up 100 (body) → up-right curve zone (leave rough) → up to 150 at x=12 (neck radius). End with a short horizontal to the centerline at top (closes the profile later).
+3. **Relations:** bottom line Horizontal + Coincident to origin; body vertical line Vertical; top neck line Vertical + its top endpoint Coincident to centerline; bottom-right corner Coincident to nothing yet (position comes from dims).
+4. **Dimensions:** base radius 30 (origin → bottom-right corner horizontal), body height 100 (vertical dim), neck radius 12, total height 150, neck straight length 20 (vertical dim on the neck segment).
+5. **Shoulder spline:** delete the rough diagonal; Spline from body-top point to neck-bottom point → add **Tangent** relations at both ends (select spline end + adjacent line) → dimension one spline control point (e.g., 15 right of centerline at mid-height) to lock curvature. Drag-test: nothing should move.
+6. Status bar reads Fully Defined. Close the profile: line from neck-top across to centerline (Coincident both ends) — revolve needs a closed (or axis-touching) profile; this one touches the axis at top and bottom (origin), so it revolves into a closed solid (TBC: open profiles revolving to solids depend on version behavior — closed is always safe).
+
+**What you just practiced:** centerline-as-backbone, relation-before-dimension ordering, tangent spline control, axis-touching revolve profiles. This exact sequence builds every bottle in [[bottles-containers]].
+
+---
+
+## 10. Power tools (learn in this order)
+
+- **Dynamic Mirror** (Sketch tab → Mirror while sketching): sketch one side, the mirror updates LIVE as you draw — symmetric profiles at double speed. Set the centerline first, toggle on, draw half.
+- **Fully Define Sketch** (Tools → Fully Define Sketch): auto-applies relations + dimensions to imported/DWG geometry. Always audit after — it over-dimensions curves and picks daft datums. Trust-but-verify tool, not autopilot.
+- **Sketch Fillet vs Feature Fillet decision:** profile corners that are *design* (the shape IS rounded there, e.g., bottle shoulder) → sketch fillet or spline; edges that are *manufacturing* (break sharp edge, mold radius) → feature fillet later. Wrong choice = uneditable tree.
+- **Convert Entities + Offset Entities:** steal-and-offset in one move for gaskets, walls, and clearance copies (e.g., offset the bottle profile inward 2 mm = wall inner line for thin-feature revolve). Watch the external-reference parentage ([[part-assembly-drawing-workflow#4-in-context-editing-top-down-design]]).
+- **SketchXpert (red sketches):** when over-defined, SolidWorks offers solutions — read each option (it tells you WHICH relation/dim conflicts), don't just accept "solve." The diagnosis teaches; the button doesn't.
+
 **Next:** [[part-assembly-drawing-workflow]].
 
 ## CROSS-REFERENCES

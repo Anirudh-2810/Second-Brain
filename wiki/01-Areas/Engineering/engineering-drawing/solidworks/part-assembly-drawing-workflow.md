@@ -100,6 +100,31 @@ Standard sheet flow: model views (Front/Top/Isometric) → dimensions pulled fro
 - [ ] Assembly: no `-` (under-defined) or errors; drag moving parts through full travel
 - [ ] Drawing views + BOM update after a model edit (change one dimension, rebuild, confirm)
 
+---
+
+## 7. Worked example: spacer plate → 2-part assembly → drawing (one sitting)
+
+**Part (spacer plate 100×60×8, 4× M5 holes, 2× Ø8 dowel holes):**
+1. Front? No — plates lie flat: sketch on **Top Plane** → corner rectangle 100×60 anchored to origin (two edges coincident) → fully define → Extrude 8 Mid-Plane (symmetric about Top — design intent for a stacking part).
+2. Hole Wizard: 4× M5 clearance on 90×50 pattern (10 from edges — pattern the FIRST hole with linear pattern, don't place four), 2× Ø8 dowels on centerline spaced 60. Rename all.
+3. Fillet outer vertical edges 1 mm (deburr) — LAST. Mass check: steel ≈ 100×60×8 minus holes ≈ 370 g (TBC: read YOUR mass window — the habit is the lesson, not my arithmetic).
+
+**Assembly (plate + standoff + second plate — a mini stack):**
+1. New Assembly → insert plate → **Fix** (grounds it). Insert standoff (model quickly: revolve stepped cylinder Ø10/Ø6) → Concentric mate to a dowel hole + Coincident to plate top.
+2. Insert second plate → Concentric to standoff + Coincident to standoff top. Tree shows no `-` anywhere.
+3. Mate audit: drag the top plate — locked in all 6 DOF? It should be (concentric kills 4? precisely: concentric removes 4 DOF leaving axial slide+spin, coincident face kills slide, and a second coincident/parallel kills spin — count DOF per mate until this is instinct).
+
+**Drawing (the contract):**
+1. New Drawing → A4/ISO template (TBC: match your college standard) → Front + Top + Isometric views of the PLATE part.
+2. Model Items → import dimensions (they arrive associative — change the model, drawing updates; demo this once and you'll never hand-type a dimension again).
+3. Section view through the dowel holes; hole callouts via Hole Wizard data (M5 clearance + Ø8 H7? tolerance per fit intent — TBC: confirm fit tables, not this page); title block filled (material: C45/MS — TBC per stock).
+
+## 8. Configurations + Pack and Go (file hygiene that scales)
+
+- **Configurations:** one part file, multiple variants (Default: full detail; Simplified: holes suppressed for big assemblies; Flat: for drawings). Suppress (not delete) heavy features in working configs — rebuild speed is a feature.
+- **Pack and Go** (File → Pack and Go): zips part + assembly + drawing + references for sending/sharing. Sending a lone .sldasm without its parts is the classic broken-delivery — Pack and Go makes it impossible.
+- **External references audit** (for in-context parts): List External Refs → check nothing points at volatile geometry before sharing; Break/Lock what shouldn't travel (caution from §4 stands).
+
 **Next:** solid features — [[extrude-revolve-sweep]].
 
 ## CROSS-REFERENCES
