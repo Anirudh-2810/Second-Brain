@@ -107,6 +107,16 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 12. Transportation + storage appendix (gearboxes travel too — TBC per logistics practice)
+
+**Preservation for shipment/storage (rust never sleeps — TBC: confirm with preservation references, NOT this page):** vapor-corrosion-inhibitor packaging (VCI bags/emitters rated by volume + duration — TBC per product!) → desiccant + humidity indicators (TBC per spec!) → shaft locking (transport brackets preventing rotation damage to bearings/seals — TBC per design; false brinelling from vibration during transit kills bearings before first start!) → oil vs dry-ship decision (filled + sealed vs drained + preserved — TBC per duration/mode!) → CAD consequence: lifting + locking + preservation features ON the drawing (eyebolts per §8-housing + lock brackets + VCI notes — shipment designed, not improvised!).
+
+**Long-term storage discipline (mothballed machines — TBC per preservation practice):** rotation schedules (turn shafts periodically vs lock permanently — TBC per duration!) → climate control bands (TBC per site!) → re-commissioning checklist (the §13-conveyor-commissioning habit: inspect → lube → rotate-by-hand → no-load → load ramp!) → CAD consequence: storage CONFIGURATION (plugs in, breathers capped, shafts locked — modeled states per §11-mechanism-states habit generalized!).
+
+**Export packing (the wooden box as engineering — TBC per export-packing practice):** crate design for shock/vibe profiles per §12-pallet thinking (TBC per route!) → center-of-gravity + sling marks (TBC per handling!) → fumigated timber stamps (ISPM-15 compliance — TBC per regulation!) → CAD consequence: crate ENVELOPE in the assembly (footprint + height + CG modeled — freight quotes need dims + mass per §11-scale-model discipline!).
+
+---
+
 ## 11. Noise + vibration appendix (gearboxes heard before seen — TBC: confirm with NVH references, NOT this page)
 
 **Noise sources ranked (find it before fixing it):** mesh impact (tooth-pass frequency = teeth × RPM — TBC per measurement; the §11-spur-whine restated as frequency!) → imbalance (1× RPM signature — TBC per vibration analysis!) → bearing distress (characteristic defect frequencies per bearing geometry — TBC per catalog formulas!) → resonance (housing natural frequencies excited by mesh harmonics — TBC per modal analysis!) → CAD consequence: NONE directly (noise is measured, not modeled, at this level!) — but the DESIGN for quiet lives in CAD (precision grades per §11-high-speed + mesh quality per §9-inspection + isolation mounts per below!).

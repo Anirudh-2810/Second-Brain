@@ -103,6 +103,16 @@ flowchart TD
 
 ---
 
+## 13. Cutlery + cookware appendix (steel that feeds — TBC per cutlery/cookware references)
+
+**Knife architecture (edge science in brief — TBC: confirm with blade references, NOT this page):** blade profile (chef/santoku/paring geometries differ in belly + tip — TBC per use!) → grind (flat/convex/hollow cross-sections trade sharpness vs food-release vs strength — TBC per grind!) → edge angle per side (15° vs 20° per side philosophies — TBC per steel/culture!) → bolster vs no-bolster (balance + sharpening access trade — TBC per design!) → handle scales + rivets/pins (grip per §7 + mechanical retention that survives dishwashers — TBC!) → CAD consequence: blade FLAT pattern thinking (ground bevels modeled as chamfer/loft features with symmetric discipline!) + edge modeled SHARP (0.1-ish visual edge — TBC taste; renders lie about sharpness, drawings note "sharpen to spec"!).
+
+**Cookware bodies (heat management in metal — TBC: confirm with cookware references):** clad layups (stainless-aluminum-stainless sandwiches — TBC per thermal performance; CAD models the ENVELOPE, drawing notes the CLAD spec!) → base flatness (rocking pans infuriate — TBC per tolerance!) → handle attachment (riveted vs welded vs integral — TBC per tier; rivet interiors must clean per §8-food rules!) → lid fit + steam venting (TBC per design) → CAD consequence: handle JOINTS get the §9-joint-first treatment (heat + load + cleaning chemicals combine — the harshest joint environment in this module!).
+
+**Kettles + pourers (controlled liquid delivery — TBC per product):** spout hydraulics (laminar pour vs dribble — spout lip geometry decides — TBC per fluid behavior!) → whistle/steam mechanisms (TBC per design) → handle heat isolation (phenolic standoffs + air gaps — TBC per thermal!) → CAD consequence: pour TESTED physically (CAD predicts, water judges — the §6-bottle lesson: fluids verify on benches, not screens!).
+
+---
+
 ## 12. Measuring + marking tools appendix (precision you hold — TBC: confirm with metrology references)
 
 **Squares, levels + straightedges (truth made physical):** blade straightness (the reference edge IS the instrument — TBC per grade: hardened + ground + certified flat to light-bands? TBC per metrology!) → stock + blade joint (the 90° that matters — pinned + adjustable? TBC per tool class!) → vial sensitivity (arc-minutes per 2 mm bubble travel — TBC per level spec!) → CAD consequence: reference faces modeled + CALLED OUT (flatness/square callouts on the drawing per §10-drawing discipline — the tool's spec sheet starts as YOUR geometry notes!).

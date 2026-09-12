@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 14. Failure-analysis + warranty appendix (reading dead gearboxes — TBC per failure-analysis references)
+
+**Reading the wreckage (every failure writes its autobiography — TBC: confirm with gear-failure atlases, NOT this page):** uniform wear (normal life consumed — redesign for LONGER life or accept the interval!) → one-sided wear (misalignment — housing bores? foundation settling? thermal migration? — the §11-NVH-misalignment lesson with evidence!) → pitting concentrated at pitch line (surface fatigue from overload/under-lube — TBC per contact-stress practice!) → tooth breakage at root (bending overload or notch — the §5-root-fillet lesson with consequences!) → scuffing/scoring streaks (film collapse — speed/load/lube triangle per §10!) → CAD consequence: failure PHOTOS mapped to CAD zones (which mesh? which flank? — the §12-failure-resume habit at hardware scale!).
+
+**Warranty-data loop (field truth beats lab theory — TBC per reliability practice):** failure codes per mode (standardized taxonomy — TBC per company practice!) → MTBF by duty class (clean vs dusty vs shock service DIVERGE — TBC per data!) → design-rule updates FROM warranty (patterns become rules: "all X-duty boxes get Y upgrade" — the organizational learning from §12!) → CAD consequence: lessons-encoded templates (upgraded features baked into the STARTING models for next-gen boxes — §9-library habit doing reliability duty!).
+
+**Root-cause discipline (the 5-why habit for hardware — TBC per RCA practice):** symptom → mechanism → cause → systemic fix (replace the BEARING vs fix the SEALING vs redesign the VENTING — the fix LEVEL decides recurrence!) → CAD consequence: systemic fixes modeled as TEMPLATE changes (not one-off edits — the fix must be UNAVOIDABLE in future designs, or it recurs!).
+
+---
+
 ## 13. Conveyor + elevator drive appendix (gearboxes with somewhere to be)
 
 **Belt-conveyor drives (the §10-conveyor world powered right):** head-shaft direct (flange + torque arm per §10-mounting!) → backstop MANDATORY on inclines (the §6-conveyor-incline lesson with hardware: sprag/roller-ramp devices, TBC per device catalogs!) → take-up + stretch compensation (belt elongates — drive alignment must TOLERATE take-up travel, TBC per layout!) → dusty duty sealing (the §13-dust lesson at the drive: labyrinth + purge where washdown hits!) → CAD consequence: drive modeled IN the conveyor assembly (alignment across the whole machine, not per-component optimism!).

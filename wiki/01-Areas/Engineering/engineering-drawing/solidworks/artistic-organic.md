@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 15. Exhibit + installation appendix (work that lives in rooms — TBC per exhibition references)
+
+**Mount + plinth engineering (the invisible half of sculpture):** seismic + tip-over stability (public safety factors — TBC: confirm with structural/exhibition standards, NOT this page!) → hidden armatures (stainless skeletons inside organic forms — TBC per conservation practice!) → vibration isolation from foot traffic/HVAC (TBC per museum practice!) → CAD consequence: mount POINTS designed into the work (threaded inserts? base plates? — TBC per install; retrofitted mounts scar finished work!).
+
+**Lighting the work (the §11-luminaire lesson inverted — TBC per exhibition-lighting references):** track vs integrated (who owns the light — venue or work? — TBC per commission!) → conservation lux-hours (light DAMAGES some materials cumulatively — TBC per conservation science!) → glare angles for viewers (the §14-CMF glare lesson at room scale!) → CAD consequence: sightline + lighting cones modeled (viewer eye heights + fixture positions — the §7-drone-FOV habit generalized to eyeballs!).
+
+**Plaque + provenance (the paperwork that travels — TBC per gallery practice):** title/medium/dimensions/edition marks (numbered editions need consistent marking zones — TBC!) → care instructions (cleaning agents that DON'T attack the finish — TBC per material!) → CAD consequence: edition-mark ZONE split-lined (the §12-jewelry-marking habit at sculpture scale!) + crate/flying-case envelopes (work that tours needs TOUR packaging designed — TBC per registrar practice!).
+
+---
+
 ## 14. Sculptural lighting + public-art appendix (scale, weather, liability — TBC per public-art/structural references)
 
 **Wind + structure (art that stands outside — TBC: confirm with structural references, NOT this page):** wind-load areas (sail area × pressure = overturning moment — TBC per code!) → foundation discipline (depth + mass + anchors per the §11-tank-foundation habit generalized!) → vortex shedding on slender forms (TBC depth: tuned dampers exist for a reason!) → CAD consequence: load-path modeling from day one (the §7-H-frame habit: draw the force loop before the form! — art with hidden structure reads magic, art WITHOUT hidden structure reads tragedy!).
