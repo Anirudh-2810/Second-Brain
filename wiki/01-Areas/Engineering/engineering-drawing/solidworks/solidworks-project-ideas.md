@@ -184,6 +184,16 @@ Beginners either worship or ignore FEA colors. Neither is engineering. How to re
 
 ---
 
+## Toolchain appendix (software + data that multiplies CAD)
+
+**PDM thinking at solo scale (awareness — TBC: confirm with PDM references for team depth):** revision discipline per §-execution-protocols (REV + notes + revalidation — solo PDM is HABIT, not software!) → where-used tracking (which assemblies use this part? — the §10-file-hygiene folder habit + a spreadsheet beats memory past ~50 parts!) → release states (WIP vs REVIEW vs RELEASED folders — TBC taste; released files are READ-ONLY by convention, edits branch new REVs!) → the team-readiness payoff (solo habits that scale ARE team habits — PDM onboarding takes days not months when discipline pre-exists!).
+
+**Interoperability pack (files that travel — TBC per receiving-system practice):** STEP AP214 (assemblies + colors travel — the default exchange!) → Parasolid (kernel-native for Siemens-shop flows — TBC per toolchain) → STL/3MF refined (print/export per [[surfacing-methodology]] §8, NOT dumb defaults!) → DXF/DWG flat + 3D PDF for shops without CAD (TBC per shop capability!) → the exchange checklist (units confirmed? + origin sane? + bodies named? + revision marked? — the §-ship-standards extended to EVERY file format!).
+
+**Render + documentation toolchain (TBC per tool availability):** studio renders in-CAD (the §8-publishing hero shots!) → exploded-line diagrams (assembly instructions that customers actually follow — TBC per technical-illustration practice!) → video turntables + assembly animations (Motion studies DOUBLE as instructions — the §-simulation sandbox doing documentation duty!) → the single-source rule (renders/animations REGENERATED from live CAD, never frozen exports — stale visuals lie about current design!).
+
+---
+
 ## Execution protocols (run every brief like a pro)
 
 **Session structure (the 2-hour block that ships):** 10-min plan review (which steps? what could fail? — the pre-mortem!) → 90-min modeling sprints (phone away, ONE feature set per sprint — the §2-exercise timing discipline generalized) → 15-min verify (rebuild test + section + mass per the brief's ladder — NEVER skip; verification debt compounds!) → 5-min log (daily note: done/next/blocked + ONE trick kept — the §6-log-template habit). Four blocks a week finish any brief in a month alongside coursework (TBC per YOUR pace — the rhythm, not the calendar!).

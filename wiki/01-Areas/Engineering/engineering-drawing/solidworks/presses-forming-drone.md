@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 11. CNC + shop-floor appendix (from CAD to chips)
+
+**Machinability by design (the model IS the quote — TBC: confirm with machining references, NOT this page):** tool access (every pocket needs a cutter path IN — deep narrow pockets need long tools that chatter; TBC per length/diameter rules!) → standard tool sizes (design fillets/pockets to catalog endmill diameters — TBC per tooling; odd radii need custom ground tools = money + weeks!) → setup count (faces machined per setup — fewer setups = cheaper + more accurate; TBC per quoting: the setup IS the cost!) → tolerance vs process (general ±0.1 milled freely; ±0.01 needs grinding/finishing passes — TBC per capability; tolerance tighter than function = paying for nothing!).
+
+**Fixture thinking (holding work beats cutting work — TBC: confirm with fixturing references):** vise + parallels (first-op standard — TBC per shop) → soft jaws (conforming grip for finished faces — TBC per practice; model the JAW geometry for repeat jobs!) → vacuum/magnetic (thin flat parts that vise would crush — TBC per workholding!) → CAD consequence: fixture features ON the part (tabs for holding, ground LATER off — TBC per process planning; sacrificial stock is designed, not accidental!).
+
+**Drawing-to-shop handoff (the package that gets quoted — TBC per shop practice):** STEP + PDF drawing + material + qty + finish + tolerance intent stated UP FRONT (incomplete RFQs get padded quotes — vagueness taxes you!) → critical-feature flagging (which 3 dims actually matter? — TBC: mark them, shops focus effort where flagged!) → revision control (REV + date on EVERY send — the §10-revision habit at the money interface!) → the feedback loop (ask what drove cost on YOUR quote — machinists teach DFM free with every quote breakdown; TBC per experience — request it explicitly!).
+
+---
+
 ## 10. Press safety + two-hand control appendix (force demands respect)
 
 **Hazard inventory (10 tons ignores fingers — TBC: confirm with press-safety standards like OSHA/EN 693, NOT this page):** closing pinch (ram vs bed — the primary killer: guarded, light-curtained, or two-hand-controlled — pick PER the risk assessment, never by convenience!) → stored energy (hydraulic accumulators + gravity-held rams drift DOWN on seal failure — TBC: counterbalance/brake valves modeled in circuit + mechanical prop for die work! — TBC per practice) → ejected parts/tools (flying blanks + broken tooling — TBC per guarding: polycarbonate screens rated, not hopeful!) → noise + oil injection (pinhole leaks cut SKIN at pressure — TBC: confirm with hydraulics-safety references; cardboard-test for leaks, NEVER hands!).

@@ -95,6 +95,16 @@ flowchart TD
 
 ---
 
+## 9. Slewing + winch + hoist appendix (planetary/bevel at work in the world)
+
+**Slewing drives (excavator/crane rotation — TBC: confirm with slewing-bearing references, NOT this page):** planetary + output pinion driving a large slew ring (ratios 50–200:1 multi-stage — TBC per drive) → moment + axial + radial COMBINED bearing duty (slew rings are bearing+gear hybrids — TBC per catalog!) → brake holding (spring-applied, pressure-released parking brakes — TBC per safety; gravity + wind back-drive unbraked slews!) → CAD consequence: interface flanges BOTH sides (machine + superstructure datum faces — TBC per mounting) + seal discipline (outdoor vertical-axis sealing against rain/dust ingress — TBC!).
+
+**Winch/hoist gearing (lifting duty — TBC: confirm with hoist standards like FEM/ISO, NOT this page):** planetary-in-drum compactness (gearbox INSIDE the rope drum — space genius!) → multi-disc brakes on the high-speed shaft (TBC per fail-safe practice: brakes hold the LOAD side of the ratio — holding the fast shaft multiplies brake effectiveness by the ratio!) → rope-drum groove geometry (groove radius vs rope diameter + fleet angle limits — TBC per reeving practice!) → CAD consequence: brake + drum + gearbox as ONE envelope-checked assembly (heat from braking near seals/lube — TBC per layout!).
+
+**Conveyor/bucket-wheel scale-up (the §9-conveyor world driven right):** shaft-mounted planetary with torque arm (the §10-mounting lesson at megawatt scale — TBC per mining practice!) → backstops on incline head shafts (anti-rollback per §6-conveyor-incline, industrial grade — TBC per device!) → fluid couplings for soft-start of loaded belts (the §9-transmission lesson restated at scale!) → CAD consequence: drive + take-up + structure as INTERFACE-managed modules (the §11-large-assembly modularity habit — mining conveyors are PLANTS, and plants need module boundaries!).
+
+---
+
 ## 8. Differential + corner-box applications (bevel gears earning their keep)
 
 **Automotive differential (the bevel masterpiece — awareness, TBC depth):** pinion drives crown wheel (hypoid-ish offset in reality — TBC: confirm with drivetrain references; model as bevel pair at learning level) → spider/side-gear bevel SET inside the carrier (straight bevels on intersecting axes — the §1 two-way generalized to a GEAR CLUSTER) → carrier rotates with the crown, spiders differentiate wheel speeds (the mechanism that lets cars corner — TBC: confirm with vehicle-dynamics references for the full story) → CAD consequence: FIVE+ bevel gears on FOUR intersecting axes in one carrier (the assembly-tolerance nightmare that justifies the §5-intersection rule absolutely — one axis off and nothing turns).

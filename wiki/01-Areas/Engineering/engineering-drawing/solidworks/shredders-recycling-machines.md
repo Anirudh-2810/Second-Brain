@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 11. Sorting + separation appendix (shredding is step one — TBC per recycling references)
+
+**Downstream chain awareness (shredders FEED processes — TBC: confirm with recycling-plant references, NOT this page):** magnetic separation (ferrous out FIRST — protects downstream crushers/mills! — TBC per flowsheet) → eddy-current (non-ferrous ejected — TBC per physics) → air classification (light/heavy split by airflow — TBC per density cut-points) → optical/sensor sorting (color/material/NIR ejection — TBC per technology!) → CAD consequence: shredder DISCHARGE interfaces to conveyors at documented rates/heights (the §9-conveyor handoff: flange positions + flow rates ON the drawing, or integration fails on site!).
+
+**Size-reduction stages (coarse → fine cascade):** primary shred (100–300 mm output — TBC per duty) → secondary shred/granulate (10–50 mm — TBC) → fine grind/pulverize (<10 mm — TBC per product spec!) → each stage SMALLER + FASTER + TIGHTER-toleranced than the last (the design progression!) → CAD consequence: common shaft/frame ARCHITECTURE across stages (platform thinking per [[complex-showcase]] §12: one proven chamber family, scaled!) → liner/screen interchangeability (wear parts shared across stages where possible — the spares-table economics from §8!).
+
+**Contamination control (recyclate quality = money — TBC per market specs):** tramp removal upstream (magnets + manual picking BEFORE the chamber — the §10-wrench lesson generalized: protection pays!) → wash lines after granulation (labels/glue/dirt removal — TBC per process; water + drying envelopes in the layout!) → metal detection post-shred (missed tramp destroys granulator knives in seconds — TBC per practice!) → CAD consequence: detector + diverter-gate envelopes at discharge (rejected-stream chute modeled! — quality hardware needs space designed in, per the §10-safety-hardware rule!).
+
+---
+
 ## 10. Dust, noise + fire appendix (shredders are hazardous by nature)
 
 **Dust control (shredding MAKES dust — design for it):** enclosed chamber + discharge (open machines dust the building — TBC per industrial-hygiene practice) → extraction stubs at transfers (per §9-conveyor dust thinking generalized: every drop point gets a stub!) → filter maintenance access (blinded filters = no extraction = dust event — TBC per practice; model the filter door + differential-pressure tap! — TBC per monitoring) → combustible-dust awareness (organic/metal dusts EXPLODE — TBC: confirm with safety standards like NFPA 652/654, NOT this page; venting + isolation + housekeeping designed, not hoped!).
