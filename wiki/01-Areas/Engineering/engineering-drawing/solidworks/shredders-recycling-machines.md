@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 13. Mobile + plant-scale appendix (shredders that travel or anchor plants — TBC per mobile-plant references)
+
+**Mobile shredders (tracked/wheeled units — TBC: confirm with mobile-equipment references):** transport envelope (road-legal width/height/weight PER JURISDICTION — TBC per regulation; design folds/telescopes to legal!) → self-propulsion vs towable (tracks for sites, wheels for roads — TBC per mobility need!) → onboard power (diesel-hydraulic vs genset-electric — TBC per emissions/noise site rules!) → setup/teardown time (outriggers + feed arrangement under an hour? — TBC per operations!) → CAD consequence: TRANSPORT configuration modeled (folded boom, pinned feeders, locked drums — the §12-storage-states habit for machines that commute!).
+
+**Fixed-plant integration (the shredder as one organ — TBC: confirm with plant-design references):** feed metering upstream (starve vs choke scenarios designed — TBC per process control!) → dust + noise + fire systems shared across the line (the §10-appendix at plant scale — TBC per facility design!) → maintenance crane coverage (every heavy lift reachable — TBC per layout; unmaintainable corners get neglected per §9!) → CAD consequence: plant LAYOUT model with ALL disciplines (civil + mechanical + electrical envelopes — the §11-large-assembly habit: modules with interfaces at factory scale!).
+
+**Permitting + community envelope (awareness — TBC: confirm with environmental/land-use regulation, NOT this page):** emissions + noise + traffic + hours-of-operation constraints SHAPE the plant (enclosed buildings, curfews, wheel-washes — TBC per permit!) → CAD consequence: permit drawings FROM the model (site plans, elevations, screening renders — the §8-publishing habit doing legal duty!).
+
+---
+
 ## 12. E-waste + tire + white-goods appendix (hard streams — TBC per recycling references)
 
 **E-waste (hazard-dense shredding — TBC: confirm with e-waste standards, NOT this page):** battery REMOVAL upstream (lithium in shredders = fires that make news — TBC per procedure; detection + manual pull BEFORE the chamber, no exceptions!) → refrigerants captured (CFC/HFC recovery by certified techs — TBC per regulation!) → mercury switches + backlight tubes diverted (TBC per hazmat stream!) → CAD consequence: pre-sort STATION layout (conveyor + pull stations + detector gates modeled as a SYSTEM with the shredder — the §11-flowsheet habit: the shredder is step 3, not step 1!).

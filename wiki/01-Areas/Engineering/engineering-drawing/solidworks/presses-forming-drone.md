@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 13. Automation + press-line appendix (presses that run themselves — TBC per press-automation references)
+
+**Feed systems (stock in, parts out — TBC per coil/blank practice):** coil reels + straighteners (coil set removal — TBC per material!) → servo-roll feeds (pitch accuracy per part tolerance — TBC per feed spec!) → blank destackers (magnetic vs vacuum separation — TBC per blank type!) → scrap conveyors OUT (skeleton + slugs + trim — TBC per §9-conveyor thinking at press side!) → CAD consequence: feed-line ENVELOPES in the press layout (coil width + loop pits + straightener footprints — the press is one station in a LINE, model the line!).
+
+**Transfer + progressive destiny (multi-hit automation — TBC depth):** transfer rails + fingers (part motion between stations synchronized to stroke — TBC per timing!) → progressive strip layout (pitch + carrier design — TBC per die practice!) → press SPEED vs feed capability (strokes-per-minute gated by the SLOWEST element — TBC per line balancing!) → CAD consequence: TIMING diagram awareness (crank angle vs feed vs transfer — TBC per controls; automation designed on paper first, modeled second, debugged NEVER (it works because the paper was right)!).
+
+**Lights-out considerations (unattended running — TBC per lights-out practice):** slug/batch monitoring (vision + tonnage signatures detect doubles/slugs — TBC per sensing!) → tool protection (in-die sensors stopping on misfeed — TBC per die protection!) → remote alerting + auto-shutdown ladders (TBC per controls!) → CAD consequence: SENSOR mounts + sight windows modeled (the §9-controls lesson: automation hardware needs DESIGNED space, and sight needs sightlines!).
+
+---
+
 ## 12. Additive + hybrid appendix (printing presses tools and parts — TBC per AM references)
 
 **Printed tooling (plastic + composite tooling for short runs — TBC: confirm with tooling references, NOT this page):** forming dies in filled nylon/CF (hundreds of hits, not hundred-thousands — TBC per life data!) → thermoform molds (printed + sealed + cooled? — TBC per process!) → jig/fixture prints (overnight workholding per §11-CNC appendix — printed soft jaws + nests!) → CAD consequence: tooling designed FOR printing (no undercuts the printer can't resolve, TBC per resolution; draft STILL matters for molding off printed tools!) + shrinkage-per-process (resin vs FDM vs SLS scale factors differ — TBC per machine/material!).

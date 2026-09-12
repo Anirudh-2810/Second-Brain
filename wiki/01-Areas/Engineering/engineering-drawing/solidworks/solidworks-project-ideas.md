@@ -184,6 +184,24 @@ Beginners either worship or ignore FEA colors. Neither is engineering. How to re
 
 ---
 
+## Brief 9 — Benchtop CNC plotter/mill conversion (bonus: subtractive capstone)
+
+**Goal (the other half of making):** convert/assemble a small 3-axis machine (3018-class router or plotter-to-mill build — TBC per machine choice) with modeled upgrades. Why: additive (printing per §8-printing) + subtractive (this brief) = complete personal factory; rigidity + precision thinking transfers to EVERY machine page.
+
+**Roadmap:** frame audit (extrusion squareness + gantry stiffness FIRST — TBC per machine; measure, don't assume!) → spindle selection (DC vs trim-router vs water-cooled VFD per material/noise — TBC!) → workholding (spoilboard + clamps + vise envelopes — TBC per stock!) → electronics bay (drivers + PSU + controller + estop per §9-controls thinking!) → upgrades modeled (stiffening plates, cable chains, dust shoe, probe — TBC per priority!) → CAD consequence: machine + work ENVELOPES (travel limits modeled as hard stops in CAD before crashing in reality!).
+
+**Validation ladder:** tram + square audit (dial indicator readings, TBC per procedure!) → test cuts in stages (foam → wood → plastic → aluminum — TBC per machine rigidity; NEVER first-cut aluminum on an unproven frame!) → feeds/speeds log per material (the machinist's notebook STARTED on day one!) → accuracy artifacts (circle-diamond-square test — TBC per machinist practice!) → CAD consequence: error MAP (backlash + flex + tram recorded — compensate in CAM where possible, fix mechanically where not!).
+
+## Brief 10 — Weather station + sensor mast (bonus: outdoor electronics that survive)
+
+**Goal (ruggedization masterclass):** a solar-powered sensor node (temp/humidity/pressure/rain/wind — TBC per sensor choice) deployable for a monsoon season. Why: combines §8-enclosure + §10-garden-weatherproofing + §11-power + §9-conveyor-scale environmental thinking in ONE shippable product.
+
+**Roadmap:** sensor selection + placement (aspirated temp shield? rain gauge funnel? anemometer bearings? — TBC per meteorological practice!) → mast + mount (pole clamps + orientation + lightning thinking — TBC per site!) → power budget (solar + battery + sleep duty cycles computed on paper FIRST — TBC per electronics!) → enclosure per §8-battery + §9-ingress (IP65-ish target — TBC per test!) → CAD consequence: SERVICE order designed (sensors cleanable + battery swappable + data retrievable WITHOUT tools falling off a roof! — the §7-maintenance habit at height!).
+
+**Validation ladder:** hose-test ingress (TBC per IP practice — test BEFORE deployment!) → week-long balcony soak (logs vs reference thermometer — TBC per calibration!) → wind survival (gust loading on mast + brackets — TBC per analysis!) → power autonomy proof (cloudy-week logs — TBC per data!) → season retrospective (what leaked/corroded/drifted — the failure resume earning field entries!).
+
+---
+
 ## Brief 7 — Line-following + obstacle-avoiding bot chassis (bonus: autonomy-ready platform)
 
 **Goal (the software-meets-CAD bridge):** a small tracked/wheeled rover chassis with sensor mounts, such that control code has somewhere to live. Why: your RAI degree in one brief — mechanical platform + electronics bays + sensor geometry, the full robotics stack bottom layer.

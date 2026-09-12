@@ -95,6 +95,16 @@ flowchart TD
 
 ---
 
+## 11. Compound planetary + Ravigneaux appendix (stacked smarts — TBC: confirm with transmission references, NOT this page)
+
+**Compound sets (planets ON planets):** stepped planet pinions (two gears, one pin — sun meshes small step, ring meshes big step — TBC per arrangement!) → ratio multiplication without extra stages (compact + brutal on bearing loads — TBC per analysis!) → assembly-condition math EXTENDED (the §6-integer rule generalized per compound topology — TBC: confirm with planetary-design references!) → CAD consequence: stepped-planet parts (two tooth counts, ONE bore — the pattern-twice discipline from §6!) + carrier cheeks trapping both meshes (assembly sequence choreographed — model the ORDER, not just the parts!).
+
+**Ravigneaux (twin-sun + shared planets — the automatic-transmission heart — TBC depth):** long + short planet sets meshing each other + two suns of different sizes (TBC per AT practice!) → multiple ratios + reverse from ONE compact set via clutch/brake selection (TBC per transmission control!) → CAD consequence at learning level: ENVELOPE + interface modeling (buy the gearset knowledge later; model mounts/seals/housing around catalog dimensions FIRST — the §9-bought-vs-built judgment at transmission scale!).
+
+**Wolfrom/topology extremes (awareness — TBC depth):** high-single-stage ratios (100:1+ in one planetary pass — TBC per topology!) → efficiency cliffs (power recirculation eats efficiency at extremes — TBC per analysis!) → CAD consequence: NONE at learning level beyond awareness (exotic topologies are studied, not modeled, until fundamentals are muscle memory — the §1-gateway habit: master the simple set FIRST, per the §6-build script, before reading about Wolfrom!).
+
+---
+
 ## 10. Tooth-contact + lapping appendix (mesh quality you can see — TBC per gear references)
 
 **Contact-pattern reading (the senior tech's eye — TBC: confirm with gear-setup references, NOT this page):** marking compound on 3–4 teeth → rotate under LIGHT load → read the wipe: centered-oval (correct! — load spreads mid-face!) → heel-biased (contact toward outer cone end — pinion needs axial shift per setup tables, TBC!) → toe-biased (toward inner — shift opposite!) → face/flank bias (angular misalignment — housing bores suspect, NOT the gears! — the §8-housing-seat lesson restated as diagnostics!) → CAD consequence: NONE in geometry (patterns are setup, not shape!) — but the DRAWING carries setup data (backlash range + pattern acceptance sketch + shim schedule per §8-lash! — setup travels with hardware!).
