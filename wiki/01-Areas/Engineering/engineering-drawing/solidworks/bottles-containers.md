@@ -99,6 +99,18 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 9. Jug + pail + drum appendix (scaling vessels up)
+
+**Handle-load scaling (physics restated at size):** teaspoons ignore handle stress; 20 L pails hang 20 kg on one grip (TBC: confirm with packaging references) → handle cross-section AND joint design scale with filled weight (not volume — DENSITY matters: oil vs water vs pellets differ 2×; TBC per product) → metal bails (wire/strap handles pivoting on ear mounts — the hardware-store solution: model ears + pivot + bail sweep, TBC per pail construction) vs integrated plastic grips (molded hollow handles — blow-molded INTO the body, TBC depth: blow molding is its own process universe, confirm with packaging references NOT this page).
+
+**Lid systems at scale (beyond screw caps):** press-fit lids with gasket grooves (pail lids — lever-off opening forces modeled? TBC: opening ergonomics matter, confirm per product) → tamper-evident tear bands (TBC per regulation for food/chemical) → UN ratings for dangerous goods (drop/stack/pressure tested packaging — TBC: confirm with hazmat-packaging standards, NOT this page; awareness that the rating EXISTS shapes wall/closure design) → bung openings on drums (2-inch + 3/4-inch standard bungs with gaskets — TBC per drum standards; model the bung flanges + cap envelopes).
+
+**Stacking + palletization (the warehouse reads your CAD):** nesting tapers (empty pails stack — draft angles double as nesting angles, TBC per product) → filled stacking load (bottom pail carries the column — top-load strength via corrugation/ribs, TBC: confirm with packaging-testing references) → pallet footprint modularity (footprints divide 1200×1000 pallets evenly — TBC per logistics standard; off-module sizes waste freight = purchasing will reject your beautiful bottle) → label visibility in stacked/palletized state (the shelf-facing rule from §8 extended to the warehouse).
+
+**Blow-molding awareness (where most plastic bottles REALLY come from):** extrusion-blow (hollow bodies with handle voids pinched in — the pinch-off seam is a visible witness line to DESIGN AROUND, TBC depth) → stretch-blow (PET clarity + strength from biaxial stretch — TBC: confirm with packaging references; preform design is its own discipline) → wall distribution follows stretch ratios (corners thin — TBC per process; CAD walls model NOMINAL, process notes carry the reality). Model for the process that will actually make it — injection-blow vs extrusion-blow vs stretch-blow diverge in what geometry they allow (TBC: confirm per project, NOT this page).
+
+---
+
 ## 8. Labels, decoration + cap-torque appendix (the shelf-facing details)
 
 **Label panel engineering:** flat-ish zone sized to label + applicator tolerance (TBC: confirm with packaging references — illustrative: label minus 2 per side) → recess 0.3–0.5 (TBC illustrative) so edges don't peel on conveyors → panel positioned for the FILL LINE (label must clear liquid-level sight strips where applicable — TBC per product) → shrink-sleeve alternative (full-body decoration needs NO panel — body must then be sleeve-smooth; TBC per decoration process).

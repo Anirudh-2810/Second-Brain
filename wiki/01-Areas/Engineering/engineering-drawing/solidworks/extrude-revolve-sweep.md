@@ -108,6 +108,16 @@ A 120×80×6 plate holding a Ø40 motor boss with a cable hook — exercises ext
 
 ---
 
+## 10. Cut-strategy + Hole Wizard mastery (removal as design)
+
+**Cut ordering (the mirror of §2's add-order):** big removals first (pockets, bores that define architecture) → functional holes (mounting, passages) → cosmetic reliefs (lightening, styling grooves) → edge treatments (chamfers on hole entries for fastener seating + deburr — TBC per finishing practice). Cutting small details before big pockets risks orphaning them when the pocket moves — removals reference the CURRENT body, so sequence removals from most-architectural to most-decorative.
+
+**Hole Wizard power pass (beyond §7):** hole TYPES as joint design (clearance + nut vs tapped vs threaded-insert vs rivet — the joint decision precedes the hole feature; TBC: confirm per joint references) → near/far-side countersinks (cable pass-throughs deburr BOTH faces — TBC) → hole callout inheritance (change the feature → drawing updates — the associativity demo that sells Hole Wizard over dumb cuts permanently) → position by sketch POINTS (one 3D sketch of points drives 20 holes across faces — pattern the points, not the features — TBC taste: test point-driven vs feature-patterned on a multi-face bracket and keep notes).
+
+**Threaded-hole honesty:** modeled threads for PRINTS (FDM threads work at M6+ coarse — TBC: confirm with printing references; print orientation matters — axial threads print cleaner than radial) → cosmetic + tap-drill callout for MACHINED (the shop taps; your model shows the pilot + spec) → heat-set inserts for plastic (boss OD + insert length per datasheet — TBC per vendor; model the BOSS, buy the insert, press with a soldering iron at learning level — TBC per practice) → NEVER model full helical threads on every fastener hole in an assembly (rebuild death — cosmetic default, modeled exception with written justification).
+
+---
+
 ## 9. Revolve deep pass: thin features, grooves, and lips
 
 **Thin-feature revolve (vessels in one shot):** open profile (no closure needed — the thin wall closes it) + wall thickness inward (outer exact — the styling rule from [[bottles-containers]]) → vessels, cups, housings without a separate shell step. Direction discipline: thin-side flips change which face is exact — inward for visible outsides, outward for packaging-critical insides (bores that must fit shafts stay exact → thin outward).

@@ -112,6 +112,18 @@ The #44-class problem as lofted surface first, then boundary — feel the differ
 
 ---
 
+## 9. Industrial applications tour (where loft/boundary earn salaries)
+
+**Aerospace fairings (TBC depth — awareness):** wheel pants, wingtips, cowlings — drag-critical skins where patch count stays LOW (fewer seams = less drag + easier composite layup — TBC: confirm with aero-composites references) and continuity runs C2 (laminar flow cares — TBC). CAD consequence: long clean Boundary patches with minimal trims; fastener zones as separate small patches (don't break the hero skin for screws).
+
+**Automotive closures (awareness):** hoods/decklids/fenders — stamped sheet (draw-depth limits! — TBC: confirm with stamping references; deep draws tear, shallow draws oil-can; the panel design respects press limits) → hemmed edges (fold-over flanges for stiffness + safety, modeled as edge rolls at learning level — TBC) → hinge/latch reinforcements (doubler patches inside — TBC per construction). CAD consequence: outer skin + inner frame as SEPARATE patch sets sharing boundary curves (the helmet shell/liner pattern from §5-liner generalized to cars).
+
+**Consumer housings (the playlist's home turf):** parting-line-driven patch layout (every patch edge is EITHER a style line OR the parting line — no accidental seams; TBC per product) → texture-ready faces (grain hides C1 — budget C2 only for gloss zones per [[artistic-organic]] §9-finish-spec) → snap/hook integration modeled into the shell patches (not added later — TBC per enclosure practice; hooks grown from the wall share its strength).
+
+**Marine/boat hulls (awareness — TBC depth):** developable-ish surfaces (plywood/steel plate bends ONE way — ruled-surface thinking from [[surfacing-utilities-troubleshooting]] §6!) → chine hulls (hard creases BETWEEN developable panels — C0 as DESIGN, the inverse of automotive) → fairing battens in CAD = curvature combs on sections (the wooden-boat tool, digitized). CAD consequence: chine rails as explicit rails, panels as ruled/lofted-between — the one genre where creases are correct.
+
+---
+
 ## 8. Surface continuity showcase: fender-crown exercise (eyes-first training)
 
 **The exercise (no dimensions — pure fairness training):** loft 3 profiles (flat-ish ends + crowned middle, all same width) → Boundary the SAME profiles with C2 end rails → zebra both → overlay-compare. The loft shows end kinks (C0-ish leaves); the Boundary flows. Same inputs, different math respect — the lesson is visceral, not verbal. Screenshot the pair into your daily note; revisit monthly as your fairness eye develops (it WILL develop — stripe-reading is a trained sense, TBC: confirm with your own before/after archive, not my claim).

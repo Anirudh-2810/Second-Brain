@@ -104,6 +104,18 @@ The signature offset application from §1 — outer styling skin in, comfort lin
 
 ---
 
+## 8. Diagnostic deep pass: reading stripes like an engineer (the trained eye)
+
+**Stripe vocabulary (what each pattern MEANS):** parallel even flow = fair C1/C2 (good) → sharp V-kink = C0 crease (intended style line or accidental seam — check intent!) → bunching/convergence = curvature spike (the underlying spline wiggles — fix the SKETCH, §2's rule restated) → stripes diving into a point = pole/pinch (spheres/cones apexes, revolve poles — TBC: poles are topologically unavoidable, manage don't eliminate) → wavy drift = unfair guide rails (rebuild rails, not patches) → broken/discontinuous = naked edges or knit gaps (forensics per [[filled-knit-trim-thicken]] §9).
+
+**Comb reading (quantitative fairness):** comb LENGTH = curvature magnitude (long = tight bend), comb DIRECTION flips = inflection (convex↔concave — styling power + fairness risk per [[artistic-organic]] §9) → smooth length TRANSITION along the curve = fair; sudden jumps = control-point noise (delete/rebuild that span) → symmetric combs on symmetric curves (asymmetric combs on a "symmetric" spline = the spline lies — rebuild with mirror) → comb density setting (too sparse hides wiggles — TBC: crank density when auditing, relax when designing; find YOUR toggle).
+
+**Comparative method (the learning accelerator):** zebra YOUR patch next to a KNOWN-GOOD reference (a primitive cylinder/cone/plane at similar scale — the control sample!) → differences isolate YOUR defects from display artifacts (tessellation shimmer vs real unfairness — TBC: learn YOUR graphics' shimmer signature once and discount it forever) → screenshot pairs into the daily log (§7-eye-calibration habit extended: control + sample + verdict, three images per audit).
+
+**Audit cadence (when to check):** after EVERY patch (10 seconds, catches profile sins while cheap) → after EVERY knit (seam continuity verdict) → after thicken (walls inherit unfairness) → before renders/drawings (never present unaudited skins — the portfolio rule from [[artistic-organic]] §8 restated as QA gate).
+
+---
+
 ## 7. Swept vs lofted vs boundary: the selection matrix (stop guessing)
 
 | Situation | Pick | Why |
