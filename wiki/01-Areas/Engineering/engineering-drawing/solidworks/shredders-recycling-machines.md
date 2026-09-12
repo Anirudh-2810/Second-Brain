@@ -85,5 +85,17 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 **Next:** [[conveyors-material-handling]].
 
+---
+
+## 7. Single-shaft + paper machines + maintenance appendix
+
+**Single-rotor + bed-knife physics (#330/#27-class):** one spinning rotor with cutting teeth passing a FIXED bed knife with a small adjustable gap (TBC: knife gap ~0.1–0.3 mm illustrative — confirm with shredder references; gap sets cut quality AND power draw). Rotor teeth (patterned cutters on a drum — fewer, chunkier than twin-shaft blades) shear material against the knife edge. Design consequences: knife adjustment slots are MANDATORY (knives dull → advance the gap, don't replace the rotor) → knife steel specified separately (hardened tool steel vs mild rotor body — TBC per build; model as separate part with its own material!) → screen wraps more of the rotor (particle sizing happens here, same patterned-cut discipline as §1).
+
+**Paper-shredder specifics (#330/#27):** strip-cut (parallel shafts, interleaved discs — the twin-shaft pattern at fine pitch) vs cross-cut (added perpendicular shear — particle spec drives the mechanism choice; TBC per security level) → paper dust management (sealed bearings! paper dust kills open bearings — TBC: confirm with maintenance references) → bin-full interlock envelope (awareness: safety/compliance feature, model the sensor mount).
+
+**Agri/wood appendix (#297/#327/#326-class):** infeed hopper STEEP + long (branches self-feed by gravity + vibration — TBC: confirm feed angles per material; shallow hoppers need push sticks = injury vector) → flywheel/anvil option for wood (inertia smooths the cut spikes from §6 — TBC: confirm flywheel sizing with machine references) → discharge chute aimed DOWN into collection (dust + chip throw direction is a safety feature — TBC per guarding practice) → PTO/drive interface for tractor-driven units (TBC per build: spline + shear-bolt overload protection — the shear bolt is the mechanical fuse, confirm with agri references).
+
+**Maintenance-as-design (the industrial lesson):** every wear part needs a 10-minute replacement path — blades/knives/screens accessed through bolted (not welded!) covers with lifting points (TBC: confirm weights vs manual-handling limits) → grease points reachable without disassembly (model the nipples!) → spare-parts BOM flagged on the drawing (which parts to stock: knives, screens, belts, bearings — the aftermarket thinking that separates machine builders from modelers).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[gearbox-fundamentals]] · [[conveyors-material-handling]] · [[presses-forming-drone]] · [[dressup-productivity]] (patterns) · [[part-assembly-drawing-workflow]]
