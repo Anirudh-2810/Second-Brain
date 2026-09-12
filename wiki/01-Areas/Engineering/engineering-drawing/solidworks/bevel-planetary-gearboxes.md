@@ -95,6 +95,16 @@ flowchart TD
 
 ---
 
+## 10. Tooth-contact + lapping appendix (mesh quality you can see — TBC per gear references)
+
+**Contact-pattern reading (the senior tech's eye — TBC: confirm with gear-setup references, NOT this page):** marking compound on 3–4 teeth → rotate under LIGHT load → read the wipe: centered-oval (correct! — load spreads mid-face!) → heel-biased (contact toward outer cone end — pinion needs axial shift per setup tables, TBC!) → toe-biased (toward inner — shift opposite!) → face/flank bias (angular misalignment — housing bores suspect, NOT the gears! — the §8-housing-seat lesson restated as diagnostics!) → CAD consequence: NONE in geometry (patterns are setup, not shape!) — but the DRAWING carries setup data (backlash range + pattern acceptance sketch + shim schedule per §8-lash! — setup travels with hardware!).
+
+**Lapping + running-in (mated-for-life finishing — TBC per gear-finishing practice):** lapping compound + low-speed loaded rotation (mild abrasive beds the flanks together — TBC per process!) → matched SETS serialized (lapped pairs stay paired — punch-mark + record! — TBC per shop!) → run-in oil changes EARLY (wear debris from bedding must leave — first change at hours, not months! — TBC per commissioning!) → CAD consequence: serialization CALLOUTS (matched-set marking notes on the drawing — logistics as engineering!) + run-in procedure referenced (the manual travels with the BOM per §9-commissioning habit!).
+
+**Quiet-mesh design levers (ranked by effect — TBC: confirm with NVH references):** precision grade first (the §12-high-speed lesson: coarse + fast = hammer!) → contact ratio second (more teeth sharing = smoother handoff — helical + fine pitch help — TBC per geometry!) → profile modification third (tip relief for deflection under load — TBC depth: modification charts exist, confirm with gear references!) → housing stiffness fourth (the §11-NVH lesson: ringing housings amplify!) → damping treatments fifth (constrained-layer panels? — TBC per application!) → CAD consequence: grade + ratio + modification CALLOUTS on gear drawings (quiet specified, not hoped!).
+
+---
+
 ## 9. Slewing + winch + hoist appendix (planetary/bevel at work in the world)
 
 **Slewing drives (excavator/crane rotation — TBC: confirm with slewing-bearing references, NOT this page):** planetary + output pinion driving a large slew ring (ratios 50–200:1 multi-stage — TBC per drive) → moment + axial + radial COMBINED bearing duty (slew rings are bearing+gear hybrids — TBC per catalog!) → brake holding (spring-applied, pressure-released parking brakes — TBC per safety; gravity + wind back-drive unbraked slews!) → CAD consequence: interface flanges BOTH sides (machine + superstructure datum faces — TBC per mounting) + seal discipline (outdoor vertical-axis sealing against rain/dust ingress — TBC!).

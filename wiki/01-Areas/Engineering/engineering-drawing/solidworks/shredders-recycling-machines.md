@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 12. E-waste + tire + white-goods appendix (hard streams — TBC per recycling references)
+
+**E-waste (hazard-dense shredding — TBC: confirm with e-waste standards, NOT this page):** battery REMOVAL upstream (lithium in shredders = fires that make news — TBC per procedure; detection + manual pull BEFORE the chamber, no exceptions!) → refrigerants captured (CFC/HFC recovery by certified techs — TBC per regulation!) → mercury switches + backlight tubes diverted (TBC per hazmat stream!) → CAD consequence: pre-sort STATION layout (conveyor + pull stations + detector gates modeled as a SYSTEM with the shredder — the §11-flowsheet habit: the shredder is step 3, not step 1!).
+
+**Tires (tough + steel-belted — TBC: confirm with tire-recycling references):** debeader FIRST (steel bead rings removed whole — TBC per process; beads destroy general shredders!) → rough shred → granulate → steel + fiber separation (magnetic + air per §11!) → crumb sizing to spec (sports turf vs asphalt vs molded goods differ — TBC per product!) → CAD consequence: debeader + staged chambers + separation in ONE line layout (footprint + height + access modeled together — plants, not machines, per §11!).
+
+**White goods (fridges/washers — TBC per appliance-recycling practice):** degassing station (refrigerant + oil recovery FIRST — TBC per regulation!) → depollution pull (capacitors? mercury? batteries? PCBs? — the hazardous manifest per unit, TBC!) → shred whole AFTER depollution (hammers over knives for mixed scrap — TBC per process!) → foam blowing-agents captured (old CFC foams — TBC per regulation!) → CAD consequence: depollution LINE (stations + tools + extraction) modeled with equal care as the shredder (compliance hardware IS process hardware!).
+
+---
+
 ## 11. Sorting + separation appendix (shredding is step one — TBC per recycling references)
 
 **Downstream chain awareness (shredders FEED processes — TBC: confirm with recycling-plant references, NOT this page):** magnetic separation (ferrous out FIRST — protects downstream crushers/mills! — TBC per flowsheet) → eddy-current (non-ferrous ejected — TBC per physics) → air classification (light/heavy split by airflow — TBC per density cut-points) → optical/sensor sorting (color/material/NIR ejection — TBC per technology!) → CAD consequence: shredder DISCHARGE interfaces to conveyors at documented rates/heights (the §9-conveyor handoff: flange positions + flow rates ON the drawing, or integration fails on site!).

@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 12. Additive + hybrid appendix (printing presses tools and parts — TBC per AM references)
+
+**Printed tooling (plastic + composite tooling for short runs — TBC: confirm with tooling references, NOT this page):** forming dies in filled nylon/CF (hundreds of hits, not hundred-thousands — TBC per life data!) → thermoform molds (printed + sealed + cooled? — TBC per process!) → jig/fixture prints (overnight workholding per §11-CNC appendix — printed soft jaws + nests!) → CAD consequence: tooling designed FOR printing (no undercuts the printer can't resolve, TBC per resolution; draft STILL matters for molding off printed tools!) + shrinkage-per-process (resin vs FDM vs SLS scale factors differ — TBC per machine/material!).
+
+**Printed press parts (end-use components — TBC per AM-for-production references):** wear plates in hardened tool steel via bound-metal DED (TBC depth: the process menu is wide — confirm per vendor!) → topology-optimized brackets (stiffness-per-gram past machining — TBC per analysis; the §8-H-frame stiffness lesson with freeform answers!) → conformal-cooling inserts for mold-adjacent work (TBC depth) → CAD consequence: DfAM rules replace DfM rules (overhangs vs draft, anisotropy vs isotropy — TBC per process; the §8-printing appendix generalized from prototyping to production!).
+
+**Hybrid routes (print + machine finishing — the practical middle — TBC per shop practice):** near-net print + machined datums (print fast, machine what matters — TBC per tolerance economics!) → printed patterns for casting (lost-PLA + sand per §6-Hook? No — per FOUNDRY practice, TBC: confirm with casting references, NOT this page!) → CAD consequence: machining ALLOWANCES modeled on print files (stock-on faces per §11-CNC appendix — the allowance habit across processes!).
+
+---
+
 ## 11. CNC + shop-floor appendix (from CAD to chips)
 
 **Machinability by design (the model IS the quote — TBC: confirm with machining references, NOT this page):** tool access (every pocket needs a cutter path IN — deep narrow pockets need long tools that chatter; TBC per length/diameter rules!) → standard tool sizes (design fillets/pockets to catalog endmill diameters — TBC per tooling; odd radii need custom ground tools = money + weeks!) → setup count (faces machined per setup — fewer setups = cheaper + more accurate; TBC per quoting: the setup IS the cost!) → tolerance vs process (general ±0.1 milled freely; ±0.01 needs grinding/finishing passes — TBC per capability; tolerance tighter than function = paying for nothing!).

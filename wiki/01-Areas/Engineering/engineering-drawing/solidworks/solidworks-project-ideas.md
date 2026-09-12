@@ -184,6 +184,24 @@ Beginners either worship or ignore FEA colors. Neither is engineering. How to re
 
 ---
 
+## Brief 7 — Line-following + obstacle-avoiding bot chassis (bonus: autonomy-ready platform)
+
+**Goal (the software-meets-CAD bridge):** a small tracked/wheeled rover chassis with sensor mounts, such that control code has somewhere to live. Why: your RAI degree in one brief — mechanical platform + electronics bays + sensor geometry, the full robotics stack bottom layer.
+
+**Roadmap:** wheel/track choice (wheels: simple + fast on flat; tracks: grip + climb curbs — TBC per terrain; model BOTH configs? — the §-config habit: one chassis, swappable running gear!) → motor + gearbox envelopes (gear-motor units bought — TBC per torque/speed calc from §-gearbox pages!) → chassis tub (battery + controller + wiring volumes FIRST per §8-envelope discipline!) → sensor mast positions (ultrasonic/IR/camera heights + fields-of-view modeled as CONES — TBC per sensor datasheets; blind zones visualized, not discovered!) → bumper + drop-sensor mounts (stairs kill rovers — TBC per testing!) → CAD consequence: electronics FIRST, chassis around (the §8-PCB lesson at vehicle scale!).
+
+**Validation ladder:** mass + CG vs tip-over angles (ramps + curbs modeled as test ramps in CAD? — TBC taste: tip analysis on paper + real-ramp testing!) → sensor FOV clash (cones vs chassis through full steering — the §7-drone-prop-clearance habit generalized!) → drop/kerb impact reasoning (the §-simulation sandbox: static-equivalent + physical drops, TBC!) → wiring service loops at every articulation (the §9-slew-cable lesson!) → field test log (terrain × outcome × breakage — the failure resume earning robotics entries!).
+
+## Brief 8 — Parametric phone-stand + desk-organizer family (bonus: first sellable product)
+
+**Goal (design-for-listing in one weekend):** a phone stand that actually holds phones (angle + cable + stability!) extended into a S/M/L + accessory family. Why: the §8-first-gig appendix made concrete — a portfolio piece that can ALSO list on Etsy/college fest stalls (TBC per marketplace practice!).
+
+**Roadmap:** phone envelope set (sizes + case thicknesses + cable plugs — TBC per current models; design to ENVELOPES, not one phone!) → viewing-angle + stability geometry (tip-over moment vs base footprint — TBC per physics; test with the heaviest phone + cable tug!) → cable routing channel (strain relief per the §9-appliance lesson!) → S/M/L configs via design table (the §8-config habit as product line!) → accessory modules (pen cup? watch dock? — the §12-platform thinking at desk scale!) → CAD consequence: print-orientation features (no-support angles per the §8-printing appendix! — flat backs, 45° rules, TBC!) + finish note (layer lines vs sanding vs filler — TBC per craft!).
+
+**Validation ladder:** heaviest-phone tip test (physical! — CAD predicts, gravity judges!) → cable plug/unplug cycles (retention + wear — TBC per testing!) → wobble audit on real desks (felt pads modeled? — TBC!) → print-cost math (filament + time per unit — the §8-pricing inputs!) → listing photos (the §8-publishing anatomy: hero + proof + technique + failure + files!).
+
+---
+
 ## Toolchain appendix (software + data that multiplies CAD)
 
 **PDM thinking at solo scale (awareness — TBC: confirm with PDM references for team depth):** revision discipline per §-execution-protocols (REV + notes + revalidation — solo PDM is HABIT, not software!) → where-used tracking (which assemblies use this part? — the §10-file-hygiene folder habit + a spreadsheet beats memory past ~50 parts!) → release states (WIP vs REVIEW vs RELEASED folders — TBC taste; released files are READ-ONLY by convention, edits branch new REVs!) → the team-readiness payoff (solo habits that scale ARE team habits — PDM onboarding takes days not months when discipline pre-exists!).
