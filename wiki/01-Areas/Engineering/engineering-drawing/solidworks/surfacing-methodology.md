@@ -114,5 +114,15 @@ Before clicking: decompose the object into regions of *consistent curvature beha
 
 **Next:** [[lofted-boundary-surfaces]] → [[filled-knit-trim-thicken]] → [[surfacing-utilities-troubleshooting]].
 
+---
+
+## 9. Patch-count economics + rebuild-speed discipline (surfacing at scale)
+
+**Patch budget (the number behind the philosophy):** each knit edge costs rebuild time + failure surface + drawing complexity. Working budgets (TBC: calibrate against YOUR machine — these are starting points, not specs): consumer shells 5–12 patches (mouse-class), helmets 8–15 zones, automotive panels per-zone similar with tighter continuity. Exceeding budget doesn't mean failure — it means each extra patch needs JUSTIFICATION (a behavior change the existing patches can't express). Count patches at plan time (§6), count again at finish; growth beyond 30% signals strategy drift, not diligence.
+
+**Rebuild-speed tactics (big quilts stay editable):** freeze/suppress downstream (work with quilt suppressed while editing parents? No — parents drive children; instead: lightweight configs hiding fasteners/decals/small fills — the §8-printing config habit generalized) → knit LAST per stage (patches edit fast solo, knit once per session milestone) → appearances suppressed while modeling (rendering taxes rebuilds — TBC per hardware) → save versions as Pack-and-Go milestones before risky surgery (rollback insurance beyond Undo depth — TBC per version's undo limits).
+
+**Quilt documentation (future-you insurance):** name patches by region (`Crown-Center`, `Side-L`, `Visor-Trim` — the Bodies-folder habit from [[lofted-boss-boundary]] §7 applied to surfaces) → sketch-naming that maps to patches (parent traceability: which sketch drove which patch? — Folder organization in the tree mirrors the patch plan) → a README sketch-note IN the file (first feature: a text sketch listing patch plan + tolerances + author + date — TBC taste; teams do this, solo modelers benefit equally).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[lofted-boundary-surfaces]] · [[filled-knit-trim-thicken]] · [[surfacing-utilities-troubleshooting]] · [[flowcharts-master]] · [[../development-of-surfaces]] (projection theory behind these patches)

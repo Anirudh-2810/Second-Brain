@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 8. Wear-part economics + jam recovery (the operator's design review)
+
+**Wear hierarchy (design spares FIRST, not after):** knives/blades (sharpen 2–3× then replace — TBC per steel/duty) → screens (holes peen shut + abrade oversize — reversible? flip 180° for double life — TBC per screen design) → bearings near the chamber (dust ingress despite seals — TBC: confirm with maintenance references; purgeable seals where washdown happens) → belts/chains (tension-checked weekly — TBC per schedule) → gearbox oil (contamination-tracked, not calendar-tracked — TBC per practice). Model EVERY wear part as a separately-sourced part number (purchasing replaces numbers, not geometry) + flag them on the drawing with a spares table (the aftermarket thinking from §7 restated as deliverable).
+
+**Jam-recovery design (shredders WILL jam — design the un-jam):** reversing function (drive reverses to spit the jam — motor/VFD spec, TBC per drive) → quick-access covers (tool-free latches, NOT 20 bolts — downtime is money; TBC per operation) → chamber cleanout position (rotate/shift for access — model the SERVICE configuration, not just running config!) → shear-pin/coupling fuse (mechanical overload protection that fails CHEAP — TBC: confirm with machine references; the fuse protects the gearbox, which costs 10× the pin) → e-stop + lockout points modeled (awareness: confirm with machinery-safety standards, NOT this page — unjam procedures kill when lockout is skipped).
+
+**Throughput math (awareness — TBC: confirm with shredder-application references, NOT this page):** capacity ≈ chamber volume × bulk density × rotor speed × fill factor (fill ~30–50% illustrative) → power spikes 3–5× steady running on infeed gulps (size drives for SPIKES: motors thermally, gearboxes mechanically — TBC per duty) → screen hole size gates output (smaller holes = finer product = LOWER throughput + HIGHER power — the triangle every recycling quote balances). CAD consequence: screen as a CONFIGURATION (swap hole sizes per job — the product-flexibility move).
+
+---
+
 ## 7. Single-shaft + paper machines + maintenance appendix
 
 **Single-rotor + bed-knife physics (#330/#27-class):** one spinning rotor with cutting teeth passing a FIXED bed knife with a small adjustable gap (TBC: knife gap ~0.1–0.3 mm illustrative — confirm with shredder references; gap sets cut quality AND power draw). Rotor teeth (patterned cutters on a drum — fewer, chunkier than twin-shaft blades) shear material against the knife edge. Design consequences: knife adjustment slots are MANDATORY (knives dull → advance the gap, don't replace the rotor) → knife steel specified separately (hardened tool steel vs mild rotor body — TBC per build; model as separate part with its own material!) → screen wraps more of the rotor (particle sizing happens here, same patterned-cut discipline as §1).

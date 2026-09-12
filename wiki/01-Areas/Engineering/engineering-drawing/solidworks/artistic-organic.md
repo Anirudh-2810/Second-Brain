@@ -94,6 +94,18 @@ flowchart TD
 
 ---
 
+## 9. Organic modeling masterclass: curvature thinking (the artist-engineer bridge)
+
+**Curvature vocabulary (say what you see):** convex (dome — reflects tight), concave (bowl — collects light), saddle (pringle — curves opposite ways; C2-demanding, loft hates saddles without guides — TBC per behavior), flat (dead — shows every defect; flats need the FAIRTEST patches, counter-intuitively), inflection (convex-to-concave flip — zebra stripes S-bend here; inflections are styling power tools AND fairness landmines). Walk your desk objects naming each region's curvature type — the vocabulary turns "looks off" into "the saddle-to-flat inflection at the shoulder needs a guide."
+
+**Rhythm + proportion (design, not CAD):** repeated elements need PROGRESSION (vents shrinking toward an edge, ribs spacing tightening — the Instances-to-Vary language from §2-gradient generalized: rhythm delights, monotony bores, randomness reads as error) → golden-ish ratios as STARTING points (1:1.618 zones — TBC: treat as suggestion, confirm with design references NOT this page; your eye, trained on §7-eye-calibration, outranks any ratio) → odd counts for focal elements (3/5/7 vents read designed; 4/6 read gridded — TBC taste, confirm against your own portfolio reactions).
+
+**Symmetry-breaking discipline:** perfect symmetry reads CG-perfect and lifeless (the uncanny CAD look) — break deliberately: asymmetric detail (single badge, offset port), hand-tuned freeform on ONE side (mirror the structure, freeform the character — TBC taste), texture variation. Rule: structure symmetric (strength, molding, assembly demand it), CHARACTER asymmetric (eyes demand it). The mouse from [[consumer-electronics]] §6 is the canonical demo: symmetric shell, asymmetric buttons/wheel/grips.
+
+**Finish-spec thinking (model FOR the finish):** polished surfaces need C2 + no parting witness (parting on the sharp silhouette edge ONLY) → textured surfaces forgive C1 and hide parting (grain depth per §7-eye-calibration) → painted surfaces need primer-friendly geometry (no deep sharp grooves paint can't reach — TBC: confirm with finishing references) → metalized/chrome needs PERFECTION (vacuum-metalizing amplifies every ripple — the cruelest finish; TBC per process). Choose the finish FIRST (it sets the continuity budget from [[surfacing-methodology]] §7), not after modeling.
+
+---
+
 ## 8. Publishing + first-gig appendix (show the work, then sell it)
 
 **Portfolio page anatomy (per build, 10 minutes each):** hero render (3/4 view, studio scene) → wireframe/zebra proof (craft evidence — §3's rule) → 3-bullet technique list (features used, NOT tutorial numbers) → one failure + fix (the story employers remember) → files status (STEP available? print-ready?). Five elements, no essays — curators skim, and completeness signals professionalism louder than any single render.

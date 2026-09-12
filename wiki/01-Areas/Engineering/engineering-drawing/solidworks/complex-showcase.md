@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 9. Lampshade + small-appliance appendix (light, heat, and cords)
+
+**Lampshade (#92-class):** shade profile (revolve/loft per silhouette — opaque vs diffuser zones SPLIT the design: opaque outer + translucent inner diffuser as separate bodies with an air gap? TBC per lighting practice) → bulb envelope + socket mount (E27/screw-shell dimensions — TBC per standard; model the socket, not just a hole — retention + electrical contact are real features) → heat chimney (hot air MUST exit top — vents sized per wattage, TBC: confirm with lighting-thermal references; trapped heat kills LEDs and yellows plastics) → cord grip + strain relief (cords pull — the grip takes the load, not the terminals — TBC per electrical-safety practice) → harp/finial mounts (the mechanical interface language of lamps — TBC per standard parts).
+
+**Small-appliance patterns (generalizing hair dryer + shower + taps):** water + electricity NEVER share unsealed volumes (double-insulation or grounding + seals — TBC: confirm with appliance-safety standards, NOT this page; model the isolation barriers explicitly!) → service split lines (heating element / motor replaceable? — TBC per product tier; cheap appliances are sealed-for-life, premium ones open — the split-line placement differs!) → cord storage (wrap posts? retractable? — TBC per product) → feet/suction (vibration walk-off prevention — TBC).
+
+**Glass + liquid done professionally (extending [[artistic-organic]] §6):** fill line at the NECK (ullage for expansion + pour control — TBC per packaging practice) → meniscus modeled (tiny fillet at the wall — the realism detail renders read) → bubbles/inclusions for styled liquids (TBC taste — cosmetic only) → condensation on cold servings (bump-appearance zones below the fill line — TBC per version) → the GLASS thickness gradient (base 3× wall — TBC illustrative; tumblers read quality through base mass).
+
+---
+
 ## 8. Helmet trilogy: full 3-part build script (the deep dive)
 
 Reference photos first: front + side + top with a ruler in frame (per [[artistic-organic]] §1) → Sketch Pictures scaled with head breadth + length (TBC: measure YOUR head or a real helmet — illustrative numbers below assume ~600 mm circumference class, confirm per shell size).
