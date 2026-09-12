@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 15. Die protection + press monitoring appendix (the press tells its health — TBC per press-monitoring references)
+
+**Tonnage signatures (every hit has a fingerprint — TBC: confirm with press-monitoring references, NOT this page):** baseline signatures per die (peak + curve SHAPE recorded at setup!) → deviation alarms (double-hit spikes, missing-part drops, slug stacking signatures differ! — TBC per pattern!) → trend wear (gradual tonnage creep = dulling/wear — TBC per tool-life tracking!) → CAD consequence: SENSOR targets modeled (tonnage + acoustic + proximity positions with mounts — the §13-automation lesson: monitoring needs DESIGNED homes!).
+
+**Die/die-set maintenance (tools are assets — TBC per toolroom practice):** sharpening schedules (edge condition vs hit counts — TBC per material/thickness!) → component spares (punches/springs/guides stocked per §8-wear thinking!) → die storage (preserved + identified + retrievable — TBC per 5S practice!) → CAD consequence: die MODELS carry maintenance metadata (hit counts + last-sharpen fields in file properties? — TBC per PDM practice; data travels WITH geometry!).
+
+**Press overhauls (the long game — TBC per rebuilder practice):** gib/way wear measurement + adjustment (TBC per procedure!) → crown/bed deflection re-survey (the §6-stiffness lesson as calendar habit!) → hydraulic fluid analysis per §10-lube (TBC!) → CAD consequence: overhaul BASELINES filed (day-one geometry recorded — wear measured AGAINST new, per §15-conveyor-baseline habit generalized!).
+
+---
+
 ## 14. Forging + extrusion-press appendix (hot metal under pressure — TBC per forging/extrusion references)
 
 **Forging press duty (impact vs squeeze — TBC: confirm with forging references, NOT this page):** hammer energy ratings (kilojoules per blow + blow counts — TBC per part!) → hydraulic squeeze (slow + controlled fill for complex dies — TBC per process!) → die heating + lubrication (graphite/oil films per stock — TBC per tribology!) → flash management (excess metal escapes at parting — flash gutter + trimmer press modeled in the LINE per §13-automation thinking!) → CAD consequence: forging ENVELOPE + draft + radii per process (steeper draft + fatter radii than cold work — TBC per forging design!; the §6-draft lesson at orange heat!).

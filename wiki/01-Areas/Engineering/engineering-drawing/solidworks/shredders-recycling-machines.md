@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 15. Operator + cab appendix (humans run shredders — TBC per human-factors references)
+
+**Sightlines (seeing the work — TBC per visibility standards!):** chamber throat visible from the control station (feed monitoring!) → discharge visible (blockage spotted in seconds, not shifts!) → blind-zone mirrors/cameras (TBC per site practice!) → CAD consequence: SIGHTLINES modeled (operator eye points + view cones vs obstructions — the §13-camera-deck habit for humans!).
+
+**Controls layout (hands find them blind — TBC per control-room practice!):** e-stop within arm's reach from EVERY normal position (TBC per safety standards!) → start/stop/jog/reverse grouped by sequence (the §8-unjam routine as BUTTONS!) → abnormal indications CENTRAL (bearing temps, oil pressure, amps, vibration per §9-monitoring — one glance tells health!) → CAD consequence: console + panel + cable-route envelopes in the plant model (controls need DESIGNED space per §9!).
+
+**Access + ergonomics (maintenance bodies matter — TBC per access standards!):** platforms + stairs + handrails to every service point (TBC per regulation!) → lifting beams over heavy pulls (bearing/shaft changes need crane paths — TBC per lift planning!) → lighting task-adequate (inspection needs lumens — TBC per lighting practice!) → CAD consequence: human ENVELOPES (reach + climb + lift clearances — the §11-Dragon human-envelope habit at industrial scale!).
+
+---
+
 ## 14. Metals + auto-shredder appendix (the heavyweight stream — TBC per metals-recycling references)
 
 **Fragmentation physics (hammermills vs shears — TBC: confirm with shredder references, NOT this page):** hammer impact shattering (high-speed hammers + anvil/grate sizing output — TBC per machine!) → shear cutting for sheet/structures (the §1-chamber logic at structural scale!) → density separation post-shred (drums + eddy + sink-float per §11-sorting!) → CAD consequence: hammer + grate GEOMETRY (hammer mass/profile + grate opening size = product spec — the §6-screen lesson: openings DEFINE output!) + wear-plate schedules (liners as scheduled replacement per §8-wear!).
