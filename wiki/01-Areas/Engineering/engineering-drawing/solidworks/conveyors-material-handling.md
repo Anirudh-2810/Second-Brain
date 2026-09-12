@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 12. Stacker/reclaimer + ship-loader appendix (bulk handling at scale — TBC per bulk-handling references)
+
+**Stackers (building stockpiles systematically):** radial luffing + slewing motions stacking in windrows (TBC per yard practice) → tripper-fed boom conveyors (the §11-tripper lesson at 50 m scale!) → boom deflection under load (lattice vs box boom — TBC per structural practice; CAD the boom as weldment per §4-frames!) → wheel/bogey travel on yard rails (the §11-shuttle lesson scaled!) → CAD consequence: stockpile footprints as SITE envelopes (live + dead storage zones — TBC per yard planning; the §11-Dragon scale-model discipline applied to dirt!).
+
+**Reclaimers (taking it back — bucket-wheel + scraper chains):** bucket-wheel digging face (buckets + ring chute + falling-stream transfers per §9 — TBC per machine!) → counterweight + ballast discipline (overturning moments tracked like the §7-H-frame load path — TBC per stability analysis!) → operator sightlines + cameras (blind digging breaks things — TBC per operation!) → CAD consequence: digging envelope vs structure clash through FULL motion ranges (the §11-travel-extremes habit: check BOTH ends + middle, not mid-travel complacency!).
+
+**Ship loaders/unloaders (the quayside giants — TBC depth):** shuttle/trip feed + boom luff/slew + telescopic loading chutes (dust + degradation control per §9-transfers — TBC!) → hatch-coaming clearances (ship geometry constrains loader geometry — TBC per naval architecture; design around the SHIP!) → storm lock-down + travel storm brakes (TBC per wind practice: parked machines must survive storms! — the §11-end-stop lesson at maximum stakes!) → CAD consequence: SHIP ENVELOPES in the assembly (multiple vessel classes — the §11-scale-model discipline: design around the fleet, not one hull!).
+
+---
+
 ## 11. Shuttle + tripper + feeder appendix (moving the load point)
 
 **Tripper conveyors (discharge ANYWHERE along the run):** traveling tripper carriage on rails above the belt (TBC: confirm with tripper references) → belt lifted through tripper pulleys into a discharge chute that moves WITH the carriage (the belt path changes with position — model min/max travel extremes!) → winch/cable drive for carriage motion (TBC per design) → chute telescoping/flexible sections (TBC per travel) → CAD consequence: TWO configurations minimum (tripper at each END of travel — interference + belt-length checks at BOTH extremes, not mid-travel complacency!).

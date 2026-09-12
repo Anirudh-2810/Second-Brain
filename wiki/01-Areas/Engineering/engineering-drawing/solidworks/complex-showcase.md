@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 14. Crowns, guards + machine-canopy appendix (covers that protect AND sell)
+
+**Machine guarding as product design (the §9-conveyor + §10-press safety lessons merged — TBC: confirm with machinery-safety standards like ISO 14120/12100, NOT this page):** fixed vs movable vs adjustable guards (access frequency decides — daily-access points get interlocked doors, annual points get bolted panels! — TBC per risk assessment) → viewing windows (polycarbonate rated for impact/process — TBC per material; operators MUST see the process or they open guards!) → ventilation + noise integration (guarded machines cook and deafen — the §9-ventilation + §13-noise lessons inside the guard design!) → CAD consequence: guard MODULES with quick-release + interlock envelopes (the §11-top-down module habit: guards are modules with interfaces, not afterthought panels!).
+
+**Aesthetic canopies (selling through sheet metal — TBC per industrial-design practice):** brand surfaces (color breaks, logo zones, lighting strips — the §13-appliance-trim language at machine scale!) → access choreography (which panels open for which tasks? — daily/weekly/annual access TIERS with distinct hardware: quarter-turns vs bolts vs interlocks — TBC per maintenance analysis!) → forklift/crane interfaces (lifting eyes + fork tubes rated — TBC per handling; machines move, plan the lift!) → CAD consequence: canopy SPLIT LINES follow access tiers (panel boundaries = service boundaries — form follows maintenance, and customers notice!).
+
+**Retrofit + upgrade paths (machines live decades — TBC per lifecycle practice):** sensor/controls upgrade space (spare panel room + conduit capacity designed in — TBC per controls practice!) → guarding upgrades for regulation changes (mounting provisions for future interlocks — TBC per foresight!) → capacity creep interfaces (stronger motor mounts? bigger throat? — TBC per product family planning!) → CAD consequence: MARGIN modeled visibly (empty DIN rail space, spare I/O, oversize frames noted as intentional — the §11-margin habit restated: designed-in growth beats redesigned-later, 10:1 on cost!).
+
+---
+
 ## 13. Magnetic + hinge + latch micro-mechanisms appendix (the details that delight)
 
 **Magnetic closures (the premium feel — TBC: confirm with magnet-application references, NOT this page):** magnet + keeper sizing (pull force vs size/grade — TBC per magnet spec; N52 tiny vs ferrite chunky — TBC!) → steel shunt plates (flux concentration DOUBLES useful pull — TBC per magnetic-circuit practice!) → pockets + retention (press-fit? adhesive? overmolded? — TBC per assembly; LOOSE magnets in shipping = returns + bad reviews!) → polarity planning (multi-magnet arrays need mapped polarities — TBC per design; wrong polarity REPELS at the customer!) → CAD consequence: magnet pockets modeled with insertion draft + adhesive grooves (TBC per process) + polarity marks on the DRAWING (assembly instruction, not geometry!).

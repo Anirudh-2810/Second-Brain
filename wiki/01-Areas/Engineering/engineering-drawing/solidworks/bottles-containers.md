@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 14. Glass container appendix (glass as engineered packaging — TBC per glass-packaging references)
+
+**Glass forming (how bottles are really born — awareness, TBC: confirm with glass-manufacturing references, NOT this page):** gob forming + blow-and-blow vs press-and-blow (narrow-neck vs wide-mouth processes differ! — TBC per process) → mold seams VERTICAL on glass (parting witness is EXPECTED, not a defect — TBC per quality!) → annealing lehrs (controlled cooling sets strength — TBC per thermal practice; unannealed glass shatters from internal stress!) → CAD consequence: generous radii EVERYWHERE (glass hates sharp inside corners more than plastic does — TBC per fracture practice!) + wall stock for the process (parisons distribute unevenly — TBC per forming!).
+
+**Glass strength design (brittle thinking — TBC: confirm with glass-engineering references):** compression-strong, tension-weak (design sections to keep glass COMPRESSED — TBC per principle!) → surface flaws dominate (scratches = stress concentrators = the §8-edge-policy with fracture mechanics behind it! — TBC) → lightweighting limits (grams saved vs burst/impact ratings — TBC per testing standards!) → coatings (hot-end + cold-end treatments for lubricity/strength — TBC per process; CAD notes the SPEC, not the chemistry!) → CAD consequence: NO sharp inside corners, NO thin fins, NO stress-raising decoration (embossing depth limited — TBC per practice; beauty WITHIN fracture rules!).
+
+**Closures on glass (crown/cork/lug/Roll-on — TBC per closure standards):** crown caps (crimped skirts + liner compression — TBC per bottling practice) → cork + wirehood (sparkling wines: pressure + tradition — TBC per standard!) → ROPP roll-on pilfer-proof (aluminum shell rolled INTO glass threads — TBC per process; glass thread profiles differ from plastic! — TBC) → CAD consequence: glass finish dimensions to closure spec FIRST (the §10-finish-first rule with brittle material — rework costs shatter literally!).
+
+---
+
 ## 13. Pumps, sprayers + dispensing closures appendix (products that MOVE liquid)
 
 **Trigger sprayers (the mechanism in every cleaning aisle — TBC: confirm with dispensing references, NOT this page):** piston + cylinder bore (toleranced sliding fit — TBC per seal practice) → spring return (metal vs plastic spring per chemical compatibility — TBC) → ball-check valves in/out (cracking pressure sets prime reliability — TBC per design) → nozzle insert (spray/stream/foam patterns via insert geometry — TBC per product) → shroud styling over the mechanism (the §10-closure lesson: mechanism first, styling second!) → CAD consequence: BORE-first modeling (cylinder bores are the datums; everything hangs off bore position + diameter!).

@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 13. Power + charging appendix (batteries in, heat out, safety always)
+
+**Cell selection (the energy budget — TBC: confirm with battery references, NOT this page):** cylindrical vs pouch vs prismatic (form + cooling + swelling behavior differ — TBC per cell type; pouch cells swell and need compression frames — TBC!) → capacity vs discharge rate (mAh lies without the C-rating — TBC per spec reading; peak loads sag weak cells into brownouts!) → protection circuits (PCM/BMS envelopes + sense wiring — TBC per pack design; unprotected packs are fire starters, not products!) → CAD consequence: cell + BMS + wiring modeled as a PACK assembly with retention + isolation (the §8-battery-bay lesson electrified!).
+
+**Charging path (power in safely — TBC: confirm with charging references):** connector + cable rating (current-marked, TBC per spec) → charge IC + thermal monitoring (charge temps derated — TBC per cell spec; hot charging plates lithium — TBC per chemistry!) → wireless coils (alignment + foreign-object detection — TBC per Qi practice; coil position TOLERANCED on the drawing per §11!) → CAD consequence: charge-port accessibility + LED visibility + heat path from charge IC (the §8-thermal story with the charger as a heat source too!).
+
+**Regulatory + transport (batteries ship under rules — TBC: confirm with UN38.3/IEC 62133/airline rules, NOT this page):** certification marks per §9-regulatory (model the label zones!) → transport state-of-charge limits (TBC per regulation) → damaged-battery containment thinking (TBC per safety practice — quarantine bags + procedures, NOT this page!) → CAD consequence: NOTHING in CAD certifies a battery (test labs do!) — but CAD that ignores cell specs, clearances, and thermal paths FAILS certification expensively (design FOR the test plan from day one!).
+
+---
+
 ## 12. Display + input appendix (screens, keys, and touch)
 
 **Display integration (the glass that sells the product — TBC: confirm with display-integration references, NOT this page):** LCD/OLED module envelopes (active area + bezel + thickness + connector exit — TBC per panel datasheet; model the MODULE, buy the panel!) → cover lens (chemically-strengthened glass envelopes + print borders hiding the inactive rim — TBC per lens spec) → bonding (air-gap vs full-lamination: optical + touch performance vs cost/reworkability — TBC per process; full-lam rejects are expensive — TBC!) → backlight/thermal (LCD backlights heat sealed boxes — the §8-thermal story with a glowing source!) → CAD consequence: display FIRST in the stack layout (the thinnest, most fragile, most expensive part constrains everything around it — datum-grade positioning per §8-PCB rules!).
