@@ -116,6 +116,16 @@ Before clicking: decompose the object into regions of *consistent curvature beha
 
 ---
 
+## 10. Reverse-engineering master appendix (scan-to-CAD at learning level)
+
+**Measurement toolkit (ranked by access):** calipers + radius gauges + contour gauge (the $50 kit that measures 90% of parts — TBC per sourcing; contour gauges copy curves mechanically!) → phone photogrammetry (multi-angle photo sets → mesh via free apps — TBC per app quality; meshes are REFERENCE, not product — §10-sculpt rule restated) → borrowed CMM time (college/makerspace — TBC per access; datums + patience required) → 3D scanner ( structured-light/handheld — TBC per access; shiny/transparent parts need spray — TBC per scanning practice).
+
+**Measure-plan discipline (measure ONCE, completely):** datum scheme first (which faces are A/B/C? — the drawing discipline from [[part-assembly-drawing-workflow]] §10 applied to measurement) → critical fits flagged (bores, threads, seals get 3+ readings each + min/max recorded, not averaged! — variation IS data) → freeform zones sampled as sections (slice the form every 10–20 mm with contour gauge → section sketches → loft BETWEEN measurements — the reverse of normal lofting: profiles FROM the part!) → photo-log every setup (which face was zeroed? which orientation? — unlogged measurements are rumors).
+
+**Deviation sign-off (how close is close enough?):** overlay CAD-vs-scan colormap where scanning exists (TBC per software) → hand-check critical dims with calipers on the FIRST article (printed/machined copy measured against the ORIGINAL part, not against CAD — the loop closes on reality!) → tolerance-graded verdict (green: fit/function zones within spec — TBC per your tolerance callouts; yellow: cosmetic drift documented; red: remodel the zone) → the reverse-engineering report (deviation table + photos — the deliverable that proves diligence, per the §8-publishing habit generalized).
+
+---
+
 ## 9. Patch-count economics + rebuild-speed discipline (surfacing at scale)
 
 **Patch budget (the number behind the philosophy):** each knit edge costs rebuild time + failure surface + drawing complexity. Working budgets (TBC: calibrate against YOUR machine — these are starting points, not specs): consumer shells 5–12 patches (mouse-class), helmets 8–15 zones, automotive panels per-zone similar with tighter continuity. Exceeding budget doesn't mean failure — it means each extra patch needs JUSTIFICATION (a behavior change the existing patches can't express). Count patches at plan time (§6), count again at finish; growth beyond 30% signals strategy drift, not diligence.

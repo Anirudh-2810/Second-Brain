@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 8. Press-brake tooling + rolling-machine mechanics appendix (forming depth)
+
+**Press-brake tooling library (the toolroom within the machine):** punch profiles (gooseneck for deep boxes, straight for open bends, hemming dies for closed edges — TBC per tooling catalogs; model punches/dies as a TOOL LIBRARY, not per-job geometry!) → V-die openings (V ≈ 6–8× thickness starting rule — TBC: confirm with press-brake references; narrow V = more tonnage + tighter radius, wide V = gentler) → tonnage math per bend (TBC: confirm with air-bending force charts, NOT this page — awareness that length × thickness × V-width sizes the machine) → backgauge fingers (positioning automation — model finger envelopes + travel range, TBC per control) → crowning (bed deflection compensation for long parts — TBC depth; long thin parts bend the MACHINE, and the machine pushes back).
+
+**Rolling mechanics (3-roll pyramid from §2, expanded):** pinch + pre-bend (leading/trailing flats stay FLAT without pre-bending — TBC: confirm with rolling references; flat ends are the signature defect of skipped pre-bend!) → roll crown for wide sheets (TBC depth) → cone rolling (tilted top roll — TBC per machine capability; asymmetric setups need the manual + practice, NOT this page) → springback allowance (over-roll past target, material relaxes back — TBC per material/thickness; stainless springs more than mild steel — TBC) → weld-seam placement (seam AWAY from max-stress zones + accessible for welding — TBC per fabrication practice).
+
+**Shear/blanking appendix (#394-class expanded):** blade gap ≈ 5–10% of thickness per side (TBC: confirm with shearing references; tight gap = clean edge + high force, loose gap = burr + rollover) → rake angle (guillotine tilt reduces force — TBC per machine) → hold-down pressure (sheet must NOT lift — TBC per tonnage) → burr-side awareness (cut edge has a ROLL side + BURR side — orient burrs away from handling surfaces and mating faces; TBC per finishing practice) → CAD consequence: sheared edges modeled STRAIGHT (no edge breaks in CAD that the shear doesn't make — TBC taste; deburr notes live on the drawing).
+
+---
+
 ## 7. Drone deep dive: full build script + weight budget + preflight (the flagship mastery)
 
 **Weight budget FIRST (the spreadsheet before the CAD — illustrative 5-inch class, TBC per YOUR parts):**

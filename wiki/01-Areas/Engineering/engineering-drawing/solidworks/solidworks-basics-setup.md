@@ -172,5 +172,15 @@ Every beginner meets these five errors. What they MEAN, not just what to click:
 4. **Zero-thickness geometry** — a cut or extrude that touches at exactly one point/edge (tangent cone tip, coincident faces). Reality can't have zero thickness; neither can the kernel. Fix: overlap generously (0.5 mm into the body) or gap deliberately — never exact-touch.
 5. **"Future version" files (awareness)** — SolidWorks is NOT backward compatible: a file saved in 2026 won't open in 2024. Before sharing with college labs/teammates, confirm their version FIRST (File → Find References shows version info — TBC exact path per version). Neutral formats (STEP/Parasolid) bridge versions but LOSE the feature tree (dumb solids — fine for manufacturing, dead for editing).
 
+---
+
+## 10. File hygiene + version strategy (the unsexy superpower)
+
+**Naming convention (decide ONCE, enforce forever):** project-part-variant scheme (`Drone-Arm-v3`, NOT `Part1`) → NO spaces (underscores/hyphens — spaces break scripts, PDM, and some exporters — TBC per toolchain; the habit costs nothing) → revision suffix discipline (v3 vs FINAL_v2_REAL — the joke that kills: FINAL is a lie, version NUMBERS are truth) → shared-library parts named by SPEC (M3x25-SHCS, 608-Bearing-Envelope — searchable, reusable across briefs per [[solidworks-project-ideas]] hardware habits).
+
+**Folder structure (mirror the pipeline):** per-project folders (01_Parts / 02_Assemblies / 03_Drawings / 04_Exports-STEP-STL-DXF / 05_Renders / 99_Archive-dead-versions — TBC taste; the principle is separation of live vs dead vs shared) → library folder OUTSIDE projects (fasteners, bearings, motors — referenced, never copied — TBC: broken references when folders move; Pack-and-Go before restructuring, per [[part-assembly-drawing-workflow]] §8) → daily backup (cloud sync on the working folder — TBC per provider; CAD files corrupt rarely but catastrophically — version history is the insurance).
+
+**Performance hygiene (speed as you scale):** image quality slider DOWN while modeling (tessellation is display-only — TBC per version location; crank up for renders only) → large-assembly mode thresholds (TBC per hardware — find YOUR part-count where slowdown starts and set lightweight rules before it) → kill cosmetic threads/decals in working configs (the §8-config habit restated) → purge dead features monthly (the §7-reorder-surgery pass as calendar habit) → SSD + RAM reality (assemblies eat RAM linearly-ish — TBC per hardware; close other projects, not just other apps).
+
 ## CROSS-REFERENCES
 - [[INDEX]] (hub) · [[sketch-mastery]] · [[part-assembly-drawing-workflow]] · [[../overview]] (drawing conventions behind the 3D)

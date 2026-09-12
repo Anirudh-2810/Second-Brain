@@ -95,6 +95,18 @@ flowchart TD
 
 ---
 
+## 8. Differential + corner-box applications (bevel gears earning their keep)
+
+**Automotive differential (the bevel masterpiece — awareness, TBC depth):** pinion drives crown wheel (hypoid-ish offset in reality — TBC: confirm with drivetrain references; model as bevel pair at learning level) → spider/side-gear bevel SET inside the carrier (straight bevels on intersecting axes — the §1 two-way generalized to a GEAR CLUSTER) → carrier rotates with the crown, spiders differentiate wheel speeds (the mechanism that lets cars corner — TBC: confirm with vehicle-dynamics references for the full story) → CAD consequence: FIVE+ bevel gears on FOUR intersecting axes in one carrier (the assembly-tolerance nightmare that justifies the §5-intersection rule absolutely — one axis off and nothing turns).
+
+**Right-angle corner boxes (industrial #343-grown-up):** servo motor + right-angle reducer in one housing (compact automation axes — TBC per vendor catalogs) → hollow-shaft variants (cables/hoses pass THROUGH the gearbox — TBC per application; model the through-bore + seals both faces!) → high-ratio corner boxes (bevel FIRST stage for the turn + planetary/inline stages behind — hybrid architectures per §4-decision-map: turn THEN reduce) → mounting orientation freedom (any-face mounting with breather relocation per orientation — TBC per vendor; oil finds the lowest seal — breather/drain positions follow gravity, not the catalog photo!).
+
+**Miter vs spiral bevel (the noise/load fork — TBC: confirm with gear references, NOT this page):** straight/miter teeth (cheap, noisy, impact-loaded — farm/utility duty) → spiral teeth (progressive contact, quiet, stronger — automotive/premium) → hypoid (offset axes, sliding contact, needs EP lube + specific materials — TBC depth) → CAD consequence at learning level: identical blanks, different tooth-cut patterns (straight cuts vs angled sweeps — the spur-vs-helical lesson from [[helical-spur-gearboxes]] §5 rotated 90°).
+
+**Lash adjustment hardware (bevels need setup, not just assembly):** shims under bearing cups (mesh position tuned by shim stacks — TBC per practice: backlash AND contact pattern dialed by moving pinion vs gear axially) → threaded adjusters with locknuts (field-serviceable lash — TBC per design) → marking-compound check (paint the teeth, rotate, READ the pattern: heel/toe/face/flank bias tells you which way to shim — TBC: confirm with gear-setup references; the pattern-reading skill is the senior tech's signature) → model the shim PACKS (not single shims — stacks of 0.05/0.1/0.2 — TBC illustrative) + document the setup procedure ON the drawing (setup data travels with hardware, not in someone's head).
+
+---
+
 ## 7. Planetary deep dive: ratios for all fixings + build script (the full mastery)
 
 **All three fixings, one hardware set (sun 24 / planets 24×3 / ring 72, per §6):**
