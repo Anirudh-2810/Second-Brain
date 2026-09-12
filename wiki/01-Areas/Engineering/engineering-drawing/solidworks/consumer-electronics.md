@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 10. Wearables + handhelds appendix (bodies as constraints)
+
+**Wearables (watches/bands/earbuds — the body is the datum):** strap curvature from WRIST geometry (TBC: anthropometric data, NOT this page — confirm with ergonomics references; one-size curves fit bell curves, not people) → skin-contact materials (biocompatible + sweat-proof + hypoallergenic callouts — TBC per material/regulatory) → sensor windows (optical HR needs skin contact + light sealing — TBC per sensor practice; model the window + gasket explicitly!) → charging interface (pogo pins/wireless coil envelopes — TBC per design; coil alignment tolerances are TIGHT — TBC) → button tactility through seals (sealed buttons feel mushy — TBC per UX practice; model the button stack: cap + seal + dome switch as an assembly!).
+
+**Handheld power tools (the vibration + dust extreme — TBC: confirm with tool references):** motor + gearbox envelopes FIRST (the powertrain sizes everything — §4-layout habit) → vibration isolation (handle decoupled via elastomer mounts — TBC per design; hands + vibration = injury + fatigue, the ergonomics are regulated — TBC per standards) → dust sealing for the motor zone (commutator dust conducts — TBC) → grip zones per §3-ergonomics + trigger travel + lock-on (TBC per UX/safety) → drop survival per §9 (jobsite drops onto concrete — the §9-drop lesson at maximum stakes).
+
+**Kitchen handhelds (heat + food + water combined — TBC per appliance references):** heating-element envelopes + insulation air gaps (TBC per wattage) → food-contact zones per [[household-tools]] §8 (crevice-free + cleanability radii) → cord + strain relief per [[complex-showcase]] §9 (pull loads + heat proximity — TBC) → controls sealed against steam/spills (membrane switches vs sealed tactiles — TBC per design) → the combined-discipline read: ONE product exercising FIVE appendix domains (thermal + food + water + electrical + ergonomic) — the capstone audit for this entire page.
+
+---
+
 ## 9. Drop, ingress + regulatory appendix (why casings are engineered, not styled)
 
 **Drop survival (the test every phone/mouse ships through — TBC: confirm with reliability references, NOT this page):** corner/edge impact concentrates force (design sacrificial crush zones AWAY from PCB mounts — TBC per practice) → internal clearance for board FLEX (rigid-mounted boards crack solder joints on impact; compliant mounts + gap absorb — TBC per design) → battery retention under shock (ejected cells in a drop = thermal event + returned product; TBC: confirm with battery-safety references) → test drops in CAD review (which corner? which face? — the test plan EXISTS before tooling; TBC per reliability practice) → Simulation DROP module awareness (explicit dynamics — TBC license depth; the student move is reasoning + physical drop tests on prints, documented).

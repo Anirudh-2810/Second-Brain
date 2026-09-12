@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 10. Screw + bucket + pneumatic appendix (the conveying family beyond belts)
+
+**Screw conveyors (augers):** helical flighting on a center tube inside a U-trough (the §6-turbine geometry doing bulk work!) → pitch ≈ diameter standard-ish (TBC: confirm with CEMA screw-conveyor references, NOT this page) → hanger bearings every ~3 m (TBC per length: long screws whip without support — critical-speed awareness, TBC depth) → variable pitch options (metering/feeding duty — TBC per application) → CAD consequence: flights as patterned helical sweeps (rebuild-heavy — suppress in working configs per the §8-config habit) + trough clearance rotate-checked (the turbine lesson restated).
+
+**Bucket elevators (vertical bulk lifting):** head/tail sprockets + chain/belt loop + buckets at spacing (TBC per capacity: spacing sets throughput) → centrifugal vs continuous discharge (head speed decides — TBC per material behavior) → boot + head housings (dust-tight per §9 — buckets throw dust at both ends!) → belt/chain tension + tracking (the §6-take-up lesson vertical) → explosion venting for grain/dust duty (TBC: confirm with safety standards, NOT this page — grain dust explodes; the awareness is non-optional).
+
+**Pneumatic conveying (awareness — TBC depth, confirm with pneumatic-conveying references):** dilute-phase (high velocity, low pressure — fragile product degrades! — TBC) vs dense-phase (slug flow, gentle, high pressure — TBC) → rotary airlocks at infeed (pressure seal that meters — TBC per valve practice) → bends wear (long-radius + replaceable back plates — TBC per abrasive duty) → CAD consequence: route piping with bend-radius discipline + hanger spacing + flexible connections at equipment (vibration isolation — TBC). Model the ROUTE first (layout sketch in 3D — the §4-layout habit in three dimensions), details second.
+
+---
+
 ## 9. Transfer chutes + dust control appendix (where conveyors meet reality)
 
 **Transfer design (the highest-wear zone of any plant):** falling-stream trajectory from head-pulley velocity (TBC: confirm with transfer-chute references — hood geometry follows the stream, not aesthetics) → rock-box (dead-material bed absorbs impact — sacrificial wear surface, replaceable liners per §8-wear thinking generalized) vs curved spoon (low-degradation flow for friable product — TBC per material) → skirt/seal at the receiving belt (dust + spillage containment — TBC per practice) → impact idlers/bed under the stream landing (bare-belt impact destroys belts AND idlers — TBC per practice).

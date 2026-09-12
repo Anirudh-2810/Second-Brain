@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 11. SpaceX-Dragon + water-tank appendix (big envelopes, modeled smart)
+
+**Capsule bodies (#91-class method):** pressure-vessel base (revolved + domed ends — the vessel logic from [[bottles-containers]] §9-beverage generalized: pressure shapes are round for physics, not style) → heat-shield base (blunt ablative envelope + separation plane — TBC: confirm with aerospace references for anything beyond CAD practice; model the INTERFACE (bolt circle + separation springs envelope — TBC), not the chemistry) → SuperDraco/pod protrusions (repeated lofted pods per §2-pattern logic — model ONE pod, pattern + mirror!) → docking/berthing interface envelope (TBC per standard: androgynous vs probe-drogue is mission architecture — awareness, NOT this page) → TPS tile/panel breaks as split-line zones (TBC taste: maintenance access patterns read as design detail).
+
+**Water tanks at scale (#2/#26/#79-class, industrial reading):** storage vs pressure duty (atmospheric storage = thin shell + stiffening rings; pressure = coded vessel — TBC: confirm with pressure-vessel standards, NOT this page; the CODE decides everything past atmospheric!) → level fittings (inlet/outlet/drain/overflow flanges + level gauge — TBC per installation; EVERY penetration is a modeled flange + reinforcement pad — TBC per vessel practice) → access + venting (manway for inspection + vent sized against pump rates — TBC: collapsed tanks come from undersized vents! — confirm with storage-tank references) → foundation + anchoring (wind/seismic overturning — TBC per code; anchor-chair envelopes on the drawing!) → CAD consequence: nozzles/reinforcements scheduled in a TABLE (tag every penetration — the vessel documentation habit).
+
+**Scale-model discipline (both builds share it):** model at TRUE scale (1:1 units — scaling lies about clearances and fasteners; TBC taste: scaled display configs allowed, scaled MASTERS forbidden) → human/vehicle reference envelopes in-scene (doorway heights, truck beds, door widths — TBC per context: designs live in worlds, and worlds have standard sizes that constrain you) → transport split lines (ships in pieces? — flange pairs at split points modeled from the START, not retrofitted — TBC per logistics).
+
+---
+
 ## 10. Water-tap + valve internals appendix (plumbing that seals)
 
 **Cartridge systems (what's INSIDE the shiny body — TBC: confirm with plumbing references, NOT this page):** ceramic-disc cartridges (two lapped discs shearing flow ports — the modern standard; model the cartridge ENVELOPE + seat diameters, buy the cartridge — TBC per size) → compression stems (legacy rising-spindle with washer — TBC depth) → thermostatic mixers (wax element + sliding piston — TBC depth; awareness that temperature regulation lives INSIDE, not in the handle) → CAD consequence: bodies are SHELLS around cartridge envelopes (design the cavity FIRST from cartridge dims, style the outside second — inside-out discipline restated).

@@ -99,6 +99,18 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 11. Beverage + hot-fill + aerosol appendix (liquid-specific packaging)
+
+**Carbonated beverage (pressure packaging — TBC: confirm with beverage references, NOT this page):** PET with pressure-rated base (champagne-style punt + petaloid feet — 5-point base spreading pressure load, TBC per bottle design) → neck ring (transfer bead for conveying + tamper band support — TBC per finish standard) → fill height + headspace for CO2 expansion (warm storage pressurizes — TBC per volumes) → cap torque + liner spec'd for pressure retention (the §10-closure lesson with stakes: flat soda = failed product) → CAD consequence: base geometry is STRUCTURAL (pressure vessels wear bottle costumes — section + pressure-thinking, TBC depth).
+
+**Hot-fill (juice/sauce — TBC per packaging references):** fill at ~85–95°C then cool (vacuum forms as contents contract — panels FLEX inward by design: vacuum panels/grip ribs absorb the volume change — TBC per bottle design!) → heat-set PET (crystallized for temperature resistance — TBC per material) → CAD consequence: model the vacuum panels (they're styling AND engineering — the best kind of feature) + fill-line + headspace per §8.
+
+**Aerosol (pressure + dispensing — TBC: confirm with aerosol references, NOT this page):** can (steel/aluminum drawn + necked — TBC per process) → valve cup clinched (pressure boundary — TBC) → actuator + nozzle insert (spray pattern geometry — TBC per product) → CAD consequence: pressure envelope thinking (can + cup + valve as pressure ASSEMBLY with rated burst — TBC per regulation) → dip tube length to can depth (TBC per fill) → overcap as separate part (the §6-cap lesson restated at pressure).
+
+**Chemical/agro packaging (awareness — TBC: confirm with hazmat references, NOT this page):** compatibility (product attacks packaging — TBC per chemical-resistance tables: fluorinated HDPE, barrier layers — TBC) → child-resistance + tamper evidence (regulatory, TBC) → UN-rating marks modeled on the drawing (the §9-drum lesson restated) → venting for off-gassing products (TBC per chemistry). CAD consequence: material callout + wall decisions upstream of styling — compatibility first, beauty second.
+
+---
+
 ## 10. Closure engineering appendix (caps as mechanisms, not lids)
 
 **Thread-form selection (beyond §6's modeled helix):** continuous-thread (CT) beverage style (single-start, fast application — TBC per closure standards) → lug/bayonet (quarter-turn pharma/food — TBC per standard) → snap-bead (press-on + tamper evidence — TBC) → cork/crown (glass-bottle legacy systems — TBC depth). Each pairs with a NECK FINISH standard (the finish name, e.g., 28-400-class, encodes thread + seal + dimensions — TBC: confirm with packaging-closure references, NOT this page). CAD rule: model the NECK to the finish spec FIRST (it constrains everything), design the cap to mate — never freelance thread geometry on real packaging.
