@@ -93,5 +93,33 @@ flowchart TD
 
 **Next:** [[shredders-recycling-machines]].
 
+---
+
+## 7. Planetary deep dive: ratios for all fixings + build script (the full mastery)
+
+**All three fixings, one hardware set (sun 24 / planets 24×3 / ring 72, per §6):**
+
+| Fixed member | Input → Output | Ratio (Willis) | Character |
+|---|---|---|---|
+| Ring fixed | Sun → Carrier | $1 + z_r/z_s$ = 1+3 = **4:1** | The classic reducer (PL2 default assumption — TBC per video) |
+| Carrier fixed | Sun → Ring | $-z_r/z_s$ = **−3:1** (reversed!) | Fixed-axis gearbox in a can (reverse sign = output flips) |
+| Sun fixed | Ring → Carrier | $1 + z_s/z_r$ = 1+1/3 = **1.33:1** | Overdrive-ish low reduction (rare as reducer — TBC per application) |
+
+Derivation sketch (do once on paper): Willis $(n_s-n_c)/(n_r-n_c) = -z_r/z_s$ → set the fixed member's speed to 0, solve. Three substitutions, three ratios, permanent understanding. (TBC: verify sign conventions with a machine-design text — sign errors reverse outputs!)
+
+**Full CAD build script (ring-fixed 4:1):**
+1. Layout sketch: single axis + three pitch circles (Ø36 sun / Ø36 planets on Ø72 PCD / Ø108 ring ID — all module 1.5, per §6) + planet positions at 0/120/270°... 0/120/240° (equal spacing + assembly condition $(24+72)/3=32$ ✓ from §6).
+2. Sun + input shaft (one part: gear + shaft + keyway — input side) → planets ×1 modeled (bore for pin + caged-needle envelope? plain bore at learning level — TBC per size/speed) → circular-pattern ×3 IN ASSEMBLY (not in the part — planets are separate physical pieces!).
+3. Carrier: two cheek plates + 3 pressed pins (interference envelopes — model pin OD = planet bore + 0.02 press (TBC: confirm press-fit tables, NOT this page) → pins located by the SAME layout sketch (single source of truth — move a planet position once, carrier + assembly follow).
+4. Ring: bored ring + INTERNAL teeth (cut INTO the bore: sketch one internal tooth gap → circular pattern ×72 — TBC exact video method; internal cuts need the gap profile mirrored vs external) + outer flange + housing register + anti-rotation key/tab (ring must NOT spin in the fixed arrangement — the forgotten constraint!).
+5. Housing: cup + cover sandwiching the set (sun shaft exits one side with seal, carrier output flange exits the other) → assembly order: ring→housing, carrier+pins, planets onto pins, sun down the middle (the §5 order restated with parts named).
+6. Mates: everything concentric on the main axis → sun↔planet gear mates (1:1 opposite) → planet↔ring internal mates (TBC exact mate setup per version — verify DIRECTIONS by hand-rotation) → drag sun: carrier crawls at ¼ speed FORWARD (same direction — ring-fixed gives same-direction reduction; carrier-fixed would reverse — the sign lesson made physical).
+
+**Helical planetary appendix (#386-class):** same architecture, helix-angle tooth cuts (15–20° starting point per [[helical-spur-gearboxes]] §5) → planets need thrust control (planet pins get thrust washers both sides — TBC per size) → carrier cheeks trap axially → noticeably quieter + stronger, measurably harder to assemble (helix hands must match: all planets same hand, sun/ring opposite — TBC: confirm helix-hand rules with gear references; wrong hands = expensive paperweight).
+
+**Four-planet variant (#345-class):** assembly condition recheck: $(24+72)/4 = 24$ ✓ integer (with THESE teeth — recompute per YOUR counts, never assume) → carrier with 4 pins at 90° → load shares 4 ways (smaller planets possible for same torque — TBC: confirm load-sharing derating with gear references; planets never share perfectly) → tighter assembly (more pieces in the same can — sequence matters more).
+
+**Herringbone build notes (#357-class, expanded):** V-tooth = right-hand helical cut + mirrored left-hand cut meeting at center groove (groove for tool runout — TBC: confirm herringbone-manufacturing practice; the center gap isn't styling) → model ONE hand's cuts patterned, mirror across mid-plane, verify the apex alignment (misaligned apexes = noise + uneven load — the failure mode) → no thrust hardware anywhere (the V cancels internally — confirm by the ABSENCE of thrust washers vs the helical build; the comparison teaches the principle).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[gearbox-fundamentals]] · [[helical-spur-gearboxes]] · [[shredders-recycling-machines]] · [[flowcharts-master]]

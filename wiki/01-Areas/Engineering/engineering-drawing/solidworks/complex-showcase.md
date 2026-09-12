@@ -111,6 +111,31 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 8. Helmet trilogy: full 3-part build script (the deep dive)
+
+Reference photos first: front + side + top with a ruler in frame (per [[artistic-organic]] §1) → Sketch Pictures scaled with head breadth + length (TBC: measure YOUR head or a real helmet — illustrative numbers below assume ~600 mm circumference class, confirm per shell size).
+
+**PART 1 — outer shell (boundary zones, staged knits):**
+1. Layout: 3 longitudinal guide rails (center ridge + 2 intermediate style lines per side — these double as patch seams AND styling) + 5 cross profiles (brow / temple / crown / rear / lower-rim), all derived from the reference pictures via traced splines (rebuild traces with ≤6 points each + tangent ends — fairness starts here).
+2. Crown-center patch: Boundary with the ridge rail + adjacent style rails as Direction 2, cross profiles as Direction 1 → zebra immediately (fix the FIRST patch perfectly — every neighbor inherits its edges).
+3. Side patches (ONE side, then mirror!): boundary between style rail and lower-rim rail → mirror about the center plane (asymmetric graphics come later as decals — structure stays symmetric).
+4. Rear patch: lofted transition closing crown-to-rim → knit crown + sides + rear IN STAGES (crown+sides first, confirm, then rear) → staged-knit discipline from [[filled-knit-trim-thicken]].
+5. Lower rim: edge-roll bead (swept tube Ø8–10 along the rim loop — TBC illustrative: stiffness + safe edge in one feature) → knit bead into shell if same material, or separate part if rubber trim (TBC per construction).
+
+**PART 2 — openings, vents, visor (trim phase):**
+6. Visor opening: sketch the aperture on a side-offset plane (TBC per helmet: aperture width ~240–260 illustrative) → project-trim onto shell (trim-with-sketch per [[filled-knit-trim-thicken]] §8) → visor recess ledge (offset-surface step 3 deep for the shield to sit flush — TBC illustrative) → shield as SEPARATE transparent part (revolve/loft to opening curvature + pivot bosses at both temples).
+7. Ear recesses: trim circles/ovals (Ø70-ish speaker pockets — TBC per comms gear) + shallow fill-blend rims (no sharp edges near ears — comfort + safety).
+8. Vents: brow intake (2 slots) + crown exhausts (3–4) + rear extractors — patterned trims with mesh envelopes behind (insect/debris screening — the forgotten function; model mesh as cosmetic + frame groove) → chin-bar vents if full-face (TBC per helmet type: half/open/full dictate the whole opening map — confirm per YOUR reference).
+
+**PART 3 — liner, retention, hardware (assembly phase):**
+9. Comfort liner: offset-surface inward (8–12 gap per §5-liner example in [[surfacing-utilities-troubleshooting]]) → trim to coverage (crown + cheeks, NOT visor/rim) → cheek pads as separate lofted pads (removable/washable in reality — model the snap envelopes, TBC depth).
+10. Retention: chin strap (webbing sweep along drape path — TBC) + D-ring/micrometric buckle envelopes (bought-out — model envelopes + mount points, never hand-model buckles) → strap anchors riveted through shell+liner (rivet envelopes + pull-through reinforcement washers — TBC per standard; anchors are life-safety parts, confirm with helmet standards NOT this page).
+11. Assembly: shell + liner + shield + pads + strap + vents → interference check (liner vs shell gap uniform? shield sweep vs opening through full pivot travel? — drag-test the shield!) → mass rollup (shell-heavy helmets fatigue necks — TBC: confirm weight targets per standard/size) → exploded view (assembly/service story) → hero render + zebra proof + section through vents (air path visible? — the ventilation check).
+
+**Graduation bar:** paper plan (§5) + regions 1–2 modeled + knit + zebra was the checkpoint; THIS section is the full trilogy. Finish all three parts + assembly + checks = surfacing-capable, provably.
+
+---
+
 ## 7. Car-door panel appendix (#8-class: large gentle curvature)
 
 **Why doors are the zebra final exam:** acres of low-curvature skin where every ripple shows — C2-or-bust territory.

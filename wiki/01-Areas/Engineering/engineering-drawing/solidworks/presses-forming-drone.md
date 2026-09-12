@@ -98,5 +98,38 @@ flowchart TD
 
 **Next:** capstone — [[flowcharts-master]] → [[solidworks-cheatsheet]] → [[solidworks-project-ideas]].
 
+---
+
+## 7. Drone deep dive: full build script + weight budget + preflight (the flagship mastery)
+
+**Weight budget FIRST (the spreadsheet before the CAD — illustrative 5-inch class, TBC per YOUR parts):**
+
+| Item | Qty | Unit mass (illustrative) | Subtotal |
+|---|---|---|---|
+| Frame plates + arms (carbon) | 1 set | 120 g | 120 |
+| Motors (2207-class) | 4 | 32 g | 128 |
+| Props (5-inch pairs) | 2 pairs | 8 g | 16 |
+| ESC 4-in-1 + FC stack | 1 | 25 g | 25 |
+| Receiver + buzzer + misc | — | 15 g | 15 |
+| Battery 4S 1300 | 1 | 170 g | 170 |
+| Camera + VTX + antenna | 1 set | 30 g | 30 |
+| Hardware (M3 set) | 1 set | 20 g | 20 |
+| **AUW estimate** | | | **~524 g** |
+| Thrust needed (2:1 → 4× max) | | | ~1050 g total / ~260 g per motor |
+
+Rule: AUW from the budget must sit ≤ half the 4-motor max thrust (the 2:1 rule from §4) BEFORE modeling — if the budget fails, change PARTS (lighter battery? smaller motors?) not CAD. CAD can't fix a bad budget.
+
+**Full build script (plates → flying machine):**
+1. Layout sketch (top view): arm axes at 90° X, motor centers on the clearance circle from §6 (≥ prop Ø + margin) → stack-hole pattern (30.5×30.5 — TBC per YOUR FC/ESC) → battery bay rectangle + strap slots → camera-plate front width.
+2. Bottom plate: extrude 2 (TBC per stiffness — confirm with §6 SimulationXpress: pocket first, thin second) + pocket pattern (4× cutouts keeping edge rails + arm-root doublers — roots carry crash loads, never pocket them thin) + arm-mount holes + battery-pad recess.
+3. Arms ×1 modeled → ×4 patterned in assembly: tapered plate + tip motor pattern (16×16/19×19 M3 per motor — TBC per YOUR motors) + wire slot (ESC wires route INSIDE arm slots, not zip-tied outside — crash + prop-strike protection) + root doubler overlap onto bottom plate (sandwich joint: plate-arm-plate, TBC per construction).
+4. Top plate: extruded + camera-cage side plates (front opening sized to camera + tilt range — TBC per camera; FPV tilt 20–35° typical, confirm per flying style) + buzzer/LED mounts + antenna tube mount (TBC per VTX).
+5. Stack: standoffs M3×25 (TBC per stack height!) + FC + 4-in-1 ESC + receiver envelopes + capacitor (low-ESR across battery pads — TBC: confirm with build references; the cap saves ESCs from voltage spikes) → wiring envelopes (battery leads with XT60 + routing path clear of props!).
+6. Landing gear: wire/skid envelopes + mounts positioned for stable sit (CG inside the gear triangle with battery aboard — CHECK with mass properties + CG marker, not eyeballing) + prop-to-ground clearance at full tilt (TBC: confirm per terrain).
+7. Fastener pass: every hole gets its screw+nut/standoff envelope (no empty holes in the final assembly — empty holes are unfinished design) → thread engagement check (M3 into aluminum ≥ 4.5 mm — TBC: confirm with fastener references).
+8. Preflight CAD audit: mass properties (AUW vs budget ±5%?) → CG vs geometric center (offset CG flies crooked — TRIM in firmware covers small offsets, rebuild covers large ones; TBC per flight-controller capability) → prop clearance circles vs arms/battery/leads at full gimbal... full stick deflection (TBC: check max tilt angles per tune) → screw lengths vs stack (long screws short electronics — the classic smoke event; TBC: confirm with build references, measure twice) → BOM + DXF plates + print mounts (TPU parts: motor soft-mounts? battery pad? GoPro mount? — TBC per payload).
+
+**Crash-worthiness appendix (design for the inevitable):** arms as replaceable modules (2 screws each, not 6 — field repair matters) → camera recessed behind cage (lenses die first — TBC per crash data) → battery ejects forward not into stack (strap slots angled — TBC per practice) → antenna in tube, never bare (TBC) → conformal-coat note on drawing for electronics (TBC per climate). Design the crash response, not just the flight.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[conveyors-material-handling]] · [[gearbox-fundamentals]] · [[solidworks-project-ideas]] · [[../cad-design-interview-prep]]
