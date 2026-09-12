@@ -95,6 +95,16 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 ---
 
+## 16. Gaming + pro-controller appendix (inputs athletes argue about — TBC per controller references)
+
+**Stick modules (drift is destiny without design — TBC: confirm with input-device practice):** potentiometer vs Hall-effect sensing (wear vs contactless life — TBC per technology!) → stick tension + deadzone tuning (TBC per UX testing!) → modular replacement (drift happens — TBC per field data; tool-free module swaps per the §14-repairability habit!) → CAD consequence: stick WELLS dimensioned to module spec (the §11-camera-deck lesson: bought precision surrounded by modeled plastic!) + dust skirts modeled (stick drift accelerates with debris — TBC!).
+
+**Triggers + bumpers (analog nuance — TBC per UX practice):** travel + force curves (progressive resistance preferred — TBC per testing!) → stop/clutch modes (hair-trigger locks for competitive play — TBC per feature!) → paddle additions (pro controllers add UNDER-finger inputs — TBC per ergonomics!) → CAD consequence: trigger PIVOTS toleranced (slop reads as cheap — TBC per feel!) + states modeled (travel extremes per the §11-states habit!).
+
+**Haptics + audio integration (the §11-channels meet gameplay — TBC per controller practice):** rumble motor placement (mass-symmetric pairs avoid torque steer — TBC!) → adaptive-trigger resistance motors (TBC per premium features!) → headset jack + mic path (the §11-audio lesson at controller scale!) → CAD consequence: weight BALANCE modeled (mass properties per grip zone — TBC per feel; unbalanced controllers fatigue asymmetrically!).
+
+---
+
 ## 15. Camera + optics appendix (glass stacks in plastic bodies — TBC per camera-module references)
 
 **Module anatomy (the stack — TBC: confirm with module datasheets, NOT this page):** sensor + lens barrel + VCM autofocus (voice-coil travel — TBC per throw spec!) + OIS suspension (stabilization axes with travel limits — TBC!) → cover glass over the stack (the §9-finish-vs-function tradeoff at optical stakes: cover flatness + coating matter! — TBC!) → CAD consequence: OPTICAL AXIS as datum (decenter/tilt tolerances TIGHT — TBC per module spec; the §8-PCB-datum habit at micron scale!).

@@ -111,6 +111,16 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 ---
 
+## 17. Restomod + replica appendix (old souls, new CAD — TBC per restoration practice)
+
+**Scan-to-part workflows (unobtainable parts reborn — TBC: confirm with reverse-engineering references):** broken-original measurement (§10-reverse-engineering master applied!) → wear-compensation (worn dimensions restored to NOMINAL via standards/siblings — TBC per judgment; copying wear copies failure!) → material upgrades (bronze for babbit? stainless for plated steel? — TBC per restoration philosophy!) → CAD consequence: BEFORE/AFTER documentation (scan/photo/model triplets per part — the §10-deviation-signoff habit doing heritage duty!).
+
+**Patina vs restoration ethics (awareness — TBC per conservation practice):** preserve vs replace vs replicate (reversibility rules — TBC per conservation ethics!) → honest materials (reproductions MARKED, never faked — TBC per museum practice!) → CAD consequence: replica parts BADGED in metadata (the §10-jewelry-marking habit: honesty travels with geometry!).
+
+**Performance restomods (vintage soul, modern guts — TBC per build practice):** hidden upgrades inside stock envelopes (disc brakes in drum housings? EFI in carb bodies? — TBC per build!) → safety modernization (tires/brakes/lighting to current standards FIRST — TBC per priority!) → CAD consequence: stock-interface discipline (upgrades mount to UNMODIFIED original points where possible — TBC per reversibility; future stewards will thank you!).
+
+---
+
 ## 16. Museum + retail display appendix (products presenting products — TBC per exhibition/retail references)
 
 **Display-case engineering (the invisible vitrine — TBC: confirm with case references):** low-iron glass (edge-green eliminated — TBC per glass spec!) → UV filtration (conservation per §13-exhibit lighting!) → microclimate sealing (silica-gel buffers + gasketed doors — TBC per conservation!) → security layers (laminated + alarmed + anchored — TBC per risk!) → CAD consequence: case + mount + object as ONE assembly (sightlines per §13 + seal paths + service access modeled together!).

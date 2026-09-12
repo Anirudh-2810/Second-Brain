@@ -99,6 +99,16 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 ---
 
+## 17. Luxury + fragrance appendix (packaging as jewelry — TBC per luxury-packaging references)
+
+**Weight as luxury (heft sells — TBC per consumer research):** glass thickness + metalized caps + magnetic closures (the §11-micro-mechanism lesson at vanity scale!) → soft-touch coatings (TBC per finish practice; fingerprints vs feel tradeoff — TBC!) → CAD consequence: MASS TARGETS in the brief (heft specified in grams — TBC per brand; the §7-drone-mass habit applied to desire!).
+
+**Unboxing choreography (the ritual — TBC per unboxing-design practice):** reveal sequence staged (outer → tissue → tray → product — TBC per theater!) → resistance tuning (lids lift with ceremony, never stick or flop — TBC per mechanism!) → scent release on open (TBC per fragrance practice!) → CAD consequence: unboxing modeled as CONFIGURATION STATES (closed → half → revealed per §11-mechanism-states habit!) + insert trays vacuum-formed to product (the §11-thermoform thinking!).
+
+**Counterfeit resistance (luxury needs proof — TBC: confirm with brand-protection references, NOT this page):** covert marks (UV/micro-text zones reserved per §8-label thinking!) → overt seals (hologram + tamper per §10!) → serialization per §15-pharma (track-and-trace generalized!) → CAD consequence: security FEATURES dimensioned like functional geometry (protection specs travel with the tooling — TBC per program!).
+
+---
+
 ## 16. Pouch + carton + bag-in-box appendix (flexibles that stiff CAD must respect — TBC per flexible-packaging references)
 
 **Pouch architecture (structure from films — TBC: confirm with pouch references, NOT this page):** stand-up (doypack) bottom gussets (the fold geometry that stands — TBC per film behavior!) → fitments (spouts + caps heat-sealed in — TBC per application!) → zip + slider closures (reclosure mechanics — TBC per consumer testing!) → CAD consequence: FLAT pattern thinking (pouches are 2D seals forming 3D — model the SEAL MAP first, inflated volume second!) + fitment interface dims (seal-zone flatness + width per §10-seal-land discipline!).

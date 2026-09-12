@@ -96,6 +96,16 @@ All numbers illustrative (TBC: confirm with conveyor-design references like CEMA
 
 ---
 
+## 15. Belt-tracking + training appendix (belts wander — physics + fixes — TBC per belt-training references)
+
+**Why belts mistrack (the force picture — TBC: confirm with conveyor references, NOT this page):** off-center loading (stream pushes belt sideways — TBC per loading practice!) → misaligned idlers/pulleys (a few mm of skew walks kilometers of belt — TBC per alignment!) → seized idlers (drag steers — TBC per maintenance!) → belt camber/splice crookedness (manufactured-in curve + bad joints — TBC per belt QC!) → CAD consequence: NONE in geometry (tracking is alignment + loading!) — but training AIDS modeled (self-aligning idlers? V-return? crowned pulleys per §6! — TBC per device; design the CORRECTION in!).
+
+**Training devices ranked (least to most intervention — TBC per practice):** crowned pulleys + level structure (passive baseline — §6!) → tilted/training idlers (knocked forward on the tight side — TBC per technique!) → self-aligning troughing/return sets (pivoting frames that steer — TBC per device!) → guide rollers on belt edges (LAST resort — edge damage accumulates! — TBC per warning!) → CAD consequence: training-idler POSITIONS + adjustment slots modeled (the §6-take-up lesson: adjustable things show RANGE — training is tuning, and tuning needs travel!).
+
+**Splice discipline (the joint that must flex forever — TBC: confirm with splicing references):** vulcanized vs mechanical per §8-belt-spec (strength + flex + install-time triangle — TBC!) → splice straightness (crooked splices mistrack permanently — TBC per QC!) → splice protection plan (covers + inspection windows at splice-pass points — TBC per practice!) → CAD consequence: splice LENGTH + press envelopes in the layout (field vulcanizing needs space + power + time — TBC per crew practice; unplanned splices happen at midnight in rain!).
+
+---
+
 ## 14. Idler-frame + structure appendix (steel that holds belts — TBC per structural references)
 
 **Idler support frames (the repeated module — TBC: confirm with conveyor-structure practice):** drop-bracket vs stringer-mount idler sets (TBC per duty: change-out speed differs!) → frame spacing matched to idler spacing (structure rhythm follows belt rhythm — the §4-layout habit extended!) → adjustable troughing (wing-angle shims for belt training tweaks — TBC per commissioning!) → CAD consequence: ONE parametric idler-frame module patterned full length (the §8-config habit: change once, update everywhere!) + splice joints at transport lengths (shipped in pieces — TBC per logistics!).
