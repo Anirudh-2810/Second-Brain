@@ -92,5 +92,15 @@ flowchart TD
 
 **Next:** PL2 machines — [[gearbox-fundamentals]].
 
+---
+
+## 7. Dice + mesh + gradient-pattern appendix (precision decoration)
+
+**Dice (#63-class):** box + face dimples (patterned spherical cuts, 1–6 pips in standard opposite-sums-to-7 layout — TBC: confirm dice convention; gaming correctness is the detail that delights) → pip depth uniform (TBC illustrative 1 mm) → numerals via split-line + contrasting appearance (TBC) → edge treatment: sharp dice roll true (precision backgammon dice are razor-edged — TBC: confirm with gaming references), rounded dice tumble casually. The SAME model teaches opposite specs per use — context decides geometry.
+
+**Wire mesh (#102-class) without the rebuild death:** full sweep-per-wire at production counts kills any workstation. Tiered approach: (1) hero zone — real swept wires where the camera/portfolio looks; (2) mid zones — cosmetic wire appearance/bump (TBC per version); (3) far zones — plain surface with mesh texture. State the tiers in your notes — production artists do exactly this (LOD thinking), and naming it marks you as production-aware, not tutorial-bound.
+
+**Gradient holes (#101-class) generalized:** Instances-to-Vary along any driver (size/position/rotation varying down a row) — speaker grilles that fade, vents that grow toward heat sources (TBC: confirm functional patterns per device), decorative fades. The feature is a design LANGUAGE (variation-with-order), not a trick — look for fade/scale/rhythm opportunities in every patterned detail you model from now on.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[complex-showcase]] · [[gearbox-fundamentals]] · [[surfacing-utilities-troubleshooting]] · [[solidworks-project-ideas]]

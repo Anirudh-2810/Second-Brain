@@ -90,5 +90,15 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 **Next:** [[bevel-planetary-gearboxes]].
 
+---
+
+## 6. Noise, backlash & the mesh-quality appendix (beyond geometry)
+
+**Why spur boxes whine and helicals hum:** spur teeth SLAM into full-line contact (impact each mesh — the whine); helical teeth ENGAGE progressively (contact sweeps diagonally — quieter, smoother, at the price of axial thrust). Consequences for modeling: spur housings need stiffness against impact vibration (ribs!); helical housings need thrust paths (shoulders + thrust bearings). The sound difference is a design input, not trivia — quiet-appliance gearboxes pay the helical premium; farm boxes take spur noise for cheap robustness.
+
+**Backlash practice (numbers-first honesty):** zero-backlash CAD jams; real meshes need clearance (TBC: typical backlash ~0.03–0.1 module starting point — confirm with gear references, NOT this page). Implementation at learning level: assemble at exact center distance for the RENDER, then back the driven gear off half the backlash for the MOTION check (TBC taste — document whichever you do). Reversing drives hammer through backlash (the clunk) — bidirectional boxes deserve the generous end; unidirectional can run tighter.
+
+**Mesh-quality eyeball (no instruments needed):** hand-rotate through full turns feeling for tight spots (CAD: rotate mate-driven slowly, watch interference flicker) → marking-blue thinking (engineers paint teeth to read contact patterns — TBC depth; the AWARENESS that contact pattern matters beats any CAD trick) → noise as QA (a box that sounds different each revolution has an eccentric gear — TBC: confirm with maintenance references; the ear is a diagnostic instrument).
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[gearbox-fundamentals]] · [[bevel-planetary-gearboxes]] · [[part-assembly-drawing-workflow]] · [[solidworks-project-ideas]]

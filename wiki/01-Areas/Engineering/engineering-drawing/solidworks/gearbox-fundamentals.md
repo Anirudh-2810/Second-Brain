@@ -105,5 +105,15 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 **Next:** [[helical-spur-gearboxes]] → [[bevel-planetary-gearboxes]].
 
+---
+
+## 7. Fasteners, seals & lubrication hardware (the BOM that makes it real)
+
+**Bolted joints (split line + feet + cover):** one diameter per joint family (M8 split-line, M12 feet — TBC per load; consistency beats optimization at this level) → through-bolts with nuts vs tapped holes (tapped in cast iron holds; tapped in aluminum strips — TBC: confirm with fastener references; model thread depth 1.5× diameter minimum engagement — TBC) → patterned from ONE seed hole (never placed individually) → washers under nuts on soft housings (embedment — TBC awareness).
+
+**Sealing shopping list with placement logic:** input/output lip seals (lip faces INWARD toward oil — backwards seals pump oil OUT; TBC: confirm seal-orientation references) → O-ring cord in split-line groove (groove to seal tables — TBC per datasheet) → gasket vs sealant choice (paper gaskets forgive rough faces; RTV needs clean flat faces — TBC per shop practice) → breather (sealed boxes breathe with temperature — unvented boxes weep oil; the 50-rupee part that saves the gearbox).
+
+**Nameplate + documentation honesty:** ratio, input speed/direction arrow, oil grade + capacity, rotation arrow — model the nameplate (split-line decal zone per [[dressup-productivity]]) and WRITE the drawing notes. A gearbox without oil spec is an unmaintainable box; maintenance data is engineering, not paperwork.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[part-assembly-drawing-workflow]] · [[helical-spur-gearboxes]] · [[bevel-planetary-gearboxes]] · [[solidworks-project-ideas]] (gearbox brief)

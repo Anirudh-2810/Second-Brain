@@ -93,5 +93,15 @@ Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
 
 **Next:** [[household-tools]].
 
+---
+
+## 7. Shower-head + flashlight appendix (water + light discipline)
+
+**Shower head (#71/#82-class):** dome (lofted surface, §6-handle logic at larger scale) + face plate (flat-ish, nozzle field) → nozzles as patterned silicone-jet envelopes (rub-clean nubs — TBC: confirm real jet geometry with plumbing references; model count × layout, not micro-detail) → water inlet thread (modeled learning-grade, seal face for washer — the washer face matters more than the thread!) → flow path check in section (inlet → chamber → jets: uniform plenum depth? dead corners collect limescale — TBC: confirm with plumbing references) → chrome appearance + anti-scald awareness (TBC: thermostatic mixing is device-level, not CAD — know it exists).
+
+**Flashlight shell (#88-class):** tube body (revolve/thin) + head (heatsink fins — patterned thin ribs; LED thermal path: emitter board → metal core → body — TBC: confirm thermal-stack practice; flashlights die of heat, not water) → tail switch boot (flexible envelope + retaining ring) → lens (transparent disc + O-ring groove per [[complex-showcase]] sealing notes) → knurling cosmetic (TBC) + pocket clip (spring-steel envelope + mount screws).
+
+**Shared lesson:** both route something invisible (water, heat, light) through visible geometry — section-view the FLOW/THERMAL/OPTICAL path explicitly (the plumber's check from [[complex-showcase]] generalized). Products fail in the invisible paths; CAD reviews that only orbit the outside miss them.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[bottles-containers]] · [[household-tools]] · [[lofted-boundary-surfaces]] · [[surfacing-utilities-troubleshooting]] · [[dressup-productivity]]

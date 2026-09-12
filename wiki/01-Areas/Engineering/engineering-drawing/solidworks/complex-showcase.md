@@ -109,5 +109,18 @@ Do the PAPER plan first (30 min) — regions, techniques, order, seams — then 
 
 **Next:** [[artistic-organic]] → then PL2 machines from [[gearbox-fundamentals]].
 
+---
+
+## 7. Car-door panel appendix (#8-class: large gentle curvature)
+
+**Why doors are the zebra final exam:** acres of low-curvature skin where every ripple shows — C2-or-bust territory.
+
+1. **Character lines FIRST:** the door's creases/style lines are patch BOUNDARIES (upper shoulder line, lower sculpt) — 3 patches (upper/mid/lower) meeting at designed creases beats one heroic patch spanning everything.
+2. **Boundary with C2 on long edges:** profiles from orthographic sections every ~200 mm (TBC illustrative density) + Direction-2 rails along the character lines → continuity C2 to neighbors → zebra after EACH patch (not at the end — isolate defects while cheap).
+3. **Openings:** window frame (trim + edge roll — the helmet edge-roll move at automotive scale), handle recess (trim + separate handle part + clearance for fingers — §7-handle clearance generalized), mirror mount reinforcement (doubler patch inside — TBC per construction).
+4. **Inner structure (awareness):** real doors have intrusion beams + window regulators inside (TBC depth) — model the beam envelope so the skin never intersects it through slam-travel (the packaging check).
+
+**Panel-gap discipline (the automotive read):** shut lines (door-to-fender gaps) are uniform ~3–4 mm (TBC: confirm with automotive references) — model adjacent panels (fender/rocker envelopes) to READ your gaps, never eyeball a door solo. Uniform gaps photograph as quality; wavy gaps as amateur — same CAD skill as button gaps in [[consumer-electronics]], scaled up.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[household-tools]] · [[artistic-organic]] · [[surfacing-methodology]] · [[gearbox-fundamentals]] · [[solidworks-project-ideas]]

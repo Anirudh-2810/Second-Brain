@@ -97,5 +97,18 @@ Dimensions illustrative (model YOUR real bottle with calipers for the full lesso
 
 **Next:** [[consumer-electronics]].
 
+---
+
+## 7. Jug-handle engineering appendix (#58-class deep pass)
+
+Handles carry full vessels by a curved arm — the highest-loaded plastic on the product. Design sequence:
+
+1. **Attachment FIRST:** upper attach (neck/shoulder, thick zone) + lower attach (body sidewall) — both land on STIFF regions, never mid-panel (flexing panels pump the joint to failure — TBC: confirm with packaging references).
+2. **Grip section:** oval 25×18 clear of the body by ≥25 finger clearance (TBC illustrative) — hand must pass without knuckle rub.
+3. **Build:** swept/lofted surface along the handle path → mutual-trim BOTH ends into the body (overshoot generously) → thicken with the body (one continuous wall if same thickness — TBC per design) → fillet seams 3+ (stress + comfort).
+4. **Load sanity:** full vessel weight hangs on two joints — section the joints (wall continuity? voids?) + oversized fillets + rib gussets inside where invisible (TBC per product). Handles that rip off in reviews failed here, not in styling.
+
+**Finger-clearance rule restated generally:** every handle on every product needs a clearance volume check (fist envelope vs body) — model a simple fist block (TBC: 90×40×40 illustrative) and interference-check it against the body at the grip position. Five minutes, catches the #1 handle complaint.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[beginner-exercises]] · [[consumer-electronics]] · [[extrude-revolve-sweep]] · [[filled-knit-trim-thicken]]

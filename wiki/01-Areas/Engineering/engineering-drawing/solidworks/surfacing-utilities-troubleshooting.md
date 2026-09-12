@@ -88,7 +88,17 @@ The signature offset application from §1 — outer styling skin in, comfort lin
 
 **Delete-hole drill:** drill a Ø10 hole in a practice patch → Delete Hole to heal it → compare healed vs rebuilt-from-scratch (healed is faster, rebuilt is cleaner — price per situation).
 
-**Verify in-app:** take any finished surface model → zebra stripes → find the worst seam → curvature-comb its parent sketch → rebuild the spline → re-run stripes and compare. Before/after screenshots in your daily note.
+**Verify in-app:** take any finished surface model through the §2 flowchart once, end to end, then run the liner §5 + freeform lab above.
+
+---
+
+## 6. Ruled surfaces + parting-line workflows (mold-tool literacy)
+
+**Ruled Surface (the parting-line generator):** pick the parting edge loop and extend a ribbon along the pull direction with draft control (TBC exact option labels per version — look for perpendicular/tapered variants in-app). This ribbon BECOMES the shutoff/parting face for a Tooling Split. Workflow: plastic part → draft audit → parting-line auto-detect along pull (verify every edge it picks — auto-detection misses styling subtleties) → ruled surface off the loop → Tooling Split into core/cavity blocks (TBC: interlocks, cooling, ejection are pro mold-design territory — this page covers CAD readiness, not mold making).
+
+**Shutoff faces (openings crossing parting):** windows/slots spanning the split need steel-meets-steel shutoffs — model explicit shutoff faces capping the opening at the parting plane, or plastic flashes through the gap (FLASH — the classic molding defect from bad shutoffs; TBC: confirm with molding references). If shutoffs multiply, redesign the opening off the parting line instead — fewer shutoffs means a cheaper, more reliable mold.
+
+**Undercut triage (awareness):** internal threads, side holes, snap hooks perpendicular to pull need side-actions or collapsible cores (expensive) — first response is always REDESIGN (relocate to the pull axis, split into an assembly, accept a drilled secondary operation). Side-actions in CAD are the last resort, never the first. Cost thinking beats feature skill.
 
 **Next:** build libraries — [[beginner-exercises]] → [[bottles-containers]] → …
 
