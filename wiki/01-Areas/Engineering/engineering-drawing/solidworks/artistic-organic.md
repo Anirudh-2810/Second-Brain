@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 11. Furniture + lighting design appendix (scale you live with)
+
+**Chair ergonomics (the sit test — TBC: confirm with ergonomics references, NOT this page):** seat height ≈ popliteal (back-of-knee) height (TBC: ~400–450 mm illustrative for adults) → seat depth < buttock-knee minus clearance (TBC illustrative) → backrest lumbar zone positioned (not just present — POSITIONED at L3–L5 height, TBC) → the Panton (§6) re-examined: its single ribbon MUST hit all three zones with one curve (the genius + the constraint — comfort failures in iconic chairs are anthropometric, not aesthetic, TBC per review literature) → CAD consequence: human-figure envelopes (seated manikin blocks — TBC per dataset) IN the assembly from day one (design around bodies, not bounding boxes).
+
+**Table + case goods (the stability chapter):** racking resistance (diagonal stiffness — aprons, stretchers, or panel backs; TBC per furniture references: tables die of wobble, not breakage) → flat-pack fasteners (cam + dowel, confirmat, knock-down hardware envelopes — TBC per hardware catalogs; model the 32-mm system holes? TBC per cabinetry practice) → wood-movement allowances (solid wood moves across grain with humidity — TBC: confirm with woodworking references; breadboard ends, elongated screw slots, floating panels — MODEL the slots/oversize, or seasonal cracks write your review) → edge profiles as feel features (TBC taste: roundovers invite touch, sharp arrises read modern — choose per brief, note per drawing).
+
+**Lighting design (the §9-lampshade generalized):** shade photometrics (opaque + reflector vs diffuser — TBC per lighting practice: beam angle is geometry!) → glare control (cutoff angles hiding the source from normal sightlines — TBC per standard) → dimmer/driver envelopes + heat per [[complex-showcase]] §9 (LED junction temperature decides lifespan — TBC: confirm with lighting references; thermal path modeled, not hoped) → cord + switch + mounting trinity (every luminaire answers all three — TBC per electrical practice) → CAD consequence: light-SOURCE-positioned design (place the emitter first, build the shade around its photometrics — source-outward discipline, the reverse of styling-first).
+
+---
+
 ## 10. Sculpt-to-product pipeline (art that ships)
 
 **From sculpture to SKU (the commercialization path):** concept sculpt (freeform-heavy, fairness-loose — speed over quality at ideation) → engineering rebuild (production patches per this module's discipline — the sculpt becomes REFERENCE, rebuilt cleanly; TBC per studio practice: sculpts rarely tool directly) → parting + draft retrofit (the §6-mold triage applied to organic forms — often requires re-posing the design; budget the iteration!) → wall/thickness engineering (hollow vs solid vs foam-filled — TBC per process/cost) → hardware integration (mounts, fasteners, electronics per the showcase-support systems in [[complex-showcase]] §6) → finish spec (per §9-finish-spec thinking) → packaging (the product needs a box — TBC per scope; unboxing experience is designed, confirm with packaging practice NOT this page).

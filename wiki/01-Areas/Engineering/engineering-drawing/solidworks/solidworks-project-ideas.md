@@ -181,3 +181,13 @@ Beginners either worship or ignore FEA colors. Neither is engineering. How to re
 
 ## CROSS-REFERENCES
 - [[INDEX]] · [[flowcharts-master]] · [[solidworks-cheatsheet]] · [[consumer-electronics]] · [[gearbox-fundamentals]] · [[bottles-containers]] · [[artistic-organic]] · [[presses-forming-drone]] · [[../cad-design-interview-prep]]
+
+---
+
+## Appendix: brief-selection matrix + 90-day arc (how to run all six)
+
+**Which brief first (honest ordering for a beginner):** Brief 4 bottle+mold (surfacing fundamentals, low part-count, fast wins) → Brief 5 enclosure (sheet metal + flat-pattern confidence) → Brief 6 mouse (surfacing capstone — now you have the vocabulary) → Brief 2 gearbox (first assemblies with motion) → Brief 3 gripper (mechanisms + Motion analysis) → Brief 1 quadcopter (everything combined + weight discipline). Easiest-first builds compounding skill; hardest-last cashes it out. Total scope ≈ one solid academic term alongside coursework (TBC per YOUR pace — the arc, not the calendar, is the commitment).
+
+**The 90-day arc (scope + order, per vault plan rules — no dates-as-promises):** foundation pages + L-bracket + bottle-half (the basics-setup → sketch → bottles chain) → Briefs 4+5 (shipped: DXFs + drawings + renders) → Brief 6 (portfolio hero #1) → Briefs 2+3 (motion literacy + bench-tested hardware) → Brief 1 (flying capstone + weight-budget proof) → publish-all + GrabCAD + club demo (the §8-publishing habit executed). Each stage's OUTPUT feeds the next stage's INPUT (enclosure sheet skills → drone plates; gearbox mates → gripper linkages; mouse surfacing → quadcopter canopy?) — the compounding is designed, not accidental.
+
+**Failure resume (keep one — it outperforms a grade sheet):** every brief's §-validation failures logged with cause + fix + prevention ( stripped threads → torque discipline; jammed mesh → backlash budgeting; overweight frame → budget-first redesign). Interviewers and clients probe failures harder than successes — a failure resume with fixes demonstrates seniority that certificates can't. Start it with Brief 4's first stripped thread.

@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 9. Drive sizing + controls appendix (power and brains)
+
+**Motor selection (the torque-speed envelope — TBC: confirm with motor references, NOT this page):** steady torque (process mean — §6-spikes restated: size for SPIKES via service factor, not means) → starting torque (loaded restarts! — across-the-line vs VFD starting capability differs 2–3×, TBC per motor type) → duty cycle (S1 continuous vs S3 intermittent — TBC per IEC duty; undersized-duty motors cook slowly, then suddenly) → frame + mounting (foot/B-flange/C-face per layout — TBC per catalog; model the FRAME, buy the motor — the envelope discipline from §6 restated) → efficiency class (IE3/IE4 premium vs purchase price — TBC per energy economics; motors run for decades, efficiency pays).
+
+**VFD + controls (modern drives think):** soft-start (current + mechanical shock reduction — TBC per drive practice) → speed trimming (throughput tuning without sheaves/belts — the process-flexibility move) → jam response (current-limit + auto-reverse routines — TBC per program; the §8-unjam designed in SOFTWARE too) → interlocks (hopper-open inhibit, e-stop category, guard switches — TBC: confirm with machinery-safety standards, NOT this page) → CAD consequence: panel + conduit + sensor envelopes (VFD cabinet, pull-cord switches, level sensors — model the MOUNTS and cable routes, not just the machine!).
+
+**Transmission choice matrix (motor→rotor power path):** direct-coupled (aligned, efficient, unforgiving of shock — TBC) → belt/chain (slip/clatter absorb spikes + ratio flexibility via sheaves — TBC per practice; belt dust + tension maintenance are the taxes) → gearbox (the [[gearbox-fundamentals]] decision tree applied: ratio + duty + space) → hydraulic (stall-safe + variable speed at low efficiency — TBC per mobile-equipment practice) → SELECT per shock profile (shredders shock → belt or hydraulic cushion; conveyors cruise → direct or gearbox). The transmission is a FUSE and a MATCHMAKER, not just a connector — size it like one.
+
+---
+
 ## 8. Wear-part economics + jam recovery (the operator's design review)
 
 **Wear hierarchy (design spares FIRST, not after):** knives/blades (sharpen 2–3× then replace — TBC per steel/duty) → screens (holes peen shut + abrade oversize — reversible? flip 180° for double life — TBC per screen design) → bearings near the chamber (dust ingress despite seals — TBC: confirm with maintenance references; purgeable seals where washdown happens) → belts/chains (tension-checked weekly — TBC per schedule) → gearbox oil (contamination-tracked, not calendar-tracked — TBC per practice). Model EVERY wear part as a separately-sourced part number (purchasing replaces numbers, not geometry) + flag them on the drawing with a spares table (the aftermarket thinking from §7 restated as deliverable).

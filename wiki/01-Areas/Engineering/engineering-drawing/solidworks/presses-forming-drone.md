@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 9. Hydraulics + tooling appendix (force plumbing and press tooling)
+
+**Hydraulic circuit literacy (awareness — TBC: confirm with hydraulics references, NOT this page):** pump (fixed vs pressure-compensated — TBC per duty) → relief valve (THE safety device — set below weakest-component rating; TBC per design; model it + tag it, never omit) → directional valve (advance/retract/hold — TBC per circuit) → flow control (approach-fast + press-slow two-speed circuits — TBC per cycle-time needs) → cylinder sizing (bore for force, rod for return + buckling! — long thin rods buckle in compression; TBC: confirm with column references) → filtration + tank hygiene (dirty oil kills pumps/valves — TBC per maintenance; breather + return filtration modeled as hardware!) → hoses vs hardline (flex where motion, steel where static — TBC per routing; burst sleeves on pressure lines near operators — TBC per safety).
+
+**Press tooling (dies + fixtures — the shape-givers):** blanking/forming dies as matched sets (punch + die + stripper + guides — TBC per tooling practice; clearance per material/thickness — TBC per die references) → die shoe + shank mounting to ram/bed (TBC per press standard) → stripper action (spring vs positive — TBC per stock thickness) → progression for multi-hit work (TBC depth: progressive dies are their own profession) → CAD consequence: tooling modeled as SEPARATE assemblies with their own BOMs (tools wear + get reordered independently of the press! — the lifecycle thinking from §8-wear generalized).
+
+**Bed tooling + fixturing (holding work right):** T-slot/V-block/angle-plate standards (TBC per shop) → dedicated fixtures for repeat jobs (locate + clamp + clear the tool path — the 3-2-1 locating principle, awareness — TBC: confirm with fixturing references, NOT this page) → quick-change (die carts, pre-staged tooling — TBC per lean practice; changeover time dominates small-batch economics!) → CAD consequence: fixture envelopes in the press assembly (collision-check the stroke against EVERYTHING — the §5-rotate-check generalized to linear axes).
+
+---
+
 ## 8. Press-brake tooling + rolling-machine mechanics appendix (forming depth)
 
 **Press-brake tooling library (the toolroom within the machine):** punch profiles (gooseneck for deep boxes, straight for open bends, hemming dies for closed edges — TBC per tooling catalogs; model punches/dies as a TOOL LIBRARY, not per-job geometry!) → V-die openings (V ≈ 6–8× thickness starting rule — TBC: confirm with press-brake references; narrow V = more tonnage + tighter radius, wide V = gentler) → tonnage math per bend (TBC: confirm with air-bending force charts, NOT this page — awareness that length × thickness × V-width sizes the machine) → backgauge fingers (positioning automation — model finger envelopes + travel range, TBC per control) → crowning (bed deflection compensation for long parts — TBC depth; long thin parts bend the MACHINE, and the machine pushes back).
