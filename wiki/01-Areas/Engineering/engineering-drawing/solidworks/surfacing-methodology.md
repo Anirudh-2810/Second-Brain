@@ -100,6 +100,18 @@ Before clicking: decompose the object into regions of *consistent curvature beha
 
 **Verify in-app:** rebuild PL1 #9's demo from `raw-sources/solidworks/transcripts/` (three-arc sketch → extruded surface both-directions 30/30) → knit → thicken. Then deliberately leave a gap, watch knit/thicken fail, repair it. That failure rep is the lesson.
 
+---
+
+## 8. Surfacing for 3D printing (mesh export without tears)
+
+**Watertight-or-nothing:** slicers need CLOSED solids (or explicitly shelled meshes) — run Import Diagnostics + Check (Tools → Evaluate — TBC exact menu per version) before export; naked edges that thicken forgave will crash slicers (different kernels, different mercy). The thicken-test from §1 doubles as the print-readiness test.
+
+**Tolerance + tessellation (STL/3MF export options — TBC exact dialog per version):** finer deviation = bigger files + smoother curves (TBC: start ~0.05 mm deviation / 15° angle illustrative — confirm per printer; coarse on flat zones is free filesize savings, fine ONLY on curvature). Export Binary STL (smaller) or 3MF (colors/units travel — TBC per slicer support).
+
+**Orientation = quality + strength:** layer lines follow Z — orient show faces vertically-ish (stair-stepping hides on curves? No: it SHOWS on shallow slopes — TBC: confirm with printing references; steep walls print cleanest) → overhangs >45° need support (TBC per printer/material) → design AWAY supports (chamfered bottoms, teardrop holes, 45° rules — TBC per design-for-printing references) rather than accepting forests of support.
+
+**Shrink + fit (printed assemblies):** plastics shrink (holes print small — TBC: confirm per filament, typically +0.2–0.3 mm allowance illustrative) → print test coupons FIRST (hole tower + clearance gauge — one 20-minute print beats three failed assemblies) → document YOUR printer's allowances in your notes (they're yours, not universal — the calibration habit from [[shredders-recycling-machines]] §6 restated).
+
 **Next:** [[lofted-boundary-surfaces]] → [[filled-knit-trim-thicken]] → [[surfacing-utilities-troubleshooting]].
 
 ## CROSS-REFERENCES

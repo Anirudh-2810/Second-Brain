@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 8. Publishing + first-gig appendix (show the work, then sell it)
+
+**Portfolio page anatomy (per build, 10 minutes each):** hero render (3/4 view, studio scene) → wireframe/zebra proof (craft evidence — §3's rule) → 3-bullet technique list (features used, NOT tutorial numbers) → one failure + fix (the story employers remember) → files status (STEP available? print-ready?). Five elements, no essays — curators skim, and completeness signals professionalism louder than any single render.
+
+**Where beginners get seen (free, no gatekeepers):** GrabCAD (engineering portfolio + real downloads — models get USED, and comments teach) → Printables/Thingiverse for printable builds (download counts = market feedback) → LinkedIn project posts with before/after + technique notes (hiring managers live here) → college club/drone-team demos (physical parts beat renders — bring the print!). One build posted in all four places = 4× the surface area for opportunity.
+
+**First paid CAD gigs (the freelancing bridge — TBC per marketplace, confirm current platform practice):** reverse-engineering (client's broken part → measured CAD + drawing — your §1 skill, directly billable) → 3D-print-ready modeling (thingiverse commissions, Etsy sellers needing CAD) → drawing cleanup (2D→3D conversion, redlining old drawings) → pricing honesty (hourly beats fixed-price until you know your speed — TBC: confirm with freelancer references, NOT this page; underpricing is the beginner tax, track hours on briefs 1–6 to learn your rate inputs). North-Star tie: this is the freelancing-start goal made concrete — the module IS the portfolio that feeds it.
+
+---
+
 ## 7. Dice + mesh + gradient-pattern appendix (precision decoration)
 
 **Dice (#63-class):** box + face dimples (patterned spherical cuts, 1–6 pips in standard opposite-sums-to-7 layout — TBC: confirm dice convention; gaming correctness is the detail that delights) → pip depth uniform (TBC illustrative 1 mm) → numerals via split-line + contrasting appearance (TBC) → edge treatment: sharp dice roll true (precision backgammon dice are razor-edged — TBC: confirm with gaming references), rounded dice tumble casually. The SAME model teaches opposite specs per use — context decides geometry.

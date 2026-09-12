@@ -101,5 +101,15 @@ flowchart TD
 
 **Next:** [[complex-showcase]].
 
+---
+
+## 8. Sharp edges, heat-treat + food-safety appendix (the invisible specs)
+
+**Edge policy (every edge on every tool gets a decision):** user-touch edges (handles, rims, grips) → generous radii 2–5 mm (TBC per product: comfort + safety) → working edges (knife/chisel/cutter — TBC depth: edge GEOMETRY is blade science, confirm with tool references) stay crisp BY DESIGN (document "sharp — do not break" on the drawing, or the shop will deburr your cutting edge!) → non-touch structural edges → 0.5–1 mm break (handling safety + coating adhesion — TBC: confirm with finishing references; sharp corners shed paint/powder).
+
+**Heat-treat awareness (steel tools live here):** cutting edges + wear zones get hardened (model uniform geometry — hardness is a CALLOUT, not CAD: "58–60 HRC" on the drawing — TBC per tool steel practice, confirm with metallurgy references NOT this page) → soft body + hard edge = differential treatment note (TBC depth) → grinding stock: leave 0.3–0.5 mm (TBC illustrative) on precision faces for post-heat-treat grinding (heat warps; grind after — the process order that decides your modeling allowances).
+
+**Food-contact appendix (utensils that touch food):** crevice-free joints (welds ground flush + polished — bacteria harbor in crevices; TBC: confirm with food-safety design rules) → cleanability radii (interior corners ≥3–6 mm so sponges reach — TBC per hygiene-design references) → material callout (304/316 stainless typical — TBC per product; aluminum + acidic foods react — TBC) → no coatings that flake into food (TBC per regulation). The spoon from §6 done right: rim fillet + joint crease eliminated + polish note = food-safe by construction, not luck.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[consumer-electronics]] · [[complex-showcase]] · [[lofted-boss-boundary]] · [[dressup-productivity]]

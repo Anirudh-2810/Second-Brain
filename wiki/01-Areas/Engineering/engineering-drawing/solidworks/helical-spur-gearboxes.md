@@ -92,6 +92,18 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 7. Manufacturing routes appendix (how teeth get cut — awareness that shapes CAD)
+
+**Hobbing (the workhorse):** rotating cutter generates teeth progressively — needs tool runout clearance (grooves beside herringbone apexes, shoulder clearance beside helical pinions — TBC: confirm with gear-manufacturing references). CAD consequence: leave cutter clearance in your blank design (tight shoulders against tooth faces = unmakable; TBC per hob specs).
+
+**Shaping + broaching (internal teeth):** ring-gear internals are shaped/broached, not hobbed (cutter reciprocates — needs undercut relief at tooth ends — TBC depth). CAD consequence: internal gear models need end-relief grooves or the drawing lies about makability (TBC per process).
+
+**Grinding (precision finish):** ground teeth (quiet, accurate) need grind stock + wheel runout (TBC per process) — model the AS-GROUND geometry, note stock removal on the process sheet (TBC per shop). Awareness level: know grinding exists and demands allowances; the allowances live in process planning, not beginner CAD.
+
+**Printed gears (your bench reality per [[solidworks-project-ideas]] Brief 2):** FDM layer lines ARE stress concentrators at tooth roots (orient teeth vertically? flat? — TBC: confirm with 3D-printing references; test both, keep the survivor) → 100% infill at teeth, lightening elsewhere → post-print running-in with abrasive paste (TBC per hobby practice) → noise acceptance (printed gears whine — the spur-noise lesson from §6, amplified). Document orientation + settings WITH the STL (slicer profile travels with the model — reproducibility is engineering).
+
+---
+
 ## 6. Noise, backlash & the mesh-quality appendix (beyond geometry)
 
 **Why spur boxes whine and helicals hum:** spur teeth SLAM into full-line contact (impact each mesh — the whine); helical teeth ENGAGE progressively (contact sweeps diagonally — quieter, smoother, at the price of axial thrust). Consequences for modeling: spur housings need stiffness against impact vibration (ribs!); helical housings need thrust paths (shoulders + thrust bearings). The sound difference is a design input, not trivia — quiet-appliance gearboxes pay the helical premium; farm boxes take spur noise for cheap robustness.
