@@ -123,5 +123,56 @@ flowchart TD
     F -->|No| H[Rebuild the sketch:\nrepair + fully define]
 ```
 
+---
+
+## 9. Is this part mold-ready?
+
+```mermaid
+flowchart TD
+    A[Plastic/cast part] --> B[Draft analysis:\nall green?]
+    B -->|No red/yellow| C[Fix undercuts:\nadd draft or\nmove parting line]
+    B -->|Yes| D[Walls uniform?\nsection check]
+    D -->|No| E[Thin thick zones +\nadd ribs instead]
+    D -->|Yes| F[Parting line on\nsilhouette edge?]
+    F -->|No| G[Relocate parting +\nrebuild shutoffs]
+    F -->|Yes| H[Fillets generous\nat all inside corners?]
+    H -->|No| I[Add mold radii\nbefore shell]
+    H -->|Yes| J[Mold-ready → solidworks-project-ideas Brief 4]
+    C --> B
+    E --> D
+    G --> F
+    I --> H
+```
+
+## 10. Sheet-metal sanity (before flat pattern)
+
+```mermaid
+flowchart TD
+    A[Sheet part] --> B[Uniform thickness\nthroughout?]
+    B -->|No| C[Rebuild as constant-gauge\nfeatures only]
+    B -->|Yes| D[Bend radii ≥ shop\nminimum?]
+    D -->|No| E[Raise radii / confirm\nwith fabricator]
+    D -->|Yes| F[Flat pattern unfolds\nwith zero distortion?]
+    F -->|No| G[Find the non-developable\nfeature — lofted bends?\nform tools? Redesign]
+    F -->|Yes| H[Holes clear of bends?\n≥ ~2× thickness away]
+    H -->|No| I[Move holes or add\ncut-after-bend note]
+    H -->|Yes| J[Export DXF → solidworks-project-ideas Brief 5]
+```
+
+## 11. Which project next? (chooser)
+
+```mermaid
+flowchart TD
+    A[Finished the track?] --> B{What excites you?}
+    B -->|Flying things| C[Brief 1 quadcopter\n→ presses-forming-drone §4]
+    B -->|Machines that move| D[Brief 2 gearbox / Brief 3 gripper\n→ Motion sandbox]
+    B -->|Products people hold| E[Brief 6 mouse / Brief 4 bottle\n→ surfacing pages]
+    B -->|Real factory output| F[Brief 5 enclosure\n→ get a laser-cut quote]
+    C --> G[Ship + log → pick\nthe next excitement]
+    D --> G
+    E --> G
+    F --> G
+```
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[surfacing-methodology]] · [[lofted-boundary-surfaces]] · [[filled-knit-trim-thicken]] · [[gearbox-fundamentals]] · [[dressup-productivity]] · [[solidworks-cheatsheet]]

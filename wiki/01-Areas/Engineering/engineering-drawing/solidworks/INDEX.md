@@ -85,4 +85,5 @@ flowchart TD
 - Content vintage 2021–2026; menu paths verified against this era's UI. SolidWorks updates yearly — if a button moved, search its name with `S` (search commands).
 - Follow-along transcripts are **command sequences, not theory** — dimensions quoted are the YouTuber's choices, not engineering requirements.
 - Nothing here replaces opening SolidWorks: every page ends with a "verify in-app" checklist.
+- Bulk transcripts pending (YouTube 429 on 2026-09-12): build pages carry TBC flags where video specifics await confirmation — help clear them by fetching per `catalog.csv` status and reporting back.
 - Related vault pages: [[../overview]] (drawing basics) · [[../development-of-surfaces]] (projection of solids theory — the math behind loft/boundary) · [[../autocad-lab-and-exam-prep]] (lab discipline) · [[../cad-design-interview-prep]] (drone-team round).

@@ -158,5 +158,26 @@ Every brief below follows: **Goal** (what + why it matters) → **Roadmap** (ord
 - Proof: one render + one analysis screenshot + rebuild test (change a driving dim, confirm clean).
 - Log: daily-note entry with hours, failures, and fixes — failures documented are the portfolio's hidden value.
 
+---
+
+## Simulation reading guide (what the numbers MEAN — all briefs)
+
+Beginners either worship or ignore FEA colors. Neither is engineering. How to read entry-level results:
+
+**SimulationXpress static (Briefs 1, 3, 4-adjacent):**
+1. Mesh first, sensibly coarse (converge LATER — first run answers "where," not "how much").
+2. Read LOCATION first (red zone = redesign target), magnitude second.
+3. Compare against yield with a factor of safety ≥3 for static student work (TBC: confirm with machine-design references — FoS covers your load-guesses, mesh coarseness, and material variation all at once).
+4. Deflection often matters more than stress (drone arms, press beds, gripper jaws) — read displacement plots with the same seriousness.
+5. Refine mesh once around the peak: if the number barely moves, trust it; if it jumps, your mesh was lying (convergence check — TBC depth, but the concept is non-negotiable).
+
+**Motion kinematics (Briefs 2, 3):**
+1. Plot FIRST (trajectories, speeds, ratios) — graphs over eyeballing, always.
+2. Check extremes of travel (toggle/lock positions, interference at ends — the failures live at extremes, never mid-stroke).
+3. Force curves: collapsing mechanical advantage near a toggle = redesign the link ratios, not a bigger servo/motor.
+4. Qualitative + quantitative pair: hand-feel/bench test AND the plotted numbers must agree — disagreement means the model lies somewhere (find it; that's the lesson).
+
+**What entry tools CANNOT tell you (awareness, not discouragement):** fatigue life, impact/crash, vibration resonance, fluid flow, heat — these need full Simulation/Flow/explicit-dynamics (pro territory, TBC license depth). The student move: name the limitation in your notes ("static-equivalent approximation — TBC with dynamic testing"), never present colors as proof of what they didn't analyze.
+
 ## CROSS-REFERENCES
 - [[INDEX]] · [[flowcharts-master]] · [[solidworks-cheatsheet]] · [[consumer-electronics]] · [[gearbox-fundamentals]] · [[bottles-containers]] · [[artistic-organic]] · [[presses-forming-drone]] · [[../cad-design-interview-prep]]

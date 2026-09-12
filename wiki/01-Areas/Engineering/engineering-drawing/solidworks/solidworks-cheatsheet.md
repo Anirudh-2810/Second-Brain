@@ -68,6 +68,21 @@ Zebra stripes (smoothness) → Curvature combs (sketch fairness) → Deviation/n
 
 `S` search commands · `D` confirm sketch/feature (TBC per version — rebind if needed) · `Tab` flip 3D-sketch plane · `Ctrl+drag` copy feature/part · `Spacebar` orientation menu · `F` zoom-to-fit · mouse gestures (right-drag flick — customize once, keep forever; TBC exact defaults per version).
 
+---
+
+## Threads, fits & sheet extras (the rows beginners miss)
+
+| Task | Command/practice | Home page |
+|---|---|---|
+| Standard threads | Hole Wizard → Threaded + cosmetic (default); modeled only for prints/close-ups | [[extrude-revolve-sweep]] §7 |
+| Fit callouts (k6/H7) | Nominal 3D + tolerance on DRAWING (ISO 286 — confirm tables, not here) | [[gearbox-fundamentals]] §6 |
+| Sheet-metal base | Base Flange + Edge/Miter Flange; gauge table once | [[presses-forming-drone]] §2 |
+| Flat pattern gate | Must unfold distortion-free or it's not manufacturable | [[flowcharts-master]] §10 |
+| Weldments | Skeleton sketch → structural profiles → cut list + weld table on drawing | [[shredders-recycling-machines]] §3 |
+| Bought-out parts | Envelopes only (bearings, motors, cylinders, inserts) + datasheet specs | [[gearbox-fundamentals]] §3 |
+| Exploded + BOM | Assembly → Exploded View → drawing BOM, no missing fasteners/seals | [[part-assembly-drawing-workflow]] §5 |
+| Pack and Go | File → Pack and Go before sending ANYTHING | [[part-assembly-drawing-workflow]] §8 |
+
 ## Order of operations (tattoo version)
 
 **Plane → fully-defined sketch → base feature → form → function → dress-up LAST → mate → drawing.** Details: [[part-assembly-drawing-workflow]].
