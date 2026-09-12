@@ -95,6 +95,16 @@ flowchart TD
 
 ---
 
+## 12. Marine + hoist-duty appendix (gears that swim and lift — TBC per marine/hoist references)
+
+**Marine gears (classification society rules the waves — TBC: confirm with marine-classification references, NOT this page):** survey + certification regimes (design reviewed, materials traced, testing witnessed — TBC per class!) → reverse + maneuvering duty (crash-stop torque reversals — TBC per propulsion practice!) → resilient mounting (hull flex + vibration isolation — TBC per installation!) → CAD consequence: certification DOCUMENTATION modeled alongside (material trace + NDT notes + survey holds ON the drawing set — the §10-documentation habit at sea!).
+
+**Hoist/crane gearing (people under loads — TBC: confirm with crane standards like FEM/ISO/CMAA, NOT this page):** fail-safe brakes on the HIGH-speed shaft (the §9-winch lesson restated as law!) → rope-drum + reeving geometry (fleet angles + groove profiles per §9!) → duty classes (load spectrum + cycles decide everything — TBC per classification!) → CAD consequence: safety factors VISIBLE in the math (the §9-sizing-walkthrough with the crane standard open beside it — TBC per code; lifting people-adjacent loads on unrated math is how accidents happen!).
+
+**Tidal/wave + exotic duty (awareness — TBC depth):** seawater corrosion + biofouling (TBC per marine-materials practice!) → highly variable torque (waves don't do steady-state — TBC per resource assessment!) → access windows (weather + vessels + seasons gate maintenance — TBC per operations!) → CAD consequence: overdesign + monitoring + access modeled TOGETHER (the §11-NVH-ports habit: unmonitored exotic duty fails silently!).
+
+---
+
 ## 11. Compound planetary + Ravigneaux appendix (stacked smarts — TBC: confirm with transmission references, NOT this page)
 
 **Compound sets (planets ON planets):** stepped planet pinions (two gears, one pin — sun meshes small step, ring meshes big step — TBC per arrangement!) → ratio multiplication without extra stages (compact + brutal on bearing loads — TBC per analysis!) → assembly-condition math EXTENDED (the §6-integer rule generalized per compound topology — TBC: confirm with planetary-design references!) → CAD consequence: stepped-planet parts (two tooth counts, ONE bore — the pattern-twice discipline from §6!) + carrier cheeks trapping both meshes (assembly sequence choreographed — model the ORDER, not just the parts!).

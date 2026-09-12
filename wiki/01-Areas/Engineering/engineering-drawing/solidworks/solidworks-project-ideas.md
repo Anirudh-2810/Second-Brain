@@ -184,6 +184,22 @@ Beginners either worship or ignore FEA colors. Neither is engineering. How to re
 
 ---
 
+## Brief 11 — Benchtop pick-and-place / solder-assist arm (bonus: precision small automation)
+
+**Goal (desktop factory-lite):** a small 3–4 axis arm for placing SMD parts / holding probes / light pick-place (TBC per precision need). Why: precision mechanisms + steppers + the §-Motion sandbox at small scale — the robotics resume line that isn't another rover.
+
+**Roadmap:** reach + payload envelope FIRST (the §-envelope discipline: what must it touch, how heavy, how precisely? — TBC per task!) → stepper + gearbox/belt selection (NEMA sizes + microstepping + reduction per torque/resolution math — TBC!) → link design (stiffness-per-gram per the §7-drone lesson: deflection kills precision!) → joint bearings (preloaded small bearings vs bushings per repeatability need — TBC!) → end-effector mount (gripper/vacuum/probe quick-change — TBC per tool!) → CAD consequence: repeatability BUDGET on paper (backlash + flex + thermal per joint summed — TBC per error-budget practice; precision is budgeted, not hoped!).
+
+**Validation ladder:** repeatability test (dial indicator, 30 cycles same target — TBC per procedure!) → payload vs deflection (weights + indicator — the §-simulation sandbox with a real gauge!) → thermal drift soak (motors warm up, dimensions walk — TBC per measurement!) → 100-cycle endurance (looseness growth tracked — the §-wear habit at precision scale!) → task demo video (placing 0603? probing PCBs? — TBC per build; the demo IS the deliverable!).
+
+## Brief 12 — Compost-tumbler / garden automation rig (bonus: slow machines that matter)
+
+**Goal (torque + weather + patience):** a rotating compost drum or automated irrigation valve manifold (TBC per pick). Why: slow-duty design (corrosion + seals + seasons instead of speed!) + genuine usefulness (it composts/waters while you study!).
+
+**Roadmap:** drum geometry (volume + door + mixing flights per §-conveyor-screw thinking!) → support rollers + drive (friction vs gear drive per torque — TBC!) → weatherproofing per §10-garden + §10-weatherstation lessons (drainage + UV + critter-proofing — TBC!) → automation layer (moisture/timer control + valve envelopes per §9-controls thinking!) → CAD consequence: SEASONAL review built in (inspect points modeled per the §7-maintenance habit: machines that sit outside get found by rust, so design the finding-in!).
+
+---
+
 ## Brief 9 — Benchtop CNC plotter/mill conversion (bonus: subtractive capstone)
 
 **Goal (the other half of making):** convert/assemble a small 3-axis machine (3018-class router or plotter-to-mill build — TBC per machine choice) with modeled upgrades. Why: additive (printing per §8-printing) + subtractive (this brief) = complete personal factory; rigidity + precision thinking transfers to EVERY machine page.

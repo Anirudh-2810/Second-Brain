@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 14. Forging + extrusion-press appendix (hot metal under pressure — TBC per forging/extrusion references)
+
+**Forging press duty (impact vs squeeze — TBC: confirm with forging references, NOT this page):** hammer energy ratings (kilojoules per blow + blow counts — TBC per part!) → hydraulic squeeze (slow + controlled fill for complex dies — TBC per process!) → die heating + lubrication (graphite/oil films per stock — TBC per tribology!) → flash management (excess metal escapes at parting — flash gutter + trimmer press modeled in the LINE per §13-automation thinking!) → CAD consequence: forging ENVELOPE + draft + radii per process (steeper draft + fatter radii than cold work — TBC per forging design!; the §6-draft lesson at orange heat!).
+
+**Extrusion presses (pushing metal through dies — TBC: confirm with extrusion references):** billet preheat + container + ram + die stack (TBC per press architecture!) → profile complexity limits (tongue ratios + wall minima per alloy — TBC per extrusion design!) → quench + stretch + age downstream (TBC per temper!) → CAD consequence: PROFILE-first design (the extrusion IS the cross-section — design it like a sweep profile per [[extrude-revolve-sweep]] §8-sweep discipline, but one that ships by the meter!) + die-bearing lengths (TBC depth: bearing controls metal flow speed differentials!).
+
+**Roll forming + tube mills (continuous sections — TBC per roll-forming references):** flower patterns (progressive bend stations — TBC per design!) → weld + size + cut-off in-line (TBC per mill layout!) → CAD consequence: STATION-BY-STATION section models (the flower IS the documentation — TBC per tooling practice!) + mill footprint (long lines need long buildings — the §11-plant habit: process length shapes real estate!).
+
+---
+
 ## 13. Automation + press-line appendix (presses that run themselves — TBC per press-automation references)
 
 **Feed systems (stock in, parts out — TBC per coil/blank practice):** coil reels + straighteners (coil set removal — TBC per material!) → servo-roll feeds (pitch accuracy per part tolerance — TBC per feed spec!) → blank destackers (magnetic vs vacuum separation — TBC per blank type!) → scrap conveyors OUT (skeleton + slugs + trim — TBC per §9-conveyor thinking at press side!) → CAD consequence: feed-line ENVELOPES in the press layout (coil width + loop pits + straightener footprints — the press is one station in a LINE, model the line!).

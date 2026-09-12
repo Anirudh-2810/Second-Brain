@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 14. Metals + auto-shredder appendix (the heavyweight stream — TBC per metals-recycling references)
+
+**Fragmentation physics (hammermills vs shears — TBC: confirm with shredder references, NOT this page):** hammer impact shattering (high-speed hammers + anvil/grate sizing output — TBC per machine!) → shear cutting for sheet/structures (the §1-chamber logic at structural scale!) → density separation post-shred (drums + eddy + sink-float per §11-sorting!) → CAD consequence: hammer + grate GEOMETRY (hammer mass/profile + grate opening size = product spec — the §6-screen lesson: openings DEFINE output!) + wear-plate schedules (liners as scheduled replacement per §8-wear!).
+
+**Depollution at auto scale (fluids + hazards per vehicle — TBC: confirm with ELV/auto-recycling regulation, NOT this page):** fluids drained + captured (oil/coolant/fuel/refrigerant streams SEPARATED — TBC per environmental permit!) → battery + airbag + mercury removal (the §12-e-waste depollution habit at vehicle scale!) → tires + glass pulled pre-shred (TBC per process!) → CAD consequence: depollution RIGS (drain racks + lift + tool stations modeled as a LINE feeding the shredder — the §12-depollution-line habit for cars!).
+
+**Downstream frag trade (shredded steel as commodity — TBC per scrap-market practice):** ferrous frag quality (copper contamination kills price — TBC per spec!) → picking + sensing post-magnetic (the §11-sorting cascade extended!) → stockpile + ship logistics (the §14-conveyor-plant habit: frag moves by conveyor to rail/ship!) → CAD consequence: quality GATE positions modeled (sampling + sensing points with access — the §11-quality-gate habit: specification enforced by geometry!).
+
+---
+
 ## 13. Mobile + plant-scale appendix (shredders that travel or anchor plants — TBC per mobile-plant references)
 
 **Mobile shredders (tracked/wheeled units — TBC: confirm with mobile-equipment references):** transport envelope (road-legal width/height/weight PER JURISDICTION — TBC per regulation; design folds/telescopes to legal!) → self-propulsion vs towable (tracks for sites, wheels for roads — TBC per mobility need!) → onboard power (diesel-hydraulic vs genset-electric — TBC per emissions/noise site rules!) → setup/teardown time (outriggers + feed arrangement under an hour? — TBC per operations!) → CAD consequence: TRANSPORT configuration modeled (folded boom, pinned feeders, locked drums — the §12-storage-states habit for machines that commute!).
