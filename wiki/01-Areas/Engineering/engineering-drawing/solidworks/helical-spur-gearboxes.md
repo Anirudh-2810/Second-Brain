@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 11. Double-helical + crossed-helical appendix (the thrust story completed)
+
+**Single-helical thrust math (awareness — TBC: confirm with gear references, NOT this page):** axial force ≈ tangential × tan(helix angle) (15–20° helix → ~27–36% of tangential as thrust — TBC per formula; NOT negligible!) → thrust bearings/washers sized for CONTINUOUS thrust (not peak — every revolution pushes, all day) → housing shoulders BOTH flanks (thrust reverses on direction change — bidirectional boxes trap both ways!) → the §4-failure restated with numbers: unaddressed thrust walks shafts until gears unmesh or seals die.
+
+**Double-helical (herringbone's manufactured cousin — TBC: confirm with manufacturing references):** two opposed helices with a CENTER GAP (tool runout needs somewhere to go — the §7-apex-gap restated for parallel shafts!) → gap width vs face utilization tradeoff (gap wastes face width — TBC per design; narrow gap needs specialized cutters — TBC per process) → assembly: two halves + center spacer? or one-piece with gap groove (TBC per size/process) → model halves + gap explicitly (the gap is FUNCTIONAL clearance, not decoration!).
+
+**Crossed-helical (non-parallel, NON-intersecting shafts — the odd cousin):** point contact (not line!) → LOW capacity + sliding wear (TBC: confirm with gear references; crossed helicals are for light auxiliary drives ONLY — instrument feeds, distributor drives, TBC per application) → same-hand vs opposite-hand rules per shaft angle (TBC: confirm — get it backwards and it binds instantly!) → CAD consequence: model EXACTLY per the hand/angle tables (no freelancing — crossed-helical geometry punishes improvisation!) → lubrication criticality (sliding contact needs EP/boundary protection — TBC per lube references).
+
+---
+
 ## 10. Lubrication + cooling appendix (oil as a design element)
 
 **Lube method selection (duty decides — TBC: confirm with gear-lubrication references, NOT this page):** splash (dipper/gear fling — simple, speed-limited by churning losses + heat — TBC per pitch-line-velocity limits) → bath (gears dip — level discipline per §8-sump: too deep churns, too shallow starves!) → spray/jet (pumped + filtered + aimed at mesh exit — high-speed/heavy-duty standard, TBC) → grease (sealed-for-life small boxes — TBC per NLGI grade; relube intervals modeled as maintenance notes!) → dry/coated (instrument/plastic gears — TBC per material; wear-tracked, not oil-tracked).

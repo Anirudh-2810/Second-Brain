@@ -87,6 +87,16 @@ Scale-model of #329's 36-blade architecture — all numbers illustrative (TBC: c
 
 ---
 
+## 10. Dust, noise + fire appendix (shredders are hazardous by nature)
+
+**Dust control (shredding MAKES dust — design for it):** enclosed chamber + discharge (open machines dust the building — TBC per industrial-hygiene practice) → extraction stubs at transfers (per §9-conveyor dust thinking generalized: every drop point gets a stub!) → filter maintenance access (blinded filters = no extraction = dust event — TBC per practice; model the filter door + differential-pressure tap! — TBC per monitoring) → combustible-dust awareness (organic/metal dusts EXPLODE — TBC: confirm with safety standards like NFPA 652/654, NOT this page; venting + isolation + housekeeping designed, not hoped!).
+
+**Noise control (shredders are LOUD — TBC: confirm with occupational-noise references, NOT this page):** source level audit (impact + drive + discharge each contribute — TBC per measurement) → enclosure panels with mass + absorption (TBC per acoustic practice: mass blocks, foam absorbs — different jobs!) → operator distance + duty (exposure math decides PPE + rotation — TBC per regulation) → CAD consequence: acoustic covers modeled WITH access (the §8-guard lesson restated: covers that block maintenance get removed permanently — design covers that MAINTAIN through!).
+
+**Fire triangle in one machine (awareness — TBC: confirm with fire-protection references, NOT this page):** fuel (shredded product + dust + lube oil!) + ignition (bearing failure heat, tramp metal sparks, electrical faults!) + oxygen (dust extraction MOVES air through the hazard!) → suppression (detection + deluge/gas zones — TBC per system design) → isolation (dampers stopping propagation to dust collectors — TBC) → CAD consequence: detector + suppression + damper MOUNTS modeled (retrofits never fit — the §9-controls lesson restated for safety hardware!) + tramp-metal protection upstream (magnets/belts BEFORE the chamber — TBC per installation; one wrench in the chamber totals blades AND shafts!).
+
+---
+
 ## 9. Drive sizing + controls appendix (power and brains)
 
 **Motor selection (the torque-speed envelope — TBC: confirm with motor references, NOT this page):** steady torque (process mean — §6-spikes restated: size for SPIKES via service factor, not means) → starting torque (loaded restarts! — across-the-line vs VFD starting capability differs 2–3×, TBC per motor type) → duty cycle (S1 continuous vs S3 intermittent — TBC per IEC duty; undersized-duty motors cook slowly, then suddenly) → frame + mounting (foot/B-flange/C-face per layout — TBC per catalog; model the FRAME, buy the motor — the envelope discipline from §6 restated) → efficiency class (IE3/IE4 premium vs purchase price — TBC per energy economics; motors run for decades, efficiency pays).

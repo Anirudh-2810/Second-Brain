@@ -100,6 +100,16 @@ flowchart TD
 
 ---
 
+## 10. Press safety + two-hand control appendix (force demands respect)
+
+**Hazard inventory (10 tons ignores fingers — TBC: confirm with press-safety standards like OSHA/EN 693, NOT this page):** closing pinch (ram vs bed — the primary killer: guarded, light-curtained, or two-hand-controlled — pick PER the risk assessment, never by convenience!) → stored energy (hydraulic accumulators + gravity-held rams drift DOWN on seal failure — TBC: counterbalance/brake valves modeled in circuit + mechanical prop for die work! — TBC per practice) → ejected parts/tools (flying blanks + broken tooling — TBC per guarding: polycarbonate screens rated, not hopeful!) → noise + oil injection (pinhole leaks cut SKIN at pressure — TBC: confirm with hydraulics-safety references; cardboard-test for leaks, NEVER hands!).
+
+**Safeguarding selection (awareness — the hierarchy, TBC: confirm with safety standards):** fixed guards (simplest, always-closed — the §6-guard-closed rule restated) → interlocked gates (access WITH auto-stop — TBC per interlock category) → light curtains + laser scanners (presence-sensing — TBC per application) → two-hand control (simultaneous press, anti-tie-down + anti-repeat — TBC per control reliability!) → pullbacks/hold-outs (TBC depth) → the CAD consequence: EVERY safeguarding device needs mounts + cable routes + adjustment (retrofits on presses never align — design the WHOLE safety system in the assembly, not the machine alone!).
+
+**Die-setting procedure (the most dangerous 10 minutes — TBC: confirm with shop practice, NOT this page):** ram LOCKED + de-energized (mechanical prop IN — gravity is patient!) → dies staged on the cart (die-cart envelope in the layout! — TBC per lean practice) → alignment checked at LOW pressure first (kiss, inspect, then full tonnage — TBC per practice) → CAD consequence: prop-storage clips ON the frame (props left on the floor migrate away exactly when needed!) + pressure-gauge visibility from the setup position (operator sees what the machine feels!).
+
+---
+
 ## 9. Hydraulics + tooling appendix (force plumbing and press tooling)
 
 **Hydraulic circuit literacy (awareness — TBC: confirm with hydraulics references, NOT this page):** pump (fixed vs pressure-compensated — TBC per duty) → relief valve (THE safety device — set below weakest-component rating; TBC per design; model it + tag it, never omit) → directional valve (advance/retract/hold — TBC per circuit) → flow control (approach-fast + press-slow two-speed circuits — TBC per cycle-time needs) → cylinder sizing (bore for force, rod for return + buckling! — long thin rods buckle in compression; TBC: confirm with column references) → filtration + tank hygiene (dirty oil kills pumps/valves — TBC per maintenance; breather + return filtration modeled as hardware!) → hoses vs hardline (flex where motion, steel where static — TBC per routing; burst sleeves on pressure lines near operators — TBC per safety).

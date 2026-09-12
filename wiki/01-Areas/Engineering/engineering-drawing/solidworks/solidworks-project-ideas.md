@@ -184,6 +184,16 @@ Beginners either worship or ignore FEA colors. Neither is engineering. How to re
 
 ---
 
+## Execution protocols (run every brief like a pro)
+
+**Session structure (the 2-hour block that ships):** 10-min plan review (which steps? what could fail? — the pre-mortem!) → 90-min modeling sprints (phone away, ONE feature set per sprint — the §2-exercise timing discipline generalized) → 15-min verify (rebuild test + section + mass per the brief's ladder — NEVER skip; verification debt compounds!) → 5-min log (daily note: done/next/blocked + ONE trick kept — the §6-log-template habit). Four blocks a week finish any brief in a month alongside coursework (TBC per YOUR pace — the rhythm, not the calendar!).
+
+**Stuck escalation (the §8-stuck-protocol applied to projects):** 15-min rule per feature (then log + sidestep to an independent feature — parallel progress beats serial suffering!) → module-page lookup (exact section, not rereading!) → daily-note parking lot (stuck items age into easy items overnight — TBC: confirm against YOUR log hit-rate!) → peer trade (swap trees with a friend per [[beginner-exercises]] §8-review — foreign eyes spot your blind assumptions in minutes!) → NEVER restart from scratch before the §7-reorder-surgery pass (archaeology first, rebuild last — restated because it hurts the most to skip!).
+
+**Definition of DONE per brief (no partial credit):** files named + ordered (the §10-hygiene audit passed!) → rebuild test green (one driving-dim change, clean rebuild — the universal proof!) → drawing quoted-shoppable (views + dims + tolerances + notes + BOM — the §10-drawing discipline!) → render + proof screenshots (beauty + evidence — the §8-publishing pair!) → failure resume updated (the appendix-matrix habit — losses converted to assets!) → daily log closed (hours + score + next — the loop shut cleanly!). Six checks, all green, or it ships next session — standards compound faster than speed.
+
+---
+
 ## Appendix: brief-selection matrix + 90-day arc (how to run all six)
 
 **Which brief first (honest ordering for a beginner):** Brief 4 bottle+mold (surfacing fundamentals, low part-count, fast wins) → Brief 5 enclosure (sheet metal + flat-pattern confidence) → Brief 6 mouse (surfacing capstone — now you have the vocabulary) → Brief 2 gearbox (first assemblies with motion) → Brief 3 gripper (mechanisms + Motion analysis) → Brief 1 quadcopter (everything combined + weight discipline). Easiest-first builds compounding skill; hardest-last cashes it out. Total scope ≈ one solid academic term alongside coursework (TBC per YOUR pace — the arc, not the calendar, is the commitment).
