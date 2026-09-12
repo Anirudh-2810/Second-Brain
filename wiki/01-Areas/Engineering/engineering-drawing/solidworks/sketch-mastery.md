@@ -150,6 +150,18 @@ Amateurs draw-then-constrain (rough shape, then fight it into definition). Profe
 
 ---
 
+## 13. Spline mastery + conic curves (curvature you command)
+
+**Spline anatomy (control points vs poles — TBC exact terminology per version):** through-points the curve PASSES (interpolating — predictable, stable) vs control vertices it BENDS toward (approximating — smoother, looser). Beginners grab whichever default appears; professionals CHOOSE per need (interpolation for must-hit datums like mounting points, approximation for fair styling where smoothness beats precision).
+
+**Handles/tangency vectors (the fairness dials):** each spline end carries magnitude + direction (TBC UI per version — drag handles watch combs LIVE). Long handles = strong directional pull (flat entry, automotive shoulder lines); short handles = weak pull (tight turns, hook throats). Symmetric handles across a centerline = guaranteed fair mirror (set once via relation, not by eye-matching both sides!).
+
+**Conics (rho-value curves — TBC availability per version: look for conic/ellipse-arc tools):** single-span curves with ONE fairness parameter (rho 0–1: parabola-ish → ellipse-ish; TBC: confirm with curve references NOT this page) — automotive styling staple (one conic replaces 5-point splines with guaranteed fairness). Where available, prefer conics over multi-point splines for hero curves: fewer points = fewer wiggles = better zebra with less effort.
+
+**Spline repair sequence (lumpy curve triage):** combs FIRST (locate the spike span) → delete offending point(s) — fewer points first, always → re-add ONLY if the shape can't be held (one point back with tangency locked) → check neighbors didn't shift (splines are global-ish — local edits leak; TBC per spline type) → zebra downstream patches (the diagnostic loop closed: sketch → surface → stripes → sketch).
+
+---
+
 ## 12. Sketch blocks + layout sketches (design at the top level)
 
 **Blocks (reusable sketch mechanisms):** belt/chain layouts (pulley circles + tangent lines as a BLOCK — insert per conveyor, resize parametrically — TBC per version's block behavior) → linkage mechanisms (4-bar sketch blocks that actually MOVE in-sketch: drag to verify motion BEFORE modeling links — the §3-gripper habit from [[solidworks-project-ideas]] generalized) → logo/symbol library (one master sketch block, inserted everywhere — change once, update all).

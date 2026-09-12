@@ -129,6 +129,18 @@ Standard sheet flow: model views (Front/Top/Isometric) → dimensions pulled fro
 
 ---
 
+## 11. Top-down vs bottom-up + master-model technique (assembly architecture)
+
+**Bottom-up (parts → assembly):** model each part solo, mate together. Strengths: simple, portable files, bought-out friendly. Weaknesses: interfaces drift (hole patterns misalign across separately-modeled parts — the §6-mismatch failure). Default for small assemblies + standard hardware. Fix the drift: derive shared interfaces from ONE layout sketch (the [[sketch-mastery]] §12 pattern) even in bottom-up builds.
+
+**Top-down (assembly → parts):** layout + envelopes in the assembly, parts modeled in-context against them. Strengths: interfaces agree BY CONSTRUCTION (covers always fit housings — they were born from them); design changes propagate. Weaknesses: external references tangle (circular refs lock files together — TBC: the "everything depends on everything" death spiral; confirm with PDM practice) → discipline: reference DOWNHILL only (parts reference layout/envelopes, never each other laterally; layout references nothing).
+
+**Master-model technique (the hybrid pro move):** ONE master part holds ALL shared geometry (interfaces, envelopes, layout sketches) → DERIVE working parts from it (Split, Save Bodies, derived sketches — TBC exact tooling per version) → parts agree because they share a parent, but ship as independent files (no live external refs in production!). Helmet shell/liner (§5-liner example), mold core/cavity, gearbox housing-halves — master-model territory. Learning path: bottom-up first (understand mates), top-down second (understand intent), master-model third (understand production).
+
+**In-context hygiene checklist (top-down without tears):** external refs listed + audited (List External Refs — no mysteries) → refs to STABLE parents only (planes, layout sketches, major faces — never fillets/edges per §4) → break/lock before sharing (frozen geometry travels, live refs break on other machines — TBC exact freeze behavior per version, the caution stands regardless) → one context per part (parts edited in TWO assemblies collect conflicting refs — pick a home assembly per part).
+
+---
+
 ## 10. Drawing detailing deep pass (the contract, filled out)
 
 **View selection (the 3-view habit from [[../orthographic-projections]], applied):** front (most informative face) + top + side + ONE isometric (3D readability for the shop) + sections where interiors hide (housings, gearboxes, manifolds — if it has guts, it gets a section) + detail views for small features (threads, grooves, O-ring seats at 2:1 scale — TBC per complexity). Aligned views (projected, associative) over random placements — move the parent, children follow.

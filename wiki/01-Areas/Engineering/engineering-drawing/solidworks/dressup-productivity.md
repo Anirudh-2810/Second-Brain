@@ -114,6 +114,16 @@ A 70×50×25 motion-sensor box: base + lid split, PCB posts, vents, wall mount �
 
 ---
 
+## 9. Library features + weldment/dimple appendix (reuse as superpower)
+
+**Library Features (model once, reuse forever — TBC exact workflow per version: Design Library → Add to Library):** mounting-boss clusters (your §5-housing pattern saved as a drop-in!) → standard cutouts (D-sub?, keyholes, card slots — TBC per your products) → press-fit inserts + coined details → the discipline: library parts carry REFERENCES (placement plane + locating dims) so drops land positioned, not floating. Build the library FROM your finished briefs (project-ideas outputs feed back as reusable assets — the compounding loop).
+
+**Weldment profiles custom (beyond §3-frames):** company-standard tube sizes as custom profiles (TBC per version: weldment profile folder + sketch naming) → cut-list automation (lengths auto-tabulated — the drawing does your BOM for frames!) → miter vs butt joint choice (miters look clean, butt joints weld faster — TBC per shop practice; model the GAP for weld bead where full-penetration matters — TBC per welding references) → end caps + weld symbols on drawings (TBC per drafting standard — the fabrication deliverable).
+
+**Dimples/louvers/vents in sheet (formed features — TBC per version: Forming Tools workflow):** bridge-lance + emboss + dimple library (stiffness without weight — the sheet-metal rib equivalent!) → flat-pattern behavior (formed features CONSUME flat material — TBC: confirm with sheet references; tight feature spacing tears!) → placement rules (edge distance ≥ ~2× thickness + bend clearance — TBC per shop) → the stiffness trick: a dimpled flat panel carries like a ribbed one at zero added mass (the §6-rib lesson translated to sheet).
+
+---
+
 ## 8. Pattern mastery + equation-driven design (multiply with intelligence)
 
 **Pattern types beyond linear/circular (TBC exact availability per version):** curve-driven (rollers along a conveyor path — [[conveyors-material-handling]] §6's idlers done right) → fill/boundary-defined (holes filling an irregular face — strainer bowls from [[household-tools]] §6 without manual placement) → sketch-driven (arbitrary maps from a point sketch — the §5-housing vent alternative when walls aren't rectangular) → variable pattern (spacing/size evolving per instance — the §5-gradient language restated: instances carry FORMULAS, not just copies).

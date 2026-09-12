@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 9. Inspection + quality appendix (proving gears are good)
+
+**What gets measured (the gear QA vocabulary — awareness, TBC: confirm with gear-inspection references like AGMA 2000/2015, NOT this page):** tooth-to-tooth composite (single-flank/double-flank testers — the rolling test that hears what eyes can't) → profile + lead traces (involute form + helix alignment charts — TBC per instrument) → pitch variation (cumulative vs adjacent — indexing accuracy lives here) → backlash as INSTALLED (paper math meets assembly reality — measure, don't assume) → contact pattern (marking compound per §8-bevel appendix generalized to ALL meshes — the universal mesh proof).
+
+**CAD-to-inspection traceability (your models feed QA):** datum scheme on gear drawings (bore + face as A/B — the §10-drawing discipline applied) → tolerance callouts that MATCH the inspection plan (don't tolerance what nobody measures — TBC per QA practice; every callout implies an instrument + a cost) → first-article protocol (measure everything once, production-sample after — TBC per quality practice) → the loop closed: inspection rejects → deviation report → CAD revision (REV B with the fix — the §10-revision habit doing its job).
+
+**Failure-reading (gears talk after death — TBC depth, confirm with gear-failure references):** pitting (surface fatigue — overloaded or under-lubed) → scoring/scuffing (film breakdown — speed/load/lube triangle) → bending breakage (root fillet stress — the §5-fillet-at-roots lesson with consequences) → wear patterns (abrasive contamination — seals + breathers from §7-fasteners earning their keep) → EVERY failed gear gets photographed + logged (the failure catalog from [[beginner-exercises]] §8 applied to hardware — organizational learning beats individual brilliance).
+
+---
+
 ## 8. Housing design appendix (cast boxes that survive)
 
 **Split-line strategy (restated generally):** shafts define the split PLANE (through all shaft axes — the §4 rule) → split LOCATION along the plane (mid-bearing? offset for deep sump? — TBC per lubrication: sump depth sets oil volume; confirm with gearbox references) → stepped splits (offset planes joined by steps for stiffness + sealing length — TBC per casting practice; straight splits are easiest to machine AND leak easiest — the tradeoff) → split-line fastener spacing (clamping pressure must close the gasket uniformly — TBC: ~4–6× bolt diameter spacing illustrative, confirm with joint references).
