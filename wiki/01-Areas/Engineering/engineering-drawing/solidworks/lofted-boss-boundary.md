@@ -99,6 +99,18 @@ The PL1 #43-class handle as a SOLID loft (surface version lives in [[lofted-boun
 
 ---
 
+## 9. Loft troubleshooting encyclopedia (every failure, ordered)
+
+**Twist family (connector/segment causes — §4 + §6 restated as diagnostics):** full-twist (profiles' start points misaligned — rotate seam points to match) → partial pucker (ONE corner mismatched — the connector audit per-corner, not global) → spiral drift (start points aligned but segment COUNTS differ — split-to-match per §6) → S-wobble (guides fighting profiles — guides must AGREE with profile order; conflicting guide = remove, not force).
+
+**Bulge family (volume wrong):** starved middle (profiles too far apart for the transition — intermediate profile per §4) → pregnant bulge (guide bow exceeding profile envelopes — flatten guides or accept the swell as design) → asymmetric lean (off-axis profile placement — recenter per §5-handle-axis rule unless lean is intended) → end flare (missing end constraint — Normal/Tangent per §1, never default-blind faith).
+
+**Crease family (continuity breaks):** profile-joint creases (polyline vertices propagate as rails — replace vertex chains with splines at hero zones) → guide-joint kinks (multi-segment guides need tangent joints — single splines preferred per §8-sourcing) → start/end lips (constraint mismatch with neighbors — match neighbor continuity per the §9-C-ladder) → trim-edge echoes (downstream trims reveal loft unfairness — fix the LOFT, not the trim; trims are messengers).
+
+**Rebuild family (fragile lofts):** lost-plane references (profiles on faces instead of planes — the §9-stability-ladder violation; reattach upward) → guide pierce decay (profile edits move pierce points — re-pierce after major profile surgery) → order sensitivity (reordered tree breaks loft inputs — §7-reorder-surgery applied: parents travel with children) → the nuclear reframe (multi-body split per §7 — complexity distributed beats complexity concentrated, always).
+
+---
+
 ## 8. Guide-curve design + tangency-weight mastery (the loft artist's toolkit)
 
 **Guide-curve sourcing (where rails come from):** silhouette edges of the design (the visible character lines — guides that ARE styling) → projected curves from orthographic views (trace front/side character onto planes, use as rails — the reverse-engineering move from [[artistic-organic]] applied to rails) → 3D-spline freehand (last resort: hardest to constrain, drifts on edits — stabilize with pierce points at every profile crossing) → derived edges (offset/copy of existing model edges — the robust choice: guides that UPDATE with the model instead of fossilizing).

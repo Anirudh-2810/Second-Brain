@@ -108,6 +108,16 @@ A 120×80×6 plate holding a Ø40 motor boss with a cable hook — exercises ext
 
 ---
 
+## 11. Extruded text/logos + emboss/deboss (marking that ships)
+
+**Sketch-text discipline (beyond PL1 #7-sphere):** font choice is manufacturing choice (stick/block fonts machine cleanly; serif scripts trap cutters — TBC per engraving practice) → text-as-sketch vs decals (MODELED text for molded/engraved permanence — TBC per process; decals for color/graphics that print) → size minimums (molded text ≥ ~1.5–2 mm tall legible — TBC per molding references; engraved finer; laser finest — TBC per process) → draft on raised text (molded letters need release taper like everything else — TBC per molding practice; undrafted text locks micro-undercuts across the whole logo!).
+
+**Emboss vs deboss decision (raised vs recessed):** emboss (raised — wears FIRST in handling; premium feel, vulnerable) → deboss/recess (protected in a pocket — survives abrasion; the durable choice for tool handles, helmets, housings — TBC per product) → translational depth (0.3–0.5 mm reads at arm's length — TBC illustrative; deeper collects grime, shallower vanishes under texture) → position on draft-safe faces (text on drafted walls DISTORTS — place on pull-parallel faces or compensate; TBC per molding practice).
+
+**Serials + traceability (the industrial text):** date/lot codes (molded date wheels? lasered post-mold? — TBC per QA practice) → regulatory marks per [[consumer-electronics]] §9 (reserve zones EARLY — restated because text placed last never fits) → font-height audit on the DRAWING (call out text specs; shops quote engraving per character count/complexity — TBC per quoting practice).
+
+---
+
 ## 10. Cut-strategy + Hole Wizard mastery (removal as design)
 
 **Cut ordering (the mirror of §2's add-order):** big removals first (pockets, bores that define architecture) → functional holes (mounting, passages) → cosmetic reliefs (lightening, styling grooves) → edge treatments (chamfers on hole entries for fastener seating + deburr — TBC per finishing practice). Cutting small details before big pockets risks orphaning them when the pocket moves — removals reference the CURRENT body, so sequence removals from most-architectural to most-decorative.

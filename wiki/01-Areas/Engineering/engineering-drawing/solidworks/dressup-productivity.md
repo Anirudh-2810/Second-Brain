@@ -114,6 +114,18 @@ A 70×50×25 motion-sensor box: base + lid split, PCB posts, vents, wall mount �
 
 ---
 
+## 10. Fillet strategy encyclopedia (radii as engineering language)
+
+**Size-order doctrine (the sequencing law):** largest radii FIRST (they consume the most edge + reshape the most topology) → medium → smallest LAST (tiny blends survive on already-filleted bodies; reversed order fails when big fillets swallow small ones' edges — the §4-failure restated as law) → constant-size per SET (one fillet feature per radius value — tree readability + selective suppression per config) → full-round specialty (slot/tab rounds in one shot — TBC per version availability; symmetric rounding without center-plane math).
+
+**Functional fillet sizing (numbers with reasons — TBC: confirm with stress/molding references, NOT this page):** molded inside corners ≥ 0.5× wall (flow + stress — thinner walls need proportionally bigger radii; TBC per resin) → machined stress zones sized by fatigue (notch sensitivity rules — TBC per mechanical-design references) → ergonomic touch zones ≥ 2 mm (TBC per feel; sub-2 edges read sharp regardless of look) → O-ring/seal glands radiused per seal tables (sharp glands cut seals on assembly — TBC per datasheet!) → aesthetic breaks 0.5–1 mm (edge-light control for renders + handling safety — TBC per finish).
+
+**Fillet-failure triage (ordered):** shrink radius 20% (clears most tangent tangles) → split the set (one guilty edge poisons the batch — isolate per §4) → reorder BEFORE the consuming feature (fillets belong upstream of cuts that reference their faces? No — DRESS-UP LAST per §2, but within dress-up: fillets before the chamfers/shells that consume filleted edges — the intra-dress-up order!) → face-fillet substitution (blend faces directly when edge-chains tangle — TBC per version) → variable-radius rescue (shrink only the failing zone — the §1-variable trick as repair, not just styling).
+
+**Chamfer strategy twin (the machined counterpart):** 45° default (single setup — TBC per shop) → 30° for lead-ins (fastener/thread entries guide assembly — TBC per design) → width = function (deburr 0.5? screw-seat per head spec? weld-prep per joint? — TBC per purpose; chamfers without reasons are decoration) → break-sharp notes on drawings (the §8-edge-policy from [[household-tools]] restated: unspecified sharps get 0.5 break minimum — TBC per shop standard).
+
+---
+
 ## 9. Library features + weldment/dimple appendix (reuse as superpower)
 
 **Library Features (model once, reuse forever — TBC exact workflow per version: Design Library → Add to Library):** mounting-boss clusters (your §5-housing pattern saved as a drop-in!) → standard cutouts (D-sub?, keyholes, card slots — TBC per your products) → press-fit inserts + coined details → the discipline: library parts carry REFERENCES (placement plane + locating dims) so drops land positioned, not floating. Build the library FROM your finished briefs (project-ideas outputs feed back as reusable assets — the compounding loop).

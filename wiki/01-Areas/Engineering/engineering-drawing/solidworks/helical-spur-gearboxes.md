@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 10. Lubrication + cooling appendix (oil as a design element)
+
+**Lube method selection (duty decides — TBC: confirm with gear-lubrication references, NOT this page):** splash (dipper/gear fling — simple, speed-limited by churning losses + heat — TBC per pitch-line-velocity limits) → bath (gears dip — level discipline per §8-sump: too deep churns, too shallow starves!) → spray/jet (pumped + filtered + aimed at mesh exit — high-speed/heavy-duty standard, TBC) → grease (sealed-for-life small boxes — TBC per NLGI grade; relube intervals modeled as maintenance notes!) → dry/coated (instrument/plastic gears — TBC per material; wear-tracked, not oil-tracked).
+
+**Filtration + condition monitoring (oil tells the truth):** mesh strainers vs spin-on filters (TBC per flow/contamination) → magnetic plugs (ferrous debris early-warning per §8 — read at EVERY oil change, photograph the fuzz — trend beats snapshot!) → oil analysis sampling ports (TBC per reliability practice: spectrometric wear metals + viscosity + particle counts) → desiccant breathers in humid/dusty service (TBC per environment; standard breathers inhale moisture with every thermal cycle!) → CAD consequence: EVERY one of these needs a modeled port/mount/pad (retrofitted monitoring never fits — design the taps in!).
+
+**Cooling paths (boxes that work hard get hot):** housing fins (patterned thin walls doubling as stiffeners — the §8-rib habit doing thermal duty!) → fan on input shaft (TBC per duty: shaft-driven cooling scales with speed automatically) → external cooler + pump loop (TBC depth: continuous heavy duty) → sump capacity as thermal mass (more oil = slower heat-up — TBC per duty cycle) → temperature switch/gauge ports (TBC: alarm before damage, not after — the instrumentation habit).
+
+---
+
 ## 9. Inspection + quality appendix (proving gears are good)
 
 **What gets measured (the gear QA vocabulary — awareness, TBC: confirm with gear-inspection references like AGMA 2000/2015, NOT this page):** tooth-to-tooth composite (single-flank/double-flank testers — the rolling test that hears what eyes can't) → profile + lead traces (involute form + helix alignment charts — TBC per instrument) → pitch variation (cumulative vs adjacent — indexing accuracy lives here) → backlash as INSTALLED (paper math meets assembly reality — measure, don't assume) → contact pattern (marking compound per §8-bevel appendix generalized to ALL meshes — the universal mesh proof).
