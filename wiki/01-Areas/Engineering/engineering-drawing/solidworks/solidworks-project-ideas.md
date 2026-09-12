@@ -1,0 +1,162 @@
+---
+course_code: "BTech-Sem1-ED (TBC)"
+course_name: "Engineering Drawing"
+unit: "SolidWorks - guided project briefs"
+tags: [btech, engineering-drawing, solidworks, cad, projects, simulation, testing, portfolio]
+last_updated: "2026-09-12"
+description: "Six guided SolidWorks project briefs (quadcopter, gearbox, gripper, bottle mold, enclosure, reverse-engineered mouse), each with roadmap, efficiency playbook, validation ladder, and simulation sandbox."
+module: "engineering-drawing"
+prerequisites: [["flowcharts-master"], ["solidworks-cheatsheet"], ["INDEX"]]
+confidence: high
+---
+
+# SolidWorks Project Ideas (Six Guided Briefs)
+
+## For future agent
+Capstone practice spine. Six 1–2k-word briefs, each self-contained: goal, ordered feature roadmap, efficiency playbook, testing/validation ladder, simulation sandbox. Assumes the full module as background (links per brief). Simulation content covers built-in entry tools (SimulationXpress static, Motion kinematics, plus awareness-level pointers to full Simulation/Flow) — TBC: exact license availability varies (student/EDU vs commercial); everything here targets what's reachable on a student setup.
+
+> **How to run these:** one brief at a time, in order — each reuses the previous brief's skills and adds one new discipline. Log hours, screenshots, and failures in your daily note; every brief ends shippable (files + drawing + render).
+
+---
+
+## The universal brief template (read once)
+
+Every brief below follows: **Goal** (what + why it matters) → **Roadmap** (ordered features/parts) → **Efficiency** (design-intent + speed moves) → **Validation ladder** (tests in order — sketch → geometry → assembly → drawing) → **Simulation sandbox** (what to analyze + what the numbers mean) → **Ship checklist** (files, drawing, render, portfolio line).
+
+**Efficiency rules shared by all six:**
+1. Layout/master sketch FIRST — every mating dimension flows from one sketch.
+2. Fully-defined sketches, symmetric halves mirrored, patterns over copies.
+3. Feature order: big shapes → functional → dress-up last; rollback-bar test after each stage.
+4. Configurations: working (simplified/fast) vs detailed (full) vs presentation.
+5. Name everything; mass-properties window open during assemblies (weight/units truth).
+
+---
+
+## Brief 1 — Quadcopter frame + landing gear (~1.5k words of work)
+
+**Goal:** a flyable 5-inch-class (TBC: size to your motors/props — confirm with flight references) X-frame with center stack, motor mounts, battery bay, landing gear, and camera mount. Why: your drone-team currency — every decision here transfers to team hardware.
+
+**Roadmap:**
+1. Layout sketch (top view): arm angles (X = 90° symmetric), motor-center distance from prop diameter + clearance rule (props must not overlap: center distance > prop diameter + margin — TBC exact margin per safety practice), stack hole pattern (30.5×30.5 mm standard — TBC: confirm current FC/ESC mounting standards).
+2. Bottom + top center plates: extruded flats with pocketing (lightening cutouts that keep stiffness — ribs-by-subtraction thinking).
+3. Arms (4×, one part patterned): tapered plates, motor-mount hole pattern at tips, wire-routing slots.
+4. Standoffs (bought-out envelopes), battery pad + strap slots, landing gear (bent wire or printed legs — model envelopes + mounts), camera/gimbal plates (TBC per payload).
+5. Fastener plan: M3 pattern library (screws + nuts + standoffs as envelope parts), assembly with concentric/coincident mates.
+6. Drawing set: plate DXFs for cutting (carbon/FR4 — TBC: confirm cutter capability with your fab source), hardware BOM.
+
+**Efficiency:** one arm part → circular pattern in assembly (not 4 modeled arms); plate pockets as one patterned cut; equations drive prop-clearance (change prop size → mounts move, not rebuild).
+
+**Validation ladder:** sketch diagnostics → plate flat-pattern/DXF sanity → assembly interference (props vs arms vs battery through full tilt — rotate-check) → mass rollup vs thrust margin (target ≈ 2:1 thrust:weight for agility — TBC: confirm with flight references) → fastener count vs BOM → drawing review (hole callouts match bought hardware).
+
+**Simulation sandbox:** SimulationXpress static on ONE arm (cantilevered at root, motor-thrust load at tip — TBC: use max thrust per motor datasheet): read max stress vs material yield + deflection at tip (deflection changes prop plane — stiffness matters more than strength here). Compare solid vs pocketed arm: weight saved vs deflection gained — the engineering tradeoff, quantified. Motion study (awareness): landing-gear impact is dynamic — hand-calc energy + static-equivalent load is the student-level approximation (TBC: flag as approximation, not analysis).
+
+**Ship:** plates DXF + printed-mount STLs + assembly + BOM + hero render + one-line portfolio entry.
+
+## Brief 2 — Single-stage spur gearbox, buildable (~1.5k words)
+
+**Goal:** a 1:3 reduction box you could actually assemble on the bench (3D-printed gears + hardware-store shafts/bearings). Why: the PL2 template made physical — ratio math, fits, and assembly order stop being abstract.
+
+**Roadmap:**
+1. Ratio math on paper: teeth (e.g., 16 → 48), module from printability (≥ ~1 mm module prints reliably on FDM — TBC: confirm with your printer), center distance $a = m(z_1+z_2)/2$.
+2. Gears: revolved blanks + circular-patterned tooth cuts + bore + keyway + hub/set-screw.
+3. Shafts: stepped profiles, shoulders, circlip grooves (TBC: or shaft collars for printed builds — simpler, confirm per build).
+4. Bearings: 608-class skate bearings as envelope parts (cheap, available — TBC per sourcing), seats modeled to slip fit (printed bores shrink — TBC: calibrate with test prints, typically +0.2–0.3 mm allowance, confirm per printer/filament).
+5. Housing: two printed halves split at the shaft plane + feet + cover bolts + input/output windows; ribs at bearing seats.
+6. Assembly: gear mate with ratio → hand-rotation check → exploded view + BOM + print list (orientation + supports plan per part — TBC per slicer).
+
+**Efficiency:** layout sketch with center distance equation-driven (change teeth → shafts/housing follow); one gear-tooth cut patterned (never model 48 teeth); hardware as envelope library reused across briefs.
+
+**Validation ladder:** ratio math → center-distance check → gear-mate rotation (output = input ÷ 3?) → interference through FULL rotation (teeth must clear!) → backlash eyeball (must not touch both flanks — TBC: printed gears need generous backlash, confirm by test) → bench test: input RPM vs output RPM counted by hand/mark.
+
+**Simulation sandbox:** Motion study with the gear mate: plot output speed vs input (verify 1:3 on the graph, not by eye); contact-force awareness (full contact analysis is pro-Simulation territory — TBC depth). Torque thought-experiment: stall the output by hand-feel (qualitative), note which part flexes first — that flex location is your redesign target, and the habit of *looking for it* is the lesson.
+
+**Ship:** STL pack + hardware list with sourcing links + assembly drawing + bench-test video/log.
+
+## Brief 3 — Servo-driven 2-finger gripper (~1.2k words)
+
+**Goal:** a linkage gripper (servo → linkage → parallel or angular jaws) for a robot arm or demo rig. Why: mechanisms — the first brief where parts MOVE relative to each other by design, and motion study becomes the test bench.
+
+**Roadmap:**
+1. Jaw-travel requirement (object size range → jaw stroke) → 4-bar/linkage sketch BLOCKS (layout sketch with movable links — solve the motion on paper/in-sketch first).
+2. Base/palm plate, two jaw fingers (profiled tips — V-groove for round objects, flat with grip pads for boxes), linkage arms, servo mount + horn interface (servo spline/horn dimensions to your servo datasheet — TBC per model).
+3. Pivots: shoulder screws/pins as envelope hardware + modeled bores with clearance (pivots must rotate freely — TBC: printed bores + screws need calibrated clearance, confirm by test fit).
+4. Assembly with hinge/limit mates → drag through full travel → check jaw parallelism (if parallel-link design) and no link collisions.
+5. Grip pads (TBC: TPU print or rubber sheet — confirm per sourcing) + mounting flange to arm.
+
+**Efficiency:** sketch-block linkage FIRST (an afternoon of sketch iteration beats a week of remodeling); one finger + mirror; link lengths equation-linked to jaw stroke.
+
+**Validation ladder:** sketch-block travel (does the math close?) → interference through full travel (links vs palm at extremes!) → pivot clearance (free rotation, no slop that ruins repeatability — TBC: judge per application) → grip test on real objects (round/square/soft) → stall drew vs servo rating (don't burn the servo — TBC: check servo stall current vs supply).
+
+**Simulation sandbox:** Motion study: jaw tip trajectory plot (is the path what you intended? parallel-closure proof for parallel designs); velocity/force transmission check at extremes (linkages go force-weak near toggle positions — TBC: read the force curve, redesign link ratios if the grip force collapses mid-travel). This is the brief where Motion stops being a toy and becomes a design tool.
+
+**Ship:** STL pack + servo + hardware BOM + travel video + force notes.
+
+## Brief 4 — Bottle + cap + mold split (~1.2k words)
+
+**Goal:** a small bottle with гибели? no — with cap, threads, and a 2-part mold split demonstrating mold-readiness. Why: packaging DFM + the mold toolset (parting lines, shutoffs, draft) that industrial CAD interviews probe.
+
+**Roadmap:**
+1. Vessel: 4-zone profile (base/body/shoulder/neck per [[bottles-containers]]) → revolve → shell/thin to wall thickness.
+2. Neck finish to cap spec (TBC: pick a real finish standard like 28-400 from packaging references — model threads as cosmetic or modeled per [[bottles-containers#3-caps-closures-threads]]).
+3. Cap as separate part (knurl cosmetic — TBC) + seal interface + assembly with section/interference check.
+4. Draft analysis → add release taper to all vertical walls (TBC: 1–3° typical, confirm per molder).
+5. Parting line + shutoff surfaces + mold halves (core/cavity split — awareness-level: full mold design with cooling/ejection is its own discipline, TBC depth): demonstrate Tooling Split on the bottle body, show core + cavity separating along the pull direction.
+
+**Efficiency:** revolve-first (one profile drives everything); thread/cap dimensions from the neck (in-context), never independent; draft IN the base features where possible.
+
+**Validation ladder:** profile fairness (combs) → wall uniformity (section) → cap fit (section + interference) → draft analysis all-green → parting line sensible (silhouette edge) → mold-half separation (no undercuts locking the pull — the pass/fail gate).
+
+**Simulation sandbox:** drafts/undercut audit IS the analysis here (mold-release simulation-lite); wall-thickness analysis (sink-risk zones at thick-to-thin transitions — TBC: confirm sink rules with molding references); fill-pattern awareness (gate location thinking — pro Moldflow territory, TBC depth, but place a hypothetical gate and reason about weld-line positions).
+
+**Ship:** bottle + cap + mold halves + section-view drawing + draft-analysis screenshots.
+
+## Brief 5 — Sheet-metal electronics enclosure (~1.2k words)
+
+**Goal:** a folded sheet-metal box for a single-board computer (mounting bosses? no — standoffs, ports, vents, lid). Why: sheet metal is the cheapest custom enclosure process on earth (laser/bend) — employable skill, same-week shippable.
+
+**Roadmap:**
+1. Board envelope + port positions (measure the real board — TBC per board) → box dimensions with clearance (TBC: ~2–3 mm typical internal clearance, confirm per assembly needs).
+2. Base tub: base flange + edge flanges (Sheet Metal tools) → corner treatment (welded vs folded tabs — TBC per shop).
+3. Lid: separate part with return flanges + fastener pattern (quarter-turn or M3 — TBC per look/cost).
+4. Cutouts: port windows, vent slots (patterned), LED holes, cable glands — all BEFORE flat pattern, cut features only (never model vents as solids!).
+5. PEM/standoff provisions (TBC: self-clinching hardware needs vendor specs — confirm datasheets, model pilot holes only).
+6. Flat pattern check per part (must unfold cleanly — THE manufacturability gate) → DXF export → bend table/notes on drawing.
+
+**Efficiency:** gauge table + bend parameters set once (TBC: K-factor/bend deduction to YOUR shop's tooling — ask them, don't guess); symmetric flanges mirrored; vent pattern once, mirrored.
+
+**Validation ladder:** board fit (section + interference with ports aligned!) → flat-pattern unfolds with no distortion → bend radii ≥ shop minimum (TBC per shop) → lid closes with fastener alignment → drawing carries bend notes + finish (powder-coat — TBC per vendor).
+
+**Simulation sandbox:** flat-pattern + bend-sequence review IS the analysis (can it be cut from one sheet? how many setups? — cost thinking); stiffness sanity: lid flex by hand-feel reasoning + rib/hem additions where it oil-cans (TBC: thin-sheet oil-canning is real — hems and beads fix it, confirm per build); thermal awareness: vent area vs heat load (rule-of-thumb stage — TBC: confirm with thermal references for real products).
+
+**Ship:** DXFs + hardware list + assembly + BOM + flat-pattern drawing + cost quote from a laser shop (real number = real lesson).
+
+## Brief 6 — Reverse-engineered mouse, surfacing capstone (~1.5k words)
+
+**Goal:** your daily mouse, rebuilt as a two-shell surfacing model with buttons, wheel, and PCB standoffs. Why: the capstone — ergonomics, knit/thicken, parting lines, assembly, presentation. Portfolio hero.
+
+**Roadmap:**
+1. Caliper survey: length/width/height/crown position + photos front/side/top with ruler (reverse-engineering per [[artistic-organic]]).
+2. Top shell: 3 profiles + center-ridge guide → lofted/boundary → trim at parting line → thicken inward.
+3. Bottom shell + internal bosses (PCB + battery bays to measured positions — TBC per mouse) + ribs.
+4. Buttons (separate parts, consistent gaps — TBC: ~0.3–0.5 mm typical) + wheel (revolve + axle + encoder envelope — TBC per part) + side grips (freeform tweaks).
+5. Assembly + interference + section checks; appearances + studio render; zebra proof screenshots.
+
+**Efficiency:** symmetric half + mirror for the base shell (asymmetric details after); parting-line curves defined ONCE and shared by both shells; wheel/button envelopes block out space before shell detailing (packaging-first, styling-second).
+
+**Validation ladder:** caliper-vs-model spot checks (5+ dimensions within ~0.5 mm — TBC tolerance per goal) → knit/thicken clean → parting-line continuity (shells meet!) → buttons actuate without binding (travel + clearance) → wheel spins free → zebra smooth on top skin → render + fairness proof.
+
+**Simulation sandbox:** drop-test thought experiment (awareness: real drop sim is explicit-dynamics territory — TBC depth): identify likely failure points by reasoning (thin button hinges, shell screw posts) + reinforce with ribs/fillets; wall-thickness audit (uniform 2-ish mm — TBC per process); assembly-tolerance stack review (worst-case gaps vs best-case — the DFM habit).
+
+**Ship:** shells + internals + assembly + BOM + hero render + zebra proof + one-paragraph technique writeup ("lofted shell, mutual trim, inward thicken, split-line buttons" — skills, not tutorials).
+
+---
+
+## Ship standards (all briefs)
+
+- Files: parts + assembly + drawing (+ DXF/STL where applicable), named, no dead features.
+- Drawing: views + critical dims + notes a shop could quote from.
+- Proof: one render + one analysis screenshot + rebuild test (change a driving dim, confirm clean).
+- Log: daily-note entry with hours, failures, and fixes — failures documented are the portfolio's hidden value.
+
+## CROSS-REFERENCES
+- [[INDEX]] · [[flowcharts-master]] · [[solidworks-cheatsheet]] · [[consumer-electronics]] · [[gearbox-fundamentals]] · [[bottles-containers]] · [[artistic-organic]] · [[presses-forming-drone]] · [[../cad-design-interview-prep]]

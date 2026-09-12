@@ -256,6 +256,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Engineering/engineering-drawing/development-of-surfaces|Projection of Solids, Sections & Development]]** — Module-IV: classification, prism/pyramid vocab + naming, Q1-Q19 position catalog, tilt method, true-shape, parallel/radial development.
 - **[[01-Areas/Engineering/engineering-drawing/autocad-lab-and-exam-prep|AutoCAD Lab & Exam Prep]]** — lab file map, IA/MSE pattern, 4-week sketch plan.
 - **[[01-Areas/Engineering/engineering-drawing/cad-design-interview-prep|CAD Design Interview Prep]]** — AutoCAD rapid-fire, tolerances, UCS/EXTRUDE, project-answer script (Odyssey/drone-team round).
+- **[[01-Areas/Engineering/engineering-drawing/solidworks/INDEX|SolidWorks Self-Study Track]]** — 26-page zero-to-capable course from 154 YouTube videos: setup → sketch → solid features → surfacing → product + machine build libraries → flowcharts, cheatsheet, 6 project briefs.
 
 ### Mathematics
 - Source: `/raw-sources/math/` (Algebra, Calculus, Coordinate, Trigonometry, Vector 3D, Math IIT Kota notes, Formula sheets). One-page digest: vault-root `NOTES.md`.

@@ -33,7 +33,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | [[SPM/module-4-structures-unions-pointers|SPM/module-4-structures-unions-pointers]] | — | **M4.2-4.3 NEW:** structs/unions, struct vs union, pointers, pointer arithmetic, file handling |
 | SPM/c-programming-master-study-guide | — | 4-chapter cram guide (compile→control→arrays→functions) |
 | SPM/formula-sheet-spm | — | One-page syntax sheet (program skeleton → common errors) |
-| [[engineering-drawing/overview|engineering-drawing/]] | 6 | Orthographic projections, points/lines/planes, isometric views, sections, developments, AutoCAD lab + exam prep |
+| [[engineering-drawing/overview|engineering-drawing/]] | 33 | Orthographic projections, points/lines/planes, solids + sections + developments, isometric, AutoCAD lab + exam prep — plus new **[[engineering-drawing/solidworks/INDEX|solidworks/]]** self-study track (26 pages: basics → surfacing → 154-video build library → projects) |
 | [[engineering-chem/module-1-water-technology-hardness|engineering-chem/]] | 14 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers + green chemistry, named reactions, 4 chem labs |
 | [[engineering-math/module-1-matrices|engineering-math/]] | 8 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers + ISE prep + prerequisite toolkit |
 | [[engineering-physics/overview|engineering-physics/]] | 7 | Course physics + Module-1 numericals addendum |
