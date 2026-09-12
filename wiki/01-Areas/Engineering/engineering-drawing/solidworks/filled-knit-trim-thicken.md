@@ -85,7 +85,21 @@ flowchart TD
 | Trim removes wrong piece | Keep/Remove selection flipped → toggle, preview carefully on mutual trims |
 | Thickened Cut destroys styling faces | Cut direction/thickness side wrong → flip side, reduce thickness |
 
-**Verify in-app:** loft two patches + fill the ends → knit → thicken 2 mm → cut a slot with a surface. Then break it (delete a fill), watch knit/thicken fail, repair. The repair rep is the skill.
+---
+
+## 7. Worked example: mouse bottom plate (fill + knit + thicken, end to end)
+
+Close the loop on the §6 mouse shell plan — bottom cap from opening to solid-ready quilt.
+
+1. **The opening:** assume the trimmed shell edge loop (from [[lofted-boundary-surfaces]] mouse plan) — a closed but non-planar boundary. Select it: if selection stumbles on segment count, the loop has slivers — re-trim the shell edges to clean curves first (fill punishes dirty boundaries).
+2. **Filled Surface:** select the loop → set edge continuity to **Tangent** (bottom plate meets walls smoothly — a Contact fill would draw a visible seam line around the whole mouse) → preview: ripples? Add ONE constrain curve (a centerline spline bowed 2 mm — gives the fill gentle camber instead of a drum-flat cap).
+3. **Knit:** shell patches + fill → tight tolerance → success should be instant; if it hangs on one edge, that edge is the guilty party (extend/re-trim that patch only — staged-knit discipline from §2).
+4. **Thicken test → 2 mm inward.** Fails? Two suspects: (a) naked micro-edge at the fill boundary (deviation-check the seam, numbers don't lie); (b) wall 2 mm vs a local fillet zone curving tighter than 2 mm radius — thin to 1.5 locally or fair the curve (physics, not settings).
+5. **Finish:** wheel slot via standard trim AFTER thickening (cut the solid — cleaner than trimming the quilt pre-thicken? TBC taste: solid-cut gives exact slot walls + easy fillets; quilt-trim keeps surfaces editable. Try both on copies, keep a note on which survived edits better).
+
+**Tolerance numbers (working guidance, TBC per version):** default knit gap tolerance is small (sub-mm) — keep it there. A quilt needing >0.5 mm tolerance to knit has modeling debts, not tolerance needs. Deviation Analysis under ~0.1 mm at seams reads as clean for consumer parts (TBC: confirm against your shop's standards for real production).
+
+**Verify in-app:** run the full combo from §5 on a simple two-patch + fill test case (Ex-154-class), then on the mouse bottom above. Break the fill (delete constrain curve), watch knit/thicken complain, repair. The repair rep is the skill.
 
 **Next:** [[surfacing-utilities-troubleshooting]] (offset, freeform, swept/revolved/extruded surfaces, delete-hole + diagnostics).
 

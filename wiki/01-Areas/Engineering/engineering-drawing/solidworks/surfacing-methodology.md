@@ -76,6 +76,18 @@ Before clicking: decompose the object into regions of *consistent curvature beha
 3. **Draft analysis** if molded: green = releasable, red/yellow = undercut redesign (ties to [[solidworks-project-ideas]] mold brief).
 4. **Section view** through the thickened body: uniform walls, no zero-thickness pinches.
 
+---
+
+## 6. Three patch plans, worked (think like a patch planner)
+
+**Computer mouse (styling skin, ~150 mm long):** (a) top shell — lofted surface over 3 profiles (front/middle/rear) + center-ridge guide; (b) left/right side walls — extruded surfaces trimmed to the shell edge; (c) bottom plate — filled surface on the parting loop; (d) wheel slot + button gaps — standard trims; knit all → thicken inward 2 mm. Seams: parting line at the silhouette, button gaps as designed seams. Why this decomposition: each region has ONE curvature behavior (crown / flat-ish wall / flat plate).
+
+**Helmet crown zone (double curvature):** split crown into 3 boundary patches (top-center + two sides) meeting along ridge style-lines; each patch = 2 profiles × 2 guides; mutual-trim overlaps; fill the visor opening LAST (it's a hole, not a patch). Seams on ridges read as design lines — decomposition doubling as styling.
+
+**Water-tap spout (tube with changing section):** inlet circle → swept surface along the spout centerline path (the path IS the design) → outlet ellipse via lofted end segment → trim at valve body intersection (mutual) → thicken 3 mm (brass-weight feel — TBC: wall per manufacturing, confirm with plumbing references). One path, two sections, one trim — restrained patch count.
+
+**Cost honesty (why solids-first matters):** each surface feature + knit edge adds rebuild time and failure surface. A 12-patch quilt that an extrude+fillet could have matched is not skill — it's debt. Count your patches; justify each against the flowchart in §1. The professional question is never "can I surface this?" but "does this NEED surfacing?"
+
 **Verify in-app:** rebuild PL1 #9's demo from `raw-sources/solidworks/transcripts/` (three-arc sketch → extruded surface both-directions 30/30) → knit → thicken. Then deliberately leave a gap, watch knit/thicken fail, repair it. That failure rep is the lesson.
 
 **Next:** [[lofted-boundary-surfaces]] → [[filled-knit-trim-thicken]] → [[surfacing-utilities-troubleshooting]].

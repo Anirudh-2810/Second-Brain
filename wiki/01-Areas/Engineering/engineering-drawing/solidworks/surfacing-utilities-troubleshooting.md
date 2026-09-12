@@ -72,6 +72,22 @@ flowchart TD
 
 A lumpy-but-closed model 3D-prints fine and molds terribly: reflections expose every continuity break on glossy plastic, undercuts lock steel molds shut, non-uniform walls warp in cooling. The zebra-stripe + draft-analysis habit is literally what separates a ₹-per-hour CAD operator from a product designer — and it's free to practice on every playlist build.
 
+---
+
+## 5. Worked example: helmet inner liner via Offset (double-wall construction)
+
+The signature offset application from §1 — outer styling skin in, comfort liner out (geometry-wise: liner = offset inward).
+
+1. **Parent:** assume the helmet crown patch set (outer skin, knitted, zebra-verified — garbage in, garbage out; offset AMPLIFIES parent unfairness, so verify the parent first).
+2. **Offset Surface:** select the crown quilt → offset **inward 8 mm** (liner gap for foam — TBC: confirm per helmet construction; the number is illustrative) → preview for self-intersections: tight concave zones (temple curves) wrinkle first. If wrinkling: fair the parent locally OR split the offset into zones with different distances (TBC per case).
+3. **Trim liner to coverage:** liner covers crown + sides, NOT the visor opening or edge roll — trim with the same opening curves used on the shell (reuse sketches! one opening definition driving both shell and liner = design intent).
+4. **Edge close-out:** the 8 mm gap between shell and liner at the rim needs closing — ruled/extruded rim strip lofted between the two boundary loops, then knit all three (shell + liner + rim) if a single solid is wanted, or keep as assembly of two parts + foam envelope (better: separate parts, separate materials — the assembly-honest approach from [[part-assembly-drawing-workflow]]).
+5. **Vents:** liner vent holes aligned to shell vents (same sketch positions! — misaligned vents whistle and overheat; the shared-sketch habit prevents it).
+
+**Freeform mini-lab (same session):** on a copy of any shell, Freeform-push ONE control point 3 mm with tangency preserved → zebra before/after screenshots. Then push FIVE points 10 mm without tangency → zebra the damage. The pair teaches restraint faster than any paragraph.
+
+**Delete-hole drill:** drill a Ø10 hole in a practice patch → Delete Hole to heal it → compare healed vs rebuilt-from-scratch (healed is faster, rebuilt is cleaner — price per situation).
+
 **Verify in-app:** take any finished surface model → zebra stripes → find the worst seam → curvature-comb its parent sketch → rebuild the spline → re-run stripes and compare. Before/after screenshots in your daily note.
 
 **Next:** build libraries — [[beginner-exercises]] → [[bottles-containers]] → …

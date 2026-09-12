@@ -77,7 +77,26 @@ Two explicit directions: **Direction 1** (profiles across) + **Direction 2** (gu
 | Lumpy reflections | Bad input spline → curvature-comb the sketches, rebuild the worst profile |
 | Boundary fails to solve | Direction-2 curves don't properly intersect Direction-1 → check pierce/intersection at every crossing |
 
-**Verify in-app:** loft circle→rounded-rectangle→circle (three profiles, one guide), rebuild the same as Boundary with explicit Direction-2 curves, zebra-stripe both. Then fix a deliberately-twisted loft via connectors only.
+---
+
+## 6. Worked example: reducer nozzle DN50 → DN25, 100 mm long (numbers included)
+
+The #44-class problem as lofted surface first, then boundary — feel the difference.
+
+**Loft version:**
+1. Profile 1: Front Plane → circle Ø50 (inlet) centered on origin → fully define.
+2. Profile 2: offset plane 100 → circle Ø25 centered on origin. Segment check: circle vs circle — trivially compatible.
+3. Straight loft, no guides → conical frustum skin (correct but boring — real nozzles ease the transition).
+4. Add character: intermediate ellipse profile at 60 (Ø38×Ø34, slightly flattened — ovalization for wrench flats? no — for flow easing; keep it honest) → rebuild loft with 3 profiles → smooth S-transition. Connectors: verify each profile's seam point (circle start) aligns angularly — rotate the intermediate profile's start if the loft spirals.
+
+**Boundary version (control upgrade):**
+1. Same profiles as Direction 1.
+2. Direction 2: two guide splines (top + bottom) from inlet to outlet with a gentle S (fast contraction early, easing late — the flow-friendly shape; TBC: real nozzle contours follow fluid-design rules, this is CAD practice).
+3. Set outlet edge continuity to Curvature (C2) where it meets the downstream pipe face (TBC per assembly) → zebra-check: stripes should flow unbroken across the joint.
+
+**Comparison verdict (write in your notes):** loft = 5 minutes, fair result; boundary = 15 minutes, controlled result with C2 joint. Price the control honestly per project — visible plumbing showpiece? Boundary. Internal duct nobody sees? Loft and move on.
+
+**Verify in-app:** build both versions, zebra-stripe the outlet joint on each, screenshot the difference. Then change outlet Ø25→Ø20 and confirm both rebuild — the guide-piercing quality decides.
 
 **Next:** [[filled-knit-trim-thicken]].
 
