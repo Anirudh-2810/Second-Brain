@@ -72,6 +72,30 @@ flowchart TD
 | Dimensions differ from video but model looks same | Fine — dimensions are the YouTuber's choices; what matters is *fully defined + editable*, not matching numbers |
 | Stuck on one step repeatedly | Missing prerequisite page, not missing talent → map the step to its feature page and drill there |
 
+---
+
+## 5. Recipe cards: Ex 154 / 167 / Swept-Trim-Thicken / 207 (step-by-step)
+
+**Ex 154 (#37: Extruded + Boundary + Trim + Loft) — the quilt-assembly exam:**
+1. Base patch: three-arc-style sketch → Extruded Surface, symmetric both directions (the PL1 #9 move — mid-plane thinking for surfaces).
+2. Side patch: Boundary surface off the base edge with 2 profiles + 1 guide (Direction-2 control where the shape turns).
+3. Crown patch: Lofted surface closing the top (2 profiles, connectors checked).
+4. Mutual-trim all three where they overlap (overshoot deliberately in steps 1–3 — trim decides the final edges, not the patch sizes).
+5. Fill any remaining corner holes → knit tight → thicken test. Score with §3 rubric; target 8+/10 before moving on.
+
+**Ex 167 (#42: Extruded + Lofted + Filled + Trim) — the closure loop:**
+1. Extruded side walls (2×, mirrored — half the work).
+2. Lofted top skin between wall top edges (profiles = wall edge curves themselves — derive, don't redraw).
+3. Filled end caps with Tangent continuity.
+4. Trim bottom to the base plane → knit → thicken inward. The lesson: walls-first, skin-second, caps-last — an ordering that generalizes to every housing.
+
+**Swept + Trim + Thicken (#47 pattern):**
+1. Path sketch (the design gesture — spend half your time here; a fair path makes everything downstream easy).
+2. 2–3 profiles along the path (start/mid/end sections) → Swept surface.
+3. Trim ends to mounting planes → fill if open → knit → thicken. Path fairness decides quality — curvature-comb the path before surfacing, not after.
+
+**Ex 207 (#53: Lofted + Trim + Filled) + Ex 230 (#57):** full-pipeline reps under time pressure — run the §2 flowchart strictly (unaided attempt → single-step help only when stuck 15+ min → audit). These two are graduation exams for the beginner tier: 9/10 on the rubric = ready for [[bottles-containers]].
+
 **Next:** [[bottles-containers]] (first product family).
 
 ## CROSS-REFERENCES

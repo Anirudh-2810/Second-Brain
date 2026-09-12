@@ -69,7 +69,27 @@ flowchart TD
 | Zebra kinks along parting line | C0-only boundary match → raise edge continuity, re-fill transition zones |
 | Tiny features fail (earphone scale) | Absolute tolerances bite at small scale → simplify micro-fillets, loosen knit tolerance slightly (TBC: judge per case) |
 
-**Verify in-app:** pick the mouse: top shell loft → trim → thicken inward → bottom shell → wheel slot → two bosses → assemble shells → interference check. Screenshot zebra stripes before/after into your daily note.
+---
+
+## 6. Worked example: travel mouse in 20 steps (the genre flagship)
+
+Dimensions illustrative (caliper YOUR mouse for the real lesson — TBC).
+
+1–3. Layout: top-view footprint sketch (100 long × 60 wide, TBC illustrative) on Top Plane → side silhouette spline on Right Plane (front 25 high → 38 crown at 60% → rear 30 taper) → front silhouette on Front Plane. Three orthographic guides = the design's skeleton (shared sketches everything references).
+4–6. Top shell: 3 profiles (front/middle/rear sections from the silhouettes — DERIVE via Convert, don't redraw) + center-ridge guide → Lofted Surface → zebra now (fix profiles while cheap).
+7–8. Trim shell to parting loop (side silhouette projected as trim curves) → set aside.
+9–10. Bottom plate: filled surface on parting loop (Tangent continuity, one camber constrain curve) → PTFE glide pads as split-line zones (TBC: decal/appearance at this level).
+11. Thicken top shell inward 2 → thicken bottom inward 2 (outer styling untouched on both).
+12–13. Wheel slot: standard trim through top shell (position from layout: centered, 15 behind front — TBC illustrative) → wheel as separate revolved part + axle + encoder envelope → assemble with concentric mate, spin-check.
+14–15. Buttons: split lines for L/R zones with 0.4 gap (TBC illustrative) → separate button parts → pivot-post + spring-tab details simplified (TBC depth: real microswitches are bought parts — model envelopes + actuator points).
+16–17. Internals: PCB envelope (to measured outline) + 4 mounting bosses from bottom shell + battery bay (AA envelope + contacts — TBC per mouse) + sensor window trim at the optical position.
+18. Assembly: shells (concentric alignment pins + coincident parting faces) + PCB + wheel + buttons → interference detection → section through wheel (clearance above PCB?).
+19. Zebra final on top shell + draft check (all walls releasable top/bottom?).
+20. Render + fairness proof + rebuild test (change length 100→110: guides/profiles derived from layout should follow — failures name your weak references).
+
+**Earphone-scale appendix (#13/#22/#45/#99):** same workflow at 1/5 scale — radii shrink below knit comfort (simplify micro-fillets FIRST), tolerances tighten (TBC per case), stem-to-bud transition = mini-loft with guides. If the mouse took a weekend, the bud takes an evening once the workflow is muscle memory.
+
+**Verify in-app:** steps 1–20 on your own mouse. Screenshot zebra before/after into your daily note.
 
 **Next:** [[household-tools]].
 

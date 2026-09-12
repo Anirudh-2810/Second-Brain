@@ -68,7 +68,32 @@ flowchart TD
 | Handle joint looks glued-on | No mutual trim + fillet → intersect, trim, tangent-constrain, fillet the seam |
 | Cap won't assemble | Thread/mouth mismatch → model cap FROM the neck dimensions (in-context), section-check |
 
-**Verify in-app:** revolve one bottle from a 4-zone profile → shell → model its cap → assemble → section view + interference check. Then angle the neck 15° (angle-neck variant) and watch what breaks — that's the lesson.
+---
+
+## 6. Worked example: 500 ml-style bottle + screw cap (full numbers)
+
+Dimensions illustrative (model YOUR real bottle with calipers for the full lesson — TBC: numbers below are practice values, not a standard).
+
+**Vessel:**
+1. Front Plane → half-profile per [[sketch-mastery#9-worked-example]]: base radius 33, body straight 120, shoulder spline to neck radius 14, total height 190, neck straight 25. Tangent spline ends, fully defined, axis-touching closed profile.
+2. Revolve 360 → thin-feature revolve, wall 2 outward? No — **inward** (outer styling exact): 2 mm.
+3. Base punt: revolve the bottom 8 mm upward as a dome (separate revolve feature merged — punt = stability + mold behavior, TBC depth) + 1 mm base fillet.
+4. Shoulder check: curvature-comb the spline BEFORE revolving (fix wiggles in 2D, not in 3D).
+
+**Threads (modeled, learning-grade):**
+1. Helix/Spiral curve on the neck OD: pitch 3 (3 mm per turn — TBC: illustrative), 3 turns, starting at neck top.
+2. Thread profile: small triangle (1.2 base × 1 high — TBC illustrative) sketched on a plane through the axis, positioned at helix start with Pierce relation.
+3. Swept Cut along the helix → external thread. Start/end runouts will look abrupt (real threads fade — TBC: cosmetic fade is advanced; note it, move on).
+
+**Cap (separate part, in-context from neck):**
+1. Revolve cap shell: inner Ø = neck OD + 1 clearance diametral (TBC: confirm per closure design — illustrative), height covering threads + 5 tamper band.
+2. Internal thread: same helix method, mirrored (internal cut into cap ID — TBC exact video method; internal sweeps need the profile flipped).
+3. Knurl: cosmetic appearance at this level (modeled knurls = pattern-count pain for zero learning — TBC taste) + top deboss via split line.
+4. Assembly: concentric + coincident (cap mouth to neck datum) → section view: threads interleave with clearance? Interference detection must show ZERO solid overlap (threads kiss, never intersect).
+
+**Angle-neck variant (#95) drill:** tilt the neck straight 15° (new angled plane → rebuild neck+threads+cap on it). What breaks: revolve axis assumption, thread helix plane, cap mates. Fixing all three teaches why angled axes get their own planes from the start.
+
+**Verify in-app:** build vessel + cap + assembly + section + interference. Then caliper-measure a real bottle and remodel to ITS numbers — the second build takes half the time and teaches 3× (measurement + standards-awareness + speed).
 
 **Next:** [[consumer-electronics]].
 

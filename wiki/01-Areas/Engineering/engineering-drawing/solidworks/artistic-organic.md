@@ -69,7 +69,26 @@ flowchart TD
 | Freeform tweaks look lumpy | Too many points moved too far → undo, move fewer points smaller amounts, zebra after each |
 | Glass render looks wrong | Appearance on solid body instead of thin shell + no environment → thin-feature vessel + studio scene |
 
-**Verify in-app:** reverse-engineer any simple object on your desk (mug,$/ Remote? no — aMUG): photo front+side with a ruler in frame, sketch-picture, trace, build, fairness-check. Desk-to-CAD in one sitting.
+---
+
+## 6. Worked example: panton chair ribbon + glass-with-liquid (two organic disciplines)
+
+**Panton chair (#3, single-ribbon construction):**
+1. Side silhouette: Right Plane spline — floor contact → seat rise → backrest crest → top (the famous S; TBC: trace a real side photo per §1 with two known dims — seat height + overall height).
+2. Ribbon: swept surface along the S-path, width 600 (TBC illustrative — real ≈ 500–600 mm; confirm with furniture references) with straight cross-section → thicken 12 (molded plywood/fiberglass feel — TBC per construction).
+3. Base transition: the floor-contact curve needs a flattened tangent zone (rocking stability reads here — TBC: real Panton stacks and sits via exact base geometry; note as design-critical).
+4. Edge treatment: full-perimeter edge roll or thickened rim (comfort + stiffness) → zebra the S (one continuous fairness read — the whole chair is ONE surface story).
+5. Structural honesty note: a uniform 12 mm plastic S will flex/creep in reality (cantilevered seating loads are brutal — TBC: confirm with furniture/structures references); the CAD lesson is the ribbon workflow, not a manufacturable chair. Say so in your portfolio — honesty reads as competence.
+
+**Glass with liquid (#96, multi-body storytelling):**
+1. Glass: thin-revolve vessel (wall 2, TBC illustrative) with heavy base (-whiskey-tumbler mass reads as quality — thick base, thin walls).
+2. Liquid: separate solid body — revolve INSIDE the glass to the fill line (flat top + tiny meniscus fillet if you're showing off — TBC), amber appearance with transparency + attenuation feel (TBC exact appearance settings per version).
+3. Bodies folder discipline: `Glass` + `Liquid` as separate solid bodies (different materials/densities — mass properties per body tells the story) → appearances per body → studio scene with backlight feel.
+4. Condensation/ice (portfolio stretch — TBC): split-line zones + bump appearance; keep it cosmetic, never modeled geometry.
+
+**Bracelet appendix (#98):** closed-loop sweep (circle path Ø65, TBC illustrative) with shaped profile (comfort-fit interior flat — TBC per jewelry practice) → patterned relief cuts (circular pattern of a single motif seed) → clasp gap + hinge envelopes → metal appearances. The loop must be EXACTLY closed (path start = end, tangent-continuous) or the sweep twists at the seam — path-first verification again.
+
+**Verify in-app:** reverse-engineer any simple object on your desk (a mug): photo front+side with a ruler in frame, sketch-picture, trace, build, fairness-check. Desk-to-CAD in one sitting.
 
 **Next:** PL2 machines — [[gearbox-fundamentals]].
 

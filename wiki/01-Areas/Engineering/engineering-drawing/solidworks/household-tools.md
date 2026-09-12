@@ -69,7 +69,25 @@ flowchart TD
 | Hook throat looks thin/weak | Aesthetic sweep, no sizing → thicken inner-throat section, SimulationXpress sanity check |
 | Hanging hole too close to edge | Tear-out risk → hole diameter ≥ ~1.5× edge distance rule of thumb (TBC: confirm with strength references) |
 
-**Verify in-app:** model a soup spoon end-to-end (bowl fill + swept handle + joint fillet + hanging hole), then a crane-hook-style curve on a swept path. Section both; check wall uniformity.
+---
+
+## 6. Worked example: soup spoon + crane hook (two sweeps, two disciplines)
+
+**Spoon (food-safe surfacing):**
+1. Bowl: Top Plane ellipse 50×35 (TBC illustrative) → Lofted/Filled depression 12 deep with Tangent rim continuity → rim fillet 3 (mouth-feel radius — TBC: food-safe radii are generous by design, confirm with product references).
+2. Handle path: Right Plane spline from rim tangent, 110 long with a gentle S (wrist clearance curve) → sections: rim-end wide flat (20×3) morphing to mid oval (14×6) → swept/lofted surface → thicken 2.5.
+3. Joint: handle start TANGENT to rim (non-negotiable — the crease test) + transition fillet 4.
+4. Hanging hole Ø6, 8 from end (edge-distance rule from §5) → all-over food-safe edge breaks 1 mm → polish-ready (appearance: brushed steel).
+
+**Crane hook (load-path sweep):**
+1. Centerline path: J-curve (shank straight 60 → throat radius 25 → tip curling back 70% toward shank — TBC illustrative; real hooks follow standards like DIN 15405 — confirm with rigging references, NOT this page).
+2. Sections: shank Ø20 → throat 24×18 (fattened INSIDE where stress peaks — the anti-aesthetic move that marks engineering) → tip taper 12.
+3. Swept solid along path with 3 sections → safety latch (spring flap envelope + pivot — TBC depth) → shank thread (modeled learning-grade per [[bottles-containers#6-worked-example]]).
+4. SimulationXpress: shank fixed, rated load at saddle (TBC: use a nominal load, confirm with standards) → read stress at inner throat (peak location prediction) + safety factor vs yield. If it fails: throat section grows, NOT the whole hook (targeted redesign — the simulation habit).
+
+**Strainer appendix (#73):** bowl per spoon above → hole pattern (Ø3 on 6 grid, TBC illustrative) via Fill Pattern on the bowl face → rim roll (swept bead for stiffness + safe edge) → handle. Pattern AFTER thickening (cut the solid — §4's lesson restated).
+
+**Verify in-app:** model the spoon end-to-end, section it for wall uniformity, then the hook path + sections. Run the hook through SimulationXpress once — even a rough run teaches where stress lives.
 
 **Next:** [[complex-showcase]].
 

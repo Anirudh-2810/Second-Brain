@@ -68,7 +68,32 @@ flowchart TD
 | Assembly interfaces mismatch | Parts modeled in isolation → master sketch or in-context references for every mating dimension |
 | Zebra chaos on big panels | Too many sliver patches → rebuild zone with 2–3 large boundary patches |
 
-**Verify in-app:** pick ONE flagship (helmet shell or tap) and produce only its patch plan on paper (regions + techniques + order) before modeling. The plan is the deliverable; the model is proof.
+---
+
+## 5. Worked example: helmet shell patch plan (paper deliverable + build start)
+
+Do the PAPER plan first (30 min) — regions, techniques, order, seams — then model Part 1 only. The plan is the graded deliverable.
+
+**Paper plan (template — fill for YOUR helmet reference):**
+| # | Region | Technique | Seams on |
+|---|---|---|---|
+| 1 | Crown center | Boundary (2 profiles × 2 guides) | Ridge style-lines L/R |
+| 2 | Left/right sides | Boundary each, mirrored (model ONE side!) | Ridge lines + lower edge |
+| 3 | Rear lower | Lofted transition to edge roll | Edge roll start |
+| 4 | Visor opening | Trim (oversized shell first) | Opening curve + edge-roll bead |
+| 5 | Ear recesses | Trim + small fill blends | Recess rims |
+| 6 | Edge roll | Swept bead around full lower rim | Rim (functional seam, reads as design) |
+| Order: 1→2→3 (knit as you go, staged) → 4→5 (trims) → 6 (bead) → zebra → thicken inward 3 (TBC: shell thickness per construction) |
+
+**Propeller blade appendix (#15, numbers-first approach):**
+1. Blade data: 3 blades, Ø300 (TBC illustrative), root chord 40 → tip chord 22, pitch angle 25° root → 12° tip (twist BUILT into profile orientations — TBC: real pitch follows hydrodynamic rules; this is CAD practice).
+2. 4 sections (root/mid/tip + one intermediate) as rotated airfoil-ish profiles (flat-bottomed at this level — TBC) → Lofted surface with connectors aligned at leading edges (twist + connector discipline combined).
+3. Circular pattern ×3 → hub revolve (Ø60 with shaft bore + keyway) → blade-root fillets 6 (stress! — the highest-loaded zone gets the biggest fair fillets).
+4. Hand-rotation clearance vs a nozzle ring envelope (if ducted — TBC per design).
+
+**Tap appendix (#39/#49, 10-step core):** base flange (revolve + bolt circle) → valve body (revolve) → spout centerline path → swept/lofted spout per §2 nozzle logic → aerator thread (modeled learning-grade) → handle lever (extrude + grip) → cartridge envelope inside body → assembly + section (water path visible? — the plumber's check) → chrome appearance + render.
+
+**Verify in-app:** produce the helmet paper plan for a real helmet photo set (front/side/top with ruler), then model regions 1–2 only + knit + zebra. Regions 1–2 done well beat all six done badly.
 
 **Next:** [[artistic-organic]] → then PL2 machines from [[gearbox-fundamentals]].
 
