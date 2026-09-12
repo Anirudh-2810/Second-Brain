@@ -107,6 +107,16 @@ Do this on paper BEFORE touching CAD — every PL2 gearbox repeats it with diffe
 
 ---
 
+## 13. Efficiency + selection appendix (buying right, running lean — TBC per vendor/energy references)
+
+**Efficiency mapping (losses itemized — TBC: confirm with gear-efficiency references, NOT this page):** mesh sliding (worm/hypoid worst, spur/helical ~98–99% per mesh illustrative — TBC!) → churning/seals/bearings (the §10-lube + §8-bearing lessons as loss terms!) → part-load penalty (oversized boxes loafing at low load run LESS efficient — TBC per motor-drive system curves!) → CAD consequence: NONE in geometry (efficiency is selection + operation!) — but the SELECTION lives in your notes (ratio + type + size justified against duty per §8-sizing — documented decisions beat inherited guesses!).
+
+**Total-cost thinking (purchase vs power vs maintenance — TBC per lifecycle practice):** premium-efficiency premium (payback math per kWh + hours — TBC per energy economics!) → right-sizing discipline (the §9-sizing-walkthrough as money: oversized = inefficient + expensive; undersized = short-lived!) → standardization dividends (one gearbox family plant-wide = one spares shelf + one skill set — TBC per plant practice!) → CAD consequence: FAMILY modeling per §12-platform (shared housings + varied ratios — the product-line habit doing TCO duty!).
+
+**Retrofit + re-rate reality (old boxes, new duties — TBC per field practice):** uprating audits (service history + inspection per §14-failure reading → margin check → re-rating or replacement decision!) → drop-in compatibility (footprints + shaft heights + interfaces MATCH or the retrofit dies in installation! — TBC per project!) → CAD consequence: interface SURVEY modeled first (measure the old, fit the new — the §10-reverse-engineering habit: existing conditions constrain harder than blank sheets!).
+
+---
+
 ## 12. Transportation + storage appendix (gearboxes travel too — TBC per logistics practice)
 
 **Preservation for shipment/storage (rust never sleeps — TBC: confirm with preservation references, NOT this page):** vapor-corrosion-inhibitor packaging (VCI bags/emitters rated by volume + duration — TBC per product!) → desiccant + humidity indicators (TBC per spec!) → shaft locking (transport brackets preventing rotation damage to bearings/seals — TBC per design; false brinelling from vibration during transit kills bearings before first start!) → oil vs dry-ship decision (filled + sealed vs drained + preserved — TBC per duration/mode!) → CAD consequence: lifting + locking + preservation features ON the drawing (eyebolts per §8-housing + lock brackets + VCI notes — shipment designed, not improvised!).

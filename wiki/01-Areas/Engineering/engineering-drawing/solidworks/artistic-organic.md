@@ -94,6 +94,16 @@ flowchart TD
 
 ---
 
+## 16. Wayfinding + signage appendix (reading rooms at distance — TBC per environmental-graphic references)
+
+**Legibility math (letterforms that work — TBC: confirm with signage/ADA references, NOT this page):** cap-height vs viewing distance ratios (TBC: ~25 mm per 7–8 m illustrative for normal vision!) → stroke contrast + typeface neutrality (TBC per legibility research!) → tactile/Braille zones (raised + domed per standard — TBC per accessibility code!) → CAD consequence: letterforms as EXTRUDED/EMBOSSED features per §10-marking discipline (height + draft + contrast-zone split lines!).
+
+**Mount + illumination systems (signs that survive + glow — TBC per sign-fabrication practice):** standoff + rail mounts (wind + vandal loads per §14-public-art thinking at sign scale!) → halo/channel letters with LED modules (TBC per electrical + heat practice!) → reflective vs illuminated vs halo strategies per ambient (TBC per visibility!) → CAD consequence: power + drain + service access modeled (the §11-luminaire trinity restated: every lit sign answers power/drain/service!).
+
+**Donor/recognition walls (the §13-plaque lesson scaled — TBC per institutional practice):** updateable name systems (magnetic/slotted rails vs re-etched plates — TBC per lifecycle!) → material dignity tiers (bronze vs aluminum vs acrylic per gift level — TBC per development practice!) → CAD consequence: modular GRID layouts (names come and go; the grid is forever — the §12-platform habit for walls!).
+
+---
+
 ## 15. Exhibit + installation appendix (work that lives in rooms — TBC per exhibition references)
 
 **Mount + plinth engineering (the invisible half of sculpture):** seismic + tip-over stability (public safety factors — TBC: confirm with structural/exhibition standards, NOT this page!) → hidden armatures (stainless skeletons inside organic forms — TBC per conservation practice!) → vibration isolation from foot traffic/HVAC (TBC per museum practice!) → CAD consequence: mount POINTS designed into the work (threaded inserts? base plates? — TBC per install; retrofitted mounts scar finished work!).

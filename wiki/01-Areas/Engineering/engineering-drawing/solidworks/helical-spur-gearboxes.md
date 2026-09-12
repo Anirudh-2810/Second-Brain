@@ -92,6 +92,16 @@ The §6 math page gave 20/40 at m2 — now the hands-on cut pattern with 16/48 (
 
 ---
 
+## 15. Mill + crusher gearbox appendix (the brutal end of duty — TBC per heavy-industry references)
+
+**Shock-factor reality (crushers don't do steady-state — TBC: confirm with crusher-drive references, NOT this page):** uncrushable events (tramp iron through jaws/cones — TBC per protection: torque limiters + hydraulic tramp release PER §10-coupling-fuse lesson at maximum stakes!) → cyclic overload signatures (the §14-failure-reading habit: spalled teeth with impact morphology = shock, NOT wear!) → flywheel effect as protection (inertia rides through spikes — TBC per sizing!) → CAD consequence: torque-limiter + flywheel modeled as FIRST-CLASS citizens (not accessories — the protection IS the design!).
+
+**Dust + vibration environmentals (the §13-dust lesson at maximum — TBC per mining practice):** pressurized sealing (labyrinth + purge air beating dust at the seal face — TBC per system!) → foundation dynamics (resonance with crusher frequencies avoided — TBC per vibration analysis; grout + soleplate discipline per §10-mounting!) → oil contamination control (offline filtration loops + sampling per §10-lube at industrial grade!) → CAD consequence: ancillaries modeled (breathers, filters, purge lines, sample valves — the §10-ports habit: unmodeled ancillaries never get installed!).
+
+**Segmental + split gears (giant gears come apart — TBC per large-gear practice):** girth-gear splits (flanged segments for transport/install around kilns/mills — TBC per heavy practice!) → pinion pairing + load sharing across dual pinions (TBC per alignment!) → guard + lube enclosures at scale (spray systems + guards per §10 with walkways INSIDE the guard line — TBC per access!) → CAD consequence: SPLIT features modeled (flange joints with bolted connections per §7-fastener discipline — giant parts are assemblies wearing part costumes!).
+
+---
+
 ## 14. Failure-analysis + warranty appendix (reading dead gearboxes — TBC per failure-analysis references)
 
 **Reading the wreckage (every failure writes its autobiography — TBC: confirm with gear-failure atlases, NOT this page):** uniform wear (normal life consumed — redesign for LONGER life or accept the interval!) → one-sided wear (misalignment — housing bores? foundation settling? thermal migration? — the §11-NVH-misalignment lesson with evidence!) → pitting concentrated at pitch line (surface fatigue from overload/under-lube — TBC per contact-stress practice!) → tooth breakage at root (bending overload or notch — the §5-root-fillet lesson with consequences!) → scuffing/scoring streaks (film collapse — speed/load/lube triangle per §10!) → CAD consequence: failure PHOTOS mapped to CAD zones (which mesh? which flank? — the §12-failure-resume habit at hardware scale!).

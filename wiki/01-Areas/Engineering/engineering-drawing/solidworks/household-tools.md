@@ -103,6 +103,16 @@ flowchart TD
 
 ---
 
+## 14. Fastener + joinery appendix (holding wood and the world together — TBC per woodworking references)
+
+**Screw science in wood (the everyday joint — TBC: confirm with wood-joinery references):** pilot diameters per screw + species (splitting hardwoods vs stripping softwoods bracket the pilot — TBC per tables!) → thread engagement lengths (withdrawal scales with penetration — TBC per formula!) → pocket-hole angle jigs (15°-ish self-contained joints — TBC per jig spec!) → CAD consequence: pilot + clearance + countersink modeled as a THREE-STEP hole habit (the §10-hole-wizard discipline generalized: every screw gets the full stack!).
+
+**Traditional joints (strength without metal — TBC per joinery references):** mortise-and-tenon (cheeks + shoulders + glue faces — TBC per proportion rules!) → dovetails (angle + spacing per TAIL/plate logic — TBC!) → floating tenons/dominos (TBC per system!) → CAD consequence: joint GEOMETRY modeled (tenon/mortise as mating features with glue-gap allowances — TBC per adhesive practice!) + dry-fit sequence check (assembly ORDER modeled — the §6-joint-first habit: joints constrain everything downstream!).
+
+**Knock-down + flat-pack (the §12-furniture lesson restated as CAD deliverable):** cam/dowel/confirmat patterns per panel joint (TBC per hardware catalogs!) → 32-mm system discipline for casework (TBC per cabinetry practice!) → assembly-instruction exploded views FROM the model (the §9-toolchain animations at furniture scale!) → CAD consequence: hardware LIBRARY per §9 (cams/dowels/shelf-pins as drop-in library features — the reuse loop closed!).
+
+---
+
 ## 13. Cutlery + cookware appendix (steel that feeds — TBC per cutlery/cookware references)
 
 **Knife architecture (edge science in brief — TBC: confirm with blade references, NOT this page):** blade profile (chef/santoku/paring geometries differ in belly + tip — TBC per use!) → grind (flat/convex/hollow cross-sections trade sharpness vs food-release vs strength — TBC per grind!) → edge angle per side (15° vs 20° per side philosophies — TBC per steel/culture!) → bolster vs no-bolster (balance + sharpening access trade — TBC per design!) → handle scales + rivets/pins (grip per §7 + mechanical retention that survives dishwashers — TBC!) → CAD consequence: blade FLAT pattern thinking (ground bevels modeled as chamfer/loft features with symmetric discipline!) + edge modeled SHARP (0.1-ish visual edge — TBC taste; renders lie about sharpness, drawings note "sharpen to spec"!).
