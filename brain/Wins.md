@@ -16,6 +16,9 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 - **2026-08-28 — Eng-Math normal-form rank method gap closed** (Coursework) — MU-standard row-and-column canonical form was missing from the vault; added theory + worked example to [[engineering-math/module-1-matrices]] and a [[formula-sheet-am]] row.
 - **2026-09-09 — Four-subject study day + break-timer scope locked** (Coursework/Projects) — Spanish A1 lecture ingested ([[01-Areas/Self-Dev/spanish/clase-2026-09-09-a1-fundamentos]]), Cramer 2×2/3×3 + homogeneous systems + interference/diffraction + C sum/even-odd drilled from vault pages; roadtrip break-timer locked to option A (build tomorrow) in [[00-Current-Projects/roadtrip-break-timer-plan]].
 
+- **2026-09-16 — 6 grating numericals solved with method** (Coursework) — 2nd-order N, max order, overlapping orders (n=3 → 3086 lines/cm), coincident 6656 Å, R=930 → 0.52 nm (flagged 0.5mm-width misprint), R_max=24000; [[daily/2026-09-16]] + [[01-Areas/Engineering/engineering-physics/module-1-optics-interference-diffraction]] notation.
+- **2026-09-16 — Laptop hunt closed to 3-horse 14" watchlist** (Coursework/Projects) — G14 / Swift X 14 RTX / M1 Pro @47k with Odyssey-YES/NO branch rules + walk list; [[daily/2026-09-16]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]

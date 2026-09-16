@@ -34,6 +34,9 @@ Things that have bitten before and will bite again.
 - **2026-08-27 — opencode registers only ~119 agents and silently drops the rest.** Verified while installing the msitarzewski/agency-agents catalog: with 200+ agent definitions, opencode loads a bounded subset and never warns about the ones it skipped — you ask for a subagent that simply doesn't exist. Upstream: `anomalyco/opencode#27988`. Mitigation: install curated subsets (this vault: 8 selected), never the whole roster; after adding agents, list/verify which actually registered.
 - **2026-08-27 — opencode config is not hot-reloaded.** New/changed `.opencode/agents/*.md` files do not appear until opencode is fully restarted and reconnects to the session. Verify by relaunching, not by expecting live pickup.
 
-## Media Integrity
+## Laptop Hunt / Hardware
+
+- **2026-09-16 — Rosetta 2 does NOT run Windows apps.** It translates Intel macOS binaries → ARM only. SolidWorks (Windows-x86-only, no native macOS) on Apple Silicon needs Parallels + Win11 ARM + Windows Prism emulation on an uncertified vGPU — RealView off, 16GB Mac leaves VM ~8GB. AutoCAD Mac 2024+ is native ARM (installer alone wants Rosetta). Context: [[daily/2026-09-16]] laptop board.
+- **2026-09-16 — FB Marketplace needs a logged-in session to scrape.** Anonymous cloud-browser passes hit `facebook.com/login` on all Marketplace search URLs (desktop + mobile). Use OLX Mumbai + Reddit + Cashify as proxies (same sellers cross-post).
 
 - **2026-08-27 — "JEFFREY EPSTEIN'S FINAL INTERVIEW (he exposes EVERYTHING)" is fabricated content.** Video `xsq2tV597Pw` on the **The Conspiracy Files** channel. Epstein died by suicide in custody Aug 10, 2019 (ME ruling; DOJ OIG 2023; NYT June 2026) — a posthumous exposé interview is documentary-impossible. Do NOT re-ingest or cite as fact; if the URL reappears, redirect to [[synthetic-media-literacy]] (7-point detection checklist, flagged-source register). Generalize: any "final interview / he exposes / deepfake of deceased person" clip from a conspiracy channel → same pre-ingestion checks.
