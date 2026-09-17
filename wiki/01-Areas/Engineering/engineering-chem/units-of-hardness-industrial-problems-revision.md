@@ -28,6 +28,7 @@ $$\text{Hardness as CaCO}_3 = \text{mass of salt} \times \frac{\text{Eq. wt CaCO
 | Degree Clarke | °Cl | 1 grain (64.8 mg) CaCO₃ per Imp. gallon (4.546 L) | **1 °Cl = 14.25 ppm** |
 | Degree French | °Fr | 1 part CaCO₃ per 10⁵ parts water | **1 °Fr = 10 ppm** |
 | Degree German | °dH | 10 mg CaO per litre | **1 °dH = 17.9 ppm** |
+| Milliequivalent/L | meq/L | meq of hardness per litre ($\div 50$ from mg/L) | **1 ppm = 0.02 meq/L** |
 
 **Memorize:** 1 ppm = 1 mg/L · 1 °Cl = 14.25 ppm · 1 °Fr = 10 ppm · 1 °dH = 17.9 ppm
 

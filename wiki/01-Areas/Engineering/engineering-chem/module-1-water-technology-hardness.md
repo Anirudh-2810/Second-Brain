@@ -195,6 +195,20 @@ $$\text{Eq. wt} = \frac{\text{Molecular (or atomic/ionic) weight}}{\text{Valency
 | MgSO₄ | 120 | 2 | 60 |
 | Na₂CO₃ | 106 | 2 | 53 |
 | Ca(OH)₂ | 74 | 2 | 37 |
+| Ca(NO₃)₂ | 164 | 2 | 82 |
+| Mg(NO₃)₂ | 148 | 2 | 74 |
+| MgCO₃ | 84 | 2 | 42 |
+| FeCl₂ | 127 | 2 | 63.5 |
+| CO₂ (as acidity) | 44 | 2 | 22 |
+| HCO₃⁻ | 61 | 1 | 61 |
+| OH⁻ | 17 | 1 | 17 |
+| CO₃²⁻ | 60 | 2 | 30 |
+| NaAlO₂ | 82 | 1 | 82 |
+| Al₂(SO₄)₃ | 342 | 6 | 57 |
+| FeSO₄·7H₂O | 278 | 2 | 139 |
+| H⁺ / HCl | 1 / 36.5 | 1 | 1 / 36.5 |
+
+**Non-hardness-causing substances (exam trap — never count):** Na⁺/K⁺ salts (NaCl, NaHCO₃, K₂CO₃, KHCO₃, KBr), SiO₂, NaAlO₂, dissolved CO₂, acids (HCl). They cause salinity/alkalinity/acidity, not hardness.
 
 **Step 2 — one equivalent of any ion neutralizes one equivalent of any other:**
 
@@ -457,6 +471,8 @@ $$Q_{bd} = \frac{450000}{3000} = 150\ \text{L/day}$$
 $$\boxed{\text{Blow-down rate} = 150\ \text{L/day} \ (=15\%\ \text{of make-up})}$$
 
 ---
+
+> **Problem bank:** 7 more fully worked EDTA numericals (SHW-standardisation + molarity variants) live in [[edta-numericals-worked-bank]] — including a corrected slide erratum (N4 permanent hardness 220, not 200 ppm).
 
 ## 4. ENGINEERING APPLICATIONS MAP
 

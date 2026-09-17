@@ -839,3 +839,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Interview material cut per user (round is over):** no viva/CSWA page; drone content kept as pure machine-design.
 - **Catalog:** Engineering INDEX ED row 6 â†’ 33 pages with solidworks/ pointer; `wiki/index.md` ED block + hub link. Dashboard + graph regenerated.
 - **Verify in-app (user-side):** every page ends with a SolidWorks checklist; command paths are 2021â€“2026-era (press `S` if a button moved).
+
+### 2026-09-17 — Ingest: Water/EDTA class slides (Dr. Dipanwita Das, 3 decks, pasted in-chat)
+- **New pages (engineering-chem/):** 'edta-numericals-worked-bank.md' (7 fully worked EDTA numericals, all answers recomputed — slide erratum fixed: N4 permanent 200 ? 220 ppm; + solved unit-conversion/FeSO4/CaCl2/classification drills) + 'hard-water-industry-effects.md' (textile/sugar/dyeing/paper/laundry/pharma/beverage effects, rust, corrosion-vs-embrittlement, scale-vs-sludge, non-hardness list).
+- **Extended in place:** module-1 §2.1 eq-wt table (11 ? 24 salts) + problem-bank pointer; lab-edta prep recipes + V2/V1×1000 shortcut; revision units table + meq/L row. Catalog: module INDEX + source-map + Engineering INDEX 14 ? 16. Dashboard + graph regenerated.

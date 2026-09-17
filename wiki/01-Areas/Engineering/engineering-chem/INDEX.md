@@ -18,6 +18,8 @@ Module index for Engineering Chemistry (BTech coursework). Scan this folder for 
 - [[module-4-spectroscopy-instrumental]]
 - [[module-5-polymers-fuels]]
 - [[units-of-hardness-industrial-problems-revision]]
+- [[edta-numericals-worked-bank]]
+- [[hard-water-industry-effects]]
 
 ## Exam Prep
 CA/MSE/ESE: focus modules 1-3 (numerical-heavy); module-5 is theory-memory.

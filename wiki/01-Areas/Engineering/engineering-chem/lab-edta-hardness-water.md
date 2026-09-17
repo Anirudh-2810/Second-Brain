@@ -25,6 +25,8 @@ $$\mathrm{M\!-\!In\;(wine\;red) + EDTA \to M\!-\!EDTA\;(colourless) + In\;(blue)
 
 Standard hard water (1 mg/mL as $\mathrm{CaCO_3}$), unknown sample, 0.01 M EDTA, EBT indicator, pH-10 buffer; burette, pipette, conical flask.
 
+**Prep recipes (class slides):** SHW — 1 g $\mathrm{CaCO_3}$ in min. dil. HCl, evaporate to dryness, make to 1 L (1 mL $\equiv$ 1 mg); EDTA — 3.72 g disodium EDTA (+ trace $\mathrm{MgCl_2}$) per L; EBT — 0.5 g per 100 mL alcohol; buffer — 67.5 g $\mathrm{NH_4Cl}$ + 570 mL conc. $\mathrm{NH_3}$, make to 1 L (pH 10).
+
 ## 3. Procedure (three parts)
 
 - **Part I (standardisation)**: 10 mL standard hard water + buffer + EBT → titrate with EDTA to wine-red→blue. Reading $V_1$ mL.
@@ -40,6 +42,8 @@ $$ \text{Total hardness} = \frac{V_2}{V_1}\times 10\ \text{mg per 50 mL} \;\Righ
 $$ \text{Permanent hardness from } V_3 \text{ identically; Temporary} = \text{Total} - \text{Permanent} $$
 
 Endpoint logic: if Part III stays blue without titration, permanent hardness is nil (all hardness was temporary).
+
+**Shortcut (standard 50 mL SHW):** Total $= V_2/V_1 \times 1000$ ppm · Permanent $= V_3/V_1 \times 1000$ ppm · Temporary $=$ Total $-$ Permanent. Molarity rule: 1 mL of $M$-molar EDTA $\equiv 100 \times M$ mg $\mathrm{CaCO_3}}$ (M/20 $\to$ 5 mg/mL). Worked bank: [[edta-numericals-worked-bank]].
 
 ## 5. Viva points
 

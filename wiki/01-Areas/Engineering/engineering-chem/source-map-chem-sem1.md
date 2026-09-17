@@ -24,6 +24,7 @@ Catalog of `raw-sources/drive-download-20260908T190927Z-1-001/Semester 1/Chem/` 
 | `Chem/Water/Water (given on LMS).pdf` (81 pp) | Skim-verified | Hardness/softening/boiler troubles — already covered in [[module-1-water-technology-hardness]] |
 | `Chem/Water/Study Material (3).pdf` | Catalogued only | Variant of LMS water material |
 | `Chem/Water/Water-ref.pdf` | Catalogued only | Reference variant of water material |
+| 3 pasted slide-decks, Dr. Dipanwita Das (in-chat 2026-09-17, no raw-source file) | **Full ingest** | Water overview → [[hard-water-industry-effects]] · Hardness+EDTA theory (M.F table, V1/V2/V3, prep recipes) merged into [[module-1-water-technology-hardness]] + [[lab-edta-hardness-water]] · 7 EDTA numericals → [[edta-numericals-worked-bank]] |
 
 ## 2. Lab (`Chem Lab/`)
 
