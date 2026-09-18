@@ -17,7 +17,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 
 | Module | Pages | Covers |
 |--------|-------|--------|
-| [[SPM/syllabus-316U06C107|SPM/]] | 14 | **316U06C107 Structured Programming Methodology (2026-27, 30h, CO1-4)** — syllabus hub + lesson plan + lab CA + ESE guide + master study guide + PIC question bank + lab exp guides |
+| [[SPM/syllabus-316U06C107|SPM/]] | 20 | **316U06C107 Structured Programming Methodology (2026-27, 30h, CO1-4)** — syllabus hub + lesson plan + lab CA + ESE guide + master study guide + PIC question bank + lab exp guides + Sem-1 drive ingest (faculty companions, practice/quiz banks, EXP1/EXP2 guides) |
 | [[sem2-source-map|sem2-source-map]] | 1 | **Semester-2 source survey** — 10 subjects mapped from the second Drive dump (Maths-II richest, EVS empty, PBL maker track); ingest order for a future session |
 | [[SPM/syllabus-316U06C107|SPM/syllabus-316U06C107]] | — | Official syllabus registry — 4 modules, CO mapping, recommended books (source: [[raw-sources/SPM_Syllabus_316U06C107]]) |
 | [[SPM/lesson-plan-2026-27|SPM/lesson-plan-2026-27]] | — | Week-by-week timeline 17 Aug–4 Dec 2026 — theory vs labs, MSE/OST, Diwali, quiz |
@@ -25,6 +25,12 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | [[SPM/assessment-guide-ese-ost-quiz|SPM/assessment-guide-ese-ost-quiz]] | — | ESE 50 (Sec A/B Q1-Q4b) + OST 15 + Quiz 15 patterns + prep tactics |
 | [[SPM/spm-pic-question-bank|SPM/spm-pic-question-bank]] | — | **NEW:** 26+59+107 PIC drills (conditionals/loops/arrays) + solved C |
 | [[SPM/spm-lab-exp-guides|SPM/spm-lab-exp-guides]] | — | **NEW:** EXP1/7/8 write-ups + skeletons + viva |
+| [[SPM/spm-module1-faculty-companion|SPM/spm-module1-faculty-companion]] | — | **Sem-1 drive:** M1 PPT deltas — SI example, largest-of-3 chain, Böhm–Jacopini, error trilogy, guards, const-vs-define, conversion demo |
+| [[SPM/spm-module2-faculty-companion|SPM/spm-module2-faculty-companion]] | — | **Sem-1 drive:** M2 PPT deltas — flag/counting loops, docs demo, calculator guard, fall-through grouping, loop-choice tables |
+| [[SPM/spm-practice-bank-module1|SPM/spm-practice-bank-module1]] | — | **Sem-1 drive:** M1 drills verbatim — Easy 15 + Difficult 15 (CO1) + worked answers |
+| [[SPM/spm-practice-bank-module2|SPM/spm-practice-bank-module2]] | — | **Sem-1 drive:** M2 drills verbatim — Easy 15 + Difficult 15 (CO2, no arrays/functions) + sketches |
+| [[SPM/spm-quiz-bank|SPM/spm-quiz-bank]] | — | **Sem-1 drive:** timed quiz sets M1+M2 (Debug/Complete/Predict 5+5+5 each) + worked answers |
+| [[SPM/spm-lab-exp1-exp2-guides|SPM/spm-lab-exp1-exp2-guides]] | — | **Sem-1 drive:** EXP1 + EXP2 write-ups (tasks, post-lab Q&A) + MSYS2/GCC/CodeBlocks setup |
 | SPM/module-1-spm-c-basics | — | M1: SDLC, compilation pipeline, memory layout (Text/Data/BSS/Heap/Stack) |
 | SPM/module-2-program-control-functions | — | M2: if/switch/loops, break/continue/goto, for-step semantics |
 | SPM/module-3-arrays | — | M3.1: 1D/2D arrays, row-major vs col-major, address formulas, search/sort |
@@ -53,6 +59,9 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 - "SPM CA marks / attendance rubric?" → [[SPM/lab-ca-and-experiments]]
 - "SPM ESE pattern / OST / Quiz?" → [[SPM/assessment-guide-ese-ost-quiz]]
 - "SPM unit 3 arrays?" → [[SPM/module-3-arrays]] · strings → [[SPM/module-3-strings]]
+- "SPM faculty PPTs / what's new from the Sem-1 drive?" → [[SPM/spm-module1-faculty-companion]] · [[SPM/spm-module2-faculty-companion]]
+- "SPM practice drills / quiz prep?" → [[SPM/spm-practice-bank-module1]] · [[SPM/spm-practice-bank-module2]] · [[SPM/spm-quiz-bank]]
+- "SPM EXP1/EXP2 write-up / CodeBlocks setup?" → [[SPM/spm-lab-exp1-exp2-guides]]
 - "SPM structures / pointers / file handling?" → [[SPM/module-4-structures-unions-pointers]]
 - "Orthographic projection rules?" → engineering-drawing pages
 - "ROS2 QoS?" → robotics/ros2-communication
