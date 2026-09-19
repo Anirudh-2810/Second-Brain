@@ -865,3 +865,6 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 
 ### 2026-09-19 — Spanish clase 2026-09-19 (10 chat screenshots → new note)
 - New page `spanish/clase-2026-09-19-a1-plurales-profesiones-ser-estar.md`: pronunciation top-ups (ch/ll/ñ, ce-ci-s/z seseo, y=and, rr terror, j jugar/jugo, tomate/diez/Dios), full plural rules (autobús-autobuses, mes-meses, lapiz-lapices, el lunes-los lunes, -ante/-ista, marroquí-marroquíes/belga-belgas), nacionalidad agreement (*las ciudades españolas son bonitas*, *el vino español es mejor que el vino italiano*), ~35-job profesiones bank (el/la piloto, la azafata, el botones, el/la policía), pronombres + SER recap, SER-vs-ESTAR DOCTOR/PLACE poster with test items + drills. Builds on clase-2026-09-09 (no duplication). Linked from spanish overview.
+
+### 2026-09-19 — Aeromodelling 11th-12th basics for aero
+- New page `aeromodelling/physics-maths-basics-for-aero.md`: school-only backbone for the 10 aero Qs — SI units, scalars/vectors + 3-4-5 resultant, Newton laws + W=mg, pressure P=F/A, density 1.2 kg/m3, continuity A1v1=A2v2, Bernoulli term-by-term + 1200 Pa worked, KE/work/power + 300 J and 222 W worked, sin30 tip-height, formula rearranging (AR/kV/C-rating/projectile), school-topic to aero-question map. Linked from aeromodelling INDEX (now 7 pages).

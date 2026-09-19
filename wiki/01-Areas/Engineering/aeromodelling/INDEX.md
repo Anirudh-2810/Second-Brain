@@ -26,6 +26,7 @@ Ingest of `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` for Tea
 | [[avionics-rc-stack]] | Propeller, motor (brushed/brushless, kV), LiPo battery, ESC, transmitter, receiver, servos |
 | [[team-onyx-round1-revision]] | **Start here for the test** — 2-day plan, rapid-fire facts, 15 mock aero MCQs with answers, math/physics + aptitude checklists |
 | [[team-onyx-sample-paper-01]] | **Hard sample paper** — full 40-MCQ set (15 + 15 + 10) with 4 options + answer key; sit in 45 min |
+| [[physics-maths-basics-for-aero]] | **11th–12th backbone** — units, vectors, Newton, pressure, density, continuity, Bernoulli worked, energy, trig, rearranging |
 
 ## Reading order (2-day sprint)
 
