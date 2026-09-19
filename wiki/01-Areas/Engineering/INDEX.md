@@ -46,6 +46,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | [[BEE/INDEX|BEE/]] | 11 | Basic Electrical Engineering: DC circuits & theorems, AC circuits, three-phase, transformers, DC machines & induction motors, installations/safety + labs + formula sheet |
 | [[engineering-biology/INDEX|engineering-biology/]] | 8 | **NEW Sem-1 Bio for engineers**: biomolecules, cell biology, bioinformatics, fermentation, systems biology |
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
+| [[aeromodelling/INDEX|aeromodelling/]] | 5 | **Team Onyx Round-1 (Sept 2026):** aerodynamics foundations (forces/lift/bluff), wings+controls (planforms/mountings/AoA/stall), avionics RC stack, revision + 15 mock MCQs |
 | mathematics/formula-sheet-master | 4 | JEE-level math formula arsenal |
 | physics/ + chemistry/ | 10 | JEE-level formula sheets & reaction maps |
 | [[Formula-Sheets/Formula-Sheets-Physics|Formula-Sheets/]] | 3 | Printed physics/chemistry/maths formula sheets: kinematics, electrostatics, inverse trigonometry, error analysis |
