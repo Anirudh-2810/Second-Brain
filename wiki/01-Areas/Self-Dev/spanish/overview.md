@@ -128,6 +128,7 @@ Separate section: listen to song while reading lyrics → interactive gap-fill. 
 
 - [[alphabet-and-pronunciation]] · [[grammar-essentials]] · [[vocabulary-and-phrases]] · [[phrasebook-cheatsheet]] · [[practice-and-exercises]]
 - [[clase-2026-09-09-a1-fundamentos|Clase 2026-09-09 — A1 fundamentos (SER/TENER, presente regular, profesiones, form-filling)]] — lecture distillation + YouTube/LearningApps/Kahoot bank + worksheets
+- [[clase-2026-09-19-a1-plurales-profesiones-ser-estar|Clase 2026-09-19 — plurales, nacionalidades, 35 profesiones, SER vs ESTAR (DOCTOR/PLACE)]] — pronunciation top-ups (ce/ci seseo, y, rr) + plural rules + *las ciudades españolas* agreement
 - German parallel: [[01-Areas/Self-Dev/german/overview|German A1 Overview]]
 - Learning system: [[01-Areas/Self-Dev/productivity/how-to-self-teach]]
 
