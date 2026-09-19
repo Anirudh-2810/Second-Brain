@@ -25,6 +25,7 @@ Ingest of `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` for Tea
 | [[wings-controls]] | Airfoil terms/types, 5 planforms, 5 mountings, dihedral/anhedral, aspect ratio, AoA/stall, aileron/elevator/rudder |
 | [[avionics-rc-stack]] | Propeller, motor (brushed/brushless, kV), LiPo battery, ESC, transmitter, receiver, servos |
 | [[team-onyx-round1-revision]] | **Start here for the test** — 2-day plan, rapid-fire facts, 15 mock aero MCQs with answers, math/physics + aptitude checklists |
+| [[team-onyx-sample-paper-01]] | **Hard sample paper** — full 40-MCQ set (15 + 15 + 10) with 4 options + answer key; sit in 45 min |
 
 ## Reading order (2-day sprint)
 
@@ -32,7 +33,7 @@ Ingest of `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` for Tea
 2. [[aerodynamics-foundations]] — the theory behind 4–5 of the 10 aero Qs (1 hr)
 3. [[wings-controls]] — the other 4–5 aero Qs: planforms, mounting, controls (1 hr)
 4. [[avionics-rc-stack]] — RC-component Qs hide here (45 min)
-5. Re-attempt the mock MCQs closed-book, then drill weak spots
+5. [[team-onyx-sample-paper-01]] — sit the full 40-Q paper closed-book in 45 min, then drill weak spots
 
 ## Cross-links
 
