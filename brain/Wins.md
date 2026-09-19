@@ -19,6 +19,8 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 - **2026-09-16 — 6 grating numericals solved with method** (Coursework) — 2nd-order N, max order, overlapping orders (n=3 → 3086 lines/cm), coincident 6656 Å, R=930 → 0.52 nm (flagged 0.5mm-width misprint), R_max=24000; [[daily/2026-09-16]] + [[01-Areas/Engineering/engineering-physics/module-1-optics-interference-diffraction]] notation.
 - **2026-09-16 — Laptop hunt closed to 3-horse 14" watchlist** (Coursework/Projects) — G14 / Swift X 14 RTX / M1 Pro @47k with Odyssey-YES/NO branch rules + walk list; [[daily/2026-09-16]]
 
+- **2026-09-19 — Team Onyx Round-1 prep pack shipped** (Coursework/Builds) — 7-page aeromodelling module (foundations, wings+controls, RC stack, 11-12th basics, revision + 15 mocks, hard 40-Q paper) + Spanish clase 2026-09-19 ingested; [[01-Areas/Engineering/aeromodelling/INDEX]] · [[01-Areas/Self-Dev/spanish/clase-2026-09-19-a1-plurales-profesiones-ser-estar]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]

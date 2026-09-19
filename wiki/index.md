@@ -19,6 +19,7 @@
 | 🤖 AI / ML / data science | `wiki/01-Areas/AI-Data/` | [[01-Areas/AI-Data/INDEX]] |
 | ⚙️ Engineering coursework | `wiki/01-Areas/Engineering/` | [[01-Areas/Engineering/INDEX]] |
 | ⚡ Basic Electrical Engineering (BEE) | \wiki/01-Areas/Engineering/BEE/\ | [[01-Areas/Engineering/BEE/INDEX|BEE INDEX]] |
+| ✈️ Aeromodelling — Team Onyx Round-1 | \wiki/01-Areas/Engineering/aeromodelling/\ | [[01-Areas/Engineering/aeromodelling/INDEX|Aeromodelling INDEX]] |
 | 🧠 Self-dev / habits | `wiki/01-Areas/Self-Dev/` | [[01-Areas/Self-Dev/INDEX]] |
 | 🔨 My builds | `wiki/00-Current-Projects/` | [[00-Current-Projects/INDEX]] |
 | 🗺 All roadmaps | — | [[01-Areas/Roadmaps/INDEX]] |
