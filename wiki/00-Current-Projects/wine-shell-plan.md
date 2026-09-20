@@ -66,6 +66,8 @@ relations:
 
 **Phase 0 — Viability spike (kill-or-go):** Swift `Process` → env passthrough → Rosetta Wine → wrapper bundle → `winecfg` appears → notepad types. **Kill criteria: any step fails after 2 sittings → park until post-laptop-hunt.** Test-harness UI only.
 
+**Phase 0 execution log (2026-09-20, STARTED):** scaffold lives at `C:\Users\Vijaykumar\wine-shell\` (outside vault: `README` + `Spike0/main.swift` harness + `Spike0/Runbook.md` Mac steps + `Spike0/pattern_check.py`). Harness pattern (argv arrays, env merge, async pipe drainage, timeout-kill) **proved on Windows/Python** — first run caught a real bug (merged env never passed to child; fixed, green). Swift compile + Wine/Rosetta/winecfg/notepad proof **pending a Mac in hand** — run `Spike0/Runbook.md` there, paste verdict here.
+
 **Phase 1 — MVP:** bottle CRUD + version stamps + plist models · failure-first setup wizard · pinned runtime + SHA + fallback · Run Command + Run with Options + console viewer · wrapper, wineboot init/update, reboot sim, Quit All, repair flow · **winetricks + cabextract** with log→verb suggestions (top 5 verbs) · refusal engine (PE scan + `cannot-run.json`).
 
 **Phase 2 — Compat depth:** backend picker (wined3d → DXVK → DXMT) as tested units · GPTK import validator · per-program overrides + try-next-backend · bottle archive zip · minimal recipe JSON.

@@ -874,3 +874,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 
 ### 2026-09-20 — Wine-shell plan greenlit (CrossOver-style Wine wrapper, Swift/SwiftUI)
 - New plan `00-Current-Projects/wine-shell-plan.md` (open): Apple-Silicon-only Wine shell — CrossOver feature map (bottles, run-with-options, backends, winetricks; crowd-DB explicitly out), full error catalog (setup/runtime/bottles/launch/graphics/Swift/legal), 5 fault-injection simulations (offline setup, notepad happy path, VC++ via winetricks, GPTK gating, anti-cheat refusal), phased execution with Phase-0 kill criteria + 3-app test matrix. Linked from Builds INDEX Open Plans. Blocked on Mac in hand (14" @78k decision pending).
+
+### 2026-09-20 — Wine-shell Phase 0 STARTED (scaffold + pattern proved, Mac proof pending)
+- Scaffold at `C:\Users\Vijaykumar\wine-shell\` (outside vault, local git): `README` + `Spike0/main.swift` (Swift harness: argv arrays, env merge, async pipe drainage, 90s timeout) + `Spike0/Runbook.md` (Rosetta → pinned Gcenx Wine + SHA → tar → quarantine → winecfg/notepad, wrapper-bundle check) + `Spike0/pattern_check.py`.
+- Executed here: pattern check FIRST FAILED (merged env never passed to child — real bug, fixed), then green (argv + env + async-drain + timeout-kill). Swift compile + Wine/Rosetta/GUI proof needs the Mac — runbook ready. Plan §5 carries the execution log.
