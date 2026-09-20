@@ -68,6 +68,8 @@ relations:
 
 **Phase 0 execution log (2026-09-20, STARTED):** scaffold lives at `C:\Users\Vijaykumar\wine-shell\` (outside vault: `README` + `Spike0/main.swift` harness + `Spike0/Runbook.md` Mac steps + `Spike0/pattern_check.py`). Harness pattern (argv arrays, env merge, async pipe drainage, timeout-kill) **proved on Windows/Python** — first run caught a real bug (merged env never passed to child; fixed, green). Swift compile + Wine/Rosetta/winecfg/notepad proof **pending a Mac in hand** — run `Spike0/Runbook.md` there, paste verdict here.
 
+**No-Mac route log (2026-09-20, BLOCKED on env):** WSL Ubuntu 24.04 chosen (Swift 6.4.0 via swiftly + Wine 9.0 + winetricks + xvfb). Wine + deps installed OK. Swift 6.4.0 downloaded 100% but extraction failed; WSL user-db then broke (libc upgraded under live system), distro now fails to boot (error 6 / E_FAIL) — `wsl --shutdown`, terminate, and `--export` backup all fail. Next: Windows reboot → if Ubuntu boots, `dpkg --configure -a` + rerun `swiftly install 6.4.0` → else reinstall Ubuntu distro (WSL-home data at risk) or pivot to pure-CI route (GitHub Actions Linux + macOS-ARM runners, zero local env).
+
 **Phase 1 — MVP:** bottle CRUD + version stamps + plist models · failure-first setup wizard · pinned runtime + SHA + fallback · Run Command + Run with Options + console viewer · wrapper, wineboot init/update, reboot sim, Quit All, repair flow · **winetricks + cabextract** with log→verb suggestions (top 5 verbs) · refusal engine (PE scan + `cannot-run.json`).
 
 **Phase 2 — Compat depth:** backend picker (wined3d → DXVK → DXMT) as tested units · GPTK import validator · per-program overrides + try-next-backend · bottle archive zip · minimal recipe JSON.
