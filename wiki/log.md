@@ -878,3 +878,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 ### 2026-09-20 — Wine-shell Phase 0 STARTED (scaffold + pattern proved, Mac proof pending)
 - Scaffold at `C:\Users\Vijaykumar\wine-shell\` (outside vault, local git): `README` + `Spike0/main.swift` (Swift harness: argv arrays, env merge, async pipe drainage, 90s timeout) + `Spike0/Runbook.md` (Rosetta → pinned Gcenx Wine + SHA → tar → quarantine → winecfg/notepad, wrapper-bundle check) + `Spike0/pattern_check.py`.
 - Executed here: pattern check FIRST FAILED (merged env never passed to child — real bug, fixed), then green (argv + env + async-drain + timeout-kill). Swift compile + Wine/Rosetta/GUI proof needs the Mac — runbook ready. Plan §5 carries the execution log.
+
+### 2026-09-20 — Wine-shell CI route: Phase 0 Linux PASSED (repo public, CI green both OSes)
+- Repo https://github.com/Anirudh-2810/wine-shell (public; `gh` 2.101.0 via winget, browser auth). Run 35519522367 green: **linux** (Swift 6.4 build + WineKit unit tests + real Wine 9.0 `wineboot --init` + `cmd /c echo`) and **macos-arm** (build + tests on real Apple Silicon macOS).
+- One CI fix: GH ubuntu image has `wine` not `wine64` → workflow resolves either binary. GUI proof (winecfg/notepad windows, wrapper activation) stays MAC-HANDS manual. WSL-Ubuntu local route still wedged (distro won't boot) — CI is now the primary proof path.
