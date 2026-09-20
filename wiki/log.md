@@ -890,3 +890,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 ### 2026-09-20 — Wine-shell Phase 2 core GREEN (backend deploy, GPTK gate, recipes, archive)
 - New: `BackendDeployer` (fail-closed DLL deploy + `next(after:)` cycle, D3DMetal never auto-cycled), `GPTKValidator` (DMG locate + presence + builtin-marker checks), `RecipeRunner` (verbs → installer → reboot → exe verify), `BottleArchive` (tar.gz, symlink-safe) + `Phase2Tests`.
 - CI run 35520957256 green both OSes. One CI-caught bug: `/bin/tar` absent on macOS → resolve via `/usr/bin/env` (also fixed in RuntimeInstaller). Shell/GUI/D3DMetal-live remain MAC-HANDS.
+
+### 2026-09-20 — Wine-shell Phase 3 GREEN (PE, Steam, debug tools, SwiftUI shell compiles)
+- New: `PEParser` (machine + rsrc → ARM64/unknown refusal), `SteamDetector` (VDF-lite, fixtures), `DebugTools` (LogStore/DebugBundle/UpdateCheck), `WineShell` SwiftUI app (list/detail, Run-with-Options, backend picker, debug console) behind `canImport(SwiftUI)`.
+- CI run 35522333174 green both OSes after 3 caught fixes (public RunRecord init; `@main` stub; Binding inference; Steam dedupe; test arithmetic). GUI behavior + D3DMetal-live + Sparkle + demos stay MAC-HANDS.
