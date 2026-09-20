@@ -49,6 +49,7 @@ How to BUILD projects generally → [[build-project-playbook]] (business) · Ref
 ## Open Plans
 
 - [[roadtrip-focus-production-plan]] — take Roadtrip Focus to production-level (2026-09-06, open)
+- [[wine-shell-plan]] — Swift/SwiftUI CrossOver-style Wine shell for Apple Silicon (2026-09-20, open, Phase 0 pending Mac in hand)
 
 ## Cross-Domain Bridges
 
