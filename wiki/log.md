@@ -894,3 +894,6 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 ### 2026-09-20 — Wine-shell Phase 3 GREEN (PE, Steam, debug tools, SwiftUI shell compiles)
 - New: `PEParser` (machine + rsrc → ARM64/unknown refusal), `SteamDetector` (VDF-lite, fixtures), `DebugTools` (LogStore/DebugBundle/UpdateCheck), `WineShell` SwiftUI app (list/detail, Run-with-Options, backend picker, debug console) behind `canImport(SwiftUI)`.
 - CI run 35522333174 green both OSes after 3 caught fixes (public RunRecord init; `@main` stub; Binding inference; Steam dedupe; test arithmetic). GUI behavior + D3DMetal-live + Sparkle + demos stay MAC-HANDS.
+
+### 2026-09-20 — Wine-shell UI-test build GREEN (WineShellUI split + 9 AppState tests)
+- `WineShellUI` library (views + injectable AppState) + slim executable + `WineShellUITests`; `Spike0/Mac-Session-Pack.md` (A0–A7 + borrowed-Mac variant). CI green both OSes after 3 fixes (public App/body; fixture wineVersion). XCUITest parked (needs xcodeproj + signing).
