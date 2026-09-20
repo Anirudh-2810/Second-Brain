@@ -882,3 +882,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 ### 2026-09-20 — Wine-shell CI route: Phase 0 Linux PASSED (repo public, CI green both OSes)
 - Repo https://github.com/Anirudh-2810/wine-shell (public; `gh` 2.101.0 via winget, browser auth). Run 35519522367 green: **linux** (Swift 6.4 build + WineKit unit tests + real Wine 9.0 `wineboot --init` + `cmd /c echo`) and **macos-arm** (build + tests on real Apple Silicon macOS).
 - One CI fix: GH ubuntu image has `wine` not `wine64` → workflow resolves either binary. GUI proof (winecfg/notepad windows, wrapper activation) stays MAC-HANDS manual. WSL-Ubuntu local route still wedged (distro won't boot) — CI is now the primary proof path.
+
+### 2026-09-20 — Wine-shell Phase 1 core GREEN (store, boot, runtime, winetricks + 13 tests)
+- New: `BottleStore` (CRUD + plist + downgrade-guard + duplicate), `WineBoot` (init/update/reboot-sim/quit-all/repair), `RuntimeInstaller` (pinned manifest + SHA-256 gate + tar + installed-gate), `Winetricks` (verb runner + log→verb top-5), `Phase1Tests` (+ `LauncherIntegrationTests` gated on WINE_EXE).
+- CI run 35519990239 green both OSes incl. our launcher driving real `wineboot --init` → exit 0. One bug caught by CI: wineboot argv as single spaced string → exit 1; fixed to argv array. Repo: https://github.com/Anirudh-2810/wine-shell.
