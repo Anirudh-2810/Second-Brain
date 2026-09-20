@@ -886,3 +886,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 ### 2026-09-20 — Wine-shell Phase 1 core GREEN (store, boot, runtime, winetricks + 13 tests)
 - New: `BottleStore` (CRUD + plist + downgrade-guard + duplicate), `WineBoot` (init/update/reboot-sim/quit-all/repair), `RuntimeInstaller` (pinned manifest + SHA-256 gate + tar + installed-gate), `Winetricks` (verb runner + log→verb top-5), `Phase1Tests` (+ `LauncherIntegrationTests` gated on WINE_EXE).
 - CI run 35519990239 green both OSes incl. our launcher driving real `wineboot --init` → exit 0. One bug caught by CI: wineboot argv as single spaced string → exit 1; fixed to argv array. Repo: https://github.com/Anirudh-2810/wine-shell.
+
+### 2026-09-20 — Wine-shell Phase 2 core GREEN (backend deploy, GPTK gate, recipes, archive)
+- New: `BackendDeployer` (fail-closed DLL deploy + `next(after:)` cycle, D3DMetal never auto-cycled), `GPTKValidator` (DMG locate + presence + builtin-marker checks), `RecipeRunner` (verbs → installer → reboot → exe verify), `BottleArchive` (tar.gz, symlink-safe) + `Phase2Tests`.
+- CI run 35520957256 green both OSes. One CI-caught bug: `/bin/tar` absent on macOS → resolve via `/usr/bin/env` (also fixed in RuntimeInstaller). Shell/GUI/D3DMetal-live remain MAC-HANDS.
