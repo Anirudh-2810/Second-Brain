@@ -41,7 +41,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | SPM/formula-sheet-spm | — | One-page syntax sheet (program skeleton → common errors) |
 | [[engineering-drawing/overview|engineering-drawing/]] | 33 | Orthographic projections, points/lines/planes, solids + sections + developments, isometric, AutoCAD lab + exam prep — plus new **[[engineering-drawing/solidworks/INDEX|solidworks/]]** self-study track (26 pages: basics → surfacing → 154-video build library → projects) |
 | [[engineering-chem/module-1-water-technology-hardness|engineering-chem/]] | 16 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers + green chemistry, named reactions, 4 chem labs + EDTA numericals bank + industry-effects |
-| [[engineering-math/module-1-matrices|engineering-math/]] | 8 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers + ISE prep + prerequisite toolkit |
+| [[engineering-math/module-1-matrices|engineering-math/]] | 9 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers + ISE prep + prerequisite toolkit + [[engineering-math/quiz-2026-09-22-systems-consistency-rank|22-Sept consistency/rank quiz (9 Q)]] |
 | [[engineering-physics/overview|engineering-physics/]] | 7 | Course physics + Module-1 numericals addendum |
 | [[BEE/INDEX|BEE/]] | 11 | Basic Electrical Engineering: DC circuits & theorems, AC circuits, three-phase, transformers, DC machines & induction motors, installations/safety + labs + formula sheet |
 | [[engineering-biology/INDEX|engineering-biology/]] | 8 | **NEW Sem-1 Bio for engineers**: biomolecules, cell biology, bioinformatics, fermentation, systems biology |

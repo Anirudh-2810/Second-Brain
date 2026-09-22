@@ -897,3 +897,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 
 ### 2026-09-20 — Wine-shell UI-test build GREEN (WineShellUI split + 9 AppState tests)
 - `WineShellUI` library (views + injectable AppState) + slim executable + `WineShellUITests`; `Spike0/Mac-Session-Pack.md` (A0–A7 + borrowed-Mac variant). CI green both OSes after 3 fixes (public App/body; fixture wineVersion). XCUITest parked (needs xcodeproj + signing).
+
+### 2026-09-22 � Ingest: Matrices 9-Q consistency/rank tutorial (in-chat drill ? new note)
+- New page engineering-math/quiz-2026-09-22-systems-consistency-rank.md: Q1 augmented-matrix consistency (a=-3,4), Q2 unique-solution det (k!=1,-2), Q3/Q4 Rouche-Capelli theory, Q5 infinite-solutions (alpha=2,beta=7), Q6 REF check, Q7 rank 2, Q8 homogeneous parametric (t,2t,-t), Q9 inconsistency proof; all 9 re-derived and verified. Linked from [[01-Areas/Engineering/engineering-math/module-1-matrices]] + Engineering INDEX (math row 8?9).
+- Daily daily/2026-09-22.md created with tutorial log entry.
