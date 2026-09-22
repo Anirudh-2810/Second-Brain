@@ -21,6 +21,8 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-09-19 — Team Onyx Round-1 prep pack shipped** (Coursework/Builds) — 7-page aeromodelling module (foundations, wings+controls, RC stack, 11-12th basics, revision + 15 mocks, hard 40-Q paper) + Spanish clase 2026-09-19 ingested; [[01-Areas/Engineering/aeromodelling/INDEX]] · [[01-Areas/Self-Dev/spanish/clase-2026-09-19-a1-plurales-profesiones-ser-estar]]
 
+- **2026-09-22 — Matrices 9-Q drill filed + EVS deck rebuilt Canva-style** (Coursework) — consistency/rank quiz verified with sympy ([[01-Areas/Engineering/engineering-math/quiz-2026-09-22-systems-consistency-rank]]); Weather & Climate deck rewritten + rebuilt sky/nature style, 61 animations; [[daily/2026-09-22]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]
