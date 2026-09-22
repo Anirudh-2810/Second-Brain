@@ -17,6 +17,9 @@ raw-sources/
 .DS_Store
 .Trash/
 
+# Office owner/lock files (transient, created while a doc is open)
+~$*
+
 # Claude Code. The re-include guard protects against user-level global
 # gitignores that exclude .claude/ (a cache-dir convention in other tools) —
 # without it, the entire hook/command/skill layer silently drops out of
