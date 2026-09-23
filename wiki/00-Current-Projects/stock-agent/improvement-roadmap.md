@@ -2,8 +2,10 @@
 module: "stock-agent"
 topic: "Stock Agent — How to Make It Better (Prioritized Roadmap)"
 tags: [stock-agent, roadmap, improvement, engineering, priorities]
-last_updated: "2026-08-21"
+last_updated: "2026-09-24"
 prerequisites: ["[[what-works-and-fails]]", "[[value-and-standalone]]"]
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 # Stock Agent — How to Make It Better

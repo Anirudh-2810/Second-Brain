@@ -4,7 +4,8 @@ course_name: "Roadtrip Pomodoro — Production Pomodoro Web"
 unit: "Build Overview"
 tags: [builds, pomodoro, nextjs, supabase, resend, vercel, auth, email, production]
 last_updated: "2026-09-05"
-confidence: high
+confidence: medium
+provenance: "AI-assisted build per owner 2026-09-24 — owner explains architecture at high level, not line-level."
 description: "Production Pomodoro web app — Next.js 16 + Supabase + Resend on Vercel. Auto-email per session + daily/weekly digest, guest Continue without signup, RLS, rate limiting, vault-not-required."
 ---
 

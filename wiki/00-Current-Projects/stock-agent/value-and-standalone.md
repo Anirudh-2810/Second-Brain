@@ -2,8 +2,10 @@
 module: "stock-agent"
 topic: "Stock Agent — Value, Standalone Position & Current Potential"
 tags: [stock-agent, value, potential, portfolio, positioning]
-last_updated: "2026-08-21"
+last_updated: "2026-09-24"
 prerequisites: ["[[what-works-and-fails]]"]
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 # Stock Agent — What It Helps You Do, Where It Stands Alone, Current Potential

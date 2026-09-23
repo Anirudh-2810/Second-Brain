@@ -1,84 +1,62 @@
 ---
-date: 2026-09-23
-description: "Working draft of Team Onyx India application for Anirudh — coding-first software automation pitch, with FILL tags for personal details"
-tags: [careers, team-onyx, resume, draft]
+date: 2026-09-24
+description: "Final ingest of Anirudh's submitted Team Onyx application (Desktop copy, user-edited) — PII redacted, DOCX is source of truth, never edited by agent"
+tags: [careers, team-onyx, resume, final]
 ---
 
-# Team Onyx Application — Working Draft (Anirudh)
+# Team Onyx Application — Final Ingest (Anirudh)
 
-> Source form: `raw-sources/Team Onyx India Resume (1).docx` (blank, 72 paras, 3 tables).
-> Strategy: coding officially, automation via software only. No hardware claimed beyond one ASL Arduino LED lab.
-> Dept order: 1. Design → 2. Propulsion → 3. Aerodynamics → 4. Marketing and Finance.
+> Source of truth: `C:/Users/Vijaykumar/Desktop/Anirudh/Team Onyx India Anirudh resume .docx` (user-edited final, submitted).
+> The older `raw-sources/Team Onyx India Resume - Anirudh.docx` is STALE (pre-grammar-fix) — do not cite it.
+> PII rule: email, phone, full street address live ONLY in the DOCX files (gitignored/local). This note carries none.
+> Agent work on this resume: audit + grammar list only. No DOCX bytes changed by agent, per owner instruction.
 
-## Personal details (fill before submit)
+## Personal (redacted)
 
-- Name: Anirudh [FILL: full name as per college record]
-- Email: [FILL: email]
-- Mobile: [FILL: mobile]
-- Branch: FE Robotics & AI @ KJSCE
-- Division: [FILL: division]
-- Address: [FILL: address]
+- Name: Anirudh | Branch: FE Robotics & AI @ KJSCE | Division: P | City: Mumbai, Maharashtra
+- Email / mobile / street address: `[in DOCX only]`
 
-## Education table
+## Education table (as submitted)
 
-| Education | Month & Year of Passing | School/College/Board | Grade/%/CGPA |
+| Education | Passing | School/College | Grade |
 |---|---|---|---|
-| SSC (10th) | [FILL] | [FILL] | [FILL] |
-| HSC (12th) | [FILL] | [FILL] | [FILL] |
-| FE Robotics & AI, KJSCE | 2026–2030 (pursuing) | KJSCE | [FILL: CGPA if any] |
+| SSC (10th) | 2024 | Our Lady of Perpetual Succour High School | 85% |
+| CBSE (11-12th) | 2026 | Ryan International School | 65% |
+| BTECH RAI | 2030 (expected) | K. J. Somaiya College of Engineering | - (ongoing) |
 
-## Technical skills table
+## Technical skills table (as submitted, 4 rows)
 
-| Technology / Software / Coding Language | Version / Platform | Experience / Projects |
+| Tech | Platform | Experience |
 |---|---|---|
-| Python | 3.x, NumPy, matplotlib | stock-agent data→signal→backtest loop; prop-matcher + CSV log parser scripts for Onyx prep |
-| C | GCC | CS50 + DSA practice pages in vault |
-| Arduino (beginner) | Uno, IDE | One ASL lab: LED patterns with setup/loop, pinMode, digitalWrite, for + delay; can explain delay() block vs millis() |
-| ROS2 (concept + spec) | Humble/Jazzy, rclpy | [[00-Current-Projects/aerofuse\|aerofuse]] — odometry diagnostic dashboard spec, covariance heatmap, Q/R tuning sliders |
-| n8n / automation thinking | Docker local | Workflow patterns studied (webhook, scheduled digest, ETL); no client builds shipped yet — NOT claimed for Onyx |
-| Git / GitHub | — | Second-Brain vault, daily logs, Pages dashboard |
+| Python | VS Code, GitHub | StockOffline inventory app — GUI + CLI + SQLite (AI-assisted builds, basics understood); handsens101 — gesture mouse, 21 landmarks, jitter smoothing |
+| Arduino beginner (Uno, IDE) | setup/loop, digitalWrite | ASL lab: LED patterns |
+| SQL | SQLite / CLI | Basic queries, relational concepts |
+| C language | Codeblocks | Few basic projects done as FY coursework |
 
-## Co-curricular ( newest last, add years )
+No JS row, no cert rows — owner decisions. `wanna`/`lec`/lowercase styling kept per owner.
 
-- 2026: Cleared Team Onyx Round-1 written (40-MCQ), through to interview for coding roles.
-- 2026: Building Second-Brain vault — wiki ingestion, daily study streak, generated dashboard.
-- [FILL: add school/college clubs, sports, vlogging/guitar if you want them on record]
+## Co-curricular (as submitted, 3 bullets)
 
-## Department preferences
+- Informal debug sessions + peer study groups in Python and C logic.
+- Currently pursuing: CS50P HarvardX (9 weeks in, final project left), IBM AI Fundamentals, Coursera ML & AI Fundamentals.
+- Interests: casual football and cricket.
 
-| Rank | Department |
-|---|---|
-| First Preference | Design — CAD + scripting workflow, software-only fit |
-| Second Preference | Propulsion — theory + data tooling (no bench claim) |
-| Third Preference | Aerodynamics — Round-1 depth, analysis scripts |
-| Fourth Preference | Marketing and Finance |
+No builds line, no Second-Brain, no teams/clubs claimed — owner decisions.
 
-## Q1. Why do you want to join Team Onyx?
+## Department preferences (as submitted)
 
-I want to write code where it flies. I am FE Robotics & AI, and my builds so far are software — a ROS2 odometry diagnostic spec with live covariance and Q/R tuning, and a stock-agent data loop. Onyx is the first place where my scripts meet a real airframe and real flight logs. I cleared Round-1 on theory; now I want to earn the bench by automating the boring parts — prop-match math, CSV log parsing, checklists — so seniors get clean data instead of manual readings.
+1. Aerodynamics → 2. Design → 3. Propulsion → 4. Marketing and Finance.
 
-## Q2. What are your career / college-term goals?
+## Q1–Q5 essays (as submitted, verbatim voice)
 
-College term: strong Python/C + DSA fluency, ship aerofuse MVP and a working stock-agent prototype, keep the daily study streak alive. Career direction: builder-researcher toward robotics + quant foundations — internship-ready portfolio first, then decide CQF vs MSc vs job route by exposure. Onyx fits the robotics half of that directly.
+- Q1: fascination with planes/propulsion, join to get deeper outlook + construct one, learn what passionate about.
+- Q2: follow passion over boring chem lec, create something big, Onyx as step closer; career = deeper into tech roles + aviation/aeronautics grasp.
+- Q3: real test data to code against, senior review, teach others, create something of real significance.
+- Q4: software side + design; Python + SQL good, learning Arduino (forte = Python + Arduino); AutoCAD basics + blueprints, learning SolidWorks for designing/simulations.
+- Q5: 9 weeks CS50 (final project left); Arduino nothing significant yet; Pomodoro timer live on Vercel + small GitHub projects.
 
-## Q3. How will joining Team Onyx help you achieve your goals?
+## Provenance notes for future agent
 
-Three things I cannot get alone: real test data to code against, review from seniors who have crashed and fixed, and a team loop that forces shipping. My dashboard spec and backtest loop were solo; Onyx gives me thrust-test CSVs, build-flow discipline from the workshop PPTs, and flight-test debriefs that turn scripts into tools people actually use.
-
-## Q4. How will you contribute / which skills help most?
-
-Python + Arduino-basics for software-only bench tooling. I will own: (1) prop-matcher script — kV × volts = RPM, 8×5 reading, 3S voltage bands, ESC headroom rule; (2) CSV log parser — max thrust row, mean amps, undervoltage flags, simple plots; (3) pre-flight checklist generator from the workshop flow. Beginner hardware, honest about it — one ASL LED lab — but I can whiteboard delay() vs millis() and I learn bench procedure fast.
-
-## Q5. Achievements / milestones in context
-
-- Cleared Team Onyx Round-1 written 2026-09-23, through to interview.
-- [[00-Current-Projects/aerofuse\|aerofuse]] ROS2 diagnostic dashboard — full design spec, EKF covariance plan, 30 Hz loop design.
-- Stock-agent data→signal→backtest loop in progress; vault wiki ingestion system with generated dashboard.
-- ASL Arduino LED patterns lab — first embedded exposure, basis for non-blocking loop understanding.
-
-## Before submit checklist
-
-- [ ] Fill all [FILL] tags (email, mobile, division, address, SSC/HSC rows)
-- [ ] Paste into new DOCX (generated by `.scripts/fill_onyx_resume.py`), check 3 tables render in Word
-- [ ] Read Q1–Q5 out loud once, 90-sec intro version ready for interview
-- [ ] Keep honest-hardware line verbatim — do not inflate bench hours
+- stock-agent, Roadtrip Pomodoro, handsens101, StockOffline: ALL AI-assisted builds (owner-confirmed 2026-09-24). Flaggings live on their own pages — see `wiki/00-Current-Projects/` notes. Never cite as hand-written skill.
+- Hand-done proof: ASL Arduino LED lab, CS50P in progress, C++ peer debugging, SQL basics, live-coding (mock Set B).
+- Interview honesty lines: stock-agent ("scaffolded with AI, can't defend internals — walk through gesture controller instead"), Pomodoro JS ("HTML/deployment mine, JS timer logic AI-written, can walk states conceptually").

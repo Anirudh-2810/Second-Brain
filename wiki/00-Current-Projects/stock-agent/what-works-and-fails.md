@@ -2,8 +2,10 @@
 module: "stock-agent"
 topic: "Stock Agent — What Works, Where It Fails"
 tags: [stock-agent, analysis, bugs, limitations, review]
-last_updated: "2026-08-21"
+last_updated: "2026-09-24"
 prerequisites: ["[[architecture]]", "[[functions-and-features]]"]
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 # Stock Agent — What Works, Where It Fails

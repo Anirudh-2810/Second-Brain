@@ -4,7 +4,8 @@ course_name: "Roadtrip Pomodoro — Security"
 unit: "Security"
 tags: [builds, pomodoro, security, rls, headers, owasp]
 last_updated: "2026-09-05"
-confidence: high
+confidence: medium
+provenance: "AI-assisted build per owner 2026-09-24 — owner explains architecture at high level, not line-level."
 description: "Production securities for Pomodoro web: headers, cookies, RLS, Zod, rate limits, secrets, checklist."
 ---
 

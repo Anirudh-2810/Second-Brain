@@ -2,16 +2,19 @@
 module: "stock-agent"
 topic: "Stock Agent — Recruiter Interview Prep Guide"
 tags: [stock-agent, interview, prep, deep-dive, architecture]
-last_updated: "2026-08-23"
+last_updated: "2026-09-24"
 prerequisites: ["[[overview]]", "[[architecture]]", "[[deep-review-report]]", "[[what-works-and-fails]]"]
-confidence: stated
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 ## For future agent
+> **CORRECTION 2026-09-24 — owner confirmed this codebase is fully vibe-coded and cannot whiteboard its internals. Do NOT use this guide to prep interviews; use the honesty deflection instead ("scaffolded with AI assistance — walk through handsens101, which I understand"). The line-level explanations below describe the code accurately but the owner did not write it.**
 This guide prepares the owner for technical interviews about their stock-agent project. It covers the *actual* codebase (AI-assisted but owner-directed) with line-level explanations, design rationale, and likely recruiter questions with honest answers. Every "why" traces to a file:line in the repo at `C:\Users\Vijaykumar\stock-agent`. Owner committed to a 2-hour study block 21:00–23:00 to internalize this.
 
 # Stock Agent — Recruiter Interview Prep Guide
 
+> **DEPRECATED as interview prep 2026-09-24 — vibe-coded, owner cannot defend. Kept as code reference only.**
 > **Goal:** Walk into an interview, open the repo, and *own* every architectural decision — even the bugs. No deflection. "I wrote this, here's why, here's what broke, here's the fix."
 
 ---

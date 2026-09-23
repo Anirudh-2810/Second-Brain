@@ -4,7 +4,8 @@ course_name: "Roadtrip Pomodoro — Email Integration"
 unit: "Email"
 tags: [builds, pomodoro, email, resend, digest, supabase]
 last_updated: "2026-09-05"
-confidence: high
+confidence: medium
+provenance: "AI-assisted build per owner 2026-09-24 — owner explains architecture at high level, not line-level."
 description: "Email a+b implementation: Resend templates, rate limits, idempotency, unsubscribe, pg_cron digest, email_logs audit."
 ---
 

@@ -4,7 +4,8 @@ course_name: "Roadtrip Pomodoro — Architecture"
 unit: "Architecture"
 tags: [builds, pomodoro, architecture, nextjs, supabase, rls, security]
 last_updated: "2026-09-05"
-confidence: high
+confidence: medium
+provenance: "AI-assisted build per owner 2026-09-24 — owner explains architecture at high level, not line-level."
 description: "Architecture of production Pomodoro web: Next.js App Router SSR, Supabase RLS tables, Resend queue, rate limiting, guest claim flow, headers."
 ---
 

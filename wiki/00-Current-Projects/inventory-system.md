@@ -3,7 +3,8 @@ module: "current-projects"
 topic: "StockOffline — Secure Offline Inventory System (Python + SQLite + Tkinter)"
 tags: [builds, python, inventory, sqlite, tkinter, jwt, security, docker, pyinstaller, offline-first, barcode, payments]
 last_updated: "2026-08-26"
-confidence: "high"
+confidence: "medium"
+provenance: "AI-assisted build per owner 2026-09-24 — owner understands CRUD + DB layer, not auth/web-tier internals."
 source: "C:\Users\Vijaykumar\inventory-system"
 description: "Production-grade offline-first inventory manager with desktop GUI (Tkinter dark theme), CLI, optional web/API tier (JWT auth, PBKDF2 passwords, per-tenant isolation, rate limiting, Stripe/Razorpay payments). Zero dependencies for offline mode, Docker deployment for web tier, PyInstaller .exe packaging. Security-hardened: parameterized SQL, CORS, security headers, generic errors."
 ---

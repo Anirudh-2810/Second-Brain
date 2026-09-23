@@ -2,8 +2,10 @@
 module: "stock-agent"
 topic: "Stock Agent — Functions & Features Inventory"
 tags: [stock-agent, features, trading, signals, backtest, ml, ingestion]
-last_updated: "2026-08-21"
+last_updated: "2026-09-24"
 prerequisites: ["[[overview]]"]
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 # Stock Agent — Functions & Features Inventory

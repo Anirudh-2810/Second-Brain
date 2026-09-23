@@ -2,8 +2,10 @@
 module: "stock-agent"
 topic: "Stock Agent — Full-Depth Code Review & Analysis Report"
 tags: [stock-agent, review, report, audit, strengths, weaknesses, actions]
-last_updated: "2026-08-21"
+last_updated: "2026-09-24"
 prerequisites: ["[[overview]]", "[[architecture]]", "[[what-works-and-fails]]"]
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 # Stock Agent — Full-Depth Code Review & Analysis Report

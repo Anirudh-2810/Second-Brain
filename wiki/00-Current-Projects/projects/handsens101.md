@@ -4,7 +4,8 @@ course_name: "Portfolio Projects"
 unit: "handsens101"
 tags: [project, github, python, opencv, mediapipe, computer-vision, hci, portfolio]
 last_updated: "2026-08-23"
-confidence: stated
+confidence: medium
+provenance: "AI-assisted build per owner 2026-09-24 — owner explains CV pipeline at high level, not line-level."
 relations:
   relates_to: "[[robotics/overview|Robotics Overview]]"
 ---

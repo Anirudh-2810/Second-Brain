@@ -2,8 +2,10 @@
 module: "stock-agent"
 topic: "Stock Agent — App Overview & System Map"
 tags: [stock-agent, trading, alpaca, fastapi, react, algorithmic-trading, fullstack]
-last_updated: "2026-08-21"
+last_updated: "2026-09-24"
 prerequisites: ["None — start here"]
+confidence: low
+provenance: "AI-scaffolded/vibe-coded per owner 2026-09-24 — do not cite as hand-written skill; owner cannot whiteboard internals."
 ---
 
 # Stock Agent — Overview & System Map
