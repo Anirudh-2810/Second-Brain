@@ -901,3 +901,8 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 ### 2026-09-22 � Ingest: Matrices 9-Q consistency/rank tutorial (in-chat drill ? new note)
 - New page engineering-math/quiz-2026-09-22-systems-consistency-rank.md: Q1 augmented-matrix consistency (a=-3,4), Q2 unique-solution det (k!=1,-2), Q3/Q4 Rouche-Capelli theory, Q5 infinite-solutions (alpha=2,beta=7), Q6 REF check, Q7 rank 2, Q8 homogeneous parametric (t,2t,-t), Q9 inconsistency proof; all 9 re-derived and verified. Linked from [[01-Areas/Engineering/engineering-math/module-1-matrices]] + Engineering INDEX (math row 8?9).
 - Daily daily/2026-09-22.md created with tutorial log entry.
+
+### 2026-09-23 - Team Onyx interview pack: resume filled + 5 PDFs ingested + mock built
+- Resume: thinking/2026-09-23-team-onyx-resume.md draft (Design-first, software-only, [FILL] tags) + raw-sources/Team Onyx India Resume - Anirudh.docx via .scripts/fill_onyx_resume.py (original blank preserved; raw-sources/ gitignored so DOCX stays local-only) + vault mirror wiki/01-Areas/Business/careers/team-onyx-application.md.
+- Ingest: esc-deep-dive.md (ESCs PDF 5pp: PPM, MOSFET, BEC family, headroom) + propulsion-system-deep-dive.md (Propulsion PDF 18pp: BLDC types, prop dia/pitch, kV math, LiPo bands) + workshop-ppts-merged.md (classic 45pp + 2021 67pp merged, deltas noted) + airplanes-for-juniors-foundations.md (Juniors 135pp skim-extract); Aerodynamics_and_Avionics_Study_Material.pdf skipped as duplicate of Round-1 ingest; avionics-rc-stack.md §4 patched with deep-dive links; INDEX.md interview order added.
+- Mock: team-onyx-interview-mock-01.md — 15 theory rapid-fire + live Python prop/CSV tasks + Arduino delay-vs-millis talk + STAR, answer key + fumble cards + scoring.

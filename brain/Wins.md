@@ -23,6 +23,8 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-09-22 — Matrices 9-Q drill filed + EVS deck rebuilt Canva-style** (Coursework) — consistency/rank quiz verified with sympy ([[01-Areas/Engineering/engineering-math/quiz-2026-09-22-systems-consistency-rank]]); Weather & Climate deck rewritten + rebuilt sky/nature style, 61 animations; [[daily/2026-09-22]]
 
+- **2026-09-23 — Team Onyx Round-1 cleared** (Builds) — written test (40 MCQs) passed, through to interview for coding + automation roles; prep from [[01-Areas/Engineering/aeromodelling/INDEX]] paid off; [[daily/2026-09-23]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]

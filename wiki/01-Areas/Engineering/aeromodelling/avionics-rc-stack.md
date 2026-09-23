@@ -101,6 +101,8 @@ The ESC does two jobs:
 
 Why? An exactly-matched ESC runs hot, overheats, and can burn out mid-flight. A bigger ESC stays cool and lives long ("radiates less heat").
 
+> Interview depth: [[esc-deep-dive]] (MOSFET switching, PPM input, BEC family, OPTO meaning) · [[propulsion-system-deep-dive]] (BLDC types, prop matching).
+
 ## 5. Transmitter — the radio in your hands
 
 The box with two sticks you hold. Modern ones use **2.4 GHz** frequency (like Wi-Fi). Advantages over old FM radios: short antenna, and many pilots can fly together without signal fights.

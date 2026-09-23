@@ -1,0 +1,84 @@
+---
+date: 2026-09-23
+description: "Working draft of Team Onyx India application for Anirudh — coding-first software automation pitch, with FILL tags for personal details"
+tags: [careers, team-onyx, resume, draft]
+---
+
+# Team Onyx Application — Working Draft (Anirudh)
+
+> Source form: `raw-sources/Team Onyx India Resume (1).docx` (blank, 72 paras, 3 tables).
+> Strategy: coding officially, automation via software only. No hardware claimed beyond one ASL Arduino LED lab.
+> Dept order: 1. Design → 2. Propulsion → 3. Aerodynamics → 4. Marketing and Finance.
+
+## Personal details (fill before submit)
+
+- Name: Anirudh [FILL: full name as per college record]
+- Email: [FILL: email]
+- Mobile: [FILL: mobile]
+- Branch: FE Robotics & AI @ KJSCE
+- Division: [FILL: division]
+- Address: [FILL: address]
+
+## Education table
+
+| Education | Month & Year of Passing | School/College/Board | Grade/%/CGPA |
+|---|---|---|---|
+| SSC (10th) | [FILL] | [FILL] | [FILL] |
+| HSC (12th) | [FILL] | [FILL] | [FILL] |
+| FE Robotics & AI, KJSCE | 2026–2030 (pursuing) | KJSCE | [FILL: CGPA if any] |
+
+## Technical skills table
+
+| Technology / Software / Coding Language | Version / Platform | Experience / Projects |
+|---|---|---|
+| Python | 3.x, NumPy, matplotlib | stock-agent data→signal→backtest loop; prop-matcher + CSV log parser scripts for Onyx prep |
+| C | GCC | CS50 + DSA practice pages in vault |
+| Arduino (beginner) | Uno, IDE | One ASL lab: LED patterns with setup/loop, pinMode, digitalWrite, for + delay; can explain delay() block vs millis() |
+| ROS2 (concept + spec) | Humble/Jazzy, rclpy | [[00-Current-Projects/aerofuse\|aerofuse]] — odometry diagnostic dashboard spec, covariance heatmap, Q/R tuning sliders |
+| n8n / automation thinking | Docker local | Workflow patterns studied (webhook, scheduled digest, ETL); no client builds shipped yet — NOT claimed for Onyx |
+| Git / GitHub | — | Second-Brain vault, daily logs, Pages dashboard |
+
+## Co-curricular ( newest last, add years )
+
+- 2026: Cleared Team Onyx Round-1 written (40-MCQ), through to interview for coding roles.
+- 2026: Building Second-Brain vault — wiki ingestion, daily study streak, generated dashboard.
+- [FILL: add school/college clubs, sports, vlogging/guitar if you want them on record]
+
+## Department preferences
+
+| Rank | Department |
+|---|---|
+| First Preference | Design — CAD + scripting workflow, software-only fit |
+| Second Preference | Propulsion — theory + data tooling (no bench claim) |
+| Third Preference | Aerodynamics — Round-1 depth, analysis scripts |
+| Fourth Preference | Marketing and Finance |
+
+## Q1. Why do you want to join Team Onyx?
+
+I want to write code where it flies. I am FE Robotics & AI, and my builds so far are software — a ROS2 odometry diagnostic spec with live covariance and Q/R tuning, and a stock-agent data loop. Onyx is the first place where my scripts meet a real airframe and real flight logs. I cleared Round-1 on theory; now I want to earn the bench by automating the boring parts — prop-match math, CSV log parsing, checklists — so seniors get clean data instead of manual readings.
+
+## Q2. What are your career / college-term goals?
+
+College term: strong Python/C + DSA fluency, ship aerofuse MVP and a working stock-agent prototype, keep the daily study streak alive. Career direction: builder-researcher toward robotics + quant foundations — internship-ready portfolio first, then decide CQF vs MSc vs job route by exposure. Onyx fits the robotics half of that directly.
+
+## Q3. How will joining Team Onyx help you achieve your goals?
+
+Three things I cannot get alone: real test data to code against, review from seniors who have crashed and fixed, and a team loop that forces shipping. My dashboard spec and backtest loop were solo; Onyx gives me thrust-test CSVs, build-flow discipline from the workshop PPTs, and flight-test debriefs that turn scripts into tools people actually use.
+
+## Q4. How will you contribute / which skills help most?
+
+Python + Arduino-basics for software-only bench tooling. I will own: (1) prop-matcher script — kV × volts = RPM, 8×5 reading, 3S voltage bands, ESC headroom rule; (2) CSV log parser — max thrust row, mean amps, undervoltage flags, simple plots; (3) pre-flight checklist generator from the workshop flow. Beginner hardware, honest about it — one ASL LED lab — but I can whiteboard delay() vs millis() and I learn bench procedure fast.
+
+## Q5. Achievements / milestones in context
+
+- Cleared Team Onyx Round-1 written 2026-09-23, through to interview.
+- [[00-Current-Projects/aerofuse\|aerofuse]] ROS2 diagnostic dashboard — full design spec, EKF covariance plan, 30 Hz loop design.
+- Stock-agent data→signal→backtest loop in progress; vault wiki ingestion system with generated dashboard.
+- ASL Arduino LED patterns lab — first embedded exposure, basis for non-blocking loop understanding.
+
+## Before submit checklist
+
+- [ ] Fill all [FILL] tags (email, mobile, division, address, SSC/HSC rows)
+- [ ] Paste into new DOCX (generated by `.scripts/fill_onyx_resume.py`), check 3 tables render in Word
+- [ ] Read Q1–Q5 out loud once, 90-sec intro version ready for interview
+- [ ] Keep honest-hardware line verbatim — do not inflate bench hours
