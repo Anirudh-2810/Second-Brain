@@ -5,7 +5,7 @@ unit: "Module Hub"
 date: 2026-09-19
 description: "Team Onyx hub: Round-1 aero+avionics plus interview pack — ESC/propulsion deep dives, merged workshop flow, juniors-book extract, application and oral+live-code mock."
 tags: [btech, kjsce, aeromodelling, team-onyx, aerodynamics, avionics, recruitment, interview]
-last_updated: "2026-09-23"
+last_updated: "2026-09-24"
 confidence: high
 ---
 
@@ -31,8 +31,23 @@ Ingest of `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` for Tea
 | [[propulsion-system-deep-dive]] | **Interview: propulsion chain** — BLDC outrunner/inrunner, prop dia vs pitch, kV math, LiPo bands (from Propulsion PDF, 18 pp) |
 | [[workshop-ppts-merged]] | **Interview: build flow** — merged classic + 2021 decks, classifications, design process, avionics to first flight |
 | [[airplanes-for-juniors-foundations]] | **Interview colour** — dynamic pressure, vortices, drag ladder, turn balance, decalage, tubes (Juniors book skim) |
+| [[team-onyx-quick-revision]] | **Read before sleep** — 30 plain-word facts + examples from all 6 PDFs, same style as the 19th note |
 | [[team-onyx-interview-mock-01]] | **Interview mock** — oral rapid-fire + live Python prop/CSV + Arduino talk + STAR, with answer key |
 | [[01-Areas/Business/careers/team-onyx-application]] | **Application** — filled Team Onyx form, Design-first coding pitch, Q1–Q5 essays |
+
+## 6-PDF coverage map
+
+Every attached source, where it lives in the vault:
+
+| PDF (in `raw-sources/`) | Ingested into |
+|---|---|
+| `ESCs (Electronic Speed Controllers).pdf` (5 pp) | [[esc-deep-dive]] |
+| `Propulsion System.pdf` (18 pp) | [[propulsion-system-deep-dive]] |
+| `Workshop PPT.pdf` (45 pp, classic) | [[workshop-ppts-merged]] (merged) |
+| `WORKSHOP PPT 2021.pdf` (67 pp, expanded) | [[workshop-ppts-merged]] (merged) |
+| `Understanding Airplanes for Juniors.pdf` (135 pp) | [[airplanes-for-juniors-foundations]] |
+| `Aerodynamics_and_Avionics_Study_Material.pdf` (15 pp) | [[aerodynamics-foundations]] · [[wings-controls]] · [[avionics-rc-stack]] · [[physics-maths-basics-for-aero]] · [[team-onyx-round1-revision]] · [[team-onyx-sample-paper-01]] |
+| all 6, condensed | [[team-onyx-quick-revision]] · drilled in [[team-onyx-interview-mock-01]] |
 
 ## Reading order (2-day sprint)
 
@@ -44,6 +59,7 @@ Ingest of `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` for Tea
 
 ## Interview order (after Round-1 clear)
 
+0. [[team-onyx-quick-revision]] — read once tonight, out loud (10 min), then sleep
 1. [[01-Areas/Business/careers/team-onyx-application]] — know your own Q1–Q5 cold
 2. [[esc-deep-dive]] + [[propulsion-system-deep-dive]] — highest interview yield
 3. [[workshop-ppts-merged]] — build stories for STAR
