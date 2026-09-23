@@ -15,6 +15,7 @@ One-page bedtime revision built 2026-09-24 from all 6 Team Onyx PDFs (ESCs, Prop
 # Team Onyx Quick Revision (plain words, read + sleep)
 
 > Tonight: read these 30 lines out loud once, then sleep. Tomorrow drill misses in [[team-onyx-interview-mock-01]].
+> New here? Study the 4 proper notes FIRST ([[INDEX#How to study (read this first)]]) — this page is only the last-night list, not the teacher.
 
 ## A. ESC bits (from the ESCs PDF)
 

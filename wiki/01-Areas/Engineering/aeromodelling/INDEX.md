@@ -17,6 +17,15 @@ Ingest of `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` for Tea
 > Source: `[[raw-sources/Aerodynamics_and_Avionics_Study_Material.pdf]]` (16 sections, 15 pages).
 > Test: **40 MCQs** — Math+Physics 15 · Aptitude 15 · Aerodynamics 10 · 6:00 PM, A020 Workshop.
 
+## How to study (read this first)
+
+The 4 interview notes below are PROPER teaching notes — full explanations, tables, everyday examples, memory tricks, like your 19th Round-1 pages. The quick-revision is only the last-night list. Study in this order:
+
+1. **Read one proper note slowly** (order: [[esc-deep-dive]] → [[propulsion-system-deep-dive]] → [[workshop-ppts-merged]] → [[airplanes-for-juniors-foundations]]). Every hard word has an example — do the worked numbers yourself once.
+2. **Cover and recall:** after each section, close the note and say it in your own words out loud. Stuck = re-read only that section.
+3. **Self-check with notes CLOSED** (bottom of each page). Wrong ones become your drill list.
+4. **Only then** touch [[team-onyx-quick-revision]] (last-night cheat sheet) and [[team-onyx-interview-mock-01]] (exam-hall simulation: theory + live Python + Arduino talk).
+
 ## Pages
 
 | Page | Covers |
