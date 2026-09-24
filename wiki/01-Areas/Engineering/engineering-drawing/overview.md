@@ -173,6 +173,7 @@ Every dimension tells the maker a size. Rules (BIS 11669):
 - **BIS SP 46:2003** — *Engineering Drawing Practice for Schools & Colleges* (line types, lettering, dimensioning standards)
 - **K.L. Narayana & P. Kannaiah** — *Engineering Drawing*
 - **Dhananjay A. Jolhe** — *Engineering Drawing*
+- Textbook chapter map: [[ed-reference-books]] — N.D. Bhatt + N.H. Dubey chapter-to-wiki index (raw-sources root PDFs, Sept 2026)
 
 ### Sem-1 raw-source map (cataloged by filename 2026-09-09, contents NOT opened)
 - Textbook (78 MB): `EDrawing N.H DUBEY.pdf` — full theory + problem bank (TBC)

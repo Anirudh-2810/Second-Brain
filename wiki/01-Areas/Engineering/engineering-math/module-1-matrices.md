@@ -1951,4 +1951,6 @@ A⁻¹ = [  1/4   −1/2    3/4 ]
 
 ---
 
+*Class companion: [[matrices-class-notes-2026-09-24]] — Hermitian split exam method + Gauss-Jacobi (DocScanner 24 Sept 2026).*
+
 *Revision: every formula from this module is on [[formula-sheet-am]].*
