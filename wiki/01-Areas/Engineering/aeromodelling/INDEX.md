@@ -42,6 +42,7 @@ The 4 interview notes below are PROPER teaching notes — full explanations, tab
 | [[airplanes-for-juniors-foundations]] | **Interview colour** — dynamic pressure, vortices, drag ladder, turn balance, decalage, tubes (Juniors book skim) |
 | [[team-onyx-quick-revision]] | **Read before sleep** — 30 plain-word facts + examples from all 6 PDFs, same style as the 19th note |
 | [[team-onyx-interview-mock-01]] | **Interview mock** — oral rapid-fire + live Python prop/CSV + Arduino talk + STAR, with answer key |
+| [[team-onyx-interview-qa-bank]] | **Interview Q&A bank** — every concept in plain words + 2–3 likely questions with one-line answers right after; drill before the mock |
 | [[01-Areas/Business/careers/team-onyx-application]] | **Application** — filled Team Onyx form, Design-first coding pitch, Q1–Q5 essays |
 
 ## 6-PDF coverage map
@@ -74,6 +75,7 @@ Every attached source, where it lives in the vault:
 3. [[workshop-ppts-merged]] — build stories for STAR
 4. [[airplanes-for-juniors-foundations]] — colour for "explain simply" probes
 5. [[team-onyx-interview-mock-01]] — run out loud with visible timer
+6. [[team-onyx-interview-qa-bank]] — concept-by-concept Q&A warm-up before the mock (drill weakest rows first)
 
 ## Cross-links
 
