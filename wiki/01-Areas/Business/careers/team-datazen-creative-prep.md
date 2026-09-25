@@ -58,3 +58,24 @@ One event → 1 recap reel + 3 posters (announce / reminder / winners) + 5 photo
 - **Tool depth ("auto-layout? proxies?"):** real steps you know, then "haven't used proxies at scale — 10-minute tutorial + trial piece."
 - **"Tech or creative, pick":** "Tech primary, Creative multiplier — the best analysis unseen is wasted; I package what I compute."
 - **Process:** brief (goal + audience + deadline) → draft → review loop → template it so output speeds up.
+
+## 7. Color + type basics (FY-proof)
+
+- **Color roles:** background (quiet), primary (council color, CTAs + headlines), accent (sparingly — dates, arrows). 60-30-10 rule: 60% neutral, 30% primary, 10% accent.
+- **Contrast = readability.** Grey-on-grey dies on phones in sunlight. Dark text on light, or white on deep color. Free check: squint test — headline must survive squinting.
+- **Type roles:** one display font (headlines, personality) + one body font (details, legible small). Never three. Sizes: headline readable at thumbnail, details readable at arm's length.
+- **Accessibility:** captions on every video (muted viewers + hearing-impaired), alt text on posters, no red-green-only meaning (color-blind members).
+
+## 8. Platform specifics
+
+- **Instagram Reel / YouTube Short:** 9:16 vertical, 1080×1920, hook in first 1–3s, captions burned in, 15–45s sweet spot, CTA spoken + on-screen end card.
+- **Feed poster:** 1:1 or 4:5, headline ≤ 6 words, date-venue unmissable, council handle + logo lockup same corner every time.
+- **Story:** 9:16, one idea per card, poll/sticker for interaction (also collects data — Tech angle).
+- **Cadence story:** announce (2 weeks out) → reminder (2 days) → live stories (day) → recap reel + winners (48h) → feedback form. One event, five beats.
+
+## 9. Copywriting (hooks + CTAs)
+
+- **Hook formulas:** number ("3 reasons tonight fills fast"), question ("Free pizza + robots?"), stakes ("Only 40 seats").
+- **Body:** one idea per post. Details in order: what → when/where → cost → link.
+- **CTA:** single, imperative, last: "Register — link in bio." Never two links, never "link maybe in bio."
+- **Tone:** DataZen = friendly-smart. No jargon without translation ("show-up rate = attendees ÷ registrations").

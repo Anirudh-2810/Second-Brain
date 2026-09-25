@@ -93,10 +93,39 @@ API = canteen counter: GET shouts "menu" and gets a JSON chit `{"item":"vada pav
 Regression predicts numbers ("how many will come? 60"). Classification predicts labels ("will Riya come? yes/no"). Features = clues, label = answer key. Accuracy for labels, MAE (average miss distance) for numbers. More clean features beats fancier model. AURA story: "past turnout + slot + fee as features, simple model, judged accuracy/MAE. Limits: small offline data, no live validation — the reps I want here."
 
 ## 7. Grill answers (verbatim)
-
 - **Freeze:** "Logic first: load rows, cast text to int, divide, rank. Syntax in docs — steps don't change." Type anyway, narrating.
 - **Why-chain:** "CSV text must become numbers; mean summarizes an event; groupby collapses rows to it; descending puts the winner first."
 - **Dirty traps:** "Headers, types, NaN count, dupes, zero-reg guard; report bad-row % before dropping."
 - **Depth probe:** "Beyond my current depth — I'd split-test and ask a senior. What I won't do is dress n=4 as proof."
 - **AURA/stock-agent probe:** features > model, metric named, one limit admitted → "shallow ML depth today, council reps close it."
 - **Live-task playbook:** restate → inspect → clean aloud → rank → 1 chart → 1 recommendation + 1 caveat. Offer follow-up: "scatter of turnout vs fee next."
+
+## 8. Python basics bank (FY-complete)
+
+- **Types:** int, float, str, bool. `type(5)` → int. Division `/` always float; `//` floors.
+- **Strings:** `"fest".upper()`, f-string `f"{r['event']}: {r['showup']:.2f}"` (2 decimals).
+- **List vs tuple vs set vs dict:** list ordered + changeable; tuple ordered + frozen (coordinates); set unordered + unique (seen-check for dupes); dict named tags.
+- **Dupe check pattern:** `seen = set()` → `key = (r["event"], r["registrations"])` → skip if in seen.
+- **Functions:** `def showup(att, reg): return att / reg if reg else 0` — guard lives inside.
+- **Exceptions:** try the risky line (int cast, division), except counts bad rows. Never bare-crash a task.
+- **File modes:** `"r"` read, `"w"` overwrite, `"a"` append. `with open(...) as f` auto-closes.
+- **OOP one-liner (if asked):** "class bundles data + the functions that touch it; I use dataclasses for rows when dicts get messy."
+- **Complexity:** single loop over n rows = O(n) time; the pattern above is O(n) time, O(n) space (stores rows).
+
+## 9. SQL extended
+
+- **All aggregates:** COUNT, SUM, AVG, MIN, MAX. `AVG(attended*1.0/registrations)` — ×1.0 avoids integer division.
+- **NULL:** missing value, not zero. `WHERE fee IS NULL` (never `= NULL`). COUNT(col) skips nulls, COUNT(*) doesn't.
+- **JOINs with 3-row tables (draw aloud):** students(id,name) × attendance(id,came). INNER = only ids in both. LEFT = all students + null where no record (finds no-shows!). RIGHT mirrors. FULL = everyone from both.
+- **GROUP BY rule:** every non-aggregated SELECT column must be in GROUP BY.
+- **Subquery:** inner query answers "rates per event," outer filters `WHERE s > 0.5`.
+- **DISTINCT:** `SELECT DISTINCT event` dedupes. **LIKE:** `WHERE event LIKE 'work%'`.
+
+## 10. Stats extended
+
+- **Distribution shapes:** normal = bell (heights); right-skew = long tail right (incomes, one rich kid pulls mean up — report median).
+- **Variance/std worked:** values 40,45,90 — mean 58.3, std ≈ 22. Std in same units as data; variance is its square.
+- **Percentiles:** "90th percentile turnout = 90% of events did worse." Median = 50th percentile.
+- **Sampling bias:** surveying only attendees about timing ("was the slot good?") misses everyone who skipped — the exact people whose answer matters.
+- **A/B intuition:** split audience randomly, change ONE thing (reminder vs none), compare show-up rates, need enough n before claiming.
+- **Sheets/Excel mirror:** `=B2/A2` rate, drag-fill, Data → PivotTable = no-code groupby, chart insert = viz answer when code isn't allowed.

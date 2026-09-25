@@ -66,8 +66,45 @@ Hub for Anirudh's DataZen (Data Science Council, Somaiya) interview — Tech + C
 - [ ] Tab ready: GitHub (stock-agent, AURA, handsens101), 2 raw phone clips + 2 posters/thumbnails
 - [ ] Laptop-shop in the morning does NOT touch interview setup — PC is the rig
 
-## 8. Drill order
+## 8. Explain your projects (60s each + follow-ups)
 
+Honesty flag (vault-verified): both builds below are AI-assisted — explain architecture and pipeline at high level, never claim hand-written line skill. Volunteer it once: "Built with AI assistance; I own the architecture and the hard parts." Full detail: [[00-Current-Projects/roadtrip-focus]] · [[00-Current-Projects/projects/handsens101]].
+
+### Roadtrip (focus timer skinned as a night drive)
+
+- **What:** pick an intent ("finish pandas notes") + a route (Coastal Hop 25m … Cross-Country 120m) → car cruises a winding night highway with engine hum → "Journey completed" popup → session auto-written into the Second Brain daily note. Vault is the database.
+- **How (4 parts):** routes (duration = destination, progress = elapsed/total); two workers (background thread counts seconds, main thread draws — Tkinter rule: only main touches UI; kitchen analogy: one cooks time, one plates); road is math not video (18 stations, perspective curve, 3 parallax hill layers, lottery trees/poles, scrolling dashes — zero image files); sound + sync (55+110 Hz hum + noise loop; finish saves local JSON last-500 AND daily note + history table). Web build: Next.js + Supabase (login, guest mode).
+- **60s:** "Focus timer as a night highway so the brain accepts the session. Intent plus duration-route in, canvas plus hum during, vault row out. Hardest part was threading — timer thread never touches UI — plus holding 60fps scroll."
+- **Follow-ups:** "Why threads?" → UI freezes otherwise; counter ticks, painter paints. "Why Supabase?" → login + shared history across devices; vault stays single source. "Next?" → CSV export of sessions.
+
+### handsens101 (hand becomes the mouse)
+
+- **What:** move hand = cursor, pinch thumb+index = click, index+middle = scroll. Python, OpenCV, MediaPipe, pyautogui.
+- **How (4 steps):** see (OpenCV frames; MediaPipe HandLandmarker drops 21 dots at 0.85 strictness so junk doesn't count); calm (raw dots shake → exponential smoothing `5.0` glides the cursor — same filtering intuition as robotics); translate (dots scaled to screen; state machine reads pinch distance / two-finger pose); act (pyautogui moves the real cursor, ~30×/sec: detect → smooth → map → actuate).
+- **60s:** "Webcam mouse: 21 hand landmarks, smoothing kills jitter, pinch-click and two-finger scroll through pyautogui. Hardest part was noise — strict confidence plus smoothing before any actuation."
+- **Follow-ups:** "Why smoothing?" → raw detections shake; acting on noise = crazy cursor. "Why 0.85?" → kills false hands, keeps real ones. "Next?" → ROS2 teleoperation.
+
+## 9. Full likely-question bank (FY-calibrated)
+
+They calibrate to first-years: fundamentals + thinking + honesty over depth. Every answer below is the complete response.
+
+1. **Tell me about yourself** → §2 script.
+2. **Why DataZen / why two roles** → §3 + "Tech primary, Creative multiplier."
+3. **Compute show-up rate** → tech spoke §1 pattern, hand-check first.
+4. **Best/worst event and why** → workshop 0.9 / talk 0.4; cause needs slot/fee/promo data — never guess.
+5. **Dirty CSV walks in** → headers, types, NaN count, dupes, zero-guard; report bad-row %.
+6. **Mean vs median** → pocket-money example; pick median with outliers.
+7. **GROUP BY vs ORDER BY / JOINs** → collapse vs sort; inner matches, left keeps left.
+8. **Overfitting** → memorized sums fail the 11th; split + simpler.
+9. **Which chart** → line trend, bar compare, scatter relation, hist spread.
+10. **Explain a project** → §8 scripts.
+11. **Show creative work** → creative spoke §4 playbook.
+12. **Their designs?** → "strong base; lock grid + two fonts + palette."
+13. **Hours with FE load** → number + daily-note tracking.
+14. **Stuck past knowledge?** → "Here's the boundary, here's how I'd close it by Friday."
+15. **Your questions** → §6, ask 2.
+
+## 10. Drill order
 1. Spoke: [[team-datazen-tech-prep]] rapid-fire → weakest rows re-read
 2. Spoke: [[team-datazen-creative-prep]] taste lines aloud
 3. 10-min mock task (4-row events CSV) + 5 grill follow-ups

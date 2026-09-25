@@ -930,3 +930,8 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - New `wiki/01-Areas/Business/careers/` trio, beginner-first per owner ask: `team-datazen-interview-prep.md` (hub: hour map, intro script, STAR bank, questions-to-ask, logistics — PC + earphones primary since Vivobook mic unverified), `team-datazen-tech-prep.md` (cold-typable CSV/SQL patterns, survival pandas, stats/viz/ML one-liners, grill answers), `team-datazen-creative-prep.md` (design system, video pipeline, metrics, no-footage playbook + 48hr trial offer).
 - Cross-linked: Onyx mock CSV pattern, interview-counter-guide method, AI-Data hub (depth, not duplicated). Careers `index.md` page-map rows added.
 - Context: DataZen = Data Science Council of Somaiya; Tech + Creative roles; council history is interview round then project round for tech.
+
+### 2026-09-25 — DataZen notes upgraded to FY-proof depth (owner: cover everything + project workings)
+- Tech spoke: §8 Python basics bank (types/strings/collections/dupe-set/functions/exceptions/file-modes/OOP/complexity), §9 SQL extended (aggregates, NULL, 4 JOINs, GROUP BY rule, subquery, LIKE), §10 stats extended (distributions, std worked, percentiles, sampling bias, A/B intuition, Sheets mirror).
+- Creative spoke: §7 color + type basics (60-30-10, contrast, accessibility), §8 platform specifics (Reel/Short/poster/story specs + 5-beat cadence), §9 copywriting (hooks, body order, CTA, tone).
+- Hub: §8 project explainers (Roadtrip 4-part working + handsens101 4-step pipeline, 60s versions, follow-ups, AI-assisted honesty flag) + §9 full 15-Q FY-calibrated bank. All three still under 9KB (no split needed).
