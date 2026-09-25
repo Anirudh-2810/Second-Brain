@@ -19,6 +19,9 @@ Index hub for careers content. Pages moved here from the former knowledge-repo m
 | [[interview-counter-guide]] | Every round type, live-coding script, STAR bank, negotiation |
 | [[build-project-playbook]] | Portfolio projects: selection matrix, v0.1 rule, failure-point table |
 | [[example-question-bank]] | ~40 cross-topic drill questions for daily self-quizzing |
+| [[team-datazen-interview-prep]] | DataZen council interview hub (Tech + Creative): hour map, intro, STAR, logistics |
+| [[team-datazen-tech-prep]] | DataZen tech spoke: CSV/SQL patterns, pandas, stats, ML basics |
+| [[team-datazen-creative-prep]] | DataZen creative spoke: design system, video pipeline, no-footage playbook |
 
 ## Suggested Route
 

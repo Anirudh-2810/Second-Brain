@@ -925,3 +925,8 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - New engineering-drawing/ed-reference-books.md: Bhatt (738 pp, TOC-extracted ch numbers: 1/3/7/10–15/20/21/24) + Dubey (563 pp, image-only scan — topic map TBC vs printed TOC) chapter-to-wiki map. Linked from overview.md Sources.
 - Notes: Dubey PDF has no text layer (CamScanner images) — no wholesale OCR; distill single topics on demand. No new module folders needed.
 - New aeromodelling/team-onyx-interview-qa-bank.md (owner ask 2026-09-25): every concept across all 6 source PDFs in plain words + 2–3 likely interview Qs with one-line answers stapled after each concept (A forces/lift → G juniors colour); drill protocol included. Linked from INDEX Pages table + interview order step 6.
+
+### 2026-09-25 — Team DataZen interview package (hub + 2 spokes; interview 2026-09-26 2:30pm online)
+- New `wiki/01-Areas/Business/careers/` trio, beginner-first per owner ask: `team-datazen-interview-prep.md` (hub: hour map, intro script, STAR bank, questions-to-ask, logistics — PC + earphones primary since Vivobook mic unverified), `team-datazen-tech-prep.md` (cold-typable CSV/SQL patterns, survival pandas, stats/viz/ML one-liners, grill answers), `team-datazen-creative-prep.md` (design system, video pipeline, metrics, no-footage playbook + 48hr trial offer).
+- Cross-linked: Onyx mock CSV pattern, interview-counter-guide method, AI-Data hub (depth, not duplicated). Careers `index.md` page-map rows added.
+- Context: DataZen = Data Science Council of Somaiya; Tech + Creative roles; council history is interview round then project round for tech.
