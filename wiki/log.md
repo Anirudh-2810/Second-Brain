@@ -935,3 +935,7 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - Tech spoke: §8 Python basics bank (types/strings/collections/dupe-set/functions/exceptions/file-modes/OOP/complexity), §9 SQL extended (aggregates, NULL, 4 JOINs, GROUP BY rule, subquery, LIKE), §10 stats extended (distributions, std worked, percentiles, sampling bias, A/B intuition, Sheets mirror).
 - Creative spoke: §7 color + type basics (60-30-10, contrast, accessibility), §8 platform specifics (Reel/Short/poster/story specs + 5-beat cadence), §9 copywriting (hooks, body order, CTA, tone).
 - Hub: §8 project explainers (Roadtrip 4-part working + handsens101 4-step pipeline, 60s versions, follow-ups, AI-assisted honesty flag) + §9 full 15-Q FY-calibrated bank. All three still under 9KB (no split needed).
+
+### 2026-09-26 — Ingest: Spanish A1 lecture (TENER + classroom foundations)
+- New `wiki/01-Areas/Self-Dev/spanish/clase-2026-09-26-a1-tener-presente-numeros-clase.md`: TENER table + uses, 12 phrase drills + 6 question drills (all solved with English), hablar/comer/vivir present tables, alphabet, classroom objects, numbers 0-99 with memory hooks, Escuela Velazquez reception Q&A matching, letras/sonidos + aficiones gist (TBC). Linked from `spanish/overview.md` cross-links; supersedes clase 2026-09-20.
+- No new module folder (spanish/ exists). Dashboard + graph colors refreshed via scripts.
