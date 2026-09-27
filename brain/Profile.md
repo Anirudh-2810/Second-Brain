@@ -57,7 +57,7 @@ As of 2026-08-23: **undecided between CQF certificate / MSc abroad (MSCF-style) 
 - **Editor-agnostic**, terminal-first workflow
 - Prefers lean setups — strips tools to core ideas, hates clutter (see [[Patterns]])
 - Vault not git-initialized as of 2026-08-23
-- **Laptop (as of 2026-09-26)**: ASUS Vivobook K3405VF IPS, Windows — i5-13500H, RTX 2050 50W, 16GB DDR4-3200. Built-in mic NOT working out of box; vendor promised free replacement unit when stock arrives (call pending). Until then: earphones + phone-mic for meets/interviews.
+- **Laptop (as of 2026-09-26)**: ASUS Vivobook K3405VF IPS, Windows — i5-13500H, RTX 2050 50W, 16GB DDR4-3200. Built-in mic NOT working out of box; vendor asked 2-day use then list all problems (as of 2026-09-26); battery already 49% health + mic dead. Until then: earphones + phone-mic for meets/interviews.
 
 ## Working With Me (agent instructions)
 
