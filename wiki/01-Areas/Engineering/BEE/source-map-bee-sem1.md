@@ -23,7 +23,7 @@ Catalog of `raw-sources/.../Semester 1/Bee/` (26 files) and `Bee Lab/` (10 files
 | `Chapter_1.4_DC circuit_star_delta.pdf` | Module 1 §3 (star–delta) |
 | `Chapter_1.6_Nodal_Analysis_DC.pdf` | Module 1 §5 (nodal) |
 | `chapter_1.7_Super_Position _ Pracice_DC.pdf` | Module 1 + Lab Expt 4 |
-| `Chapter_1.8_THEVENIN_DC.pdf` (read fully, 9 pp) | Module 1 + Lab Expt 2 |
+| `Chapter_1.8_THEVENIN_DC.pdf` (read fully, 9 pp) | Module 1 + Lab Expt 2 → [[thevenin-vth-rth-worked-examples]] |
 | `Chapter_1.9_NORTON_DC.pdf` | Module 1 + Lab Expt 3 |
 | `Chapter_1.10_Maximum power transfer.pdf` | Module 1 + Lab Expt 5 |
 | `Chapter_1_Mesh_analysis_DC.pdf` | Module 1 §5 (mesh) |

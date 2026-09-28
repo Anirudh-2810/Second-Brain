@@ -19,7 +19,7 @@ Bench ingest of `Bee Lab/Expt_2_Thevenin Theorem_25-26.docx`, `Expt_3_Norton_The
 
 Procedure: (1) connect circuit, set 10 V, measure $V_{th}$ across A–B with $R_L$ removed; (2) kill sources, measure $R_{th}$ across A–B; (3) build equivalent, compute $I_L = V_{th}/(R_{th}+R_L)$; (4) verify theoretically. Observation table: $V_{th}$ / $R_{th}$ / $I_L$ × theoretical vs practical.
 
-Worked example (typical paper pattern): 10 V source, $R_1 = 4\,\Omega$ series from A, $R_2 = 6\,\Omega$ across A–B, load $R_L = 5\,\Omega$ across B branch. $V_{th} = 10\cdot 6/(4+6) = 6\ \mathrm{V}$ (divider); $R_{th} = 4\parallel 6 = 2.4\ \Omega$; $I_L = 6/(2.4+5) \approx 0.81\ \mathrm{A}$. Viva: "linear network" = obeys superposition + homogeneity (V–I straight line through origin for resistors).
+Worked example (typical paper pattern): 10 V source, $R_1 = 4\,\Omega$ series from A, $R_2 = 6\,\Omega$ across A–B, load $R_L = 5\,\Omega$ across B branch. $V_{th} = 10\cdot 6/(4+6) = 6\ \mathrm{V}$ (divider); $R_{th} = 4\parallel 6 = 2.4\ \Omega$; $I_L = 6/(2.4+5) \approx 0.81\ \mathrm{A}$. Viva: "linear network" = obeys superposition + homogeneity (V–I straight line through origin for resistors). More solved networks from the Ch 1.8 deck: [[thevenin-vth-rth-worked-examples]].
 
 ## 2. Expt 3 — Norton's theorem (VLab, bes-iitr)
 

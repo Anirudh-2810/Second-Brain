@@ -302,6 +302,8 @@ $$\mathrm{CaZe + 2NaCl \longrightarrow Na_2Ze + CaCl_2}
 
 **Notes:** removes only Ca/Mg (leaves other salts); outlet hardness ~5-10 ppm; does **not** remove acidic H⁺ or other dissolved salts.
 
+> **Full detail + numericals:** cold vs hot lime-soda comparison, column construction and all 4 NaCl↔CaCO₃ solved problems → [[zeolite-process-numericals]].
+
 ### 2.5 Reverse Osmosis — Osmotic Pressure & the Driving Force
 
 Osmotic pressure:

@@ -3,7 +3,7 @@ course_code: "ENG-CHEM"
 course_name: "Engineering Chemistry"
 unit: "Source Map — Sem-1 Chemistry Theory & Lab Files"
 tags: [btech, engineering-chemistry, source-map, syllabus-map]
-last_updated: "2026-09-09"
+last_updated: "2026-09-28"
 description: "Complete registry of all Sem-1 Chemistry and Chem Lab raw-source files: what was ingested in depth, what was summarized, and where each experiment lives in the wiki."
 ---
 
@@ -25,6 +25,7 @@ Catalog of `raw-sources/drive-download-20260908T190927Z-1-001/Semester 1/Chem/` 
 | `Chem/Water/Study Material (3).pdf` | Catalogued only | Variant of LMS water material |
 | `Chem/Water/Water-ref.pdf` | Catalogued only | Reference variant of water material |
 | 3 pasted slide-decks, Dr. Dipanwita Das (in-chat 2026-09-17, no raw-source file) | **Full ingest** | Water overview → [[hard-water-industry-effects]] · Hardness+EDTA theory (M.F table, V1/V2/V3, prep recipes) merged into [[module-1-water-technology-hardness]] + [[lab-edta-hardness-water]] · 7 EDTA numericals → [[edta-numericals-worked-bank]] |
+| `raw-sources/Zeolite Process with Numericals.pdf` (14 pp, Dr. Dipanwita Das) | **Full ingest** | Cold vs hot lime-soda + zeolite theory + 4 NaCl↔CaCO₃ numericals → [[zeolite-process-numericals]] (2026-09-28) |
 
 ## 2. Lab (`Chem Lab/`)
 

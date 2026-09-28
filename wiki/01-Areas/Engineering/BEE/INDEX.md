@@ -3,7 +3,7 @@ course_code: "BEE"
 course_name: "Basic Electrical Engineering"
 unit: "Module Index"
 tags: [bee, electrical-engineering, coursework, kjsce, index, domain-hub]
-last_updated: "2026-08-25"
+last_updated: "2026-09-28"
 confidence: "high"
 description: "Basic Electrical Engineering module index - DC circuits, AC circuits, magnetic circuits & transformers, DC machines & induction motors, installations & safety"
 ---
@@ -23,6 +23,9 @@ description: "Basic Electrical Engineering module index - DC circuits, AC circui
 | 4 | [[module-4-dc-machines-and-induction-motors]] | DC generator & motor (EMF/torque equations, types, characteristics); 3-φ induction motor: rotating field, slip, torque, starting |
 | 5 | [[module-5-installations-safety-energy]] | Domestic wiring, protective devices (fuse/MCB/ELCB), earthing, safety, batteries, energy sources & renewables |
 | — | [[formula-sheet-bee]] | Every formula on one page for CA/MSE/ESE |
+| 1 | [[thevenin-vth-rth-worked-examples]] | Thevenin statement + 5-step recipe + 3 solved Vth/Rth/IL examples (Ch 1.8 slides) |
+| Labs | [[lab-dc-theorems-expts-2-5]] · [[lab-ac-pf-three-phase-motor-expts-6-8]] | Bench records Expts 1–8, obs tables, viva |
+| — | [[source-map-bee-sem1]] | File registry: every raw-source → page it fed |
 
 ## Exam Strategy (MU pattern)
 

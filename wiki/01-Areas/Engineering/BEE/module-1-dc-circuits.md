@@ -113,6 +113,8 @@ Efficiency at max transfer = **50%** (half lost in $R_{th}$) — why power grids
 
 **Verification habit**: re-solve by mesh analysis — both must agree.
 
+> **More solved problems:** 3 full examples (parallel-source branches, mesh + star→delta, mixed sources) with $V_{th}/R_{th}/I_L$ answers → [[thevenin-vth-rth-worked-examples]]; bench verification → [[lab-dc-theorems-expts-2-5]].
+
 ## 8. Failure Modes (exam)
 
 | Trap | Fix |

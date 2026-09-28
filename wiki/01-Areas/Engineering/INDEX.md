@@ -40,10 +40,10 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | SPM/c-programming-master-study-guide | — | 4-chapter cram guide (compile→control→arrays→functions) |
 | SPM/formula-sheet-spm | — | One-page syntax sheet (program skeleton → common errors) |
 | [[engineering-drawing/overview|engineering-drawing/]] | 33 | Orthographic projections, points/lines/planes, solids + sections + developments, isometric, AutoCAD lab + exam prep — plus new **[[engineering-drawing/solidworks/INDEX|solidworks/]]** self-study track (26 pages: basics → surfacing → 154-video build library → projects) |
-| [[engineering-chem/module-1-water-technology-hardness|engineering-chem/]] | 16 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers + green chemistry, named reactions, 4 chem labs + EDTA numericals bank + industry-effects |
+| [[engineering-chem/module-1-water-technology-hardness\|engineering-chem/]] | 17 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers + green chemistry, named reactions, 4 chem labs + EDTA & zeolite numericals banks + industry-effects |
 | [[engineering-math/module-1-matrices|engineering-math/]] | 9 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers + ISE prep + prerequisite toolkit + [[engineering-math/quiz-2026-09-22-systems-consistency-rank|22-Sept consistency/rank quiz (9 Q)]] |
 | [[engineering-physics/overview|engineering-physics/]] | 7 | Course physics + Module-1 numericals addendum |
-| [[BEE/INDEX|BEE/]] | 11 | Basic Electrical Engineering: DC circuits & theorems, AC circuits, three-phase, transformers, DC machines & induction motors, installations/safety + labs + formula sheet |
+| [[BEE/INDEX\|BEE/]] | 12 | Basic Electrical Engineering: DC circuits & theorems (+ Thevenin worked examples), AC circuits, three-phase, transformers, DC machines & induction motors, installations/safety + labs + formula sheet |
 | [[engineering-biology/INDEX|engineering-biology/]] | 8 | **NEW Sem-1 Bio for engineers**: biomolecules, cell biology, bioinformatics, fermentation, systems biology |
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
 | [[aeromodelling/INDEX|aeromodelling/]] | 7 | **Team Onyx Round-1 (Sept 2026):** aerodynamics foundations (forces/lift/bluff), wings+controls (planforms/mountings/AoA/stall), avionics RC stack, 11-12th basics for aero, revision + 15 mock MCQs + hard 40-Q sample paper |
@@ -54,7 +54,8 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 ## Quick Answers
 
 - "AM formulas / C syntax for exams?" → [[formula-sheet-am]] · [[SPM/formula-sheet-spm]]
-- "BEE Thevenin / AC resonance / transformer efficiency?" → [[BEE/INDEX|BEE module]] + [[formula-sheet-bee]]
+- "BEE Thevenin / AC resonance / transformer efficiency?" → [[BEE/INDEX|BEE module]] + [[formula-sheet-bee]] · solved Thevenin problems → [[BEE/thevenin-vth-rth-worked-examples|Thevenin examples]]
+- "zeolite / lime-soda softening numericals?" → [[engineering-chem/zeolite-process-numericals|zeolite numericals]]
 - "SPM syllabus / what's in SPM?" → [[SPM/syllabus-316U06C107]]
 - "SPM this week's topic / lab?" → [[SPM/lesson-plan-2026-27]]
 - "SPM CA marks / attendance rubric?" → [[SPM/lab-ca-and-experiments]]

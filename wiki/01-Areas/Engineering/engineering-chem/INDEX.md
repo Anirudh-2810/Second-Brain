@@ -3,7 +3,7 @@ course_code: "ENG-CHEM"
 course_name: "Engineering Chemistry"
 unit: "Module Index"
 tags: [engineering, chemistry, index, domain-hub]
-last_updated: "2026-08-24"
+last_updated: "2026-09-28"
 description: "Engineering Chemistry module index - water tech, surfactants, electrochem, spectroscopy, polymers"
 ---
 
@@ -19,7 +19,10 @@ Module index for Engineering Chemistry (BTech coursework). Scan this folder for 
 - [[module-5-polymers-fuels]]
 - [[units-of-hardness-industrial-problems-revision]]
 - [[edta-numericals-worked-bank]]
+- [[zeolite-process-numericals]]
 - [[hard-water-industry-effects]]
+- Labs: [[lab-edta-hardness-water]] · [[lab-emf-gibbs-equilibrium]] · [[lab-corrosion-rebar-pzt]] · [[lab-biodiesel-green-synthesis]]
+- Other: [[green-chemistry-twelve-principles]] · [[reaction-mechanisms-named-reactions]] · [[source-map-chem-sem1]]
 
 ## Exam Prep
 CA/MSE/ESE: focus modules 1-3 (numerical-heavy); module-5 is theory-memory.
