@@ -1606,3 +1606,5 @@ P12: Product = e^(i·2π(0+1+...+(n-1))/n) = e^(i·2π(n-1)n/(2n)) = e^(iπ(n-1)
 ---
 
 *Revision: every formula from this module is on [[formula-sheet-am]].*
+
+*Applied reading: the roots-of-unity → cryptography bridge (NTT) above reaches crypto by a *number-theoretic* route. The other route into the same vault is *physical/linear-algebraic* — a mechanical cipher modelled as a composition of permutations: [[01-Areas/Programming/cryptography/enigma-rotor-math|Enigma: The Rotor Mathematics]].*

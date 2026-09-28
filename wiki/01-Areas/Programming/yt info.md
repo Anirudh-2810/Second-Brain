@@ -17,6 +17,16 @@
 | 4 | *The Art Of Winning In Tech* | `4MAupwjl3pc` | Surviving & thriving in the AI era of software engineering | ~6 min |
 | 5 | *How I Would Learn Python FAST (if I could start over)* | `ywjyvKzc8e4` | The exact 6-step learning system for Python + problem-solving | ~10 min |
 
+---
+
+## 0b. Later additions to the programming video corpus
+
+| Video | Video ID | Topic | Length | Distilled into |
+|-------|----------|-------|--------|----------------|
+| *The Insane Real Engineering of the Nazi Enigma Machine* (Veritasium) | `JsBZOcqZerk` | Polyalphabetic ciphers, rotor permutations, the Bombe | 47:41 | [[01-Areas/Programming/cryptography/index\|cryptography module]] (3 pages) |
+
+Raw transcript: `raw-sources/youtube-transcript-enigma-machine.txt` + `yt-enigma-machine.info.json` (both gitignored, local only — retrieve with `yt-dlp --write-subs --write-auto-subs --write-info-json`).
+
 **The through-line:** These five videos form a complete *learning-to-program system* —
 (1) WHAT programming is and its universal fundamentals, (2) WHY math underpins it,
 (3) the creative/statistical mindset that produces breakthrough work, (4) HOW to win

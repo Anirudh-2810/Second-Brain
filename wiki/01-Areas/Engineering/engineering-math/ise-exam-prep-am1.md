@@ -52,3 +52,5 @@ $u = x^3\sin^{-1}\!\left(\frac{\sqrt{y}+\sqrt{x}}{\sqrt{y}-\sqrt{x}}\right)$-typ
 ## Related
 
 [[module-1-matrices]] · [[module-2-partial-differentiation]] · [[module-3-homogeneous-functions]] · [[formula-sheet-am]] · [[prerequisite-toolkit]]
+
+**Applied reading.** Q2.2 above is a real structural result, not just an exam trick: a cipher keyed by an orthogonal matrix is *self-inverting* for free, because $Q^{-1} = Q^T$. The Enigma reflector plays the analogous role in a substitution cipher of the same era, making the machine $E^2 = \mathrm{id}$ so one box both encrypts and decrypts. The shared lesson — **a scheme resting on an algebraic property dies if that property is violated in exactly one place** — is worked through in [[01-Areas/Programming/cryptography/enigma-rotor-math|Enigma: The Rotor Mathematics]] §8, alongside the no-self-cipher property the machine could not design away.

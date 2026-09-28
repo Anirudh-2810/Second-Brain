@@ -18,6 +18,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 |--------|-------|--------|
 | root pages | 23 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox), [[margin-math-perspective]] — intuitive math foundations |
 | [[cs50/index|cs50/]] | 15 | Full CS50x weeks 0–10 + PSets + final project |
+| [[01-Areas/Programming/cryptography/index\|cryptography/]] | 4 | Ciphers & cryptanalysis: polyalphabetic theory + a full 3-page Enigma study (mechanics, rotor mathematics, the Bombe) |
 | cs50p/ | 2 | CS50P notes |
 | c-programming/ | 19 | C programming deep library |
 | [[object-oriented-programming/overview|object-oriented-programming/]] | 14 | Python OOP: pillars→dunders→patterns→interview Q&A |
@@ -32,6 +33,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 
 - "How do I learn X / what order?" → [[roadmaps-and-study-guides]], [[how-to-self-teach]] (self-dev)
 - "DSA problem pattern?" → [[dsa-interview-playbook]]
+- "How does a cipher work / how was Enigma broken?" → [[01-Areas/Programming/cryptography/index|cryptography]]
 - "Explain how Twitter's recsys works" → [[cs-twitter-algorithm]]
 - "Python gotcha why?" → [[languages-python-advanced]], wtfpython entries
 - "Design a URL shortener" → [[system-design-interview]]
@@ -42,6 +44,6 @@ ML theory/models → `wiki/01-Areas/AI-Data/` · Your own running projects → `
 
 ## Cross-Domain Bridges
 
-ML interviews: [[ml-interview-playbook]] (ai-data) · Career/market context: [[market-analysis-tech-2026]] (business) · Roadmaps hub: [[01-Areas/Roadmaps/INDEX]]
+ML interviews: [[ml-interview-playbook]] (ai-data) · Career/market context: [[market-analysis-tech-2026]] (business) · Roadmaps hub: [[01-Areas/Roadmaps/INDEX]] · Eng-Math bridges: [[01-Areas/Engineering/engineering-math/ise-exam-prep-am1|orthogonal-matrix crypto (Q^-1=Q^T)]], [[01-Areas/Engineering/engineering-math/module-1-matrices|matrices → rotor permutations]], [[01-Areas/Engineering/engineering-math/module-5-complex-numbers|complex numbers → crypto via NTT]]
 
-- [[yt info]] - source metadata for the 5-video programming corpus
+- [[yt info]] - source metadata for the 5-video programming corpus + later additions (Enigma)

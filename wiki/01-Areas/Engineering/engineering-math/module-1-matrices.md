@@ -1954,3 +1954,5 @@ A⁻¹ = [  1/4   −1/2    3/4 ]
 *Class companion: [[matrices-class-notes-2026-09-24]] — Hermitian split exam method + Gauss-Jacobi (DocScanner 24 Sept 2026).*
 
 *Revision: every formula from this module is on [[formula-sheet-am]].*
+
+*Applied reading: composition and invertibility of linear maps is exactly how a mechanical cipher is modelled — each rotor is a permutation (a bijection of the alphabet) and the keystroke is their composition. See [[01-Areas/Programming/cryptography/enigma-rotor-math|Enigma: The Rotor Mathematics]] for the worked example, and [[01-Areas/Programming/cryptography/index|cryptography module]] for the hub.*

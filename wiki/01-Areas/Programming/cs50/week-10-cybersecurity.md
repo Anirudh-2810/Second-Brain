@@ -96,3 +96,5 @@ Master question to ask about any attack: **which of the three does it break?**
 - [[cs50/week-9-flask]] — sessions & auth the security chapter defends.
 - [[cs50/problem-sets]] — the Final Project is the real PSet 10.
 - [[winning-in-tech-art-of-winning]] — ship it, show it, iterate.
+- [[01-Areas/Programming/cryptography/index|cryptography module]] — the historical counterweight: Enigma had a $10^{23}$ key space and still fell, because structure and operator habits beat key-space size. Read alongside this week's "brute force" entry.
+- [[01-Areas/Programming/cryptography/enigma-bombe-and-codebreaking|Enigma — the Bombe]] — the historical worked example of a known-plaintext/crib attack, and of why speed is a security property.

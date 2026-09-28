@@ -161,6 +161,8 @@ you
   1. Strings are arrays; arrays + modulo are enough for real cryptography.
   2. **Validate keys** — a Caesar key must be an integer, substitution keys must be 26 unique letters. The lesson generalises: *validate before you trust input.*
 
+> **Where this ends and real crypto begins.** Both ciphers here are *fixed-rule*: the same plaintext letter always yields the same ciphertext letter, so frequency analysis breaks them. The fix is **polyalphabetic** — change the rule per character — and the industrial version of that fix is the **Enigma machine**, whose rotors are literally permutations of the alphabet that change every keystroke. Full treatment: [[01-Areas/Programming/cryptography/enigma-machine-deep-dive|Enigma deep dive]] (mechanics) · [[01-Areas/Programming/cryptography/enigma-rotor-math|rotor mathematics]] (why a rotor *is* a permutation of $S_{26}$, and the no-self-cipher theorem) · [[01-Areas/Programming/cryptography/index|cryptography module]].
+
 ---
 
 ## 8. Vocabulary to Master
