@@ -212,6 +212,9 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[gtd-task-management]]** — Capture–Clarify–Organize–Reflect–Engage; weekly review.
 - **[[mental-models-for-execution]]** — Pareto, Eisenhower Matrix, Parkinson's Law, Inversion.
 - **[[01-Areas/Self-Dev/productivity/focus-minimalism-babauta|Focus & Minimalism (Babauta)]]** · **[[01-Areas/Self-Dev/productivity/little-book-productivity-scott-young|Little Book (Scott Young)]]** · **[[01-Areas/Self-Dev/productivity/101-ways-workplace-productivity-fishel|101 Ways (Fishel)]]** · **[[01-Areas/Self-Dev/productivity/apo-handbook-productivity|APO Handbook]]** — research-source node pages.
+- **[[01-Areas/Self-Dev/comparing-the-wrong-number|Comparing the Wrong Number]]** (3-page set) — output-vs-input metrics: opportunity cost (shadow price of an hour), diminishing marginal returns, Festinger 1954, track units not hours.
+  - **[[01-Areas/Self-Dev/comparing-the-wrong-number-math|The Mathematics]]** — Lagrangian shadow price, study production function, Cobb-Douglas + Euler's theorem, metric table. Bridges to [[01-Areas/Engineering/engineering-math/module-3-homogeneous-functions|Eng-Math M3]] / [[01-Areas/Engineering/engineering-math/module-2-partial-differentiation|M2]].
+  - **[[01-Areas/Self-Dev/comparing-the-wrong-number-practice|Practice & Failure Modes]]** — 9 failure modes (guilt-laundering, fictitious $c$) + the weekly units-not-hours drill.
 
 ### Self-Mastery
 - Source: `/raw-sources/slice0*.txt.md` (7-slice normalized transcript of the *How To Level Up So Fast It Feels Like CHEATING* corpus). One-page digest: vault-root `NOTES.md`.

@@ -53,6 +53,8 @@ Spend ~10,000 hours on a subject or skill to become an expert. But the key is:
 
 **Evaluating whether one has improved compared to their past self serves as motivation for further growth.** The comparison trap (others' highlights vs. your behind-the-scenes) is toxic. The only useful comparison: Am I better than I was last month?
 
+> **Why "compare to your past self" is the correct instruction, not just the kind one:** comparing yourself to a peer *in the present* is invalid on its face, because the two of you are running different production functions with different base knowledge. Total hours is a vanity metric — hour 1 and hour 7 are not the same product (diminishing marginal returns), and your alternative to studying has a different price than theirs (opportunity cost). And the pull toward peer comparison is involuntary: it happens *because* no absolute standard exists (Festinger's social comparison theory, 1954). Full derivation, the metric table, and the fix (track units, not hours): [[01-Areas/Self-Dev/comparing-the-wrong-number|Comparing the Wrong Number]].
+
 ### 5. Mistakes = Scar Tissue
 "Mistakes and failures are valuable experiences that contribute to personal development. Accumulating 'scar tissue' from past errors helps strengthen future decision-making processes."
 
