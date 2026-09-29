@@ -1,9 +1,19 @@
 ---
-module: "engineering-math"
+module: engineering-math
 topic: "Module 1: Matrices — Rank, Systems, Eigenvalues & Cayley-Hamilton"
-tags: [matrices, linear-algebra, eigenvalues, eigenvectors, cayley-hamilton, rank, echelon, normal-form]
-last_updated: "2026-08-18"
-prerequisites: ["Basic Algebra", "Determinants"]
+tags:
+  - matrices
+  - linear-algebra
+  - eigenvalues
+  - eigenvectors
+  - cayley-hamilton
+  - rank
+  - echelon
+  - normal-form
+last_updated: 2026-08-18
+prerequisites:
+  - Basic Algebra
+  - Determinants
 ---
 
 # Module 1: Matrices — Rank, Systems, Eigenvalues & Cayley-Hamilton
@@ -14,27 +24,27 @@ prerequisites: ["Basic Algebra", "Determinants"]
 
 ### 1.1 Matrix Types Reference Table
 
-| # | Type | Notation | Defining Property |
-|---|------|----------|-------------------|
-| 1 | **Square** | A ∈ ℝⁿˣⁿ | Number of rows = number of columns (m = n) |
-| 2 | **Rectangular** | A ∈ ℝᵐˣⁿ | m ≠ n |
-| 3 | **Diagonal** | D = diag(d₁, d₂, …, dₙ) | aᵢⱼ = 0 for all i ≠ j |
-| 4 | **Scalar** | S = kI | All diagonal entries equal to constant k; off-diagonal = 0 |
-| 5 | **Identity** | Iₙ | Diagonal matrix with all diagonal entries = 1 |
-| 6 | **Zero (Null)** | Oₙ or 0ₘₓₙ | All entries are zero |
-| 7 | **Symmetric** | Aᵀ = A | aᵢⱼ = aⱼᵢ for all i, j |
-| 8 | **Skew-symmetric** | Aᵀ = −A | aᵢⱼ = −aⱼᵢ for all i, j (diagonal entries must be 0) |
-| 9 | **Hermitian** | Aᴴ = A | aᵢⱼ = āⱼᵢ (complex conjugate transpose equals itself) |
-| 10 | **Skew-Hermitian** | Aᴴ = −A | aᵢⱼ = −āⱼᵢ |
-| 11 | **Orthogonal** | AᵀA = I = AAᵀ | Columns (and rows) form orthonormal set; det(A) = ±1 |
-| 12 | **Unitary** | AᴴA = I = AAᴴ | Complex analogue of orthogonal; A⁻¹ = Aᴴ |
-| 13 | **Idempotent** | A² = A | Matrix equals its own square (projection matrices) |
-| 14 | **Nilpotent** | Aᵏ = O for some k ∈ ℕ | Some power yields the zero matrix; smallest such k is the index |
-| 15 | **Involutory** | A² = I | Matrix is its own inverse (A = A⁻¹) |
-| 16 | **Upper Triangular** | aᵢⱼ = 0 for i > j | All entries below the main diagonal are zero |
-| 17 | **Lower Triangular** | aᵢⱼ = 0 for i < j | All entries above the main diagonal are zero |
-| 18 | **Sparse** | Most entries = 0 | Fraction of nonzero entries is small (structure-dependent) |
-| 19 | **Dense** | Most entries ≠ 0 | Fraction of nonzero entries is high (opposite of sparse) |
+| #   | Type                 | Notation                | Defining Property                                               |
+| --- | -------------------- | ----------------------- | --------------------------------------------------------------- |
+| 1   | **Square**           | A ∈ ℝⁿˣⁿ                | Number of rows = number of columns (m = n)                      |
+| 2   | **Rectangular**      | A ∈ ℝᵐˣⁿ                | m ≠ n                                                           |
+| 3   | **Diagonal**         | D = diag(d₁, d₂, …, dₙ) | aᵢⱼ = 0 for all i ≠ j                                           |
+| 4   | **Scalar**           | S = kI                  | All diagonal entries equal to constant k; off-diagonal = 0      |
+| 5   | **Identity**         | Iₙ                      | Diagonal matrix with all diagonal entries = 1                   |
+| 6   | **Zero (Null)**      | Oₙ or 0ₘₓₙ              | All entries are zero                                            |
+| 7   | **Symmetric**        | Aᵀ = A                  | aᵢⱼ = aⱼᵢ for all i, j                                          |
+| 8   | **Skew-symmetric**   | Aᵀ = −A                 | aᵢⱼ = −aⱼᵢ for all i, j (diagonal entries must be 0)            |
+| 9   | **Hermitian**        | Aᴴ = A                  | aᵢⱼ = āⱼᵢ (complex conjugate transpose equals itself)           |
+| 10  | **Skew-Hermitian**   | Aᴴ = −A                 | aᵢⱼ = −āⱼᵢ                                                      |
+| 11  | **Orthogonal**       | AᵀA = I = AAᵀ           | Columns (and rows) form orthonormal set; det(A) = ±1            |
+| 12  | **Unitary**          | AᴴA = I = AAᴴ           | Complex analogue of orthogonal; A⁻¹ = Aᴴ                        |
+| 13  | **Idempotent**       | A² = A                  | Matrix equals its own square (projection matrices)              |
+| 14  | **Nilpotent**        | Aᵏ = O for some k ∈ ℕ   | Some power yields the zero matrix; smallest such k is the index |
+| 15  | **Involutory**       | A² = I                  | Matrix is its own inverse (A = A⁻¹)                             |
+| 16  | **Upper Triangular** | aᵢⱼ = 0 for i > j       | All entries below the main diagonal are zero                    |
+| 17  | **Lower Triangular** | aᵢⱼ = 0 for i < j       | All entries above the main diagonal are zero                    |
+| 18  | **Sparse**           | Most entries = 0        | Fraction of nonzero entries is small (structure-dependent)      |
+| 19  | **Dense**            | Most entries ≠ 0        | Fraction of nonzero entries is high (opposite of sparse)        |
 
 **Key Symbol Reference:**
 

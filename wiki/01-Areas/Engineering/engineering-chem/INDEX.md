@@ -20,6 +20,7 @@ Module index for Engineering Chemistry (BTech coursework). Scan this folder for 
 - [[units-of-hardness-industrial-problems-revision]]
 - [[edta-numericals-worked-bank]]
 - [[zeolite-process-numericals]]
+- [[ion-exchange-numericals]]
 - [[hard-water-industry-effects]]
 - Labs: [[lab-edta-hardness-water]] · [[lab-emf-gibbs-equilibrium]] · [[lab-corrosion-rebar-pzt]] · [[lab-biodiesel-green-synthesis]]
 - Other: [[green-chemistry-twelve-principles]] · [[reaction-mechanisms-named-reactions]] · [[source-map-chem-sem1]]

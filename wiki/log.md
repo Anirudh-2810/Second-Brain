@@ -5,6 +5,13 @@
 
 ---
 
+### 2026-09-30 — Ingest: Ion-Exchange & Zeolite Numericals (Eng-Chem Module 1)
+- Extracted **ion exchange _numericals with solutions.pdf** (15 pp) and **Zeolite Process with Numericals** (14 pp, already in raw-sources/_extracted/) from Dr. Dipanwita Das (KJSCE-SVU) slides.
+- Created **[[engineering-chem/ion-exchange-numericals]]** — full theory (cation/anion resins, forward/regeneration reactions, pros/cons) + 8 worked numericals (4 from slides + 4 practice Qs with answers). Formula: Hardness = N × V_acid × 50,000 / V_water. All answers recomputed and verified.
+- **[[engineering-chem/zeolite-process-numericals]]** already existed — confirmed complete with 4 worked NaCl↔CaCO₃ numericals (slides 11–14), cold vs hot lime-soda comparison, column diagram, pros/cons. All answers recomputed and verified.
+- Updated [[engineering-chem/INDEX]] to link the new ion-exchange page.
+- Ran `update-graph-colors.py` (66 per-module colors) and `generate-index.py` (446 pages).
+
 ### 2026-08-09 — Initialize Knowledge Base
 - Bootstrapped `/wiki/` structure: created `/wiki/index.md` (master catalog by Semester / Course Code) and `/wiki/log.md` (append-only log).
 - Added the LLM Wiki architecture document out of `/wiki/` into `AGENTS.md` at the vault root so it is not indexed as content.
