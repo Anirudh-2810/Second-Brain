@@ -997,3 +997,9 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - New page `SPM/spm-string-functions-char-equality-reverse.md` — classroom cut of M3.2: char `==` vs `strcmp`, indexing, `string.h` set OST expects, reverse-with-`for` pattern with `n-1`/`>=0`/signed-`int` traps, from-scratch `myStrlen`/`myStrcpy`/`myStrcmp`, quiz drill. Companion to [[module-3-strings]] (concept home).
 - Linked from `Engineering/INDEX.md` (SPM row) + `wiki/index.md` (Semester 1 Concepts).
 - Also covered in-session: Einstein coefficients derivation (5-point elaboration), laser resonance conditions (atomic + cavity), zeolite/ion-exchange numericals recap.
+
+### 2026-09-30 — Career path decision: Arduino first (hardware gap for RAI)
+- User felt down about not getting into Onyx (aero) or DataZen (data science council). Asked which path to start: Arduino, Fusion 360, software, or electronics.
+- **Agent recommendation: Arduino first.** Rationale: (1) already know C from SPM → fast ramp; (2) RAI branch needs hardware skills — currently all-software; (3) Fusion 360 is a tool not a path — learn for specific projects; (4) electronics theory alongside Arduino, not before; (5) software is already a strength — fix the weak side.
+- **Action:** Arduino Uno kit (~₹500-800), 3-4 projects (line follower, obstacle avoider, temp logger), then ESP32 for IoT.
+- Logged in `daily/2026-09-30.md` under "Career Path Decision".
