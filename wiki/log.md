@@ -992,3 +992,8 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Third item, "Tom math tutorial" (= DocScanner 24 Sept 2026 scan): NO action needed.** It is a **Matrices** tutorial (Hermitian, homogeneous systems, rank, Jacobi), already ingested 2026-09-24 as `engineering-math/matrices-class-notes-2026-09-24.md` (commit `3026789`) and linked from `module-1-matrices.md:1954`. The user's guess of differential equations was wrong — flagged to them rather than re-ingesting.
 - Catalogs updated: `engineering-chem/INDEX.md` (page + lab/source-map links, last_updated), `BEE/INDEX.md` (Thevenin/labs/source-map rows), `Engineering/INDEX.md` (chem 17, BEE 12, 2 Quick Answers).
 - **Manual-verification flags:** (1) Obsidian graph color/page appearance for the 2 new pages; (2) Ex2 handwritten $I_L$ corner value and its reduction steps; (3) GitHub Pages dashboard after push. Extraction scratch renders left untracked in `thinking/` (not committed).
+
+### 2026-09-30 — SPM strings lecture note (functions, char equality, indexing, reverse)
+- New page `SPM/spm-string-functions-char-equality-reverse.md` — classroom cut of M3.2: char `==` vs `strcmp`, indexing, `string.h` set OST expects, reverse-with-`for` pattern with `n-1`/`>=0`/signed-`int` traps, from-scratch `myStrlen`/`myStrcpy`/`myStrcmp`, quiz drill. Companion to [[module-3-strings]] (concept home).
+- Linked from `Engineering/INDEX.md` (SPM row) + `wiki/index.md` (Semester 1 Concepts).
+- Also covered in-session: Einstein coefficients derivation (5-point elaboration), laser resonance conditions (atomic + cavity), zeolite/ion-exchange numericals recap.

@@ -34,7 +34,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | SPM/module-1-spm-c-basics | — | M1: SDLC, compilation pipeline, memory layout (Text/Data/BSS/Heap/Stack) |
 | SPM/module-2-program-control-functions | — | M2: if/switch/loops, break/continue/goto, for-step semantics |
 | SPM/module-3-arrays | — | M3.1: 1D/2D arrays, row-major vs col-major, address formulas, search/sort |
-| [[SPM/module-3-strings|SPM/module-3-strings]] | — | **M3.2 NEW:** char arrays, `'\0'` terminator, `strlen/strcpy` from scratch |
+| [[SPM/module-3-strings|SPM/module-3-strings]] | — | **M3.2 NEW:** char arrays, `'\0'` terminator, `strlen/strcpy` from scratch · [[SPM/spm-string-functions-char-equality-reverse|Strings lecture: functions/equality/reverse]] |
 | SPM/module-4-user-defined-functions | — | M4.1: UDFs, call-by-value, recursion, storage classes |
 | [[SPM/module-4-structures-unions-pointers|SPM/module-4-structures-unions-pointers]] | — | **M4.2-4.3 NEW:** structs/unions, struct vs union, pointers, pointer arithmetic, file handling |
 | SPM/c-programming-master-study-guide | — | 4-chapter cram guide (compile→control→arrays→functions) |
