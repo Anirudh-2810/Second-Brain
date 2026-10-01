@@ -1,0 +1,105 @@
+---
+course_code: "ENG-PHY"
+course_name: "Engineering Physics"
+unit: "Domain hub — all modules"
+date: "2026-10-01"
+description: "Engineering Physics module hub — the four course modules (optics/wave, optoelectronics/lasers, quantum mechanics, semiconductors/EM) with the revision-first entry point for each, plus the Sem-1 source map and open-ingest gaps."
+tags: [engineering-physics, index, domain-hub, optics, lasers, quantum-mechanics, semiconductors, btech, exam-prep]
+last_updated: "2026-10-01"
+confidence: high
+---
+
+## For future agent
+
+Landing page for `wiki/01-Areas/Engineering/engineering-physics/`. **This page did not exist until 2026-10-01** even though `Engineering/INDEX.md` had been linking to `[[engineering-physics/overview]]` since the domain was created — a broken link that went unnoticed. It exists now purely to close that gap, so treat it as a **router, not a content page**: every topic lives in a child page.
+
+**Two sizes worth knowing before you open anything.** Three module pages are very large and are *not* revision surfaces — `module-1-optics-interference-diffraction` (81.5 KB), `module-2-optoelectronics-lasers-fiber-optics` (73.2 KB), `module-3-quantum-mechanics` (73.9 KB), `module-4-semiconductors-electromagnetism` (60.6 KB). **Route the user to the short revision page first** and only send them into the deep page for derivation detail. Do not paste deep-page content into an answer when a short page covers it.
+
+**Only Module 2 has a revision sheet so far.** Modules 1, 3 and 4 have no short cut — the closest thing is `thin-film-interference-revision` (4.6 KB, M1 topic only). If a Physics-B revision sheet is wanted for another module, that is a known gap, not an oversight.
+
+---
+
+# Engineering Physics — Module Hub
+
+> BTech coursework, Engineering Physics. Four modules. **Scan this folder for physics exam questions**, then route to the right child page.
+
+---
+
+## Start here — pick your revision surface
+
+| If you need | Go to | Size |
+|---|---|---|
+| **Lasers quick revision** (Einstein coefficients, inversion, threshold gain, laser types, cavity modes) | **[[lasers-quick-ref]]** | 17 KB ✓ short |
+| Thin-film interference, focused | [[thin-film-interference-revision]] | 4.6 KB ✓ short |
+| Full derivations + numericals for any module | the module page below | 60–82 KB |
+
+---
+
+## The four modules
+
+| Module | Topic | Page | Deep page size |
+|---|---|---|---|
+| **1** | Optics — interference, diffraction, polarization | [[module-1-optics-interference-diffraction]] | 81.5 KB |
+| **2** | Optoelectronics — lasers & fiber optics | [[module-2-optoelectronics-lasers-fiber-optics]] | 73.2 KB |
+| **3** | Quantum Mechanics | [[module-3-quantum-mechanics]] | 73.9 KB |
+| **4** | Semiconductors & Electromagnetism | [[module-4-semiconductors-electromagnetism]] | 60.6 KB |
+
+### What each module actually covers
+
+**Module 1 — Optics: interference, diffraction & polarization** (deep page §1+)
+Three-process radiation interaction → interference (YDSE, thin films, Newton's rings) → diffraction (single/double slit, grating, resolving power) → polarization. Companions: [[module-1-addendum-sem1-numericals-derivations]] (thin-film derivation + 12 solved numericals) and [[thin-film-interference-revision]] (short revision cut).
+
+**Module 2 — Optoelectronics: lasers & fiber optics** (deep page §1+)
+Einstein coefficients → population inversion → laser types → resonators & modes → fiber structure/propagation → attenuation & dispersion → optoelectronic devices (LED, photodiode, solar cell) → nonlinear optics.
+- **Revision surface:** [[lasers-quick-ref]] — lasers only, 13 sections, 4 worked numericals, formula card, common-mistakes table
+- **Deep page** carries a "use the quick-ref for exams" banner; it remains the owner of **fiber optics, NA/V-number, dispersion, EDFA/Raman, photodiodes, solar cells, nonlinear optics** — topics the quick-ref deliberately omits.
+
+**Module 3 — Quantum Mechanics** (deep page §1+)
+Historical foundations → wave-particle duality → wave function & Schrödinger equation → and onward. Note this is the foundation for the photon-energy relation that Module 2 lasers depends on ($E_2 - E_1 = h\nu$).
+
+**Module 4 — Semiconductors & Electromagnetism** (deep page §1+)
+Energy bands in solids → intrinsic semiconductors → extrinsic (doping) → and onward. Provides the p-n junction and band-gap background behind the Module 2 semiconductor laser ($\lambda = 1240/E_g$).
+
+---
+
+## Cross-module bridges
+
+- **Module 3 → Module 2:** quantized energy levels are *why* lasers emit at discrete frequencies — `$E_2 - E_1 = h\nu$`.
+- **Module 4 → Module 2:** the band gap `$E_g$` sets a semiconductor laser's wavelength via `$\lambda = 1240/E_g$` (eV·nm).
+- **Module 1 → Module 2:** coherence length `$l_c = c/\Delta\nu$` explains the "coherent" property of laser light; Young's double-slit measures spatial coherence.
+- **Module 2 ↔ Programming:** the fiber/laser stack is what runs long-haul links — see `Business/quant-finance/` only for market relevance, not physics.
+
+---
+
+## Source coverage
+
+[[source-map-physics-sem1]] catalogues roughly **75 Sem-1 physics source files** across two raw-source trees. As of 2026-09-09 only **7 had ever been opened**; everything else is filename-level with topic guesses marked `speculation`. Known un-ingested material worth picking up next:
+
+| Priority | Folder | Files | Topic |
+|---|---|---|---|
+| 1 | `Semester 1/Physics/Physics Lab/` | 2 | `Physics Lab Manual 2025-26 SEM I final.pdf` (1.2 MB, unopened) — **prime candidate, one experiment at a time** |
+| 2 | `Semester 1/Physics/` | 3 | `Syllabus_EP_Sem I.pdf` — would fix official module boundaries |
+| 3 | `Module 2 Photonics/2.1 Laser/` | 8 | `Laser Formulas.pdf`, `Laser notes.pdf`, `Numericals LASER.pdf`, `PPT on Laser.pdf` + more — **unopened; would supersede the synthesized quick-ref with faculty material** |
+| 4 | `Module 2 Photonics/2.2 Optical Fibre/` | 6 | fibre notes/numericals/questions — unopened |
+| 5 | `Derivations/` | 5 | `Einstein_s Coefficients.pdf`, `Lasing Threshold.pdf`, `Numerical Aperture.pdf` — directly relevant to Module 2 |
+| 6 | `Module 3 Quantum Mechanics/` | 10 | incl. `Prof. Surens Notes` and solved numerical sets |
+| 7 | `Module 4 Semiconductors/` | 9 | `Formula sheet`/`Notes`/`Numerical problems` by Dr. Suren Patwardhan |
+
+That file also notes: `Physics Lab Experiment Format.pdf` extracts **no text** (image-only) — do not quote it as text; it needs OCR.
+
+---
+
+## Open gaps in this domain
+
+1. **No revision sheets for Modules 1, 3, 4** — only Module 2 has one. Modules 3 and 4 deep pages are 60–74 KB with no short cut.
+2. **Physics lab has no write-up page** — the lab manual has never been opened, so there is no `lab-*` page for physics (unlike the SPM/chem/BEE labs).
+3. **No `description:` frontmatter on three deep pages** — `module-2`, `module-3`, `module-4` lack the `description` field that the vault's Definition of Done requires. The mind plugin may warn on these; they are large hand-built pages, so a short description was never added.
+
+---
+
+## Cross-references
+
+- Domain: [[01-Areas/Engineering/INDEX|Engineering domain hub]]
+- **Revision first:** [[lasers-quick-ref]] · [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]]
+- Source inventory: [[source-map-physics-sem1]]
+- Course context: [[syllabus-316U06C107|SPM syllabus]] (the C course, for contrast) · [[assessment-guide-ese-ost-quiz]] (SPM exam patterns — note: no equivalent physics exam-pattern page exists yet)
