@@ -8,6 +8,8 @@ prerequisites: ["Wave Optics", "Quantum Mechanics Basics", "Electromagnetic Wave
 
 # Module 2: Optoelectronics — Lasers & Fiber Optics (Deep Dive)
 
+> **For exam revision use [[lasers-quick-ref]] instead of this page** — it is the condensed lasers-only sheet (formulas, comparison tables, laser-types roster, 4 worked numericals). **This page remains the deep theory + fiber-optics owner** (fiber structure, NA derivation, V-number, attenuation, dispersion, EDFA/Raman, photodiodes, solar cells, nonlinear optics) and is where you go for derivation detail.
+
 > The physics of light generation, amplification, and transmission — from Einstein's prediction to modern fiber networks. This module covers the complete theoretical and quantitative framework for lasers, optical fibers, and optoelectronic devices.
 
 ---

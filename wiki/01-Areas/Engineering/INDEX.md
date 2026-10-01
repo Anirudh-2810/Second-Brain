@@ -31,10 +31,12 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | [[SPM/spm-practice-bank-module2|SPM/spm-practice-bank-module2]] | — | **Sem-1 drive:** M2 drills verbatim — Easy 15 + Difficult 15 (CO2, no arrays/functions) + sketches |
 | [[SPM/spm-quiz-bank|SPM/spm-quiz-bank]] | — | **Sem-1 drive:** timed quiz sets M1+M2 (Debug/Complete/Predict 5+5+5 each) + worked answers |
 | [[SPM/spm-lab-exp1-exp2-guides|SPM/spm-lab-exp1-exp2-guides]] | — | **Sem-1 drive:** EXP1 + EXP2 write-ups (tasks, post-lab Q&A) + MSYS2/GCC/CodeBlocks setup |
+| [[SPM/spm-lab-exp3-4-5-guides|SPM/spm-lab-exp3-4-5-guides]] | — | **NEW:** EXP3 (loops: for/while/do-while, break/continue, nesting) + EXP4 (arrays 1D/2D, sum/avg, linear search, max/min, matrix add) + EX5 (strings: strlen/strcpy/strcat/strcmp, palindrome) — aims, sample programs, task lists, post-lab Q&A with worked answers |
 | SPM/module-1-spm-c-basics | — | M1: SDLC, compilation pipeline, memory layout (Text/Data/BSS/Heap/Stack) |
 | SPM/module-2-program-control-functions | — | M2: if/switch/loops, break/continue/goto, for-step semantics |
 | SPM/module-3-arrays | — | M3.1: 1D/2D arrays, row-major vs col-major, address formulas, search/sort |
-| [[SPM/module-3-strings|SPM/module-3-strings]] | — | **M3.2 NEW:** char arrays, `'\0'` terminator, `strlen/strcpy` from scratch · [[SPM/spm-string-functions-char-equality-reverse|Strings lecture: functions/equality/reverse]] |
+| [[SPM/module-3-arrays-strings|SPM/module-3-arrays-strings]] | — | **NEW (merge of the whole module, beginner-first):** 1D arrays + address formulas, 2D row-major + cache, string model with `'\0'`, strlen/strcpy/strcmp/strcat, from-scratch loops, **dedicated strcpy exam drill**, 16-row trap table · faculty source `Unit No.3 Arrays_Strings.pdf` |
+| [[SPM/module-3-strings|SPM/module-3-strings]] | — | **M3.2:** char arrays, `'\0'` terminator, `strlen/strcpy` from scratch · [[SPM/spm-string-functions-char-equality-reverse|Strings lecture: functions/equality/reverse]] |
 | SPM/module-4-user-defined-functions | — | M4.1: UDFs, call-by-value, recursion, storage classes |
 | [[SPM/module-4-structures-unions-pointers|SPM/module-4-structures-unions-pointers]] | — | **M4.2-4.3 NEW:** structs/unions, struct vs union, pointers, pointer arithmetic, file handling |
 | SPM/c-programming-master-study-guide | — | 4-chapter cram guide (compile→control→arrays→functions) |
@@ -42,7 +44,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | [[engineering-drawing/overview|engineering-drawing/]] | 33 | Orthographic projections, points/lines/planes, solids + sections + developments, isometric, AutoCAD lab + exam prep — plus new **[[engineering-drawing/solidworks/INDEX|solidworks/]]** self-study track (26 pages: basics → surfacing → 154-video build library → projects) |
 | [[engineering-chem/module-1-water-technology-hardness\|engineering-chem/]] | 17 | Water tech, surfactants, electrochem/corrosion, spectroscopy, polymers + green chemistry, named reactions, 4 chem labs + EDTA & zeolite numericals banks + industry-effects |
 | [[engineering-math/module-1-matrices|engineering-math/]] | 9 | Matrices, PDE, homogeneous fns, linear DEs, complex numbers + ISE prep + prerequisite toolkit + [[engineering-math/quiz-2026-09-22-systems-consistency-rank|22-Sept consistency/rank quiz (9 Q)]] |
-| [[engineering-physics/overview|engineering-physics/]] | 7 | Course physics + Module-1 numericals addendum |
+| [[engineering-physics/overview|engineering-physics/]] | 8 | Course physics + Module-1 numericals addendum + [[engineering-physics/lasers-quick-ref|Lasers rapid-revision sheet]] (Einstein coeffs, population inversion, threshold gain, laser-types table, cavity modes, 4 worked numericals) |
 | [[BEE/INDEX\|BEE/]] | 12 | Basic Electrical Engineering: DC circuits & theorems (+ Thevenin worked examples), AC circuits, three-phase, transformers, DC machines & induction motors, installations/safety + labs + formula sheet |
 | [[engineering-biology/INDEX|engineering-biology/]] | 8 | **NEW Sem-1 Bio for engineers**: biomolecules, cell biology, bioinformatics, fermentation, systems biology |
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
@@ -60,7 +62,10 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 - "SPM this week's topic / lab?" → [[SPM/lesson-plan-2026-27]]
 - "SPM CA marks / attendance rubric?" → [[SPM/lab-ca-and-experiments]]
 - "SPM ESE pattern / OST / Quiz?" → [[SPM/assessment-guide-ese-ost-quiz]]
-- "SPM unit 3 arrays?" → [[SPM/module-3-arrays]] · strings → [[SPM/module-3-strings]]
+- "SPM unit 3 arrays?" → [[SPM/module-3-arrays-strings|module-3-arrays-strings]] (merged beginner page) · [[SPM/module-3-arrays]] (deep exam bank) · strings → [[SPM/module-3-strings]]
+- "SPM strcpy / string functions / from-scratch strings?" → [[SPM/module-3-arrays-strings#7-strcpy--the-dedicated-drill|strcpy exam drill]] + [[SPM/module-3-strings#4-implementing-handlers-from-scratch-syllabus-requirement|from-scratch section]]
+- "SPM lab EXP3/EX4/EX5 write-up?" → [[SPM/spm-lab-exp3-4-5-guides]]
+- "Physics-B lasers / Einstein coefficients / threshold gain / laser types?" → [[engineering-physics/lasers-quick-ref|lasers quick-ref]] · deep: [[engineering-physics/module-2-optoelectronics-lasers-fiber-optics]]
 - "SPM faculty PPTs / what's new from the Sem-1 drive?" → [[SPM/spm-module1-faculty-companion]] · [[SPM/spm-module2-faculty-companion]]
 - "SPM practice drills / quiz prep?" → [[SPM/spm-practice-bank-module1]] · [[SPM/spm-practice-bank-module2]] · [[SPM/spm-quiz-bank]]
 - "SPM EXP1/EXP2 write-up / CodeBlocks setup?" → [[SPM/spm-lab-exp1-exp2-guides]]

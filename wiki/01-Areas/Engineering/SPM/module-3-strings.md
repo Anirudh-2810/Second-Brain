@@ -152,8 +152,10 @@ Output: `3 4` then `b b` (sizeof includes `\0`).
 
 ## Cross-References
 
+- **Beginner/merged entry point for this whole module:** [[module-3-arrays-strings]] — the full Module 3 (1D + 2D arrays **and** strings) in one beginner-first page, including the faculty handout, from-scratch loops, and a dedicated **strcpy exam drill** (§7) with predict-output traps. **This page remains the deeper strings bank** (full `myStrcat`, `fgets` stripping detail).
 - Arrays foundation: [[module-3-arrays]] (contiguous + address formulas)
 - Pointer view: [[module-4-structures-unions-pointers#3-pointers]] (`char *` vs `char[]`)
 - Syntax sheet: [[formula-sheet-spm#6-strings-char-arrays--0]] · Cram: [[c-programming-master-study-guide#12-process-memory-layout]]
+- Lecture cut: [[spm-string-functions-char-equality-reverse]] · Lab: [[spm-lab-exp3-4-5-guides]] (EX5 — strings)
 
 *Lab: EXP5 Write a program to demonstrate use of strings and string handling functions — per [[lab-ca-and-experiments]] Week 8.*

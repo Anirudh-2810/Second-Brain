@@ -518,7 +518,10 @@ Both are **O(n)** — the worst case for arrays, confirming the complexity table
 
 ## CROSS-REFERENCES
 
+- **Beginner/merged entry point for this whole module:** [[module-3-arrays-strings]] — 1D + 2D arrays and strings in one page, with the faculty handout (`Unit No.3 Arrays_Strings.pdf`) folded in and a dedicated strcpy exam drill. **This page remains the deeper exam bank** (binary search, bubble sort, insert/delete shift analysis, full address derivations).
 - Related modules: [[module-2-program-control-functions]] (loops drive array ops) · [[module-4-user-defined-functions]] (arrays passed to functions, pointer params) · [[01-Areas/Programming/cs50/week-2-arrays]] · [[01-Areas/Programming/programming-cs-fundamentals]] (Big-O)
+- Strings half: [[module-3-strings]] · [[spm-string-functions-char-equality-reverse]]
+- Lab: [[spm-lab-exp3-4-5-guides]] (EXP4 — arrays)
 
 ---
 
