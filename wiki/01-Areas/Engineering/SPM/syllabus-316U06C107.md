@@ -3,13 +3,17 @@ course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "Syllabus Hub — All Modules 1-4 (30 hrs)"
 tags: [spm, syllabus, kjsce, 316U06C107, structured-programming, c-programming, coe-mapping]
-last_updated: "2026-09-02"
+last_updated: "2026-10-01"
 confidence: high
 description: "Official SPM 316U06C107 syllabus hub — 30 hrs across 4 modules, CO1-CO4 mapping, unit breakdown, SDLC to pointers, with sources and wiki page map."
 ---
 
 ## For future agent
 This note is the single-source syllabus registry for SPM 316U06C107 (2026-27). It was ingested from [[raw-sources/SPM_Syllabus_316U06C107]] and maps every unit to its CO and to the wiki module pages that teach it. Use it to answer "what's in SPM unit X?" without re-reading the PDF.
+
+**Verified against the official PDF 2026-10-01** (`raw-sources/SPM Lecture/SPM_Syllabus.pdf` and the root copy). All metadata matches the earlier `.md` extraction — code, title, credits (03), teaching scheme (04 hrs), CA 50 / ESE 50 / LAB CA 50, the 05/06/07/12 hour split totalling 30, and all four COs. The only correction is the **unit wording**, which the earlier `.md` had paraphrased. The verbatim official wording is now in the module map below — use those strings when matching a question to a unit, since exams are set from the official text.
+
+**One wording subtlety worth remembering:** unit **1.1 is officially "Problem solving *skill development*"**, and the 5 sub-items are Problem Definition, fundamentals of algorithms and flowcharts, Program Design, **Pseudocode** — the same five headings the superseded AY 2025-26 Topic 1.1 deck used as its index.
 
 # SPM 316U06C107 — Syllabus Hub (30 hrs, 4 Modules)
 
@@ -38,12 +42,15 @@ This note is the single-source syllabus registry for SPM 316U06C107 (2026-27). I
 
 ## Module Map — 30 hrs
 
-| Module | Title | Hrs | CO | Units (from syllabus) | Wiki Pages |
+**Unit wording below is verbatim from the official syllabus PDF** (verified 2026-10-01). The "Wiki pages" column routes each unit to the page that teaches it.
+
+| Module | Title | Hrs | CO | Units (verbatim from syllabus) | Wiki Pages |
 |--------|-------|-----|----|------------------------|------------|
-| **1** | Introduction to Structured Programming Methodology | 05 | CO1 | 1.1 Problem solving (definition, algorithms, flowcharts, pseudocode) · 1.2 Structured Programming · 1.3 Program execution, SDLC · 1.4 Header files / packages / namespaces, Data & Operators (types, identifiers, constants, variables) · 1.5 Operators, Expressions, Evaluation, Precedence/Associativity, Type Conversions | [[module-1-spm-c-basics]] (§1.1-1.7 SDLC+compile+memory) · [[c-programming-master-study-guide#14-operators--precedence]] (precedence ladder) · [[formula-sheet-spm#2-data-types--format-specifiers]] (types) |
-| **2** | Program Control Functions | 06 | CO2 | 2.1 Decision/Multiway Branching · 2.2 Looping, Flag Concept, Counting Loops · 2.3 Documentation & Readable Code | [[module-2-program-control-functions]] (full: if/switch/while/for/break/continue/goto) · [[c-programming-master-study-guide#2-control-flow]] |
-| **3** | Introduction to Arrays | 07 | CO3 | 3.1 1D / Multidimensional Arrays, declaration/init, reading/displaying · 3.2 Character Arrays & Strings: declaring strings, reading/writing chars & strings, operations, implementing handlers from scratch | **[[module-3-arrays-strings]]** (merged beginner page — 1D + 2D + strings + **strcpy exam drill**; built from the faculty handout `Unit No.3 Arrays_Strings.pdf`) · [[module-3-arrays]] (deep exam bank: binary search, bubble sort, shift analysis) · [[module-3-strings]] (deep strings bank) · [[spm-lab-exp3-4-5-guides]] (EXP4+EX5) · [[c-programming-master-study-guide#3-arrays]] |
-| **4** | User Defined Functions and Structures | 12 | CO4 | 4.1 UDFs: need, declaration/definition, return values, calls, pass-by-value, recursion, inbuilt string handlers · 4.2 Structures & Unions: declaring/defining, init, accessing members, array of structures · 4.3 Pointers: declaration/init, pointer arithmetic, expressions, pass-by-reference, returning pointers · Self-Learning: Unions, Structure vs Union, File Handling | [[module-4-user-defined-functions]] (UDFs, recursion, fn pointers) · [[module-4-structures-unions-pointers]] (new: structs, unions, pointers, file handling) · [[c-programming-master-study-guide#4-user-defined-functions]] |
+| **1** | Introduction to Structured Programming Methodology | 05 | CO1 | **1.1** Problem solving *skill development*: Problem Definition, fundamentals of algorithms and flowcharts, Program Design, Pseudocode · **1.2** Structured Programming · **1.3** Program execution process, Systems Development Life Cycle · **1.4** Understanding concept and importance of header file/package/namespaces; Data & Operators: Data Types, Identifier, Constants and Variables · **1.5** Types of Operators, Expressions and Evaluation of Expressions, Operator Precedence and Associativity, Type Conversions | [[module-1-spm-c-basics]] (§1.1-1.7 SDLC+compile+memory) · [[spm-module1-faculty-companion]] (PPT wording, quick-tests, **§6a bitwise is out of scope**, §6b superseded AY 2025-26 deck) · [[c-programming-master-study-guide#14-operators--precedence]] · [[formula-sheet-spm#2-data-types--format-specifiers]] |
+| **2** | Program Control Functions | 06 | CO2 | **2.1** Decision Making and Branching Control Structures: Two Way Selection, Multiway Selection · **2.2** Looping Control Structures, **Flag Concept, Counting Loops** · **2.3** **Documentation and Making Source Code Readable** | [[module-2-program-control-functions]] (§1.7 flag, §1.8 counting loops, §1.9 documentation, §1.10 trace tables — added 2026-10-01) · [[spm-module2-faculty-companion]] · [[c-programming-master-study-guide#2-control-flow]] |
+| **3** | Introduction to Arrays | 07 | CO3 | **3.1** Arrays: Introduction to One Dimensional Arrays, Multidimensional Arrays, Declaration and Initialization of Arrays, Reading and Displaying arrays · **3.2** Character Arrays and Strings: Introduction, Declaring and Initializing String Variables, Reading Character and Writing Character, Reading and Writing Strings, various operation on strings, **Implementation of string handling operations (from scratch)** | [[module-3-arrays]] (dedicated arrays page) · [[module-3-strings]] (dedicated strings page + **strcpy exam drill**) · [[module-3-arrays-strings]] (module hub / routing) · [[spm-lab-exp3-4-5-guides]] (EXP4+5) · [[c-programming-master-study-guide#3-arrays]] |
+| **4** | User Defined Functions and Structures | 12 | CO4 | **4.1** User Defined Functions: Need, Function Declaration and Definition, Return Values, Function Calls, Passing Arguments to a Function by Value, Recursive functions, String Handling Functions (inbuilt) · **4.2** Structures and Unions: Introduction, Declaring and defining Structure, Structure Initialization, Accessing and Displaying Structure Members, Array of Structures · **4.3** Introduction to pointers: Pointer declaration and initialization, Pointer addition and subtraction, evaluating pointer expressions; Pointers and Functions: Pass by Reference, Returning pointers from functions · Self-Learning: Unions, Structure vs Union, File Handling | [[module-4-user-defined-functions]] (UDFs, recursion) · [[module-4-structures-unions-pointers]] (structs, unions, pointers, file handling) · [[c-programming-master-study-guide#4-user-defined-functions]] |
+
 
 **Module 4 note on self-learning:** Unions / Structure vs Union / File Handling are marked as self-learning in the syllabus table footnote — they are examinable and appear in [[lab-ca-and-experiments]] Assignment 2.
 
@@ -63,7 +70,7 @@ This note is the single-source syllabus registry for SPM 316U06C107 (2026-27). I
 
 ## Cross-References & Learning Path
 
-**Recommended order:** [[syllabus-316U06C107]] (this page) → [[lesson-plan-2026-27]] (week timeline) → [[module-1-spm-c-basics]] → [[module-2-program-control-functions]] → [[module-3-arrays-strings]] (start here for M3 — beginner) → [[module-3-arrays]] + [[module-3-strings]] (deeper exam banks) → [[module-4-user-defined-functions]] → [[module-4-structures-unions-pointers]] → [[c-programming-master-study-guide]] (cram) → [[formula-sheet-spm]] (syntax) → [[assessment-guide-ese-ost-quiz]] (exam patterns) → [[lab-ca-and-experiments]] + [[spm-lab-exp1-exp2-guides]] + [[spm-lab-exp3-4-5-guides]] (lab execution)
+**Recommended order:** [[syllabus-316U06C107]] (this page) → [[lesson-plan-2026-27]] (week timeline) → [[module-1-spm-c-basics]] → [[module-2-program-control-functions]] → [[module-3-arrays]] + [[module-3-strings]] (the two dedicated Module-3 pages; [[module-3-arrays-strings]] is the hub) → [[module-4-user-defined-functions]] → [[module-4-structures-unions-pointers]] → [[c-programming-master-study-guide]] (cram) → [[formula-sheet-spm]] (syntax) → [[assessment-guide-ese-ost-quiz]] (exam patterns) → [[lab-ca-and-experiments]] + [[spm-lab-exp1-exp2-guides]] + [[spm-lab-exp3-4-5-guides]] (lab execution)
 
 **Bridges:** C craft feeds [[01-Areas/Programming/INDEX]] (DSA/OOP), memory model feeds [[01-Areas/Programming/cs50/week-4-memory]], robotics uses C pointers in `engineering/robotics/`.
 

@@ -3,7 +3,7 @@ course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "M1 faculty companion — PPT deltas over module-1-spm-c-basics"
 tags: [spm, btech, c, module-1, algorithms, flowcharts, pseudocode, structured-programming, compilation, sdlc, operators, type-conversion]
-last_updated: "2026-09-18"
+last_updated: "2026-10-01"
 date: "2026-09-18"
 description: "SPM M1 faculty-PPT companion — problem-definition method, SI example, largest-of-three chain, Bohm-Jacopini, error trilogy, guards, const-vs-define, conversion demo."
 ---
@@ -11,6 +11,8 @@ description: "SPM M1 faculty-PPT companion — problem-definition method, SI exa
 ## For future agent
 
 This note holds ONLY what the Sem-1 faculty PPTs add on top of [[module-1-spm-c-basics]] — phrasing, examples, and tables worth quoting in exams. Theory depth (COCOMO, memory layout, PERT) stays in [[module-1-spm-c-basics]]. Drills live in [[spm-practice-bank-module1]], quiz items in [[spm-quiz-bank]], lab in [[spm-lab-exp1-exp2-guides]].
+
+**Source-set warning (2026-10-01):** `raw-sources/` now holds **two** copies of the Module-1 decks — `SPM SEM1 work/PPT/Module 1/` (AY 2026-27, used for this page) and `SPM Lecture/` (a second copy, mostly identical). One file in the newer folder, `SPM_Module1_1.1_PPT.pptx`, is an **AY 2025-26** cohort deck and is *superseded* — see §6b for what was salvaged and §"Deck-verification log" for the per-deck diff result. Check the AY header before ingesting any SPM deck: `Topic N.N` + `AY 2026-27` = current family; `First Year -AY 2025-26` = older cohort.
 
 # SPM M1 Faculty Companion — PPT Deltas (Sem-1 Drive)
 
@@ -197,6 +199,42 @@ float r2 = (float) a / b;  /* 2.5 — cast forces float division */
 Pitfalls: `=` vs `==` (`if(x=5)` assigns, almost always true); assuming `+` outranks `*`; treating `++i`/`i++` as identical; `%` on floats (invalid).
 
 Quick-test answers (1.5): highest precedence = `()`; `printf("%d",i++)` with i=4 prints 4, i becomes 5; `(float)7/2` = 3.5; "`%` works on floats" = False.
+
+### 6a. Bitwise operators are OUT OF SCOPE for 1.5 (verified 2026-10-01)
+
+The AY 2026-27 deck `SPM_Module1_5.pptx` **removed** a whole bitwise-operators section that the earlier 2025-26 deck carried, and replaced it with an explicit scope note:
+
+> *"Not shown: bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`) — these work at the individual-bit level and are outside this topic's scope."*
+
+The removed slides had covered `a & b`, `a | b`, `a ^ b` on binary values (e.g. `12 & 10 → 8`) and shifts (`x << 2` multiplies by $2^n$, `x >> 1` divides by 2). **Do not spend exam-prep time on these** — they are not examinable under 1.5 in the current deck family. They still appear in other contexts (device drivers, cryptography) but that is outside this course's stated scope.
+
+Extra practice question added by the new deck: with `int x = 10;`, what does `printf("%d", x--)` print, and what is `x` afterward? (Prints 10; `x` becomes 9.)
+
+### 6b. Supplementary: the superseded AY 2025-26 Topic 1.1 deck
+
+`raw-sources/SPM Lecture/SPM_Module1_1.1_PPT.pptx` (26 slides, 3.3 MB) is an **AY 2025-26 cohort deck** — its header reads *"First Year - AY 2025-26"*, while every other deck in `SPM Lecture/` is **AY 2026-27**. The current 2026-27 Topic 1.1 deck is the one already ingested here (`SPM SEM1 work/PPT/Module 1/SPM_Module1_1_F.pptx`, 27 slides). **The older deck does not replace section 2** — it is superseded. It does however contain a few items the current deck does not, worth knowing:
+
+- **Definition of structured programming** — *"a programming paradigm aimed at improving the clarity, quality, and development time of computer programs by using well-defined control structures and subroutines."* Emphasises **top-down design** and the three control structures (sequence, selection, iteration).
+- **Three problem-solving skills** — (1) understanding the problem domain, (2) breaking complex problems into subproblems (**divide-and-conquer**), (3) critical thinking / logic development.
+- **Four core aspects** — analytical thinking, pattern recognition, creative solutions, debugging.
+- **Quotation** — V. Anton Spraul, *Think Like a Programmer*: *"Problem solving is writing an original program that performs a particular set of tasks and meets all stated constraints."* A safe citation for a 1-mark question on problem solving.
+- **Requirements specification** — distinguishes **functional** requirements (what it does) from **non-functional** ones (performance, usability), plus **acceptance criteria** and test scenarios.
+- **Alternative 3-stage framing** — Understanding → Planning → Implementing, where Planning covers interface design, data structures, algorithm sketching and pseudocode. Note this differs from the 5-step Understand-Analyze-Plan-Solve-Verify in section 2; the 5-step is the current framing.
+
+## Deck-verification log (2026-10-01)
+
+A second set of Module-1 decks (`raw-sources/SPM Lecture/SPM_Module1*.pptx`) was text-diffed against the `SPM SEM1 work/PPT/Module 1/` set this page was built from. Result per deck:
+
+| Deck | Old → new slides | Content delta | Action |
+|---|---|---|---|
+| `SPM_Module1.pptx` | 19 → 19 | none (entity-encoding + line-break noise only) | no change needed |
+| `SPM_Module1_1_F.pptx` → `SPM_Module1_1.1_PPT.pptx` | 27 → 26 | **whole deck is AY 2025-26**, superseded by the 2026-27 set | extracted to §6b, did **not** overwrite §2 |
+| `SPM_Module1_2.pptx` | 28 → 28 | **zero** changed lines | no change needed |
+| `SPM_Module1_3.pptx` | 27 → 27 | **zero** changed lines | no change needed |
+| `SPM_Module1_4.pptx` | 29 → 27 | none (`&quot;` → `"` encoding, 2 slides dropped) | no change needed |
+| `SPM_Module1_5.pptx` | 28 → 27 | **bitwise-operator section removed** | recorded in §6a |
+
+**Method:** PPTX is a ZIP archive; slides were extracted with stdlib `zipfile` by pulling `<a:t>` text runs per `ppt/slides/slideN.xml`, then compared with `difflib.unified_diff`. Speaker notes were checked and are slide-number boilerplate only (adds ~0.3 KB/deck). Repeat this for any future deck revision.
 
 ## Cross-references
 
