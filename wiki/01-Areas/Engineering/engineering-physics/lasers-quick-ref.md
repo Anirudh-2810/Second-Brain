@@ -2,10 +2,10 @@
 course_code: "ENG-PHY"
 course_name: "Engineering Physics"
 unit: "Module 2 — Lasers (Rapid Revision)"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "Physics-B laser quick-revision sheet — Einstein coefficients, population inversion, 3-level vs 4-level, threshold gain, laser types table, cavity modes and TEM patterns, plus the four worked numericals you must be able to reproduce."
 tags: [engineering-physics, lasers, photonics, quantum-mechanics, stimulated-emission, population-inversion, einstein-coefficients, exam-prep, revision]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 prerequisites: ["Quantum Mechanics Basics", "Wave Optics", "Electromagnetic Waves"]
 ---
@@ -344,4 +344,4 @@ $$\lambda = \frac{hc}{E} = \frac{1240\ \text{eV·nm}}{1.96\ \text{eV}} \approx 6
 - Semiconductors: [[module-4-semiconductors-electromagnetism]] (p-n junctions, band gap)
 - Course context: [[source-map-physics-sem1]] (catalogs the unopened Sem-1 laser/fibre sources — `2.1 Laser/` holds 8 files not yet ingested; see section D for next-ingest order)
 
-*Condensed 2026-10-01 from [[module-2-optoelectronics-lasers-fiber-optics]] for Physics-B exam revision.*
+*Condensed 2026-10-02 from [[module-2-optoelectronics-lasers-fiber-optics]] for Physics-B exam revision.*

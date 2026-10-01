@@ -64,7 +64,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 - "SPM ESE pattern / OST / Quiz?" → [[SPM/assessment-guide-ese-ost-quiz]]
 - "SPM unit 3 arrays?" → **[[SPM/module-3-arrays]]** (dedicated page) · hub: [[SPM/module-3-arrays-strings]]
 - "SPM strcpy / string functions / from-scratch strings?" → **[[SPM/module-3-strings#6-the-strcpy-exam-drill|strcpy exam drill]]** + [[SPM/module-3-strings#3-from-scratch-the-syllabus-requirement|from-scratch section]]
-- "SPM M2 flag / counting loops / documentation?" → [[SPM/module-2-program-control-functions#17-the-flag-concept-syllabus-22--new-2026-10-01|flag]] · [[SPM/module-2-program-control-functions#19-documentation-and-making-source-code-readable-syllabus-23--new-2026-10-01|documentation]]
+- "SPM M2 flag / counting loops / documentation?" → [[SPM/module-2-program-control-functions#17-the-flag-concept-syllabus-22--new-2026-10-02|flag]] · [[SPM/module-2-program-control-functions#19-documentation-and-making-source-code-readable-syllabus-23--new-2026-10-02|documentation]]
 - "SPM lab EXP1/EX2 write-up?" → [[SPM/spm-lab-exp1-exp2-guides]] · EXP3/4/5 → [[SPM/spm-lab-exp3-4-5-guides]]
 - "Physics-B lasers / Einstein coefficients / threshold gain / laser types?" → [[engineering-physics/lasers-quick-ref|lasers quick-ref]] · deep: [[engineering-physics/module-2-optoelectronics-lasers-fiber-optics]]
 - "SPM faculty PPTs / what's new from the Sem-1 drive?" → [[SPM/spm-module1-faculty-companion]] · [[SPM/spm-module2-faculty-companion]]

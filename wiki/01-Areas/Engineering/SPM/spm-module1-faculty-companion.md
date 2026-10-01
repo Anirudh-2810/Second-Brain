@@ -3,7 +3,7 @@ course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "M1 faculty companion — PPT deltas over module-1-spm-c-basics"
 tags: [spm, btech, c, module-1, algorithms, flowcharts, pseudocode, structured-programming, compilation, sdlc, operators, type-conversion]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 date: "2026-09-18"
 description: "SPM M1 faculty-PPT companion — problem-definition method, SI example, largest-of-three chain, Bohm-Jacopini, error trilogy, guards, const-vs-define, conversion demo."
 ---
@@ -12,7 +12,7 @@ description: "SPM M1 faculty-PPT companion — problem-definition method, SI exa
 
 This note holds ONLY what the Sem-1 faculty PPTs add on top of [[module-1-spm-c-basics]] — phrasing, examples, and tables worth quoting in exams. Theory depth (COCOMO, memory layout, PERT) stays in [[module-1-spm-c-basics]]. Drills live in [[spm-practice-bank-module1]], quiz items in [[spm-quiz-bank]], lab in [[spm-lab-exp1-exp2-guides]].
 
-**Source-set warning (2026-10-01):** `raw-sources/` now holds **two** copies of the Module-1 decks — `SPM SEM1 work/PPT/Module 1/` (AY 2026-27, used for this page) and `SPM Lecture/` (a second copy, mostly identical). One file in the newer folder, `SPM_Module1_1.1_PPT.pptx`, is an **AY 2025-26** cohort deck and is *superseded* — see §6b for what was salvaged and §"Deck-verification log" for the per-deck diff result. Check the AY header before ingesting any SPM deck: `Topic N.N` + `AY 2026-27` = current family; `First Year -AY 2025-26` = older cohort.
+**Source-set warning (2026-10-02):** `raw-sources/` now holds **two** copies of the Module-1 decks — `SPM SEM1 work/PPT/Module 1/` (AY 2026-27, used for this page) and `SPM Lecture/` (a second copy, mostly identical). One file in the newer folder, `SPM_Module1_1.1_PPT.pptx`, is an **AY 2025-26** cohort deck and is *superseded* — see §6b for what was salvaged and §"Deck-verification log" for the per-deck diff result. Check the AY header before ingesting any SPM deck: `Topic N.N` + `AY 2026-27` = current family; `First Year -AY 2025-26` = older cohort.
 
 # SPM M1 Faculty Companion — PPT Deltas (Sem-1 Drive)
 
@@ -200,7 +200,7 @@ Pitfalls: `=` vs `==` (`if(x=5)` assigns, almost always true); assuming `+` outr
 
 Quick-test answers (1.5): highest precedence = `()`; `printf("%d",i++)` with i=4 prints 4, i becomes 5; `(float)7/2` = 3.5; "`%` works on floats" = False.
 
-### 6a. Bitwise operators are OUT OF SCOPE for 1.5 (verified 2026-10-01)
+### 6a. Bitwise operators are OUT OF SCOPE for 1.5 (verified 2026-10-02)
 
 The AY 2026-27 deck `SPM_Module1_5.pptx` **removed** a whole bitwise-operators section that the earlier 2025-26 deck carried, and replaced it with an explicit scope note:
 
@@ -221,7 +221,7 @@ Extra practice question added by the new deck: with `int x = 10;`, what does `pr
 - **Requirements specification** — distinguishes **functional** requirements (what it does) from **non-functional** ones (performance, usability), plus **acceptance criteria** and test scenarios.
 - **Alternative 3-stage framing** — Understanding → Planning → Implementing, where Planning covers interface design, data structures, algorithm sketching and pseudocode. Note this differs from the 5-step Understand-Analyze-Plan-Solve-Verify in section 2; the 5-step is the current framing.
 
-## Deck-verification log (2026-10-01)
+## Deck-verification log (2026-10-02)
 
 A second set of Module-1 decks (`raw-sources/SPM Lecture/SPM_Module1*.pptx`) was text-diffed against the `SPM SEM1 work/PPT/Module 1/` set this page was built from. Result per deck:
 

@@ -25,6 +25,12 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-09-23 — Team Onyx Round-1 cleared** (Builds) — written test (40 MCQs) passed, through to interview for coding + automation roles; prep from [[01-Areas/Engineering/aeromodelling/INDEX]] paid off; [[daily/2026-09-23]]
 
+- **2026-10-02 — SPM `raw-sources` backlog fully closed: 16/16 files** (Coursework) — both `SPM Lab/` and `SPM Lecture/` opened to completion, including all 8 PPTX decks (208 slides) via a stdlib-zipfile extractor (no `pip install`); a superseded AY 2025-26 deck caught before it could overwrite current content, and 3 examinable Module-2 syllabus gaps (2.2 flag/counting loops, 2.3 documentation) closed; [[01-Areas/Engineering/SPM/module-2-program-control-functions]] + [[daily/2026-10-02]]
+
+- **2026-10-02 — Arrays weak area turned into a dedicated exam page** (Coursework) — user named arrays the weak topic, so it got its own 27.5 KB page (4 init styles, `B+i*S`, row-major vs column-major with both address formulas, binary search, bubble sort, insert/delete shifts) with 12 practice questions + a 5-question quick test, answers included; a 40.7 KB mega-page split three ways so revision can start at a topic; [[01-Areas/Engineering/SPM/module-3-arrays]]
+
+- **2026-10-02 — `strcpy` exam drill + Physics-B lasers revision sheet shipped** (Coursework) — dedicated strcpy section (examiner checklist, 6 traps, `strncpy` contrast, 6 predict-output drills) in [[01-Areas/Engineering/SPM/module-3-strings]]; lasers condensed from 73 KB to a 17 KB revision surface [[01-Areas/Engineering/engineering-physics/lasers-quick-ref]] so exam prep no longer means opening the deep page
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]

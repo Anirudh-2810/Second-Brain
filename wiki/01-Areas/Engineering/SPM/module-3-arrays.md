@@ -2,10 +2,10 @@
 course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "Module 3.1 — Introduction to Arrays"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "SPM M3.1 arrays, complete and beginner-first — 1D declaration and four init styles, memory layout and address formula B+i*S, read/display, sum/avg/max/min, linear and binary search, bubble sort, insert/delete shift analysis, 2D row-major vs column-major with both address formulas, matrix ops, complexity tables, address drills, 12 practice questions and a 5-question quick test."
 tags: [spm, arrays, c-programming, 316U06C107, 1d-arrays, 2d-arrays, row-major, column-major, address-formula, linear-search, binary-search, bubble-sort, insertion, deletion, complexity, exam-prep, lab]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 prerequisites: ["Module 2: Program Control Functions", "Basic Big-O notation"]
 sources:
@@ -17,7 +17,7 @@ sources:
 
 ## For future agent
 
-**The dedicated arrays page for SPM Module 3.1** (syllabus 3.1; part of Module 3's 7 hours, CO3, Bloom's *Apply*). Rewritten 2026-10-01 as the single home for arrays: it absorbs the beginner-teaching half of the former merged page **and** the deep exam bank that used to live here, plus deltas extracted from the faculty deck `SPM_Module3_1.pptx` (27 slides, AY 2026-27).
+**The dedicated arrays page for SPM Module 3.1** (syllabus 3.1; part of Module 3's 7 hours, CO3, Bloom's *Apply*). Rewritten 2026-10-02 as the single home for arrays: it absorbs the beginner-teaching half of the former merged page **and** the deep exam bank that used to live here, plus deltas extracted from the faculty deck `SPM_Module3_1.pptx` (27 slides, AY 2026-27).
 
 **Why it was rewritten rather than appended:** arrays + strings had grown into one 40.7 KB page (`module-3-arrays-strings.md`), past the vault's ~25 KB split threshold. That page is now a slim module hub. **Strings live in [[module-3-strings]] — do not duplicate them here.**
 
@@ -684,4 +684,4 @@ int linearSearch(int a[], int n, int key) { /* ... */ }
 - **Foundations:** [[module-1-spm-c-basics]] (memory layout, BSS) · [[module-4-structures-unions-pointers]] (pointers, decay)
 - **Practicals:** [[spm-pic-question-bank]] · [[spm-quiz-bank]] · [[c-programming-master-study-guide]]
 
-*Sources ingested 2026-10-01: `SPM_Module3_1.pptx` (27 slides), `Unit No.3 Arrays_Strings.pdf`, `SPM Lab/EX4.docx`.*
+*Sources ingested 2026-10-02: `SPM_Module3_1.pptx` (27 slides), `Unit No.3 Arrays_Strings.pdf`, `SPM Lab/EX4.docx`.*

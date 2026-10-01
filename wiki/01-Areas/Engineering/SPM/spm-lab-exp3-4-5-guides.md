@@ -2,10 +2,10 @@
 course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "Experiments 3, 4, 5 — Loops, Arrays, Strings"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "SPM lab write-ups for EX3 (looping control structures), EX4 (arrays: 1D/2D, sum/average, linear search, max/min, matrix addition) and EX5 (strings: strlen/strcpy/strcat/strcmp, palindrome) — aims, sample programs, task lists, post-lab Q&A and viva answers."
 tags: [spm, lab, experiments, arrays, strings, loops, 316U06C107, ex3, ex4, ex5, lab-ca]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 sources:
   - "raw-sources/SPM Lab/EX3.pdf"
@@ -15,7 +15,7 @@ sources:
 
 ## For future agent
 
-Lab write-ups for **Experiments 3, 4, 5** of 316U06C107, ingested 2026-10-01 from the original lab records in `raw-sources/SPM Lab/`. Theory for EX4/EX5 lives in [[module-3-arrays-strings]] — this page is the **experiment-shaped** cut (aims, numbered sample programs, task lists, post-lab questions) that mirrors how the lab manual and the CA rubric are organised.
+Lab write-ups for **Experiments 3, 4, 5** of 316U06C107, ingested 2026-10-02 from the original lab records in `raw-sources/SPM Lab/`. Theory for EX4/EX5 lives in [[module-3-arrays-strings]] — this page is the **experiment-shaped** cut (aims, numbered sample programs, task lists, post-lab questions) that mirrors how the lab manual and the CA rubric are organised.
 
 Staleness caveats: (1) the EX3 docx extraction shows duplicated boilerplate (`873912329668# include <stdio .h>` etc.) — that is OCR/`docx`-XML noise from the scanner, not part of the lab content; the code blocks below are hand-cleaned and the *logic* is verbatim from the record, but the formatting is not byte-exact. (2) The lab records use unbounded `scanf("%s", ...)` — faithful to what is prescribed, unsafe in modern C. Flagged, not corrected.
 
@@ -727,4 +727,4 @@ After completing this experiment you can:
 - Marking: [[lab-ca-and-experiments]] (CA rubric: logic / debug / write-up / timely) · [[assessment-guide-ese-ost-quiz]]
 - Cram: [[c-programming-master-study-guide]] · [[formula-sheet-spm]]
 
-*Ingested 2026-10-01 from `raw-sources/SPM Lab/EX3.pdf`, `EX4.docx`, `EX5.docx`.*
+*Ingested 2026-10-02 from `raw-sources/SPM Lab/EX3.pdf`, `EX4.docx`, `EX5.docx`.*

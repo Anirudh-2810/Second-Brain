@@ -2,16 +2,16 @@
 course_code: "ENG-PHY"
 course_name: "Engineering Physics"
 unit: "Domain hub — all modules"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "Engineering Physics module hub — the four course modules (optics/wave, optoelectronics/lasers, quantum mechanics, semiconductors/EM) with the revision-first entry point for each, plus the Sem-1 source map and open-ingest gaps."
 tags: [engineering-physics, index, domain-hub, optics, lasers, quantum-mechanics, semiconductors, btech, exam-prep]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 ---
 
 ## For future agent
 
-Landing page for `wiki/01-Areas/Engineering/engineering-physics/`. **This page did not exist until 2026-10-01** even though `Engineering/INDEX.md` had been linking to `[[engineering-physics/overview]]` since the domain was created — a broken link that went unnoticed. It exists now purely to close that gap, so treat it as a **router, not a content page**: every topic lives in a child page.
+Landing page for `wiki/01-Areas/Engineering/engineering-physics/`. **This page did not exist until 2026-10-02** even though `Engineering/INDEX.md` had been linking to `[[engineering-physics/overview]]` since the domain was created — a broken link that went unnoticed. It exists now purely to close that gap, so treat it as a **router, not a content page**: every topic lives in a child page.
 
 **Two sizes worth knowing before you open anything.** Three module pages are very large and are *not* revision surfaces — `module-1-optics-interference-diffraction` (81.5 KB), `module-2-optoelectronics-lasers-fiber-optics` (73.2 KB), `module-3-quantum-mechanics` (73.9 KB), `module-4-semiconductors-electromagnetism` (60.6 KB). **Route the user to the short revision page first** and only send them into the deep page for derivation detail. Do not paste deep-page content into an answer when a short page covers it.
 

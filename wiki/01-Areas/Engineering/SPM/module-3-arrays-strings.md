@@ -2,10 +2,10 @@
 course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "Module 3 — Arrays (3.1) & Strings (3.2) — module hub"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "SPM Module 3 module map — syllabus coverage for 3.1 arrays and 3.2 strings, the concept-flow diagram, start-here routing to the dedicated arrays and strings pages, exam/lab mapping, and a one-screen formula sheet."
 tags: [spm, module-3, arrays, strings, c-programming, 316U06C107, index, hub, exam-prep]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 prerequisites: ["Module 2: Program Control Functions"]
 ---
@@ -14,7 +14,7 @@ prerequisites: ["Module 2: Program Control Functions"]
 
 **This is the Module 3 landing page — a map, not a content page.** It carries the syllabus coverage, the concept-flow diagram, routing, and a one-screen formula sheet. The teaching content now lives in two dedicated pages.
 
-Created 2026-10-01 by splitting a former single page that had grown to 40.7 KB (past the vault's ~25 KB threshold). Nothing was deleted — the content was moved into the two pages below and this page was reduced to navigation.
+Created 2026-10-02 by splitting a former single page that had grown to 40.7 KB (past the vault's ~25 KB threshold). Nothing was deleted — the content was moved into the two pages below and this page was reduced to navigation.
 
 | You want | Go to |
 |---|---|
@@ -156,7 +156,7 @@ Full write-ups with sample programs, task lists, and post-lab Q&A with worked an
 
 ## 6. Source coverage for this module
 
-Ingested 2026-10-01 from `raw-sources/`:
+Ingested 2026-10-02 from `raw-sources/`:
 
 | Source | Used for |
 |---|---|

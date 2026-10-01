@@ -2,10 +2,10 @@
 course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "Lab write-ups — EXP1 (data types/operators) + EXP2 (branching) + Windows toolchain"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "SPM lab write-ups for EXP1 (data types, operators) and EXP2 (if/else/ladder/nested/switch/ternary) — aims, all sample programs as working code, task lists, post-lab Q&A with worked answers, plus MSYS2+GCC+CodeBlocks setup."
 tags: [spm, btech, c, lab, experiments, ex1, ex2, data-types, operators, branching, switch, ternary, codeblocks, gcc, msys2, viva]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 sources:
   - "raw-sources/SPM Lab/EX1 (1).docx"
@@ -14,7 +14,7 @@ sources:
 
 ## For future agent
 
-Executable write-ups for SPM **EXP1** and **EXP2**, rebuilt 2026-10-01 from the current lab records `raw-sources/SPM Lab/EX1 (1).docx` (dated 10/1/2026) and `EX2.docx` — **newer versions** than the `SPM SEM1 work/Experiment/` set the previous revision was built from. The new records add **no new topics** but they do supply the **full working code** for every sample program, which the previous revision only summarised in prose. That code is now reproduced here verbatim-cleaned, and every post-lab question gained a worked answer.
+Executable write-ups for SPM **EXP1** and **EXP2**, rebuilt 2026-10-02 from the current lab records `raw-sources/SPM Lab/EX1 (1).docx` (dated 10/1/2026) and `EX2.docx` — **newer versions** than the `SPM SEM1 work/Experiment/` set the previous revision was built from. The new records add **no new topics** but they do supply the **full working code** for every sample program, which the previous revision only summarised in prose. That code is now reproduced here verbatim-cleaned, and every post-lab question gained a worked answer.
 
 Sibling: [[spm-lab-exp3-4-5-guides]] (EXP3/4/5, same depth). Earlier template set: [[spm-lab-exp-guides]] (EXP1/7/8 — same EXP1 aim, different tasks; use EITHER as the write-up base). Rubric/timeline: [[lab-ca-and-experiments]] · [[lesson-plan-2026-27]]. Theory: [[module-1-spm-c-basics]] · [[module-2-program-control-functions]].
 
@@ -519,4 +519,4 @@ Fresh Windows → C in CMD + Code::Blocks:
 - Drills: [[spm-practice-bank-module1]] · [[spm-practice-bank-module2]] · [[spm-quiz-bank]]
 - Earlier template set: [[spm-lab-exp-guides]] — Rubric/schedule: [[lab-ca-and-experiments]] · [[lesson-plan-2026-27]]
 
-*Ingested 2026-10-01 from `raw-sources/SPM Lab/EX1 (1).docx` and `EX2.docx`.*
+*Ingested 2026-10-02 from `raw-sources/SPM Lab/EX1 (1).docx` and `EX2.docx`.*

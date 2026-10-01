@@ -2,10 +2,10 @@
 course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
 unit: "Module 3.2 — Character Arrays & Strings"
-date: "2026-10-01"
+date: "2026-10-02"
 description: "SPM M3.2 strings, complete and beginner-first — the '\\0' model, four declaration styles, character/string I/O, strlen/strcpy/strcmp/strcat both as library calls and written from scratch, a dedicated strcpy exam drill, 12 practice questions and a 5-question quick test."
 tags: [spm, strings, c-programming, 316U06C107, string-handling, strcpy, strlen, strcmp, strcat, null-terminator, from-scratch, exam-prep, lab]
-last_updated: "2026-10-01"
+last_updated: "2026-10-02"
 confidence: high
 prerequisites: ["Module 3.1 Arrays", "Module 2: loops", "Pointers basics"]
 sources:
@@ -17,7 +17,7 @@ sources:
 
 ## For future agent
 
-**The dedicated strings page for SPM Module 3.2** (part of Module 3's 7 hours, CO3, Bloom's *Apply*). Rewritten 2026-10-01 as the single home for strings: it absorbs the strings half of the former merged page, **the `strcpy` exam drill**, the classroom cut from [[spm-string-functions-char-equality-reverse]], and deltas from the faculty deck `SPM_Module3_2.pptx` (27 slides, AY 2026-27).
+**The dedicated strings page for SPM Module 3.2** (part of Module 3's 7 hours, CO3, Bloom's *Apply*). Rewritten 2026-10-02 as the single home for strings: it absorbs the strings half of the former merged page, **the `strcpy` exam drill**, the classroom cut from [[spm-string-functions-char-equality-reverse]], and deltas from the faculty deck `SPM_Module3_2.pptx` (27 slides, AY 2026-27).
 
 **Arrays live in [[module-3-arrays]] — do not duplicate them here.**
 
@@ -683,4 +683,4 @@ char a[20] = "Data";  char b[] = "Structures";  strcat(a, b);
 - **Pointers view:** [[module-4-structures-unions-pointers]] (`char *` vs `char[]`, array decay)
 - **Cram:** [[c-programming-master-study-guide]]
 
-*Sources ingested 2026-10-01: `SPM_Module3_2.pptx` (27 slides), `Unit No.3 Arrays_Strings.pdf`, `SPM Lab/EX5.docx`.*
+*Sources ingested 2026-10-02: `SPM_Module3_2.pptx` (27 slides), `Unit No.3 Arrays_Strings.pdf`, `SPM Lab/EX5.docx`.*

@@ -1,14 +1,19 @@
 ---
 module: "SPM"
+course_code: "316U06C107"
+course_name: "Structured Programming Methodology"
 topic: "Module 2: Program Control Functions — Decisions, Loops & Jump Statements in C"
-tags: [c-programming, control-flow, if-else, switch-case, fall-through, while, do-while, for-loop, nested-loops, break, continue, goto, return, operator-precedence, off-by-one, loop-invariant]
-last_updated: "2026-10-01"
+date: "2026-10-02"
+description: "SPM Module 2 (6 hrs, CO2) — if/else ladder vs switch, the three loops compared, for-step semantics, nested loops, jump statements, plus the flag concept, counting loops, documentation rules and per-iteration trace tables (syllabus 2.2-2.3), with 6 worked exam problems."
+tags: [spm, c-programming, control-flow, if-else, switch-case, fall-through, while, do-while, for-loop, nested-loops, break, continue, goto, return, flag-concept, counting-loops, documentation, operator-precedence, off-by-one, loop-invariant, 316U06C107, exam-prep]
+last_updated: "2026-10-02"
+confidence: high
 prerequisites: ["Module 1: SPM & C Basics", "Relational & Logical Operators", "Operator Precedence"]
 ---
 
 ## For future agent
 
-Theory + exam drills for SPM Module 2 (6 hrs, CO2). Sections 1.7–1.10 were added 2026-10-01 from the faculty handout `raw-sources/SPM Lecture/UnitNo. 2 Program Control Functions.pdf` (14 pp, AY 2026-27) to close three **syllabus gaps**: the handout covers "Flag Concept" and "Counting Loops" (both named in syllabus 2.2) and "Documentation and Making Source Code Readable" (syllabus 2.3), none of which had a section here before. The per-iteration trace tables in §1.10 are the handout's distinctive pedagogical format and match how OST predict-output questions are written.
+Theory + exam drills for SPM Module 2 (6 hrs, CO2). Sections 1.7–1.10 were added 2026-10-02 from the faculty handout `raw-sources/SPM Lecture/UnitNo. 2 Program Control Functions.pdf` (14 pp, AY 2026-27) to close three **syllabus gaps**: the handout covers "Flag Concept" and "Counting Loops" (both named in syllabus 2.2) and "Documentation and Making Source Code Readable" (syllabus 2.3), none of which had a section here before. The per-iteration trace tables in §1.10 are the handout's distinctive pedagogical format and match how OST predict-output questions are written.
 
 Deep companion: [[spm-module2-faculty-companion]] (M2 PPT deltas). Loops used by Module 3: [[module-3-arrays]] · [[module-3-strings]].
 
@@ -205,7 +210,7 @@ Body runs **3 times**, with i = 0, 1, 2. This "zero-to-n−1" pattern is the sta
    for (i; cond; update) { ... continue; ... }  → jumps to "update", then cond
 ```
 
-### 1.7 The Flag Concept (syllabus 2.2) — NEW 2026-10-01
+### 1.7 The Flag Concept (syllabus 2.2) — NEW 2026-10-02
 
 *A flag is a variable that records whether something has happened yet.* It is the standard way to carry information **out** of a loop, because a loop cannot `return` from inside itself.
 
@@ -246,7 +251,7 @@ else
 
 **Common variants (all accepted):** `flag = 0/1` · `found = 0/1` · `success = 0/1` · `isValid = 0/1` · `count = 0`.
 
-### 1.8 Counting Loops (syllabus 2.2) — NEW 2026-10-01
+### 1.8 Counting Loops (syllabus 2.2) — NEW 2026-10-02
 
 *A counting loop repeats a specific, known number of times.* It is the `for` loop in its purest form — three named parts:
 
@@ -283,7 +288,7 @@ printf("Sum = %d", sum);
 
 `sum` is declared and zeroed **before** the loop. Declaring it inside would reset it every iteration — a classic beginner bug.
 
-### 1.9 Documentation and Making Source Code Readable (syllabus 2.3) — NEW 2026-10-01
+### 1.9 Documentation and Making Source Code Readable (syllabus 2.3) — NEW 2026-10-02
 
 *Documentation means adding information that explains the program.* Its readers are the programmer, other students, teachers, and whoever maintains the code later. The most common tool is **comments**.
 
@@ -333,7 +338,7 @@ Rule 1 is the one examiners probe: C accepts `a`, `b`, `x`, `tm` and `totalMarks
 
 **Related:** documentation is a scored element of the lab write-up (see [[lab-ca-and-experiments]]) and an examinable unit in its own right (2.3), so answer it as theory, not as a coding detail.
 
-### 1.10 Per-iteration trace tables (faculty handout format) — NEW 2026-10-01
+### 1.10 Per-iteration trace tables (faculty handout format) — NEW 2026-10-02
 
 The handout `UnitNo. 2 Program Control Functions.pdf` presents loops as **trace tables** rather than prose. This is the format OST predict-output questions use, and it is the fastest way to check your own understanding.
 
