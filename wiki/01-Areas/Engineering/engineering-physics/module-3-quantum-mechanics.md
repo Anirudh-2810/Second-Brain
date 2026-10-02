@@ -1,6 +1,8 @@
 ---
 module: "engineering-physics"
 topic: "Module 3: Quantum Mechanics (Deep Dive)"
+date: "2026-10-02"
+description: "Engineering Physics Module 3 deep dive — historical foundations, wave-particle duality, wave function and the Schrodinger equation, particle-in-a-box and infinite square well, the hydrogen atom and Bohr model, harmonic oscillator, uncertainty principle, tunneling, the photoelectric effect and Compton scattering, with derivations and worked numericals."
 tags: [quantum-mechanics, wave-particle-duality, schrodinger, hydrogen-atom, uncertainty-principle, tunneling, photoelectric-effect, compton-scattering, harmonic-oscillator, particle-in-a-box]
 last_updated: "2026-08-17"
 prerequisites: ["Wave Motion", "Photoelectric Effect", "Bohr Model", "Basic Linear Algebra", "Calculus"]

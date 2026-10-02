@@ -1,6 +1,8 @@
 ---
 module: "engineering-physics"
 topic: "Module 2: Optoelectronics - Lasers & Fiber Optics (Deep Dive)"
+date: "2026-10-02"
+description: "Engineering Physics Module 2 deep dive — Einstein coefficients and population inversion, laser theory and the full laser-types table, resonator stability and TEM/longitudinal modes, plus fiber structure, numerical-aperture derivation, V-number, attenuation and the three dispersion types, EDFA/Raman amplification, photodiodes, solar cells and nonlinear optics, with 7 worked numericals."
 tags: [optoelectronics, lasers, fiber-optics, photonics, stimulated-emission, optical-fibers, einstein-coefficients, numerical-aperture, dispersion, laser-resonators, photodiodes]
 last_updated: "2026-08-17"
 prerequisites: ["Wave Optics", "Quantum Mechanics Basics", "Electromagnetic Waves", "Semiconductor Physics"]

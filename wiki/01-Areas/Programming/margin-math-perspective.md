@@ -103,7 +103,7 @@ The equation isn't "beautiful" because it's compact. It's beautiful because **th
 - [[mathematics-of-creativity]] — Math as pattern-seeking sense (Eddie Woo's "fractal sense")
 - [[learning-resources/index]] — Self-teaching catalogs (OSSU, freeCodeCamp, roadmap.sh)
 - [[roadmaps-and-study-guides]] (self-dev) — How to structure learning
-- [[Self-Dev/learning-methodology]] — Meta-learning principles
+- [[wiki/01-Areas/Self-Dev/productivity/how-to-self-teach]] — Meta-learning principles
 
 ---
 
@@ -121,4 +121,4 @@ The equation isn't "beautiful" because it's compact. It's beautiful because **th
 - [[math-for-programming]] — Why programming needs math (donut case study)
 - [[mathematics-of-creativity]] — Math as a "sense" for patterns
 - [[quantitative-finance-foundations]] — Same math powering quant models
-- [[Self-Dev/learning-methodology]] — How to learn technical subjects
+- [[wiki/01-Areas/Self-Dev/productivity/how-to-self-teach]] — How to learn technical subjects

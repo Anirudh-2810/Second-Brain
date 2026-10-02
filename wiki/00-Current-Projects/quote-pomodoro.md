@@ -18,7 +18,7 @@ description: "Tkinter Pomodoro timer with editable session length, progress bar,
 ---
 
 ## For future agent
-This is a **personal productivity build** — a minimal, distraction-free Pomodoro timer with motivational quotes. Demonstrates Tkinter threading pattern (UI thread + timer thread), cross-platform sound/notifications, and clean dark UI. Cross-links: [[wiki/01-Areas/Self-Dev/]], [[wiki/01-Areas/Productivity/]], [[wiki/00-Current-Projects/budget-tracker]].
+This is a **personal productivity build** — a minimal, distraction-free Pomodoro timer with motivational quotes. Demonstrates Tkinter threading pattern (UI thread + timer thread), cross-platform sound/notifications, and clean dark UI. Cross-links: [[wiki/01-Areas/Self-Dev/]], [[wiki/01-Areas/Self-Dev/productivity/overview]], [[wiki/00-Current-Projects/budget-tracker]].
 
 ---
 
@@ -551,7 +551,7 @@ python flightproductivity.py
 ## 8. Cross-References
 
 - [[wiki/01-Areas/Self-Dev/]] — Pomodoro, Deep Work, productivity systems
-- [[wiki/01-Areas/Productivity/]] — Atomic Habits, GTD, timeboxing
+- [[wiki/01-Areas/Self-Dev/productivity/overview]] — Atomic Habits, GTD, timeboxing
 - [[wiki/00-Current-Projects/budget-tracker]] — Another personal productivity tool
 - [[wiki/01-Areas/Programming/learn-python-fast-system]] — Tkinter GUI basics
 
@@ -573,6 +573,6 @@ python flightproductivity.py
 ---
 
 ## See Also
-- [[wiki/01-Areas/Self-Dev/learning-methodology]] — Pomodoro in learning context
-- [[wiki/01-Areas/Productivity/atomic-habits-systems]] — Habit tracking
+- [[wiki/01-Areas/Self-Dev/productivity/how-to-self-teach]] — Pomodoro in learning context
+- [[wiki/01-Areas/Self-Dev/productivity/atomic-habits-systems]] — Habit tracking
 - [[wiki/00-Current-Projects/budget-tracker]] — Another personal tool

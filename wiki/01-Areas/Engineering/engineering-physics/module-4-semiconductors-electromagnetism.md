@@ -1,6 +1,8 @@
 ---
 module: "engineering-physics"
 topic: "Module 4: Semiconductors & Electromagnetism — Complete Reference"
+date: "2026-10-02"
+description: "Engineering Physics Module 4 complete reference — energy bands in solids, intrinsic and extrinsic (doped) semiconductors, Fermi level and carrier transport, the p-n junction and rectifier, transistors, then Maxwell's equations, electromagnetic waves, polarization and Brewster angle, radiation pressure and EM wave propagation, with derivations and worked numericals."
 tags: [semiconductors, electrodynamics, maxwell-equations, em-waves, p-n-junction, transistors, fermi-level, carrier-transport, radiation-pressure, brewster-angle]
 last_updated: "2026-08-17"
 prerequisites: ["Quantum Mechanics Basics", "Current Electricity", "Electrostatics"]

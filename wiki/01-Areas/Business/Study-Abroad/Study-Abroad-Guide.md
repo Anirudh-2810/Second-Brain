@@ -20,7 +20,7 @@ description: "Comprehensive study abroad guide covering SAT preparation (English
 ---
 
 ## For future agent
-This is a **study abroad & SAT preparation** module — extracted from SAT practice PDFs and Ankur Warikoo's 3-part study abroad series found in the user's Desktop Study abroad folder. Covers SAT English, Math, and Reading preparation plus practical advice on planning, applying, and adjusting to study abroad programmes. Cross-links: [[wiki/01-Areas/Business/Financial-Independence]], [[wiki/01-Areas/Business/Side-Hustles]], [[wiki/01-Areas/Business/Budgeting-VBA]].
+This is a **study abroad & SAT preparation** module — extracted from SAT practice PDFs and Ankur Warikoo's 3-part study abroad series found in the user's Desktop Study abroad folder. Covers SAT English, Math, and Reading preparation plus practical advice on planning, applying, and adjusting to study abroad programmes. Cross-links: [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]], [[wiki/01-Areas/Business/Side-Hustles]], [[wiki/01-Areas/Business/Budgeting-VBA]].
 
 ---
 
@@ -394,7 +394,7 @@ Phase 4: Mastery (3-6 months+) — Feeling comfortable, functioning well
 
 ## Cross-References
 
-- [[wiki/01-Areas/Business/Financial-Independence]] — Financial planning for study (FI number, budgeting)
+- [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]] — Financial planning for study (FI number, budgeting)
 - [[wiki/01-Areas/Business/Side-Hustles]] — Income streams while studying abroad
 - [[wiki/01-Areas/Business/Budgeting-VBA]] — Excel budgeting for education expenses
 - [[wiki/01-Areas/Programming/Personal-Apps]] — Budget tracking apps for students

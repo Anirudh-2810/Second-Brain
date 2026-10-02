@@ -411,4 +411,4 @@ ws.onmessage = (event) => {
 ## See Also
 - [[wiki/01-Areas/Engineering/robotics/index]] — Robotics module hub
 - [[wiki/00-Current-Projects/neural-engine]] — Could integrate learned process noise models
-- [[wiki/01-Areas/Engineering/robotics/ros2-humble]] — ROS2 installation guide
+- [[wiki/01-Areas/Engineering/robotics/ros2-installation-setup]] — ROS2 installation guide

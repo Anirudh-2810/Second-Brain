@@ -19,7 +19,7 @@ description: "Iterative Excel budgeting workbooks (versions 101-106) with VBA ma
 ---
 
 ## For future agent
-This is a **budgeting & VBA collection** — six iterations of Excel budgeting workbooks (101-106) plus VBA macro modules and user manuals, found in the user's Desktop "budgeting excel" folder. Demonstrates iterative product development: basic → intermediate → professional versions. Cross-links: [[wiki/00-Current-Projects/budget-tracker]], [[wiki/01-Areas/Business/Financial-Independence]], [[brain/Patterns/agent-pipeline-patterns]].
+This is a **budgeting & VBA collection** — six iterations of Excel budgeting workbooks (101-106) plus VBA macro modules and user manuals, found in the user's Desktop "budgeting excel" folder. Demonstrates iterative product development: basic → intermediate → professional versions. Cross-links: [[wiki/00-Current-Projects/budget-tracker]], [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]], [[brain/Patterns/agent-pipeline-patterns]].
 
 ---
 
@@ -251,7 +251,7 @@ End Sub
 
 ## Cross-References
 - [[wiki/00-Current-Projects/budget-tracker]] — The comprehensive Excel/VBA budget tracker
-- [[wiki/01-Areas/Business/Financial-Independence]] — Financial independence blueprint (connects to budgeting goals)
+- [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]] — Financial independence blueprint (connects to budgeting goals)
 - [[wiki/01-Areas/Business/Side-Hustles]] — Income streams (feeds into budget)
 - [[wiki/01-Areas/Programming/Personal-Apps]] — Python budget tracking apps (alternative approach)
 - [[brain/Patterns/agent-pipeline-patterns]] — Budgeting data analysis patterns

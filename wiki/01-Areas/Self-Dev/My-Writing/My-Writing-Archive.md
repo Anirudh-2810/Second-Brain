@@ -100,7 +100,7 @@ Act 3: The Achievement
 ---
 
 ## Cross-References
-- [[wiki/01-Areas/Self-Dev/Financial-Independence]] — FIRE blueprint (connected via financial themes)
+- [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]] — FIRE blueprint (connected via financial themes)
 - [[brain/Patterns/agent-pipeline-patterns]] — Personal content organization patterns
 - [[wiki/01-Areas/Self-Dev/Language-German]] — Language learning connection (personal development)
 - [[wiki/01-Areas/Self-Dev/Language-French]] — Language learning connection (personal development)

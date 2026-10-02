@@ -19,7 +19,7 @@ description: "Collection of side hustle concepts and business ideas: AI copywrit
 ---
 
 ## For future agent
-This is a **side hustles & entrepreneurial ideas** module — extracted from the SIDE HUSTLES folder on the user's Desktop. Contains AI copywriting notes, dropshipping/print-on-demand/SMMA business models, YouTube automation strategies, plus Andrew Tate course material and YouTube channel references. Serves as an income-stream ideation and entrepreneurial resource. Cross-links: [[wiki/01-Areas/Business/Financial-Independence]], [[wiki/01-Areas/Self-Dev/My-Writing]], [[brain/Patterns/agent-pipeline-patterns]].
+This is a **side hustles & entrepreneurial ideas** module — extracted from the SIDE HUSTLES folder on the user's Desktop. Contains AI copywriting notes, dropshipping/print-on-demand/SMMA business models, YouTube automation strategies, plus Andrew Tate course material and YouTube channel references. Serves as an income-stream ideation and entrepreneurial resource. Cross-links: [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]], [[wiki/01-Areas/Self-Dev/My-Writing]], [[brain/Patterns/agent-pipeline-patterns]].
 
 ---
 
@@ -306,7 +306,7 @@ Likely contains URLs of:
 ---
 
 ## Cross-References
-- [[wiki/01-Areas/Business/Financial-Independence]] — FIRE blueprint (side hustles feed into FI number)
+- [[wiki/01-Areas/Business/Financial-Independence/FI-Blueprint]] — FIRE blueprint (side hustles feed into FI number)
 - [[wiki/01-Areas/Self-Dev/My-Writing]] — Personal notes may reference hustle experiences
 - [[brain/Patterns/agent-pipeline-patterns]] — Business idea organization patterns
 - [[wiki/01-Areas/Programming/Personal-Apps]] — Productivity tools for managing hustles
