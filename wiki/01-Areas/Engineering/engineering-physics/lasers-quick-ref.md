@@ -14,9 +14,21 @@ prerequisites: ["Quantum Mechanics Basics", "Wave Optics", "Electromagnetic Wave
 
 Condensed exam-revision cut of [[module-2-optoelectronics-lasers-fiber-optics]] — that 1300-line page is the deep theory + fiber-optics owner and stays the reference. This page is the **lasers-only quick sheet**: the formulas, the comparison tables, the laser-types roster, and the four numericals that repeat every year.
 
-Scope cut: **Lasers only.** Fiber optics, EDFA/Raman amplifiers, photodiodes, solar cells, and nonlinear optics live in the deep module page — this sheet intentionally omits them except where a laser answer needs them (semiconductor laser, coherence length).
+Scope cut: **Lasers only.** Fiber optics, EDFA/Raman amplifiers, photodiodes, solar cells, and nonlinear optics live elsewhere — **fibre now has its own page, [[module-2-fiber-optics]]**.
 
 Staleness: no dates-sensitive content. The formulas are stable (Einstein 1917). Watch for the two numbers most often mis-stated under exam pressure: the He-Ne wavelength (**632.8 nm**, not 633) and the single-mode cutoff (**V = 2.405**, not 2.4 or 3).
+
+**Faculty-authoritative source (2026-10-02).** This sheet was originally synthesised from the 73 KB deep module page. It has since been checked against **Dr. Suren Patwardhan's official Module 1 Unit 1 papers** (*"Principles of Lasers, As per Revised Curriculum SVU R-2023"*): `Lasers - Notes.pdf`, `Laser Formulas..pdf`, `Numericals LASER.pdf`, `Lasers Questions.pdf` — all previously unopened. **Where they disagree, the faculty win for exam purposes.** Three corrections flagged inline:
+
+| Item | Originally said | Faculty says | Where |
+|---|---|---|---|
+| Threshold-condition length | `l` = gain medium | **`L` = cavity length**, `α_C` = cavity loss | §5 |
+| He-Ne metastable energies | 19.78 & 20.66 eV | **18.7 & 20.66 eV** (Ne⁺ 2s / 3s) | §7a |
+| He-Ne coherence length | 200 m | **≈ 2 km** (Δλ = 2×10⁻⁴ nm) | §9 |
+
+**Two formulas were missing and are now added:** the spontaneous-to-stimulated **rate ratio** `R = e^(hν/kT) − 1` (setting R=1 gives the faculty's "impossible" 41,600 K result) and the **divergence** `θ = (d₁−d₂)/(Z₁−Z₂)`, plus the full beam-parameter set in §5a.
+
+**Full theory + 30 theory questions + 40 worked numericals:** [[module-2-laser-fibre-question-bank]]
 
 ---
 
@@ -116,11 +128,35 @@ Three conditions must hold **simultaneously** for laser oscillation:
 2. **Optical resonator** — two mirrors feed photons back through the medium repeatedly
 3. **Threshold** — round-trip gain ≥ round-trip loss
 
-$$R_1 R_2\, e^{2(g-\alpha)l} \geq 1$$
+$$R_1 R_2\,e^{2(g-\alpha)l} \geq 1$$
 
 $$\boxed{g_{th} = \alpha + \frac{1}{2l}\ln\!\left(\frac{1}{R_1 R_2}\right)}$$
 
 $\alpha$ = distributed loss coefficient · $l$ = gain medium length · $R_1, R_2$ = mirror reflectivities.
+
+### ⚠️ Use `L`, not `l`, for this course — faculty notation (2026-10-02)
+
+Dr. Suren Patwardhan's official derivation (Module 1 Unit 1, SVU R-2023) writes the threshold as
+
+$$\boxed{\gamma = \alpha_C + \frac{1}{2L}\ln\!\left(\frac{1}{R_1R_2}\right)}$$
+
+with **`L` = cavity length** and **`α_C` = cavity loss coefficient**, because the derivation assumes the **gain medium fills the cavity**, making one round trip a path of `2L`. Several general textbooks instead use `l` = *gain-medium* length. **For this course write the faculty form.** Full derivation: [[module-2-laser-fibre-question-bank]] Q12.
+
+### 5a. Beam parameters (faculty formulas)
+
+| Parameter | Formula | Note |
+|---|---|---|
+| Beam intensity | `I = P/A` | W/m²; A = πr² for a circular beam |
+| Photon emission rate | `n_t = P_optical × λ/(hc)` | photons/sec |
+| Photons per pulse | `n = n_t × Δt` | |
+| Laser efficiency | `η = P_optical/(V_op × I_op)` | electrical pumping / direct conversion |
+| Coherence length | `l_coh = λ²/Δλ` | |
+| Divergence | `θ = (d₁ − d₂)/(Z₁ − Z₂)` | d = beam diameters at axial distances Z |
+| **Spontaneous/stimulated rate ratio** | **`R = e^(hν/kT) − 1`** | see below |
+
+**Why `R = e^(hν/kT) − 1` matters:** setting `R = 1` gives `T = hν/(k ln2)`. At 5000 Å that is **≈ 4.16×10⁴ K** — far above any material. So at any laboratory temperature stimulated emission is negligible against spontaneous emission, which is exactly *why* population inversion is necessary.
+
+**Linewidth comparison:** ordinary sources up to **10¹⁰ Hz**, laser sources ~**100 Hz**. Laser angular spread is ~**10⁶ times** smaller than ordinary light.
 
 ## 6. Laser types — the exam table
 
@@ -200,6 +236,30 @@ $$h\nu = E_g \qquad\Longrightarrow\qquad \boxed{\lambda = \frac{hc}{E_g} = \frac
 $$l_c = c\,\tau_c = \frac{c}{\Delta\nu} = \frac{\lambda^{2}}{\Delta\lambda}$$
 
 For He-Ne with $\Delta\nu \approx 1.5$ MHz: $l_c = 3\times10^{8}/1.5\times10^{6} = 200$ m.
+
+> **Faculty correction (2026-10-02):** using the official linewidth $\Delta\lambda = 2\times10^{-4}$ nm at 632.8 nm gives $l_{coh} = \lambda^2/\Delta\lambda \approx \mathbf{2\ \text{km}}$ — the faculty quote "a few m to a few km." Use **their** figures in numericals.
+
+## 7a. Metastable states & pumping (faculty)
+
+**Metastable** = a state where excited atoms can reside for **10⁻³ s**, versus **10⁻⁸ s** for normal de-excitation. It lets atoms **accumulate** in the upper level, which is what makes inversion achievable at all. The faculty are blunt: *"the invention of lasers could not have taken place if elements offering metastable states were not discovered."*
+
+| Laser | Metastable level |
+|---|---|
+| He-Ne | **Ne⁺ 2s at 18.7 eV**, **3s at 20.66 eV** |
+| Argon | Ar⁺ 4p |
+| Ruby | **Cr³⁺ at 1.4 eV** |
+
+> **Faculty correction:** the deep module page gives He-Ne transfer energies as 19.78 and 20.66 eV. The official notes and numericals use **Ne⁺ 2s = 18.7 eV and 3s = 20.66 eV**, so $E_2-E_1 = 1.96$ eV $\Rightarrow \lambda = 632.7$ nm. **Use 18.7 eV.**
+
+**Three pumping methods:**
+
+| Type | Mechanism | Example |
+|---|---|---|
+| **Optical** | a light source supplies energy; ions absorb and excite | **Ruby** — crystal surrounded by a **Xenon flash lamp**, Cr³⁺ excited |
+| **Electrical** | an electric field ionises and accelerates molecules | **He-Ne** — He molecules ionised into excited states |
+| **Direct conversion** | the current itself is the pump; "levels" are actually **bands** | **Diode laser** — inversion between conduction and valence bands |
+
+**Two-level pumping** is the diode case. The faculty add that diode lasers *"can give maximum output efficiency even better than **70 %** at times"* — which supersedes the 30 % entry in the types table for modern devices.
 
 ## 10. Cavity modes
 

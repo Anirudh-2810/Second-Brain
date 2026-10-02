@@ -29,9 +29,13 @@ Landing page for `wiki/01-Areas/Engineering/engineering-physics/`. **This page d
 
 | If you need | Go to | Size |
 |---|---|---|
-| **Lasers quick revision** (Einstein coefficients, inversion, threshold gain, laser types, cavity modes) | **[[lasers-quick-ref]]** | 17 KB ✓ short |
-| Thin-film interference, focused | [[thin-film-interference-revision]] | 4.6 KB ✓ short |
+| **Lasers quick revision** (Einstein coefficients, inversion, threshold gain, laser types, cavity modes) | **[[lasers-quick-ref]]** | 19 KB ✓ |
+| **Optical fibres** (TIR, NA derivation, V-number, modes, attenuation, dispersion, bit rate) | **[[module-2-fiber-optics]]** | 24 KB ✓ |
+| **Module 2 exam practice** — 30 theory questions + 40 numericals, laser *and* fibre, with worked solutions | **[[module-2-laser-fibre-question-bank]]** | 26 KB ✓ |
+| Thin-film interference, focused | [[thin-film-interference-revision]] | 4.6 KB ✓ |
 | Full derivations + numericals for any module | the module page below | 60–82 KB |
+
+**Module 2 is now fully faculty-sourced.** Dr. Suren Patwardhan's official papers (*SVU R-2023*) were opened on 2026-10-02 after sitting unread: `2.1 Laser/` and `2.2 Optical Fibre/` each hold a Notes, Formulas, Numericals and Questions paper. Where the faculty notes disagree with the deep module page, **the faculty win** — three corrections are recorded on [[lasers-quick-ref]] (threshold uses `L` not `l`; Ne⁺ metastable is 18.7 eV not 19.78 eV; He-Ne coherence is ≈2 km not 200 m) and one on [[module-2-fiber-optics]] (`Δ = (n₁−n₂)/n₁`, plus the GRIN mode count `V²/4` and `B ≈ 0.7/τ`).
 
 ---
 
@@ -77,13 +81,14 @@ Energy bands in solids → intrinsic semiconductors → extrinsic (doping) → a
 
 | Priority | Folder | Files | Topic |
 |---|---|---|---|
+| ~~3~~ | ~~`Module 2 Photonics/2.1 Laser/`~~ | ~~8~~ | **DONE 2026-10-02** — 4 text-rich papers opened and ingested → [[module-2-laser-fibre-question-bank]] + [[lasers-quick-ref]]. Remaining 4 are image-only slide decks, see below |
+| ~~4~~ | ~~`Module 2 Photonics/2.2 Optical Fibre/`~~ | ~~6~~ | **DONE 2026-10-02** — 4 text-rich papers opened and ingested → [[module-2-fiber-optics]] + the question bank |
 | 1 | `Semester 1/Physics/Physics Lab/` | 2 | `Physics Lab Manual 2025-26 SEM I final.pdf` (1.2 MB, unopened) — **prime candidate, one experiment at a time** |
 | 2 | `Semester 1/Physics/` | 3 | `Syllabus_EP_Sem I.pdf` — would fix official module boundaries |
-| 3 | `Module 2 Photonics/2.1 Laser/` | 8 | `Laser Formulas.pdf`, `Laser notes.pdf`, `Numericals LASER.pdf`, `PPT on Laser.pdf` + more — **unopened; would supersede the synthesized quick-ref with faculty material** |
-| 4 | `Module 2 Photonics/2.2 Optical Fibre/` | 6 | fibre notes/numericals/questions — unopened |
-| 5 | `Derivations/` | 5 | `Einstein_s Coefficients.pdf`, `Lasing Threshold.pdf`, `Numerical Aperture.pdf` — directly relevant to Module 2 |
-| 6 | `Module 3 Quantum Mechanics/` | 10 | incl. `Prof. Surens Notes` and solved numerical sets |
-| 7 | `Module 4 Semiconductors/` | 9 | `Formula sheet`/`Notes`/`Numerical problems` by Dr. Suren Patwardhan |
+| 3 | `Module 2 Photonics/` image-only decks | 4 | `PPT on Laser.pdf` (28 pp), `PPT Optical Fibre.pdf` (22 pp), `PPT_Optical fiber .pdf` (49 pp), `Numericals on Laser PPT.pdf` (19 pp), `Laser-fundamentals-Slides.pdf` (14 pp) — **132 of 167 pages are images.** No OCR available (no tesseract/pytesseract/PIL), so these are blocked without installing OCR |
+| 4 | `Module 3 Quantum Mechanics/` | 10 | incl. `Prof. Surens Notes` and solved numerical sets |
+| 5 | `Module 4 Semiconductors/` | 9 | `Formula sheet`/`Notes`/`Numerical problems` by Dr. Suren Patwardhan |
+| 6 | `Derivations/` | 3 remaining | thin-film pair only; the `Einstein_s Coefficients` + `Lasing Threshold` + `Numerical Aperture` files are now **superseded** by the faculty notes |
 
 That file also notes: `Physics Lab Experiment Format.pdf` extracts **no text** (image-only) — do not quote it as text; it needs OCR.
 
