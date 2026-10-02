@@ -157,6 +157,7 @@ changed = [x for x in d[2:] if x[:1] in "+-"]
    ```
 4. **Don't report a broken-link count from a naive scanner.** Wikilinks inside code fences (`` `[[a, b]]` ``, `` `[[{ "node": "Alert Me" }]]` ``, `` `[[:title:]]` ``) get scraped as links. A scanner that skips frontmatter but **not** code fences reported **607** broken links where the true count was **68** — and most of those 68 were still false positives. Minimum bar: skip frontmatter, resolve relative paths against the linking note's folder (walking up), and match bare basenames.
 5. **Verbose ≠ done.** Extracting 8 files is not ingesting them. Read what you extracted and confirm it reached a page before claiming the folder is closed.
+6. **Run the correction sweep on EVERY page that restates the value, not just the ones you revised.** When a newly-opened source supersedes a previously-synthesised page, the *deep* page is usually where the stale number still lives — it holds the long derivations, so it is what a confused student actually opens, and it is what they trust. Correcting only the short revision sheet leaves the trap in place. Real case (2026-10-02): four faculty discrepancies were fixed on the laser quick-ref and the new fibre page while `module-2-optoelectronics-lasers-fiber-optics.md` still said `19.78 eV` in two places. Grep the whole vault for the old value before calling it done: `Select-String -Path "wiki/**/*.md" -Pattern "<old value>"`.
 
 ---
 

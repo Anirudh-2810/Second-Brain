@@ -10,6 +10,24 @@ prerequisites: ["Wave Optics", "Quantum Mechanics Basics", "Electromagnetic Wave
 
 # Module 2: Optoelectronics — Lasers & Fiber Optics (Deep Dive)
 
+> ### ⚠️ Faculty corrections applied 2026-10-02 — four values on this page were superseded
+>
+> This page was written (2026-08-17) **before** Dr. Suren Patwardhan's official Module 2 papers were opened. Those papers (*"As per Revised Curriculum SVU R-2023"*) are **authoritative for this course**. Four items below were wrong or missing:
+>
+> | Item | This page says | **Faculty says** | Fixed |
+> |---|---|---|---|
+> | **He-Ne metastable energies** | 19.78 eV and 20.66 eV | **Ne⁺ 2s = 18.7 eV, 3s = 20.66 eV** | ✅ corrected inline below (§2.5, §2.6) |
+> | **Threshold-condition length** | `l` = gain-medium length | **`L` = cavity length**, `α_C` = cavity loss — the derivation assumes the gain medium fills the cavity | ⚠️ §2.1 kept as-is for general reference; **write the faculty form** |
+> | **He-Ne coherence length** | ≈ 200 m (from Δν = 1.5 MHz) | **≈ 2 km** with the official Δλ = 2×10⁻⁴ nm | ⚠️ §2.7 kept; **use the faculty figure in numericals** |
+> | **Missing entirely** | — | `N_m = V²/4` (GRIN, not just `V²/2` SI) · `B ≈ 0.7/τ` bits/sec · `R = e^(hν/kT) − 1` · fibre `Δ = (n₁−n₂)/n₁` | ➕ added in §4.3 and §5.4 below |
+>
+> **Use these pages instead, and treat them as the authority:**
+> - **[[lasers-quick-ref]]** — laser revision sheet (carries all four corrections)
+> - **[[module-2-fiber-optics]]** — fibre notes, with the **5-step NA derivation**
+> - **[[module-2-laser-fibre-question-bank]]** — 30 theory questions + 40 numericals, worked
+>
+> This page keeps its value as the **only place with long derivations and the topics nobody else covers** (fiber structure, EDFA/Raman, photodiodes, solar cells, nonlinear optics).
+
 > **For exam revision use [[lasers-quick-ref]] instead of this page** — it is the condensed lasers-only sheet (formulas, comparison tables, laser-types roster, 4 worked numericals). **This page remains the deep theory + fiber-optics owner** (fiber structure, NA derivation, V-number, attenuation, dispersion, EDFA/Raman, photodiodes, solar cells, nonlinear optics) and is where you go for derivation detail.
 
 > The physics of light generation, amplification, and transmission — from Einstein's prediction to modern fiber networks. This module covers the complete theoretical and quantitative framework for lasers, optical fibers, and optoelectronic devices.
@@ -323,7 +341,7 @@ $$N_2 > N_1 \approx 0 \quad \text{(easily achieved)}$$
                                         │
                                         │ Radiative decay
                                         ▼
-    He(2³S₁) at 19.78 eV ──collision──→ Ne(2s₂) at 19.78 eV
+    He(2³S₁) at 19.78 eV ──collision──→ Ne(2s₂) at 18.70 eV  ← faculty value
                                         │
                                         │ Radiative decay
                                         ▼
@@ -338,9 +356,11 @@ $$N_2 > N_1 \approx 0 \quad \text{(easily achieved)}$$
                                      Ground state
 ```
 
+> **Corrected 2026-10-02 against the official faculty notes.** This originally read *"Ne(2s₂) at 19.78 eV"*, which came from a general textbook. **Dr. Patwardhan's official notes give Ne⁺ 2s = 18.7 eV and 3s = 20.66 eV**, and the official numericals are built on that: $E_2 - E_1 = 20.66 - 18.7 = 1.96$ eV $\Rightarrow \lambda = 1240/1.96 = 632.7$ nm. **Use 18.7 eV.** The He-side energies (20.61 and 19.78 eV) are not disputed — only the Ne-side figure was wrong.
+
 - Electron impact excites He to metastable states ($2^1S_0$ and $2^3S_1$)
 - Near-resonant energy transfer to Ne via collisions (cross-section ~10⁻¹⁶ cm²)
-- Ne has metastable levels at 20.66 eV and 19.78 eV
+- Ne has metastable levels at **20.66 eV (3s) and 18.70 eV (2s)** ← faculty values
 - Population inversion in Ne → lasing
 
 **Lasing transitions (visible):**
@@ -621,6 +641,10 @@ $$\boxed{NA = \sin\theta_a = \sqrt{n_1^2 - n_2^2}}$$
 $$\boxed{\Delta = \frac{n_1^2 - n_2^2}{2n_1^2} \approx \frac{n_1 - n_2}{n_1}}$$
 
 where the approximation holds for small $\Delta$ (typically 0.01-0.03 for telecom fibers).
+
+> **Faculty form (2026-10-02).** Dr. Patwardhan's official fibre formulas sheet gives
+> $$\boxed{\Delta = \frac{n_1 - n_2}{n_1}, \qquad n_2 = n_1(1-\Delta), \qquad i_0 = \sin^{-1}(1-\Delta)}$$
+> These three identities are **self-consistent with each other**, which the textbook form above is not (it has no clean $n_2 = f(\Delta)$). **Use the faculty form.** The two definitions agree to first order for small $\Delta$, so numericals give nearly the same answer either way — but the faculty identity $n_2 = n_1(1-\Delta)$ is what the papers actually use. Note their *notes prose* mistakenly writes $\Delta = (n_1-n_2)/n_2$; that is a typo, contradicted by their own formulas sheet.
 
 ### 4.4 V-Number (Normalized Frequency)
 
@@ -1948,17 +1972,24 @@ For 10 Gbps, the required OSNR is typically 15-20 dB, so this system is marginal
 | Critical angle | $\theta_c = \sin^{-1}(n_2/n_1)$ | degrees |
 | Numerical aperture | $NA = \sqrt{n_1^2 - n_2^2}$ | dimensionless |
 | Acceptance angle | $\theta_a = \sin^{-1}(NA)$ | degrees |
-| Relative index difference | $\Delta = (n_1^2 - n_2^2)/(2n_1^2) \approx (n_1 - n_2)/n_1$ | dimensionless |
+| Relative index difference | $\Delta = (n_1^2 - n_2^2)/(2n_1^2) \approx (n_1 - n_2)/n_1$ **or faculty: $\Delta = (n_1-n_2)/n_1$** | dimensionless |
 | V-number | $V = (2\pi a/\lambda) \cdot NA$ | dimensionless |
 | Single-mode condition | $V < 2.405$ | — |
-| Number of modes | $M \approx V^2/2$ (step-index) | — |
+| Number of modes | $M \approx V^2/2$ (step-index) **· $V^2/4$ (GRIN, faculty)** | — |
 | Attenuation (dB/km) | $\alpha = (10/L)\log_{10}(P_{in}/P_{out})$ | dB/km |
 | Power after fiber | $P_{out} = P_{in} \cdot 10^{-\alpha L/10}$ | W |
 | Intermodal dispersion (SI) | $\Delta t = L \cdot n_1 \cdot \Delta / c$ | s |
-| Intermodal dispersion (GI) | $\Delta t = L \cdot n_1 \cdot \Delta^2 / (2c)$ | s |
+| Intermodal dispersion (GI) | $\Delta t = L \cdot n_1 \cdot \Delta^2 / (2c)$ **· faculty: $n_2 L \Delta^2 / 2c$** | s |
 | Material dispersion | $\Delta t = D \cdot L \cdot \Delta\lambda$ | s |
+| Total dispersion | $\tau = \sqrt{\tau_i^2 + \tau_m^2}$ | s |
+| **Max bit rate (faculty)** | **$B \approx 0.7/\tau$** | bits/sec |
+| **Dispersion conversion (faculty)** | **$1\ \text{s/m} \equiv 10^{12}\ \text{ns/km}$** | — |
 | Bandwidth-distance | $B \cdot L = 1/(2\Delta t)$ | bps·km |
 | Link budget | $P_{rx} = P_{tx} - \alpha L - L_{losses}$ | dBm |
+| **Spontaneous/stimulated rate ratio (faculty)** | **$R = e^{h\nu/kT} - 1$** | dimensionless |
+| **Beam divergence (faculty)** | **$\theta = (d_1-d_2)/(Z_1-Z_2)$** | rad |
+| **Laser efficiency (faculty)** | **$\eta = P_{optical}/(V_{op} I_{op})$** | dimensionless |
+| **Photon emission rate (faculty)** | **$n_t = P_{optical}\lambda/(hc)$** | photons/s |
 
 ### Optoelectronic Devices
 
