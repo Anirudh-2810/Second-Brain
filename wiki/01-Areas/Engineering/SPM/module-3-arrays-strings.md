@@ -18,13 +18,17 @@ Created 2026-10-02 by splitting a former single page that had grown to 40.7 KB (
 
 | You want | Go to |
 |---|---|
-| **Arrays** — 1D, 2D, address formulas, search/sort, beginner-first | [[module-3-arrays]] |
+| **Arrays — 1D** (declaration, `B+i*S`, search/sort/insert/delete) | **[[module-3-arrays]]** |
+| **Arrays — 2D** (row-major, address formulas, matrix ops) | **[[module-3-arrays-2d]]** |
+| **Array exam bank** (107 real questions, test data, solutions) | **[[spm-array-question-bank]]** |
 | **Strings** — `'\0'`, `strlen`/`strcpy`/`strcmp`/`strcat`, from scratch, **strcpy exam drill** | [[module-3-strings]] |
-| Lab write-ups EXP4 + EXP5 | [[spm-lab-exp3-4-5-guides]] |
+| Lab write-ups EXP3/4/5 | [[spm-lab-exp3-4-5-guides]] |
 | Syllabus position of Module 3 | [[syllabus-316U06C107]] |
 | Exam/OST patterns | [[assessment-guide-ese-ost-quiz]] |
 
-**Do not re-merge these three pages.** The split was deliberate: arrays is the user's weak area and deserved its own deep page.
+**Do not re-merge these pages.** The split was deliberate: arrays was the user's self-declared weak area, so it got its own deep page, then 1D and 2D were separated to keep each under the vault's ~25 KB size guideline.
+
+**Page-count note:** Module 3 is now five pages (1D, 2D, bank, strings, this hub). That is intentional — each has a distinct job: *teach* (1D/2D/strings), *test* (bank), *route* (hub).
 
 ---
 
@@ -44,16 +48,19 @@ Created 2026-10-02 by splitting a former single page that had grown to 40.7 KB (
 |---|---|---|
 | 3.1 Arrays 1D — declaration, initialization | [[module-3-arrays]] §1.2, §1.4 | complete (4 init styles) |
 | 3.1 1D — indexing, reading, displaying | [[module-3-arrays]] §1.5, §1.6 | complete |
-| 3.1 Array operations (sum, avg, max/min, search) | [[module-3-arrays]] §1.7, §3.2 | complete |
-| 3.1 Multidimensional arrays | [[module-3-arrays]] §2 | complete |
-| 3.1 Row-major vs column-major, address formulas | [[module-3-arrays]] §2.2 | complete |
-| 3.1 Sorting / insertion / deletion | [[module-3-arrays]] §3.3, §3.4 | complete (beyond the deck, exam-bank depth) |
+| 3.1 Array operations (sum, avg, max/min, 2nd largest) | [[module-3-arrays]] §1.7 | complete |
+| 3.1 Sorting / insertion / deletion | [[module-3-arrays]] §3 | complete (beyond the deck) |
+| 3.1 Linear + binary search, O(n) vs O(log n) | [[module-3-arrays]] §2 | complete |
+| 3.1 Multidimensional arrays | [[module-3-arrays-2d]] | complete |
+| 3.1 Row-major vs column-major, address formulas | [[module-3-arrays-2d]] §2 | complete |
+| 3.1 Matrix ops (add, multiply, transpose, diagonals, determinant, sparse, identity, spiral) | [[module-3-arrays-2d]] §5 | complete + real exam coverage |
 | 3.2 Character arrays, declaring/initializing | [[module-3-strings]] §1.1, §1.3 | complete (4 styles) |
 | 3.2 Reading/writing **chars** | [[module-3-strings]] §1.4 | complete (`getchar`/`putchar`/`%c`) |
 | 3.2 Reading/writing **strings** | [[module-3-strings]] §1.5 | complete (`%s`, `fgets`, `%s`, `puts`) |
 | 3.2 String operations (library) | [[module-3-strings]] §2 | complete |
 | 3.2 **String handling from scratch** | [[module-3-strings]] §3 | complete (length, copy, concat, compare, reverse, palindrome, vowels) |
 | 3.2 `strcpy` emphasis | [[module-3-strings]] §6 | full exam drill + 6 predict-output drills |
+| 3.1 **Exam question bank** | [[spm-array-question-bank]] | 107 questions, test data, Parts A+B solved |
 
 ---
 
@@ -99,13 +106,15 @@ ARRAYS
 | If the question is about… | Jump to |
 |---|---|
 | `B + i*S` for a 1D array | [[module-3-arrays]] §1.3 |
-| `B + (i*C+j)*S` row-major vs `(j*R+i)*S` column-major | [[module-3-arrays]] §2.2 |
-| Why outer=row/inner=column in C | [[module-3-arrays]] §2.2, §2.4 |
-| Partial initialization zero-fills | [[module-3-arrays]] §1.4 |
-| No bounds checking / undefined behaviour | [[module-3-arrays]] §1.5, §1.9 |
-| Linear vs binary search, O(n) vs O(log n) | [[module-3-arrays]] §3.1, §3.2 |
-| Bubble sort passes and the `swapped` flag | [[module-3-arrays]] §3.3 |
-| Insert/delete shift count | [[module-3-arrays]] §3.4 |
+| 1D init styles, bounds, `sizeof` | [[module-3-arrays]] §1.4–1.8 |
+| Second largest / second smallest | [[module-3-arrays]] §1.7 · bank [[spm-array-question-bank]] Q16/Q17 |
+| Bubble sort, insert/delete shift count | [[module-3-arrays]] §3.1–3.3 |
+| Linear vs binary search, O(n) vs O(log n) | [[module-3-arrays]] §2 |
+| `B + (i*C+j)*S` row-major vs `(j*R+i)*S` column-major | [[module-3-arrays-2d]] §2 |
+| Why outer=row/inner=column in C | [[module-3-arrays-2d]] §2, §4 |
+| Matrix multiply (three loops) vs add (two) | [[module-3-arrays-2d]] §5.1–5.2 |
+| 3×3 determinant sign pattern | [[module-3-arrays-2d]] §5.7 |
+| Which exam question to attempt first | [[spm-array-question-bank]] (yield ranking) |
 | `strlen` vs `sizeof` | [[module-3-strings]] §1.1, §2 |
 | `scanf("%s")` stops at whitespace; `fgets` for lines | [[module-3-strings]] §1.5 |
 | `strcmp(...) == 0` not `== 1`; never `==` on strings | [[module-3-strings]] §2.1, §4.4 |
@@ -160,11 +169,12 @@ Ingested 2026-10-02 from `raw-sources/`:
 
 | Source | Used for |
 |---|---|
-| `SPM Lecture/SPM_Module3_1.pptx` (27 slides, AY 2026-27) | the dedicated arrays page |
-| `SPM Lecture/SPM_Module3_2.pptx` (27 slides, AY 2026-27) | the dedicated strings page |
-| `SPM Lecture/Unit No.3 Arrays_Strings.pdf` (34 pp) | both pages — beginner narrative + from-scratch loops |
-| `SPM Lab/EX4.docx` | arrays lab write-up |
-| `SPM Lab/EX5.docx` | strings lab write-up |
+| `SPM Lecture/SPM_Module3_1.pptx` (27 slides, AY 2026-27) | [[module-3-arrays]] + [[module-3-arrays-2d]] |
+| `SPM Lecture/SPM_Module3_2.pptx` (27 slides, AY 2026-27) | [[module-3-strings]] |
+| `SPM Lecture/Unit No.3 Arrays_Strings.pdf` (34 pp) | all three — beginner narrative + from-scratch loops |
+| `SPM Lab/EX4.docx` | arrays lab write-up ([[spm-lab-exp3-4-5-guides]]) |
+| `SPM Lab/EX5.docx` | strings lab write-up ([[spm-lab-exp3-4-5-guides]]) |
+| `Semester 1/SPM/PIC Practice question_Array.docx` | [[spm-array-question-bank]] (107 questions) |
 | `SPM_Syllabus_316U06C107.md` | syllabus mapping above |
 
 **Source conflicts, resolved and recorded on the child pages:** the deck and the handout use different example data; the deck's from-scratch functions use `int` returns with an explicit `dst[i] = '\0';` while the handout's concatenation uses two indices — both forms are shown, faculty form first, because that is what gets marked.

@@ -9,7 +9,9 @@ description: "SPM PIC practice question bank distilled from raw-sources filename
 
 ## For future agent
 
-This note is the PIC (Programming in C) practice-question registry for SPM 316U06C107. It catalogs all 28 SPM theory source files by filename (big PDFs/PPTX never opened) and distills the full text of the three small practice sets: conditional (26 Q), loop (59 Q), array (107 Q). Use it to answer "give me practice/drill problems" or to build OST/ESE mocks. Theory lives in [[module-2-program-control-functions]] and [[module-3-arrays]]; exam pattern in [[assessment-guide-ese-ost-quiz]]; lab mapping in [[lab-ca-and-experiments]].
+This note is the PIC (Programming in C) practice-question registry for SPM 316U06C107. It catalogs all 28 SPM theory source files by filename (big PDFs/PPTX never opened) and distills the full text of the three small practice sets: conditional (26 Q), loop (59 Q), array (107 Q). Use it to answer "give me practice/drill problems" or to build OST/ESE mocks. Theory lives in [[module-2-program-control-functions]], [[module-3-arrays]] and [[module-3-arrays-2d]]; exam pattern in [[assessment-guide-ese-ost-quiz]]; lab mapping in [[lab-ca-and-experiments]].
+
+**The array set (the largest of the three) has been expanded into its own page** — [[spm-array-question-bank]] — with all 107 questions written out verbatim, their test data and expected output, full worked solutions for the syllabus-aligned Q1–31, and an exam-yield ranking. This page remains the cross-subject registry.
 
 # SPM PIC Question Bank — Conditionals, Loops, Arrays
 
@@ -126,6 +128,10 @@ int main(void) {
 ```
 
 ## 3. Array Practice — 107 Q (M3.1, CO3)
+
+> ⚠️ **The full text of all 107 questions — with test data, expected output and worked solutions — now lives in [[spm-array-question-bank]]** (created 2026-10-02). This section is the registry entry only, kept for the exam-mapping table in §4.
+>
+> **Dedicated page:** [[spm-array-question-bank]] · **Theory:** [[module-3-arrays]] (1D) · [[module-3-arrays-2d]] (2D)
 
 Groups: **1D basics** Q1-17 (store/print, reverse, sum, copy, duplicates, unique, merge, frequency, min/max, odd-even split, asc/desc sort, insert sorted+unsorted, delete, 2nd largest/smallest) · **2D core** Q18-31 (3×3 print, add, subtract, multiply, transpose, diagonals, row/col sums, triangular, 3×3 determinant, sparse, equality, identity) · **advanced/DSA-flavored** Q32-107 (pair-sum, majority, odd-occurrences, Kadane max-subarray, missing number, pivot/rotated-min, merge-sorted, rotate-by-N, ceil/floor, next-greater, repeating elements, zero-sum pair, subarray-sum, spiral, circular-max, triangle-count, 0/1/2 sort, subset, min-jumps, zeroes-to-end, counting sort, max-1s-row, max-product, 0/1 balance, product-except-self, inversions, sorted-matrix search, non-adjacent max, max-difference, medians, unique rows, triangular sums, permutations, 4-sum, paths, equilibrium, bitonic max — extension bank beyond ESE, good for quiz predict-output and interviews).
 

@@ -35,8 +35,10 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | SPM/module-1-spm-c-basics | — | M1: SDLC, compilation pipeline, memory layout (Text/Data/BSS/Heap/Stack) |
 | SPM/module-2-program-control-functions | — | M2: if/switch/loops, break/continue/goto, for-step semantics |
 | [[SPM/module-3-arrays-strings|SPM/module-3-arrays-strings]] | — | **Module 3 hub:** syllabus coverage map, concept-flow diagram, start-here routing, exam-focus map, formula sheet, source inventory |
-| [[SPM/module-3-arrays|SPM/module-3-arrays]] | — | **DEDICATED ARRAYS PAGE (M3.1):** 1D decl + 4 init styles, memory layout & `B+i*S`, read/display, sum/avg/max/min, linear + binary search, bubble sort, insert/delete shifts, 2D row-major vs column-major with both address formulas, matrix ops, complexity tables, address drills, 12 practice Qs + 5-question quick test |
-| [[SPM/module-3-strings|SPM/module-3-strings]] | — | **DEDICATED STRINGS PAGE (M3.2):** the `'\0'` model, 4 declaration styles, char/string I/O, strlen/strcpy/strcmp/strcat as library *and* from scratch, **§6 dedicated strcpy exam drill** (examiner checklist, 6 traps, 6 predict-output drills), 12 practice Qs + quick test · [[SPM/spm-string-functions-char-equality-reverse|classroom cut]] |
+| [[SPM/module-3-arrays|SPM/module-3-arrays]] | — | **ARRAYS 1D (M3.1a):** why arrays exist, declaration, 4 init styles, memory layout & `B+i*S`, read/display, sum/avg/max/min/2nd-largest, linear + binary search, bubble sort, insert/delete shifts, counting sort, 0-1-2 segregation, complexity table, 6 practice Qs + quick test |
+| [[SPM/module-3-arrays-2d|SPM/module-3-arrays-2d]] | — | **ARRAYS 2D (M3.1b):** row-major vs column-major + both address formulas, why the column count is mandatory, nested loops, matrix add/sub/multiply/transpose, diagonals, row-col sums, triangular, 3×3 determinant, sparse/identity, spiral print, flowcharts, 3 sets of practice Qs + quick test |
+| [[SPM/spm-array-question-bank|SPM/spm-array-question-bank]] | — | **ARRAY EXAM BANK:** all 107 official PIC questions with test data + expected output — 1D basics Q1-17 and 2D core Q18-31 fully solved with per-question point-tested notes, advanced/DSA Q32-107 as an index, exam-yield ranking, 6 self-test Qs |
+| [[SPM/module-3-strings|SPM/module-3-strings]] | — | **STRINGS (M3.2):** the `'\0'` model, 4 declaration styles, char/string I/O, strlen/strcpy/strcmp/strcat as library *and* from scratch, **§6 dedicated strcpy exam drill** (examiner checklist, 6 traps, 6 predict-output drills), 12 practice Qs + quick test · [[SPM/spm-string-functions-char-equality-reverse|classroom cut]] |
 | SPM/module-4-user-defined-functions | — | M4.1: UDFs, call-by-value, recursion, storage classes |
 | [[SPM/module-4-structures-unions-pointers|SPM/module-4-structures-unions-pointers]] | — | **M4.2-4.3 NEW:** structs/unions, struct vs union, pointers, pointer arithmetic, file handling |
 | SPM/c-programming-master-study-guide | — | 4-chapter cram guide (compile→control→arrays→functions) |
@@ -62,7 +64,9 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 - "SPM this week's topic / lab?" → [[SPM/lesson-plan-2026-27]]
 - "SPM CA marks / attendance rubric?" → [[SPM/lab-ca-and-experiments]]
 - "SPM ESE pattern / OST / Quiz?" → [[SPM/assessment-guide-ese-ost-quiz]]
-- "SPM unit 3 arrays?" → **[[SPM/module-3-arrays]]** (dedicated page) · hub: [[SPM/module-3-arrays-strings]]
+- "SPM unit 3 arrays?" → **[[SPM/module-3-arrays]]** (1D) · **[[SPM/module-3-arrays-2d]]** (2D) · hub: [[SPM/module-3-arrays-strings]]
+- "SPM array practice questions / 107 questions / which to attempt first?" → **[[SPM/spm-array-question-bank]]** (yield ranking at the top)
+- "matrix multiply / transpose / determinant / row-major address?" → [[SPM/module-3-arrays-2d]]
 - "SPM strcpy / string functions / from-scratch strings?" → **[[SPM/module-3-strings#6-the-strcpy-exam-drill|strcpy exam drill]]** + [[SPM/module-3-strings#3-from-scratch-the-syllabus-requirement|from-scratch section]]
 - "SPM M2 flag / counting loops / documentation?" → [[SPM/module-2-program-control-functions#17-the-flag-concept-syllabus-22--new-2026-10-02|flag]] · [[SPM/module-2-program-control-functions#19-documentation-and-making-source-code-readable-syllabus-23--new-2026-10-02|documentation]]
 - "SPM lab EXP1/EX2 write-up?" → [[SPM/spm-lab-exp1-exp2-guides]] · EXP3/4/5 → [[SPM/spm-lab-exp3-4-5-guides]]

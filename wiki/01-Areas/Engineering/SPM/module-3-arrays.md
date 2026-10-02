@@ -1,48 +1,51 @@
 ---
 course_code: "316U06C107"
 course_name: "Structured Programming Methodology"
-unit: "Module 3.1 — Introduction to Arrays"
+unit: "Module 3.1a — One-Dimensional Arrays"
 date: "2026-10-02"
-description: "SPM M3.1 arrays, complete and beginner-first — 1D declaration and four init styles, memory layout and address formula B+i*S, read/display, sum/avg/max/min, linear and binary search, bubble sort, insert/delete shift analysis, 2D row-major vs column-major with both address formulas, matrix ops, complexity tables, address drills, 12 practice questions and a 5-question quick test."
-tags: [spm, arrays, c-programming, 316U06C107, 1d-arrays, 2d-arrays, row-major, column-major, address-formula, linear-search, binary-search, bubble-sort, insertion, deletion, complexity, exam-prep, lab]
 last_updated: "2026-10-02"
+description: "SPM M3.1a one-dimensional arrays, beginner-first — why arrays exist, 0-based indexing, four initialization styles, memory layout and the B+i*S address formula, read/display, sum/avg/max/min/second-largest, linear and binary search, bubble sort, insert/delete with shift analysis, O-complexity table, address drills and 6 practice questions with answers."
+tags: [spm, arrays, 1d-arrays, c-programming, 316U06C107, address-formula, linear-search, binary-search, bubble-sort, insertion, deletion, second-largest, complexity, exam-prep, lab]
 confidence: high
+aliases: ["1D arrays", "Module 3.1 Arrays", "SPM 1D arrays"]
 prerequisites: ["Module 2: Program Control Functions", "Basic Big-O notation"]
 sources:
   - "raw-sources/SPM Lecture/SPM_Module3_1.pptx"
   - "raw-sources/SPM Lecture/Unit No.3 Arrays_Strings.pdf"
   - "raw-sources/SPM Lab/EX4.docx"
-  - "raw-sources/SPM_Syllabus_316U06C107.md"
 ---
 
 ## For future agent
 
-**The dedicated arrays page for SPM Module 3.1** (syllabus 3.1; part of Module 3's 7 hours, CO3, Bloom's *Apply*). Rewritten 2026-10-02 as the single home for arrays: it absorbs the beginner-teaching half of the former merged page **and** the deep exam bank that used to live here, plus deltas extracted from the faculty deck `SPM_Module3_1.pptx` (27 slides, AY 2026-27).
+**The dedicated ONE-DIMENSIONAL arrays page.** Split from the former combined Module-3 page on 2026-10-02 — the user named arrays the weak area and asked for 1D and 2D as separate pages. 2D/multidimensional content moved to [[module-3-arrays-2d]]; the exam question bank is [[spm-array-question-bank]]; strings are [[module-3-strings]].
 
-**Why it was rewritten rather than appended:** arrays + strings had grown into one 40.7 KB page (`module-3-arrays-strings.md`), past the vault's ~25 KB split threshold. That page is now a slim module hub. **Strings live in [[module-3-strings]] — do not duplicate them here.**
+**This filename was kept deliberately.** 44 inbound wikilinks across 22 files point at `module-3-arrays`. Renaming it would have broken all of them, so this page absorbed the 1D content and the 2D half was moved out. `aliases` above lets it also be reached as "1D arrays".
 
-Source-conflict notes: (1) the faculty deck and the faculty handout use different example data (`{78,92,65,88,74}` vs `{10,20,30,40,50}`); both appear below, the deck's is primary since the deck is what is taught from. (2) Both prescribe unbounded input — a runtime-entered `n` straight into a fixed-size array — faithful to the source, flagged in §1.9. (3) The deck's own rule: `int m[3][]` is a **compile error**; only the column count is mandatory.
+**Sources folded in:** the faculty deck `SPM_Module3_1.pptx` (27 slides, AY 2026-27) and the handout `Unit No.3 Arrays_Strings.pdf`. Deck-specific details worth remembering: **four** initialization styles (it adds the `{0}` all-zero shortcut), and the linear search uses a **`-1` sentinel** explicitly tied back to the Module 2 Flag concept. The handout and deck use different example data; both appear below.
 
----
-
-# Module 3.1 — Introduction to Arrays
-
-> **Syllabus 3.1** ([[syllabus-316U06C107]]): *Arrays: 1D, Multidimensional, Declaration/Initialization, Reading/Displaying.*
-> Lab: **EXP4** per [[spm-lab-exp3-4-5-guides]]. Strings half: [[module-3-strings]]. Module map: [[module-3-arrays-strings]]
+**Unsafe-C note:** the faculty material takes a runtime-entered `n` straight into a loop against a fixed-size array. Faithfully recorded, flagged in §1.9 — production code would clamp `n`.
 
 ---
 
-## 0. The Five Sentences That Cover the Whole Topic
+# Module 3.1a — One-Dimensional Arrays
+
+> **Syllabus 3.1** ([[syllabus-316U06C107]]): *Arrays: 1D, Multidimensional, Declaration/Initialization, Reading/Displaying.* CO3, part of Module 3's 7 hours.
+> **2D half:** [[module-3-arrays-2d]] · **Exam bank:** [[spm-array-question-bank]] · **Strings:** [[module-3-strings]] · Hub: [[module-3-arrays-strings]]
+
+---
+
+## 0. The six sentences that cover 1D
 
 1. An array is **one name for a contiguous block of same-type elements**.
-2. Indices run **0 … size−1**. There is no "index 1 is the first element".
-3. C does **no bounds checking** — an out-of-range index is silent memory corruption, not an error message.
-4. Because slots are contiguous, address = `base + index × sizeof(element)` → **O(1) access**.
+2. Indices run **0 … size−1**. Last index = size − 1. There is no "index 1 is the first element".
+3. C does **no bounds checking** — an out-of-range index is silent memory corruption, not an error.
+4. Contiguity gives address = `base + index × sizeof(element)` → **O(1) access**.
 5. Arrays are **O(1) to read, O(n) to insert/delete** — the shift is the price of contiguity.
+6. Sorted data unlocks **binary search (O(log n))** — unsorted data forces **linear (O(n))**.
 
 ---
 
-## 1. One-Dimensional Arrays
+## 1. Fundamentals
 
 ### 1.1 Why arrays exist
 
@@ -90,7 +93,7 @@ char grades[26];     /* 26 chars  */
 
 1. **Size must be a positive integer** — a constant or constant expression in standard C, *not* a variable.
 2. **Fixed at declaration** — a plain C array cannot be resized.
-3. **Memory is reserved immediately** — `size × sizeof(type)` bytes are allocated at declaration.
+3. **Memory is reserved immediately** — `size × sizeof(type)` bytes allocated at declaration.
 4. **But it is NOT initialized.** `int marks[5];` reserves 20 bytes holding **garbage values** until you assign them. (Contrast a *global* array, which the OS zeroes automatically — see [[module-1-spm-c-basics]] §1.7 on BSS.)
 
 ### 1.3 Memory layout and the address formula
@@ -114,7 +117,10 @@ $$\boxed{\text{Address}(A[i]) = B + i \times S}$$
 | $i$ | index | — |
 | $S$ | size of one element, `sizeof(type)` | bytes |
 
-**Why:** to reach element $i$ you walk past $i$ elements, each $S$ bytes wide. **This is why indexing is O(1)** — the CPU does one multiply and one add; it never searches. The array name `marks` *is* the address of `marks[0]`.
+**Why:** to reach element $i$ you walk past $i$ elements, each $S$ bytes wide. **This is why indexing is O(1)** — one multiply and one add, never a search. The array name `marks` *is* the address of `marks[0]`.
+
+**Worked drill.** `float a[20]`, base 1024, `sizeof(float) = 4`, find `a[12]`:
+$$1024 + 12 \times 4 = 1024 + 48 = \boxed{1072}$$
 
 ### 1.4 Initialization — four ways
 
@@ -134,7 +140,7 @@ int d[5] = {0};                      /* every element zeroed */
 
 Style 4 is the safe way to start an array you will fill later. Partial init (style 2) is what gives a `char` array its free `'\0'` terminators — see [[module-3-strings]].
 
-### 1.5 Indexing rules and the bounds trap
+### 1.5 Indexing and the bounds trap
 
 ```c
 int arr[5] = {10, 20, 30, 40, 50};
@@ -145,12 +151,12 @@ arr[2] = 100;           /* modifies the 3rd element */
 /* arr[5]  -> OUT OF BOUNDS: undefined behaviour */
 ```
 
-- **Valid range: `0` to `size − 1`.** For 5 elements that is `0,1,2,3,4` only.
+- **Valid range: `0` to `size − 1`.**
 - **No automatic bounds checking.** C will not stop you reading or writing `arr[5]` or `arr[-1]`.
 
 **The bounds condition to memorise:** `0 <= i < n` (equivalently `i >= 0 && i < n`).
 
-### 1.6 Reading and displaying — the two-loop pattern
+### 1.6 Read and display — the two-loop pattern
 
 ```c
 #include <stdio.h>
@@ -174,11 +180,11 @@ int main(void) {
 }
 ```
 
-**Two separate loops — one to READ, one to DISPLAY.** This is the most common array shape in the lab and the exams.
+**Two separate loops — one to READ, one to DISPLAY.** The most common array shape in the lab and the exams.
 
 `scanf` needs the element's **address**, so `&` is required. Writing `scanf("%d", arr[i]);` (missing `&`) compiles with a warning and then crashes or corrupts memory at runtime.
 
-### 1.7 Array operations
+### 1.7 Core operations
 
 **Sum and average:**
 
@@ -224,7 +230,20 @@ if (found != -1) printf("Found at index %d\n", found);
 else             printf("Not found\n");
 ```
 
-`found = -1` works as a sentinel because **−1 is never a valid array index**. This is the **Flag concept from Module 2** ([[module-2-program-control-functions]]) applied to arrays. A `found = 0/1` flag with a final `if (!found)` is equally acceptable.
+`found = -1` works as a sentinel because **−1 is never a valid array index**. This is the **Flag concept from Module 2** ([[module-2-program-control-functions]] §1.7) applied to arrays. A `found = 0/1` flag with `if (!found)` is equally acceptable.
+
+**Second largest / second smallest** (PIC Q16/Q17 — a favourite OST pick):
+
+```c
+/* second largest: two trackers, careful with duplicates */
+int first = arr[0], second = arr[0];
+for (int i = 1; i < n; i++) {
+    if (arr[i] > first) { second = first; first = arr[i]; }
+    else if (arr[i] > second && arr[i] != first) second = arr[i];
+}
+```
+
+For `{2, 9, 1, 4, 6}` → first=9, second=**6**. The `arr[i] != first` guard stops a duplicate of the maximum being counted as second. Mirror the logic with `<` for second smallest.
 
 ### 1.8 `sizeof` — three different questions
 
@@ -238,9 +257,9 @@ sizeof(a[0]);               /* 4  — size of ONE element   */
 
 `sizeof(a)/sizeof(a[0])` is the idiom for element count — use it instead of hard-coding 5.
 
-> **Caveat:** this only works inside the function that **declared** the array. Once an array is passed to a function it decays to a pointer, so `sizeof` there returns the pointer size (4 or 8), not the array size — which is why `n` must be passed separately. See §4.4.
+> **Caveat:** this only works inside the function that **declared** the array. Once an array is passed to a function it decays to a pointer, so `sizeof` there returns the pointer size (4 or 8), not the array size — which is why `n` must be passed separately. See §4.2.
 
-### 1.9 Array pitfalls (deck slide 24)
+### 1.9 Pitfalls (deck slide 24)
 
 | # | Pitfall | Detail |
 |---|---|---|
@@ -248,174 +267,15 @@ sizeof(a[0]);               /* 4  — size of ONE element   */
 | 2 | **Uninitialized = garbage** | `int arr[5];` alone does **not** set elements to 0. Initialize before reading. |
 | 3 | **Cannot be resized** | You cannot `int arr[5];` then later make it hold 10. |
 | 4 | **Forgetting `&` in `scanf`** | `scanf("%d", arr[i]);` — classic warning that becomes a runtime crash. |
-| 5 | **Column count mandatory in 2D** | `int m[][3]` is fine; `int m[3][]` is a **compile error**. |
+| 5 | **Second largest with duplicates** | `[5,5,3]` has no genuine second largest unless you guard with `arr[i] != first`. |
 
-> **Safe-coding note (agent annotation, not from the source):** the faculty material passes a runtime-entered `n` straight into `for (i = 0; i < n; i++)` against a fixed `arr[10]`. If the user types `n = 15` you overflow. Production code would clamp `n` to the capacity. The lab keeps the simple form — know the limit.
-
----
-
-## 2. Two-Dimensional Arrays (Matrices)
-
-### 2.1 The concept
-
-A 2D array is an **array of arrays** — a table with rows and columns.
-
-```
-              Column
-             0     1     2
-          +-----+-----+-----+
-  Row 0   | 10  | 20  | 30  |
-  Row 1   | 40  | 50  | 60  |
-  Row 2   | 70  | 80  | 90  |
-          +-----+-----+-----+
-```
-
-`matrix[i][j]` = row `i`, column `j`. **Both indices are zero-based**, exactly like 1D.
-
-```c
-dataType name[rows][columns];
-
-int matrix[3][3];        /* 3 rows x 3 cols = 9 elements */
-```
-
-**Rule:** `arr[rows][cols]` — the **first** index is always the row, the **second** always the column. They cannot be swapped.
-
-### 2.2 Row-major vs. column-major
-
-A `int a[3][4]` is physically **one linear block of 12 elements**. Only the layout order differs.
-
-```
-   ROW-MAJOR  (C, C++, Java) — a full row is laid out next
-   [0][0] [0][1] [0][2] [0][3] | [1][0] [1][1] [1][2] [1][3] | [2][0] ...
-   offset:  0     1     2     3  |   4     5     6     7  |   8 ...
-
-   COLUMN-MAJOR  (FORTRAN, MATLAB, R) — a full column is laid out next
-   [0][0] [1][0] [2][0] | [0][1] [1][1] [2][1] | [0][2] ...
-   offset:  0     1     2  |   3     4     5  |   6 ...
-```
-
-| Property | Row-major | Column-major |
-|---|---|---|
-| Next block after | a full row (C elements) | a full column (R elements) |
-| Used by | **C**, C++, Java | FORTRAN, MATLAB, R |
-| Address of `[i][j]` | $B + (i \times C + j) \times S$ | $B + (j \times R + i) \times S$ |
-| Cache-friendly loop | outer = row, inner = column | outer = column, inner = row |
-| Memory trick | "go down *i* rows, then right *j* columns" | "go across *j* columns, then down *i* rows" |
-
-$$\boxed{\text{Row-major: } \text{Address}(a[i][j]) = B + (i \times C + j) \times S}$$
-
-**Intuition:** to reach row $i$, skip $i$ *whole rows* — each has $C$ elements — then walk $j$ elements into that row. Elements before it: $i \times C + j$.
-
-$$\boxed{\text{Column-major: } \text{Address}(a[i][j]) = B + (j \times R + i) \times S}$$
-
-**Intuition:** to reach column $j$, skip $j$ *whole columns* — each has $R$ elements — then walk $i$ elements down it.
-
-**This is precisely why the column count must be known at compile time** — the compiler needs it to evaluate $i \times C + j$. Without it there is no way to find where row $i$ begins.
-
-**Worked drill.** `int a[3][5]`, base 2000, `sizeof(int)=4`, find `a[2][3]`:
-
-- Row-major: $2000 + (2\times5 + 3)\times4 = 2000 + 52 = \boxed{2052}$
-- Column-major: $2000 + (3\times3 + 2)\times4 = 2000 + 44 = \boxed{2044}$
-
-**Why row-major matters in real code:** CPUs load memory in cache *lines* (~64 bytes). Walking a **row** uses one line for many elements. Walking a **column** in a row-major array jumps a whole row each step → a cache miss per access. So outer = row, inner = column is the fast order in C.
-
-### 2.3 Declaration and initialization
-
-```c
-int matrix[3][4];                                  /* declaration only */
-
-/* nested-brace style — clearest, matches the visual rows/columns */
-int m[2][3] = {
-    {1, 2, 3},
-    {4, 5, 6}
-};
-
-/* flat style — identical result */
-int n[2][3] = {1, 2, 3, 4, 5, 6};
-```
-
-| Rule | Detail |
-|---|---|
-| Row count **can** be omitted | `int m[][3] = {{1,2,3},{4,5,6}};` is valid — C counts rows |
-| Column count **cannot** | `int m[3][]` is a **compile error** — the compiler needs the row width |
-
-Prefer nested braces in your own code: they visually match rows and columns, so mistakes are easy to spot.
-
-### 2.4 Reading and displaying — nested loops
-
-```c
-#include <stdio.h>
-
-int main(void) {
-    int mat[2][3], i, j;
-
-    for (i = 0; i < 2; i++)          /* OUTER = rows */
-        for (j = 0; j < 3; j++)      /* INNER = columns */
-            scanf("%d", &mat[i][j]);
-
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 3; j++)
-            printf("%d ", mat[i][j]);
-        printf("\n");                /* AFTER the inner loop */
-    }
-    return 0;
-}
-```
-
-**Outer loop = rows (`i`), inner loop = columns (`j`).** The inner loop completes all its iterations for *each* single iteration of the outer loop, so access order is `[0][0] [0][1] [0][2] [1][0] …`.
-
-**The `printf("\n")` position is the whole game** — inside the outer loop but **outside** the inner. Inside the inner prints every element on its own line; outside both prints one long line.
-
-### 2.5 Matrix addition
-
-```
-A =        B =          C = A + B:
-1  2       5  6         6   8
-3  4       7  8        10  12
-```
-
-```c
-int a[2][2] = {{1, 2}, {3, 4}};
-int b[2][2] = {{5, 6}, {7, 8}};
-int sum[2][2], i, j;
-
-for (i = 0; i < 2; i++)
-    for (j = 0; j < 2; j++)
-        sum[i][j] = a[i][j] + b[i][j];
-```
-
-**Two matrices can only be added if they have the SAME dimensions**, and each element is added to the element at the **identical `[i][j]` position** — never a mismatched index.
-
-### 2.6 Array vs. string
-
-| | Array | String |
-|---|---|---|
-| Holds | any same data type | characters only |
-| Example | `int marks[5]` | `char name[20]` |
-| Terminator | not required | **must** end with `'\0'` when used as a C string |
-| Access | by index | by index |
-
-Strings: [[module-3-strings]].
+> **Safe-coding note (agent annotation, not from the source):** the faculty material passes a runtime-entered `n` straight into `for (i = 0; i < n; i++)` against a fixed `arr[10]`. If the user types `n = 15` you overflow. Production code would clamp `n` to the capacity.
 
 ---
 
-## 3. Searching, Sorting, Insertion & Deletion
+## 2. Searching
 
-### 3.1 Complexity master table
-
-| Operation | Best | Average | Worst | Extra space |
-|---|---|---|---|---|
-| Traversal (read all n) | O(n) | O(n) | O(n) | O(1) |
-| Insert at end (space exists) | O(1) | O(1) | O(1) | — |
-| Insert at position k | O(1) | **O(n)** (shift right) | O(n) | O(1) |
-| Delete at position k | O(1) | **O(n)** (shift left) | O(n) | O(1) |
-| Linear search | O(1) | O(n) | O(n) | O(1) |
-| Binary search (**sorted only**) | O(1) | **O(log n)** | O(log n) | O(1) iter / O(log n) recursion |
-| Bubble sort | O(n) (flag) | O(n²) | O(n²) | O(1) |
-
-> **The single most important sentence:** arrays give **O(1) read** but **O(n) insert/delete**, because everything after the change must shift. That trade-off is exactly why linked lists exist for frequent-insert workloads.
-
-### 3.2 Linear vs. binary search
+### 2.1 Linear vs. binary — the decision
 
 ```
    LINEAR SEARCH                BINARY SEARCH (array MUST be sorted)
@@ -432,9 +292,6 @@ Strings: [[module-3-strings]].
                                       v
                                 a[mid] < key ? -> lo <- mid+1
                                 else            -> hi <- mid-1
-                                      |
-                                      v
-                                    loop (search space halves)
 ```
 
 ```c
@@ -467,7 +324,28 @@ int binarySearch(int a[], int n, int key)
 
 The interval halves each step — 6 → 3 → 1 → 0 — exactly the $\log_2 6 \approx 3$ comparisons theory predicts.
 
-### 3.3 Bubble sort
+### 2.2 Floor and ceiling (PIC Q40/Q41)
+
+**Ceiling of x** = smallest element **≥ x**. **Floor of x** = greatest element **≤ x**.
+
+```c
+/* both in one binary-search pass over a sorted array */
+int lo = 0, hi = n - 1;
+while (lo <= hi) {
+    int mid = lo + (hi - lo) / 2;
+    if (a[mid] == x)          { floor = ceil = a[mid]; break; }
+    else if (a[mid] < x)      ceil = a[mid], lo = mid + 1;
+    else                      floor = a[mid], hi = mid - 1;
+}
+```
+
+With `a = {1,3,5,7,8,9}` and `x = 0`: floor is `-1` (no element ≤ 0) and ceiling is `1`. **Report `-1` when it does not exist** — that is the convention in the PIC expected output.
+
+---
+
+## 3. Sorting, insertion, deletion
+
+### 3.1 Bubble sort
 
 ```c
 for (pass = 0; pass < n - 1; pass++) {
@@ -494,7 +372,9 @@ for (pass = 0; pass < n - 1; pass++) {
 | 2 | `[1 4 2 5]` | 4↔2 | `[1 2 4 5]` |
 | 3 | `[1 2 4 5]` | none → `break` | `[1 2 4 5]` |
 
-### 3.4 Insertion and deletion — the shift
+**Descending order** is the same loop with `a[i] < a[i+1]` as the swap condition (PIC Q12).
+
+### 3.2 Insertion — the shift
 
 ```c
 /* insert key at position pos; returns new length */
@@ -505,15 +385,6 @@ int insertAt(int a[], int n, int cap, int key, int pos)
         a[i] = a[i - 1];                                /* shift right */
     a[pos] = key;
     return n + 1;
-}
-
-/* delete at position pos; returns new length */
-int deleteAt(int a[], int n, int pos)
-{
-    if (pos < 0 || pos >= n) return n;
-    for (int i = pos; i < n - 1; i++)
-        a[i] = a[i + 1];                                /* shift left */
-    return n - 1;
 }
 ```
 
@@ -527,71 +398,99 @@ int deleteAt(int a[], int n, int pos)
    place:    a[2] = 99    ->  [1][2][99][3][4][5]
 ```
 
+**Insert into a SORTED list** (PIC Q13) is easier — find the position first, then shift:
+
+```c
+int pos = 0;
+while (pos < n && a[pos] < key) pos++;     /* walk to the insertion point */
+insertAt(a, n, cap, key, pos);
+```
+
+`{2,5,7,9,11}` + 8 → pos stops at 3 (7 < 8) → `{2,5,7,8,9,11}`.
+
+### 3.3 Deletion
+
+```c
+/* delete at position pos; returns new length */
+int deleteAt(int a[], int n, int pos)
+{
+    if (pos < 0 || pos >= n) return n;
+    for (int i = pos; i < n - 1; i++)
+        a[i] = a[i + 1];                                /* shift left */
+    return n - 1;
+}
+```
+
+`{1,2,3,4,5}` delete position 3 → shift `a[3]=a[4]` → **`1 2 4 5`** (PIC Q15).
+
 **Shift counts:** inserting at position 0 → **n shifts + 1 place**. Deleting position 0 → **n − 1 shifts**. Both O(n) — the price of contiguity.
+
+### 3.4 The extra-space algorithm
+
+**Counting sort** (PIC Q59) — O(n + k) when values are in a bounded range:
+
+```c
+int count[18] = {0};
+for (i = 0; i < n; i++) count[a[i]]++;      /* tally */
+for (i = 1; i < 18; i++) count[i] += count[i-1];   /* prefix sums */
+for (i = n - 1; i >= 0; i--) out[--count[a[i]]] = a[i];   /* stable place */
+```
+
+**Segregate 0s, 1s and 2s** (PIC Q54) — the Dutch-national-flag trick, **O(n), no extra array**:
+
+```c
+int low = 0, mid = 0, high = n - 1;
+while (mid <= high) {
+    if (a[mid] == 0)      { swap(a[low], a[mid]); low++; mid++; }
+    else if (a[mid] == 1) { mid++; }
+    else                  { swap(a[mid], a[high]); high--; }   /* mid stays */
+}
+```
+
+The `mid--` after the last branch is **deliberate** — the swapped-in element has not been examined yet.
 
 ---
 
-## 4. Practical Notes
+## 4. Practical notes
 
-### 4.1 Flowcharts
+### 4.1 Complexity master table
 
-```
-   TRAVERSE                 INSERT at k                DELETE at k
-   i <- 0                    i <- n                     i <- k
-      |                        |                          |
-      v                        v                          v
-   i < n ?                  i > k ?                    i < n-1 ?
-   NO -> stop               YES: a[i]=a[i-1]; i--        YES: a[i]=a[i+1]; i++
-   YES: use a[i]           NO:  a[k]=key                NO: n--
-      |                                                          |
-      v                                                          v
-   i <- i+1                                                n <- n-1
-```
+| Operation | Best | Average | Worst | Extra space |
+|---|---|---|---|---|
+| Traversal (read all n) | O(n) | O(n) | O(n) | O(1) |
+| Insert at end (space exists) | O(1) | O(1) | O(1) | — |
+| Insert at position k | O(1) | **O(n)** (shift right) | O(n) | O(1) |
+| Delete at position k | O(1) | **O(n)** (shift left) | O(n) | O(1) |
+| Linear search | O(1) | O(n) | O(n) | O(1) |
+| Binary search (**sorted only**) | O(1) | **O(log n)** | O(log n) | O(1) iter |
+| Bubble sort | O(n) (flag) | O(n²) | O(n²) | O(1) |
+| Counting sort (bounded range) | O(n+k) | O(n+k) | O(n+k) | O(k) |
+| Segregate 0/1/2 | O(n) | O(n) | O(n) | O(1) |
 
-### 4.2 Exam address drills
+> **The single most important sentence:** arrays give **O(1) read** but **O(n) insert/delete**, because everything after the change must shift. That trade-off is exactly why linked lists exist for frequent-insert workloads.
 
-| Given | Asked | Answer |
-|---|---|---|
-| `float a[20]`, base 1024, S=4 | address of `a[12]` | $1024 + 12(4) = \mathbf{1072}$ |
-| `int a[3][5]`, base 2000, S=4 | `a[2][3]` row-major | $2000 + (2{\cdot}5+3)(4) = \mathbf{2052}$ |
-| same | `a[2][3]` column-major | $2000 + (3{\cdot}3+2)(4) = \mathbf{2044}$ |
-| `int x[6] = {1,2,3}` | `x[3]`, `x[4]`, count | `0`, `0`, **6** (partial init zero-fills) |
-
-**Worked example — partial init and `sizeof`:**
-
-```c
-int x[6] = {1, 2, 3};
-printf("%d %d\n", x[3], x[4]);              /* 0 0  */
-printf("%zu\n", sizeof(x) / sizeof(x[0]));  /* 6    */
-```
-
-Partial initialization zero-fills → `{1, 2, 3, 0, 0, 0}`. Element count = $24/4 = 6$.
-
-### 4.3 Array parameters and decay
+### 4.2 Array parameters and decay
 
 ```c
 int linearSearch(int a[], int n, int key) { /* ... */ }
 ```
 
-`int a[]` as a parameter is **identical** to `int *a` — the array *decays* to a pointer to its first element, so the function receives only the address and **never the size**. That is why `n` must be passed separately, and why `sizeof(a)` inside the function gives the pointer size, not the array size.
+`int a[]` as a parameter is **identical** to `int *a` — the array *decays* to a pointer to its first element, so the function receives only the address and **never the size**. That is why `n` must be passed separately.
 
-### 4.4 Real-world applications
+### 4.3 Real-world applications
 
 | Principle | Where it shows up |
 |---|---|
-| Contiguous O(1) access | Ring buffers / FIFO queues in network drivers, audio sample buffers, image frame buffers |
-| No bounds checking | Buffer overflows (Heartbleed) — why `snprintf`/bounded APIs exist |
+| Contiguous O(1) access | Ring buffers / FIFO queues in network drivers, audio sample buffers |
+| No bounds checking | Buffer overflows (Heartbleed) — why bounded APIs exist |
 | 1D arrays | Sensor logging, DSP lookup tables (sine tables), CPU cache lines |
-| 2D arrays / matrices | Image pixels, game boards, spreadsheets, ML matrix math |
-| Row-major ordering | Image/video processing — row-major loops keep cache hits high |
-| Linear search | Small unsorted collections, symbol tables, unsorted logs |
-| Binary search | Database index lookups, sorted dictionaries, `bisect`-style queries |
-| O(n²) sorts | Nearly-sorted data with an early-exit flag; teaching baseline (industry uses quicksort/mergesort/Timsort) |
+| Linear vs binary search | Database index lookups, sorted dictionaries, `bisect`-style queries |
+| O(n²) sorts | Nearly-sorted data with an early-exit flag; teaching baseline |
 | Insert/delete shifting | Sorted leaderboards, priority queues where in-place shift is acceptable |
 
 ---
 
-## 5. Practice Questions (from the faculty deck)
+## 5. Practice Questions
 
 **Q1 — declaring, initializing, accessing**
 1. Declare an array of 6 floats and initialize only the first 3. What are the remaining 3?
@@ -602,7 +501,7 @@ int linearSearch(int a[], int n, int key) { /* ... */ }
 
 1. **0, 0, 0** — partial initialization zero-fills (C guarantee).
 2. **19** — last index = size − 1.
-3. **30** — `x[1]=10`, `x[3]=20`, sum = 30.
+3. **30** — `x[1]=10`, `x[3]=20`.
 </details>
 
 **Q2 — reading & displaying**
@@ -613,7 +512,7 @@ int linearSearch(int a[], int n, int key) { /* ... */ }
 <details><summary>Answers</summary>
 
 1. `for (i = 4; i >= 0; i--) printf("%d ", arr[i]);`
-2. **Undefined behaviour** — the loop reads and writes `arr[10]`..`arr[14]`, past the 10-element array, corrupting adjacent stack memory.
+2. **Undefined behaviour** — the loop reads and writes `arr[10]`..`arr[14]`, past the 10-element array.
 3. `printf("arr[%d] = %d\n", i, arr[i]);`
 </details>
 
@@ -625,20 +524,8 @@ int linearSearch(int a[], int n, int key) { /* ... */ }
 <details><summary>Answers</summary>
 
 1. Two passes: compute the average, then `if (arr[i] > avg) count++;`
-2. Two trackers, `max` and `second`. When `arr[i] > max`, move `max` into `second`, then set `max = arr[i]`. Otherwise if `arr[i] > second`, set `second`.
+2. Two trackers, `max` and `second` — see §1.7 for the duplicate guard.
 3. Drop the `break`; replace `found = i` with `count++`.
-</details>
-
-**Q4 — 2D arrays**
-1. Declare a 2D array for the marks of **4 students in 3 subjects**. Row and column counts?
-2. Sum all elements of a 3×3 matrix using nested loops.
-3. Modify matrix addition to do **subtraction**.
-
-<details><summary>Answers</summary>
-
-1. `int marks[4][3];` → 4 rows, 3 columns. **Rows = students, columns = subjects** — the first index is always the row.
-2. `for (i=0;i<3;i++) for (j=0;j<3;j++) total += m[i][j];`
-3. Change `+` to `-` in `c[i][j] = a[i][j] - b[i][j];`
 </details>
 
 ---
@@ -650,8 +537,8 @@ int linearSearch(int a[], int n, int key) { /* ... */ }
 | Q1 | MCQ | In C, array indexing starts from: (a) 1 (b) 0 (c) −1 (d) depends on compiler | **(b) 0** |
 | Q2 | Code trace | `int a[4] = {2, 4, 6, 8};` value of `a[1] + a[3]`? | **12** (4 + 8) |
 | Q3 | Short answer | Why does `scanf` require `&arr[i]` instead of `arr[i]`? | It must **write** into the slot, so it needs the element's memory address |
-| Q4 | Short answer | Explain row-major order. | Elements of a whole row are stored consecutively, then the next row — so `a[i][j]` sits at `base + (i×C + j)×S` |
-| Q5 | True/False | `int m[3][4];` can later be resized to `int m[5][4];` at runtime. | **False** — a plain C array's size is fixed at declaration |
+| Q4 | Short answer | Why can binary search not be used on an unsorted array? | It discards half the search space each step, which is only valid if the halves are already ordered |
+| Q5 | True/False | `int arr[5];` gives you an array of five zeros. | **False** — it gives five **garbage** values. Only `{0}` or partial init zeroes them |
 
 ---
 
@@ -660,28 +547,29 @@ int linearSearch(int a[], int n, int key) { /* ... */ }
 | Quantity | Formula / pattern | Notes |
 |---|---|---|
 | 1D address | $B + i \times S$ | zero-based |
-| Row-major 2D address | $B + (i \times C + j) \times S$ | C / C++ / Java |
-| Column-major 2D address | $B + (j \times R + i) \times S$ | FORTRAN / MATLAB |
 | Last valid index | size − 1 | indices run `0 … size-1` |
 | Bounds check | `0 <= i < n` | |
 | Element count | `sizeof(a) / sizeof(a[0])` | only inside the declaring function |
 | Array total bytes | n × `sizeof(type)` | |
-| Row-major cache loop | outer `i` (row), inner `j` (col) | the fast order in C |
 | Read n elements | `for (i=0;i<n;i++) scanf("%d",&a[i]);` | `&` required |
 | Not-found sentinel | `-1` | never a valid index |
-| Bubble inner bound | `i < n - 1 - pass` | shrinks each pass |
+| Binary-search steps | $\log_2 n$ | interval halves each step |
 | Safe midpoint | `lo + (hi - lo) / 2` | avoids overflow |
+| Bubble inner bound | `i < n - 1 - pass` | shrinks each pass |
+| Second largest | two trackers + `arr[i] != first` | duplicate guard |
+| 0/1/2 segregation | `low/mid/high` three pointers | O(n), in place |
 
 ---
 
 ## Cross-References
 
-- **Strings half of the module:** [[module-3-strings]] — string model, `'\0'`, `strlen`/`strcpy`/`strcmp`/`strcat`, the strcpy exam drill
+- **2D half of this topic:** [[module-3-arrays-2d]] — row-major order, both address formulas, matrix ops
+- **Exam question bank:** [[spm-array-question-bank]] — 107 real exam questions with test data
 - **Module map / routing:** [[module-3-arrays-strings]]
-- **Syllabus:** [[syllabus-316U06C107]] · [[assessment-guide-ese-ost-quiz]] · [[formula-sheet-spm]]
+- **Strings:** [[module-3-strings]] — a `char` array *is* a 1D array; read that next
 - **Lab:** [[spm-lab-exp3-4-5-guides]] (EXP4 — Arrays) · [[lab-ca-and-experiments]]
 - **Loops this depends on:** [[module-2-program-control-functions]] (flag concept, counting loops) · [[spm-module2-faculty-companion]]
 - **Foundations:** [[module-1-spm-c-basics]] (memory layout, BSS) · [[module-4-structures-unions-pointers]] (pointers, decay)
-- **Practicals:** [[spm-pic-question-bank]] · [[spm-quiz-bank]] · [[c-programming-master-study-guide]]
+- **Drills:** [[spm-practice-bank-module2]] · [[spm-quiz-bank]] · [[c-programming-master-study-guide]]
 
-*Sources ingested 2026-10-02: `SPM_Module3_1.pptx` (27 slides), `Unit No.3 Arrays_Strings.pdf`, `SPM Lab/EX4.docx`.*
+*Sources ingested 2026-10-02: `SPM_Module3_1.pptx` (27 slides), `Unit No.3 Arrays_Strings.pdf`, `SPM Lab/EX4.docx`, `PIC Practice question_Array.docx` (Q1-Q17).*
