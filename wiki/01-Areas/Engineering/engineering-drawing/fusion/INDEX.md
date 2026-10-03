@@ -128,6 +128,7 @@ This is deliberately the *shape*, not button-by-button. The concepts transfer to
 | # | Topic | Status |
 |---|---|---|
 | 1 | **[[fusion-setup-and-interface]]** — install, Education licence + renewal, browser access, navigation, units, the interface differences from SolidWorks | ✅ written |
+| 2 | **[[fusion-advanced-parametric-track]]** — advanced track for AutoCAD users: parameters/equations, Body vs Component, joints, shell/ribs, Check + 3MF + hole-tower, 8 showable hardware projects | ✅ written |
 | 2 | Sketch mastery — fully-defined sketches, constraints, relations, the under/over-constrained diagnostic | ⬜ pending — build when you reach it |
 | 3 | Part workflow — extrude, revolve, sweep, loft, dress-up, assembly export | ⬜ pending |
 | 4 | 3D printing — 3MF/STL export, Check tool, orientation, supports, tolerances, test coupons | ⬜ pending |

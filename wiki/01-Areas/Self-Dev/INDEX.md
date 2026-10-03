@@ -40,6 +40,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 - "Communication / articulation / vocabulary for interviews?" → [[communication-mastery]] + [[vocabulary-building]]
 - "Motivation / self-belief / discipline?" → [[motivation-self-belief]]
 - "Phone addiction / digital wellness / dopamine?" → [[digital-wellness]]
+- "Video editing / DaVinci Resolve / how do I edit my guitar/vlog clips (CapCut banned)?" → [[video-editing-davinci]]
 
 - "How do I consume persuasive media / YouTube essays responsibly?" → [[critical-media-consumption]] (3-bucket fact/allegation/interpretation audit) + [[synthetic-media-literacy]] (fabricated-content detection)
 

@@ -42,6 +42,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 ### CAD self-study (Engineering Drawing)
 - [[01-Areas/Engineering/engineering-drawing/solidworks/INDEX|SolidWorks track]] — 27 pages, 154 ingested videos, primary design/portfolio skill
 - [[01-Areas/Engineering/engineering-drawing/fusion/INDEX|Fusion track]] — **scoped complement**: free Education licence, browser+desktop, CAM/3MF for the Arduino → 3D-printing → robotics hardware thread. Deliberately not a second full CAD track
+  - [[01-Areas/Engineering/engineering-drawing/fusion/fusion-advanced-parametric-track|Fusion Advanced — parametric track + 8 showable projects]] — for AutoCAD users: parameters/equations, Body vs Component, shell/ribs, Check + 3MF + hole-tower
 
 
 ### Labs
@@ -335,6 +336,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Self-Dev/Language-German/German-A1-Mastery|German A1 Mastery]]** — CEFR A1 beginner German: greetings, numbers, family, daily routines, present tense, practical conversations.
 - **[[01-Areas/Self-Dev/Language-French/French-A1-Mastery|French A1 Mastery]]** — CEFR A1 beginner French: greetings, numbers, family, daily routines, present tense, practical conversations.
 - **[[01-Areas/Self-Dev/My-Writing/My-Writing-Archive|My Writing Archive]]** — Personal narratives: student daily routine, financial success story.
+- **[[01-Areas/Self-Dev/video-editing-davinci|Video Editing with DaVinci Resolve Free]]** — India-safe starter (CapCut banned): Cut→Deliver on RTX 2050, phone-audio sync, guitar leveling, 5 showable clips.
 
 ### Retrieval Agent (Business Brain)
 > n8n + Supabase Edge Function grounded Q&A agent. Never answers from own knowledge — only from vector-searched brain. Catalog: `[[00-Current-Projects/retrieval-agent/overview|Retrieval Agent Overview]]`.
