@@ -337,6 +337,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Self-Dev/Language-French/French-A1-Mastery|French A1 Mastery]]** — CEFR A1 beginner French: greetings, numbers, family, daily routines, present tense, practical conversations.
 - **[[01-Areas/Self-Dev/My-Writing/My-Writing-Archive|My Writing Archive]]** — Personal narratives: student daily routine, financial success story.
 - **[[01-Areas/Self-Dev/video-editing-davinci|Video Editing with DaVinci Resolve Free]]** — India-safe starter (CapCut banned): Cut→Deliver on RTX 2050, phone-audio sync, guitar leveling, 5 showable clips.
+  - **Full course dump** (Marcus Jones 4-hr masterclass, ~7,000 words, 40-tip bank): [[01-Areas/Self-Dev/video-editing-course-part1-foundations-cutting|1 · Foundations (install/cutting/keyframes)]] · [[01-Areas/Self-Dev/video-editing-course-part2-visuals|2 · Visuals (overlays/text/green screen)]] · [[01-Areas/Self-Dev/video-editing-course-part3-audio-deliver|3 · Audio + Live Edit]] · [[01-Areas/Self-Dev/video-editing-course-part4-retention-shorts|4 · Retention + Shorts]] — transcript: `raw-sources/youtube-transcript-full-video-editing-course-marcus-jones.txt`
 
 ### Retrieval Agent (Business Brain)
 > n8n + Supabase Edge Function grounded Q&A agent. Never answers from own knowledge — only from vector-searched brain. Catalog: `[[00-Current-Projects/retrieval-agent/overview|Retrieval Agent Overview]]`.

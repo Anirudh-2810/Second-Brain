@@ -41,6 +41,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 - "Motivation / self-belief / discipline?" → [[motivation-self-belief]]
 - "Phone addiction / digital wellness / dopamine?" → [[digital-wellness]]
 - "Video editing / DaVinci Resolve / how do I edit my guitar/vlog clips (CapCut banned)?" → [[video-editing-davinci]]
+- "Full editing course / cutting / keyframes / audio / retention / Shorts?" → [[video-editing-course-part1-foundations-cutting|editing course 1 · Foundations]] · [[video-editing-course-part2-visuals|2 · Visuals]] · [[video-editing-course-part3-audio-deliver|3 · Audio + Live Edit]] · [[video-editing-course-part4-retention-shorts|4 · Retention + Shorts]] (Marcus Jones 4-hr dump, ~7,000 words)
 
 - "How do I consume persuasive media / YouTube essays responsibly?" → [[critical-media-consumption]] (3-bucket fact/allegation/interpretation audit) + [[synthetic-media-literacy]] (fabricated-content detection)
 

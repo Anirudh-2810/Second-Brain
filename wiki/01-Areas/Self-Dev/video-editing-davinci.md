@@ -17,6 +17,8 @@ Editing starter for a user who records (guitar + vlog) but never edits. Uses **D
 Companions: [[01-Areas/Self-Dev/INDEX]] · learning loop: [[01-Areas/Self-Dev/productivity/how-to-self-teach]] · output-over-hours: [[01-Areas/Self-Dev/comparing-the-wrong-number-practice]]
 
 > Why Resolve and not CapCut: CapCut is ByteDance and banned in India. Resolve Free is full-featured, no ban, and your RTX 2050 accelerates it. Start in **Clipchamp** (preinstalled) only if Resolve feels heavy week one — same workflow, migrate after 3 exports.
+>
+> Full course dump (Marcus Jones 4-hr masterclass, this page's big sibling): [[01-Areas/Self-Dev/video-editing-course-part1-foundations-cutting|1 · Foundations]] · [[01-Areas/Self-Dev/video-editing-course-part2-visuals|2 · Visuals]] · [[01-Areas/Self-Dev/video-editing-course-part3-audio-deliver|3 · Audio + Live Edit]] · [[01-Areas/Self-Dev/video-editing-course-part4-retention-shorts|4 · Retention + Shorts]] (~7,000 words, 40-tip bank).
 
 ## 1. One-time setup (15 min, do once)
 
