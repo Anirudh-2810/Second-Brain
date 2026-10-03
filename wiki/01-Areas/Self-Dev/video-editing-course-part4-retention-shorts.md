@@ -144,5 +144,28 @@ Idea outranks editing: world-class cuts on an unwanted topic = **polishing a tur
 | 38 | Imitate outliers, then invent | P4 §6 |
 | 39 | Name + smile in 60 s; "so that" every promise | P4 §7 |
 | 40 | Best idea wins; editing is downstream | P4 §9 |
+| 41 | Markers-first: flag then execute, never scrub twice | P1 §12 |
+| 42 | Text preset in Power Bin beats restyling | P2 §13 |
+| 43 | –14 LUFS check before every upload | P3 §12 |
+| 44 | Room-tone bed under scenes kills cut-pops | P3 §12 |
+| 45 | Hook restated at 60 s for skimmers | P4 §12 |
+
+## 12. Dense extras: hook formula bank (distilled from §7 roasts)
+
+Five intros that survive contact with viewers — pick per video, never stack:
+
+1. **Cold open proof:** play the song / show the result first (guitar covers, demos). Promise kept in 5 s.
+2. **Symptom mirror:** "struggling with X? me too" — 2 shared pains, then mechanism. (Brain-fog fix applied.)
+3. **Stakes + clock:** "7 days, one adaptogen, daily brain-fog score" — time-box + scoreboard = reason to finish.
+4. **Name + smile + map:** "Welcome back to X, I'm Y — today A, then B." 15 s, connection + roadmap.
+5. **Reassure then theater:** confirm the promised review/promise in one line, *then* open the skit. Skit never opens cold.
+
+Anti-formulas (instant fail): breath/look-away open, jargon-first open, payoff-spoiled open, 60-s channel trailer as intro.
+
+## 13. Tasks (graded)
+
+1. **Tonight (30 min):** rewrite your last video's first 30 s with one formula above; re-cut just the hook (no full re-edit). Done = side-by-side old vs new hook, new one states the payoff faster.
+2. **This week:** full retention pass on one video — frontload effort to minute one, J/L every dialogue join, B-roll relevance audit (kill 3 unrelated overlays). Done = watch-through with zero urge to skip.
+3. **Portfolio:** one long video → 3 Shorts (best moments, 9:16, captions, heading banner each). Done = 3 scheduled posts + one performance note each after 48 h.
 
 *Series complete: [[01-Areas/Self-Dev/video-editing-course-part1-foundations-cutting|1 · Foundations]] · [[01-Areas/Self-Dev/video-editing-course-part2-visuals|2 · Visuals]] · [[01-Areas/Self-Dev/video-editing-course-part3-audio-deliver|3 · Audio + Live Edit]] — start your next clip with [[01-Areas/Self-Dev/video-editing-davinci|the starter page]]'s 5-project ladder.*

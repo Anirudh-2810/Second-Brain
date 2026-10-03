@@ -43,6 +43,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - [[01-Areas/Engineering/engineering-drawing/solidworks/INDEX|SolidWorks track]] — 27 pages, 154 ingested videos, primary design/portfolio skill
 - [[01-Areas/Engineering/engineering-drawing/fusion/INDEX|Fusion track]] — **scoped complement**: free Education licence, browser+desktop, CAM/3MF for the Arduino → 3D-printing → robotics hardware thread. Deliberately not a second full CAD track
   - [[01-Areas/Engineering/engineering-drawing/fusion/fusion-advanced-parametric-track|Fusion Advanced — parametric track + 8 showable projects]] — for AutoCAD users: parameters/equations, Body vs Component, shell/ribs, Check + 3MF + hole-tower
+  - **Fusion course dump** (PTS CAD EXPERT 4h44m, Hindi audio): [[01-Areas/Engineering/engineering-drawing/fusion/fusion-course-part1-setup-sketch|1 · Setup + Sketch]] · [[01-Areas/Engineering/engineering-drawing/fusion/fusion-course-part2-features-assembly|2 · Features + Assembly]] · [[01-Areas/Engineering/engineering-drawing/fusion/fusion-course-part3-sheetmetal-output|3 · Sheet Metal + Output]] — transcript: `raw-sources/youtube-transcript-fusion-360-complete-pts-cad-expert.txt`
 
 
 ### Labs

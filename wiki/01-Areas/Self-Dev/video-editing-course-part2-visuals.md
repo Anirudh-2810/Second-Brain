@@ -117,4 +117,17 @@ A3  SFX (whooshes, clicks, ambience — all faded)
 
 New project, same stack, zero decisions. When a layer misbehaves you know exactly which lane to open. This is the asset-library habit (part 4 §4) expressed as timeline hygiene.
 
+## 13. Dense extras (supplements marked)
+
+- **Save Text+ as preset (supplement):** style one lower-third (font, stroke, fade) → right-click in Effects Library → **Save As Preset / Power Bin still**. Every future name card = one drag. This is how JV's asset-library advice (part 4 §4) looks inside Resolve.
+- **Safe-area discipline (supplement):** Shorts UI covers edges — keep text inside center 80% (View → Safe Area overlays). Robert's readability rant (part 4 §4) applies double on vertical.
+- **Overlay timing rule (video spirit):** overlays land *on the noun* (part 3 §7) and leave *before* the sentence ends — lingering callouts after the topic moved on split attention. Default lifespan: 2–4 s, faded both ends.
+- **Common part-2 mistakes:** 5 stacked effects when 1 darkened bg would do; keyframing every overlay (static is fine for labels); green-screen fringe ignored at export size (check at 100%, not 25%); adjustment clip left stretched over unrelated scenes (trim it to the span).
+
+## 14. Tasks (graded)
+
+1. **Tonight (25 min):** style one Text+ lower-third (white, black stroke, fade in/out), save as preset, stamp it on 3 clips. Done = preset reusable tomorrow.
+2. **This week:** 30-s screen recording with 3 keyframed callouts (arrow + zoom + blurred secret), one focus at a time. Done = viewer test: a friend names all 3 callouts in order.
+3. **Portfolio:** keyed meme over gameplay, halo-free at 100%, with whoosh + fade. Done = exported 10-s clip that looks native, not pasted.
+
 Next: [[01-Areas/Self-Dev/video-editing-course-part3-audio-deliver|Part 3 — voice cleanup EQ, the full audio system, music/SFX, Deliver settings, and the 70-minute live edit with you over his shoulder]].

@@ -154,4 +154,17 @@ Three traps and fixes:
 5. Fade handles on the join, save, Deliver MP4/H.264/Best of a 15-s range (10 min).
 6. Watch the export on your phone. If it plays clean, the loop is learned — everything after is decoration.
 
+## 12. Dense extras (supplements marked)
+
+- **Marker workflow (video, 02:26):** he hits `M` mid-edit to flag spots (applause to steal, fix-later cuts). System: first watch = drop markers only (`M` + rename: "sneeze", "good line", "cover image here"), second pass = execute. Markers turn a 40-minute scrub into a todo list.
+- **Optimized media (supplement, pairs with 00:08):** Playback resolution fixes *preview* lag; **Generate Optimized Media** (right-click clips in media pool) fixes *scrub/codec* lag on phone H.264/H.265 footage — the actual Vivobook bottleneck. Proxy quarter-res for edit, full-res at Deliver automatically.
+- **Trim modes in one line (supplement):** you know ripple (close gap). **Roll** = move the cut point (both sides change, duration same). **Slip** = slide content inside fixed in/out (timing same, moment changes). Ripple fixes structure; roll fixes timing; slip fixes moments. Learn ripple cold, others on demand.
+- **Common part-1 mistakes:** cutting video without checking audio underneath (always glance at waveforms); transitions on every cut (fade-everything screams beginner); editing at full timeline zoom (zoom out for structure, in for precision); no save for 30+ min.
+
+## 13. Tasks (graded — do in order)
+
+1. **Tonight (20 min):** run §11 end to end on one phone clip. Done = MP4 on your phone that starts mid-speech with zero head silence.
+2. **This week:** cut a 3-minute ramble to 90 seconds using markers-first method + only S/D/Alt-click keys (no toolbar). Done = ≤2 audible cuts, everything crossfaded.
+3. **Portfolio:** keyframed 10-s intro bump (logo/text glides in, holds 3 s, eases out) built once, reused as template. Done = `.drp` project + exported bump you can prepend to any video.
+
 Next: [[01-Areas/Self-Dev/video-editing-course-part2-visuals|Part 2 — tracks, overlays, text that stands out, blur/shake, adjustment + compound clips, green screen]].

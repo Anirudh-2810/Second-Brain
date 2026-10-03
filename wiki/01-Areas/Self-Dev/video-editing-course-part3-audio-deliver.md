@@ -113,6 +113,19 @@ He edits a real talk ("green dot theory" — start messy, pivot by revealed oppo
 3. Score a 60-s clip with 2 mood-swapped tracks + 1 whoosh + 1 click, all faded.
 4. Deliver MP4/H.264/Best via queue; note file size, re-render Medium, compare.
 
+## 12. Dense extras (supplements marked)
+
+- **YouTube loudness target (supplement):** YouTube normalizes to **–14 LUFS**. Mix voice to peak –3 dB (video §2), then check integrated loudness in Fairlight meters (Loudness panel) — near –14 means no platform re-compression surprises. Quiet uploads get turned *up* (noise floor rises); hot uploads get turned *down* (your punch flattens).
+- **De-ess and de-noise order (supplement):** chain order matters — **noise reduction → EQ → de-esser → normalize**. Cutting hiss *after* lifting presence bakes the hiss in. Resolve Fairlight FX in that top-to-bottom order.
+- **Room-tone glue (video spirit):** Frankensteined applause works because continuous bed + crossfades hide seams. Same for vlogs: loop 10 s of street/room tone under the whole scene at –30 dB — cuts stop "popping" against digital silence.
+- **Common part-3 mistakes:** EQ before fixing levels (garbage in, polished garbage out); music ducked once globally instead of per-section; SFX library auditioned mid-edit (collect the 10-file starter list first); exporting the whole timeline instead of I/O-ranged selection.
+
+## 13. Tasks (graded)
+
+1. **Tonight (25 min):** full voice chain on one guitar voiceover — EQ preset → rides → normalize → –14 LUFS check → export. Done = before/after pair where the after is clearly crisper at phone-speaker volume.
+2. **This week:** score a 90-s vlog with mood-swapped music (2 tracks), room-tone bed, 3 exact-frame SFX. Done = a deaf-to-detail friend can't spot a single cut.
+3. **Portfolio:** 60-s cover with intro hook (2 s song first), leveled vocal + guitar, faded ends, MP4/Best. Done = upload-ready file + loudness screenshot.
+
 ## 11. Mix order (never fight all lanes at once)
 
 1. Voice first: EQ preset → rides → normalize → ceiling check.

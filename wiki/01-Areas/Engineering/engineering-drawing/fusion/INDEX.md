@@ -129,6 +129,9 @@ This is deliberately the *shape*, not button-by-button. The concepts transfer to
 |---|---|---|
 | 1 | **[[fusion-setup-and-interface]]** — install, Education licence + renewal, browser access, navigation, units, the interface differences from SolidWorks | ✅ written |
 | 2 | **[[fusion-advanced-parametric-track]]** — advanced track for AutoCAD users: parameters/equations, Body vs Component, joints, shell/ribs, Check + 3MF + hole-tower, 8 showable hardware projects | ✅ written |
+| 3 | **[[fusion-course-part1-setup-sketch]]** — PTS CAD EXPERT 4h44m course dump 1/3: CAD/CAM/CAE, licensing, file limits, timeline, units, sketch tools, constraints, fully-defined discipline, TTR, offset | ✅ written |
+| 4 | **[[fusion-course-part2-features-assembly]]** — dump 2/3: feature families, 3 approaches, extrude/press-pull/sweep, Body vs Component, top-down assembly, joints + quick-return | ✅ written |
+| 5 | **[[fusion-course-part3-sheetmetal-output]]** — dump 3/3: sheet metal + unfold/refold, render, third-angle drawings, PDF export, share, contacts, section analysis | ✅ written |
 | 2 | Sketch mastery — fully-defined sketches, constraints, relations, the under/over-constrained diagnostic | ⬜ pending — build when you reach it |
 | 3 | Part workflow — extrude, revolve, sweep, loft, dress-up, assembly export | ⬜ pending |
 | 4 | 3D printing — 3MF/STL export, Check tool, orientation, supports, tolerances, test coupons | ⬜ pending |
