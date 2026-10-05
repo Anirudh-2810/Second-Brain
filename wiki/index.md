@@ -20,6 +20,7 @@
 | ⚙️ Engineering coursework | `wiki/01-Areas/Engineering/` | [[01-Areas/Engineering/INDEX]] |
 | ⚡ Basic Electrical Engineering (BEE) | \wiki/01-Areas/Engineering/BEE/\ | [[01-Areas/Engineering/BEE/INDEX|BEE INDEX]] |
 | ✈️ Aeromodelling — Team Onyx Round-1 | \wiki/01-Areas/Engineering/aeromodelling/\ | [[01-Areas/Engineering/aeromodelling/INDEX|Aeromodelling INDEX]] |
+| 🤖 Nexus Robotics — club coding interview | \wiki/01-Areas/Engineering/nexus-robotics/\ | [[01-Areas/Engineering/nexus-robotics/INDEX|Nexus Robotics INDEX]] |
 | 🧠 Self-dev / habits | `wiki/01-Areas/Self-Dev/` | [[01-Areas/Self-Dev/INDEX]] |
 | 🔨 My builds | `wiki/00-Current-Projects/` | [[00-Current-Projects/INDEX]] |
 | 🗺 All roadmaps | — | [[01-Areas/Roadmaps/INDEX]] |
@@ -44,6 +45,9 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - [[01-Areas/Engineering/engineering-drawing/fusion/INDEX|Fusion track]] — **scoped complement**: free Education licence, browser+desktop, CAM/3MF for the Arduino → 3D-printing → robotics hardware thread. Deliberately not a second full CAD track
   - [[01-Areas/Engineering/engineering-drawing/fusion/fusion-advanced-parametric-track|Fusion Advanced — parametric track + 8 showable projects]] — for AutoCAD users: parameters/equations, Body vs Component, shell/ribs, Check + 3MF + hole-tower
   - **Fusion course dump** (PTS CAD EXPERT 4h44m, Hindi audio): [[01-Areas/Engineering/engineering-drawing/fusion/fusion-course-part1-setup-sketch|1 · Setup + Sketch]] · [[01-Areas/Engineering/engineering-drawing/fusion/fusion-course-part2-features-assembly|2 · Features + Assembly]] · [[01-Areas/Engineering/engineering-drawing/fusion/fusion-course-part3-sheetmetal-output|3 · Sheet Metal + Output]] — transcript: `raw-sources/youtube-transcript-fusion-360-complete-pts-cad-expert.txt`
+
+### Robotics club recruitment (interview prep)
+- [[01-Areas/Engineering/nexus-robotics/INDEX|Nexus Robotics — Coding Interview Prep]] — 2026-10-06 club round. 60-question embedded theory bank with a core-15 last-hour list ([[01-Areas/Engineering/nexus-robotics/nexus-theory-rapidfire]]), 12 timed live-coding drills in C and Python ([[01-Areas/Engineering/nexus-robotics/nexus-embedded-coding-drills]]), and a tiered fallback ladder for short/fragmented prep plus rig logistics ([[01-Areas/Engineering/nexus-robotics/nexus-interview-fallbacks]]). Sibling pack for the earlier Onyx round: [[01-Areas/Engineering/aeromodelling/INDEX|Team Onyx]].
 
 
 ### Labs

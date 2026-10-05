@@ -19,7 +19,7 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 |--------|-------|--------|
 | [[stock-agent/overview|stock-agent/]] | 8 | Alpaca paper-trading platform (FastAPI+React+ML): deep review w/ 18 verified bugs, architecture, improvement roadmap P0–P3, interview-prep guide — **vibe-coded per owner 2026-09-24, do not cite as skill** |
 | [[retrieval-agent/overview|retrieval-agent/]] | 5 | The RAG "business brain": n8n + Supabase Edge Function + pgvector. Full n8n-setup/edge-function/schema docs |
-| [[projects/index|projects/]] | 4 | GitHub portfolio: StockOffline inventory system, AURA trend engine, handsens101 gesture control (handsens101 AI-assisted per owner 2026-09-24) |
+| [[projects/index|projects/]] | 6 | GitHub portfolio: StockOffline inventory system, AURA trend engine, handsens101 gesture control (AI-assisted per owner 2026-09-24), roadtrip-pomodoro — plus **explained** pages carrying 60–90s interview scripts: [[projects/handsens101-explained|handsens101 explained]] · [[roadtrip-pomodoro-explained|roadtrip-pomodoro explained]] |
 | [[neural-engine|neural-engine]] | 1 | From-scratch NumPy neural network library (SGD/Adam/AdamW/RMSprop, dropout, L2, early stopping, save/load) |
 | [[stock-predictor|stock-predictor]] | 1 | S&P 500 direction forecasting pipeline (yfinance → 20+ indicators → NeuralEngine → trading sim) |
 | [[aerofuse|aerofuse]] | 1 | ROS2 odometry diagnostic dashboard: dual-path trajectory, covariance heatmap, live Q/R tuning |
@@ -41,6 +41,9 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 - "What's wrong with inventory-system?" → [[inventory-system/deep-review-report]], [[inventory-system/improvement-roadmap]]
 - "How does my RAG brain work?" → retrieval-agent/overview + edge-function
 - "What do I show recruiters?" → [[projects/index]] + hand-done proof (Arduino lab, CS50P, live-coding) — stock-agent interview-prep-guide DEPRECATED 2026-09-24 (vibe-coded)
+- "How do I explain handsens101 in an interview?" → [[projects/handsens101-explained]] (pipeline, the smoothing decision, provenance framing)
+- "How do I explain roadtrip-pomodoro / the focus timer?" → [[roadtrip-pomodoro-explained]] (threading, 60fps clock, procedural world, vault sync)
+- "C or Python crash revision in simple words?" → [[01-Areas/Programming/c-interview-revision-plain-language]] · [[01-Areas/Programming/python-interview-revision-plain-language]]
 
 ## NOT Here
 

@@ -24,6 +24,7 @@ description: "Basic Electrical Engineering module index - DC circuits, AC circui
 | 5 | [[module-5-installations-safety-energy]] | Domestic wiring, protective devices (fuse/MCB/ELCB), earthing, safety, batteries, energy sources & renewables |
 | — | [[formula-sheet-bee]] | Every formula on one page for CA/MSE/ESE |
 | 1 | [[thevenin-vth-rth-worked-examples]] | Thevenin statement + 5-step recipe + 3 solved Vth/Rth/IL examples (Ch 1.8 slides) |
+| 1 | [[bee-ia1-2026-solutions-and-viva]] | IA1 2026-27 fully solved (Q1 mesh, Q2 Thevenin, R1-from-roll tables) + viva bank for Expt 1 components/instruments, Expt 2 battery level indicator, unknown-resistance-by-Thevenin |
 | Labs | [[lab-dc-theorems-expts-2-5]] · [[lab-ac-pf-three-phase-motor-expts-6-8]] | Bench records Expts 1–8, obs tables, viva |
 | — | [[source-map-bee-sem1]] | File registry: every raw-source → page it fed |
 

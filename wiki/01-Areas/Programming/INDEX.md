@@ -16,7 +16,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 
 | Module | Pages | Covers |
 |--------|-------|--------|
-| root pages | 23 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox), [[margin-math-perspective]] — intuitive math foundations |
+| root pages | 25 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox), [[margin-math-perspective]] — intuitive math foundations · **plain-language interview revisions: [[c-interview-revision-plain-language|C]] · [[python-interview-revision-plain-language|Python]]** |
 | [[cs50/index|cs50/]] | 15 | Full CS50x weeks 0–10 + PSets + final project |
 | [[01-Areas/Programming/cryptography/index\|cryptography/]] | 4 | Ciphers & cryptanalysis: polyalphabetic theory + a full 3-page Enigma study (mechanics, rotor mathematics, the Bombe) |
 | cs50p/ | 2 | CS50P notes |
@@ -32,6 +32,8 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 ## Quick Answers
 
 - "How do I learn X / what order?" → [[roadmaps-and-study-guides]], [[how-to-self-teach]] (self-dev)
+- "Revise C for an interview, in simple words?" → **[[c-interview-revision-plain-language]]** (plain language → code → trap, plus embedded C idioms)
+- "Revise Python for an interview, in simple words?" → **[[python-interview-revision-plain-language]]** (containers, comprehensions, classes, decorators, and the C-habits-that-bite-you table)
 - "DSA problem pattern?" → [[dsa-interview-playbook]]
 - "How does a cipher work / how was Enigma broken?" → [[01-Areas/Programming/cryptography/index|cryptography]]
 - "Explain how Twitter's recsys works" → [[cs-twitter-algorithm]]
