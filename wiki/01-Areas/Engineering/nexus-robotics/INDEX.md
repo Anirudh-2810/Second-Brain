@@ -38,8 +38,9 @@ Hub for the **Nexus Robotics** club coding interview scheduled **2026-10-06** (u
 | [[01-Areas/Programming/python-revision-eli5]] | Python rebuild: sticky-note variables, four shelf types, loops + flowchart, functions, imports-as-toolboxes, files, classes-as-cookie-cutters, try/except. One interview line per concept. |
 | [[00-Current-Projects/projects/handsens101-eli5\|handsens101 ELI5]] | Frame-by-frame working + flowchart, every import explained (cv2 = eyes, mediapipe = hand-finder, pyautogui = hands), 60-sec script. |
 | [[00-Current-Projects/roadtrip-pomodoro-eli5\|roadtrip-pomodoro ELI5]] | Timer-without-freezing (threads) + flowchart, road-from-maths, sound-from-maths, vault sync, full import table, 60-sec script. |
+| [[nexus-master-cheatsheet]] | **Morning-of sheet: EVERYTHING on one page** — C + Python tables with one-line examples, both trap lists, embedded core-10, both project stories with 60-sec scripts, survival footer, 7 flowcharts. Read this last, cover-and-recite. |
 
-Read these four first, in this order. Only then touch the theory bank and drills below — they assume this layer.
+Read the four ELI5 pages first, in order. Only then touch the theory bank and drills below — they assume that layer. **The cheatsheet is the final pass, not the first read.**
 
 ## Language revision (plain language, full coverage)
 
@@ -65,7 +66,8 @@ Written specifically for this interview — same **plain words → code → trap
 1. **ELI5 track first (60–75 min):** [[01-Areas/Programming/c-revision-eli5]] → [[01-Areas/Programming/python-revision-eli5]] → [[00-Current-Projects/projects/handsens101-eli5\|handsens101 ELI5]] → [[00-Current-Projects/roadtrip-pomodoro-eli5\|roadtrip-pomodoro ELI5]]. Read, don't memorise; say each interview line out loud once.
 2. **Core-10, not core-15:** pick any 10 answers from [[nexus-theory-rapidfire]] you can already half-say, drill those out loud (15 min). Skip the rest — 10 owned beats 60 skimmed.
 3. **[[nexus-interview-fallbacks]]** — §1 tier decision + honest-IDK lines (§4) + logistics (§6) (15 min).
-4. Sleep. Interview day carries no other heavy cognitive work (energy rules in [[interview-counter-guide]]).
+4. **Morning-of: [[nexus-master-cheatsheet]] only.** Cover the middle column, recite each row. Do not open any other page.
+5. Sleep. Interview day carries no other heavy cognitive work (energy rules in [[interview-counter-guide]]).
 
 ## Suggested tonight plan (advanced route — only if the ELI5 pages feel easy)
 
