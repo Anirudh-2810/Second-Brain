@@ -34,6 +34,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 - "How do I learn X / what order?" → [[roadmaps-and-study-guides]], [[how-to-self-teach]] (self-dev)
 - "Revise C for an interview, in simple words?" → **[[c-interview-revision-plain-language]]** (plain language → code → trap, plus embedded C idioms)
 - "Revise Python for an interview, in simple words?" → **[[python-interview-revision-plain-language]]** (containers, comprehensions, classes, decorators, and the C-habits-that-bite-you table)
+- "Explain C / Python like I'm five?" → **[[c-revision-eli5]]** · **[[python-revision-eli5]]** (kid-level analogies, flowcharts, say-it-in-the-interview line per concept — start here if the plain-language pages feel dense)
 - "DSA problem pattern?" → [[dsa-interview-playbook]]
 - "How does a cipher work / how was Enigma broken?" → [[01-Areas/Programming/cryptography/index|cryptography]]
 - "Explain how Twitter's recsys works" → [[cs-twitter-algorithm]]

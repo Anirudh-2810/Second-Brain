@@ -27,6 +27,6 @@ Hub page for the owner's GitHub portfolio repos ([Anirudh-2810](https://github.c
 
 ## Interview framing
 
-The two **explained** pages carry a 60–90 second script plus likely follow-ups: [[handsens101-explained]] · [[roadtrip-pomodoro-explained]]. Both builds are **AI-assisted** (provenance recorded per owner 2026-09-24 in [[01-Areas/Business/careers/team-onyx-application]]) — say so if asked, then lead with what *you* decided: the constraint, the architecture, and how you verified it.
+The two **explained** pages carry a 60–90 second script plus likely follow-ups: [[handsens101-explained]] · [[roadtrip-pomodoro-explained]]. **Too dense?** Start with the ELI5 versions first: [[handsens101-eli5]] · [[wiki/00-Current-Projects/roadtrip-pomodoro-eli5|roadtrip-pomodoro ELI5]] (same content, kid-level analogies, flowcharts). Both builds are **AI-assisted** (provenance recorded per owner 2026-09-24 in [[01-Areas/Business/careers/team-onyx-application]]) — say so if asked, then lead with what *you* decided: the constraint, the architecture, and how you verified it.
 
 Cross-links: [[stock-agent/overview|stock-agent]] is the flagship in-progress platform; AURA's scoring patterns feed it ([[momentum-jegadeesh-titman]]).

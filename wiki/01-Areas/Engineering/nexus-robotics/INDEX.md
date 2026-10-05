@@ -30,6 +30,17 @@ Hub for the **Nexus Robotics** club coding interview scheduled **2026-10-06** (u
 | [[01-Areas/Engineering/aeromodelling/team-onyx-interview-mock-01]] | Onyx's live-code mock (Python prop/CSV + Arduino talk) — closest thing in the vault to a real dry run; re-run its Set B/C with C versions of the same tasks | If time remains |
 | [[01-Areas/Engineering/robotics/robotics-fundamentals]] | Derivation-level kinematics, PID, Kalman, SLAM, planning | Only for the "why" follow-ups, not cramming |
 
+## Start here if the rest feels too advanced (ELI5 track)
+
+| Page | What it is |
+|------|-----------|
+| [[01-Areas/Programming/c-revision-eli5]] | C from zero: boxes, if/else + flowchart, loops + flowchart, arrays, strings, functions, pointers-as-address-chits, structs, bitwise-as-light-switches, `volatile`, interrupts in one paragraph. One interview line per concept. |
+| [[01-Areas/Programming/python-revision-eli5]] | Python rebuild: sticky-note variables, four shelf types, loops + flowchart, functions, imports-as-toolboxes, files, classes-as-cookie-cutters, try/except. One interview line per concept. |
+| [[00-Current-Projects/projects/handsens101-eli5\|handsens101 ELI5]] | Frame-by-frame working + flowchart, every import explained (cv2 = eyes, mediapipe = hand-finder, pyautogui = hands), 60-sec script. |
+| [[00-Current-Projects/roadtrip-pomodoro-eli5\|roadtrip-pomodoro ELI5]] | Timer-without-freezing (threads) + flowchart, road-from-maths, sound-from-maths, vault sync, full import table, 60-sec script. |
+
+Read these four first, in this order. Only then touch the theory bank and drills below — they assume this layer.
+
 ## Language revision (plain language, full coverage)
 
 Written specifically for this interview — same **plain words → code → trap** structure, with the traps collected in one list at the end:
@@ -49,7 +60,14 @@ Written specifically for this interview — same **plain words → code → trap
 
 > Both builds are **AI-assisted** (owner-confirmed 2026-09-24). Neither explained page tells you to claim them as hand-written — §8 of each has the honest line to say instead, because a caught bluff discredits every other answer.
 
-## Suggested tonight plan (if you have ~2 hours)
+## Suggested tonight plan (beginner route — use this one)
+
+1. **ELI5 track first (60–75 min):** [[01-Areas/Programming/c-revision-eli5]] → [[01-Areas/Programming/python-revision-eli5]] → [[00-Current-Projects/projects/handsens101-eli5\|handsens101 ELI5]] → [[00-Current-Projects/roadtrip-pomodoro-eli5\|roadtrip-pomodoro ELI5]]. Read, don't memorise; say each interview line out loud once.
+2. **Core-10, not core-15:** pick any 10 answers from [[nexus-theory-rapidfire]] you can already half-say, drill those out loud (15 min). Skip the rest — 10 owned beats 60 skimmed.
+3. **[[nexus-interview-fallbacks]]** — §1 tier decision + honest-IDK lines (§4) + logistics (§6) (15 min).
+4. Sleep. Interview day carries no other heavy cognitive work (energy rules in [[interview-counter-guide]]).
+
+## Suggested tonight plan (advanced route — only if the ELI5 pages feel easy)
 
 1. **[[nexus-theory-rapidfire]]** — read the whole bank once (35 min). Do not memorise; just build the retrieval path.
 2. **Drill the "core 15"** at the bottom of that page out loud, one breath each (10 min).
