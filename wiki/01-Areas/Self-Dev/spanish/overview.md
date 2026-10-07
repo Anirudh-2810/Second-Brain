@@ -132,6 +132,7 @@ Separate section: listen to song while reading lyrics → interactive gap-fill. 
 - [[clase-2026-09-20-a1-ser-descripciones-familia-genero|Clase 2026-09-20 — SER a fondo, descripciones, género, familia]] — ser table + fill-in drills, adjective bank (EN-translated) + opposites, gender/plural rules, familia tree
 - [[clase-2026-09-26-a1-tener-presente-numeros-clase|Clase 2026-09-26 — TENER a fondo, presente regular, números, clase]] — tener table + 12 phrase + 6 question drills (solved), hablar/comer/vivir tables, alphabet, classroom objects, numbers 0-99, reception Q&A
 - [[clase-2026-10-03-a1-ser-tener-llamarse-numeros-letras-querer|Clase 2026-10-03 — SER/TENER/LLAMARSE master table, números 0-100, c/g letras y sonidos, aficiones, Escuela Velázquez, Somos famosos, Hablo inglés chat, QUIERO futuro]] — 19-screenshot distillation + solved pregunta matching + querer+infinitivo
+- [[orales-intro-drill|Orales intro drill]] — memorise-ready intro script + 5 Q&A + numbers 1-100 system + 10-word c/g pronunciation set (built 2026-10-07 from Study Material PDF + Clase 10-03)
 - German parallel: [[01-Areas/Self-Dev/german/overview|German A1 Overview]]
 - Learning system: [[01-Areas/Self-Dev/productivity/how-to-self-teach]]
 
