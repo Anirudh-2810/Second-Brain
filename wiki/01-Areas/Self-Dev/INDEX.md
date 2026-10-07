@@ -21,7 +21,7 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 | [[productivity/overview|productivity/]] | 13 | Deep work, PKM-CODE, atomic habits, GTD, mental models, **how-to-self-teach (learning system)**, mod-DH ergonomics |
 | [[german/overview|german/]] | 11 | A1 German: grammar, cases, verbs, vocabulary, practice |
 | [[spanish/overview|spanish/]] | 7 | A1 Spanish via VideoEle: 4 levels, 39 A1 units, alphabet/numbers/greetings, grammar (artículos/presente/ser-estar), vocab buckets, cheat sheet, practice + CancionEle + [[spanish/orales-intro-drill|orales intro drill]] |
-| [[motivation-self-belief|YouTube Distillations]] | 17 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard, **Napoleon Hill Master Key (5-page deep-dive)**, critical-media-consumption, **comparing-the-wrong-number** (3-page set: argument + maths bridge + practice/failure modes) |
+| [[motivation-self-belief|YouTube Distillations]] | 20 | Root-level distillations: motivation-self-belief, communication-mastery (2-video), vocabulary-building, digital-wellness, debate-and-argumentation, harvard-learning-system, art-of-winning, how-to-study-hard, **Napoleon Hill Master Key (5-page deep-dive)**, critical-media-consumption, **comparing-the-wrong-number** (3-page set: argument + maths bridge + practice/failure modes), **Shimon Davis trio** ([[convo-skills-shimon-davis|convo]] · [[not-caring-shimon-davis|not-caring]] · [[reset-when-stuck-shimon-davis|reset]]) |
 | [[Language-German/German-A1-Mastery|Language-German/]] | 1 | German A1 beginner course: greetings, numbers, family, daily routines, present tense, practical conversations |
 | [[Language-French/French-A1-Mastery|Language-French/]] | 1 | French A1 beginner course: greetings, numbers, family, daily routines, present tense, practical conversations |
 | [[My-Writing/My-Writing-Archive|My-Writing/]] | 1 | Personal narratives: student daily routine, financial triumph story |
@@ -37,7 +37,8 @@ description: "SELF-DEV domain hub - self-mastery, temptation mastery, productivi
 - "Derive diminishing marginal returns / Cobb-Douglas / Euler's theorem?" → [[comparing-the-wrong-number-math]] (the exam-facing math companion)
 - "How do I actually run the units-not-hours drill? What breaks?" → [[comparing-the-wrong-number-practice]] (9 failure modes + weekly ritual)
 
-- "Communication / articulation / vocabulary for interviews?" → [[communication-mastery]] + [[vocabulary-building]]
+- "Communication / articulation / vocabulary for interviews?" → [[communication-mastery]] + [[vocabulary-building]] + [[convo-skills-shimon-davis]] (openers/depth/flow reps)
+- "Stop caring what people think / self-worth / feeling stuck / reset my life?" → [[not-caring-shimon-davis]] + [[reset-when-stuck-shimon-davis]] (Shimon Davis trio)
 - "Motivation / self-belief / discipline?" → [[motivation-self-belief]]
 - "Phone addiction / digital wellness / dopamine?" → [[digital-wellness]]
 - "Video editing / DaVinci Resolve / how do I edit my guitar/vlog clips (CapCut banned)?" → [[video-editing-davinci]]
