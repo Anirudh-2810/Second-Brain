@@ -235,6 +235,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Self-Dev/comparing-the-wrong-number|Comparing the Wrong Number]]** (3-page set) — output-vs-input metrics: opportunity cost (shadow price of an hour), diminishing marginal returns, Festinger 1954, track units not hours.
   - **[[01-Areas/Self-Dev/comparing-the-wrong-number-math|The Mathematics]]** — Lagrangian shadow price, study production function, Cobb-Douglas + Euler's theorem, metric table. Bridges to [[01-Areas/Engineering/engineering-math/module-3-homogeneous-functions|Eng-Math M3]] / [[01-Areas/Engineering/engineering-math/module-2-partial-differentiation|M2]].
   - **[[01-Areas/Self-Dev/comparing-the-wrong-number-practice|Practice & Failure Modes]]** — 9 failure modes (guilt-laundering, fictitious $c$) + the weekly units-not-hours drill.
+- **[[01-Areas/Self-Dev/convo-skills-shimon-davis|Convo Skills (Shimon Davis)]]** · **[[01-Areas/Self-Dev/not-caring-shimon-davis|Not-Caring]]** · **[[01-Areas/Self-Dev/reset-when-stuck-shimon-davis|Reset When Stuck]]** — trio from 17 @AskShimon transcripts: openers/depth/flow reps, judgment-fear unlock, 8-step reset protocol (3 videos pending on 429).
 
 ### Self-Mastery
 - Source: `/raw-sources/slice0*.txt.md` (7-slice normalized transcript of the *How To Level Up So Fast It Feels Like CHEATING* corpus). One-page digest: vault-root `NOTES.md`.
@@ -341,6 +342,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Self-Dev/Language-German/German-A1-Mastery|German A1 Mastery]]** — CEFR A1 beginner German: greetings, numbers, family, daily routines, present tense, practical conversations.
 - **[[01-Areas/Self-Dev/Language-French/French-A1-Mastery|French A1 Mastery]]** — CEFR A1 beginner French: greetings, numbers, family, daily routines, present tense, practical conversations.
 - **[[01-Areas/Self-Dev/My-Writing/My-Writing-Archive|My Writing Archive]]** — Personal narratives: student daily routine, financial success story.
+- **[[01-Areas/Self-Dev/spanish/overview|Spanish A1 — Overview & Roadmap]]** — VideoEle hub + lecture distillations · **[[01-Areas/Self-Dev/spanish/orales-intro-drill|Orales Intro Drill]]** — intro script, 5 Q&A, numbers 1-100 system, 10-word c/g set.
 - **[[01-Areas/Self-Dev/video-editing-davinci|Video Editing with DaVinci Resolve Free]]** — India-safe starter (CapCut banned): Cut→Deliver on RTX 2050, phone-audio sync, guitar leveling, 5 showable clips.
   - **Full course dump** (Marcus Jones 4-hr masterclass, ~7,000 words, 40-tip bank): [[01-Areas/Self-Dev/video-editing-course-part1-foundations-cutting|1 · Foundations (install/cutting/keyframes)]] · [[01-Areas/Self-Dev/video-editing-course-part2-visuals|2 · Visuals (overlays/text/green screen)]] · [[01-Areas/Self-Dev/video-editing-course-part3-audio-deliver|3 · Audio + Live Edit]] · [[01-Areas/Self-Dev/video-editing-course-part4-retention-shorts|4 · Retention + Shorts]] — transcript: `raw-sources/youtube-transcript-full-video-editing-course-marcus-jones.txt`
 

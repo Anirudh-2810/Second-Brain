@@ -29,7 +29,9 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-10-02 — Arrays weak area turned into a dedicated exam page** (Coursework) — user named arrays the weak topic, so it got its own 27.5 KB page (4 init styles, `B+i*S`, row-major vs column-major with both address formulas, binary search, bubble sort, insert/delete shifts) with 12 practice questions + a 5-question quick test, answers included; a 40.7 KB mega-page split three ways so revision can start at a topic; [[01-Areas/Engineering/SPM/module-3-arrays]]
 
-- **2026-10-02 — `strcpy` exam drill + Physics-B lasers revision sheet shipped** (Coursework) — dedicated strcpy section (examiner checklist, 6 traps, `strncpy` contrast, 6 predict-output drills) in [[01-Areas/Engineering/SPM/module-3-strings]]; lasers condensed from 73 KB to a 17 KB revision surface [[01-Areas/Engineering/engineering-physics/lasers-quick-ref]] so exam prep no longer means opening the deep page
+- **2026-10-07 — Spanish orals intro drill shipped** (Coursework) — memorise-ready intro script + 5 Q&A + numbers 1-100 system + 10-word c/g pronunciation set from Study Material PDF + Clase 10-03; [[01-Areas/Self-Dev/spanish/orales-intro-drill]]
+
+- **2026-10-07 — Shimon Davis trio shipped from 17 transcripts** (Projects) — convo skills + not-caring + reset-when-stuck pages, 3 videos honestly marked pending on 429 rather than fabricated; [[01-Areas/Self-Dev/convo-skills-shimon-davis]] · [[01-Areas/Self-Dev/not-caring-shimon-davis]] · [[01-Areas/Self-Dev/reset-when-stuck-shimon-davis]]
 
 <!--
 Format:
