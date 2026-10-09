@@ -278,8 +278,20 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
             # advance by true glyph width + kerning (padding excluded).
             # Joined letters ride tight so joins touch; unjoined keep air.
             adv = gw + kern
-            prev_exit = (cx + adv, gy)
-            pull = 0.64 if drew_lig else 0.88
+            glyph_mid = int(paste_y + baseline_y - max(6, asc // 3))
+            # post-paste weld: sweep reaches BACK into the previous glyph and
+            # throws forward into this one, arched like a real pen join. This
+            # is what fuses print letters into flowing words (in-cell stubs
+            # alone never cross the seam).
+            if drew_lig and prev_exit is not None:
+                ex0, ey0 = prev_exit
+                ex1 = int(cx + 14)
+                ImageDraw.Draw(img).line(
+                    [(ex0 - 6, ey0), ((ex0 + ex1) // 2, (ey0 + glyph_mid) // 2 - 6),
+                     (ex1 + 10, glyph_mid)],
+                    fill=(ink_r, ink_g, ink_b), width=4, joint="curve")
+            prev_exit = (int(cx + adv * 0.95), glyph_mid)
+            pull = 0.62 if drew_lig else 0.88
             cx += max(10, adv * pull)
             base_img_y = paste_y + baseline_y
             # exit flick: pen lifts off with a tail at word ends (70% of words)
