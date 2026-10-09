@@ -70,7 +70,7 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
     lig_prob = max(0.0, min(0.85, lig / 100.0)) * float(style_strength)
 
     font = _font(font_size)
-    line_h = int(font_size * 2.0)
+    line_h = int(font_size * 1.9)  # dense but non-colliding page rhythm
     # wrap (measure with base font)
     words, lines, cur = text.split(), [], ""
     tmp = ImageDraw.Draw(Image.new("RGB", (10, 10)))
@@ -129,21 +129,21 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
             word_end = (ci == len(line) - 1) or (line[ci + 1] == " ")
             if word_start:
                 word_pos = 0
-                word_drift = float(lrng.normal(0, 5.0))  # whole word rides up/down
+                word_drift = float(lrng.normal(0, 3.5))  # whole word rides up/down
             else:
                 word_pos += 1
-            # --- per-glyph jitter, pushed hard: real fast handwriting swings ---
-            gsize = int(font_size * (1.0 + lrng.normal(0, 0.09)))  # size swings ±9%
-            gsize = max(30, min(84, gsize))
+            # --- per-glyph jitter, WILD (Image-1 density): fast handwriting swings ---
+            gsize = int(font_size * (1.0 + lrng.normal(0, 0.12)))  # size swings ±12%
+            gsize = max(28, min(88, gsize))
             try:
                 gfont = _font(gsize)
             except Exception:
                 gfont = font
-            rot = float(lrng.normal(0, 4.0))  # fast hands tilt ±4deg
+            rot = float(lrng.normal(0, 5.0))  # wild hands tilt ±5deg
             wob = (math.sin((cx / 110.0) + li * 1.7) * (sag * 0.5)
-                   + lrng.normal(0, 4.0))
+                   + lrng.normal(0, 3.5))
             gy = yb + wob + word_drift
-            kern = float(lrng.normal(0.5, 3.6))  # humans kern unevenly
+            kern = float(lrng.normal(0.0, 4.0))  # collisions allowed in-word
             # glyph cell, BASELINE-ANCHORED (never bbox-sized).
             # Root-cause fix: sizing the cell from the ink bbox ignored the
             # glyph's top bearing, so every lowercase body overflowed the cell
@@ -207,7 +207,7 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
             # because joins crossed word gaps. Rule: flow within words (fast,
             # tight, flicked), clean breaks at spaces (readability lives here).
             drew_lig = False
-            join_p = min(0.78, lig_prob * 2.8)
+            join_p = min(0.85, lig_prob * 3.0)
             if not word_start and lrng.random() < join_p and ch.isalpha():
                 drew_lig = True
                 co = ImageDraw.Draw(cell)
@@ -223,7 +223,7 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
             # vertical swell: tall-narrow vs short-wide letters. Real hands vary
             # height 2x inside a word; uniform cap-height is a top AI tell.
             # Applied to the opaque cell (connectivity-safe), baseline re-anchored.
-            yscale = float(lrng.uniform(0.88, 1.16))
+            yscale = float(lrng.uniform(0.88, 1.12))
             if abs(yscale - 1.0) > 0.02:
                 nw2 = cell.size[0]
                 nh2 = max(8, int(cell.size[1] * yscale))
@@ -291,8 +291,10 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
                      (ex1 + 10, glyph_mid)],
                     fill=(ink_r, ink_g, ink_b), width=4, joint="curve")
             prev_exit = (int(cx + adv * 0.95), glyph_mid)
-            pull = 0.62 if drew_lig else 0.88
-            cx += max(10, adv * pull)
+            # WILD density (Image-1 look): joined pairs overlap deep, free pairs
+            # ride tight. Word gaps stay sacred — density lives INSIDE words.
+            pull = 0.55 if drew_lig else 0.80
+            cx += max(8, adv * pull)
             base_img_y = paste_y + baseline_y
             # exit flick: pen lifts off with a tail at word ends (70% of words)
             if word_end and lrng.random() < 0.70 and ch.isalpha():
