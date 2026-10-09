@@ -38,9 +38,8 @@ def main():
     ap.add_argument("--format", default="PNG", choices=["PNG", "PDF", "SVG"])
     ap.add_argument("--mode", default="auto",
                     choices=["auto", "labeled", "glyphs", "font"],
-                    help="auto = labeled if enrolled else font (glyphs/buckets "
-                         "only on explicit request: it pastes random lookalikes, "
-                         "readable-ink gibberish)")
+                    help="auto = labeled if enrolled else buckets ink if harvested "
+                         "else font (user chose look-first)")
     ap.add_argument("--glyphs", default="",
                     help="path to .labeled library (default: <style>.labeled, then <style>.glyphs)")
     ap.add_argument("--out-dir", default=os.path.join(BASE, "outputs"))
@@ -69,11 +68,11 @@ def main():
     stem = os.path.splitext(args.style)[0]
     labeled_dir = args.glyphs or (stem + ".labeled")
     buckets_dir = stem + ".glyphs"
-    # POLICY (gibberish incident): auto NEVER selects shape-buckets — random
-    # lookalikes per slot read as nonsense. Buckets render only on explicit
-    # --mode glyphs. auto = labeled if enrolled else font (always readable).
+    # POLICY (user override 2026-10-10): look-first. auto = labeled if
+    # enrolled (correct + ink), else buckets ink if harvested (the beloved
+    # wild look; letters are lookalikes), else font (correct, tame).
     use_labeled = args.mode in ("labeled", "auto") and _has_manifest(labeled_dir)
-    use_buckets = (not use_labeled and args.mode == "glyphs"
+    use_buckets = (not use_labeled and args.mode in ("glyphs", "auto")
                    and _has_manifest(buckets_dir))
     if args.mode == "labeled" and not use_labeled:
         print(f"WARNING: labeled library not found at {labeled_dir}. Enroll first: "

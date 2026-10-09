@@ -122,7 +122,8 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
             if ch == " ":
                 # word gaps swing wildly in real hands: sometimes airy, sometimes
                 # words nearly collide. Uniform gaps are a top AI tell.
-                cx += font_size * max(0.12, float(lrng.normal(0.45, 0.22)))
+                # (KeptSacred: never merged — density lives inside words.)
+                cx += font_size * max(0.25, float(lrng.normal(0.45, 0.18)))
                 prev_exit = None
                 continue
             word_start = prev_exit is None
@@ -132,18 +133,18 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
                 word_drift = float(lrng.normal(0, 3.5))  # whole word rides up/down
             else:
                 word_pos += 1
-            # --- per-glyph jitter, WILD (Image-1 density): fast handwriting swings ---
-            gsize = int(font_size * (1.0 + lrng.normal(0, 0.12)))  # size swings ±12%
-            gsize = max(28, min(88, gsize))
+            # --- per-glyph jitter, BUCKETS DENSITY: collide like real fast ink ---
+            gsize = int(font_size * (1.0 + lrng.normal(0, 0.14)))  # size swings ±14%
+            gsize = max(28, min(90, gsize))
             try:
                 gfont = _font(gsize)
             except Exception:
                 gfont = font
-            rot = float(lrng.normal(0, 5.0))  # wild hands tilt ±5deg
+            rot = float(lrng.normal(0, 6.0))  # wild hands tilt ±6deg
             wob = (math.sin((cx / 110.0) + li * 1.7) * (sag * 0.5)
                    + lrng.normal(0, 3.5))
             gy = yb + wob + word_drift
-            kern = float(lrng.normal(0.0, 4.0))  # collisions allowed in-word
+            kern = float(lrng.normal(-0.2, 4.0))  # collisions welcome in-word
             # glyph cell, BASELINE-ANCHORED (never bbox-sized).
             # Root-cause fix: sizing the cell from the ink bbox ignored the
             # glyph's top bearing, so every lowercase body overflowed the cell
@@ -207,23 +208,24 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
             # because joins crossed word gaps. Rule: flow within words (fast,
             # tight, flicked), clean breaks at spaces (readability lives here).
             drew_lig = False
-            join_p = min(0.85, lig_prob * 3.0)
+            join_p = min(0.90, lig_prob * 3.2)
             if not word_start and lrng.random() < join_p and ch.isalpha():
                 drew_lig = True
                 co = ImageDraw.Draw(cell)
                 mid_y = baseline_y - max(6, asc // 3) + int(lrng.normal(0, 3))
                 co.line([(0, mid_y), (12, mid_y - 5), (24, mid_y + 1)],
                         fill=(ink_r, ink_g, ink_b), width=3, joint="curve")
-            # entry stroke: pen swoops in at word starts (40% of words)
-            if word_start and lrng.random() < 0.40 and ch.isalpha():
+            # entry stroke: pen swoops in at word starts (30% of words).
+            # Kept INSIDE the cell: reaching into the gap fuses words.
+            if word_start and lrng.random() < 0.30 and ch.isalpha():
                 co = ImageDraw.Draw(cell)
                 ey = baseline_y - max(6, asc // 3) + int(lrng.normal(0, 3))
-                co.line([(0, ey + 6), (8, ey + 1), (16, ey)],
+                co.line([(6, ey + 5), (12, ey + 1), (18, ey)],
                         fill=(ink_r, ink_g, ink_b), width=3, joint="curve")
             # vertical swell: tall-narrow vs short-wide letters. Real hands vary
             # height 2x inside a word; uniform cap-height is a top AI tell.
             # Applied to the opaque cell (connectivity-safe), baseline re-anchored.
-            yscale = float(lrng.uniform(0.88, 1.12))
+            yscale = float(lrng.uniform(0.85, 1.20))
             if abs(yscale - 1.0) > 0.02:
                 nw2 = cell.size[0]
                 nh2 = max(8, int(cell.size[1] * yscale))
@@ -291,17 +293,17 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
                      (ex1 + 10, glyph_mid)],
                     fill=(ink_r, ink_g, ink_b), width=4, joint="curve")
             prev_exit = (int(cx + adv * 0.95), glyph_mid)
-            # WILD density (Image-1 look): joined pairs overlap deep, free pairs
-            # ride tight. Word gaps stay sacred — density lives INSIDE words.
-            pull = 0.55 if drew_lig else 0.80
+            # BUCKETS DENSITY: deep overlap inside words, word gaps stay sacred.
+            pull = 0.52 if drew_lig else 0.78
             cx += max(8, adv * pull)
             base_img_y = paste_y + baseline_y
-            # exit flick: pen lifts off with a tail at word ends (70% of words)
-            if word_end and lrng.random() < 0.70 and ch.isalpha():
+            # exit flick: pen lifts off with a tail at word ends (55% of words).
+            # Kept SHORT: long tails cross word gaps and fuse words (soup).
+            if word_end and lrng.random() < 0.55 and ch.isalpha():
                 fx0 = int(cx - adv * 0.15)
                 fy0 = int(base_img_y - max(6, asc // 3))
-                flen = int(lrng.uniform(10, 22))
-                rise = int(lrng.uniform(2, 9)) * (1 if lrng.random() < 0.7 else -1)
+                flen = int(lrng.uniform(6, 12))
+                rise = int(lrng.uniform(3, 9)) * (1 if lrng.random() < 0.7 else -1)
                 ImageDraw.Draw(img).line(
                     [(fx0, fy0), (fx0 + flen // 2, fy0 - rise // 2),
                      (fx0 + flen, fy0 - rise)],
@@ -413,9 +415,10 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                 continue
             word_start = prev_exit is None
             word_end = (ci == len(line) - 1) or (line[ci + 1] == " ")
-            # IN-WORD JOINS (not across spaces): tuck this crop against the
-            # previous one and bridge the seam, so letters flow into words.
-            join_p = min(0.72, float(feats.get("ligature_pct", 25.0)) / 100.0 * 2.4)
+            # DENSE FLOW (reference look): most pairs join and overlap deep.
+            # Letters are lookalikes, not true letters (user chose look first);
+            # monsters/joins-across-spaces stay banned (slab + soup incidents).
+            join_p = min(0.80, float(feats.get("ligature_pct", 25.0)) / 100.0 * 3.0)
             joining = (not word_start) and ch.isalpha() and lrng.random() < join_p
             bucket = CHAR_BUCKET.get(ch, "xheight")
             g = None
@@ -429,7 +432,7 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                     break
                 chh, cww = cand.shape[:2]
                 if cww * scale <= 4 * target_h and chh * scale <= 2.2 * target_h:
-                    if _try < 2 and not (0.45 * ref_w <= cww * scale <= 1.9 * ref_w):
+                    if _try < 2 and not (0.35 * ref_w <= cww * scale <= 2.2 * ref_w):
                         continue  # rhythm mismatch: draw again (2 chances)
                     g = cand
                     break
@@ -437,7 +440,9 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                 cx += target_h * 0.5
                 continue
             gh, gw = g.shape[:2]
-            nw, nh = max(6, int(gw * scale)), max(8, int(gh * scale))
+            # living size: ±6% per placement so repeats never march identical
+            _sz = float(lrng.uniform(0.94, 1.06))
+            nw, nh = max(6, int(gw * scale * _sz)), max(8, int(gh * scale * _sz))
             pil = Image.fromarray(g).resize((nw, nh), Image.LANCZOS)
             # writer's slant only (kept tiny: crops carry their own slant)
             if abs(shear) > 0.005:
@@ -496,7 +501,7 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
             # short crops seesaw, which reads as soup, not handwriting).
             # Joined glyphs tuck 18% under the previous crop so the seam can fuse.
             if joining:
-                cx -= nw * 0.25
+                cx -= nw * 0.32
             paste_top = int(yb + wob - nh * 0.62)
             img.paste(cell, (int(cx), paste_top), mask)
             # fuse the seam: short pen stroke from previous exit to this entry.
@@ -520,9 +525,8 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                      (fx0 + flen, fy0 - rise)],
                     fill=(30, 35, 80), width=3, joint="curve")
             prev_exit = (int(cx + nw - 2), int(paste_top + nh * 0.55))
-            # ADVANCE: touch, don't pile. 0.95 = neighbours kiss; jitter is
-            # clamped positive so a bad draw can never stack glyphs into soup.
-            cx += max(nw * 0.55, nw * 0.95 + lrng.normal(1.0, 1.2))
+            # ADVANCE: pile deep inside words (reference density), gaps sacred.
+            cx += max(nw * 0.45, nw * 0.85 + lrng.normal(1.0, 1.4))
     arr = np.array(img).astype(np.float32)
     arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)
     return Image.fromarray(arr.astype(np.uint8))

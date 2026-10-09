@@ -83,7 +83,8 @@ def ui_generate(text, slant_adj, strength, lined, fmt, mode, seed):
     labeled_dir = (stem + ".labeled") if stem else ""
     buckets_dir = (stem + ".glyphs") if stem else ""
     img, used = None, "font"
-    # POLICY (gibberish incident): auto NEVER selects shape-buckets.
+    # POLICY (user override 2026-10-10): look-first. auto = labeled, else
+    # buckets ink, else font.
     if mode in ("labeled", "auto") and _has_manifest(labeled_dir):
         try:
             from inference import render_labeled
@@ -92,7 +93,7 @@ def ui_generate(text, slant_adj, strength, lined, fmt, mode, seed):
             used = "labeled (your letters, your ink)"
         except Exception as e:
             used = f"labeled failed ({e}), falling back; "
-    if img is None and mode == "glyphs" and _has_manifest(buckets_dir):
+    if img is None and mode in ("glyphs", "auto") and _has_manifest(buckets_dir):
         try:
             from inference import render_with_glyphs
             img = render_with_glyphs(text, style, buckets_dir, lined=lined,
@@ -321,8 +322,7 @@ def build_app():
                 fmt = gr.Radio(["PNG", "PDF", "SVG"], value="PNG", label="Output format")
             with gr.Row():
                 mode = gr.Radio(["auto", "labeled", "font", "glyphs"], value="auto",
-                                label="Render mode (auto=labeled if enrolled else font; "
-                                      "glyphs=legacy lookalikes, not readable)")
+                                label="Render mode (auto=labeled, else your-ink buckets, else font)")
                 seed = gr.Number(value=7, precision=0, label="Seed (change for a fresh take)")
             gen_btn = gr.Button("Generate", variant="primary")
             preview = gr.Image(label="Preview (thumbnail)")
