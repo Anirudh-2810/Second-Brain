@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+models/*.pth
+styles/*.pth
+styles/*.style
+styles/*.glyphs/
+styles/*.labeled/
+styles/*.clusters/
+outputs/*
+!outputs/.gitkeep
+data/*
+!data/.gitkeep
+!data/enrollment-sheet.png
+!data/enrollment-sheet.pdf
+.venv/
