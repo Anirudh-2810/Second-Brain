@@ -15,7 +15,8 @@ HandwriteAI/
   glyphs.py          # unlabeled harvest + sanitize + body_bottom_frac + line_h_ref
   convert.py         # CLI: --mode auto (=labeled if present else font)
   gradio_ui.py       # 6-tab flow (tab 6 = cluster labeling), localhost:7860
-  _*.py              # lab tools: _isheet/_resheet/_suspect/_prune*/_verify/_proof
+  _*.py              # lab tools: _isheet/_resheet/_fullsheet/_pool_sheet/
+                     # _suspect/_prune*/_harvest*/_restore_g/_verify/_proof
   models/            # encoder_iam.pth, encoder_finetuned.pth
   styles/            # user_001.style + user_001.labeled/ + user_001.clusters/
   outputs/           # generated files (gitignored)
@@ -35,7 +36,10 @@ A. Paper: `python enroll.py sheet` -> print/fill/photo ->
    `python enroll.py build photo.jpg --out styles/mine.labeled`
 B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
    Finish writes `styles/user_001.labeled/` (64 clusters, numpy KMeans).
-   Currently 22/64 labeled; the rest skipped as junk/mixed.
+   Currently 26/64 labeled; the rest skipped as junk/mixed. Unlabeled
+   clusters are NOT wasted — full indexed sheets (`_fullsheet.py <cid>`)
+   + eyeball harvest (`_harvest_tfsr.py` pattern) recovered t/f/s/r
+   from c11/c29/c44/c47 this session.
 
 ## Labeling rules + QA (learned the hard way)
 - Queue runs biggest-first (coverage per minute); per-cluster shape stats
@@ -82,44 +86,37 @@ B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
   diagnostic only. Glyph libs store per-page `line_h_ref` (derived, not
   hard-coded 60) + `ref_h`.
 
-## Current library state (2026-10-11, after y/o/w/u identity pass)
-- 1095 glyphs / 15 letters: e355 i253 n66 a65 b60 o56 d58 l46 p42 m26 v25
-  u15 r14 w12 y2.
-- Missing (font-fallback at render): c f g h j k q s t x z + digits +
-  punctuation. g was pruned wholesale overnight (all read 9-like/d-like);
-  good variants extracted from cluster_045_all.png but NOT yet restored.
-- y is down to 2 variants (c7); the γ-style c30 pool (34) was dropped whole.
+## Current library state (2026-10-11, after t/f/s/r harvest)
+- 1141 glyphs / 19 letters: e355 i253 n66 a65 d58 r58 b45 o55 p42 s25 m26
+  l24 v20 f15 w12 u15 t3 g2 y2.
+- Missing (font-fallback at render): c h j k q x z + digits + punctuation.
+  t/f/s/r harvested this session from unlabeled clusters (c11/c29/c44/c47)
+  but pools are thin — t=3, s=25, f=15, r=58 (r fattened from 14).
+- g restored from c45 (2 clean closed-bowl variants; lined ones pruned).
 - q stats: min .05 / median .36 / max 1.0.
 
-## Known issues (as of 2026-10-11 identity pass)
-- FIXED y->J: root cause was `body_bottom_frac` anchoring y at the tail
-  TIP (the tail's end-hook is wide enough to pass the old threshold),
-  seating the cup at cap-height. New rule = largest-area ink run (an
-  i-dot is a smaller run than the stem and must not steal the anchor).
-  Two y crops re-anchored (bb 0.96->~0.33) + render-time descender
-  shrink (scale below-baseline rows 0.4-1.0 per placement).
-- FIXED o->a and l+o->b: three causes stacked - (1) pool carried
-  right-stem/θ/C-hook o's (dropped 87->56, incl. two high-q a-like
-  crops the q^4 weighting kept re-picking); (2) the 30% join PULL put
-  the next letter's stem ON the bowl edge ('come'->'came') or a bowl
-  INTO a tall stem ('look'->'bok'); (3) joined ADVANCE let the next
-  stem start inside the bowl's width ('on'->'an'). Now: either side
-  round (oadgcq) => 0.10 pull + >=0.98 advance, weld line alone bridges.
-- FIXED w->u / u->n: w#4 (u+detached stroke), w#5 (shallow middle
-  peak), u#8 (arched top = n) dropped. "wanna" reads.
-- Residual (known, low priority): 'come'/'on' borderline a-read at
-  tiny sizes in some seeds (pool still has a couple of top-tick o's);
-  e-pool a-picks in isolated words ('have'->'hava'); thin pools
-  r14/w12/y2/u15 vary per pick; flicks at 55% and wild in-word joins
-  are accepted style.
+## Known issues (as of 2026-10-11 t/f/s/r harvest)
+- FIXED earlier this pass: y->J (body_bottom_frac largest-area rule +
+  descender shrink), o->a / l+o->b (pool prune + round-bowel join pull
+  0.10 + advance >=0.98), w->u / u->n (w#4/w#5/u#8 dropped).
+- Word-final t reads f in some picks ("most"->"mosft", "rate"->"rafe"):
+  the user's t and f share crossbar + bottom-hook; at word end (no join)
+  the hook curls down and reads as f's descender. Inherent hand ambiguity,
+  not a pool bug — only 3 clean t variants exist. Paper enrollment of
+  clearer t's is the fix.
+- s->j on thin top-hook variants (rare after prune); s pool mixed
+  printed-3style + cursive-loop styles.
+- Residual (known, low priority): "organ"->argan (o+r join), "away"->auay
+  (w pool thin at 12), e-pool a-picks in isolated words, flicks at 55%
+  and wild in-word joins are accepted style.
 
 ## Next steps (ordered)
-1. g ink restoration: re-add the variants extracted from the c45 sheet
-   (clean bowl+descender g's).
-2. Paper enrollment decision (USER): covers the 11 missing letters +
-   digits + punctuation + true dotted i/j + fresh y/w/r variants to
-   fatten the thin pools — `data/enrollment-sheet.pdf`.
-3. Optional: second e-pool pass (355 variants, occasional a-like).
+1. Paper enrollment decision (USER): covers the 7 missing letters (c h j k
+   q x z) + digits + punctuation + true dotted i/j + clearer t/f variants
+   to fatten thin pools — `data/enrollment-sheet.pdf`.
+2. Optional: second e-pool pass (355 variants, occasional a-like).
+3. Optional: harvest more unlabeled clusters for digits (c31 has 8/3/2/6/5)
+   and remaining letters if any clean pools exist.
 4. Re-run `_verify.py` (love-note + prose + 4-seed gates) after each pass.
 
 ## Quickstart (10-15 min to first generation)
