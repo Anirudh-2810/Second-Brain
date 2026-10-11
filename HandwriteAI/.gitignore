@@ -10,6 +10,7 @@ outputs/*
 !outputs/.gitkeep
 Test_input/
 zoom-i.png
+spy-*.png
 data/*
 !data/.gitkeep
 !data/enrollment-sheet.png

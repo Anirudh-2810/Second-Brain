@@ -82,36 +82,45 @@ B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
   diagnostic only. Glyph libs store per-page `line_h_ref` (derived, not
   hard-coded 60) + `ref_h`.
 
-## Current library state (2026-10-11, post y/o/m/g prune rounds)
-- 1129 glyphs / 15 letters: e355 i253 o87 n66 b60 a65 d58 l46 p42 m26 v25
-  u16 r14 w14 y2.
+## Current library state (2026-10-11, after y/o/w/u identity pass)
+- 1095 glyphs / 15 letters: e355 i253 n66 a65 b60 o56 d58 l46 p42 m26 v25
+  u15 r14 w12 y2.
 - Missing (font-fallback at render): c f g h j k q s t x z + digits +
   punctuation. g was pruned wholesale overnight (all read 9-like/d-like);
   good variants extracted from cluster_045_all.png but NOT yet restored.
 - y is down to 2 variants (c7); the γ-style c30 pool (34) was dropped whole.
-- q stats: min .05 / median .37 / max 1.0.
+- q stats: min .05 / median .36 / max 1.0.
 
-## Known issues (as of 2026-10-11 01:54 renders)
-- y reads J: "you" -> "Jou" on every occurrence. The 2 surviving c7
-  variants themselves look J-like. NOTE: commit 874a3c0's message claims a
-  "y descender variation at render time" fix — that code was never written;
-  do not trust the message.
-- o -> a tails: "soo" -> "soa", "come" -> "came", "love" -> "lae". Pool of
-  87 still carries a-like/θ variants.
-- w -> u merges: "wanna" -> "uanna" (missing middle peak reading as one u).
-- Thin pools w14 / r14 / u16 / y2 vary wildly per pick; long text shows it.
-- Residual stylistic (accepted): flicks at 55%, wild joins inside words.
+## Known issues (as of 2026-10-11 identity pass)
+- FIXED y->J: root cause was `body_bottom_frac` anchoring y at the tail
+  TIP (the tail's end-hook is wide enough to pass the old threshold),
+  seating the cup at cap-height. New rule = largest-area ink run (an
+  i-dot is a smaller run than the stem and must not steal the anchor).
+  Two y crops re-anchored (bb 0.96->~0.33) + render-time descender
+  shrink (scale below-baseline rows 0.4-1.0 per placement).
+- FIXED o->a and l+o->b: three causes stacked - (1) pool carried
+  right-stem/θ/C-hook o's (dropped 87->56, incl. two high-q a-like
+  crops the q^4 weighting kept re-picking); (2) the 30% join PULL put
+  the next letter's stem ON the bowl edge ('come'->'came') or a bowl
+  INTO a tall stem ('look'->'bok'); (3) joined ADVANCE let the next
+  stem start inside the bowl's width ('on'->'an'). Now: either side
+  round (oadgcq) => 0.10 pull + >=0.98 advance, weld line alone bridges.
+- FIXED w->u / u->n: w#4 (u+detached stroke), w#5 (shallow middle
+  peak), u#8 (arched top = n) dropped. "wanna" reads.
+- Residual (known, low priority): 'come'/'on' borderline a-read at
+  tiny sizes in some seeds (pool still has a couple of top-tick o's);
+  e-pool a-picks in isolated words ('have'->'hava'); thin pools
+  r14/w12/y2/u15 vary per pick; flicks at 55% and wild in-word joins
+  are accepted style.
 
 ## Next steps (ordered)
-1. y -> J fix (this session): inspect c7 + dropped c30 via `_isheet.py`,
-   restore least J-like y(s) or re-harvest; "you" must not read "Jou".
-2. o prune pass: kill a-like/θ variants from c55+c59 (love-note words
-   soo/come/love are the regression set).
-3. w/u pass: prune u-like w's (no middle peak) and w-like u's.
-4. g ink restoration: re-add the variants extracted from the c45 sheet.
-5. Re-run `_verify.py` (love-note + prose + 4-seed gates) after each pass.
-6. Paper enrollment decision (USER): covers the 11 missing letters + digits
-   + punctuation + true dotted i/j — `data/enrollment-sheet.pdf`.
+1. g ink restoration: re-add the variants extracted from the c45 sheet
+   (clean bowl+descender g's).
+2. Paper enrollment decision (USER): covers the 11 missing letters +
+   digits + punctuation + true dotted i/j + fresh y/w/r variants to
+   fatten the thin pools — `data/enrollment-sheet.pdf`.
+3. Optional: second e-pool pass (355 variants, occasional a-like).
+4. Re-run `_verify.py` (love-note + prose + 4-seed gates) after each pass.
 
 ## Quickstart (10-15 min to first generation)
 ```

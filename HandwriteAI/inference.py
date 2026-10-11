@@ -374,6 +374,27 @@ def _seat_top(yb: float, wob: float, bb_px: float) -> int:
     return int(yb + wob - bb_px)
 
 
+def _shrink_descender(arr: np.ndarray, bb: float, factor: float):
+    """Scale the below-baseline rows of a glyph crop (split at baseline).
+    The enrolled y's carry a tail ~2x the body — a long left-hooking
+    descender next to 'ou' reads as a capital J ('you' -> 'Jou'). Scaling
+    the tail to `factor` of its length keeps the letter's identity while
+    dropping the J tell. Returns (new_arr, new_bb_frac); no-op when the
+    crop has no meaningful tail or the factor wouldn't shorten it.
+    """
+    h, w = arr.shape[:2]
+    bb_px = int(round(float(bb) * h))
+    if not (2 < bb_px < h - 3):
+        return arr, bb
+    desc_h = h - bb_px
+    new_desc = max(1, int(round(desc_h * float(factor))))
+    if new_desc >= desc_h:
+        return arr, bb
+    tail = Image.fromarray(arr[bb_px:]).resize((w, new_desc), Image.LANCZOS)
+    out = np.vstack([arr[:bb_px], np.array(tail)])
+    return out, round(bb_px / max(1, out.shape[0]), 3)
+
+
 def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                        lined: bool = False, width: int = 1600,
                        target_h: int = 56, seed: int = 7,
@@ -787,6 +808,10 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                         break
                 pick = pick if pick is not None else variants[0]
                 g, bb = pick[0], pick[1]
+                if ch == "y":
+                    # y tail is ~2x the body and hooks left — a J tell
+                    # ("you" -> "Jou"). Per-placement tail scale 0.4-1.0.
+                    g, bb = _shrink_descender(g, bb, float(lrng.uniform(0.4, 1.0)))
                 gh, gw = g.shape[:2]
                 sc = _k
                 nw, nh = max(6, int(gw * sc)), max(8, int(gh * sc))
@@ -835,7 +860,13 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                            0.80, float(feats.get("ligature_pct", 25.0)) / 100.0 * 2.8))
             meet = joining and prev_ink is not None and _seam_meet(prev_ink, ink)
             if joining and meet:
-                cx -= nw * 0.30
+                # Round closed bowls (o/a/d...) can't take the deep 30% pull:
+                # the next letter's stem lands ON the bowl's right edge and
+                # closes it into an 'a' ('come'->'came', 'on'->'an'), and a
+                # bowl pulled INTO a tall stem reads as 'b' ('look'->'bok').
+                # Either side round => light touch; the weld alone bridges.
+                cx -= nw * (0.10 if (prev_ch in "oadgcq" or ch in "oadgcq")
+                            else 0.30)
             _cols = np.where(ink.any(axis=0))[0]
             in_x0 = int(_cols.min()) if _cols.size else 0
             in_x1 = int(_cols.max()) if _cols.size else nw - 1
@@ -928,7 +959,12 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             prev_right = int(cx + in_x1)
             # joined pairs ride tight (fused), unjoined keep air (print-like);
             # doubles get a touch more air so the two copies read apart.
+            # After a round closed bowl the bodies must fully clear: a next
+            # stem landing inside the bowl's width closes it into an 'a'
+            # ('on'->'an', 'come'->'came'). The weld line alone bridges.
             adv_f = 0.80 if joining else (0.95 if doubling else 0.90)
+            if ch in "oadgcq":
+                adv_f = max(adv_f, 0.98)
             cx += max(nw * 0.55, nw * adv_f + lrng.normal(1.0, 1.2))
     arr = np.array(img).astype(np.float32)
     arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)

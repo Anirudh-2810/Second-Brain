@@ -90,12 +90,15 @@ for ch in "gjpqy":
 def body_bottom_frac(arr: np.ndarray) -> float:
     """Baseline anchor of a glyph crop as a fraction of its height.
 
-    Lowest row carrying substantial ink width. For `a`/`h` that is the ink
-    bottom (= the writing baseline); for `g`/`y` the thin descender tail
-    rows don't count, so it still lands on the baseline. Anchoring every
-    placement by this instead of a fixed top fraction stops mixed-padding
-    crops from seesawing on the line (the alignment fix). Neutral 0.62
-    when the crop is degenerate.
+    Lowest substantial-ink run by AREA (not the first, not the last).
+    For `a`/`h` that is the ink bottom (= the writing baseline); for
+    `g`/`y` the descender tail is a separate thinner run below a long gap
+    and the tail's end-hook is wide, so a naive "lowest wide row" rule
+    anchored y at the tail tip (bb~0.96) — 'you' rendered as a giant J.
+    Largest-area beats first-run: a detached i-dot is a tiny run above the
+    stem and must not steal the anchor. 2-row gap tolerance bridges
+    body-internal dips without swallowing tails. Neutral 0.62 when
+    degenerate.
     """
     try:
         ink = (np.array(arr) < 200)
@@ -105,10 +108,24 @@ def body_bottom_frac(arr: np.ndarray) -> float:
         if h < 4 or not ink.any():
             return 0.62
         roww = ink.sum(axis=1)
-        body = np.where(roww >= max(1.0, 0.25 * roww.max()))[0]
-        if len(body) == 0:
+        thr = max(1.0, 0.35 * float(roww.max()))
+        wide = roww >= thr
+        runs, cur = [], None
+        for i, w in enumerate(wide):
+            if w and cur is None:
+                cur = [i, i]
+            elif w:
+                cur[1] = i
+            elif cur is not None:
+                if i - cur[1] > 2:
+                    runs.append(tuple(cur))
+                    cur = None
+        if cur is not None:
+            runs.append(tuple(cur))
+        if not runs:
             return 0.62
-        return round(float(body.max() + 1) / float(h), 3)
+        best = max(runs, key=lambda r: float(roww[r[0]:r[1] + 1].sum()))
+        return round(float(best[1] + 1) / float(h), 3)
     except Exception:
         return 0.62
 
