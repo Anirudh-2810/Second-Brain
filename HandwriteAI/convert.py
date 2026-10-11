@@ -61,8 +61,14 @@ def main():
         ap.error("provide --input notes.txt or --text \"...\"")
     style = load_style(args.style)
     feats = style.get("features", {})
+    # DPI-proof headline: stroke/height ratio is the real thickness metric;
+    # raw px depends on scan DPI and is diagnostic only (D2).
+    gh_ref = float(feats.get("glyph_h_median", 0.0) or 0.0)
+    thick_head = ("ratio=%.3f" % (float(feats.get("thickness_px", 0.0)) / gh_ref)
+                  if gh_ref > 4 else "px=%.2f" % float(feats.get("thickness_px", 0.0)))
     print(f"style: slant={feats.get('slant_deg',0):.1f}deg "
-          f"thick={feats.get('thickness_px',0):.2f}px "
+          f"({feats.get('slant_confidence') or 'n/a-old-profile'}) "
+          f"thick[{thick_head}] "
           f"lig={feats.get('ligature_pct',0):.1f}%")
 
     stem = os.path.splitext(args.style)[0]
@@ -100,13 +106,15 @@ def main():
         err = eval_style_error(img, style)
         print(f"feature_mse={err['feature_mse']:.4f} "
               f"mean_rel_err={err['mean_rel_err_pct']:.1f}%")
-        for k in ("slant_deg", "thickness_ratio", "thickness_px", "ligature_pct"):
+        # ratio row first: it is the scored metric; raw px is DPI-invalid.
+        for k in ("thickness_ratio", "slant_deg", "thickness_px", "ligature_pct"):
             if k not in err:
                 continue
             v = err[k]
             extra = f" [{v['note']}]" if "note" in v else ""
+            tag = " (diagnostic, not scored)" if (k == "thickness_px" and "thickness_ratio" in err) else ""
             print(f"  {k}: target={v['target']:.4f} got={v['got']:.4f} "
-                  f"err={v['rel_err_pct']:.1f}%{extra}")
+                  f"err={v['rel_err_pct']:.1f}%{extra}{tag}")
         if "slant_note" in err:
             print(f"  note: {err['slant_note']}")
 

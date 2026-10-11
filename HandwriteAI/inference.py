@@ -346,6 +346,34 @@ def ld_tmp_bbox(ch: str, fnt) -> tuple:
         return (30, 40)
 
 
+def _seam_meet(prev_ink, cur_ink) -> bool:
+    """Do two placed cells have ink facing each other across the seam?
+    Mid-zone rows (30-70% of height): previous cell's right quarter vs
+    current cell's left quarter. Tucks/welds happen only where ink meets
+    ink — blind welds across empty gaps read as phantom strokes (slop).
+    Degenerate/tiny cells default True (legacy behavior, looks unchanged).
+    """
+    try:
+        ph, pw = prev_ink.shape[:2]
+        ch, cw = cur_ink.shape[:2]
+        if min(ph, pw, ch, cw) < 6:
+            return True
+        pr = prev_ink[int(ph * 0.3):int(ph * 0.7), int(pw * 0.75):]
+        cl = cur_ink[int(ch * 0.3):int(ch * 0.7), :max(1, int(cw * 0.25))]
+        n = min(pr.shape[0], cl.shape[0])
+        if n < 3:
+            return True
+        both = (pr[:n].any(axis=1) & cl[:n].any(axis=1)).sum()
+        return bool(both >= max(2, 0.25 * n))
+    except Exception:
+        return True
+
+
+def _seat_top(yb: float, wob: float, bb_px: float) -> int:
+    """Paste-top so the glyph's baseline body-bottom sits on the line."""
+    return int(yb + wob - bb_px)
+
+
 def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                        lined: bool = False, width: int = 1600,
                        target_h: int = 56, seed: int = 7,
@@ -406,12 +434,14 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
         yb = 70 + li * line_h + lrng.normal(0, 1.0)
         cx = 60 + lrng.normal(0, 4.0)
         prev_exit = None  # right-edge midpoint of previous crop (in-word only)
+        prev_ink = None  # bool ink array of previous placed cell (seam tests)
         for ci, ch in enumerate(line):
             if ch == " ":
                 # WORD GAPS ARE SACRED: wide, always, no exceptions.
                 # Narrow/merged word gaps were the readability killer.
                 cx += max(target_h * 0.55, ref_w * 1.1 + lrng.normal(0, 4.0))
                 prev_exit = None
+                prev_ink = None
                 continue
             word_start = prev_exit is None
             word_end = (ci == len(line) - 1) or (line[ci + 1] == " ")
@@ -427,7 +457,7 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
             # Plus rhythm match: prefer crops near the library's typical
             # width so words don't lurch between giant and tiny glyphs.
             for _try in range(4):
-                cand = pick_glyph(cache, bucket, lrng)
+                cand, bb = pick_glyph(cache, bucket, lrng)
                 if cand is None:
                     break
                 chh, cww = cand.shape[:2]
@@ -438,11 +468,14 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                     break
             if g is None:
                 cx += target_h * 0.5
+                prev_exit = None  # missing slot breaks the join chain
+                prev_ink = None
                 continue
             gh, gw = g.shape[:2]
             # living size: ±6% per placement so repeats never march identical
             _sz = float(lrng.uniform(0.94, 1.06))
             nw, nh = max(6, int(gw * scale * _sz)), max(8, int(gh * scale * _sz))
+            bb_px = float(bb) * nh  # baseline anchor from cell top
             pil = Image.fromarray(g).resize((nw, nh), Image.LANCZOS)
             # writer's slant only (kept tiny: crops carry their own slant)
             if abs(shear) > 0.005:
@@ -460,14 +493,17 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                 pil = pil.convert("L") if not isinstance(pil, Image.Image) else pil
             if not isinstance(pil, Image.Image):
                 pil = Image.fromarray(np.array(pil))
-            # whisper of rotation: pens never land twice at the same angle
+            # whisper of rotation: pens never land twice at the same angle.
+            # Capped off for tiny crops (dots/punctuation): rotating a 10px
+            # speck reads as noise, not handwriting.
             _rot = float(lrng.normal(0, 1.5))
-            if abs(_rot) > 0.4:
+            if abs(_rot) > 0.4 and max(nw, nh) >= 34:
                 try:
                     pil = pil.rotate(_rot, resample=Image.BICUBIC, expand=True,
                                      fillcolor=255)
                 except TypeError:
                     pil = pil.rotate(_rot, resample=Image.BICUBIC, expand=True)
+                bb_px = bb_px + (pil.size[1] - nh) / 2.0  # expand ~symmetric
                 nw, nh = pil.size
             wob = math.sin((cx / 110.0) + li * 1.7) * (sag * 0.4) + lrng.normal(0, 1.0)
             # recolor toward paper-ink: keep glyph's own shading, tint to ballpoint.
@@ -496,17 +532,19 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
             except Exception:
                 pass
             mask = Image.fromarray(mask_arr)
-            # bodies share a seating line: paste top anchored so x-height zones
-            # align across glyphs instead of centering (centering lets tall and
-            # short crops seesaw, which reads as soup, not handwriting).
-            # Joined glyphs tuck 18% under the previous crop so the seam can fuse.
-            if joining:
+            # seating: every glyph's baseline body-bottom sits on the line,
+            # so mixed-padding crops stop seesawing (alignment fix);
+            # descender tails drop below it naturally. Tucks and welds happen
+            # only where ink meets ink across the seam — blind welds across
+            # empty gaps read as phantom strokes.
+            meet = joining and prev_ink is not None and _seam_meet(prev_ink, ink)
+            if joining and meet:
                 cx -= nw * 0.32
-            paste_top = int(yb + wob - nh * 0.62)
+            paste_top = _seat_top(yb, wob, bb_px)
             img.paste(cell, (int(cx), paste_top), mask)
             # fuse the seam: short pen stroke from previous exit to this entry.
             # Spans past both edges so the weld always crosses the seam visibly.
-            if joining and prev_exit is not None:
+            if joining and meet and prev_exit is not None:
                 ex0, ey0 = prev_exit
                 ex1 = int(cx + 10)
                 ey1 = int(paste_top + nh * 0.55 + lrng.normal(0, 2.0))
@@ -525,6 +563,7 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                      (fx0 + flen, fy0 - rise)],
                     fill=(30, 35, 80), width=3, joint="curve")
             prev_exit = (int(cx + nw - 2), int(paste_top + nh * 0.55))
+            prev_ink = ink
             # ADVANCE: pile deep inside words (reference density), gaps sacred.
             cx += max(nw * 0.45, nw * 0.85 + lrng.normal(1.0, 1.4))
     arr = np.array(img).astype(np.float32)
@@ -542,6 +581,7 @@ def load_labeled(lib_dir: str):
         manifest = json.load(f)
     if manifest.get("version") != "0.2-labeled":
         return None, None
+    mets = manifest.get("metrics", {}) or {}
     cache: Dict[str, list] = {}
     for ch, files in manifest.get("chars", {}).items():
         cache[ch] = []
@@ -549,7 +589,15 @@ def load_labeled(lib_dir: str):
             p = os.path.join(lib_dir, fn)
             if os.path.exists(p):
                 try:
-                    cache[ch].append(np.array(Image.open(p).convert("L")))
+                    arr = np.array(Image.open(p).convert("L"))
+                    bb = float((mets.get(fn) or {}).get("bb", 0.0)) or 0.0
+                    if not (0.0 < bb <= 1.0):
+                        from glyphs import body_bottom_frac as _bb
+                        bb = _bb(arr)
+                    q = float((mets.get(fn) or {}).get("q", 1.0))
+                    if not (0.0 < q <= 1.0):
+                        q = 1.0
+                    cache[ch].append((arr, bb, q))
                 except Exception:
                     continue
         if not cache[ch]:
@@ -557,8 +605,13 @@ def load_labeled(lib_dir: str):
     return manifest, cache
 
 
-def _font_fallback_cell(ch: str, target_h: int, lrng) -> Image.Image:
-    """Rare chars missing from enrollment: clean font cell, same paper."""
+def _font_fallback_cell(ch: str, target_h: int, lrng) -> Tuple[Image.Image, float]:
+    """Rare chars missing from enrollment: clean font cell, same paper.
+    Cropped to the ink bbox (+3px margin) so ADVANCE matches ink glyphs --
+    the old padded 80px canvas put ~70px holes around every fallback
+    letter mid-word ('respo nse', 't imef rame'). Returns (cell,
+    baseline_frac): baseline as a fraction of cell height so the caller
+    seats the glyph on the writing line like ink crops."""
     from features import binarize as _bin
     fnt = _font(int(target_h * 1.35))
     try:
@@ -568,11 +621,36 @@ def _font_fallback_cell(ch: str, target_h: int, lrng) -> Image.Image:
     pad = 12
     cell = Image.new("RGB", (target_h + 2 * pad, asc + desc + 2 * pad), (255, 255, 255))
     cd = ImageDraw.Draw(cell)
+    baseline_y = pad + asc  # 'ls' anchor: text sits on this row
     try:
-        cd.text((pad, pad + asc), ch, font=fnt, fill=(28, 33, 75), anchor="ls")
+        cd.text((pad, baseline_y), ch, font=fnt, fill=(28, 33, 75), anchor="ls")
     except TypeError:
         cd.text((pad, pad), ch, font=fnt, fill=(28, 33, 75))
-    return cell
+        baseline_y = int((asc + desc + 2 * pad) * 0.62)
+    if ch == "I":
+        # fallback font's capital I is a bare vertical bar -> reads as
+        # l in "I'd"/"If". Small hand-style crossbars top and bottom.
+        _b0 = np.array(cell.convert("L"))
+        _ys0, _xs0 = np.where(_b0 < 200)
+        if _ys0.size:
+            _cx0 = int((_xs0.min() + _xs0.max()) // 2)
+            _bl0 = max(5, int(target_h * 0.20))
+            for _yy0 in (int(_ys0.min()), int(_ys0.max())):
+                cd.line([(_cx0 - _bl0, _yy0), (_cx0 + _bl0, _yy0)],
+                        fill=(28, 33, 75), width=3)
+    arr = np.array(cell.convert("L"))
+    ys, xs = np.where(arr < 200)
+    if ys.size:
+        y0 = max(0, int(ys.min()) - 3)
+        y1 = min(arr.shape[0] - 1, int(ys.max()) + 3)
+        x0 = max(0, int(xs.min()) - 3)
+        x1 = min(arr.shape[1] - 1, int(xs.max()) + 3)
+        cell = cell.crop((x0, y0, x1 + 1, y1 + 1))
+        bb = float(baseline_y - y0)
+    else:
+        bb = 0.62 * cell.size[1]
+    bb_frac = max(0.05, min(0.95, bb / max(1, cell.size[1])))
+    return cell, bb_frac
 
 
 def render_labeled(text: str, style: Dict, lib_dir: str,
@@ -591,9 +669,64 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
         raise RuntimeError(f"labeled library missing/sparse at {lib_dir} ({have} glyphs). "
                            f"Run: python enroll.py sheet, fill it, then "
                            f"python enroll.py build photo.jpg --out {lib_dir}")
-    cap_h = int(target_h * 1.15)  # normalize every variant to ~cap height
+    # ink-height match: labeled crops are ~30px canvases with ~25px ink, while
+    # font cells render ~50px ink (buckets path lands ~47px too). Scale by ONE
+    # global factor = font_median_ink / lib_median_ink so real ink reads at the
+    # same size as fallback letters and source size RATIOS stay intact.
+    # (Per-canvas ref_h norm undershot ink ~2x -> tiny illegible words.)
+    def _ink_h(a):
+        ys, _xs = np.where(a < 200)
+        return int(ys.max() - ys.min() + 1) if len(ys) else 0
+    _src_h = []
+    for _items in cache.values():
+        for _it in _items:
+            _g = _it[0] if isinstance(_it, tuple) else _it
+            _h2 = _ink_h(np.asarray(_g))
+            if _h2 > 2:
+                _src_h.append(_h2)
+    _rng0 = np.random.default_rng(0)
+    _fnt_h = [_ink_h(np.array(_font_fallback_cell(_ch, target_h, _rng0)[0].convert("L")))
+              for _ch in "abcdefghijklmnopqrstuvwxyz"]
+    _k = 1.0
+    if _src_h and _fnt_h:
+        _k = float(np.median(_fnt_h)) / max(6.0, float(np.median(_src_h)))
+    _k = max(0.6, min(3.0, _k))
     rng = np.random.default_rng(seed)
     line_h = int(target_h * 2.5)
+    # wrap needs REAL advance estimates: the old len(chars)*target_h*0.62
+    # underestimates ink glyphs (actual ~0.80-0.90 * glyph_w after _k
+    # scale) and wildly underestimates fat fallback cells -> lines overran
+    # the canvas and clipped mid-word ('offi' for 'official'). Estimate
+    # per char from the same numbers the paste loop uses; biased slightly
+    # HIGH (0.92 vs actual 0.80-0.90 + mean jitter +1) so lines wrap
+    # early rather than clip.
+    _adv: Dict[str, float] = {" ": max(target_h * 0.55, target_h * 0.75)}
+    for _ch2 in set(text.replace("\n", " ")):
+        if _ch2 == " ":
+            continue
+        _vs = cache.get(_ch2)
+        if _vs:
+            _ws = [(it[0] if isinstance(it, tuple) else it).shape[1] for it in _vs]
+            _adv[_ch2] = max(6.0, float(np.median(_ws)) * _k * 0.92) + 1.0
+        else:
+            _fc, _ = _font_fallback_cell(_ch2, target_h, _rng0)
+            _adv[_ch2] = max(6.0, _fc.size[0] * 0.92) + 1.0
+    # per-letter pick weights (quality^4) + aspect stats for retries.
+    # Uniform picks over big pools (e 379, i 259) hit bad-tail crops
+    # constantly in LONG text (got->fot, name->rame): bias hard toward
+    # high-q variants while keeping some natural variety.
+    _wq: Dict[str, np.ndarray] = {}
+    _asp_mu: Dict[str, float] = {}
+    _asp_sd: Dict[str, float] = {}
+    for _ch3, _items in cache.items():
+        _qs = np.array([it[2] if len(it) > 2 else 1.0 for it in _items],
+                       dtype=np.float64)
+        _w3 = np.power(np.clip(_qs, 0.02, 1.0), 4.0)
+        _s3 = float(_w3.sum())
+        _wq[_ch3] = (_w3 / _s3) if _s3 > 0 else np.full(len(_items), 1.0 / len(_items))
+        _asp = np.array([it[0].shape[1] / max(1.0, it[0].shape[0]) for it in _items])
+        _asp_mu[_ch3] = float(np.median(_asp))
+        _asp_sd[_ch3] = float(np.std(_asp))
     paras = [p for p in text.split("\n")]
     lines: List[str] = []
     for para in paras:
@@ -601,7 +734,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
         cur = ""
         for w in words:
             trial = (cur + " " + w).strip()
-            if cur and len(trial) * target_h * 0.62 > width - 160:
+            if cur and sum(_adv.get(c, target_h * 0.75) for c in trial) > width - 160:
                 lines.append(cur)
                 cur = w
             else:
@@ -622,35 +755,66 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
         yb = 70 + li * line_h + lrng.normal(0, 1.0)
         cx = 60 + lrng.normal(0, 4.0)
         prev_exit = None
+        prev_ink = None
+        prev_fallback = False
+        prev_ch = None
+        prev_right = None
         for ci, ch in enumerate(line):
             if ch == " ":
                 cx += max(target_h * 0.55, target_h * 0.75 + lrng.normal(0, 4.0))
                 prev_exit = None
+                prev_ink = None
+                prev_fallback = False
+                prev_ch = None
+                prev_right = None
                 continue
             word_start = prev_exit is None
             word_end = (ci == len(line) - 1) or (line[ci + 1] == " ")
             variants = cache.get(ch, [])
+            cur_fallback = not variants
             if variants:
-                g = variants[int(lrng.integers(0, len(variants)))]
+                # quality-weighted pick (q^4) + aspect-outlier retry
+                pick = None
+                for _try in range(3):
+                    pi = int(lrng.choice(len(variants), p=_wq[ch]))
+                    cand = variants[pi]
+                    if _try == 2:
+                        pick = cand
+                        break
+                    _casp = cand[0].shape[1] / max(1.0, cand[0].shape[0])
+                    if abs(_casp - _asp_mu[ch]) <= 2.5 * _asp_sd[ch] + 1e-6:
+                        pick = cand
+                        break
+                pick = pick if pick is not None else variants[0]
+                g, bb = pick[0], pick[1]
                 gh, gw = g.shape[:2]
-                sc = cap_h / max(8.0, float(gh))
+                sc = _k
                 nw, nh = max(6, int(gw * sc)), max(8, int(gh * sc))
                 if nw > 4 * target_h or nh > 2.4 * target_h:
                     sc2 = min(4 * target_h / max(1, gw), 2.4 * target_h / max(1, gh))
                     nw, nh = max(6, int(gw * sc2)), max(8, int(gh * sc2))
+                    sc = sc2
                 pil = Image.fromarray(g).resize((nw, nh), Image.LANCZOS)
+                bb_px = float(bb) * nh
             else:
                 # font fallback keeps the WORD readable even for unenrolled chars
-                pil = _font_fallback_cell(ch, target_h, lrng)
+                pil, _bb_frac = _font_fallback_cell(ch, target_h, lrng)
                 nw, nh = pil.size
+                bb_px = _bb_frac * nh
+                # font cells are rendered at native size (no upscale
+                # fatten), so they must NEVER take the ink-crop erosion
+                # below -- a stale sc from the previous glyph was eroding
+                # fallback strokes and eating the capital-I serifs.
+                sc = 1.0
             rot = float(lrng.normal(0, 1.5))
-            if abs(rot) > 0.4:
+            if abs(rot) > 0.4 and max(nw, nh) >= 34:
                 try:
                     pil = pil.convert("L").rotate(
                         rot, resample=Image.BICUBIC, expand=True, fillcolor=255)
                 except TypeError:
                     pil = pil.convert("L").rotate(
                         rot, resample=Image.BICUBIC, expand=True)
+                bb_px = bb_px + (pil.size[1] - nh) / 2.0
                 nw, nh = pil.size
             wob = math.sin((cx / 110.0) + li * 1.7) * (sag * 0.4) + lrng.normal(0, 1.0)
             press = float(lrng.uniform(0.85, 1.05))
@@ -662,36 +826,109 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             tint[..., 0] = np.clip(tint[..., 0] * 0.55 * press, 0, 255)
             tint[..., 1] = np.clip(tint[..., 1] * 0.60 * press, 0, 255)
             tint[..., 2] = np.clip(tint[..., 2] * 0.95 * press, 0, 255)
-            joining = (not word_start) and lrng.random() < min(
-                0.80, float(feats.get("ligature_pct", 25.0)) / 100.0 * 2.8)
-            if joining:
+            # F3: same-letter pairs (mm/tt/nn/ll) never weld -- a join line
+            # + 30% pull glues doubles into blobs that kill word readability.
+            doubling = (not word_start) and (ch == prev_ch)
+            joining = ((not word_start) and not cur_fallback
+                       and not prev_fallback and not doubling
+                       and lrng.random() < min(
+                           0.80, float(feats.get("ligature_pct", 25.0)) / 100.0 * 2.8))
+            meet = joining and prev_ink is not None and _seam_meet(prev_ink, ink)
+            if joining and meet:
                 cx -= nw * 0.30
-            paste_top = int(yb + wob - nh * 0.62)
+            _cols = np.where(ink.any(axis=0))[0]
+            in_x0 = int(_cols.min()) if _cols.size else 0
+            in_x1 = int(_cols.max()) if _cols.size else nw - 1
+            # F4: collision guard for UNJOINED pairs -- joined pairs overlap
+            # by design (weld bridges them); unjoined ink-on-ink overlap
+            # reads as mush, so push forward until the bboxes clear.
+            if (not joining) and prev_right is not None:
+                _shift = (prev_right + 1) - (cx + in_x0)
+                if _shift > 0:
+                    cx += _shift
+            paste_top = _seat_top(yb, wob, bb_px)
             cell = Image.fromarray(np.clip(tint, 0, 255).astype(np.uint8))
-            mask = Image.fromarray((ink * 255).astype(np.uint8))
+            mask_arr = (ink * 255).astype(np.uint8)
+            # thickness match (same as buckets path): small crops upscale ~2x
+            # and upscale fattens strokes, so erode the mask back toward the
+            # writer's measured thickness before pasting.
+            try:
+                import cv2 as _cv2
+                if sc > 2.2:
+                    mask_arr = _cv2.erode(mask_arr, _cv2.getStructuringElement(_cv2.MORPH_ELLIPSE, (3, 3)), iterations=1)
+                elif sc > 1.35:
+                    # 1-px cross erode: thins without eating thin strokes entirely
+                    kern = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=np.uint8)
+                    mask_arr = _cv2.erode(mask_arr, kern, iterations=1)
+            except Exception:
+                pass
+            mask = Image.fromarray(mask_arr)
             img.paste(cell, (int(cx), paste_top), mask)
-            if joining and prev_exit is not None:
+            # ink-edge anchors (in_x0/in_x1 computed pre-paste for F4):
+            # welds key off the ink's own edge on the baseline, not the
+            # padded canvas edge (phantom crossbars made e->H, l->r).
+            base_y = paste_top + bb_px  # body-bottom = baseline seat
+            if joining and meet and prev_exit is not None:
                 # long cursive sweep: reach back into the previous glyph and
                 # throw forward into this one, arched like a real pen join
                 ex0, ey0 = prev_exit
-                ex1 = int(cx + 12)
-                ey1 = int(paste_top + nh * 0.55 + lrng.normal(0, 2.0))
+                ex1 = int(cx + in_x0 + 6)
+                ey1 = int(base_y - 6 + lrng.normal(0, 2.0))
                 ImageDraw.Draw(img).line(
-                    [(ex0 - 8, ey0), ((ex0 + ex1) // 2, (ey0 + ey1) // 2 - 6),
-                     (ex1 + 12, ey1)],
+                    [(ex0 - 4, ey0), ((ex0 + ex1) // 2, (ey0 + ey1) // 2 - 6),
+                     (ex1 + 6, ey1)],
                     fill=(30, 35, 80), width=4, joint="curve")
-            if word_end and lrng.random() < 0.55:
-                fx0 = int(cx + nw * 0.85)
-                fy0 = int(paste_top + nh * 0.55)
+            if word_end and not cur_fallback and lrng.random() < 0.55:
+                fx0 = int(cx + in_x1 - 2)
+                fy0 = int(base_y - 8)
                 flen = int(lrng.uniform(9, 18))
                 rise = int(lrng.uniform(2, 7))
                 ImageDraw.Draw(img).line(
                     [(fx0, fy0), (fx0 + flen // 2, fy0 - rise // 2),
                      (fx0 + flen, fy0 - rise)],
                     fill=(30, 35, 80), width=3, joint="curve")
-            prev_exit = (int(cx + nw - 2), int(paste_top + nh * 0.55))
-            # joined pairs ride tight (fused), unjoined keep air (print-like)
-            adv_f = 0.80 if joining else 0.90
+            # i-dot synthesis: enrollment segmentation detached the writer's
+            # dots (every enrolled i is a bare stem), so 'is' read 'ls' and
+            # "I'd" read "lid". Draw a hand-style dash-dot above the body
+            # unless the crop already carries a detached dot up top.
+            if ch == "i":
+                try:
+                    _has_dot = False
+                    _bi = (g < 200).astype(np.uint8)
+                    _nl, _lab, _st, _cc = cv2.connectedComponentsWithStats(
+                        _bi, connectivity=8)
+                    if _nl >= 3:
+                        _ys0 = np.where(_bi.any(axis=1))[0]
+                        _ih0 = int(_ys0.max() - _ys0.min() + 1)
+                        for _s in _st[1:]:
+                            if (_s[cv2.CC_STAT_TOP] <= _ys0.min() + 0.18 * _ih0
+                                    and _s[cv2.CC_STAT_HEIGHT] <= max(3, 0.30 * _ih0)
+                                    and _s[cv2.CC_STAT_AREA] <= 0.25 * int(_bi.sum())):
+                                _has_dot = True
+                                break
+                    if not _has_dot:
+                        _gap = max(5, int(round(4.0 * sc)))
+                        _dx = (cx + (in_x0 + in_x1) / 2.0 + 2.0
+                               + float(lrng.normal(0, 1.2)))
+                        _dy = (paste_top
+                               + int(np.where(ink.any(axis=1))[0].min()) - _gap
+                               + float(lrng.normal(0, 0.8)))
+                        _dl = max(4, int(round(3.0 * sc))) / 2.0
+                        _dw = max(3, int(round(1.4 * sc)))
+                        ImageDraw.Draw(img).line(
+                            [(_dx - _dl, _dy + float(lrng.uniform(0, 1.0))),
+                             (_dx + _dl, _dy)],
+                            fill=(30, 35, 80), width=_dw)
+                except Exception:
+                    pass
+            prev_exit = (int(cx + in_x1), int(base_y - 6))
+            prev_ink = ink
+            prev_fallback = cur_fallback
+            prev_ch = ch
+            prev_right = int(cx + in_x1)
+            # joined pairs ride tight (fused), unjoined keep air (print-like);
+            # doubles get a touch more air so the two copies read apart.
+            adv_f = 0.80 if joining else (0.95 if doubling else 0.90)
             cx += max(nw * 0.55, nw * adv_f + lrng.normal(1.0, 1.2))
     arr = np.array(img).astype(np.float32)
     arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)
@@ -707,10 +944,14 @@ def eval_style_error(img: Image.Image, style: Dict) -> Dict:
     feats = style.get("features", {})
     gen = analyze_pages([np.array(img.convert("L"))])
     out = {}
-    # slant is unreliable on short samples when the hand is near-vertical
+    # Slant is unreliable on short samples and near-vertical hands
     # (|target| < 2deg): estimator noise dwarfs signal, so report it as
-    # diagnostic only and keep it out of the MSE.
+    # diagnostic only and keep it out of the MSE. Low-confidence targets
+    # (moments-fallback evidence) are excluded the same way even when the
+    # measured angle is larger — the number is a guess, not a profile.
     skip_slant = abs(float(feats.get("slant_deg", 0.0))) < 2.0
+    if feats.get("slant_confidence", "") == "low":
+        skip_slant = True
     # DPI-proof thickness: compare stroke/glyph-height ratios, not raw px.
     t_h = float(feats.get("glyph_h_median", 0.0))
     g_h = float(gen.glyph_h_median or 0.0)
@@ -740,7 +981,11 @@ def eval_style_error(img: Image.Image, style: Dict) -> Dict:
     out["feature_mse"] = mse
     out["mean_rel_err_pct"] = mean_rel
     if skip_slant:
-        out["slant_note"] = "slant excluded from MSE (near-vertical target, estimator noise)"
+        reason = ("low estimator confidence (%s, n=%s)" % (
+            feats.get("slant_confidence", "?"), feats.get("slant_n", 0))
+            if feats.get("slant_confidence", "") == "low"
+            else "near-vertical target, estimator noise")
+        out["slant_note"] = f"slant excluded from MSE ({reason})"
     return out
 
 

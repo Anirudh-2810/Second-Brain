@@ -153,8 +153,23 @@ def build(lib_dir: str, k: int = 64, out_dir: str = "") -> dict:
     Xn = (X - mu) / sd
     assign, nk = kmeans(Xn, min(k, max(8, len(items) // 25)))
     clusters = {}
+    dims = {}  # fn -> (w, h) for shape stats
     for idx, (fn, bucket, arr) in enumerate(items):
         clusters.setdefault(str(int(assign[idx])), []).append(fn)
+        h, w = arr.shape[:2]
+        dims[fn] = (w, h)
+    # shape stats per cluster: median aspect + width spread. Wide and/or
+    # wildly varying members usually mean joined pairs or junk — the UI
+    # flags these as "probably joined, consider Skip" (relief, not verdict).
+    shape = {}
+    for cid, members in clusters.items():
+        aws = [dims[fn][0] / max(1, dims[fn][1]) for fn in members if fn in dims]
+        wws = [dims[fn][0] for fn in members if fn in dims]
+        if aws:
+            med_a = float(np.median(aws))
+            med_w = float(np.median(wws)) or 1.0
+            cv = float(np.std(wws) / med_w)
+            shape[cid] = {"med_aspect": round(med_a, 2), "w_cv": round(cv, 2)}
     # contact sheets (12 samples each) for fast human scanning
     for cid, members in clusters.items():
         n = min(12, len(members))
@@ -170,7 +185,8 @@ def build(lib_dir: str, k: int = 64, out_dir: str = "") -> dict:
     guesses = guess_letters(clusters, thumbs)
     payload = {"lib": lib_dir, "k": nk,
                "sizes": {c: len(m) for c, m in clusters.items()},
-               "clusters": clusters, "guesses": guesses, "labels": {}}
+               "clusters": clusters, "guesses": guesses, "labels": {},
+               "shape": shape}
     with open(os.path.join(out_dir, "clusters.json"), "w", encoding="utf-8") as f:
         json.dump(payload, f)
     print(f"clusters: {nk} from {len(items)} crops -> {out_dir} "
@@ -178,13 +194,45 @@ def build(lib_dir: str, k: int = 64, out_dir: str = "") -> dict:
     return payload
 
 
+def _resolve_lib(cluster_dir: str, lib_dir: str) -> str:
+    """Find the glyph library even when clusters.json stores a path relative
+    to a different working directory (legacy payloads hold repo-relative
+    paths like HandwriteAI/styles/x). Tries as-is, then walks up from the
+    cluster dir looking for the relative path, then the bare basename."""
+    if os.path.isdir(lib_dir):
+        return lib_dir
+    here = os.path.dirname(os.path.abspath(cluster_dir))
+    d = here
+    for _ in range(5):
+        if os.path.isdir(os.path.join(d, lib_dir)):
+            return os.path.join(d, lib_dir)
+        nd = os.path.dirname(d)
+        if nd == d:
+            break
+        d = nd
+    base = os.path.join(here, os.path.basename(lib_dir.rstrip("/\\")))
+    if os.path.isdir(base):
+        return base
+    return lib_dir
+
+
 def apply_labels(cluster_dir: str, labels: dict, out_dir: str) -> dict:
     """labels: {cluster_id: char}. Merges same-letter clusters into variants."""
+    import string as _string
     payload = json.load(open(os.path.join(cluster_dir, "clusters.json")))
     payload["labels"] = labels
     with open(os.path.join(cluster_dir, "clusters.json"), "w", encoding="utf-8") as f:
         json.dump(payload, f)
-    lib_dir = payload["lib"]
+    lib_dir = _resolve_lib(cluster_dir, payload["lib"])
+    try:
+        _src_man = json.load(open(os.path.join(lib_dir, "manifest.json")))
+        _src_mets = _src_man.get("metrics", {}) or {}
+    except Exception:
+        _src_mets = {}
+    try:
+        from glyphs import body_bottom_frac as _bb
+    except Exception:
+        _bb = None
     chars: dict = {}
     for cid, ch in labels.items():
         if not ch or len(ch) != 1:
@@ -195,8 +243,35 @@ def apply_labels(cluster_dir: str, labels: dict, out_dir: str) -> dict:
                 chars.setdefault(ch, []).append((cid, fn))
     os.makedirs(out_dir, exist_ok=True)
     out_chars: dict = {}
+    out_metrics: dict = {}
+    ref_hs = []
+
+    def _score_rows(rows):
+        """Per-letter quality q in [0.02, 1.0] from aspect/fill/sharpness
+        z-scores. Uniform random picks over big pools (e 379, i 259) hit
+        bad-tail crops constantly in LONG text -- q lets render_labeled
+        bias hard toward the best variants (weight ~ q^4)."""
+        if not rows:
+            return
+        asp = np.array([r[1] for r in rows], dtype=np.float64)
+        fil = np.array([r[2] for r in rows], dtype=np.float64)
+        shp = np.array([r[3] for r in rows], dtype=np.float64)
+        def _z(a):
+            s = float(np.std(a))
+            return (a - float(np.mean(a))) / s if s > 1e-9 else np.zeros_like(a)
+        za, zf, zs = _z(asp), _z(fil), _z(shp)
+        q = (np.exp(-0.5 * za ** 2) * np.exp(-0.5 * zf ** 2)
+             * (0.2 + 0.8 / (1.0 + np.exp(-zs))))
+        q[np.abs(za) > 2.5] = np.minimum(q[np.abs(za) > 2.5], 0.02)
+        q = np.clip(q, 0.02, 1.0)
+        if q.max() > q.min():
+            q = 0.05 + 0.95 * (q - q.min()) / (q.max() - q.min())
+        for row, qv in zip(rows, q):
+            out_metrics[row[0]]["q"] = round(float(qv), 4)
+
     for ch, pairs in chars.items():
         out_chars[ch] = []
+        rows = []
         for i, (cid, fn) in enumerate(pairs):
             safe = ch.replace("/", "slash").replace("\\", "back").replace(
                 '"', "dquot").replace("'", "squot").replace(":", "colon").replace(
@@ -205,14 +280,54 @@ def apply_labels(cluster_dir: str, labels: dict, out_dir: str) -> dict:
             data = open(os.path.join(lib_dir, fn), "rb").read()
             open(os.path.join(out_dir, dst), "wb").write(data)
             out_chars[ch].append(dst)
+            bb = (_src_mets.get(fn) or {}).get("bb", 0.0) or 0.0
+            if not (0.0 < bb <= 1.0) and _bb is not None:
+                try:
+                    bb = _bb(np.array(Image.open(os.path.join(out_dir, dst)).convert("L")))
+                except Exception:
+                    bb = 0.62
+            out_metrics[dst] = {"bb": bb}
+            try:
+                _w0, _h0 = Image.open(os.path.join(out_dir, dst)).size
+                ref_hs.append(_h0)
+            except Exception:
+                pass
+            aspect, fill, sharp = 0.0, 0.0, 0.0
+            try:
+                g = np.array(Image.open(os.path.join(out_dir, dst)).convert("L"))
+                ink = g < 200
+                if ink.any():
+                    ys, xs = np.where(ink)
+                    hh = float(ys.max() - ys.min() + 1)
+                    ww = float(xs.max() - xs.min() + 1)
+                    aspect = ww / max(1.0, hh)
+                    fill = float(ink.sum()) / max(1.0, hh * ww)
+                    try:
+                        import cv2 as _cv2
+                        sharp = float(_cv2.Laplacian(g, _cv2.CV_64F).var())
+                    except Exception:
+                        gy_, gx_ = np.gradient(g.astype(np.float64))
+                        sharp = float((gx_ * gx_ + gy_ * gy_).mean())
+            except Exception:
+                pass
+            rows.append((dst, aspect, fill, sharp, bb))
+        _score_rows(rows)
+    # warn, still build: name the font-fallback letters instead of hiding them.
+    _want = list(_string.ascii_lowercase + _string.digits + ".,!?;:'\"()-")
+    _missing = [c for c in _want if c not in out_chars]
     manifest = {"version": "0.2-labeled", "chars": out_chars,
-                "missing": [], "n_pages": 0,
+                "missing": _missing, "n_pages": 0,
                 "n_glyphs": sum(len(v) for v in out_chars.values()),
+                "metrics": out_metrics,
+                "ref_h": float(np.median(ref_hs)) if ref_hs else 0.0,
                 "source": f"clusters:{cluster_dir}"}
     with open(os.path.join(out_dir, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
     print(f"labeled library: {manifest['n_glyphs']} glyphs, "
           f"{len(out_chars)} letters -> {out_dir}")
+    if _missing:
+        print("  WARNING: missing (font fallback at render): "
+              + "".join(_missing))
     return manifest
 
 

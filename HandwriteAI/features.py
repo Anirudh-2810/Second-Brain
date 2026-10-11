@@ -102,37 +102,62 @@ def normalize_height(gray: np.ndarray, target_h: int = TARGET_GLYPH_H) -> np.nda
     return np.array(img)
 
 
-def estimate_slant(gray: np.ndarray) -> float:
-    """
-    Slant in degrees, positive = leaning right (like italic /).
-    Method: Sobel vertical edges -> Hough lines -> median deviation from vertical.
-    Fallback to image moments if no lines found.
-    """
-    bw = binarize(gray)
-    if not HAS_CV2:
-        return 0.0
-    edges = cv2.Canny(bw, 50, 150)
-    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold=120,
-                            minLineLength=50, maxLineGap=10)
+def _hough_slant_angles(edges: np.ndarray, threshold: int,
+                        min_line_length: int) -> List[float]:
+    """Deviation-from-vertical angles (deg) of long near-vertical segments."""
+    import cv2 as _cv2
+    lines = _cv2.HoughLinesP(edges, 1, np.pi / 180, threshold=threshold,
+                             minLineLength=min_line_length, maxLineGap=10)
     angles = []
     if lines is not None:
         for x1, y1, x2, y2 in np.reshape(lines, (-1, 4)):
             dx, dy = (x2 - x1), (y2 - y1)
             if abs(dy) < 8:
                 continue
-            # angle from vertical
             ang = math.degrees(math.atan2(dx, -dy)) if dy != 0 else 0.0
             if -45 < ang < 45:
                 angles.append(ang)
+    return angles
+
+
+def estimate_slant_detailed(gray: np.ndarray) -> Tuple[float, int, str]:
+    """
+    Slant in degrees + evidence, positive = leaning right (like italic /).
+    Returns (slant_deg, n_angles, method) where method is
+    'hough' | 'hough-adaptive' | 'moments' | 'none'.
+
+    Primary: Sobel vertical edges -> Hough lines -> median deviation from
+    vertical. Fixed thresholds miss on small/short samples, so a second
+    attempt scales threshold/min-length to the image size before falling
+    back to ink moments (noisy on near-vertical hands — see confidence).
+    """
+    bw = binarize(gray)
+    if not HAS_CV2:
+        return 0.0, 0, "none"
+    edges = cv2.Canny(bw, 50, 150)
+    h, w = gray.shape[:2]
+    angles = _hough_slant_angles(edges, threshold=120, min_line_length=50)
     if len(angles) >= 20:
-        return float(np.median(angles))
+        return float(np.median(angles)), len(angles), "hough"
+    # adaptive retry: fixed thresholds assume full-page scans; short notes
+    # and phone crops carry fewer long strokes, so scale the bar down.
+    angles = _hough_slant_angles(edges, threshold=max(30, int(w * 0.06)),
+                                 min_line_length=max(20, int(h * 0.04)))
+    if len(angles) >= 20:
+        return float(np.median(angles)), len(angles), "hough-adaptive"
     # fallback: moments of ink (clamped: near-vertical hands measure noisy)
     ink = (bw < 128).astype(np.uint8)
     m = cv2.moments(ink)
     if m["mu02"] is None or abs(m["mu02"]) < 1e-6:
-        return 0.0
+        return 0.0, len(angles), "none"
     skew = m["mu11"] / m["mu02"]
-    return float(max(-15, min(15, math.degrees(math.atan(skew)))))
+    return float(max(-15, min(15, math.degrees(math.atan(skew))))), len(angles), "moments"
+
+
+def estimate_slant(gray: np.ndarray) -> float:
+    """Slant in degrees (positive = right). See estimate_slant_detailed."""
+    slant, _, _ = estimate_slant_detailed(gray)
+    return slant
 
 
 def estimate_thickness(gray: np.ndarray) -> float:
@@ -240,6 +265,8 @@ class StyleFeatures:
     deskew_deg: float = 0.0
     glyph_h_median: float = 0.0  # DPI-anchored size ref: thickness TASK is
     glyph_w_median: float = 0.0  # compared as thickness/height RATIO, never raw px
+    slant_confidence: str = "low"  # high | med | low (estimator evidence weight)
+    slant_n: int = 0  # total Hough stroke angles behind slant_deg
 
     def to_dict(self) -> Dict:
         d = asdict(self)
@@ -256,20 +283,48 @@ class StyleFeatures:
                    ligature_pct=d.get("ligature_pct", 0.0),
                    n_lines=d.get("n_lines", 0),
                    n_components=d.get("n_components", 0),
-                   deskew_deg=d.get("deskew_deg", 0.0),
-                   glyph_h_median=d.get("glyph_h_median", 0.0),
-                   glyph_w_median=d.get("glyph_w_median", 0.0))
+                    deskew_deg=d.get("deskew_deg", 0.0),
+                    glyph_h_median=d.get("glyph_h_median", 0.0),
+                    glyph_w_median=d.get("glyph_w_median", 0.0),
+                    slant_confidence=d.get("slant_confidence", "low"),
+                    slant_n=int(d.get("slant_n", 0)))
+
+
+def _weighted_median(vals: List[float], weights: List[float]) -> float:
+    """Median where each sample carries an evidence weight."""
+    order = sorted(zip(vals, weights), key=lambda t: t[0])
+    total = sum(weights)
+    if total <= 0:
+        return float(np.median(vals)) if vals else 0.0
+    acc = 0.0
+    for v, wt in order:
+        acc += wt
+        if acc >= total / 2.0:
+            return float(v)
+    return float(order[-1][0])
 
 
 def analyze_pages(images: List[np.ndarray]) -> StyleFeatures:
-    slants, thick, ligs, nlines, ncomp, sags, skews = [], [], [], 0, 0, [], []
+    slants, slant_wts, thick, ligs, nlines, ncomp, sags, skews = [], [], [], [], 0, 0, [], []
     heights, widths = [], []
     base_coeffs = []
+    slant_n_total, hough_pages = 0, 0
     for img in images:
         fixed, skew = deskew(img)
         skews.append(skew)
         norm = normalize_height(fixed)
-        slants.append(estimate_slant(fixed))
+        slant, n_angles, method = estimate_slant_detailed(fixed)
+        slants.append(slant)
+        # evidence weight: Hough pages speak louder than moments fallbacks;
+        # adaptive-retry pages sit between. Stops one noisy short page from
+        # dragging a multi-page profile (the near-vertical wobble).
+        wt = {"hough": min(1.0, n_angles / 30.0),
+              "hough-adaptive": min(0.7, n_angles / 40.0),
+              "moments": 0.25, "none": 0.1}[method]
+        slant_wts.append(wt)
+        slant_n_total += n_angles
+        if method in ("hough", "hough-adaptive"):
+            hough_pages += 1
         thick.append(estimate_thickness(fixed))
         b = estimate_baseline(fixed)
         sags.append(b["sag_px"])
@@ -283,8 +338,19 @@ def analyze_pages(images: List[np.ndarray]) -> StyleFeatures:
         if lg.get("median_glyph_w"):
             widths.append(lg["median_glyph_w"])
     bc = np.mean(base_coeffs, axis=0).tolist() if base_coeffs else [0.0, 0.0, 0.0]
+    slant_spread = float(np.std(slants)) if len(slants) > 1 else 0.0
+    # confidence: strong Hough evidence + agreeing pages = high; moments-only
+    # or disagreeing pages = low (render UI then nudges the manual slider).
+    if slant_n_total >= 60 and slant_spread < 6.0:
+        slant_conf = "high"
+    elif slant_n_total >= 20 or hough_pages >= 1:
+        slant_conf = "med"
+    else:
+        slant_conf = "low"
     return StyleFeatures(
-        slant_deg=float(np.median(slants)) if slants else 0.0,
+        slant_deg=_weighted_median(slants, slant_wts) if slants else 0.0,
+        slant_confidence=slant_conf,
+        slant_n=int(slant_n_total),
         thickness_px=float(np.median(thick)) if thick else 3.0,
         baseline_sag_px=float(np.median(sags)) if sags else 0.0,
         baseline_coeffs=(float(bc[0]), float(bc[1]), float(bc[2])),

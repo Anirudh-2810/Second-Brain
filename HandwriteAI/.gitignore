@@ -8,6 +8,8 @@ styles/*.labeled/
 styles/*.clusters/
 outputs/*
 !outputs/.gitkeep
+Test_input/
+zoom-i.png
 data/*
 !data/.gitkeep
 !data/enrollment-sheet.png

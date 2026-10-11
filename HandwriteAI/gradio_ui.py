@@ -42,8 +42,10 @@ def ui_extract(files):
     STATE["features"] = feats.to_dict()
     previews = [Image.fromarray(im if isinstance(im, np.ndarray) else np.array(im)).convert("RGB")
                 for im in images[:4]]
-    summary = (f"Slant: {feats.slant_deg:.1f} deg right | "
-               f"Thickness: {feats.thickness_px:.2f}px | "
+    summary = (f"Slant: {feats.slant_deg:.1f} deg right [{feats.slant_confidence} confidence"
+               f"{'' if feats.slant_confidence != 'low' else ' - use the slider on Screen 3'}] | "
+               f"Thickness: {feats.thickness_px:.2f}px"
+               f"{(' (ratio %.3f)' % (feats.thickness_px / feats.glyph_h_median)) if feats.glyph_h_median > 4 else ''} | "
                f"Baseline sag: {feats.baseline_sag_px:.1f}px | "
                f"Ligatures: {feats.ligature_pct:.1f}% | "
                f"Lines: {feats.n_lines}")
@@ -169,6 +171,18 @@ def _label_state():
     return st
 
 
+def _label_order(payload):
+    """Labeling queue: biggest clusters first (coverage per minute).
+    Falls back to id order when sizes are missing (legacy payloads)."""
+    sizes = payload.get("sizes", {}) or {}
+    order = list(payload["clusters"].keys())
+    if sizes:
+        order.sort(key=lambda c: (-sizes.get(str(c), 0), int(c)))
+    else:
+        order.sort(key=int)
+    return order
+
+
 def _load_clusters():
     import json as _json
     st = _label_state()
@@ -177,7 +191,7 @@ def _load_clusters():
         return None, st
     payload = _json.load(open(p))
     st["payload"] = payload
-    st["order"] = sorted(payload["clusters"].keys(), key=int)
+    st["order"] = _label_order(payload)
     if "idx" not in st:
         st["idx"] = 0
     return payload, st
@@ -192,7 +206,7 @@ def ui_label_build():
         lib = os.path.splitext(STATE.get("style_path", "") or DEFAULT_STYLE)[0] + ".glyphs"
         payload = _build(lib, 64, st["cluster_dir"])
         st["payload"] = payload
-        st["order"] = sorted(payload["clusters"].keys(), key=int)
+        st["order"] = _label_order(payload)
         st["idx"] = 0
         return f"Built {payload['k']} clusters. Start labeling below.", *_label_show()
     except Exception as e:
@@ -209,10 +223,19 @@ def _label_show():
     sheet = os.path.join(st["cluster_dir"], f"cluster_{int(cid):03d}.png")
     guess = payload.get("guesses", {}).get(str(cid), {})
     done = len(payload.get("labels", {}))
+    # suspect-sheet flag: wide and/or wildly varying members usually mean
+    # joined pairs or junk — a hint, never a verdict. Absent on legacy
+    # payloads built before shape stats existed.
+    flag = ""
+    shp = (payload.get("shape", {}) or {}).get(str(cid), {})
+    if shp and (shp.get("med_aspect", 0) > 1.2 or shp.get("w_cv", 0) > 0.45):
+        flag = (f" | SUSPECT (aspect {shp.get('med_aspect')}, "
+                f"width-cv {shp.get('w_cv')}) — probably joined, consider Skip")
     status = (f"Cluster {st['idx'] + 1}/{len(order)} (id {cid}, "
               f"{payload['sizes'].get(str(cid), '?')} samples) | "
               f"labeled {done}/{len(order)} | "
-              f"guess: '{guess.get('guess', '?')}' ({guess.get('score', '?')})")
+              f"guess: '{guess.get('guess', '?')}' ({guess.get('score', '?')})"
+              f"{flag}")
     return sheet, "", status
 
 
@@ -279,9 +302,11 @@ def ui_label_finish():
         if not labels:
             return "No labels yet - label at least a few clusters above."
         man = apply_labels(st["cluster_dir"], labels, st["labeled_dir"])
+        warn = (" Library missing (font fallback at render): %s" % "".join(man.get("missing", []))
+                if man.get("missing") else " Full common-letter coverage.")
         return (f"Built labeled library: {man['n_glyphs']} glyphs, "
                 f"{len(man['chars'])} letters -> {st['labeled_dir']}. "
-                f"Generate tab now uses it on auto.")
+                f"Generate tab now uses it on auto." + warn)
     except Exception as e:
         return f"Finish failed: {e}"
 

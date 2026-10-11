@@ -8,7 +8,7 @@ character maps to its expected bucket (narrow / xheight / ascender / descender /
 """
 from __future__ import annotations
 import os, json, shutil
-from typing import List, Dict
+from typing import List, Dict, Tuple
 import numpy as np
 from PIL import Image
 
@@ -87,10 +87,55 @@ for ch in "gjpqy":
 # everything else defaults to xheight
 
 
+def body_bottom_frac(arr: np.ndarray) -> float:
+    """Baseline anchor of a glyph crop as a fraction of its height.
+
+    Lowest row carrying substantial ink width. For `a`/`h` that is the ink
+    bottom (= the writing baseline); for `g`/`y` the thin descender tail
+    rows don't count, so it still lands on the baseline. Anchoring every
+    placement by this instead of a fixed top fraction stops mixed-padding
+    crops from seesawing on the line (the alignment fix). Neutral 0.62
+    when the crop is degenerate.
+    """
+    try:
+        ink = (np.array(arr) < 200)
+        if ink.ndim == 3:
+            ink = ink[..., 0]
+        h = ink.shape[0]
+        if h < 4 or not ink.any():
+            return 0.62
+        roww = ink.sum(axis=1)
+        body = np.where(roww >= max(1.0, 0.25 * roww.max()))[0]
+        if len(body) == 0:
+            return 0.62
+        return round(float(body.max() + 1) / float(h), 3)
+    except Exception:
+        return 0.62
+
+
+def estimate_page_line_h(gray: np.ndarray) -> float:
+    """Ruled-line height of one sample page: median line-strip height.
+    This is the reference bucket_of() thresholds are relative to, so a
+    phone photo at 150dpi and a scan at 300dpi classify identically (D3).
+    Returns 0.0 when no line structure is found (caller falls back)."""
+    from features import extract_lines, deskew as _deskew
+    try:
+        fixed, _ = _deskew(gray)
+        strips = extract_lines(fixed)
+        hs = [s.shape[0] for s in strips if s.shape[0] >= 12]
+        if len(hs) >= 2:
+            return float(np.median(hs))
+    except Exception:
+        pass
+    return 0.0
+
+
 def build_library(sample_paths: List[str], out_dir: str,
-                  line_h_ref: int = 60) -> Dict:
-    # wipe previous harvest: appending across runs mixed stale crops in
-    # (the dir once held 3000+ files against a 230-file manifest).
+                  line_h_ref: int | None = None) -> Dict:
+    # line_h_ref=None (default) derives the reference from the pages
+    # themselves: median per-page line-strip height. A fixed 60px assumed
+    # one DPI; per-page derivation keeps tall/narrow/xheight/wide honest
+    # across phone photos and scans (D3). Pass an int to force a value.
     if os.path.exists(out_dir):
         for fn in os.listdir(out_dir):
             if fn.endswith(".png") or fn == "manifest.json":
@@ -100,7 +145,12 @@ def build_library(sample_paths: List[str], out_dir: str,
                     pass
     os.makedirs(out_dir, exist_ok=True)
     images = load_sample_images(sample_paths)
+    if line_h_ref is None:
+        per_page = [estimate_page_line_h(im) for im in images]
+        per_page = [v for v in per_page if v >= 24]
+        line_h_ref = int(round(float(np.median(per_page)))) if per_page else 60
     buckets: Dict[str, List[str]] = {"narrow": [], "xheight": [], "wide": [], "tall": []}
+    metrics: Dict[str, Dict] = {}
     widths, heights, areas = [], [], []
     total_cc = 0
     for pi, im in enumerate(images):
@@ -112,19 +162,22 @@ def build_library(sample_paths: List[str], out_dir: str,
             fname = f"p{pi:02d}_{gi:04d}_{b}.png"
             Image.fromarray(g["img"]).save(os.path.join(out_dir, fname))
             buckets[b].append(fname)
+            metrics[fname] = {"bb": body_bottom_frac(g["img"])}
             widths.append(g["w"])
             heights.append(g["h"])
             areas.append(g["area"])
     widths = np.array(widths or [20])
     heights = np.array(heights or [30])
     manifest = {
-        "version": "0.1",
+        "version": "0.2-glyph",
         "n_glyphs": int(sum(len(v) for v in buckets.values())),
         "n_pages": len(images),
+        "line_h_ref": int(line_h_ref),
         "buckets": {k: len(v) for k, v in buckets.items()},
         "width_mean": float(widths.mean()), "width_std": float(widths.std()),
         "height_mean": float(heights.mean()), "height_std": float(heights.std()),
         "files": buckets,
+        "metrics": metrics,
     }
     with open(os.path.join(out_dir, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
@@ -139,6 +192,7 @@ def load_library(lib_dir: str):
         manifest = json.load(f)
     med_w = float(manifest.get("width_mean", 25) or 25)
     med_h = float(manifest.get("height_mean", 25) or 25)
+    mets = manifest.get("metrics", {}) or {}
     cache = {}
     for bucket, files in manifest.get("files", {}).items():
         cache[bucket] = []
@@ -152,7 +206,10 @@ def load_library(lib_dir: str):
                     # even if an old manifest references them (slab incident)
                     if gw > 5 * med_w or gh > 4 * med_h:
                         continue
-                    cache[bucket].append(arr)
+                    bb = float((mets.get(fn) or {}).get("bb", 0.0)) or 0.0
+                    if not (0.0 < bb <= 1.0):
+                        bb = body_bottom_frac(arr)
+                    cache[bucket].append((arr, bb))
                 except Exception:
                     continue
     return manifest, cache
@@ -214,7 +271,9 @@ def sanitize_library(lib_dir: str) -> Dict:
     return manifest
 
 
-def pick_glyph(cache: Dict, bucket: str, rng) -> np.ndarray | None:
+def pick_glyph(cache: Dict, bucket: str, rng) -> Tuple[np.ndarray | None, float]:
+    """Random crop from a bucket. Returns (array, body_bottom_frac);
+    (None, 0.62) when empty."""
     opts = cache.get(bucket) or cache.get("xheight") or []
     if not opts:
         for v in cache.values():
@@ -222,5 +281,8 @@ def pick_glyph(cache: Dict, bucket: str, rng) -> np.ndarray | None:
                 opts = v
                 break
     if not opts:
-        return None
-    return opts[int(rng.integers(0, len(opts)))]
+        return None, 0.62
+    pick = opts[int(rng.integers(0, len(opts)))]
+    if isinstance(pick, tuple):
+        return pick
+    return pick, body_bottom_frac(pick)

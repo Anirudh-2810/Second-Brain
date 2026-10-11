@@ -154,8 +154,11 @@ def warp_sheet(photo_path: str) -> np.ndarray:
 
 
 def build_labeled(photo_paths: list, out_dir: str) -> dict:
+    from glyphs import body_bottom_frac
     os.makedirs(out_dir, exist_ok=True)
     chars: dict = {}
+    metrics: dict = {}
+    ref_hs = []
     missing = []
     for photo in photo_paths:
         gray = warp_sheet(photo)
@@ -184,12 +187,16 @@ def build_labeled(photo_paths: list, out_dir: str) -> dict:
             fn = f"{ci:02d}_{safe}_v{len(chars.get(ch, []))}.png"
             Image.fromarray(crop2).save(os.path.join(out_dir, fn))
             chars.setdefault(ch, []).append(fn)
+            metrics[fn] = {"bb": body_bottom_frac(crop2)}
+            ref_hs.append(crop2.shape[0])
     for ci, ch in enumerate(CHARS):
         if ch and ch not in chars:
             missing.append(ch)
     manifest = {"version": "0.2-labeled", "chars": chars, "missing": missing,
                 "n_pages": len(photo_paths),
-                "n_glyphs": sum(len(v) for v in chars.values())}
+                "n_glyphs": sum(len(v) for v in chars.values()),
+                "metrics": metrics,
+                "ref_h": float(np.median(ref_hs)) if ref_hs else 0.0}
     with open(os.path.join(out_dir, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
     print(f"labeled library: {manifest['n_glyphs']} glyphs, "
