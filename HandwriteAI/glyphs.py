@@ -87,6 +87,48 @@ for ch in "gjpqy":
 # everything else defaults to xheight
 
 
+def f_stem_bb(arr: np.ndarray):
+    """Cursive-f baseline anchor: stem bottom = where the ink centroid
+    starts shifting after the crossbar (the descender tail's curve).
+    body_bottom_frac anchors at the crossbar (widest run), which seats
+    f at o-height — 'f same length as o'. Returns bb fraction or None."""
+    a = np.asarray(arr)
+    ink = a < 200 if a.ndim == 2 else a[..., 0] < 200
+    h, w = ink.shape
+    roww = ink.sum(axis=1)
+    if h < 4 or roww.max() < 3:
+        return None
+    thr = 0.35 * float(roww.max())
+    wide = roww >= thr
+    runs, cur = [], None
+    for i, flag in enumerate(wide):
+        if flag and cur is None:
+            cur = [i, i]
+        elif flag:
+            cur[1] = i
+        elif cur is not None:
+            runs.append(tuple(cur))
+            cur = None
+    if cur is not None:
+        runs.append(tuple(cur))
+    if not runs:
+        return None
+    xb_bot = runs[-1][1]
+    stem_c = None
+    last_stem = xb_bot
+    for r in range(xb_bot + 1, h):
+        xs = np.where(ink[r])[0]
+        if len(xs) == 0:
+            break
+        c = float(xs.mean())
+        if stem_c is None:
+            stem_c = c
+        elif abs(c - stem_c) > max(2.0, 0.15 * w):
+            break
+        last_stem = r
+    return round(min(max((last_stem + 1) / float(h), 0.05), 0.98), 3)
+
+
 def body_bottom_frac(arr: np.ndarray) -> float:
     """Baseline anchor of a glyph crop as a fraction of its height.
 

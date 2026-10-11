@@ -8,10 +8,10 @@ user's real letterforms with natural variation. Labeling clusters (not single
 crops) amortizes one decision over dozens of variants.
 
 Pipeline:
-  python cluster.py build --lib styles/user_001.glyphs --k 64
-    -> styles/user_001.clusters/{clusters.json, contact sheets}
+  python cluster.py build --profile "Profile 1" --k 64
+    -> styles/profile_001.clusters/{clusters.json, contact sheets}
   (label in Gradio tab 6, or see clusters.json)
-  -> styles/user_001.labeled/manifest.json (0.2-labeled format, same as enroll.py)
+  -> styles/profile_001.labeled/manifest.json (0.2-labeled format, same as enroll.py)
 
 KMeans is implemented in numpy (no sklearn dependency).
 """
@@ -286,6 +286,25 @@ def apply_labels(cluster_dir: str, labels: dict, out_dir: str) -> dict:
                     bb = _bb(np.array(Image.open(os.path.join(out_dir, dst)).convert("L")))
                 except Exception:
                     bb = 0.62
+            # per-char bb alignment (2026-10-12): body_bottom_frac thresholds
+            # at 0.35*max_row_width — set by the widest feature (r shoulder,
+            # f crossbar, a bowl) — so the narrow stem falls out of the run
+            # and bb anchors too high. No-descender letters sit on ink
+            # bottom; cursive f anchors at the stem/tail transition.
+            try:
+                _ga = np.array(Image.open(os.path.join(out_dir, dst)).convert("L"))
+                _ink = _ga < 200
+                _ys = np.where(_ink.any(axis=1))[0]
+                _ibf = (float(_ys.max()) + 1.0) / float(_ga.shape[0]) if len(_ys) else bb
+                if ch in "arnmuivwxzoesc":
+                    bb = round(_ibf, 3)
+                elif ch == "f":
+                    from glyphs import f_stem_bb as _fsb
+                    _fb = _fsb(_ga)
+                    if _fb is not None:
+                        bb = _fb
+            except Exception:
+                pass
             out_metrics[dst] = {"bb": bb}
             try:
                 _w0, _h0 = Image.open(os.path.join(out_dir, dst)).size
@@ -335,12 +354,23 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     b = sub.add_parser("build")
-    b.add_argument("--lib", required=True)
+    b.add_argument("--lib", default="", help="glyph library dir (overrides --profile)")
     b.add_argument("--k", type=int, default=64)
-    b.add_argument("--out", default="")
+    b.add_argument("--out", default="", help="output dir (overrides --profile)")
+    b.add_argument("--profile", default="",
+                   help="profile id/display/number: lib=styles/<id>.glyphs, out=styles/<id>.clusters")
     args = ap.parse_args()
     if args.cmd == "build":
-        build(args.lib, args.k, args.out)
+        if args.profile:
+            import profiles as _prof
+            info = _prof.resolve(args.profile)
+            lib = args.lib or info["glyphs"]
+            out = args.out or info["clusters"]
+        else:
+            if not args.lib:
+                ap.error("--lib or --profile required")
+            lib, out = args.lib, args.out
+        build(lib, args.k, out)
 
 
 if __name__ == "__main__":

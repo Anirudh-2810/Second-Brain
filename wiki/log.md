@@ -1242,3 +1242,33 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Library now 1141 glyphs / 19 letters**: e355 i253 n66 a65 d58 r58 b45 o55 p42 s25 m26 l24 v20 f15 w12 u15 t3 g2 y2. Missing: c h j k q x z + digits + punctuation.
 - **Regression** (`_verify.py` + smoke + torture + g-gate): love-note, prose paragraph, 4-seed gate line all pass. Smoke paragraph fully real-ink (font-fallback style break gone for t/s/f). Torture line (s/t/f-saturated) mostly readable. Residual: word-final t reads f in some picks ("most"->"mosft") — inherent t/f ambiguity in this hand (shared crossbar + bottom-hook); only fix is paper enrollment of clearer t's. "organ"->argan and "away"->auay remain (o+r join, w pool thin).
 - New lab scripts: `_restore_g.py`, `_harvest_tfsr.py`, `_prune_harvest.py`, `_prune_t2.py`, `_prune_final.py`, `_fullsheet.py`, `_pool_sheet.py`, `_unsheet.py`, `_ggate.py`, `_spy_*.py`. PLAN.md updated (library state, known issues, next steps).
+
+### 2026-10-11 - HandwriteAI Phase A/B/C wrap: t-bb root cause + profile system + multi-format export
+- **Phase A (quality pass) — t->f misread FIXED**: root cause traced to `body_bottom_frac` (`glyphs.py:90`). The threshold `0.35 x max_row_width` is inflated by t's wide crossbar; the narrow stem falls below it and the bounding-box anchor lands at the crossbar TOP instead of the stem BOTTOM, so the whole stem+flick hangs below the writing line and reads as f. Verified t-only — all 15 f bb's were already correct. Fix in three layers: (1) re-measured and corrected the original 3 t bb values in BOTH manifests (labeled + source glyphs; original 3: 0.873/0.842/0.766 -> new 4 measured crops 0.855/0.812/0.829/0.881); (2) recovered 4 extra t variants from c11 orphans via `_recover_c11.py` (pipeline-calibrated md5 match against `full_11.png`, 31/31 calibration first) then cleaned + added via `_harvest_t_backfill.py` (ruling-row light-gray erase, largest-component comma removal on #10; source PNGs overwritten in place, backups in `.backup-t-harvest/`); t pool 3->7; (3) t-only descender-shrink safety net at `inference.py:811` (factor 0.45-0.75 when descender >8 rows).
+- **Phase A continued — f pool rebalance**: pick-spy (`_spy_cuneiform.py`) attributed every "Cuneiform"/"from"/"after" misread to the q=1.00 joined "cf/$" crop f_012. Pruned 8 f variants down to 7 (f001-f004, f007, f013, f014); q rebalanced so the high-crossbar f003 dominates (f003=1.0, f014=0.55, f007=0.4, f001=0.35, f002=0.35, f013=0.1, f004=0.05). Library now 1137 glyphs / 19 letters. All t's read t; f reads f; v/d legible. `_verify.py` gates 7/11/23/42 all pass.
+- **Phase B (profiles) — multi-hand support**: renamed `styles/user_001.{style,labeled,glyphs,clusters}` -> `styles/profile_001.*`; new `profiles.py` registry (`styles/profiles.json`, active=profile_001, display "Profile 1") with resolve by id/name/number, create (fresh or copy), rename, set-active, and self-heal registration of unregistered `styles/*.style`. `create_profile` now rmtree's a stale dst before copytree (an orphaned copytree process raced cleanup during testing — killed after timeout). `convert.py` gained `--profile` (default = active) + comma-multi `--format PNG,PDF,SVG` + profile-aware output stem; `--style` kept as power override. `enroll.py build`, `cluster.py build`, `train_fine_tune.py` all gained `--profile`. Gradio Tab 5 is now "Profiles & Settings" (dropdown switch, create/rename, full-profile .zip bundle export/import, profile-aware delete); Tab 3 format radio -> CheckboxGroup; Tab 4 Download saves every picked format; Tab 1 fine-tune + Tab 6 cluster-labeling write to the active profile. Live lab scripts (`_verify`, `_ggate`, `_pool_sheet`, `_spy_cuneiform`, `_recover_c11`, `_harvest_t_backfill`) resolve via `profiles.resolve("")`.
+- **Phase C (export polish) — verified**: `python convert.py --profile "Profile 1" --text ... --format PNG,PDF` emits both files under a `Profile_1-{timestamp}` stem; PDF header checked (`%PDF-1.3`, 550KB). SVG path also verified via legacy `--style` override.
+- **Gotchas recorded**: Python block-buffers stdout when piped — a timed-out process loses ALL its output; always run `python -u` for long scripts. A timed-out `copytree` process was orphaned and raced the next cleanup. Tool timeouts: copying the ~5000-file glyphs lib can exceed 120s on the E: drive — use 300s.
+- **Manual-verification flags (agent cannot self-verify)**: Gradio UI Tab 5 profile dropdown/create/rename/export/import/delete wiring is syntax- and import-checked but NOT launched in a browser this session; user should open `python gradio_ui.py` and click through Tab 5 + Tab 3 multi-format before relying on them. Graph colors / Bases / Dataview not applicable (HandwriteAI project, not a wiki note).
+- PLAN.md updated to v0.3 (profiles section, t-bb root cause, library state 1137 glyphs). Residuals: "systems"->"sysrems" (t-e weld artifact), "Organ" g ç-ish (g=2), hyphens/digits/c-h-j-k-q-x-z font fallback.
+
+## 2026-10-14 â€” Alignment Fix Pass (Plan Mode -> Build)
+
+### Changes
+1. **bb manifest**: Recomputed b for 174 labeled glyphs in styles/profile_001.labeled/manifest.json and styles/profile_001.glyphs/manifest.json. r variants: bb anchored at stem bottom (was at shoulder -> 'r at the bottom'). f variants: bb at stem/tail transition (was at crossbar -> 'f same length as o'). a/i: bb = ink bottom for no-descender letters.
+
+2. **i-dot synthesis** (inference.py:947-955): gap 4.0x5.5xbysc, dash 3.0x4.0xbysc, width 1.4x2.0xbysc. Dots now clear stem so i reads as i not l.
+
+3. **w-r advance** (inference.py:985): prev_ch == 'w' forces dv_f >= 0.92 even when joining, preventing w+r weld/stick.
+
+4. **Durability**: cluster.py apply_labels now applies same per-char bb correction on future re-labels, so fix persists across re-runs. Added _stem_bb() in glyphs.py.
+
+### Verified
+- cuneiform paragraph + smoke sentence render correctly
+- f visibly taller than o, r on baseline, 'again' aligned, i-dots present, w/r separated
+- All 4 _verify.py gates pass (lovenote, prose, gate 7/11/23/42)
+
+### Known Gaps
+- **C** / **c** / **I**: 0 variants, font fallback. Fix requires paper enrollment or harvesting from sample pages.
+- **l vs i height**: l crops median 23px vs i 27px. User wants l longer. TODO.
+- **w pool thin** (12 variants): w reads u-like in some picks. TODO.

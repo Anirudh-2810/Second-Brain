@@ -5,7 +5,7 @@ Phase 2: fine-tune on user pages -> styles/user_XXX.style (JSON: z + features)
 Phase 3: synthetic loop (optional refinement)
 
 Usage:
-  python train_fine_tune.py --samples page1.png page2.pdf --out styles/user_001.style --epochs 2
+  python train_fine_tune.py --samples page1.png page2.pdf --profile "Profile 1" --epochs 2
   python train_fine_tune.py --pretrain --iam-root data/iam --epochs 3 --out models/encoder_iam.pth
 """
 from __future__ import annotations
@@ -185,7 +185,9 @@ def pretrain_stub(iam_root, out_path, epochs=3):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--samples", nargs="*", default=[], help="user page images/pdfs")
-    ap.add_argument("--out", default="styles/user_001.style")
+    ap.add_argument("--out", default="", help="explicit output path (overrides --profile)")
+    ap.add_argument("--profile", default="",
+                    help="profile id/display/number: writes to styles/<id>.style")
     ap.add_argument("--epochs", type=int, default=2)
     ap.add_argument("--lr", type=float, default=1e-4)
     ap.add_argument("--pretrain", action="store_true")
@@ -197,7 +199,15 @@ def main():
     else:
         if not args.samples:
             ap.error("--samples page1.png page2.pdf ... (2-4 pages) required")
-        finetune_on_user(args.samples, args.out, args.epochs, args.lr, device=args.device)
+        if args.profile:
+            import profiles as _prof
+            out = _prof.resolve(args.profile)["style"]
+        elif args.out:
+            out = args.out
+        else:
+            import profiles as _prof
+            out = _prof.resolve("")["style"]
+        finetune_on_user(args.samples, out, args.epochs, args.lr, device=args.device)
 
 
 if __name__ == "__main__":

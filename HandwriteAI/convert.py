@@ -9,33 +9,46 @@ Modes (best first):
 
   auto = labeled if enrolled else font.
 
+Profiles: each saved handwriting is a named profile (styles/profiles.json).
+The active profile is used when neither --profile nor --style is given.
+
 Usage:
-  python convert.py --style styles/user_001.style --input notes.txt --format PNG
-  python convert.py --style styles/user_001.style --text "hello" --mode font --seed 21
-  python convert.py --style styles/user_001.style --input notes.md --format PDF --eval
+  python convert.py --input notes.txt --format PNG
+  python convert.py --profile "Profile 1" --input notes.md --format PNG,PDF
+  python convert.py --profile 001 --text "hello" --mode font --seed 21
+  python convert.py --style styles/profile_001.style --input notes.txt   # power override
   # enrollment:
   python enroll.py sheet
-  python enroll.py build mysheet.jpg --out styles/mine.labeled
-  python convert.py --style styles/user_001.style --glyphs styles/mine.labeled --input notes.txt
+  python enroll.py build mysheet.jpg --profile mine
+  python convert.py --profile mine --input notes.txt
 """
 from __future__ import annotations
-import os, argparse
+import os, argparse, re
 BASE = os.path.dirname(os.path.abspath(__file__))
 import sys
 sys.path.insert(0, BASE)
 from inference import load_style, render_text_image, export_outputs
+import profiles as profmod
 
 
 def _has_manifest(d: str) -> bool:
     return bool(d) and os.path.exists(os.path.join(d, "manifest.json"))
 
 
+def _safe_stem(name: str) -> str:
+    return re.sub(r"[^\w\-]+", "_", name.strip()).strip("_") or "Handwriting"
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--style", default=os.path.join(BASE, "styles", "user_001.style"))
+    ap.add_argument("--profile", default="",
+                    help="profile id / display name / number (default: active profile)")
+    ap.add_argument("--style", default="",
+                    help="explicit .style path (power override; skips profile lookup)")
     ap.add_argument("--input", default="", help=".txt/.md file to convert")
     ap.add_argument("--text", default="", help="raw text (if --input omitted)")
-    ap.add_argument("--format", default="PNG", choices=["PNG", "PDF", "SVG"])
+    ap.add_argument("--format", default="PNG",
+                    help="PNG, PDF and/or SVG, comma-separated (e.g. PNG,PDF)")
     ap.add_argument("--mode", default="auto",
                     choices=["auto", "labeled", "glyphs", "font"],
                     help="auto = labeled if enrolled else buckets ink if harvested "
@@ -43,7 +56,8 @@ def main():
     ap.add_argument("--glyphs", default="",
                     help="path to .labeled library (default: <style>.labeled, then <style>.glyphs)")
     ap.add_argument("--out-dir", default=os.path.join(BASE, "outputs"))
-    ap.add_argument("--stem", default="Handwriting")
+    ap.add_argument("--stem", default="",
+                    help="output filename stem (default: profile display name)")
     ap.add_argument("--slant-adj", type=float, default=0.0)
     ap.add_argument("--strength", type=float, default=1.0)
     ap.add_argument("--seed", type=int, default=7, help="ink/layout seed: change for a fresh take")
@@ -59,7 +73,28 @@ def main():
         text = args.text
     else:
         ap.error("provide --input notes.txt or --text \"...\"")
-    style = load_style(args.style)
+
+    formats = [fmt.strip().upper() for fmt in args.format.split(",") if fmt.strip()]
+    bad = [fmt for fmt in formats if fmt not in ("PNG", "PDF", "SVG")]
+    if bad or not formats:
+        ap.error("bad --format %r (use PNG, PDF and/or SVG, comma-separated)" % args.format)
+
+    if args.style:
+        style_path = args.style
+        stem_base = os.path.splitext(style_path)[0]
+        display = os.path.basename(stem_base)
+        info = None
+    else:
+        try:
+            info = profmod.resolve(args.profile)
+        except KeyError as e:
+            ap.error(str(e))
+        style_path = info["style"]
+        stem_base = os.path.splitext(style_path)[0]
+        display = info["display_name"]
+        print("profile: %s (%s)" % (info["id"], display))
+
+    style = load_style(style_path)
     feats = style.get("features", {})
     # DPI-proof headline: stroke/height ratio is the real thickness metric;
     # raw px depends on scan DPI and is diagnostic only (D2).
@@ -71,9 +106,8 @@ def main():
           f"thick[{thick_head}] "
           f"lig={feats.get('ligature_pct',0):.1f}%")
 
-    stem = os.path.splitext(args.style)[0]
-    labeled_dir = args.glyphs or (stem + ".labeled")
-    buckets_dir = stem + ".glyphs"
+    labeled_dir = args.glyphs or (stem_base + ".labeled")
+    buckets_dir = stem_base + ".glyphs"
     # POLICY (user override 2026-10-10): look-first. auto = labeled if
     # enrolled (correct + ink), else buckets ink if harvested (the beloved
     # wild look; letters are lookalikes), else font (correct, tame).
@@ -99,8 +133,11 @@ def main():
                                 style_strength=args.strength, lined=args.lined,
                                 seed=args.seed)
         print("mode: font (correct letters, font skeleton)")
-    paths = export_outputs(img, args.out_dir, stem=args.stem, formats=[args.format])
-    print(f"saved: {paths[args.format]} ({img.size[0]}x{img.size[1]})")
+    out_stem = args.stem or _safe_stem(display)
+    paths = export_outputs(img, args.out_dir, stem=out_stem, formats=formats)
+    for fmt in formats:
+        print(f"saved {fmt}: {paths[fmt]}")
+    print(f"size: {img.size[0]}x{img.size[1]}")
     if args.eval:
         from inference import eval_style_error
         err = eval_style_error(img, style)

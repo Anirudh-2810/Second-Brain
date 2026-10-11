@@ -3,13 +3,16 @@ import os, sys, json
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, '.')
 import inference as inf
+import profiles
 
-style = json.load(open('styles/user_001.style'))
+info = profiles.resolve("")
+style = json.load(open(info["style"]))
+lab = info["labeled"]
 note = (
     "Kedar I love you soo so much yr, i just wanna come and hug you tight, "
     "im soo so in love with you!!!"
 )
-img = inf.render_labeled(note, style, 'styles/user_001.labeled', seed=7)
+img = inf.render_labeled(note, style, lab, seed=7)
 img.save('outputs/Proof-lovenote-seed7.png')
 print('lovenote', img.size)
 para = (
@@ -21,11 +24,11 @@ para = (
     "with, I'd be happy to check if there is an official announcement schedule or "
     "share their typical response timeframe!"
 )
-img = inf.render_labeled(para, style, 'styles/user_001.labeled', seed=7)
+img = inf.render_labeled(para, style, lab, seed=7)
 img.save('outputs/Proof-prose-seed7.png')
 print('prose', img.size)
 for seed in (7, 11, 23, 42):
     w = inf.render_labeled(
-        'were you u it in have to check', style, 'styles/user_001.labeled', seed=seed)
+        'were you u it in have to check', style, lab, seed=seed)
     w.save(f'outputs/Proof-gate-seed{seed}.png')
     print('gate', seed, w.size)

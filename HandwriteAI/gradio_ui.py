@@ -1,7 +1,11 @@
 """
 HandwriteAI - Gradio desktop UI (5-screen flow).
-Screens: 1 Upload -> 2 Style analysis -> 3 Generate -> 4 Output/Download -> 5 Settings
+Screens: 1 Upload -> 2 Style analysis -> 3 Generate -> 4 Output/Download -> 5 Profiles & Settings
 Runs offline at localhost:7860. CPU-only.
+
+Each saved handwriting is a named profile (styles/profiles.json); the active
+profile drives Generate / fine-tune / cluster-labeling. Profile 1 = the
+original user_001 hand (renamed 2026-10-10).
 
   python gradio_ui.py
 """
@@ -18,6 +22,7 @@ os.makedirs(OUTPUTS, exist_ok=True)
 
 from features import load_sample_images, analyze_pages  # noqa: E402
 from inference import load_style, render_text_image, export_outputs  # noqa: E402
+import profiles as profmod  # noqa: E402
 
 try:
     from train_fine_tune import finetune_on_user
@@ -25,9 +30,26 @@ try:
 except Exception:
     HAS_TRAIN = False
 
-DEFAULT_STYLE = os.path.join(STYLES, "user_001.style")
-STATE = {"style_path": DEFAULT_STYLE if os.path.exists(DEFAULT_STYLE) else "",
-         "features": None}
+
+def _active_style_path() -> str:
+    try:
+        return profmod.resolve("")["style"]
+    except KeyError:
+        return ""
+
+
+STATE = {"style_path": _active_style_path(), "features": None}
+
+
+def _prof_choices():
+    return [disp for _pid, disp, _meta in profmod.list_profiles()]
+
+
+def _prof_active_display():
+    try:
+        return profmod.resolve("")["display_name"]
+    except KeyError:
+        return "(none)"
 
 
 def ui_extract(files):
@@ -65,7 +87,7 @@ def ui_finetune(files, epochs):
         return "train module unavailable."
     paths = [f.name if hasattr(f, "name") else f for f in files]
     try:
-        out = finetune_on_user(paths, DEFAULT_STYLE, epochs=int(epochs))
+        out = finetune_on_user(paths, _active_style_path(), epochs=int(epochs))
         STATE["style_path"] = out
         return f"Fine-tuned OK -> {out}. Proceed to Generate."
     except Exception as e:
@@ -76,9 +98,11 @@ def _has_manifest(d: str) -> bool:
     return bool(d) and os.path.exists(os.path.join(d, "manifest.json"))
 
 
-def ui_generate(text, slant_adj, strength, lined, fmt, mode, seed):
+def ui_generate(text, slant_adj, strength, lined, fmts, mode, seed):
     if not text or not text.strip():
         return None, "Type some text first.", ""
+    if not fmts:
+        fmts = ["PNG"]
     style = load_style(STATE.get("style_path", ""))
     style_path = STATE.get("style_path", "")
     stem = os.path.splitext(style_path)[0] if style_path else ""
@@ -117,55 +141,160 @@ def ui_generate(text, slant_adj, strength, lined, fmt, mode, seed):
     preview = img.copy()
     preview.thumbnail((900, 900))
     STATE["_last_img"] = img
-    STATE["_last_fmt"] = fmt
-    return preview, f"Preview ready ({img.size[0]}x{img.size[1]}, mode={used}). Hit Download for full 300-DPI {fmt}.", ""
+    STATE["_last_fmt"] = list(fmts)
+    fmt_show = "+".join(fmts)
+    return (preview,
+            f"Preview ready ({img.size[0]}x{img.size[1]}, mode={used}, "
+            f"profile={_prof_active_display()}). Hit Download for full 300-DPI {fmt_show}.",
+            "")
+
+
+def _safe_stem(name: str) -> str:
+    import re as _re
+    return _re.sub(r"[^\w\-]+", "_", name.strip()).strip("_") or "Handwriting"
 
 
 def ui_download():
     img = STATE.get("_last_img")
     if img is None:
         return [], "Generate first (Screen 3)."
-    fmt = STATE.get("_last_fmt", "PNG")
-    paths = export_outputs(img, OUTPUTS, formats=[fmt])
+    fmts = STATE.get("_last_fmt", ["PNG"])
+    try:
+        info = profmod.resolve("")
+        stem = _safe_stem(info["display_name"])
+    except KeyError:
+        stem = "Handwriting"
+    paths = export_outputs(img, OUTPUTS, stem=stem, formats=fmts)
     files = list(paths.values())
     return files, f"Saved: {'; '.join(files)}"
 
 
 def ui_export_profile():
-    src = STATE.get("style_path", "")
-    if not src or not os.path.exists(src):
-        return None, "No style profile yet - extract + fine-tune first."
-    dst = os.path.join(OUTPUTS, os.path.basename(src))
-    shutil.copy(src, dst)
-    return dst, f"Exported {dst}"
+    """Full-profile bundle zip: style + labeled + glyphs + clusters."""
+    import zipfile
+    try:
+        info = profmod.resolve("")
+    except KeyError:
+        return None, "No profile yet - extract + fine-tune first."
+    zpath = os.path.join(OUTPUTS, info["id"] + "-bundle.zip")
+    n = 0
+    with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+        z.write(info["style"], os.path.basename(info["style"]))
+        n += 1
+        for sub in ("labeled", "glyphs", "clusters"):
+            if not os.path.isdir(info[sub]):
+                continue
+            for root, _dirs, files in os.walk(info[sub]):
+                for f in files:
+                    fp = os.path.join(root, f)
+                    z.write(fp, os.path.relpath(fp, STYLES))
+                    n += 1
+    return zpath, f"Exported {zpath} ({n} files, full profile bundle)"
 
 
 def ui_import_profile(f):
+    """Bundle .zip (full family) or legacy .style file (style only)."""
     if not f:
-        return "Choose a .style file."
+        return "Choose a profile bundle (.zip) or a .style file."
     src = f.name if hasattr(f, "name") else f
-    dst = os.path.join(STYLES, os.path.basename(src))
-    shutil.copy(src, dst)
-    STATE["style_path"] = dst
-    return f"Imported {dst} - ready to generate."
+    try:
+        if src.lower().endswith(".zip"):
+            import zipfile
+            with zipfile.ZipFile(src) as z:
+                z.extractall(STYLES)
+            # self-heal registers the extracted <id>.style
+            data = profmod._load()
+            profmod._heal(data)
+            profmod._save(data)
+            # activate the newest extracted profile
+            stems = set()
+            for name in os.listdir(STYLES):
+                if name.endswith(".style") and not name.startswith("_"):
+                    stems.add(os.path.splitext(name)[0])
+            newest = sorted(stems)[-1] if stems else ""
+            if newest:
+                profmod.set_active(newest)
+            STATE["style_path"] = _active_style_path()
+            return (f"Imported bundle -> {newest} "
+                    f"({len(stems)} profile(s) on disk). Ready to generate.")
+        dst = os.path.join(STYLES, os.path.basename(src))
+        shutil.copy(src, dst)
+        data = profmod._load()
+        profmod._heal(data)
+        profmod._save(data)
+        STATE["style_path"] = dst
+        return f"Imported {dst} - ready to generate (labeled library not bundled; label in Tab 6)."
+    except Exception as e:
+        return f"Import failed: {e}"
 
 
 def ui_delete():
+    """Delete the ACTIVE profile's family + registry entry."""
+    try:
+        info = profmod.resolve("")
+    except KeyError:
+        return "No profile to delete."
     removed = []
-    for p in glob.glob(os.path.join(STYLES, "*.style")):
-        try:
+    for p in (info["style"],):
+        if os.path.exists(p):
             os.remove(p)
             removed.append(p)
-        except Exception:
-            pass
-    STATE["style_path"] = ""
-    return f"Removed {len(removed)} profile(s). No user data remains on this device."
+    for sub in ("labeled", "glyphs", "clusters"):
+        if os.path.isdir(info[sub]):
+            shutil.rmtree(info[sub], ignore_errors=True)
+            removed.append(info[sub])
+    data = profmod._load()
+    data["profiles"].pop(info["id"], None)
+    if data.get("active") == info["id"]:
+        data["active"] = sorted(data["profiles"])[0] if data["profiles"] else ""
+    profmod._save(data)
+    STATE["style_path"] = _active_style_path()
+    return (f"Deleted profile {info['display_name']} ({len(removed)} items). "
+            f"Active is now: {_prof_active_display()}.")
+
+
+def ui_prof_select(name):
+    import gradio as gr
+    try:
+        info = profmod.set_active(name)
+        STATE["style_path"] = info["style"]
+        status = (f"Active: {info['display_name']} ({info['id']}). "
+                  f"Style {'found' if os.path.exists(info['style']) else 'MISSING'}, "
+                  f"library {'enrolled' if _has_manifest(info['labeled']) else 'not enrolled yet'}.")
+        return gr.update(choices=_prof_choices(), value=info["display_name"]), status
+    except KeyError as e:
+        return gr.update(choices=_prof_choices(), value=_prof_active_display()), f"Select failed: {e}"
+
+
+def ui_prof_create(name, copy_from):
+    import gradio as gr
+    try:
+        src = "" if copy_from in ("(fresh - no copy)", "") else copy_from
+        info = profmod.create_profile(name or "", src)
+        profmod.set_active(info["id"])
+        STATE["style_path"] = info["style"]
+        status = (f"Created {info['display_name']} ({info['id']})"
+                  + (f" as a copy of {src}." if src else
+                     " fresh - enroll in Tabs 1+6 to fill its library."))
+        return gr.update(choices=_prof_choices(), value=info["display_name"]), status
+    except Exception as e:
+        return gr.update(choices=_prof_choices(), value=_prof_active_display()), f"Create failed: {e}"
+
+
+def ui_prof_rename(new_name):
+    import gradio as gr
+    try:
+        info = profmod.rename_profile("", new_name)
+        return (gr.update(choices=_prof_choices(), value=info["display_name"]),
+                f"Renamed -> {info['display_name']}.")
+    except Exception as e:
+        return gr.update(choices=_prof_choices(), value=_prof_active_display()), f"Rename failed: {e}"
 
 
 def _label_state():
     st = STATE.setdefault("label", {})
-    style_path = STATE.get("style_path", "") or DEFAULT_STYLE
-    stem = os.path.splitext(style_path)[0] if style_path else os.path.splitext(DEFAULT_STYLE)[0]
+    style_path = STATE.get("style_path", "") or _active_style_path()
+    stem = os.path.splitext(style_path)[0] if style_path else ""
     st["cluster_dir"] = stem + ".clusters"
     st["labeled_dir"] = stem + ".labeled"
     return st
@@ -203,7 +332,7 @@ def ui_label_build():
         _sys.path.insert(0, BASE)
         from cluster import build as _build
         st = _label_state()
-        lib = os.path.splitext(STATE.get("style_path", "") or DEFAULT_STYLE)[0] + ".glyphs"
+        lib = os.path.splitext(STATE.get("style_path", "") or _active_style_path())[0] + ".glyphs"
         payload = _build(lib, 64, st["cluster_dir"])
         st["payload"] = payload
         st["order"] = _label_order(payload)
@@ -344,7 +473,8 @@ def build_app():
                 strength = gr.Slider(0.0, 1.0, value=1.0, label="Style strength")
             with gr.Row():
                 lined = gr.Checkbox(value=False, label="Lined paper background")
-                fmt = gr.Radio(["PNG", "PDF", "SVG"], value="PNG", label="Output format")
+                fmts = gr.CheckboxGroup(["PNG", "PDF", "SVG"], value=["PNG"],
+                                        label="Output format(s) - pick any combination")
             with gr.Row():
                 mode = gr.Radio(["auto", "labeled", "font", "glyphs"], value="auto",
                                 label="Render mode (auto=labeled, else your-ink buckets, else font)")
@@ -354,27 +484,45 @@ def build_app():
             gen_status = gr.Textbox(label="Status")
 
         with gr.Tab("4 - Output & Download"):
-            dl_btn = gr.Button("Download full-quality file")
+            dl_btn = gr.Button("Download full-quality file(s)")
             dl_files = gr.File(file_count="multiple", label="Your files")
             dl_status = gr.Textbox(label="Saved paths")
-            gen_btn.click(ui_generate, [text_in, slant, strength, lined, fmt, mode, seed],
+            gen_btn.click(ui_generate, [text_in, slant, strength, lined, fmts, mode, seed],
                           [preview, gen_status, dl_status])
             dl_btn.click(ui_download, None, [dl_files, dl_status])
 
-        with gr.Tab("5 - Settings & About"):
+        with gr.Tab("5 - Profiles & Settings"):
             gr.Markdown("**Disclaimer:** for personal note digitization only. "
                         "Not for reproducing others' coursework, bypassing handwritten "
                         "submission requirements, or any deceptive use. "
                         "All processing is local; network needed only once for IAM weights (~150MB).")
+            gr.Markdown("A **profile** = one saved handwriting (style + letter library). "
+                        "Profile 1 is your main hand; add more for other people/styles.")
             with gr.Row():
-                exp_btn = gr.Button("Export style profile (.style)")
-                imp = gr.File(file_types=[".style"], label="Import .style")
-            exp_file = gr.File(label="Exported profile")
-            exp_status = gr.Textbox(label="Profile status")
+                prof_sel = gr.Dropdown(choices=_prof_choices(), value=_prof_active_display(),
+                                       label="Active profile")
+                prof_apply = gr.Button("Switch to selected")
+            with gr.Row():
+                new_name = gr.Textbox(label="New profile name", placeholder="e.g. Profile 2")
+                copy_from = gr.Dropdown(choices=["(fresh - no copy)"] + _prof_choices(),
+                                        value="(fresh - no copy)", label="Copy from")
+                new_btn = gr.Button("Create profile", variant="primary")
+            with gr.Row():
+                rename_to = gr.Textbox(label="Rename active profile")
+                rename_btn = gr.Button("Rename")
+            prof_status = gr.Textbox(label="Profile status", value=f"Active: {_prof_active_display()}")
+            with gr.Row():
+                exp_btn = gr.Button("Export full profile bundle (.zip)")
+                imp = gr.File(file_types=[".zip", ".style"], label="Import bundle (.zip) or .style")
+            exp_file = gr.File(label="Exported bundle")
+            exp_status = gr.Textbox(label="Export status")
             imp_status = gr.Textbox(label="Import status")
-            del_btn = gr.Button("Delete my profile from this device")
+            del_btn = gr.Button("Delete ACTIVE profile from this device")
             del_status = gr.Textbox(label="Delete status")
             gr.Markdown("Version 0.1 - offline only - CPU inference ~2-3s / 100 chars")
+            prof_apply.click(ui_prof_select, [prof_sel], [prof_sel, prof_status])
+            new_btn.click(ui_prof_create, [new_name, copy_from], [prof_sel, prof_status])
+            rename_btn.click(ui_prof_rename, [rename_to], [prof_sel, prof_status])
             exp_btn.click(ui_export_profile, None, [exp_file, exp_status])
             imp.change(ui_import_profile, [imp], [imp_status])
             del_btn.click(ui_delete, None, [del_status])
@@ -383,8 +531,9 @@ def build_app():
             gr.Markdown("Teach the system YOUR letters from ink you already uploaded. "
                         "Each cluster = one pile of same-looking crops. Type the letter "
                         "it shows (or Confirm the guess, or Skip junk). Same letter on "
-                        "many clusters just merges into more variants — good. "
-                        "Finish builds the labeled library; Generate tab uses it on auto.")
+                        "many clusters just merges into more variants - good. "
+                        "Finish builds the labeled library; Generate tab uses it on auto. "
+                        "Labeling applies to the ACTIVE profile.")
             with gr.Row():
                 build_btn = gr.Button("Build clusters from my uploads")
                 build_status = gr.Textbox(label="Build status")

@@ -812,6 +812,13 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                     # y tail is ~2x the body and hooks left — a J tell
                     # ("you" -> "Jou"). Per-placement tail scale 0.4-1.0.
                     g, bb = _shrink_descender(g, bb, float(lrng.uniform(0.4, 1.0)))
+                elif ch == "t":
+                    # t's connected bottom flick reads as f's descender when
+                    # long. bb anchors at the stem bottom (c11 t-bb fix); the
+                    # shrink is a safety net for long-flick t's only.
+                    _th = g.shape[0]
+                    if _th - int(round(bb * _th)) > 8:
+                        g, bb = _shrink_descender(g, bb, float(lrng.uniform(0.45, 0.75)))
                 gh, gw = g.shape[:2]
                 sc = _k
                 nw, nh = max(6, int(gw * sc)), max(8, int(gh * sc))
@@ -938,14 +945,16 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                                 _has_dot = True
                                 break
                     if not _has_dot:
-                        _gap = max(5, int(round(4.0 * sc)))
+                        # gap/length/width bumped 2026-10-12: old 4.0/3.0/1.4
+                        # drew a dot so tight to the stem it read as an l.
+                        _gap = max(6, int(round(5.5 * sc)))
                         _dx = (cx + (in_x0 + in_x1) / 2.0 + 2.0
                                + float(lrng.normal(0, 1.2)))
                         _dy = (paste_top
                                + int(np.where(ink.any(axis=1))[0].min()) - _gap
                                + float(lrng.normal(0, 0.8)))
-                        _dl = max(4, int(round(3.0 * sc))) / 2.0
-                        _dw = max(3, int(round(1.4 * sc)))
+                        _dl = max(5, int(round(4.0 * sc))) / 2.0
+                        _dw = max(4, int(round(2.0 * sc)))
                         ImageDraw.Draw(img).line(
                             [(_dx - _dl, _dy + float(lrng.uniform(0, 1.0))),
                              (_dx + _dl, _dy)],
@@ -962,9 +971,14 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             # After a round closed bowl the bodies must fully clear: a next
             # stem landing inside the bowl's width closes it into an 'a'
             # ('on'->'an', 'come'->'came'). The weld line alone bridges.
+            # w keeps near-full advance even when joining: w's exit is far
+            # right of its body, so a joined next-letter landed ON the w
+            # ('wr' welded into a blob).
             adv_f = 0.80 if joining else (0.95 if doubling else 0.90)
             if ch in "oadgcq":
                 adv_f = max(adv_f, 0.98)
+            if prev_ch == "w":
+                adv_f = max(adv_f, 0.92)
             cx += max(nw * 0.55, nw * adv_f + lrng.normal(1.0, 1.2))
     arr = np.array(img).astype(np.float32)
     arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)

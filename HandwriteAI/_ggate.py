@@ -3,10 +3,13 @@ import os, sys, json
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, '.')
 import inference as inf
+import profiles
 
-style = json.load(open('styles/user_001.style'))
+info = profiles.resolve("")
+style = json.load(open(info["style"]))
+lab = info["labeled"]
 gate = "go get going laughing right away again, g g g"
-img = inf.render_labeled(gate, style, 'styles/user_001.labeled', seed=7)
+img = inf.render_labeled(gate, style, lab, seed=7)
 img.save('outputs/ggate-seed7.png')
 print('ggate', img.size)
 smoke = (
@@ -19,6 +22,6 @@ smoke = (
     "every organ, damaging the lungs, "
     "heart, and blood vessels"
 )
-img = inf.render_labeled(smoke, style, 'styles/user_001.labeled', seed=7)
+img = inf.render_labeled(smoke, style, lab, seed=7)
 img.save('outputs/smoke-seed7.png')
 print('smoke', img.size)

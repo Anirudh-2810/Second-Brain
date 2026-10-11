@@ -1,4 +1,4 @@
-# HandwriteAI - build map (v0.2)
+# HandwriteAI - build map (v0.3)
 
 For personal note digitization only. Offline, CPU-only, no data leaves device.
 
@@ -13,16 +13,40 @@ HandwriteAI/
   enroll.py          # alphabet-sheet enrollment -> .labeled library (paper path)
   cluster.py         # shape clustering + label apply -> .labeled (no-paper path)
   glyphs.py          # unlabeled harvest + sanitize + body_bottom_frac + line_h_ref
-  convert.py         # CLI: --mode auto (=labeled if present else font)
-  gradio_ui.py       # 6-tab flow (tab 6 = cluster labeling), localhost:7860
+  profiles.py        # named-profile registry: list/resolve/create/rename (B2)
+  convert.py         # CLI: --profile / --style / --mode auto / --format PNG,PDF
+  gradio_ui.py       # 6-tab flow (tab 5 = Profiles & Settings, tab 6 = label)
   _*.py              # lab tools: _isheet/_resheet/_fullsheet/_pool_sheet/
                      # _suspect/_prune*/_harvest*/_restore_g/_verify/_proof
-  models/            # encoder_iam.pth, encoder_finetuned.pth
-  styles/            # user_001.style + user_001.labeled/ + user_001.clusters/
+  models/            # encoder_iam.pth, encoder_finetuned.pth (shared)
+  styles/
+    profiles.json        # active profile + display-name registry
+    profile_001.style    # Profile 1 (original user_001 hand, renamed 2026-10-10)
+    profile_001.labeled/ # render library (1137 glyphs / 19 letters)
+    profile_001.glyphs/  # source harvest (re-clusterable)
+    profile_001.clusters/# cluster-labeling state
   outputs/           # generated files (gitignored)
   data/              # enrollment-sheet.pdf (print me)
   Test_input/        # user's own sample scans (gitignored)
 ```
+
+## Profiles (multi-hand support, B2, 2026-10-10)
+- Each saved handwriting = one profile: `styles/profiles.json` + a family of
+  `<id>.style` / `<id>.labeled/` / `<id>.glyphs` / `<id>.clusters`.
+- `profiles.py` resolves by id (`profile_001`), display name (`Profile 1`),
+  bare number (`001`/`1`), or empty string (active profile). Missing registry
+  self-heals by registering any unregistered `styles/*.style`.
+- CLI: `--profile "Profile 1"` on convert/enroll/cluster/train_fine_tune;
+  `--style path` still works as a power override.
+- UI Tab 5: dropdown to switch active profile, create new (fresh or copy),
+  rename, export/import full-profile bundle (.zip), delete active.
+- Tab 3: multi-format CheckboxGroup (PNG/PDF/SVG any combo); Tab 4 Download
+  saves every picked format.
+- Tab 1 fine-tune and Tab 6 cluster-labeling write to the ACTIVE profile.
+- One-shot `_prune_*`/`_g_*`/`_spy_smoke*` scripts still hard-code
+  `user_001` paths (dead, not worth migrating). Live lab scripts
+  (`_verify`, `_ggate`, `_pool_sheet`, `_spy_cuneiform`, `_recover_c11`,
+  `_harvest_t_backfill`) resolve via `profiles.resolve("")`.
 
 ## Render modes (best first)
 - labeled: YOUR letters from enrollment sheet OR cluster labeling. Correct +
@@ -33,13 +57,14 @@ HandwriteAI/
 
 ## Correctness paths (pick one — both write .labeled libraries)
 A. Paper: `python enroll.py sheet` -> print/fill/photo ->
-   `python enroll.py build photo.jpg --out styles/mine.labeled`
+   `python enroll.py build photo.jpg --profile "Profile 1"`
 B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
-   Finish writes `styles/user_001.labeled/` (64 clusters, numpy KMeans).
+   Finish writes `styles/profile_001.labeled/` (64 clusters, numpy KMeans).
    Currently 26/64 labeled; the rest skipped as junk/mixed. Unlabeled
    clusters are NOT wasted — full indexed sheets (`_fullsheet.py <cid>`)
    + eyeball harvest (`_harvest_tfsr.py` pattern) recovered t/f/s/r
-   from c11/c29/c44/c47 this session.
+   from c11/c29/c44/c47; c11 orphans recovered this pass via `_recover_c11.py`
+   (pipeline-calibrated md5 match against `full_11.png`, 31/31 calibration).
 
 ## Labeling rules + QA (learned the hard way)
 - Queue runs biggest-first (coverage per minute); per-cluster shape stats
@@ -86,38 +111,45 @@ B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
   diagnostic only. Glyph libs store per-page `line_h_ref` (derived, not
   hard-coded 60) + `ref_h`.
 
-## Current library state (2026-10-11, after t/f/s/r harvest)
-- 1141 glyphs / 19 letters: e355 i253 n66 a65 d58 r58 b45 o55 p42 s25 m26
-  l24 v20 f15 w12 u15 t3 g2 y2.
+## Current library state (2026-10-11, after Phase A quality pass)
+- 1137 glyphs / 19 letters: e355 i253 n66 a65 d58 r58 b45 o55 p42 s25 m26
+  l24 v20 f7 w12 u15 t7 g2 y2.
 - Missing (font-fallback at render): c h j k q x z + digits + punctuation.
-  t/f/s/r harvested this session from unlabeled clusters (c11/c29/c44/c47)
-  but pools are thin — t=3, s=25, f=15, r=58 (r fattened from 14).
-- g restored from c45 (2 clean closed-bowl variants; lined ones pruned).
+  t=7 (3 original + 4 harvested via `_harvest_t_backfill.py` from orphans
+  #0/#10/#12/#29 of c11; source PNGs cleaned in place — ruling rows erased,
+  stray comma blob removed from #10); f=7 (15 pruned down to f001/f002/f003/
+  f004/f007/f013/f014 after `_spy_cuneiform.py` pick-spy — the q=1.00
+  joined-crop f_012 was the "Cuneiform" culprit; f003 (high crossbar) is
+  the dominant pick now).
 - q stats: min .05 / median .36 / max 1.0.
 
-## Known issues (as of 2026-10-11 t/f/s/r harvest)
-- FIXED earlier this pass: y->J (body_bottom_frac largest-area rule +
-  descender shrink), o->a / l+o->b (pool prune + round-bowel join pull
-  0.10 + advance >=0.98), w->u / u->n (w#4/w#5/u#8 dropped).
-- Word-final t reads f in some picks ("most"->"mosft", "rate"->"rafe"):
-  the user's t and f share crossbar + bottom-hook; at word end (no join)
-  the hook curls down and reads as f's descender. Inherent hand ambiguity,
-  not a pool bug — only 3 clean t variants exist. Paper enrollment of
-  clearer t's is the fix.
-- s->j on thin top-hook variants (rare after prune); s pool mixed
-  printed-3style + cursive-loop styles.
-- Residual (known, low priority): "organ"->argan (o+r join), "away"->auay
-  (w pool thin at 12), e-pool a-picks in isolated words, flicks at 55%
-  and wild in-word joins are accepted style.
+## Known issues (as of 2026-10-11 Phase A)
+- FIXED this pass: t->f misread. Root cause: `body_bottom_frac` threshold
+  (`0.35 × max_row_width`) is inflated by t's wide crossbar; the narrow stem
+  falls below threshold and bb anchors at the crossbar top instead of the
+  stem bottom, so the whole stem+flick hangs below the writing line and reads
+  as f. Verified t-only; f's bb were all correct. Fix: corrected t bb in BOTH
+  manifests (original 3 crops re-measured; 4 new crops carry their measured
+  bb); added a t-only descender-shrink safety net at `inference.py:811`
+  (factor 0.45-0.75 when descender >8 rows). "Cuneiform", "from", "after",
+  "fragmented" all read correctly now.
+- Residual (known, low priority): "systems" reads "sysrems" (t-e weld
+  artifact); "Organ" g reads ç-ish (g=2 limitation, needs paper enrollment);
+  hyphens/digits/c-h-j-k-q-x-z are font fallback; wild in-word joins are
+  accepted style.
 
 ## Next steps (ordered)
 1. Paper enrollment decision (USER): covers the 7 missing letters (c h j k
-   q x z) + digits + punctuation + true dotted i/j + clearer t/f variants
-   to fatten thin pools — `data/enrollment-sheet.pdf`.
+   q x z) + digits + punctuation + true dotted i/j + clearer g variants —
+   `data/enrollment-sheet.pdf`. Profiles make this easy: create "Profile 2",
+   enroll a different hand without disturbing Profile 1.
 2. Optional: second e-pool pass (355 variants, occasional a-like).
 3. Optional: harvest more unlabeled clusters for digits (c31 has 8/3/2/6/5)
    and remaining letters if any clean pools exist.
 4. Re-run `_verify.py` (love-note + prose + 4-seed gates) after each pass.
+5. Gradio UI smoke test: open `python gradio_ui.py`, confirm Tab 5 profile
+   dropdown/create/rename/export/import/delete work (manual — agent cannot
+   see rendered Obsidian or a running Gradio app).
 
 ## Quickstart (10-15 min to first generation)
 ```
@@ -129,9 +161,12 @@ python gradio_ui.py
 # 3. Type text -> Generate -> Download PNG/PDF/SVG
 ```
 
-CLI fine-tune without UI:
+CLI:
 ```
-python train_fine_tune.py --samples page1.png page2.pdf --out styles/user_001.style --epochs 2
+python convert.py --profile "Profile 1" --input notes.txt --format PNG,PDF
+python train_fine_tune.py --samples page1.png page2.pdf --profile "Profile 1" --epochs 2
+python enroll.py build photo.jpg --profile "Profile 1"
+python cluster.py build --profile "Profile 1" --k 64
 ```
 
 ## Notes

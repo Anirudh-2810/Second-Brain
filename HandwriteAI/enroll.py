@@ -11,9 +11,9 @@ Workflow:
   2. Write each character inside its box, naturally, black/blue pen. Stay inside.
      Empty boxes are fine (those chars fall back to font rendering).
   3. Photograph/scan the sheet (fill the frame, decent light, no shadows).
-  4. python enroll.py build photo.jpg --out styles/mine.labeled
-  5. python convert.py --style styles/user_001.style --glyphs styles/mine.labeled ...
-     (UI: Generate tab -> mode "labeled")
+   4. python enroll.py build photo.jpg --profile "Profile 1"
+   5. python convert.py --profile "Profile 1" --text "hello"
+      (UI: Generate tab -> mode "labeled")
 
 Sheet geometry (fractions of page, A4 portrait @300dpi = 2480x3508):
   - 4 filled-square fiducials near corners -> perspective correction of photos
@@ -214,12 +214,21 @@ def main():
     s.add_argument("--pdf", default="enrollment-sheet.pdf")
     b = sub.add_parser("build")
     b.add_argument("photos", nargs="+")
-    b.add_argument("--out", default="styles/mine.labeled")
+    b.add_argument("--out", default="", help="explicit output dir (overrides --profile)")
+    b.add_argument("--profile", default="",
+                   help="profile id/display/number: writes to styles/<id>.labeled")
     args = ap.parse_args()
     if args.cmd == "sheet":
         make_sheet(args.out, args.pdf)
     else:
-        out = args.out if args.out.endswith(".labeled") else args.out
+        if args.profile:
+            import profiles as _prof
+            out = _prof.resolve(args.profile)["labeled"]
+        elif args.out:
+            out = args.out
+        else:
+            import profiles as _prof
+            out = _prof.resolve("")["labeled"]
         build_labeled(args.photos, out)
 
 
