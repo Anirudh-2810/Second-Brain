@@ -75,7 +75,7 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
     lig_prob = max(0.0, min(0.85, lig / 100.0)) * float(style_strength)
 
     font = _font(font_size)
-    line_h = int(font_size * 1.9)  # dense but non-colliding page rhythm
+    line_h = int(font_size * 2.1)  # F7: 1.9 -> 2.1, same clearance rhythm
     # wrap (measure with base font)
     words, lines, cur = text.split(), [], ""
     tmp = ImageDraw.Draw(Image.new("RGB", (10, 10)))
@@ -420,7 +420,10 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
     ref_h = float(manifest.get("height_mean", 30))
     scale = target_h / max(8.0, ref_h)
     ref_w = float(manifest.get("width_mean", 20) or 20) * scale
-    line_h = int(target_h * 2.5)  # air between lines: ascenders must never
+    # F7: factor 2.5 -> 2.8 (2026-10-12): p/y descenders cut across the
+    # next line's ascenders (Pulvinar/Suspendisse stacks). Air is cheaper
+    # than tail surgery; costs ~12% page height.
+    line_h = int(target_h * 2.8)  # air between lines: ascenders must never
     # collide with the previous line's descenders (the cram failure)
     # LAYOUT (readability rules — the soup incident):
     # - user's own newlines are preserved (paragraphs), never invented
@@ -719,7 +722,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
         _k = float(np.median(_fnt_h)) / max(6.0, float(np.median(_src_h)))
     _k = max(0.6, min(3.0, _k))
     rng = np.random.default_rng(seed)
-    line_h = int(target_h * 2.5)
+    line_h = int(target_h * 2.8)  # F7: 2.5 -> 2.8, descender/ascender clearance
     # wrap needs REAL advance estimates: the old len(chars)*target_h*0.62
     # underestimates ink glyphs (actual ~0.80-0.90 * glyph_w after _k
     # scale) and wildly underestimates fat fallback cells -> lines overran
@@ -728,7 +731,10 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
     # HIGH (0.92 vs actual 0.80-0.90 + mean jitter +1) so lines wrap
     # early rather than clip.
     _adv: Dict[str, float] = {" ": max(target_h * 0.55, target_h * 0.75)}
-    for _ch2 in set(text.replace("\n", " ")):
+    # sorted(): set order varies per process (hash randomization) and the
+    # fallback-cell RNG below is order-sensitive -- unsorted, the same
+    # command wraps text differently on every run (found 2026-10-12).
+    for _ch2 in sorted(set(text.replace("\n", " "))):
         if _ch2 == " ":
             continue
         _vs = cache.get(_ch2)
@@ -869,19 +875,29 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             # F3: same-letter pairs (mm/tt/nn/ll) never weld -- a join line
             # + 30% pull glues doubles into blobs that kill word readability.
             doubling = (not word_start) and (ch == prev_ch)
+            # F5 (2026-10-12): arch-stroke runs (m/n/u sequences) never weld --
+            # vertical downstrokes + weld sweeps fuse into an unbroken picket
+            # fence ('condimentum', 'commando': m vs nn vs un vs nu). Spacing
+            # carries the identity here, like doubles above.
+            arch_run = (not word_start) and (ch in "mnu") and (prev_ch in "mnu")
             joining = ((not word_start) and not cur_fallback
-                       and not prev_fallback and not doubling
+                       and not prev_fallback and not doubling and not arch_run
                        and lrng.random() < min(
                            0.80, float(feats.get("ligature_pct", 25.0)) / 100.0 * 2.8))
             meet = joining and prev_ink is not None and _seam_meet(prev_ink, ink)
+            # F6 (2026-10-12): r's identity lives in its small loop; the
+            # sweep line routes through the loop zone and the 30% pull
+            # crushes it into the neighbor ('ver', 'fermentum' read as n).
+            # Light pull + no sweep for r-joins, mirroring round bowls.
+            r_join = (prev_ch == "r" or ch == "r")
             if joining and meet:
                 # Round closed bowls (o/a/d...) can't take the deep 30% pull:
                 # the next letter's stem lands ON the bowl's right edge and
                 # closes it into an 'a' ('come'->'came', 'on'->'an'), and a
                 # bowl pulled INTO a tall stem reads as 'b' ('look'->'bok').
                 # Either side round => light touch; the weld alone bridges.
-                cx -= nw * (0.10 if (prev_ch in "oadgcq" or ch in "oadgcq")
-                            else 0.30)
+                cx -= nw * (0.10 if (prev_ch in "oadgcq" or ch in "oadgcq" or r_join)
+                             else 0.30)
             _cols = np.where(ink.any(axis=0))[0]
             in_x0 = int(_cols.min()) if _cols.size else 0
             in_x1 = int(_cols.max()) if _cols.size else nw - 1
@@ -914,7 +930,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             # welds key off the ink's own edge on the baseline, not the
             # padded canvas edge (phantom crossbars made e->H, l->r).
             base_y = paste_top + bb_px  # body-bottom = baseline seat
-            if joining and meet and prev_exit is not None:
+            if joining and meet and prev_exit is not None and not r_join:  # F6
                 # long cursive sweep: reach back into the previous glyph and
                 # throw forward into this one, arched like a real pen join
                 ex0, ey0 = prev_exit
@@ -975,14 +991,15 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             prev_ch = ch
             prev_right = int(cx + in_x1)
             # joined pairs ride tight (fused), unjoined keep air (print-like);
-            # doubles get a touch more air so the two copies read apart.
+            # doubles AND arch runs get a touch more air so the strokes
+            # read apart (F3 + F5).
             # After a round closed bowl the bodies must fully clear: a next
             # stem landing inside the bowl's width closes it into an 'a'
             # ('on'->'an', 'come'->'came'). The weld line alone bridges.
             # w keeps near-full advance even when joining: w's exit is far
             # right of its body, so a joined next-letter landed ON the w
             # ('wr' welded into a blob).
-            adv_f = 0.80 if joining else (0.95 if doubling else 0.90)
+            adv_f = 0.80 if joining else (0.95 if (doubling or arch_run) else 0.90)
             if ch in "oadgcq":
                 adv_f = max(adv_f, 0.98)
             if prev_ch == "w":

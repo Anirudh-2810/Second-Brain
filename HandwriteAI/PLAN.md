@@ -100,6 +100,19 @@ B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
   `got`->`fot`, `name`->`rame`).
 - Double letters (mm/tt/nn/ll) never weld +5% advance; unjoined adjacent ink
   bboxes pushed apart (joined pairs keep designed overlap).
+- F5 (2026-10-12): arch-stroke runs `[mnu]+` never weld + 0.95 advance —
+  vertical downstrokes + sweeps fused into an unreadable picket fence
+  (`condimentum`: m vs nn vs un vs nu). Spacing carries identity.
+- F6 (2026-10-12): no weld sweep + light 0.10 pull when either side is `r`;
+  the sweep routed through r's loop zone and flattened it (`ver` read n).
+  r-pool audited same pass (58 crops, no degenerate, no prune needed).
+- F7 (2026-10-12): line rhythm 2.5 -> 2.8 x target_h (font path 1.9 -> 2.1);
+  p/y descenders cut across next-line ascenders (`Pulvinar` stacks).
+  Costs ~12% page height. Air over tail surgery.
+- e-pool hygiene (2026-10-12): closure metric (mid-right band fill) showed
+  18.2% of e-picks came from open (c-like) variants; 93/355 crops capped
+  to q<=0.10 (-> 0.05% pick-weight). Files kept, manifest-only change,
+  backup `manifest.json.bak-e-prune`. Reversible.
 - i-dot synthesis: enrollment detached the writer's dots (is read ls, I'd
   read lid) — dash-dot drawn above i bodies unless the crop has its own dot.
 - Upscale thickness-match erosion (small crops fatten ~2x); rotation capped
@@ -137,6 +150,28 @@ B. No paper: UI tab 6 builds shape clusters from uploads -> label each ->
   artifact); "Organ" g reads ç-ish (g=2 limitation, needs paper enrollment);
   hyphens/digits/c-h-j-k-q-x-z are font fallback; wild in-word joins are
   accepted style.
+
+## Profile 2 (2026-10-12, in progress)
+- Same-hand DocScanner post-lab pages (arrays/loops/decision-making, 9 pp).
+  Excluded: 08-Oct clipboard answer-sheet (different hand, user decision).
+- `profile_002` created fresh; `profile_002.glyphs/` = 3038 crops
+  (line_h_ref=276, xheight-heavy); `profile_002.clusters/` = 64 clusters
+  from 2716 crops. 9 clusters pre-flagged as joined/mixed junk (c45/c7/
+  c41/c47/c11/c61/c3/c35/c28) — Skip candidates at labeling.
+- LABELED 2026-10-12 by agent (user delegated): 64 clusters reviewed
+  via contact + full indexed sheets; 14 labeled (o/n/u/t/e/c/l/d/y/r/+/l/d),
+  50 skipped (mixed/joined/junk), 71 members pruned across 10 clusters.
+  Result: `profile_002.labeled/` = 683 glyphs / 11 letters. Missing (font
+  fallback): a b f g h i j k m p q s v w x z + digits + punctuation.
+- e-pool verified clean at build (closure min 0.208, no cap needed).
+- Style measured from 9 pages (slant 0.0 high-conf, ligature 11.1%);
+  fresh-style backup `profile_002.style.bak-fresh`.
+- Ruling cleanup (ruled-notebook source): derule (213 bottom-row crops),
+  derule3 (64 thin detached blocks), decc (299 detached CCs in 222 crops).
+  Backups `.bak-ruling*` / `.bak-decc`. Remaining ticks are connected
+  pen flicks — left alone deliberately.
+- Engine fix same pass: labeled-wrap iteration `sorted()` — set order used
+  to re-wrap fallback-heavy text differently on every run.
 
 ## Next steps (ordered)
 1. Paper enrollment decision (USER): covers the 7 missing letters (c h j k

@@ -6,6 +6,11 @@
       "display_name": "Profile 1",
       "created": "2026-10-10",
       "note": "smoking-paragraph hand; t/f/s/r harvested, t bb fixed, f q-rebalanced (7 t / 7 f variants)"
+    },
+    "profile_002": {
+      "display_name": "Profile 2",
+      "created": "2026-10-13",
+      "note": "fresh profile"
     }
   }
 }

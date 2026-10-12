@@ -33,6 +33,8 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-10-07 — Shimon Davis trio shipped from 17 transcripts** (Projects) — convo skills + not-caring + reset-when-stuck pages, 3 videos honestly marked pending on 429 rather than fabricated; [[01-Areas/Self-Dev/convo-skills-shimon-davis]] · [[01-Areas/Self-Dev/not-caring-shimon-davis]] · [[01-Areas/Self-Dev/reset-when-stuck-shimon-davis]]
 
+- **2026-10-12 — Nexus Robotics Embedded coding selection** (Projects) — selected for the embedded-coding part; [[daily/2026-10-12]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]
