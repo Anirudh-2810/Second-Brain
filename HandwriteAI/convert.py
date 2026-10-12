@@ -60,6 +60,9 @@ def main():
                     help="output filename stem (default: profile display name)")
     ap.add_argument("--slant-adj", type=float, default=0.0)
     ap.add_argument("--strength", type=float, default=1.0)
+    ap.add_argument("--width", type=int, default=1600,
+                    help="page width in px; height auto-grows with wrapped "
+                         "lines (1600 = portrait, 3080 = landscape)")
     ap.add_argument("--seed", type=int, default=7, help="ink/layout seed: change for a fresh take")
     ap.add_argument("--lined", action="store_true", default=False)
     ap.add_argument("--no-lined", dest="lined", action="store_false")
@@ -121,17 +124,19 @@ def main():
     if use_labeled:
         from inference import render_labeled
         img = render_labeled(text, style, labeled_dir, lined=args.lined,
+                             width=args.width,
                              seed=args.seed, style_strength=args.strength)
         print(f"mode: labeled (your letters, {labeled_dir})")
     elif use_buckets:
         from inference import render_with_glyphs
         img = render_with_glyphs(text, style, buckets_dir, lined=args.lined,
+                                 width=args.width,
                                  seed=args.seed, style_strength=args.strength)
         print(f"mode: glyphs/buckets (real ink, possibly wrong letters, {buckets_dir})")
     else:
         img = render_text_image(text, style, slant_adj=args.slant_adj,
                                 style_strength=args.strength, lined=args.lined,
-                                seed=args.seed)
+                                width=args.width, seed=args.seed)
         print("mode: font (correct letters, font skeleton)")
     out_stem = args.stem or _safe_stem(display)
     paths = export_outputs(img, args.out_dir, stem=out_stem, formats=formats)

@@ -1,0 +1,11 @@
+{
+  "version": 0.1,
+  "active": "profile_001",
+  "profiles": {
+    "profile_001": {
+      "display_name": "Profile 1",
+      "created": "2026-10-10",
+      "note": "smoking-paragraph hand; t/f/s/r harvested, t bb fixed, f q-rebalanced (7 t / 7 f variants)"
+    }
+  }
+}

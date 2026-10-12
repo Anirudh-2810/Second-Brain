@@ -8,7 +8,7 @@ Exports PNG / PDF / SVG into outputs/.
 Accuracy: eval_style_error() reports feature MSE vs the .style profile.
 """
 from __future__ import annotations
-import os, json, math, datetime
+import os, json, math, datetime, warnings
 from typing import Dict, Tuple, List
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -21,9 +21,14 @@ except ImportError:
 
 
 def load_style(style_path: str) -> Dict:
-    if style_path and os.path.exists(style_path):
+    if style_path:
+        if not os.path.exists(style_path):
+            raise FileNotFoundError(
+                f"style file not found: {style_path!r} — refusing to silently "
+                f"fall back to the default style (was a typo'd --style/--profile?)")
         with open(style_path, encoding="utf-8") as f:
             return json.load(f)
+    # no path requested -> explicit defaults are the contract
     return {"z": [0.0]*128, "features": {
         "slant_deg": 8.0, "thickness_px": 3.0, "baseline_sag_px": 2.0,
         "ligature_pct": 25.0, "n_lines": 0}}
@@ -493,8 +498,9 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
                 prev_ink = None
                 continue
             gh, gw = g.shape[:2]
-            # living size: ±6% per placement so repeats never march identical
-            _sz = float(lrng.uniform(0.94, 1.06))
+            # living size: ±4% per placement (was ±6%) so repeats stay
+            # even without marching identical
+            _sz = float(lrng.uniform(0.96, 1.04))
             nw, nh = max(6, int(gw * scale * _sz)), max(8, int(gh * scale * _sz))
             bb_px = float(bb) * nh  # baseline anchor from cell top
             pil = Image.fromarray(g).resize((nw, nh), Image.LANCZOS)
@@ -769,6 +775,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
         lines = [""]
     H = line_h * len(lines) + 140
     img = Image.new("RGB", (width, H), (253, 252, 247))
+    _fallback_used = set()
     for li, line in enumerate(lines):
         if not line.strip():
             continue
@@ -830,6 +837,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                 bb_px = float(bb) * nh
             else:
                 # font fallback keeps the WORD readable even for unenrolled chars
+                _fallback_used.add(ch)
                 pil, _bb_frac = _font_fallback_cell(ch, target_h, lrng)
                 nw, nh = pil.size
                 bb_px = _bb_frac * nh
@@ -838,7 +846,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                 # below -- a stale sc from the previous glyph was eroding
                 # fallback strokes and eating the capital-I serifs.
                 sc = 1.0
-            rot = float(lrng.normal(0, 1.5))
+            rot = float(lrng.normal(0, 1.0))
             if abs(rot) > 0.4 and max(nw, nh) >= 34:
                 try:
                     pil = pil.convert("L").rotate(
@@ -848,8 +856,8 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                         rot, resample=Image.BICUBIC, expand=True)
                 bb_px = bb_px + (pil.size[1] - nh) / 2.0
                 nw, nh = pil.size
-            wob = math.sin((cx / 110.0) + li * 1.7) * (sag * 0.4) + lrng.normal(0, 1.0)
-            press = float(lrng.uniform(0.85, 1.05))
+            wob = math.sin((cx / 110.0) + li * 1.7) * (sag * 0.4) + lrng.normal(0, 0.6)
+            press = float(lrng.uniform(0.88, 1.02))
             arr = np.array(pil.convert("L")).astype(np.float32)
             ink = (arr < 200)
             tint = np.ones((arr.shape[0], arr.shape[1], 3), dtype=np.float32) * 253
@@ -949,10 +957,10 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                         # drew a dot so tight to the stem it read as an l.
                         _gap = max(6, int(round(5.5 * sc)))
                         _dx = (cx + (in_x0 + in_x1) / 2.0 + 2.0
-                               + float(lrng.normal(0, 1.2)))
+                               + float(lrng.normal(0, 0.8)))
                         _dy = (paste_top
                                + int(np.where(ink.any(axis=1))[0].min()) - _gap
-                               + float(lrng.normal(0, 0.8)))
+                               + float(lrng.normal(0, 0.5)))
                         _dl = max(5, int(round(4.0 * sc))) / 2.0
                         _dw = max(4, int(round(2.0 * sc)))
                         ImageDraw.Draw(img).line(
@@ -979,9 +987,15 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                 adv_f = max(adv_f, 0.98)
             if prev_ch == "w":
                 adv_f = max(adv_f, 0.92)
-            cx += max(nw * 0.55, nw * adv_f + lrng.normal(1.0, 1.2))
+            cx += max(nw * 0.55, nw * adv_f + lrng.normal(1.0, 0.8))
     arr = np.array(img).astype(np.float32)
     arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)
+    if _fallback_used:
+        warnings.warn(
+            f"font-fallback for {len(_fallback_used)} char(s): "
+            f"{''.join(sorted(_fallback_used))!r} — not enrolled in this "
+            f"profile; render mixes printed fallback glyphs with ink",
+            stacklevel=2)
     return Image.fromarray(arr.astype(np.uint8))
 
 

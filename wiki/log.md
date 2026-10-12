@@ -1272,3 +1272,12 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **C** / **c** / **I**: 0 variants, font fallback. Fix requires paper enrollment or harvesting from sample pages.
 - **l vs i height**: l crops median 23px vs i 27px. User wants l longer. TODO.
 - **w pool thin** (12 variants): w reads u-like in some picks. TODO.
+
+### 2026-10-12 — Consistency polish pass: variant demotes, jitter tightening, --width, load_style hardening
+- **Variant demotes** (styles/profile_001.labeled/manifest.json, local-only): c11_t_006 (q 0.85->0.05, no crossbar -> rendered as '1', the '7V 1o 25V' bug), c11_t_004 (q 0.50->0.05, 105px-wide swash t, only aspect outlier in pool), c10_p_019 (q 0.90->0.05, mid-stem flick reads as f, the 'drop'->'drof' bug), c10_p_030 (q 0.65->0.05, same f-look flick). Good variants untouched (t_000/t_001/t_003/t_005, p_020 q=1.00).
+- **Jitter tightening** (inference.py render_labeled, naturalness preserved): per-glyph size +/-6%->+/-4%, rotation sigma 1.5->1.0deg, wobble noise sigma 1.0->0.6px, pressure 0.85-1.05->0.88-1.02, advance noise sigma 1.2->0.8px, i-dot jitter sigma 1.2/0.8->0.8/0.5. Ligature/flick/join frequencies untouched.
+- **--width flag** (convert.py): default 1600, pass-through to all three renderers; notes re-rendered at --width 3080 -> 3080x2240 landscape (close-enough accepted).
+- **load_style hardening** (inference.py): missing style path now raises FileNotFoundError with the actual path instead of silently returning defaults.
+- **Font-fallback warning** (inference.py render_labeled): collects unenrolled chars per render and warns once (e.g. 'h', digits, caps) so the c/h/k/x/digits/punct gap is visible, not silent.
+- **Loose end tied**: profiles.py + styles/profiles.json were untracked since Phase B — committed now (convert.py imports profiles).
+- Verified: t-probe 'to it output that written will' all crossbars present; notes landscape render clean ('7V to 25V', 'drop' correct); all 4 _verify.py gates pass (lovenote, prose, gate 7/11/23/42).
