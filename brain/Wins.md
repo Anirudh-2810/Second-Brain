@@ -35,6 +35,8 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-10-12 — Nexus Robotics Embedded coding selection** (Projects) — selected for the embedded-coding part; [[daily/2026-10-12]]
 
+- **2026-10-14 — Arduino hardware thread kicked off: full tutorial series ingested** (Coursework/Builds) — new [[01-Areas/Engineering/arduino-microcontrollers/INDEX|arduino-microcontrollers module]] with 10 in-depth beginner (ELI5) episode notes (Blink → interrupts/hardware debouncing), each with annotated code, Mermaid flowcharts, circuit diagrams, gotchas and cross-links; executes the Arduino-first [[brain/North Star|North Star]] hardware path decided 2026-09-30; [[daily/2026-10-14]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]
