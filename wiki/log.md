@@ -1281,3 +1281,9 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Font-fallback warning** (inference.py render_labeled): collects unenrolled chars per render and warns once (e.g. 'h', digits, caps) so the c/h/k/x/digits/punct gap is visible, not silent.
 - **Loose end tied**: profiles.py + styles/profiles.json were untracked since Phase B — committed now (convert.py imports profiles).
 - Verified: t-probe 'to it output that written will' all crossbars present; notes landscape render clean ('7V to 25V', 'drop' correct); all 4 _verify.py gates pass (lovenote, prose, gate 7/11/23/42).
+
+### 2026-10-13 — Profile 2 trained from user alphabet sample + variant quality fixes
+- **Enrollment**: user provided a full alphabet sample page (a-z, A-Z, 0-9, punctuation on notebook paper). Custom harvester (connected components at thr=100 + dot-merge for i/j + split-merge for K/5/= + manual crops for faint i/j/s/0) enrolled **810 glyphs / 68 chars** into styles/profile_002.labeled. Crops cleaned (paper >= 140 -> white) to avoid blue-box render artifacts.
+- **Variant fixes** (styles/profile_002.labeled/manifest.json, local-only): o pool pruned 148->20 (arch/spiral variants removed), 5 gamma-tail r's demoted, 4 no-descender y's demoted, 6 tall-stem e's demoted. Good variants kept at original q.
+- **Verified**: 'the quick brown fox jumps over the lazy dog' renders entirely in real ink — no font fallback, no AI-looking artifacts. All 6 _verify.py gates pass (lovenote, prose, gate 7/11/23/42).
+- **Note**: Profile 2's newly enrolled letters have 1 variant each (q=1.0) — jitter provides naturalness but more variants per letter would improve diversity.
