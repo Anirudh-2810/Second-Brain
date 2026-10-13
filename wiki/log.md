@@ -1287,3 +1287,11 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Variant fixes** (styles/profile_002.labeled/manifest.json, local-only): o pool pruned 148->20 (arch/spiral variants removed), 5 gamma-tail r's demoted, 4 no-descender y's demoted, 6 tall-stem e's demoted. Good variants kept at original q.
 - **Verified**: 'the quick brown fox jumps over the lazy dog' renders entirely in real ink — no font fallback, no AI-looking artifacts. All 6 _verify.py gates pass (lovenote, prose, gate 7/11/23/42).
 - **Note**: Profile 2's newly enrolled letters have 1 variant each (q=1.0) — jitter provides naturalness but more variants per letter would improve diversity.
+
+### 2026-10-14 — Ingest: Jeremy Blum Arduino Tutorial Series (Episodes 1-10)
+- Created new module **[[arduino-microcontrollers/INDEX|arduino-microcontrollers/]]** under `wiki/01-Areas/Engineering/` (Engineering domain).
+- Wrote **10 episode concept pages** (ELI5, beginner-oriented, ~13-16 KB each): ep01 IDE/Blink, ep02 buttons/PWM/functions, ep03 EE basics, ep04 analog inputs, ep05 motors/transistors/servos, ep06 serial + Processing, ep07 I2C (TC74), ep08 SPI (MCP42010 digital pot), ep09 wireless/XBee, ep10 interrupts + hardware debouncing. Each has YAML frontmatter, a "For future agent" preamble, ELI5 analogies, annotated code + Mermaid flowcharts, key-functions tables, pitfalls, practice exercises, and cross-links.
+- Added module row + Quick Answer to [[01-Areas/Engineering/INDEX]]; fixed invented/unverified YouTube IDs in the episode map (marked TBD, pointed to playlist).
+- Cross-linked to BEE, nexus-robotics (C/embedded drills), SPM C, Robotics ROS2, and Programming C revision.
+- Ran `update-graph-colors.py` (69 per-module colors) and `generate-index.py` (496 pages, root + docs/).
+- **Manual verification:** Obsidian rendering of Mermaid flowcharts, graph node colors, and Dataview/Bases views unverified by agent — check on next open.

@@ -21,6 +21,7 @@
 | ⚡ Basic Electrical Engineering (BEE) | \wiki/01-Areas/Engineering/BEE/\ | [[01-Areas/Engineering/BEE/INDEX|BEE INDEX]] |
 | ✈️ Aeromodelling — Team Onyx Round-1 | \wiki/01-Areas/Engineering/aeromodelling/\ | [[01-Areas/Engineering/aeromodelling/INDEX|Aeromodelling INDEX]] |
 | 🤖 Nexus Robotics — club coding interview | \wiki/01-Areas/Engineering/nexus-robotics/\ | [[01-Areas/Engineering/nexus-robotics/INDEX|Nexus Robotics INDEX]] |
+| 🔌 Arduino / microcontrollers (beginner) | \wiki/01-Areas/Engineering/arduino-microcontrollers/\ | [[01-Areas/Engineering/arduino-microcontrollers/INDEX|Arduino Tutorial Series INDEX]] |
 | 🧠 Self-dev / habits | `wiki/01-Areas/Self-Dev/` | [[01-Areas/Self-Dev/INDEX]] |
 | 🔨 My builds | `wiki/00-Current-Projects/` | [[00-Current-Projects/INDEX]] |
 | 🗺 All roadmaps | — | [[01-Areas/Roadmaps/INDEX]] |
@@ -48,6 +49,9 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 
 ### Robotics club recruitment (interview prep)
 - [[01-Areas/Engineering/nexus-robotics/INDEX|Nexus Robotics — Coding Interview Prep]] — 2026-10-06 club round. 60-question embedded theory bank with a core-15 last-hour list ([[01-Areas/Engineering/nexus-robotics/nexus-theory-rapidfire]]), 12 timed live-coding drills in C and Python ([[01-Areas/Engineering/nexus-robotics/nexus-embedded-coding-drills]]), and a tiered fallback ladder for short/fragmented prep plus rig logistics ([[01-Areas/Engineering/nexus-robotics/nexus-interview-fallbacks]]). Sibling pack for the earlier Onyx round: [[01-Areas/Engineering/aeromodelling/INDEX|Team Onyx]].
+
+### Arduino & embedded fundamentals (self-study)
+- [[01-Areas/Engineering/arduino-microcontrollers/INDEX|Jeremy Blum Arduino Tutorial Series — Episodes 1-10]] — beginner-friendly (ELI5) episode notes with annotated code, Mermaid flowcharts, circuit diagrams, and cross-links. Covers IDE/Blink ([[01-Areas/Engineering/arduino-microcontrollers/ep01-getting-acquainted|Ep1]]), buttons/PWM/functions ([[01-Areas/Engineering/arduino-microcontrollers/ep02-buttons-pwm-functions|Ep2]]), EE basics ([[01-Areas/Engineering/arduino-microcontrollers/ep03-electrical-basics|Ep3]]), analog inputs ([[01-Areas/Engineering/arduino-microcontrollers/ep04-analog-inputs|Ep4]]), motors/transistors ([[01-Areas/Engineering/arduino-microcontrollers/ep05-motors-transistors|Ep5]]), serial + Processing ([[01-Areas/Engineering/arduino-microcontrollers/ep06-serial-processing|Ep6]]), I2C ([[01-Areas/Engineering/arduino-microcontrollers/ep07-i2c-communication|Ep7]]), SPI ([[01-Areas/Engineering/arduino-microcontrollers/ep08-spi-interfaces|Ep8]]), wireless/XBee ([[01-Areas/Engineering/arduino-microcontrollers/ep09-wireless-communication|Ep9]]), interrupts + hardware debouncing ([[01-Areas/Engineering/arduino-microcontrollers/ep10-interrupts-debouncing|Ep10]]).
 
 
 ### Labs

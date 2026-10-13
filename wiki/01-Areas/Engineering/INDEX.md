@@ -52,6 +52,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 | robotics/index | 11 | ROS2 deep library: architecture, communication/QoS, install, tools, EKF worked example |
 | [[aeromodelling/INDEX|aeromodelling/]] | 7 | **Team Onyx Round-1 (Sept 2026):** aerodynamics foundations (forces/lift/bluff), wings+controls (planforms/mountings/AoA/stall), avionics RC stack, 11-12th basics for aero, revision + 15 mock MCQs + hard 40-Q sample paper |
 | [[nexus-robotics/INDEX\|nexus-robotics/]] | 4 | **Nexus Robotics club coding interview (2026-10-06):** 60-Q embedded theory bank + core-15, 12 live-coding drills (C bit-ops/ring-buffer/PID + Python telemetry), tiered fallback ladder + rig logistics |
+| [[arduino-microcontrollers/INDEX\|arduino-microcontrollers/]] | 11 | **Jeremy Blum Arduino Tutorial Series, Episodes 1-10** (beginner, ELI5, full annotate + diagrams): IDE/blink, buttons/PWM/functions, EE basics, analog inputs, motors/transistors/servos, serial+Processing, I2C, SPI, wireless/XBee, interrupts + hardware debouncing |
 | mathematics/formula-sheet-master | 4 | JEE-level math formula arsenal |
 | physics/ + chemistry/ | 10 | JEE-level formula sheets & reaction maps |
 | [[Formula-Sheets/Formula-Sheets-Physics|Formula-Sheets/]] | 3 | Printed physics/chemistry/maths formula sheets: kinematics, electrostatics, inverse trigonometry, error analysis |
@@ -76,6 +77,7 @@ description: "ENGINEERING domain hub - BTech coursework: SPM 316U06C107 C-course
 - "SPM practice drills / quiz prep?" → [[SPM/spm-practice-bank-module1]] · [[SPM/spm-practice-bank-module2]] · [[SPM/spm-quiz-bank]]
 - "SPM EXP1/EXP2 write-up / CodeBlocks setup?" → [[SPM/spm-lab-exp1-exp2-guides]]
 - "SPM structures / pointers / file handling?" → [[SPM/module-4-structures-unions-pointers]]
+- "Arduino basics / how do I blink an LED / drive a motor / use Serial / I2C / SPI / XBee / interrupts?" → **[[arduino-microcontrollers/INDEX|Arduino Tutorial Series module]]** (Episodes 1-10, beginner-friendly)
 - "Orthographic projection rules?" → engineering-drawing pages
 - "ROS2 QoS?" → robotics/ros2-communication
 - "Embedded interview prep / Nexus Robotics / C ring buffer / ISR flag / PID in C?" → **[[nexus-robotics/INDEX|Nexus Robotics prep hub]]** — theory [[01-Areas/Engineering/nexus-robotics/nexus-theory-rapidfire]] · drills [[01-Areas/Engineering/nexus-robotics/nexus-embedded-coding-drills]] · short-on-time fallback [[01-Areas/Engineering/nexus-robotics/nexus-interview-fallbacks]]
