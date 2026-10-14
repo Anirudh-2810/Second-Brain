@@ -43,3 +43,5 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]
 -->
+
+- **2026-10-15 — HandwriteAI Profile 2: pool rebuilt + ink made uniform** (Projects) — diagnosed and fixed the "some words thick, some thin" defect: two glyph pools at 2× different stroke weight (binary sheet crops 1.91px vs soft-grayscale cluster crops 2.74/3.82px) + a legacy erosion that collapsed thin glyphs to hairlines. Fix: _p2_normalize_ink.py (binarize + width-normalize all 756 crops to the writer's measured 1.91px pen) + _match_thickness (supersampled 0.25px rings, sub-pixel control) + THICK_SCALE=0.75 → uniform 4.3px strokes; verified via render stats (line stroke std 0.32) + regression. Evidence: [[00-Current-Projects/handwrite-ai-profile2]].

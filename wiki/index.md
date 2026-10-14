@@ -324,6 +324,11 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[00-Current-Projects/projects/algorithm101-aura|AURA — Neural Trend Engine (Algorithm101)]]** — YouTube music-trend dashboard with velocity scoring & viral prediction; quant-DNA cross-links.
 - **[[00-Current-Projects/projects/handsens101|handsens101]]** — MediaPipe hand-gesture mouse control; perception→action pipeline.
 
+### Local Builds — HandwriteAI
+> Handwriting renderer at `E:\Brain\Second-Brain\HandwriteAI` (PIL/numpy/cv2, no ML). Hub: `[[00-Current-Projects/INDEX|Builds Domain Index]]`.
+- **[[00-Current-Projects/handwrite-ai-profile2|HandwriteAI Profile 2]]** — current workhorse: exact-letter renderer, 69 chars / 756 glyphs, uniform 4.3px ink. **WIP — owner paused for exams; next session = full re-enroll from new sheet.**
+- **[[00-Current-Projects/handwrite-ai-profile1|HandwriteAI Profile 1]]** — original hand: 19 letters / 1137 glyphs, font+labeled+buckets render paths, known issues.
+
 ### Business & Side Hustles
 > Financial planning, side income, study abroad, budgeting. Hub: `[[01-Areas/Business/INDEX|Business Domain Index]]`.
 - **[[01-Areas/Business/Financial-Independence/FI-Blueprint|Financial Independence Blueprint]]** — FIRE movement: budgeting, investments, multiple income streams, net worth tracking, early retirement planning.
