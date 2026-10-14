@@ -60,6 +60,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 ### Assessments
 - [[01-Areas/Engineering/SPM/assessment-guide-ese-ost-quiz|SPM Assessment Guide — ESE 50 (Sec A/B Q1-Q4b) + OST 15 + Quiz 15]] — sources: [[raw-sources/SPM_ESE_Pattern_316U06C107]] · [[raw-sources/SPM_LAB_CA_2026-27]]
 - Lab CA components: EXP & Assignments 15 + Attendance 5 + OST 15 (MSE 26-30 Oct) + Quiz 15 (30 Nov-4 Dec)
+- **MSE prep (subject-wise, starting 26 Oct 2026):** [[01-Areas/Engineering/plans/mse-2026-10-26-5-day-plan|5-day study plan]] · revision packs: [[01-Areas/Engineering/engineering-math/mse-revision-am1|Maths M1-3]] · [[01-Areas/Engineering/engineering-chem/mse-revision-chem-m1-water|Chem M1 water/hardness]] · [[01-Areas/Engineering/engineering-physics/mse-revision-physics-lasers-slit|Physics lasers + slit]]
 
 - **Engineering Physics:**
   - [[01-Areas/Engineering/engineering-physics/overview|Module Hub]] — the 4 modules, revision-surface routing, cross-module bridges, source-gap backlog

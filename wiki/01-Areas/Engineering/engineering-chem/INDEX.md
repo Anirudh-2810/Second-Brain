@@ -22,8 +22,9 @@ Module index for Engineering Chemistry (BTech coursework). Scan this folder for 
 - [[zeolite-process-numericals]]
 - [[ion-exchange-numericals]]
 - [[hard-water-industry-effects]]
+- [[mse-revision-chem-m1-water]] — **MSE revision pack (Module 1 water/hardness)**
 - Labs: [[lab-edta-hardness-water]] · [[lab-emf-gibbs-equilibrium]] · [[lab-corrosion-rebar-pzt]] · [[lab-biodiesel-green-synthesis]]
 - Other: [[green-chemistry-twelve-principles]] · [[reaction-mechanisms-named-reactions]] · [[source-map-chem-sem1]]
 
 ## Exam Prep
-CA/MSE/ESE: focus modules 1-3 (numerical-heavy); module-5 is theory-memory.
+CA/MSE/ESE: focus modules 1-3 (numerical-heavy); module-5 is theory-memory. MSE revision pack: [[mse-revision-chem-m1-water]]; study plan: [[mse-2026-10-26-5-day-plan]].
