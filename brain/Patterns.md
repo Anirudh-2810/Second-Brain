@@ -156,3 +156,11 @@ Captured from live interview 2026-08-23. The user's actual pricing behavior arou
 - **Lists parameter**: `lists ≈ sqrt(row_count)` — rebuild after bulk ingestion.
 - **Monitor**: `pg_stat_user_indexes` for `idx_scan` — if dropping, rebuild.
 - **Threshold**: For >50k rows, consider HNSW (`vector_hnsw_ops`) for better recall/latency.
+
+## Exam Prep Patterns
+
+### Pattern: MSE revision packs, not re-written modules
+- **Rule**: For exam prep, write a **condensed exam-facing consolidation** (`wiki/01-Areas/<Domain>/<module>/mse-revision-*.md`) that links the deep pages — never duplicate or trim the deep notes. The pack owns: formula recall tables, bright/dark-style decision tables, traps, and the exam paper pattern; the deep page stays the single source of truth.
+- **Why**: The deep pages are already large (optics 81 KB, lasers/fibre 73 KB); re-teaching wastes effort and creates a second place where the same formula can go stale (violates single-source rule).
+- **Plan placement**: the ordered study plan goes in `wiki/01-Areas/<Domain>/plans/<topic>.md` (Day-ordered, no timing estimates) and is linked from [[01-Areas/Roadmaps/INDEX]].
+- **Evidence**: [[01-Areas/Engineering/engineering-math/mse-revision-am1]] · [[01-Areas/Engineering/engineering-chem/mse-revision-chem-m1-water]] · [[01-Areas/Engineering/engineering-physics/mse-revision-physics-lasers-slit]] · [[01-Areas/Engineering/plans/mse-2026-10-26-5-day-plan]] (2026-10-15).

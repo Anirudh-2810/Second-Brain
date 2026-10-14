@@ -19,6 +19,12 @@ try:
 except ImportError:
     HAS_CV2 = False
 
+# Render stroke target = writer's measured pen (thickness_px) x scale, times
+# this factor. 1.0 = true pen width (5.73px at _k=3 -- too heavy, welds and
+# blobby cluster variants read as blobs); 0.75 = 4.3px, the sweet spot.
+# Tune this one constant; _match_thickness is self-correcting per glyph.
+THICK_SCALE = 0.75
+
 
 def load_style(style_path: str) -> Dict:
     if style_path:
@@ -683,6 +689,50 @@ def _font_fallback_cell(ch: str, target_h: int, lrng) -> Tuple[Image.Image, floa
     return cell, bb_frac
 
 
+def _match_thickness(mask_arr: np.ndarray, target_px: float) -> np.ndarray:
+    """Set a binary glyph mask's stroke width to target_px (one op).
+
+    The library pools are normalized to one native width
+    (_p2_normalize_ink.py, = the writer's measured pen), so after resize a
+    single measured correction suffices: cur = 2*median(dt) (reliable for
+    these thin uniform strokes), then erode/dilate by
+    k = round(|cur - target| * 2) rings of 0.25px on a 4x supersampled
+    mask. Sub-pixel control needs the supersampling -- cv2's approximate
+    DT bottoms out at ~0.95, so a plain dt threshold below 1px is a
+    no-op. Never returns a mask that lost >65% of its ink.
+    """
+    if not HAS_CV2:
+        return mask_arr
+    ink = (mask_arr > 127).astype(np.uint8)
+    n0 = int(ink.sum())
+    if n0 < 12:
+        return mask_arr
+    tgt = float(np.clip(target_px, 2.6, 7.0))
+    h, w = ink.shape
+    dt = cv2.distanceTransform(ink, cv2.DIST_L2, 3)
+    v = dt[ink > 0]
+    if len(v) == 0:
+        return mask_arr
+    cur = float(np.median(v)) * 2.0
+    diff = cur - tgt
+    if abs(diff) <= 0.5:
+        return mask_arr  # already on target
+    k = int(round(abs(diff) * 2.0))
+    if k < 1:
+        return mask_arr
+    kern = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+    sup = cv2.resize(ink * 255, None, fx=4.0, fy=4.0,
+                     interpolation=cv2.INTER_NEAREST)
+    op = cv2.erode if diff > 0 else cv2.dilate
+    for _ in range(min(k, 8)):
+        sup = op(sup, kern)
+    nxt = (cv2.resize(sup, (w, h), interpolation=cv2.INTER_AREA) > 127)
+    nxt = nxt.astype(np.uint8)
+    if int(nxt.sum()) < int(0.35 * n0):
+        return mask_arr  # sanity: never blank a glyph
+    return nxt.astype(np.uint8) * 255
+
+
 def render_labeled(text: str, style: Dict, lib_dir: str,
                    lined: bool = False, width: int = 1600,
                    target_h: int = 56, seed: int = 7,
@@ -693,6 +743,8 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
     gaps, in-word welds, flicks, wobble. Missing chars -> font fallback."""
     feats = style.get("features", {})
     sag = min(float(feats.get("baseline_sag_px", 3.0)), 7.0) * float(style_strength)
+    # writer's pen width (page px); every paste targets thick_px * scale
+    thick_px = float(feats.get("thickness_px", 2.0))
     manifest, cache = load_labeled(lib_dir)
     if manifest is None or sum(len(v) for v in cache.values()) < 20:
         have = sum(len(v) for v in cache.values()) if cache else 0
@@ -911,19 +963,11 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             paste_top = _seat_top(yb, wob, bb_px)
             cell = Image.fromarray(np.clip(tint, 0, 255).astype(np.uint8))
             mask_arr = (ink * 255).astype(np.uint8)
-            # thickness match (same as buckets path): small crops upscale ~2x
-            # and upscale fattens strokes, so erode the mask back toward the
-            # writer's measured thickness before pasting.
-            try:
-                import cv2 as _cv2
-                if sc > 2.2:
-                    mask_arr = _cv2.erode(mask_arr, _cv2.getStructuringElement(_cv2.MORPH_ELLIPSE, (3, 3)), iterations=1)
-                elif sc > 1.35:
-                    # 1-px cross erode: thins without eating thin strokes entirely
-                    kern = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=np.uint8)
-                    mask_arr = _cv2.erode(mask_arr, kern, iterations=1)
-            except Exception:
-                pass
+            # thickness match: one pen = one stroke width; normalize every
+            # paste to thickness_px * effective scale. Fallback cells render
+            # at font size ~ the _k-scaled ink size, so they use _k too.
+            thick_t = thick_px * (_k if cur_fallback else sc) * THICK_SCALE
+            mask_arr = _match_thickness(mask_arr, thick_t)
             mask = Image.fromarray(mask_arr)
             img.paste(cell, (int(cx), paste_top), mask)
             # ink-edge anchors (in_x0/in_x1 computed pre-paste for F4):
@@ -939,7 +983,8 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                 ImageDraw.Draw(img).line(
                     [(ex0 - 4, ey0), ((ex0 + ex1) // 2, (ey0 + ey1) // 2 - 6),
                      (ex1 + 6, ey1)],
-                    fill=(30, 35, 80), width=4, joint="curve")
+                    fill=(30, 35, 80), width=max(3, min(6, int(round(thick_t)))),
+                    joint="curve")
             if word_end and not cur_fallback and lrng.random() < 0.55:
                 fx0 = int(cx + in_x1 - 2)
                 fy0 = int(base_y - 8)
@@ -948,7 +993,8 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                 ImageDraw.Draw(img).line(
                     [(fx0, fy0), (fx0 + flen // 2, fy0 - rise // 2),
                      (fx0 + flen, fy0 - rise)],
-                    fill=(30, 35, 80), width=3, joint="curve")
+                    fill=(30, 35, 80), width=max(3, min(6, int(round(thick_t)))),
+                    joint="curve")
             # i-dot synthesis: enrollment segmentation detached the writer's
             # dots (every enrolled i is a bare stem), so 'is' read 'ls' and
             # "I'd" read "lid". Draw a hand-style dash-dot above the body

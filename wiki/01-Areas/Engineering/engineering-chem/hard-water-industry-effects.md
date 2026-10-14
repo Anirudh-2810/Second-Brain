@@ -36,12 +36,13 @@ $\mathrm{Ca(HCO_3)_2 \to CaCO_3 + H_2O + CO_2}$ (heat) — $\mathrm{CaCO_3}}$ de
 
 ## 3. Boiler corrosion vs caustic embrittlement
 
-| | Boiler corrosion | Caustic embrittlement |
-|---|---|---|
-| Nature | General chemical/electrochemical attack | Specific: conc. NaOH damage |
-| Causes | Dissolved $\mathrm{O_2}$ ($4\mathrm{Fe}+3\mathrm{O_2}+6\mathrm{H_2O}\to4\mathrm{Fe(OH)_3}$), $\mathrm{CO_2}$ ($\to \mathrm{H_2CO_3}$), acids, MgCl₂ hydrolysis ($\to$ HCl — "particularly dangerous") | $\mathrm{Na_2CO_3 + H_2O \to 2NaOH + CO_2}$ at boiler T; NaOH concentrates in cracks, forms $\mathrm{Na_2FeO_2}$ (reversible cycle keeps eating Fe) |
-| Damage | Gradual thinning, pitting, holes | Brittle inter-granular cracking at rivets/bends/stressed zones |
-| Prevention | Deaeration, $\mathrm{Na_2SO_3}$ scavenger ($2\mathrm{Na_2SO_3+O_2}\to2\mathrm{Na_2SO_4}$), alkaline pH, good feed water | Phosphate over carbonate conditioning, cap NaOH, tannin/lignin/$\mathrm{Na_2SO_4}$ inhibitors, feed-water treatment |
+|            | Boiler corrosion                                                                                                                                                                                      | Caustic embrittlement                                                                                                                               |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nature     | General chemical/electrochemical attack                                                                                                                                                               | Specific: conc. NaOH damage                                                                                                                         |
+| Causes     | Dissolved $\mathrm{O_2}$ ($4\mathrm{Fe}+3\mathrm{O_2}+6\mathrm{H_2O}\to4\mathrm{Fe(OH)_3}$), $\mathrm{CO_2}$ ($\to \mathrm{H_2CO_3}$), acids, MgCl₂ hydrolysis ($\to$ HCl — "particularly dangerous") | $\mathrm{Na_2CO_3 + H_2O \to 2NaOH + CO_2}$ at boiler T; NaOH concentrates in cracks, forms $\mathrm{Na_2FeO_2}$ (reversible cycle keeps eating Fe) |
+| Damage     | Gradual thinning, pitting, holes                                                                                                                                                                      | Brittle inter-granular cracking at rivets/bends/stressed zones                                                                                      |
+| Prevention | Deaeration, $\mathrm{Na_2SO_3}$ scavenger ($2\mathrm{Na_2SO_3+O_2}\to2\mathrm{Na_2SO_4}$), alkaline pH, good feed water                                                                               | Phosphate over carbonate conditioning, cap NaOH, tannin/lignin/$\mathrm{Na_2SO_4}$ inhibitors, feed-water treatment                                 |
+|            |                                                                                                                                                                                                       |                                                                                                                                                     |
 
 ## 4. Scale vs sludge formation
 

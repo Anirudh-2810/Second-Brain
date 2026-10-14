@@ -37,6 +37,8 @@ Log achievements here with links to evidence notes. Categorize as Coursework, Pr
 
 - **2026-10-14 — Arduino hardware thread kicked off: full tutorial series ingested** (Coursework/Builds) — new [[01-Areas/Engineering/arduino-microcontrollers/INDEX|arduino-microcontrollers module]] with 10 in-depth beginner (ELI5) episode notes (Blink → interrupts/hardware debouncing), each with annotated code, Mermaid flowcharts, circuit diagrams, gotchas and cross-links; executes the Arduino-first [[brain/North Star|North Star]] hardware path decided 2026-09-30; [[daily/2026-10-14]]
 
+- **2026-10-15 — MSE prep kit shipped: 3 revision packs + 5-day plan** (Coursework) — subject-wise MSEs start 26 Oct; built exam-facing consolidation packs [[01-Areas/Engineering/engineering-math/mse-revision-am1|Maths M1-3]] · [[01-Areas/Engineering/engineering-chem/mse-revision-chem-m1-water|Chem M1 water/hardness]] · [[01-Areas/Engineering/engineering-physics/mse-revision-physics-lasers-slit|Physics lasers + slit]] + [[01-Areas/Engineering/plans/mse-2026-10-26-5-day-plan|day-ordered study plan]], linking (not duplicating) the ~250 KB deep notes; wired into both INDEXes + master index + log; [[daily/2026-10-15]]
+
 <!--
 Format:
 - **<date> — <win>** (<category>) — one line of context, [[link-to-evidence]]

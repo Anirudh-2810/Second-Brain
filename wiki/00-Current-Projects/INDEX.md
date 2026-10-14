@@ -34,12 +34,15 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[foundry-backup|foundry-backup]] | 1 | Full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas |
 | [[inventory-system|inventory-system/]] | 3 | StockOffline: offline-first inventory with Tkinter GUI, CLI, JWT auth, Docker, PyInstaller. Deep review (2 critical bugs, 8 security concerns), improvement roadmap P0–P3 (AI-assisted per owner 2026-09-24 — owner owns CRUD/DB layer only) |
 | [[understand-anything|understand-anything]] | 1 | Knowledge graph tool for codebases: multi-agent pipeline, tree-sitter + LLM, React dashboard |
+| [[handwrite-ai-profile2|handwrite-ai]] | 2 | HandwriteAI handwriting renderer — **Profile 2** (current workhorse, 69 chars/756 glyphs, uniform 4.3px ink, WIP-paused-for-exams) · **Profile 1** (original hand, 19 chars/1137 glyphs, missing c h j k q x z+digits) |
 
 ## Quick Answers
 
 - "What's wrong with stock-agent?" → [[deep-review-report]], [[improvement-roadmap]]
 - "What's wrong with inventory-system?" → [[inventory-system/deep-review-report]], [[inventory-system/improvement-roadmap]]
 - "How does my RAG brain work?" → retrieval-agent/overview + edge-function
+- "Profile 2 handwriting renderer status/bugs?" → [[handwrite-ai-profile2]] (session log, tuning knobs, still-to-do)
+- "Profile 1 library/renderer status?" → [[handwrite-ai-profile1]] (19-char library, render paths, known issues)
 - "What do I show recruiters?" → [[projects/index]] + hand-done proof (Arduino lab, CS50P, live-coding) — stock-agent interview-prep-guide DEPRECATED 2026-09-24 (vibe-coded)
 - "How do I explain handsens101 in an interview?" → [[projects/handsens101-explained]] (pipeline, the smoothing decision, provenance framing)
 - "How do I explain roadtrip-pomodoro / the focus timer?" → [[roadtrip-pomodoro-explained]] (threading, 60fps clock, procedural world, vault sync)
