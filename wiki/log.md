@@ -1335,3 +1335,12 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Wired links:** [[arduino-microcontrollers/INDEX]] (Revision Guide section) · [[index]] (Arduino bullet). Inbound links from all five episode notes' scope via the module INDEX.
 - **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
 - **Manual verification:** Obsidian rendering + graph colors unverified by agent — check on next open.
+
+### 2026-10-16 — HandwriteAI Profile 2: component-based re-harvest, floating/detached descenders fixed (done)
+- **Symptom:** in the 2026-10-15 V2 renders, `y h j` floated above the baseline and `g/y` tails detached as stray strokes below the line.
+- **Root cause (harvest, not inference):** the lowercase/caps rows are ONE connected ink block on the photo, so fixed y-bands clipped letters whose ascender/descender crossed the nominal gap (p's bowl top, j's body/hook); a margin-expansion then grabbed the neighbouring row's letter at the same x. Plus the old `baseline_frac` descender heuristic.
+- **Fix:** `_p2_sheet_reharvest2.py` is now **component-based** — cv2 connected components; each band cell picks the component with most ink in cell×band, then takes that component's FULL extent (+ nearby dots/bars). `bb` from a **per-row least-squares fit** of non-descender bottoms (photo slope ~ −0.09…−0.13 row/px), written to new `styles/_p2_stage/staged_meta.json` and consumed by `_p2_manifest_rebuild.py --replace`. Descender set widened to `{g,j,p,q,y,f}`. `_p2_normalize_ink.py` **skipped** (sheet natively uniform 1.91px).
+- **`inference.py`:** removed the `y` tail-shrink (owner chose "writer-authentic" — keep the full tail); `t` safety-net shrink kept.
+- **Result:** 69 chars / 74 crops, all band counts exact; only overlapping-row crops changed. Every crop audited (tight top+bottom; multi-component crops only `% 5 E F i j`, all legitimate).
+- **Verified 2026-10-16:** `outputs/v3_pangram`, `v3_descenders`, `v3_passage`, `v3_punct`, `v3_caps` — all legible, descenders seated, tails attached. Session log updated on [[handwrite-ai-profile2]].
+- **Manual verification:** Obsidian rendering unverified by agent — check on next open.

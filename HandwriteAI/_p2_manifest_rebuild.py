@@ -79,6 +79,7 @@ def baseline_frac(ch: str, arr) -> float:
     return round(float(best[1] + 1) / float(h), 3)
 
 staged = json.load(open(os.path.join(STAGE, "staged.json"), encoding="utf-8"))
+staged_meta = json.load(open(os.path.join(STAGE, "staged_meta.json"), encoding="utf-8"))
 old = json.load(open(MAN, encoding="utf-8"))
 old_chars = old.get("chars", {})
 old_mets = old.get("metrics", {})
@@ -119,6 +120,9 @@ for ch, files in new_chars.items():
     for fn in files:
         if fn in old_mets and not fn.startswith("sheet_"):
             new_mets[fn] = old_mets[fn]
+        elif fn in staged_meta:
+            # harvest2 computed bb (per-row baseline fit for descenders)
+            new_mets[fn] = {"bb": float(staged_meta[fn]["bb"]), "q": SHEET_Q}
         else:
             arr = np.array(Image.open(os.path.join(LIB, fn)).convert("L"))
             bb = baseline_frac(ch, arr)

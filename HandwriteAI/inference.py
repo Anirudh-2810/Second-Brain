@@ -873,11 +873,7 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
                         break
                 pick = pick if pick is not None else variants[0]
                 g, bb = pick[0], pick[1]
-                if ch == "y":
-                    # y tail is ~2x the body and hooks left — a J tell
-                    # ("you" -> "Jou"). Per-placement tail scale 0.4-1.0.
-                    g, bb = _shrink_descender(g, bb, float(lrng.uniform(0.4, 1.0)))
-                elif ch == "t":
+                if ch == "t":
                     # t's connected bottom flick reads as f's descender when
                     # long. bb anchors at the stem bottom (c11 t-bb fix); the
                     # shrink is a safety net for long-flick t's only.

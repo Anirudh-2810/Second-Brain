@@ -2,9 +2,9 @@
 module: "handwrite-ai"
 topic: "HandwriteAI Profile 2 — exact-letter handwriting renderer (WIP)"
 tags: [handwrite-ai, handwriting, renderer, glyphs, profile-2, wip]
-last_updated: "2026-10-15"
+last_updated: "2026-10-16"
 confidence: high
-description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→15: pool rebuild, ink normalization, then FULL pool replace from the owner's new all-chars photo sheet (2026-10-15 150355.png). STATUS: working and uniform — verified render 2026-10-15."
+description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→16: pool rebuild, ink normalization, FULL pool replace from the owner's new photo sheet, then a component-based re-harvest fixing floating/detached descenders (y h j g f q p r). STATUS: working — descenders seated, verified render 2026-10-16."
 ---
 
 ## For future agent
@@ -71,12 +71,29 @@ Owner fed a new photo sheet with **everything**: caps A-Z (3 rows), lowers a-z (
 - V1 renders (pre-replace): line-level stroke med 4.65px, std 0.32, range [3.82, 4.65].
 - Glyph-component stats remain noisy (i-dots, welds, junctions dominate) — trust line-level stats + eyes.
 
+### 6. Component-based re-harvest — floating/detached descenders (2026-10-16, done)
+**Symptom:** in the 2026-10-15 V2 renders, `y h j` floated above the baseline and `g/y` tails detached as stray strokes below the line (owner report). Root causes, both in harvest, not inference:
+- **Fixed y-bands clip overlapping rows.** The three lowercase rows (a-h / i-p / q-z) are ONE connected ink block on the photo (sheet rows 186–357); so are the caps rows. A fixed band cuts letters whose ascender/descender crosses the nominal gap: p's bowl top (rows 246–262) was clipped by the `ijklmnop` band top (258); j's body/hook (rows 283–316) clipped by the band bottom (301). Expanding the band by a margin then grabbed the *neighbouring* row's letter at the same x (j vs r), so that fix was abandoned.
+- **Wrong `bb` from the old descender heuristic** (`baseline_frac` = largest wide row-run), plus the `_shrink_descender` y-tail scale in inference.
+
+**Fix — the harvester (`_p2_sheet_reharvest2.py`) is now COMPONENT-BASED:**
+1. `cv2.connectedComponentsWithStats` (8-conn) on the whole sheet.
+2. `column_cells` still segments each band into letter columns (unchanged); each cell only says *which* component is the letter.
+3. `pick_comp` = component with the most ink in the cell columns × band rows → then take that component's **FULL** vertical extent (no clipping).
+4. `gather` adds nearby small comps in the same columns (i/j dots, E/F bars) with a module-level `DOT_ABOVE/DOT_BELOW` window.
+5. **`bb` from a per-row least-squares fit** of non-descender ink bottoms (the photo is rotated, slope ≈ −0.09…−0.13 row/px): a descender's baseline = the fitted baseline at its x; non-descenders keep ink-bottom/h. `bb` is written to a new `styles/_p2_stage/staged_meta.json` and consumed by `_p2_manifest_rebuild.py` (no longer recomputed there).
+- Descender set widened to `{g,j,p,q,y,f}` (f is a real descender in this hand); `J`,`Q` use the fit too.
+- `_p2_normalize_ink.py` **skipped** for V2 (sheet is natively uniform 1.91px; it only damaged p's bowl earlier).
+- **`inference.py`:** removed the y tail-shrink (`_shrink_descender` on `y`, `lrng.uniform(0.4,1.0)`) — owner chose "writer-authentic" (keep the full tail); the `t` safety-net shrink stays.
+- Result: **69 chars / 74 crops**, all 8 band counts exact; only the overlapping-row crops changed (L/M etc. byte-identical). Every crop audited: tight top & bottom; multi-component crops are only `% 5 E F i j` (all legitimate dots/bars).
+- Verified renders 2026-10-16: `outputs/v3_pangram`, `v3_descenders`, `v3_passage`, `v3_punct`, `v3_caps` — all legible, **descenders seated on the baseline, tails attached**.
+
 ## Still to do
 1. **Aesthetic tuning** — `THICK_SCALE` is the knob; owner judges by eye.
 2. **Caps-line joins** — `ABCDEFGHIJKLMNOPQRSTUVWXYZ` runs slightly blobby at welds (pre-existing joining behavior, not a thickness bug).
 3. **More variants per letter** — NOW the top polish item: pool is 1 variant/char, so repeated letters paste identically. If the owner wants natural variation, enroll a SECOND sheet (or harvest variants from notes pages) and merge — same pipeline, `--replace` becomes default merge.
 4. **Profile 1 parity** — `render_with_glyphs` (buckets path) still has the legacy sc-gated erosion; same bug class, out of scope so far.
-5. **Commit** — `_p2_*.py` scripts + `styles/_p2_stage/` are untracked; `.labeled/` + `outputs/` gitignored by design. Nothing committed yet.
+5. **Commit** — `_p2_*.py` scripts + `styles/_p2_stage/` (incl. `staged_meta.json`). `.labeled/` + `outputs/` gitignored by design. V2 enrollment (`dca41ee`) + backups (`bb7c11d`) committed; the 2026-10-16 descender fix is the pending commit.
 
 Resolved (2026-10-15): pool-replace item done (full replace, owner's call); degenerate-cluster-crops item moot (clusters dropped).
 
@@ -85,12 +102,12 @@ Resolved (2026-10-15): pool-replace item done (full replace, owner's call); dege
 |---|---|
 | `HandwriteAI/inference.py` | `render_labeled` (~686), `_match_thickness` (~686), `THICK_SCALE` (~21), `load_labeled` (~604) |
 | `HandwriteAI/_p2_sheet_reharvest.py` | V1 band re-harvest (2026-10-13 screenshot), ord-safe names, left-expansion, `strip_edge_junk` |
-| `HandwriteAI/_p2_sheet_reharvest2.py` | V2 harvest (2026-10-15 photo sheet) — same pipeline, new SRC/bands/threshold |
-| `HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet OR `--replace` (sheet-only), drop enr, metrics, `.bak-rebuild` / `.bak-rebuild2` |
-| `HandwriteAI/_p2_normalize_ink.py` | binarize + width-normalize library to 1.91px native |
+| `HandwriteAI/_p2_sheet_reharvest2.py` | V2 harvest (2026-10-15 photo sheet) — **component-based (2026-10-16)**: cv2 CCs, full-extent crops, per-row baseline-fit `bb` → `staged_meta.json` |
+| `HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet OR `--replace` (sheet-only), drop enr, metrics (reads `bb` from `staged_meta.json`), `.bak-rebuild` / `.bak-rebuild2` |
+| `HandwriteAI/_p2_normalize_ink.py` | binarize + width-normalize library to 1.91px native (**skipped for V2** — sheet already uniform) |
 | `HandwriteAI/styles/profile_002.labeled/` | live library (71 chars / 74 glyphs, sheet-only); backups `.bak-rebuild2`, `.bak-normalize`, `.bak-normalize-v1` |
-| `HandwriteAI/styles/_p2_stage/` | staged V2 raw sheet crops + `staged.json` + contact-sheet QA PNGs |
+| `HandwriteAI/styles/_p2_stage/` | staged V2 raw sheet crops + `staged.json` + `staged_meta.json` (per-crop `top`, `cx`, `band`, `bb`) |
 | `HandwriteAI/styles/profile_002.style` | writer features (thickness_px=1.91 — the target source) |
 | `HandwriteAI/convert.py` | CLI: `--profile 002 --mode labeled --seed 7 --text "..."` |
 
-**Pipeline order (rebuild from scratch):** `_p2_sheet_reharvest2.py` → `_p2_manifest_rebuild.py --replace` → `_p2_normalize_ink.py` → render.
+**Pipeline order (rebuild from scratch):** `_p2_sheet_reharvest2.py` → `_p2_manifest_rebuild.py --replace` → render. (`_p2_normalize_ink.py` is skipped for the V2 sheet — it is natively uniform.)
