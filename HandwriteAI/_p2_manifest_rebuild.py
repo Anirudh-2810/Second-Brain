@@ -12,6 +12,11 @@ Merge rules:
 
 Stage-only for the crops (they're already in _p2_stage); this writes the
 manifest after backing up the old one. Unreferenced enr_* files stay on disk.
+
+--replace (2026-10-15, new full A-Z+0-9+symbols sheet): pools become the
+sheet crops ONLY -- every cNN_* cluster ref and enr_* ref is dropped, all
+metrics recomputed. Owner chose full replace over merge (cleanest ink
+uniformity; the new sheet covers all 69 manifest chars).
 """
 import os, json, shutil
 import numpy as np
@@ -25,6 +30,9 @@ MAN = os.path.join(LIB, "manifest.json")
 import sys
 sys.path.insert(0, ROOT)
 from glyphs import body_bottom_frac  # noqa: F401  (kept for reference)
+
+REPLACE = "--replace" in sys.argv
+BAK_SUFFIX = ".bak-rebuild2" if REPLACE else ".bak-rebuild"
 
 SHEET_Q = 0.5  # moderate: lets clusters dominate variation for shared chars
 
@@ -87,13 +95,14 @@ for ch, files in staged.items():
     copied[ch] = keep
 
 # 2. build new chars: clusters kept + sheet added, enr dropped
+#    (--replace: sheet crops ONLY -- cluster refs dropped too)
 new_chars = {}
 added = dropped = 0
 for ch, ofiles in old_chars.items():
     cluster = [f for f in ofiles if f.startswith("c")]
     enr = [f for f in ofiles if f.startswith("enr_")]
-    dropped += len(enr)
-    pool = list(cluster)
+    dropped += len(enr) + (len(cluster) if REPLACE else 0)
+    pool = [] if REPLACE else list(cluster)
     pool += copied.get(ch, [])
     added += len(copied.get(ch, []))
     new_chars[ch] = pool
@@ -124,7 +133,7 @@ new["metrics"] = new_mets
 new["missing"] = missing
 new["n_glyphs"] = n_glyphs
 
-bak = MAN + ".bak-rebuild"
+bak = MAN + BAK_SUFFIX
 if not os.path.exists(bak):
     shutil.copy2(MAN, bak)
 json.dump(new, open(MAN, "w", encoding="utf-8"), indent=2)

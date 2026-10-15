@@ -1322,3 +1322,10 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - Ran `update-graph-colors.py` and `generate-index.py`.
 - **Open**: exact exam day/paper per subject unknown (not in vault) — flagged in the plan; confirm "slit theory" scope (single vs grating).
 - **Manual verification:** Obsidian rendering, graph colors, Dataview/Bases views unverified by agent — check on next open.
+
+### 2026-10-15 — HandwriteAI Profile 2: V2 sheet enrollment, FULL POOL REPLACE (done)
+- **Owner fed a new photo sheet** (`Screenshot 2026-10-15 150355.png`, 370×621, blue ink) with everything: A-Z, a-z, 1-9+10, `% , \ - = + ×`. Chose **full replace** over merge (cleanest ink uniformity).
+- **New script** `_p2_sheet_reharvest2.py`: thr dark<140 (photo), LEFT=0, 8 probed bands (R1/R2 boundary clean at row 51/52 — J/R top bars start at 52; `10` segments into `1`+`0`; punct row comma-separated → GAP_PUNCT=2). Rows 11–20 groups skipped as redundant. **69 chars / 74 crops, all band counts exact.**
+- **`_p2_manifest_rebuild.py --replace`**: drops all 683 cluster+enr refs, pools = sheet-only, metrics recomputed (backup `.bak-rebuild2`). Library: 71 chars / 74 glyphs. `/` now font-fallback (not on new sheet); `.` still fallback as before.
+- **`_p2_normalize_ink.py`**: new sheet natively uniform (73/74 crops 1.91±0.23 before normalizing) — bimodal-pool unevenness gone by construction. THICK_SCALE stays 0.75 (4.30px).
+- **Verified**: pangram / caps / digits / punct / descender words / 6-line passage renders — all legible, weight uniform page-wide, i-dots attached, g/y/q tails whole. Session log updated on [[handwrite-ai-profile2]].

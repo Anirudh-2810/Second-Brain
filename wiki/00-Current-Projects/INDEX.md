@@ -34,7 +34,7 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[foundry-backup|foundry-backup]] | 1 | Full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas |
 | [[inventory-system|inventory-system/]] | 3 | StockOffline: offline-first inventory with Tkinter GUI, CLI, JWT auth, Docker, PyInstaller. Deep review (2 critical bugs, 8 security concerns), improvement roadmap P0–P3 (AI-assisted per owner 2026-09-24 — owner owns CRUD/DB layer only) |
 | [[understand-anything|understand-anything]] | 1 | Knowledge graph tool for codebases: multi-agent pipeline, tree-sitter + LLM, React dashboard |
-| [[handwrite-ai-profile2|handwrite-ai]] | 2 | HandwriteAI handwriting renderer — **Profile 2** (current workhorse, 69 chars/756 glyphs, uniform 4.3px ink, WIP-paused-for-exams) · **Profile 1** (original hand, 19 chars/1137 glyphs, missing c h j k q x z+digits) |
+| [[handwrite-ai-profile2|handwrite-ai]] | 2 | HandwriteAI handwriting renderer — **Profile 2** (current workhorse; sheet-only pool 71 chars/74 glyphs from the 2026-10-15 all-chars photo, full-replace, uniform 4.3px ink, verified) · **Profile 1** (original hand, 19 chars/1137 glyphs, missing c h j k q x z+digits) |
 
 ## Quick Answers
 

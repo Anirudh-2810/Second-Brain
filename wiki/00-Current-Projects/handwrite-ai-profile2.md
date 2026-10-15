@@ -4,12 +4,12 @@ topic: "HandwriteAI Profile 2 — exact-letter handwriting renderer (WIP)"
 tags: [handwrite-ai, handwriting, renderer, glyphs, profile-2, wip]
 last_updated: "2026-10-15"
 confidence: high
-description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Full session log 2026-10-14→15: glyph pool rebuild, 4-crop fixes, ink-uniformity normalization. STATUS: working, aesthetics still being tuned — owner paused for exams."
+description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→15: pool rebuild, ink normalization, then FULL pool replace from the owner's new all-chars photo sheet (2026-10-15 150355.png). STATUS: working and uniform — verified render 2026-10-15."
 ---
 
 ## For future agent
 
-Profile 2 renders text by pasting the user's real handwritten glyph crops (one crop per letter occurrence, quality-weighted random pick). Source: alphabet screenshot `C:\Users\Asus\Pictures\Screenshots\Screenshot 2026-10-13 134208.png`. **Status: functional but NOT finished** — owner paused work for exams; remaining polish items in "Still to do". All library data is gitignored (regenerable); the scripts that build it are untracked in the repo. When resuming: read this page top-to-bottom, check `wiki/log.md` for the 2026-10-15 entry, then re-render the verification texts before changing anything.
+Profile 2 renders text by pasting the user's real handwritten glyph crops. **Since 2026-10-15 the pool is sheet-only: 1 variant per char (74 crops, 71 chars), harvested from the owner's photo `C:\Users\Asus\Pictures\Screenshots\Screenshot 2026-10-15 150355.png`** (370x621, blue ink, A-Z a-z 0-9 + % , \ - = + ×). Full-replace decision by owner (was sheet+clusters). Missing chars: `.` and `/` (font fallback; `/` was on the OLD 2026-10-13 sheet, not the new one). All library data is gitignored (regenerable); the scripts that build it are untracked in the repo. When resuming: read this page top-to-bottom, check `wiki/log.md` for the 2026-10-15 entry, then re-render the verification texts before changing anything.
 
 ---
 
@@ -17,7 +17,7 @@ Profile 2 renders text by pasting the user's real handwritten glyph crops (one c
 
 - `HandwriteAI` — local handwriting renderer (PIL + numpy + cv2, no ML inference needed for this mode).
 - `--mode labeled` → `render_labeled()` in `inference.py`: each character pastes one enrolled variant of THAT character; missing chars fall back to a drawn font cell.
-- Library: `styles/profile_002.labeled/` (manifest.json + 756 crop PNGs, version `0.2-labeled`). Loader `load_labeled()` (inference.py ~604) reads manifest `chars` + per-file `metrics {bb, q}`; pick weights = `q^4`.
+- Library: `styles/profile_002.labeled/` (manifest.json + 74 crop PNGs, version `0.2-labeled`, sheet-only since the 2026-10-15 full replace). Loader `load_labeled()` (inference.py ~604) reads manifest `chars` + per-file `metrics {bb, q}`; pick weights = `q^4` (moot with 1 variant/char).
 - Writer's measured features (`styles/profile_002.style`): `thickness_px=1.91`, `glyph_h_median=16`, `ligature_pct=11.1`, `slant_deg=0`.
 
 ## Session log — 2026-10-14 → 2026-10-15
@@ -57,31 +57,40 @@ The original screenshot harvester mis-assigned rows (uppercase shapes in lowerca
 - **`THICK_SCALE = 0.75` → 4.30px: current setting** (welds 6→4px). Owner approved look 2026-10-15.
 - Tuning: 0.65 → 3.7px, 0.85 → 4.9px. One constant.
 
+### 5. V2 sheet enrollment — FULL POOL REPLACE (2026-10-15, done)
+Owner fed a new photo sheet with **everything**: caps A-Z (3 rows), lowers a-z (3 rows), digits 1-9+10, symbols `% , \ - = + ×` (comma-separated), and asked for it to be "the letter preset". Pipeline retargeted and re-run end to end:
+- **`_p2_sheet_reharvest2.py`** (new): SRC = `Screenshot 2026-10-15 150355.png`; thr `dark<140` (photo — the old 110 was screenshot-tuned); `LEFT=0` (no UI chrome). 8 bands probed exactly: R1 (14,51) ABCDEFGHI, R2 (52,116) JKLMNOPQR — R1/R2 boundary is clean at row 51/52 (J/R top bars start at 52, A's true bottom is 51) — R3 (127,168), R4 (188,257) abcdefgh (g tail to 256), R5 (258,301) ijklmnop, R6 (300,357) qrstuvwxyz (starts below j hook), R7 (365,422) `12345678910` (**`10` segments into `1`+`0`** — 11 cells), R10 (536,569) punct: 11 cells, symbol/comma pairs split at `GAP_PUNCT=2` (7 merges them). Rows `11,12,…,17,` and `18,19,20` SKIPPED (redundant multi-digit groups). Result: **69 chars / 74 crops, all 8 band counts exact, zero mismatches.**
+- **Contact-sheet QA** (visual): all crops clean — i/j dots attached in-cell, g/y/q tails whole, no band bleed. `strip_edge_junk` unchanged.
+- **`_p2_manifest_rebuild.py --replace`**: new flag drops ALL `cNN_*`/`enr_*` refs (683 dropped), pools = sheet crops only, all metrics recomputed (`baseline_frac` descender logic unchanged). Backup `manifest.json.bak-rebuild2`. Result: 71 chars / 74 glyphs, 0 cluster chars. **`/` is now missing** (was on the old sheet, not the new one) → font fallback, same as `.`.
+- **`_p2_normalize_ink.py`**: the new sheet is natively uniform — 73/74 crops measured 1.91±0.23 BEFORE normalizing (med=p10=p90=1.91); only 1 crop changed. The old bimodal-pool problem (1.91 vs 2.74/3.82) is gone by construction (one pen, one photo). Fresh backup `.bak-normalize`; old one renamed `.bak-normalize-v1`.
+- **`THICK_SCALE` unchanged (0.75 → 4.30px)** — verified on new pools, no retune needed.
+
 ## Verification (2026-10-15)
-- Render: `python convert.py --profile 002 --mode labeled --seed 7 --text "..."` (outputs/Profile_2-*.png).
-- Passage render: line-level stroke med 4.65px, std 0.32, range [3.82, 4.65] — uniform.
-- Regression (pangram + caps + digits + punct + descenders gjpqy): all legible, no shattering.
+- Render: `python convert.py --profile 002 --mode labeled --seed 7 --text "..."` (outputs/v2_*.png).
+- **V2 renders (post-replace):** pangram, full caps, digits `0123456789 2026 10 11 12`, punct `100% off, tax = net + fee × 2.`, descender words (`jump gypsy queen yoga project pages`), 6-line passage — **all legible, stroke weight uniform page-wide** (the "very uneven" complaint is fixed). `.` renders as font fallback (warning confirms, expected). i dots attached; g/y/q tails whole.
+- V1 renders (pre-replace): line-level stroke med 4.65px, std 0.32, range [3.82, 4.65].
 - Glyph-component stats remain noisy (i-dots, welds, junctions dominate) — trust line-level stats + eyes.
 
-## Still to do (owner paused for exams)
-0. **NEXT SESSION (owner feeding a full A–Z + 0–9 + symbols sheet):** strip it and use as the enrollment template — current texts render "very uneven", pools get replaced. Order: harvest (bands + ord-names + left-expansion + strip_edge_junk, adapted to the new layout) → rebuild manifest (backup first) → **`_p2_normalize_ink.py` (mandatory — this is what fixes unevenness)** → re-render passage + regression, measure, re-tune `THICK_SCALE`. **Open decision:** replace pools fully (recommended — cleanest fix) vs merge (keep old clusters as variants only for chars the sheet lacks).
+## Still to do
 1. **Aesthetic tuning** — `THICK_SCALE` is the knob; owner judges by eye.
-2. **Degenerate cluster crops** — a few blobby `e`/`o` variants (native 3.82 bucket) still read heavy at joins; consider pruning or re-harvesting those specific letters.
-3. **Caps-line joins** — `ABCDEFGHIJKLMNOPQRSTUVWXYZ` runs slightly blobby at welds (pre-existing joining behavior, not a thickness bug).
-4. **More variants per letter** — pools are thin for some letters; more variants = more natural variation (see [[00-Current-Projects/INDEX]] update discipline).
-5. **Profile 1 parity** — `render_with_glyphs` (buckets path) still has the legacy sc-gated erosion; same bug class, out of scope so far.
-6. **Commit** — `_p2_*.py` scripts + `styles/_p2_stage/` are untracked; `.labeled/` + `outputs/` gitignored by design. Nothing committed yet.
+2. **Caps-line joins** — `ABCDEFGHIJKLMNOPQRSTUVWXYZ` runs slightly blobby at welds (pre-existing joining behavior, not a thickness bug).
+3. **More variants per letter** — NOW the top polish item: pool is 1 variant/char, so repeated letters paste identically. If the owner wants natural variation, enroll a SECOND sheet (or harvest variants from notes pages) and merge — same pipeline, `--replace` becomes default merge.
+4. **Profile 1 parity** — `render_with_glyphs` (buckets path) still has the legacy sc-gated erosion; same bug class, out of scope so far.
+5. **Commit** — `_p2_*.py` scripts + `styles/_p2_stage/` are untracked; `.labeled/` + `outputs/` gitignored by design. Nothing committed yet.
+
+Resolved (2026-10-15): pool-replace item done (full replace, owner's call); degenerate-cluster-crops item moot (clusters dropped).
 
 ## File map
 | Path | Role |
 |---|---|
 | `HandwriteAI/inference.py` | `render_labeled` (~686), `_match_thickness` (~686), `THICK_SCALE` (~21), `load_labeled` (~604) |
-| `HandwriteAI/_p2_sheet_reharvest.py` | band re-harvest, ord-safe names, left-expansion, `strip_edge_junk` |
-| `HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet, drop enr, metrics, `.bak-rebuild` |
+| `HandwriteAI/_p2_sheet_reharvest.py` | V1 band re-harvest (2026-10-13 screenshot), ord-safe names, left-expansion, `strip_edge_junk` |
+| `HandwriteAI/_p2_sheet_reharvest2.py` | V2 harvest (2026-10-15 photo sheet) — same pipeline, new SRC/bands/threshold |
+| `HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet OR `--replace` (sheet-only), drop enr, metrics, `.bak-rebuild` / `.bak-rebuild2` |
 | `HandwriteAI/_p2_normalize_ink.py` | binarize + width-normalize library to 1.91px native |
-| `HandwriteAI/styles/profile_002.labeled/` | live library (69 chars / 756 glyphs); backups `.bak-rebuild`, `.bak-normalize` |
-| `HandwriteAI/styles/_p2_stage/` | staged raw sheet crops + `staged.json` |
+| `HandwriteAI/styles/profile_002.labeled/` | live library (71 chars / 74 glyphs, sheet-only); backups `.bak-rebuild2`, `.bak-normalize`, `.bak-normalize-v1` |
+| `HandwriteAI/styles/_p2_stage/` | staged V2 raw sheet crops + `staged.json` + contact-sheet QA PNGs |
 | `HandwriteAI/styles/profile_002.style` | writer features (thickness_px=1.91 — the target source) |
 | `HandwriteAI/convert.py` | CLI: `--profile 002 --mode labeled --seed 7 --text "..."` |
 
-**Pipeline order (rebuild from scratch):** `_p2_sheet_reharvest.py` → `_p2_manifest_rebuild.py` → `_p2_normalize_ink.py` → render.
+**Pipeline order (rebuild from scratch):** `_p2_sheet_reharvest2.py` → `_p2_manifest_rebuild.py --replace` → `_p2_normalize_ink.py` → render.
