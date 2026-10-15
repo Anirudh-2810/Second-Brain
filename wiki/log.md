@@ -1329,3 +1329,9 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **`_p2_manifest_rebuild.py --replace`**: drops all 683 cluster+enr refs, pools = sheet-only, metrics recomputed (backup `.bak-rebuild2`). Library: 71 chars / 74 glyphs. `/` now font-fallback (not on new sheet); `.` still fallback as before.
 - **`_p2_normalize_ink.py`**: new sheet natively uniform (73/74 crops 1.91±0.23 before normalizing) — bimodal-pool unevenness gone by construction. THICK_SCALE stays 0.75 (4.30px).
 - **Verified**: pangram / caps / digits / punct / descender words / 6-line passage renders — all legible, weight uniform page-wide, i-dots attached, g/y/q tails whole. Session log updated on [[handwrite-ai-profile2]].
+
+### 2026-10-15 — Arduino EP01–05: full revision pack + 20-question self-test
+- **New page** [[01-Areas/Engineering/arduino-microcontrollers/revision-ep01-ep05-test]] under the Arduino module — condensed recall surface for Episodes 1–5 ("ep0-5" = series start through Ep5; there is no Ep00): episode map with must-recall facts, formula/constants sheet (Ohm's law, LED resistor 150 Ω, divider, ADC 4.883 mV/step, pin 40 mA limit), 10-function signature table, 5 circuit topologies (button pull-down, LED, LDR divider, DC motor + BC547 + 1N4004, servo 7805 rail), 10 exam-grade gotchas, 20-question self-test with answer key + scoring bands.
+- **Wired links:** [[arduino-microcontrollers/INDEX]] (Revision Guide section) · [[index]] (Arduino bullet). Inbound links from all five episode notes' scope via the module INDEX.
+- **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
+- **Manual verification:** Obsidian rendering + graph colors unverified by agent — check on next open.

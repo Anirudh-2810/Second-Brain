@@ -55,6 +55,7 @@ This module contains in-depth beginner-friendly notes for all 10 episodes of Jer
 - **Processing Tutorials:** `https://processing.org/tutorials/`
 
 ## Revision Guide
+- **EP01–05 revision + 20-question self-test:** [[01-Areas/Engineering/arduino-microcontrollers/revision-ep01-ep05-test|revision-ep01-ep05-test]] — condensed recall surface (formula sheet, function signatures, circuit topologies, top-10 gotchas) + answer key. Use before Ep6+ or hardware work.
 Use these notes to:
 1. Rebuild circuits from ASCII diagrams + parts lists
 2. Adapt code snippets for own projects (always credit Jeremy Blum)
