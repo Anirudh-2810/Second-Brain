@@ -1,10 +1,10 @@
----
+﻿---
 course_code: "ENG-PHY"
 course_name: "Engineering Physics"
 unit: "MSE Revision — Lasers + Slit/Diffraction Theory"
 date: "2026-10-15"
 tags: [engineering-physics, lasers, optics, interference, diffraction, slit, thin-film, exam-prep, mse, revision]
-last_updated: "2026-10-15"
+last_updated: "2026-10-16"
 description: "MSE revision pack for Engineering Physics — lasers (Einstein coefficients, inversion, threshold gain, cavity modes) and slit/diffraction theory (YDSE, single slit, grating, thin film, Newton's rings) with watch-numbers and traps."
 confidence: high
 ---
@@ -107,4 +107,7 @@ $l_c = \lambda^2/\Delta\lambda$ · divergence $\theta=(d_1-d_2)/(Z_1-Z_2)$ · ra
 - [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]] — thin film + worked numericals
 - [[module-2-laser-fibre-question-bank]] — full theory + worked numericals
 - [[source-map-physics-sem1]] — remaining un-ingested laser/fibre sources
+- [[mse-flashcards-physics]] — flashcard deck (collapsible answers)
+- [[mse-recall-test-physics]] — numerical + derivation self-test + worked key
+- [[mse-study-method]] — how to run the decks (units, not hours)
 - [[mse-2026-10-26-5-day-plan]] — the day-by-day plan this pack feeds

@@ -1,10 +1,10 @@
----
+﻿---
 course_code: "216U06C101"
 course_name: "Applied Mathematics-I"
 unit: "MSE Revision — Modules 1–3"
 date: "2026-10-15"
 tags: [engineering-math, btech, exam-prep, mse, matrices, partial-differentiation, homogeneous-functions, revision]
-last_updated: "2026-10-15"
+last_updated: "2026-10-16"
 description: "MSE revision pack for Applied Mathematics-I: exam-facing consolidation of Modules 1-3 (matrices/rank, partial differentiation/Jacobian, Euler homogeneous functions). Formula recall + traps + worked patterns, linking the deep module pages."
 confidence: high
 ---
@@ -87,4 +87,7 @@ Exam-facing consolidation of Applied Mathematics-I for the **MSE (in-semester ex
 - [[ise-exam-prep-am1]] — real paper pattern + worked solutions
 - [[quiz-2026-09-22-systems-consistency-rank]] — consistency/rank drill
 - [[prerequisite-toolkit]] — algebra basics if a rule slips
+- [[mse-flashcards-am1]] — flashcard deck (collapsible answers)
+- [[mse-recall-test-am1]] — cold exam-style test + worked key
+- [[mse-study-method]] — how to run the decks (units, not hours)
 - [[mse-2026-10-26-5-day-plan]] — the day-by-day plan this pack feeds

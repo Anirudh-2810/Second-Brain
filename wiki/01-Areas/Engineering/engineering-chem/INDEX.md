@@ -3,7 +3,7 @@ course_code: "ENG-CHEM"
 course_name: "Engineering Chemistry"
 unit: "Module Index"
 tags: [engineering, chemistry, index, domain-hub]
-last_updated: "2026-09-28"
+last_updated: "2026-10-16"
 description: "Engineering Chemistry module index - water tech, surfactants, electrochem, spectroscopy, polymers"
 ---
 
@@ -23,8 +23,10 @@ Module index for Engineering Chemistry (BTech coursework). Scan this folder for 
 - [[ion-exchange-numericals]]
 - [[hard-water-industry-effects]]
 - [[mse-revision-chem-m1-water]] — **MSE revision pack (Module 1 water/hardness)**
+- [[mse-flashcards-chem-m1]] — **MSE flashcards (collapsible Q→A)**
+- [[mse-recall-test-chem-m1]] — **MSE numerical self-test + worked key**
 - Labs: [[lab-edta-hardness-water]] · [[lab-emf-gibbs-equilibrium]] · [[lab-corrosion-rebar-pzt]] · [[lab-biodiesel-green-synthesis]]
 - Other: [[green-chemistry-twelve-principles]] · [[reaction-mechanisms-named-reactions]] · [[source-map-chem-sem1]]
 
 ## Exam Prep
-CA/MSE/ESE: focus modules 1-3 (numerical-heavy); module-5 is theory-memory. MSE revision pack: [[mse-revision-chem-m1-water]]; study plan: [[mse-2026-10-26-5-day-plan]].
+CA/MSE/ESE: focus modules 1-3 (numerical-heavy); module-5 is theory-memory. MSE revision pack: [[mse-revision-chem-m1-water]]; flashcards: [[mse-flashcards-chem-m1]]; self-test: [[mse-recall-test-chem-m1]]; study method: [[mse-study-method]]; plan: [[mse-2026-10-26-5-day-plan]].

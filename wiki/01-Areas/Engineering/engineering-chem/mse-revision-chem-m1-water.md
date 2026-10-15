@@ -1,10 +1,10 @@
----
+﻿---
 course_code: "ENG-CHEM"
 course_name: "Engineering Chemistry"
 unit: "MSE Revision — Module 1: Water Technology (Hardness)"
 date: "2026-10-15"
 tags: [btech, engineering-chemistry, water-technology, hardness, edta, zeolite, ion-exchange, boiler-troubles, exam-prep, mse, revision]
-last_updated: "2026-10-15"
+last_updated: "2026-10-16"
 description: "MSE revision pack for Engineering Chemistry Module 1 (Water Technology): hardness units, EDTA/zeolite/ion-exchange/lime-soda calculation shortcuts, industrial effects and boiler troubles, plus traps. Condensed exam-facing review linking the deep numericals banks."
 confidence: high
 ---
@@ -92,4 +92,7 @@ $N$ = normality of HCl, $V_{\text{acid}}$ = L HCl used, $V_{\text{water}}$ = L t
 - [[edta-numericals-worked-bank]] · [[zeolite-process-numericals]] · [[ion-exchange-numericals]] — worked numericals
 - [[units-of-hardness-industrial-problems-revision]] · [[hard-water-industry-effects]] — units & industry effects
 - [[lab-edta-hardness-water]] — lab counterpart
+- [[mse-flashcards-chem-m1]] — flashcard deck (collapsible answers)
+- [[mse-recall-test-chem-m1]] — numerical self-test + worked key
+- [[mse-study-method]] — how to run the decks (units, not hours)
 - [[mse-2026-10-26-5-day-plan]] — the day-by-day plan this pack feeds

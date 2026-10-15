@@ -1,10 +1,10 @@
----
+﻿---
 course_code: "ENG"
 course_name: "Engineering MSE Prep (Multi-subject)"
 unit: "Study Plan"
 date: "2026-10-15"
 tags: [engineering, exam-prep, mse, study-plan, plan, matrices, partial-differentiation, homogeneous-functions, water-technology, lasers, optics]
-last_updated: "2026-10-15"
+last_updated: "2026-10-16"
 description: "Ordered study plan for the subject-wise MSEs starting 26 Oct 2026 — Maths Modules 1-3, Chemistry Module 1 (water/hardness), Physics (lasers + slit theory). Day-ordered (not timed), each day pairs a revision pack with a self-test and worked numericals."
 confidence: high
 ---
@@ -69,6 +69,9 @@ Cover the three examined backsets to a self-test-passing level before the MSE wi
 ## See also
 
 - [[mse-revision-am1]] · [[mse-revision-chem-m1-water]] · [[mse-revision-physics-lasers-slit]] — the revision packs
+- [[mse-study-method]] — the start-now daily method (units not hours) + 25-unit map; run the decks/tests below with it
+- [[mse-flashcards-am1]] · [[mse-flashcards-chem-m1]] · [[mse-flashcards-physics]] — flashcard decks
+- [[mse-recall-test-am1]] · [[mse-recall-test-chem-m1]] · [[mse-recall-test-physics]] — cold self-tests
 - [[ise-exam-prep-am1]] — Maths paper pattern + worked solutions
 - [[module-1-matrices]] · [[module-2-partial-differentiation]] · [[module-3-homogeneous-functions]] — Maths deep pages
 - [[module-1-water-technology-hardness]] — Chem deep page
