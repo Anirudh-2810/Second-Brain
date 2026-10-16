@@ -60,9 +60,12 @@ def main():
                     help="output filename stem (default: profile display name)")
     ap.add_argument("--slant-adj", type=float, default=0.0)
     ap.add_argument("--strength", type=float, default=1.0)
-    ap.add_argument("--width", type=int, default=1600,
-                    help="page width in px; height auto-grows with wrapped "
-                         "lines (1600 = portrait, 3080 = landscape)")
+    ap.add_argument("--width", type=int, default=3500,
+                    help="page width in px (default 3500 = landscape sheet)")
+    ap.add_argument("--page-h", type=int, default=1800,
+                    help="page height in px; text taller than one page "
+                         "paginates into more pages (default 1800; "
+                         "0 = single auto-height strip)")
     ap.add_argument("--seed", type=int, default=7, help="ink/layout seed: change for a fresh take")
     ap.add_argument("--lined", action="store_true", default=False)
     ap.add_argument("--no-lined", dest="lined", action="store_false")
@@ -121,29 +124,31 @@ def main():
         print(f"WARNING: labeled library not found at {labeled_dir}. Enroll first: "
               f"python enroll.py sheet, fill it, then "
               f"python enroll.py build photo.jpg --out {labeled_dir}")
+    page_h = args.page_h or None
     if use_labeled:
         from inference import render_labeled
-        img = render_labeled(text, style, labeled_dir, lined=args.lined,
-                             width=args.width,
-                             seed=args.seed, style_strength=args.strength)
+        pages = render_labeled(text, style, labeled_dir, lined=args.lined,
+                               width=args.width, page_h=page_h,
+                               seed=args.seed, style_strength=args.strength)
         print(f"mode: labeled (your letters, {labeled_dir})")
     elif use_buckets:
         from inference import render_with_glyphs
-        img = render_with_glyphs(text, style, buckets_dir, lined=args.lined,
-                                 width=args.width,
-                                 seed=args.seed, style_strength=args.strength)
+        pages = render_with_glyphs(text, style, buckets_dir, lined=args.lined,
+                                   width=args.width, page_h=page_h,
+                                   seed=args.seed, style_strength=args.strength)
         print(f"mode: glyphs/buckets (real ink, possibly wrong letters, {buckets_dir})")
     else:
-        img = render_text_image(text, style, slant_adj=args.slant_adj,
-                                style_strength=args.strength, lined=args.lined,
-                                width=args.width, seed=args.seed)
+        pages = render_text_image(text, style, slant_adj=args.slant_adj,
+                                  style_strength=args.strength, lined=args.lined,
+                                  width=args.width, seed=args.seed, page_h=page_h)
         print("mode: font (correct letters, font skeleton)")
     out_stem = args.stem or _safe_stem(display)
-    paths = export_outputs(img, args.out_dir, stem=out_stem, formats=formats)
+    print(f"pages: {len(pages)} at {pages[0].size[0]}x{pages[0].size[1]}")
+    paths = export_outputs(pages, args.out_dir, stem=out_stem, formats=formats)
     for fmt in formats:
-        print(f"saved {fmt}: {paths[fmt]}")
-    print(f"size: {img.size[0]}x{img.size[1]}")
+        print(f"saved {fmt}: {', '.join(paths[fmt])}")
     if args.eval:
+        img = pages[0]
         from inference import eval_style_error
         err = eval_style_error(img, style)
         print(f"feature_mse={err['feature_mse']:.4f} "

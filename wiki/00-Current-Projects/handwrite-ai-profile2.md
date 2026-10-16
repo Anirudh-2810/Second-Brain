@@ -2,9 +2,9 @@
 module: "handwrite-ai"
 topic: "HandwriteAI Profile 2 — exact-letter handwriting renderer (WIP)"
 tags: [handwrite-ai, handwriting, renderer, glyphs, profile-2, wip]
-last_updated: "2026-10-16"
+last_updated: "2026-10-17"
 confidence: high
-description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→16: pool rebuild, ink normalization, FULL pool replace from the owner's new photo sheet, then a component-based re-harvest fixing floating/detached descenders (y h j g f q p r). STATUS: working — descenders seated, verified render 2026-10-16."
+description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→17: pool rebuild, ink normalization, FULL pool replace from the owner's new photo sheet, component-based re-harvest fixing floating/detached descenders, then fixed landscape 3500x1800 pages with pagination. STATUS: working — descenders seated, landscape output, verified render 2026-10-17."
 ---
 
 ## For future agent
@@ -97,10 +97,22 @@ Owner fed a new photo sheet with **everything**: caps A-Z (3 rows), lowers a-z (
 
 Resolved (2026-10-15): pool-replace item done (full replace, owner's call); degenerate-cluster-crops item moot (clusters dropped).
 
+## Page geometry — landscape 3500×1800 + pagination (2026-10-17)
+
+Owner request: the old output was a tall vertical strip (`width=1600`, height = `line_h*lines + 140`). Now every renderer produces **fixed landscape pages of 3500×1800** and paginates when the text is taller than one page.
+
+- **Signature:** `render_text_image` / `render_with_glyphs` / `render_labeled` take `width=3500`, new `page_h=1800` (kills the auto-grow), and **return `List[Image.Image]`** (one per page; a single page is still a 1-element list). `page_h=None` restores the old single auto-height strip.
+- **Pagination:** `lines_per_page = (page_h - 140) // line_h`. For `line_h = target_h*2.8 = 157` (labeled + buckets at `target_h=56`) that is **10 lines/page**; the font renderer (`line_h = font_size*2.1 = 121`) fits **13 lines/page**. The draw loop is **byte-identical** to before — only the canvas is swapped at page boundaries (`li % lines_per_page == 0`), so glyph ink, jitter, welds, word gaps, and per-line seeds are unchanged (owner constraint: "do not change how the words look").
+- **Export:** `export_outputs` now returns `{format: [paths]}`. PNG/SVG emit one file per page (`…-p1.png`, `-p2`… when multi-page; the un-suffixed name when single). PDF is always **one multi-page file** (reportlab `showPage()` per page; PIL `save_all`+`append_images` fallback).
+- **CLI:** `python convert.py … --width 3500 --page-h 1800` (both defaults now). `--page-h 0` = old single strip. Prints `pages: N at 3500x1800`.
+- **Gradio:** Generate previews page 1 and reports "N page(s) 3500x1800"; Download exports all pages.
+- **Verified 2026-10-17:** labeled short → 1 page; long 6-para → 3 pages × 3500×1800; `page_h=None` → 3500×3728 strip; font → 3500×1800; buckets → 2 pages; export → 3 PNGs + 1 three-page PDF (pypdf). CLI + Gradio handlers end-to-end OK.
+- **Manual verification:** rendered look unverified by agent — eyeball the output PNGs.
+
 ## File map
 | Path | Role |
 |---|---|
-| `HandwriteAI/inference.py` | `render_labeled` (~686), `_match_thickness` (~686), `THICK_SCALE` (~21), `load_labeled` (~604) |
+| `HandwriteAI/inference.py` | `render_labeled`, `_match_thickness`, `THICK_SCALE` (~26), `load_labeled`; all three renderers take `width=3500, page_h=1800` and return `List[Image]` (landscape pagination) |
 | `HandwriteAI/_p2_sheet_reharvest.py` | V1 band re-harvest (2026-10-13 screenshot), ord-safe names, left-expansion, `strip_edge_junk` |
 | `HandwriteAI/_p2_sheet_reharvest2.py` | V2 harvest (2026-10-15 photo sheet) — **component-based (2026-10-16)**: cv2 CCs, full-extent crops, per-row baseline-fit `bb` → `staged_meta.json` |
 | `HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet OR `--replace` (sheet-only), drop enr, metrics (reads `bb` from `staged_meta.json`), `.bak-rebuild` / `.bak-rebuild2` |
@@ -108,6 +120,6 @@ Resolved (2026-10-15): pool-replace item done (full replace, owner's call); dege
 | `HandwriteAI/styles/profile_002.labeled/` | live library (71 chars / 74 glyphs, sheet-only); backups `.bak-rebuild2`, `.bak-normalize`, `.bak-normalize-v1` |
 | `HandwriteAI/styles/_p2_stage/` | staged V2 raw sheet crops + `staged.json` + `staged_meta.json` (per-crop `top`, `cx`, `band`, `bb`) |
 | `HandwriteAI/styles/profile_002.style` | writer features (thickness_px=1.91 — the target source) |
-| `HandwriteAI/convert.py` | CLI: `--profile 002 --mode labeled --seed 7 --text "..."` |
+| `HandwriteAI/convert.py` | CLI: `--profile 002 --mode labeled --seed 7 --text "..."` (+ `--width 3500 --page-h 1800` landscape defaults, `--page-h 0` = strip) |
 
 **Pipeline order (rebuild from scratch):** `_p2_sheet_reharvest2.py` → `_p2_manifest_rebuild.py --replace` → render. (`_p2_normalize_ink.py` is skipped for the V2 sheet — it is natively uniform.)

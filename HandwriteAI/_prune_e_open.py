@@ -67,7 +67,7 @@ def render_all(tag):
     style = load_style(info["style"])
     for name, text in PROBE_TEXTS.items():
         img = render_labeled(text, style, info["labeled"], width=1600,
-                             seed=7, target_h=32)
+                             seed=7, target_h=32, page_h=None)[0]
         out = os.path.join(PROBES, f"{tag}_{name}.png")
         img.save(out, dpi=(300, 300))
         print(f"  {tag}/{name}: {img.size[0]}x{img.size[1]}")

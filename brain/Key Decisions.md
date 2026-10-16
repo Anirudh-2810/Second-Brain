@@ -28,6 +28,10 @@ Architectural or workflow decisions worth recalling. Link to the full [[Decision
 
 - **2026-09-10 — Feature freeze once testers have it.** Roadtrip-pomodoro is with testers; debug-only from here — no new features (break Option B auto-pairs, Resend emails stay parked) until tester bugs come back. Rationale: protect the vibe; every recent session already shipped (mobile batch, break A, parking, drive model, audio, mobile stack). Source: `[[00-Current-Projects/roadtrip-focus]]`
 
+## HandwriteAI (Builds)
+
+- **2026-10-17 — Default page geometry = fixed landscape 3500×1800 with pagination.** Renderers used to emit one tall vertical strip (`width=1600`, height auto-grew per wrapped line). Owner wanted horizontal sheets. All three renderers (`inference.py`) now default `width=3500, page_h=1800`, split wrapped lines at `(page_h-140)//line_h` lines per page, and return `List[Image]`; `page_h=None` restores the strip. Non-negotiable constraint: **letterforms/ink unchanged** — the draw loop is byte-identical, only the canvas swaps at page bounds. Export (`export_outputs`) returns `{format: [paths]}` — one PNG/SVG per page, one multi-page PDF. Source: `[[handwrite-ai-profile2#Page geometry — landscape 3500×1800 + pagination (2026-10-17)]]`, `wiki/log.md` 2026-10-17.
+
 ## Agent-Tooling (Agentic AI)
 
 - **2026-08-27 — Learned msitarzewski/agency-agents; installed 8 curated subagents, not the whole roster.** The 230+ agent catalog is a reference library; installing all of it trips the opencode ~119-agent runtime cap (see `[[Gotchas]]`) and buries the vault's own 4 subagents. Selected 8 high-value conversions directly serving existing builds — multi-agent-systems-architect, rag-pipeline-engineer, prompt-engineer, codebase-archaeologist, minimal-change-engineer, agents-orchestrator, zk-steward, knowledge-graph-engineer — into `.opencode/agents/`. Each keeps the distilled essence (personality → rules → method) in the local format (`description`/`mode: subagent`/`permission`). The rest of the roster is documented in the digest for on-demand conversion.

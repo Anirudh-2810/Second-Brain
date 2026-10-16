@@ -108,43 +108,44 @@ def ui_generate(text, slant_adj, strength, lined, fmts, mode, seed):
     stem = os.path.splitext(style_path)[0] if style_path else ""
     labeled_dir = (stem + ".labeled") if stem else ""
     buckets_dir = (stem + ".glyphs") if stem else ""
-    img, used = None, "font"
+    pages, used = None, "font"
     # POLICY (user override 2026-10-10): look-first. auto = labeled, else
     # buckets ink, else font.
     if mode in ("labeled", "auto") and _has_manifest(labeled_dir):
         try:
             from inference import render_labeled
-            img = render_labeled(text, style, labeled_dir, lined=lined,
-                                 seed=int(seed), style_strength=strength)
+            pages = render_labeled(text, style, labeled_dir, lined=lined,
+                                   seed=int(seed), style_strength=strength)
             used = "labeled (your letters, your ink)"
         except Exception as e:
             used = f"labeled failed ({e}), falling back; "
-    if img is None and mode in ("glyphs", "auto") and _has_manifest(buckets_dir):
+    if pages is None and mode in ("glyphs", "auto") and _has_manifest(buckets_dir):
         try:
             from inference import render_with_glyphs
-            img = render_with_glyphs(text, style, buckets_dir, lined=lined,
-                                     seed=int(seed), style_strength=strength)
+            pages = render_with_glyphs(text, style, buckets_dir, lined=lined,
+                                       seed=int(seed), style_strength=strength)
             used += "glyphs/buckets (real ink, letters may be wrong)"
         except Exception as e:
             used += f"buckets failed ({e}); "
-    if img is None:
+    if pages is None:
         if mode == "labeled":
             used += ("font (no enrollment yet: run python enroll.py sheet, "
                      "fill it, then enroll.py build)")
         elif mode == "glyphs":
             used += "font (no bucket library)"
-        img = render_text_image(text, style, slant_adj=slant_adj,
-                                style_strength=strength, lined=lined, seed=int(seed))
+        pages = render_text_image(text, style, slant_adj=slant_adj,
+                                  style_strength=strength, lined=lined, seed=int(seed))
         if used == "font":
             used = "font (correct letters, font skeleton)"
     # low-res preview return; full-res saved on Download
-    preview = img.copy()
+    preview = pages[0].copy()
     preview.thumbnail((900, 900))
-    STATE["_last_img"] = img
+    STATE["_last_pages"] = pages
     STATE["_last_fmt"] = list(fmts)
     fmt_show = "+".join(fmts)
     return (preview,
-            f"Preview ready ({img.size[0]}x{img.size[1]}, mode={used}, "
+            f"Preview ready ({len(pages)} page(s) {pages[0].size[0]}x{pages[0].size[1]}, "
+            f"page 1 shown, mode={used}, "
             f"profile={_prof_active_display()}). Hit Download for full 300-DPI {fmt_show}.",
             "")
 
@@ -155,8 +156,8 @@ def _safe_stem(name: str) -> str:
 
 
 def ui_download():
-    img = STATE.get("_last_img")
-    if img is None:
+    pages = STATE.get("_last_pages")
+    if not pages:
         return [], "Generate first (Screen 3)."
     fmts = STATE.get("_last_fmt", ["PNG"])
     try:
@@ -164,8 +165,8 @@ def ui_download():
         stem = _safe_stem(info["display_name"])
     except KeyError:
         stem = "Handwriting"
-    paths = export_outputs(img, OUTPUTS, stem=stem, formats=fmts)
-    files = list(paths.values())
+    paths = export_outputs(pages, OUTPUTS, stem=stem, formats=fmts)
+    files = [p for ps in paths.values() for p in ps]
     return files, f"Saved: {'; '.join(files)}"
 
 

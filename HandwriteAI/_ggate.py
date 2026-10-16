@@ -9,7 +9,7 @@ info = profiles.resolve("")
 style = json.load(open(info["style"]))
 lab = info["labeled"]
 gate = "go get going laughing right away again, g g g"
-img = inf.render_labeled(gate, style, lab, seed=7)
+img = inf.render_labeled(gate, style, lab, seed=7)[0]
 img.save('outputs/ggate-seed7.png')
 print('ggate', img.size)
 smoke = (
@@ -22,6 +22,6 @@ smoke = (
     "every organ, damaging the lungs, "
     "heart, and blood vessels"
 )
-img = inf.render_labeled(smoke, style, lab, seed=7)
+img = inf.render_labeled(smoke, style, lab, seed=7)[0]
 img.save('outputs/smoke-seed7.png')
 print('smoke', img.size)

@@ -4,6 +4,10 @@
 .obsidian/plugins/*/data.json
 .obsidian/graph.json
 
+# Nested vault editor state (Obsidian opened the `bases/` subfolder as a vault;
+# workspace/appearance/app/core-plugins are local runtime state, not vault config)
+bases/.obsidian/
+
 # Immutable originals — ~2GB of PDFs that never change; versioning them
 # bloats history with zero benefit. Back this folder up separately (cloud).
 raw-sources/

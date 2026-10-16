@@ -1344,3 +1344,14 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Result:** 69 chars / 74 crops, all band counts exact; only overlapping-row crops changed. Every crop audited (tight top+bottom; multi-component crops only `% 5 E F i j`, all legitimate).
 - **Verified 2026-10-16:** `outputs/v3_pangram`, `v3_descenders`, `v3_passage`, `v3_punct`, `v3_caps` — all legible, descenders seated, tails attached. Session log updated on [[handwrite-ai-profile2]].
 - **Manual verification:** Obsidian rendering unverified by agent — check on next open.
+
+### 2026-10-17 — HandwriteAI: page geometry → landscape 3500×1800 with pagination (done)
+- **Request:** output was a tall vertical strip (width 1600, height auto-grew per wrapped line). Owner wants fixed **horizontal/landscape** pages (~3500×1800).
+- **Change (`inference.py`):** all three renderers (`render_text_image`, `render_with_glyphs`, `render_labeled`) now default `width=3500`, new param `page_h=1800`, and return a `List[Image]` (one per page; the draw loop is byte-identical — only the canvas swaps at page boundaries). `page_h=None` restores the old single auto-height strip. `lines_per_page = (page_h - 140) // line_h` → 10 lines/page for labeled & buckets (`line_h=157`), 13 for font @58. Glyph size, jitter, welds, word gaps all untouched (owner constraint).
+- **Export (`export_outputs`):** returns `{format: [paths]}`. PNG/SVG one file per page (`-p1`… when multi-page, un-suffixed when single); PDF is one multi-page file (reportlab `showPage` per page; PIL `append_images` fallback).
+- **CLI (`convert.py`):** `--width` default 3500, new `--page-h` (default 1800; `0` = old strip). **Gradio (`gradio_ui.py`):** `ui_generate` stores the page list, previews page 1, status shows "N page(s) 3500x1800"; `ui_download` exports all pages.
+- **Helper scripts:** `_pdf1_render.py` / `_scan_render.py` / `_prune_e_open.py` pass `page_h=None` + `[0]` (they compose their own PDFs from single strips); `_ggate`/`_proof`/`_render_align`/`_verify` updated with `[0]`.
+- **Verified:** labeled short → 1 page 3500×1800; long → 3 pages; `page_h=None` → 3500×3728 strip; font → 3500×1800; buckets → 2 pages; export → 3 PNGs + 1 PDF (3 pages, verified with pypdf); `convert.py` and `gradio_ui.ui_generate`/`ui_download` end-to-end OK.
+- **Manual verification:** rendered look unverified by agent — owner should eyeball the output PNGs.
+- Session detail on [[handwrite-ai-profile2]].
+

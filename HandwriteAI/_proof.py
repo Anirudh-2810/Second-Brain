@@ -11,7 +11,7 @@ tests = [
     ('you were maybe over your old dream purple gold', 'words2'),
 ]
 for text, stem in tests:
-    img = render_labeled(text, style, 'styles/user_001.labeled', seed=7, style_strength=1.0)
+    img = render_labeled(text, style, 'styles/user_001.labeled', seed=7, style_strength=1.0)[0]
     out = f'outputs/Proof-{stem}-seed7.png'
     img.save(out)
     print('saved', out, img.size)

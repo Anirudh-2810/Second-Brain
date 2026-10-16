@@ -22,13 +22,13 @@ para = (
     'not a single language but includes Sumerian, Akkadian,\n'
     'Eblaite, Elamite, Hittite, Hurrian and Urartian.'
 )
-img = inf.render_labeled(para, style, p['labeled'], seed=7)
+img = inf.render_labeled(para, style, p['labeled'], seed=7)[0]
 img.save('outputs/align-fix-cuneiform.png')
 print('saved outputs/align-fix-cuneiform.png', img.size)
 img2 = inf.render_labeled(
     'The quick brown fox jumps over the lazy dog. '
     'We hold these truths to be self-evident, that all men are created equal. '
     'Again and again the wr band struck, but the firm ridge held.',
-    style, p['labeled'], seed=7)
+    style, p['labeled'], seed=7)[0]
 img2.save('outputs/align-fix-smoke.png')
 print('saved outputs/align-fix-smoke.png', img2.size)

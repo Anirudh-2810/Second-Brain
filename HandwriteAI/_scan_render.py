@@ -22,7 +22,7 @@ for name in ["seg_scan1", "seg_scan2", "seg_scan3"]:
         text = f.read()
     t0 = time.time()
     img = render_labeled(text, style, info["labeled"], width=1600, seed=7,
-                         target_h=32)
+                         target_h=32, page_h=None)[0]
     img.save(os.path.join(WORK, name + ".png"), dpi=(300, 300))
     print(f"{name}: {len(text)} chars -> {img.size[0]}x{img.size[1]} "
           f"in {time.time()-t0:.1f}s")

@@ -40,6 +40,13 @@ def load_style(style_path: str) -> Dict:
         "ligature_pct": 25.0, "n_lines": 0}}
 
 
+def _finish_page(im: Image.Image, rng) -> Image.Image:
+    """Per-page ink finishing (glyphs/labeled paths): faint grain, no smoothing."""
+    arr = np.array(im).astype(np.float32)
+    arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)
+    return Image.fromarray(arr.astype(np.uint8))
+
+
 def _font(size: int):
     # Prefer real handwriting fonts on Windows, then clean fallbacks.
     candidates = (
@@ -67,9 +74,13 @@ def _font(size: int):
 
 def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
                       style_strength: float = 1.0, lined: bool = False,
-                      width: int = 1600, font_size: int = 58,
-                      seed: int = 7) -> Image.Image:
-    """Natural-handwriting renderer v2: per-glyph jitter, ink variation, ligatures."""
+                      width: int = 3500, font_size: int = 58,
+                      seed: int = 7, page_h: int | None = 1800) -> List[Image.Image]:
+    """Natural-handwriting renderer v2: per-glyph jitter, ink variation, ligatures.
+
+    Layout: fixed landscape pages of (width x page_h) -- lines are wrapped to
+    the width and paginated when they exceed one page. page_h=None keeps the
+    old single auto-height strip. Returns a list of pages (>= 1)."""
     feats = style.get("features", {})
     base_slant = float(feats.get("slant_deg", 2.0)) + float(slant_adj)
     slant = max(-15, min(15, base_slant * float(style_strength)))
@@ -106,22 +117,44 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
     if not lines:
         lines = [""]
 
-    H = line_h * len(lines) + 140
-    # warm paper, not pure white
-    img = Image.new("RGB", (width, H), (253, 252, 247))
-    d = ImageDraw.Draw(img)
-
-    if lined:
-        for i in range(len(lines)):
-            y = 70 + (i + 1) * line_h - 22
-            d.line([(50, y), (width - 50, y)], fill=(180, 195, 225), width=2)
+    # PAGINATION: fixed landscape pages. lines_per_page derives from page_h;
+    # page_h=None -> one auto-height page (old strip behavior). The draw loop
+    # below is byte-identical -- only the canvas swaps at page boundaries.
+    n_total = len(lines)
+    lines_per_page = (max(1, (int(page_h) - 140) // line_h)
+                      if page_h else max(1, n_total))
+    pages: List[Image.Image] = []
+    img = None
+    d = None
 
     rng = np.random.default_rng(seed)
     base_shear = math.tan(math.radians(slant))
     # slow drift of baseline across the page (like a real hand tiring)
     page_drift = rng.normal(0, 4)
 
+    def _finish(im: Image.Image) -> Image.Image:
+        # --- paper + ink finishing: subtle grain, no plastic smoothness ---
+        a = np.array(im).astype(np.float32)
+        grain = rng.normal(0, 2.2, a.shape[:2])[..., None]
+        a = np.clip(a + grain, 0, 255)
+        gray = a.mean(axis=2)
+        near_ink = (gray < 210).astype(np.float32)[..., None]
+        a = a - near_ink * rng.uniform(2, 5)
+        return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
     for li, line in enumerate(lines):
+        if li % lines_per_page == 0:
+            if img is not None:
+                pages.append(_finish(img))
+            n_here = min(lines_per_page, n_total - li)
+            H = int(page_h) if page_h else (line_h * n_here + 140)
+            # warm paper, not pure white
+            img = Image.new("RGB", (width, H), (253, 252, 247))
+            d = ImageDraw.Draw(img)
+            if lined:
+                for i in range(n_here):
+                    y = 70 + (i + 1) * line_h - 22
+                    d.line([(50, y), (width - 50, y)], fill=(180, 195, 225), width=2)
         line_seed = int(rng.integers(0, 10_000))
         lrng = np.random.default_rng(seed * 1000 + line_seed + li * 77)
         yb = 70 + li * line_h + lrng.normal(0, 2.0) + page_drift * (li / max(1, len(lines)))
@@ -336,16 +369,9 @@ def render_text_image(text: str, style: Dict, slant_adj: float = 0.0,
     # DPIs. Closeness now comes ONLY from the glyph-retrieval path (real ink),
     # never from mutilating font output. This function must stay readable.
 
-    # --- paper + ink finishing: subtle grain, no plastic smoothness ---
-    arr = np.array(img).astype(np.float32)
-    grain = rng.normal(0, 2.2, arr.shape[:2])[..., None]
-    arr = np.clip(arr + grain, 0, 255)
-    # faint ink bleed: darken near-ink pixels a touch (cheap morphological feel)
-    gray = arr.mean(axis=2)
-    near_ink = (gray < 210).astype(np.float32)[..., None]
-    arr = arr - near_ink * rng.uniform(2, 5)
-    img = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
-    return img
+    if img is not None:
+        pages.append(_finish(img))
+    return pages
 
 
 def ld_tmp_bbox(ch: str, fnt) -> tuple:
@@ -407,10 +433,14 @@ def _shrink_descender(arr: np.ndarray, bb: float, factor: float):
 
 
 def render_with_glyphs(text: str, style: Dict, lib_dir: str,
-                       lined: bool = False, width: int = 1600,
+                       lined: bool = False, width: int = 3500,
                        target_h: int = 56, seed: int = 7,
-                       style_strength: float = 1.0) -> Image.Image:
-    """Retrieval renderer: paste user's REAL glyph crops. Lowest error path."""
+                       style_strength: float = 1.0,
+                       page_h: int | None = 1800) -> List[Image.Image]:
+    """Retrieval renderer: paste user's REAL glyph crops. Lowest error path.
+
+    Fixed landscape pages (width x page_h), paginated on overflow; page_h=None
+    keeps the old auto-height strip. Returns a list of pages (>= 1)."""
     from glyphs import load_library, pick_glyph, CHAR_BUCKET
     feats = style.get("features", {})
     slant = max(-15, min(15, float(feats.get("slant_deg", 2.0)) * float(style_strength)))
@@ -455,14 +485,26 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
         lines.pop()
     if not lines:
         lines = [""]
-    H = line_h * len(lines) + 140
-    img = Image.new("RGB", (width, H), (253, 252, 247))
-    d = ImageDraw.Draw(img)
-    if lined:
-        for i in range(len(lines)):
-            y = 70 + (i + 1) * line_h - 22
-            d.line([(50, y), (width - 50, y)], fill=(180, 195, 225), width=2)
+    # PAGINATION: fixed landscape pages; page_h=None -> one auto-height page.
+    # Draw loop below is unchanged -- only the canvas swaps at page bounds.
+    n_total = len(lines)
+    lines_per_page = (max(1, (int(page_h) - 140) // line_h)
+                      if page_h else max(1, n_total))
+    pages: List[Image.Image] = []
+    img = None
+    d = None
     for li, line in enumerate(lines):
+        if li % lines_per_page == 0:
+            if img is not None:
+                pages.append(_finish_page(img, rng))
+            n_here = min(lines_per_page, n_total - li)
+            H = int(page_h) if page_h else (line_h * n_here + 140)
+            img = Image.new("RGB", (width, H), (253, 252, 247))
+            d = ImageDraw.Draw(img)
+            if lined:
+                for i in range(n_here):
+                    y = 70 + (i + 1) * line_h - 22
+                    d.line([(50, y), (width - 50, y)], fill=(180, 195, 225), width=2)
         if not line.strip():
             continue  # paragraph gap: vertical space, no ink
         lrng = np.random.default_rng(seed * 1000 + li * 77 + 5)
@@ -602,9 +644,9 @@ def render_with_glyphs(text: str, style: Dict, lib_dir: str,
             prev_ink = ink
             # ADVANCE: pile deep inside words (reference density), gaps sacred.
             cx += max(nw * 0.45, nw * 0.85 + lrng.normal(1.0, 1.4))
-    arr = np.array(img).astype(np.float32)
-    arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)
-    return Image.fromarray(arr.astype(np.uint8))
+    if img is not None:
+        pages.append(_finish_page(img, rng))
+    return pages
 
 
 def load_labeled(lib_dir: str):
@@ -734,13 +776,17 @@ def _match_thickness(mask_arr: np.ndarray, target_px: float) -> np.ndarray:
 
 
 def render_labeled(text: str, style: Dict, lib_dir: str,
-                   lined: bool = False, width: int = 1600,
+                   lined: bool = False, width: int = 3500,
                    target_h: int = 56, seed: int = 7,
-                   style_strength: float = 1.0) -> Image.Image:
+                   style_strength: float = 1.0,
+                   page_h: int | None = 1800) -> List[Image.Image]:
     """Exact-letter renderer: each character pastes one of YOUR enrolled
     variants of THAT character (random variant per occurrence for natural
     non-repetition). Layout engine mirrors render_with_glyphs: sacred word
-    gaps, in-word welds, flicks, wobble. Missing chars -> font fallback."""
+    gaps, in-word welds, flicks, wobble. Missing chars -> font fallback.
+
+    Fixed landscape pages (width x page_h), paginated on overflow; page_h=None
+    keeps the old auto-height strip. Returns a list of pages (>= 1)."""
     feats = style.get("features", {})
     sag = min(float(feats.get("baseline_sag_px", 3.0)), 7.0) * float(style_strength)
     # writer's pen width (page px); every paste targets thick_px * scale
@@ -831,10 +877,21 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
         lines.pop()
     if not lines:
         lines = [""]
-    H = line_h * len(lines) + 140
-    img = Image.new("RGB", (width, H), (253, 252, 247))
+    # PAGINATION: fixed landscape pages; page_h=None -> one auto-height page.
+    # Draw loop below is unchanged -- only the canvas swaps at page bounds.
+    n_total = len(lines)
+    lines_per_page = (max(1, (int(page_h) - 140) // line_h)
+                      if page_h else max(1, n_total))
+    pages: List[Image.Image] = []
+    img = None
     _fallback_used = set()
     for li, line in enumerate(lines):
+        if li % lines_per_page == 0:
+            if img is not None:
+                pages.append(_finish_page(img, rng))
+            n_here = min(lines_per_page, n_total - li)
+            H = int(page_h) if page_h else (line_h * n_here + 140)
+            img = Image.new("RGB", (width, H), (253, 252, 247))
         if not line.strip():
             continue
         lrng = np.random.default_rng(seed * 1000 + li * 77 + 11)
@@ -1047,15 +1104,15 @@ def render_labeled(text: str, style: Dict, lib_dir: str,
             if prev_ch == "w":
                 adv_f = max(adv_f, 0.92)
             cx += max(nw * 0.55, nw * adv_f + lrng.normal(1.0, 0.8))
-    arr = np.array(img).astype(np.float32)
-    arr = np.clip(arr + rng.normal(0, 1.6, arr.shape[:2])[..., None], 0, 255)
+    if img is not None:
+        pages.append(_finish_page(img, rng))
     if _fallback_used:
         warnings.warn(
             f"font-fallback for {len(_fallback_used)} char(s): "
             f"{''.join(sorted(_fallback_used))!r} — not enrolled in this "
             f"profile; render mixes printed fallback glyphs with ink",
             stacklevel=2)
-    return Image.fromarray(arr.astype(np.uint8))
+    return pages
 
 
 def eval_style_error(img: Image.Image, style: Dict) -> Dict:
@@ -1112,47 +1169,69 @@ def eval_style_error(img: Image.Image, style: Dict) -> Dict:
     return out
 
 
-def export_outputs(img: Image.Image, out_dir: str, stem: str = "Handwriting",
-                    formats: List[str] = ("PNG",)) -> Dict[str, str]:
+def export_outputs(img: Image.Image | List[Image.Image], out_dir: str,
+                    stem: str = "Handwriting",
+                    formats: List[str] = ("PNG",)) -> Dict[str, List[str]]:
+    """Write one page or a list of pages to disk.
+
+    Returns {format: [paths]}. PNG/SVG get one file per page (a single page
+    keeps the old un-suffixed name; multi-page appends -p1, -p2, ...). PDF is
+    always one file with all pages. Accepts a bare Image for back-compat."""
+    pages = list(img) if isinstance(img, (list, tuple)) else [img]
+    if not pages:
+        pages = [Image.new("RGB", (10, 10), (253, 252, 247))]
     os.makedirs(out_dir, exist_ok=True)
     ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    paths = {}
+    multi = len(pages) > 1
+    paths: Dict[str, List[str]] = {}
     if "PNG" in formats:
-        p = os.path.join(out_dir, f"{stem}-{ts}.png")
-        img.save(p, dpi=(300, 300))
-        paths["PNG"] = p
+        out = []
+        for i, pg in enumerate(pages, 1):
+            suffix = f"-p{i}" if multi else ""
+            p = os.path.join(out_dir, f"{stem}-{ts}{suffix}.png")
+            pg.save(p, dpi=(300, 300))
+            out.append(p)
+        paths["PNG"] = out
     if "PDF" in formats:
+        p = os.path.join(out_dir, f"{stem}-{ts}.pdf")
         try:
             from reportlab.pdfgen import canvas
             from reportlab.lib.utils import ImageReader
         except ImportError:
-            # fallback: PIL pdf
-            p = os.path.join(out_dir, f"{stem}-{ts}.pdf")
-            img.convert("RGB").save(p, "PDF", resolution=300.0)
-            paths["PDF"] = p
+            # fallback: PIL multi-page pdf
+            first, rest = pages[0], pages[1:]
+            first.convert("RGB").save(
+                p, "PDF", resolution=300.0, save_all=True,
+                append_images=[pg.convert("RGB") for pg in rest])
+            paths["PDF"] = [p]
         else:
-            p = os.path.join(out_dir, f"{stem}-{ts}.pdf")
-            w, h = img.size
-            # 300dpi -> points (72/inch)
-            c = canvas.Canvas(p, pagesize=(w * 72 / 300, h * 72 / 300))
-            c.drawImage(ImageReader(img), 0, 0,
-                        width=w * 72 / 300, height=h * 72 / 300)
-            c.showPage()
+            c = canvas.Canvas(p)
+            for pg in pages:
+                w, h = pg.size
+                # 300dpi -> points (72/inch)
+                c.setPageSize((w * 72 / 300, h * 72 / 300))
+                c.drawImage(ImageReader(pg), 0, 0,
+                            width=w * 72 / 300, height=h * 72 / 300)
+                c.showPage()
             c.save()
-            paths["PDF"] = p
+            paths["PDF"] = [p]
     if "SVG" in formats:
-        p = os.path.join(out_dir, f"{stem}-{ts}.svg")
-        # vector-lite: embed PNG as base64 in SVG (true stroke-vector comes with generator v2)
         import base64, io
-        buf = io.BytesIO()
-        img.save(buf, format="PNG")
-        b64 = base64.b64encode(buf.getvalue()).decode()
-        w, h = img.size
-        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}">'
-               f'<image width="{w}" height="{h}" href="data:image/png;base64,{b64}"/>'
-               f'<!-- HandWriteAI v0.1: raster-embedded SVG. Stroke-vector export lands with generator v2 -->'
-               f'</svg>')
-        with open(p, "w", encoding="utf-8") as f:
-            f.write(svg)
-        paths["SVG"] = p
+        out = []
+        for i, pg in enumerate(pages, 1):
+            suffix = f"-p{i}" if multi else ""
+            p = os.path.join(out_dir, f"{stem}-{ts}{suffix}.svg")
+            # vector-lite: embed PNG as base64 in SVG (true stroke-vector comes with generator v2)
+            buf = io.BytesIO()
+            pg.save(buf, format="PNG")
+            b64 = base64.b64encode(buf.getvalue()).decode()
+            w, h = pg.size
+            svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}">'
+                   f'<image width="{w}" height="{h}" href="data:image/png;base64,{b64}"/>'
+                   f'<!-- HandWriteAI v0.1: raster-embedded SVG. Stroke-vector export lands with generator v2 -->'
+                   f'</svg>')
+            with open(p, "w", encoding="utf-8") as f:
+                f.write(svg)
+            out.append(p)
+        paths["SVG"] = out
     return paths

@@ -22,7 +22,7 @@ for name in SEGS:
         text = f.read()
     t0 = time.time()
     img = render_labeled(text, style, lib_dir, width=1600, seed=7,
-                         target_h=32)  # compact rebuild (2026-10-12) + F5/F6/F7
+                         target_h=32, page_h=None)[0]  # single strip (composer slices it)
     out = os.path.join(WORK, name + ".png")
     img.save(out, dpi=(300, 300))
     print(f"{name}: {len(text)} chars -> {img.size[0]}x{img.size[1]} "
