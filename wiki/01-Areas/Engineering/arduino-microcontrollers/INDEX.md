@@ -56,6 +56,10 @@ This module contains in-depth beginner-friendly notes for all 10 episodes of Jer
 
 ## Revision Guide
 - **EP01–05 revision + 20-question self-test:** [[01-Areas/Engineering/arduino-microcontrollers/revision-ep01-ep05-test|revision-ep01-ep05-test]] — condensed recall surface (formula sheet, function signatures, circuit topologies, top-10 gotchas) + answer key. Use before Ep6+ or hardware work.
+
+## Viva Prep (Ep01–05)
+- **Concept half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep01-ep05|viva-recap-ep01-ep05]] — full-forms glossary (every acronym expanded), ELI5 episode-by-episode recap, formula/constants sheet, five circuit topologies, 10 gotchas, and a 30-question oral Q&A with model answers.
+- **Code half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep01-ep05|viva-programs-ep01-ep05]] — all 9 programs in full with beginner line-by-line commentary, wiring diagrams, per-program demo checklists, and "write it on the spot" model answers. Use for a practical viva (demonstrate + write code).
 Use these notes to:
 1. Rebuild circuits from ASCII diagrams + parts lists
 2. Adapt code snippets for own projects (always credit Jeremy Blum)

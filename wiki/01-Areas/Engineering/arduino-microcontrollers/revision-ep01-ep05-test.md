@@ -25,31 +25,31 @@ This is a single recall-and-test surface for [[01-Areas/Engineering/arduino-micr
 
 ## 2. Formula & Constants Sheet
 
-| Quantity | Formula | Arduino-specific value |
-|----------|---------|----------------------|
-| Ohm's law | $V = I R$ | — |
-| Power | $P = V I$ | 7805 heat = $(V_{in}-5)\times I$ |
-| LED series resistor | $R = (V_{supply}-V_f)/I$ | $(5-2)/0.020 = 150\,\Omega$ (safe range 150–330 Ω) |
-| Voltage divider | $V_{out} = V_{in}\cdot\frac{R_2}{R_1+R_2}$ | 10 kΩ/10 kΩ across 5 V → 2.5 V at wiper |
-| ADC conversion | $V = \text{reading}\times 5.0/1023$ | 10-bit → 0–1023; ~4.883 mV per step; `analogRead` ~100 µs |
-| PWM duty | 0–255 (8-bit) | 0 = off, 255 = full; effective average voltage |
-| Pin current limit | ~20 mA comfortable, 40 mA abs max | Motor direct-drive = dead pin |
-| Base current (Ep5) | set by 1 kΩ from 5 V pin | transistor saturates, low $V_{CE}$ |
+| Quantity            | Formula                                    | Arduino-specific value                                    |
+| ------------------- | ------------------------------------------ | --------------------------------------------------------- |
+| Ohm's law           | $V = I R$                                  | —                                                         |
+| Power               | $P = V I$                                  | 7805 heat = $(V_{in}-5)\times I$                          |
+| LED series resistor | $R = (V_{supply}-V_f)/I$                   | $(5-2)/0.020 = 150\,\Omega$ (safe range 150–330 Ω)        |
+| Voltage divider     | $V_{out} = V_{in}\cdot\frac{R_2}{R_1+R_2}$ | 10 kΩ/10 kΩ across 5 V → 2.5 V at wiper                   |
+| ADC conversion      | $V = \text{reading}\times 5.0/1023$        | 10-bit → 0–1023; ~4.883 mV per step; `analogRead` ~100 µs |
+| PWM duty            | 0–255 (8-bit)                              | 0 = off, 255 = full; effective average voltage            |
+| Pin current limit   | ~20 mA comfortable, 40 mA abs max          | Motor direct-drive = dead pin                             |
+| Base current (Ep5)  | set by 1 kΩ from 5 V pin                   | transistor saturates, low $V_{CE}$                        |
 
 ## 3. Key Functions — Signature + Use
 
-| Function | Signature | Episode | Gotcha |
-|----------|-----------|---------|--------|
-| `pinMode` | `pinMode(pin, INPUT\|OUTPUT)` | 01 | Forgot it → pin floats on INPUT, misbehaves on OUTPUT |
-| `digitalWrite` | `digitalWrite(pin, HIGH\|LOW)` | 01 | HIGH = 5 V, LOW = 0 V |
-| `digitalRead` | `digitalRead(pin)` → `HIGH`/`LOW` | 02 | Only meaningful after `pinMode(pin, INPUT)` |
-| `delay` | `delay(ms)` | 01 | **Blocks** — no input processing during it |
-| `analogWrite` | `analogWrite(pin, 0..255)` | 02, 05 | PWM only on `~` pins (3,5,6,9,10,11) |
-| `analogRead` | `analogRead(pin)` → 0–1023 | 04 | Only A0–A5; returns count, not volts |
-| `map` | `map(v, fromLow, fromHigh, toLow, toHigh)` | 04, 05 | **Does not clamp** — follow with `constrain` |
-| `constrain` | `constrain(v, lo, hi)` | 05 | Servo safety clamp 0–180 |
-| `Servo.attach/write` | `myServo.attach(pin)` / `myServo.write(deg)` | 05 | Angle 0–180, not speed |
-| `debounce` (custom) | `boolean debounce(boolean last)` | 02 | Caller owns `lastButton = currentButton` update |
+| Function             | Signature                                    | Episode | Gotcha                                                |
+| -------------------- | -------------------------------------------- | ------- | ----------------------------------------------------- |
+| `pinMode`            | `pinMode(pin, INPUT\|OUTPUT)`                | 01      | Forgot it → pin floats on INPUT, misbehaves on OUTPUT |
+| `digitalWrite`       | `digitalWrite(pin, HIGH\|LOW)`               | 01      | HIGH = 5 V, LOW = 0 V                                 |
+| `digitalRead`        | `digitalRead(pin)` → `HIGH`/`LOW`            | 02      | Only meaningful after `pinMode(pin, INPUT)`           |
+| `delay`              | `delay(ms)`                                  | 01      | **Blocks** — no input processing during it            |
+| `analogWrite`        | `analogWrite(pin, 0..255)`                   | 02, 05  | PWM only on `~` pins (3,5,6,9,10,11)                  |
+| `analogRead`         | `analogRead(pin)` → 0–1023                   | 04      | Only A0–A5; returns count, not volts                  |
+| `map`                | `map(v, fromLow, fromHigh, toLow, toHigh)`   | 04, 05  | **Does not clamp** — follow with `constrain`          |
+| `constrain`          | `constrain(v, lo, hi)`                       | 05      | Servo safety clamp 0–180                              |
+| `Servo.attach/write` | `myServo.attach(pin)` / `myServo.write(deg)` | 05      | Angle 0–180, not speed                                |
+| `debounce` (custom)  | `boolean debounce(boolean last)`             | 02      | Caller owns `lastButton = currentButton` update       |
 
 ## 4. Circuit Topologies (recall cold)
 

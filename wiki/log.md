@@ -1355,3 +1355,12 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Manual verification:** rendered look unverified by agent — owner should eyeball the output PNGs.
 - Session detail on [[handwrite-ai-profile2]].
 
+### 2026-10-17 — Arduino Ep01–05 viva prep: concept hub + all-programs note (done)
+- **Request:** beginner-depth recap of Arduino videos 0–5 for a Monday viva that includes **demonstration + writing code live**. ("ep0-5" = series start through Ep5; there is no Ep00.)
+- **New page** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep01-ep05]] — the concept half: full-forms glossary (every acronym expanded), ELI5 episode-by-episode recap, formula/constants sheet, five circuit topologies, 10 gotchas, and a 30-question oral Q&A with model answers.
+- **New page** [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep01-ep05]] — the code half: all 9 programs in full with beginner line-by-line commentary, wiring, per-program demo checklists, and "write it on the spot" model answers (A–G).
+- **Split into two notes** to respect the ~25KB atomic-note rule; each links to the other and to Ep1–5 + the existing revision pack.
+- **Wired links:** [[arduino-microcontrollers/INDEX]] (new "Viva Prep (Ep01–05)" section) ↔ [[index]] (Arduino bullet). Inbound from the module INDEX + revision pack scope.
+- **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
+- **Manual verification:** Obsidian rendering + graph colors unverified by agent — check on next open.
+
