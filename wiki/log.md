@@ -1355,6 +1355,13 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Manual verification:** rendered look unverified by agent — owner should eyeball the output PNGs.
 - Session detail on [[handwrite-ai-profile2]].
 
+### 2026-10-19 — Chem MSE 2025 past paper: solved walkthrough (done)
+- **Request:** owner photographed last year's Engineering Chemistry MSE paper (KJSCE Sem 1, Aug–Nov 2025, max 30 marks; photo not archived as a raw source) and asked for ELI5 concept notes + every numerical solved + matching practice questions.
+- **New page** [[01-Areas/Engineering/engineering-chem/mse-past-paper-chem-2025-solved]] — paper map, ELI5 notes for all five topics (hardness types, EDTA titration, lime-soda, zeolite, atom economy, adipic-acid green synthesis), all 4 paper numericals solved step-by-step (lime-soda: 230.7 g lime/117.8 g soda; EDTA temporary: 720 ppm as printed; zeolite: 610 ppm; atom economy: 64.5% + 69.2%), 5-question practice bank with collapsible keys, exam-day cheat card. Links deep pages ([[module-1-water-technology-hardness]], [[edta-numericals-worked-bank]], [[zeolite-process-numericals]], [[green-chemistry-twelve-principles]]) + the MSE drill set.
+- **Flag (TBC):** Q1A-OR prints standard hard water as "15 g/L CaCO₃" giving 2160/1440/720 ppm; if the intended value is 1.5 g/L the answers are 216/144/72 ppm — method identical, note carries both.
+- **Wired links:** [[engineering-chem/INDEX]] (page-map exam-prep section) · [[index]] (MSE prep bullet).
+- **Manual verification:** Obsidian rendering + callout rendering unverified by agent — check on next open.
+
 ### 2026-10-17 — Arduino Ep01–05 viva prep: concept hub + all-programs note (done)
 - **Request:** beginner-depth recap of Arduino videos 0–5 for a Monday viva that includes **demonstration + writing code live**. ("ep0-5" = series start through Ep5; there is no Ep00.)
 - **New page** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep01-ep05]] — the concept half: full-forms glossary (every acronym expanded), ELI5 episode-by-episode recap, formula/constants sheet, five circuit topologies, 10 gotchas, and a 30-question oral Q&A with model answers.

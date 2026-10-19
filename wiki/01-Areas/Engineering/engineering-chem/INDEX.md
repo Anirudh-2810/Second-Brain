@@ -3,7 +3,7 @@ course_code: "ENG-CHEM"
 course_name: "Engineering Chemistry"
 unit: "Module Index"
 tags: [engineering, chemistry, index, domain-hub]
-last_updated: "2026-10-16"
+last_updated: "2026-10-19"
 description: "Engineering Chemistry module index - water tech, surfactants, electrochem, spectroscopy, polymers"
 ---
 
@@ -25,6 +25,7 @@ Module index for Engineering Chemistry (BTech coursework). Scan this folder for 
 - [[mse-revision-chem-m1-water]] — **MSE revision pack (Module 1 water/hardness)**
 - [[mse-flashcards-chem-m1]] — **MSE flashcards (collapsible Q→A)**
 - [[mse-recall-test-chem-m1]] — **MSE numerical self-test + worked key**
+- [[mse-past-paper-chem-2025-solved]] — **Aug–Nov 2025 MSE paper fully solved + ELI5 notes (water + green chem)**
 - Labs: [[lab-edta-hardness-water]] · [[lab-emf-gibbs-equilibrium]] · [[lab-corrosion-rebar-pzt]] · [[lab-biodiesel-green-synthesis]]
 - Other: [[green-chemistry-twelve-principles]] · [[reaction-mechanisms-named-reactions]] · [[source-map-chem-sem1]]
 
