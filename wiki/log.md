@@ -1362,6 +1362,16 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Wired links:** [[engineering-chem/INDEX]] (page-map exam-prep section) · [[index]] (MSE prep bullet).
 - **Manual verification:** Obsidian rendering + callout rendering unverified by agent — check on next open.
 
+### 2026-10-19 — Physics MSE: Module 1 optics pack (revision + flashcards + self-test) (done)
+- **Request:** owner asked for flashcards, revision, and a sample test on Physics Module 1 + lasers. Lasers + slit already covered by [[mse-revision-physics-lasers-slit]] / [[mse-flashcards-physics]] / [[mse-recall-test-physics]] — the **gap was the M1 interference/diffraction core** (YDSE + modifications, thin-film conditions, Newton's rings, grating, Michelson, polarization).
+- **New pages** under [[engineering-physics/overview]]:
+  - [[engineering-physics/mse-revision-physics-m1-optics]] — coherence, YDSE + 4 modification formulas, phase-flip-counted thin-film table, Newton's rings, single slit, grating (orders/RP/dispersion), Michelson, Malus/Brewster, formula pocket-grid, 10 traps.
+  - [[engineering-physics/mse-flashcards-physics-m1-optics]] — 27 collapsible cards (C-1…C-27) + traps checklist.
+  - [[engineering-physics/mse-recall-test-physics-m1-optics]] — 10 questions (YDSE λ, sheet-on-slit t, I ratio/visibility, soap-film k=1 t_min, Newton D², grating orders+RP, Michelson Δd, slit central width, 3-polarizer chain, Brewster water) with worked key.
+- **Derived the thin-film condition convention from first principles** (PD = 2μt cos r + k·λ/2; validated on MgF₂ quarter-wave coating → k=2 dark, and Newton's-rings black center → k=1 dark at t=0). k=1: bright=(2n−1)λ/2, dark=nλ; k=0/2: swapped. If the module-1 note's table disagrees, module note wins (flagged in the pack's For-future-agent).
+- **Wired links:** [[engineering-physics/overview]] (Revision-first line) · [[index]] (MSE prep bullet, revision + test lists) · See-also cross-link from [[mse-flashcards-physics]].
+- **Manual verification:** Obsidian rendering + callouts unverified by agent — check on next open.
+
 ### 2026-10-17 — Arduino Ep01–05 viva prep: concept hub + all-programs note (done)
 - **Request:** beginner-depth recap of Arduino videos 0–5 for a Monday viva that includes **demonstration + writing code live**. ("ep0-5" = series start through Ep5; there is no Ep00.)
 - **New page** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep01-ep05]] — the concept half: full-forms glossary (every acronym expanded), ELI5 episode-by-episode recap, formula/constants sheet, five circuit topologies, 10 gotchas, and a 30-question oral Q&A with model answers.

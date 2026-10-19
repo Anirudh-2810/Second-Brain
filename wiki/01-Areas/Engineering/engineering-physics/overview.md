@@ -105,6 +105,6 @@ That file also notes: `Physics Lab Experiment Format.pdf` extracts **no text** (
 ## Cross-references
 
 - Domain: [[01-Areas/Engineering/INDEX|Engineering domain hub]]
-- **Revision first:** [[lasers-quick-ref]] · [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]]
+- **Revision first:** [[lasers-quick-ref]] · [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]] · MSE packs: [[mse-revision-physics-lasers-slit]] (lasers + slit) · [[mse-revision-physics-m1-optics]] (interference → polarization) · decks: [[mse-flashcards-physics]] · [[mse-flashcards-physics-m1-optics]] · tests: [[mse-recall-test-physics]] · [[mse-recall-test-physics-m1-optics]]
 - Source inventory: [[source-map-physics-sem1]]
 - Course context: [[syllabus-316U06C107|SPM syllabus]] (the C course, for contrast) · [[assessment-guide-ese-ost-quiz]] (SPM exam patterns — note: no equivalent physics exam-pattern page exists yet)

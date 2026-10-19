@@ -247,6 +247,7 @@ Pack: [[mse-revision-physics-lasers-slit]] · Test: [[mse-recall-test-physics]] 
 
 - [[mse-revision-physics-lasers-slit]] — the revision pack
 - [[mse-recall-test-physics]] — numerical/derivation self-test
+- [[mse-flashcards-physics-m1-optics]] — companion deck: YDSE, thin film, Newton's rings, grating, polarization
 - [[lasers-quick-ref]] — faculty-verified laser sheet (source of truth)
 - [[module-1-optics-interference-diffraction]] · [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]]
 - [[module-2-laser-fibre-question-bank]] · [[mse-study-method]]
