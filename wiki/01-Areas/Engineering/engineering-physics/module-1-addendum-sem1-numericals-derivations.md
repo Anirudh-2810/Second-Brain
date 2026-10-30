@@ -6,7 +6,7 @@ tags: [engineering-physics, btech, optics, interference, thin-film, diffraction,
 last_updated: "2026-09-09"
 description: "Module 1 addendum: thin-film reflected-light derivation transcribed from Sem-1 scans plus 12 fully solved interference and grating numericals."
 ---
-
+	x
 # Module 1 Addendum — Thin-Film Derivation + Solved Source Numericals
 
 ## For future agent

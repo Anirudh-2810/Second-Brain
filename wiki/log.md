@@ -5,7 +5,19 @@
 
 ---
 
-### 2026-09-30 — Ingest: Ion-Exchange & Zeolite Numericals (Eng-Chem Module 1)
+### 2026-10-27 — Physics MSE theory & derivation pack (paper-mapped) (done)
+- **Request:** owner photographed last year's Engineering Physics MSE paper and asked for the 12-topic theory + derivations added to Obsidian in easy words, mapped to the paper's theory + numericals.
+- **New page** [[engineering-physics/mse-theory-derivation-pack]] — exam-writeable derivations: amplitude-method superposition (I = 4I₀cos²φ/2), thin-film effective OPD (2μt cos r + λ/2, Stokes-counted flips), Einstein coefficients (equilibrium + Planck match), threshold condition (faculty L-form γ_th = α_C + (1/2L)ln(1/R₁R₂)), laser components + pumping schemes + 3/4-level + He-Ne diagrams, NA full derivation, Rayleigh criterion + grating RP = nN, fibre losses/classification — each tagged to its paper question (Q1.a…Q2.c), condensed Q3 numericals (soap film 6968/4181 Å, Boltzmann ~10⁻³⁰, grating 4166 lines/cm) with a 10-trap checklist.
+- **Single-source kept:** numerical step-by-step stays in [[engineering-physics/mse-past-paper-physics-2025-solved]]; new pack links it and condenses.
+- **Wired links:** [[engineering-physics/overview]] (Start-here table row + Revision-first line).
+- **Manual verification:** Obsidian rendering + ASCII diagrams + LaTeX unverified by agent — check on next open.
+
+
+- Ingested the scanned **Aug–Nov/Dec 2025 MSE papers for 4 subjects** from [[raw-sources/midsems-pyp.pdf|midsems-pyp.pdf]]; explained + solved every question (easy language, similar-problem pointers, per-Q difficulty/yield, exam-day strategy).
+- Created: **[[engineering-math/mse-past-paper-am1-2025-solved]]** (normal form rank=2, Jacobian=x²y, Hill cipher demo, Laplacian, Gauss-Seidel 3 iters, λ=2|3 consistency, Euler n=3) · **[[engineering-physics/mse-past-paper-physics-2025-solved]]** (thin-film OPD, pumping/lasing threshold, NA derivation, RP=mN, soap-film 6968/4181 Å, Boltzmann ~10⁻³⁰, grating ≈4166 lines/cm) · **[[BEE/mse-past-paper-bee-2025-solved]]** (Thevenin I_L≈0.51 A, merged-symmetry 4.85 Ω, delta-star 8.05 Ω, max-power-transfer, i=62.35sin(323t) set, half-wave RMS=V_m/2). Figures reconstructed from scan — every BEE numeric carries a verify-against-original caveat; AM Q3.3 function inferred as x³sin⁻¹(y/x) (TBC).
+- Chem twin existed already: [[engineering-chem/mse-past-paper-chem-2025-solved]].
+- Updated wikis: BEE INDEX, physics overview, Engineering INDEX Quick-Answers, wiki/index.md MSE-prep line.
+- Manual verification: re-check BEE circuit readings + AM Q3.3 function against the printed paper before memorising exact numbers. — Ingest: Ion-Exchange & Zeolite Numericals (Eng-Chem Module 1)
 - Extracted **ion exchange _numericals with solutions.pdf** (15 pp) and **Zeolite Process with Numericals** (14 pp, already in raw-sources/_extracted/) from Dr. Dipanwita Das (KJSCE-SVU) slides.
 - Created **[[engineering-chem/ion-exchange-numericals]]** — full theory (cation/anion resins, forward/regeneration reactions, pros/cons) + 8 worked numericals (4 from slides + 4 practice Qs with answers). Formula: Hardness = N × V_acid × 50,000 / V_water. All answers recomputed and verified.
 - **[[engineering-chem/zeolite-process-numericals]]** already existed — confirmed complete with 4 worked NaCl↔CaCO₃ numericals (slides 11–14), cold vs hot lime-soda comparison, column diagram, pros/cons. All answers recomputed and verified.
@@ -1381,3 +1393,13 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
 - **Manual verification:** Obsidian rendering + graph colors unverified by agent — check on next open.
 
+
+### 2026-10-30 — OmniRoute gateway ops: combo reorder after Gemini outage + Claude Code live + ingestion cleanup (done)
+- **Request:** owner asked to (1) keep server on, (2) ingest everything into the vault, (3) fix a Claude Code 400 ("sonnet 5.5" unresolvable) then a hang.
+- **Diagnosed:** Claude hang was NOT the client - call_logs showed Gemini free tier outage (429 quota / 503 high-demand / 504 fetch-timeout after ~110s). Message arrived fine at /v1/messages.
+- **Fix A:** Claude Code settings.json rebuilt (key auto-injected from auth.json by script - never hand-pasted): ANTHROPIC_BASE_URL=http://localhost:20128, model=**free** combo, CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1. Verified: `claude -p "reply with OK only"` → OK.
+- **Fix B:** `free` combo rebuilt with cohere/north-mini-code:free FIRST (survivor of the outage), gemini demoted to slot 2. Note: `omniroute combo delete` prompts y/N - pipe `echo y |`.
+- **Ingested:** [[01-Areas/Programming/omniroute]] rewritten clean (full ops manual; API key REMOVED from page body - key single-source is auth.json). INDEXes wired: Programming INDEX root-pages row + Quick-answers entry, [[wiki/index]] new "AI Coding Gateway Tooling" bullet.
+- **Encoding gotcha fixed:** PowerShell 5.1 Get-Content double-encoded BOM-less UTF-8 during edits (mojibake baked into INDEX.md/omniroute.md). INDEX.md restored from git + edits redone via node (byte-safe); omniroute.md fully re-authored ASCII-only. Rule for future agents: edit UTF-8 vault files with node or the write tool, never PS Get-Content/WriteAllText round-trips.
+- **Find:** Gotchas got a dedicated OmniRoute section (8 entries incl. encoding rule).
+- **Manual verification:** Obsidian graph/render of omniroute.md + regenerated dashboard HTML unverified by agent - check next Obsidian open.

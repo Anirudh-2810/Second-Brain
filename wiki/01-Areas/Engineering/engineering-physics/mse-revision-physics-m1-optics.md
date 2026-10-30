@@ -26,14 +26,14 @@ Exam-facing consolidation of Engineering Physics **Module 1 (Optics)** for the M
 
 ## 2. Young's Double Slit (YDSE)
 
-| Quantity | Formula |
-|---|---|
-| Bright (path difference) | $\dfrac{xd}{D} = n\lambda$ |
-| Dark | $\dfrac{xd}{D} = (2n\pm1)\dfrac{\lambda}{2}$ |
-| **Fringe width** | $\beta = \dfrac{\lambda D}{d}$ (bright-to-bright = dark-to-dark) |
-| Screen intensity | $I = 4I_0\cos^2\!\dfrac{\phi}{2},\quad \phi = \dfrac{2\pi}{\lambda}\dfrac{xd}{D}$ |
-| $I_{max}/I_{min}$ (slit amplitudes a₁,a₂) | $\left(\dfrac{a_1+a_2}{a_1-a_2}\right)^2 = \left(\dfrac{\sqrt{I_1}+\sqrt{I_2}}{\sqrt{I_1}-\sqrt{I_2}}\right)^2$ |
-| White light | center white, colors overlap increasingly; only the first 1–2 fringe pairs look cleanly colored (violet end nearest center) |
+| Quantity                                  | Formula                                                                                                                     |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Bright (path difference)                  | $\dfrac{xd}{D} = n\lambda$                                                                                                  |
+| Dark                                      | $\dfrac{xd}{D} = (2n\pm1)\dfrac{\lambda}{2}$                                                                                |
+| **Fringe width**                          | $\beta = \dfrac{\lambda D}{d}$ (bright-to-bright = dark-to-dark)                                                            |
+| Screen intensity                          | $I = 4I_0\cos^2\!\dfrac{\phi}{2},\quad \phi = \dfrac{2\pi}{\lambda}\dfrac{xd}{D}$                                           |
+| $I_{max}/I_{min}$ (slit amplitudes a₁,a₂) | $\left(\dfrac{a_1+a_2}{a_1-a_2}\right)^2 = \left(\dfrac{\sqrt{I_1}+\sqrt{I_2}}{\sqrt{I_1}-\sqrt{I_2}}\right)^2$             |
+| White light                               | center white, colors overlap increasingly; only the first 1–2 fringe pairs look cleanly colored (violet end nearest center) |
 
 ### Modifications — each is one exam numerical
 

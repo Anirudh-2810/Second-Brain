@@ -16,7 +16,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 
 | Module | Pages | Covers |
 |--------|-------|--------|
-| root pages | 25 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox), [[margin-math-perspective]] — intuitive math foundations · **plain-language interview revisions: [[c-interview-revision-plain-language|C]] · [[python-interview-revision-plain-language|Python]]** |
+| root pages | 26 | SWE roadmap (deep), DSA playbook, Python mastery path, interview counter-guide siblings, software-dev-general, advanced Python, Rust, polyglot languages, repo expansions (CIU/TYCS/SDP/art-of-CLI/node-best-practices/toolbox), [[omniroute]] - free AI gateway, [[margin-math-perspective]] — intuitive math foundations · **plain-language interview revisions: [[c-interview-revision-plain-language|C]] · [[python-interview-revision-plain-language|Python]]** |
 | [[cs50/index|cs50/]] | 15 | Full CS50x weeks 0–10 + PSets + final project |
 | [[01-Areas/Programming/cryptography/index\|cryptography/]] | 4 | Ciphers & cryptanalysis: polyalphabetic theory + a full 3-page Enigma study (mechanics, rotor mathematics, the Bombe) |
 | cs50p/ | 2 | CS50P notes |
@@ -39,6 +39,7 @@ description: "PROGRAMMING domain hub - CS50, C, Python mastery, DSA/interviews, 
 - "How does a cipher work / how was Enigma broken?" → [[01-Areas/Programming/cryptography/index|cryptography]]
 - "Explain how Twitter's recsys works" → [[cs-twitter-algorithm]]
 - "Python gotcha why?" → [[languages-python-advanced]], wtfpython entries
+- "Which AI gateway / free LLM routing?" → [[omniroute]] (free combo, localhost:20128, OpenCode/Claude Code/Roo setup)
 - "Design a URL shortener" → [[system-design-interview]]
 
 ## NOT Here

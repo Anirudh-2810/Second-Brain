@@ -32,6 +32,7 @@ Landing page for `wiki/01-Areas/Engineering/engineering-physics/`. **This page d
 | **Lasers quick revision** (Einstein coefficients, inversion, threshold gain, laser types, cavity modes) | **[[lasers-quick-ref]]** | 19 KB ✓ |
 | **Optical fibres** (TIR, NA derivation, V-number, modes, attenuation, dispersion, bit rate) | **[[module-2-fiber-optics]]** | 24 KB ✓ |
 | **Module 2 exam practice** — 30 theory questions + 40 numericals, laser *and* fibre, with worked solutions | **[[module-2-laser-fibre-question-bank]]** | 26 KB ✓ |
+| **Full derivations, paper-mapped** — effective OPD, Einstein coefficients, threshold, NA, Rayleigh/RP, level diagrams + condensed paper numericals | **[[mse-theory-derivation-pack]]** | 21 KB ✓ |
 | Thin-film interference, focused | [[thin-film-interference-revision]] | 4.6 KB ✓ |
 | Full derivations + numericals for any module | the module page below | 60–82 KB |
 
@@ -105,6 +106,6 @@ That file also notes: `Physics Lab Experiment Format.pdf` extracts **no text** (
 ## Cross-references
 
 - Domain: [[01-Areas/Engineering/INDEX|Engineering domain hub]]
-- **Revision first:** [[lasers-quick-ref]] · [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]] · MSE packs: [[mse-revision-physics-lasers-slit]] (lasers + slit) · [[mse-revision-physics-m1-optics]] (interference → polarization) · decks: [[mse-flashcards-physics]] · [[mse-flashcards-physics-m1-optics]] · tests: [[mse-recall-test-physics]] · [[mse-recall-test-physics-m1-optics]]
+- **Revision first:** [[lasers-quick-ref]] · [[thin-film-interference-revision]] · [[module-1-addendum-sem1-numericals-derivations]] · MSE packs: [[mse-revision-physics-lasers-slit]] (lasers + slit) · [[mse-revision-physics-m1-optics]] (interference → polarization) · [[mse-theory-derivation-pack]] (full derivations, paper-mapped) · decks: [[mse-flashcards-physics]] · [[mse-flashcards-physics-m1-optics]] · tests: [[mse-recall-test-physics]] · [[mse-recall-test-physics-m1-optics]] · past paper: [[mse-past-paper-physics-2025-solved]] (Aug–Dec 2025 MSE fully solved)
 - Source inventory: [[source-map-physics-sem1]]
 - Course context: [[syllabus-316U06C107|SPM syllabus]] (the C course, for contrast) · [[assessment-guide-ese-ost-quiz]] (SPM exam patterns — note: no equivalent physics exam-pattern page exists yet)
