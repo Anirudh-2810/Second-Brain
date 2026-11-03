@@ -1403,3 +1403,28 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Encoding gotcha fixed:** PowerShell 5.1 Get-Content double-encoded BOM-less UTF-8 during edits (mojibake baked into INDEX.md/omniroute.md). INDEX.md restored from git + edits redone via node (byte-safe); omniroute.md fully re-authored ASCII-only. Rule for future agents: edit UTF-8 vault files with node or the write tool, never PS Get-Content/WriteAllText round-trips.
 - **Find:** Gotchas got a dedicated OmniRoute section (8 entries incl. encoding rule).
 - **Manual verification:** Obsidian graph/render of omniroute.md + regenerated dashboard HTML unverified by agent - check next Obsidian open.
+
+
+### 2026-10-30 — Stock-agent quant v2 kick-off: India-first plan locked, Phase 0 done (done)
+- **Request:** owner asked to make stock-agent "proper" with real-world algorithms (StockSharp/rqalpha/greeksoup/Market-Rover/StockSentimentTrading evaluated), train on Indian + S&P 500 markets, remove constraints. Pitch of "90% success margin" was honestly corrected to realistic quant targets (Sharpe >= 1 OOS, beat buy-and-hold, calibrated hit-rate) - split into two tracks: core realistic + one clearly-labeled high-hook-rate experimental module (options-premium style, paper-only).
+- **Decisions locked via questions:** India-first, both tracks, in-place surgical changes in FastAPI/React, LLM via opencode/OmniRoute (owner will supply API). Plan owns these facts going forward - single source lives here.
+- **Repo found at `E:\Brain\stock-agent`** (no git → initialized own repo, scoped `safe.directory` exception; identity copied from Second-Brain repo-local config). Old venv pointed at other machine's Python → rebuilt on local 3.13; yfinance upgraded 0.2.40→1.7.0 (old version dead vs Yahoo API).
+- **New module `backend/app/services/backtest_sim.py`** - dependency-free weekly backtester (pandas-only; replaces dead vectorbt path which can't install on 3.14): weight-sim with next-bar execution + 10bps/side costs, Sharpe/Sortino/maxDD/Calmar/profit-factor/round-trip stats. Runner `backend/scripts/baseline.py`.
+- **Honest baseline (2022-01→2026-10, weekly, S&P 500 sample of 8 / NSE sample of 8):** US — B&H Sharpe 1.26, SMA 10/30 cross 1.79 (beats B&H, lower DD), RSI(14) MR 0.92. India — B&H 0.61, SMA cross 0.62 (zero edge), RSI MR 0.58 (zero edge). **Conclusion recorded: current algorithms have no edge in the Indian market — Phase 2 (regime + India alpha factors) is the fix.**
+- **Scheduler re-enabled behind `ENABLE_SCHEDULER` env flag** (default off) in `app/core/config.py` + `app/main.py`; shutdown handler wired.
+- **Next:** Phase 1 India data layer → Phase 2 algorithm library → Phase 4 event-driven backtester (Indian STT/brokerage costs).
+- **Manual verification:** none needed yet (CLI output only). Obsidian graph untouched.
+
+
+### 2026-11-04 — Arduino Ep06–10 completion pack: hardware reference, wired two-Arduino serial, revision + viva (done)
+- **Request:** owner believed only Arduino videos 1–5 had "proper" notes and asked for A–Z notes through video 10, with a special focus on **serial communication between two Arduinos**, all pins, VDR, DC motors, connections, architecture, and practice problems.
+- **Finding:** `ep06`–`ep10` deep notes already existed (13–15 KB each). The real gaps were companion material: no wired two-Arduino UART page, no consolidated pin/VDR/motor reference, no Ep06–10 revision/test, and no Ep06–10 viva pack.
+- **New pages** under [[arduino-microcontrollers/INDEX]]:
+  - [[01-Areas/Engineering/arduino-microcontrollers/arduino-uno-hardware-reference]] — ATmega328P architecture/memory, full pin map, electrical limits, VDR derivation + 5 worked examples + level shifting, DC-motor drive chain (BC547/1 kΩ/1N4004/separate rail/common ground/PWM/H-bridge), power architecture, per-episode connection table, 10 practice problems.
+  - [[01-Areas/Engineering/arduino-microcontrollers/two-arduino-serial-communication]] — **extension, not an episode:** TX↔RX crossover, common GND, hardware Serial vs SoftwareSerial, framing/CSV/checksums, request-response + timeouts, USB-debug pattern, UART/I2C/SPI/XBee comparison, 10 practice problems with answer hints.
+  - [[01-Areas/Engineering/arduino-microcontrollers/revision-ep06-ep10-test]] — episode map, formula/constants, key functions, topologies, protocol comparison, 10 gotchas, 20-question self-test + key (mirrors the Ep01–05 revision).
+  - [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep06-ep10]] — full-forms glossary, ELI5 recap of Ep6–10, formula sheet, 30-question oral Q&A.
+  - [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep06-ep10]] — all Ep6–10 sketches with line notes, wiring, demo checklists, write-it-live drills, plus bonus wired two-Arduino sender/receiver.
+- **Wired links:** INDEX.md (new "Companion Notes" table + expanded Revision/Viva sections), [[index]] Arduino bullet, and each new page cross-links the others + Ep06–Ep10 + BEE.
+- **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
+- **Manual verification:** Obsidian rendering/Mermaid and regenerated dashboard unverified by agent — check on next open. No commit/push (owner did not ask).

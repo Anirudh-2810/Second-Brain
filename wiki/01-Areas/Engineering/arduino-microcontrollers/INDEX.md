@@ -3,7 +3,7 @@ course_code: "ARDUINO"
 course_name: "Jeremy Blum Arduino Tutorial Series"
 unit: "Module Hub"
 tags: [engineering, arduino, microcontroller, embedded, tutorials, beginner]
-last_updated: "2026-10-14"
+last_updated: "2026-11-04"
 confidence: high
 description: "Jeremy Blum's 15-part Arduino Tutorial Series (element14 sponsored). Episodes 1-10 cover fundamentals: IDE/setup, buttons/PWM/EE basics, analog inputs, motors/transistors, serial/Processing, I2C/SPI, wireless/XBee, and hardware interrupts/debouncing. Designed for beginners moving from zero to standalone projects."
 ---
@@ -29,6 +29,16 @@ This module contains in-depth beginner-friendly notes for all 10 episodes of Jer
 | 10 | Interrupts and Hardware Debouncing | `attachInterrupt()`, interrupt modes, `volatile`, ISR rules, hardware debounce (RC + Schmitt 74HC14), software debounce with `millis()`, timer interrupts, beam-break counter | `ep10-interrupts-debouncing.md` |
 
 > **Video IDs:** individual YouTube video IDs are **not recorded** here (unverified). Use the playlist link below to reach every episode.
+
+## Companion Notes (reference, extension, revision, viva)
+
+| Note | What it is |
+|------|-----------|
+| [[01-Areas/Engineering/arduino-microcontrollers/arduino-uno-hardware-reference\|Arduino Uno — Hardware Reference]] | Board architecture, **complete pinout**, current limits, **VDR** with worked examples, **DC-motor drive chain**, power architecture, per-episode connection table, 10 practice problems |
+| [[01-Areas/Engineering/arduino-microcontrollers/two-arduino-serial-communication\|Two-Arduino Wired Serial]] | **Extension (not an episode):** wired UART between two Unos — TX↔RX, common GND, `SoftwareSerial`, framing/parsing, handshakes, debugging, 10 practice problems |
+| [[01-Areas/Engineering/arduino-microcontrollers/revision-ep06-ep10-test\|Ep06–10 Revision & Self-Test]] | Condensed recall + 20-question test with answer key (companion to the Ep01–05 revision) |
+| [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep06-ep10\|Ep06–10 Viva Recap]] | Full-forms glossary, episode recap, formula sheet, 30-question oral Q&A |
+| [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep06-ep10\|Ep06–10 All Programs]] | Every sketch from Ep6–10 (plus a wired-link bonus) with line notes, wiring, demo checklists, write-it-live drills |
 
 ## Quick Answers
 - "How do I fix error: function 'void setup()' is initialized like a variable?" → Always use curly braces `{ }` for function bodies. `void setup() { /* code */ }` (see Ep1 comments: Spur's June 2013 error).
@@ -56,10 +66,15 @@ This module contains in-depth beginner-friendly notes for all 10 episodes of Jer
 
 ## Revision Guide
 - **EP01–05 revision + 20-question self-test:** [[01-Areas/Engineering/arduino-microcontrollers/revision-ep01-ep05-test|revision-ep01-ep05-test]] — condensed recall surface (formula sheet, function signatures, circuit topologies, top-10 gotchas) + answer key. Use before Ep6+ or hardware work.
+- **EP06–10 revision + 20-question self-test:** [[01-Areas/Engineering/arduino-microcontrollers/revision-ep06-ep10-test|revision-ep06-ep10-test]] — the second-half companion: ASCII/baud, I2C/SPI pins + addresses, XBee settings, interrupts/`volatile`/debounce, protocol comparison, answer key.
+- **Hardware reference:** [[01-Areas/Engineering/arduino-microcontrollers/arduino-uno-hardware-reference|arduino-uno-hardware-reference]] — all pins, VDR, DC-motor and power architecture.
+- **Extra case:** [[01-Areas/Engineering/arduino-microcontrollers/two-arduino-serial-communication|two-arduino-serial-communication]] — wired two-board UART (the series only does Arduino↔PC and wireless).
 
-## Viva Prep (Ep01–05)
-- **Concept half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep01-ep05|viva-recap-ep01-ep05]] — full-forms glossary (every acronym expanded), ELI5 episode-by-episode recap, formula/constants sheet, five circuit topologies, 10 gotchas, and a 30-question oral Q&A with model answers.
-- **Code half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep01-ep05|viva-programs-ep01-ep05]] — all 9 programs in full with beginner line-by-line commentary, wiring diagrams, per-program demo checklists, and "write it on the spot" model answers. Use for a practical viva (demonstrate + write code).
+## Viva Prep (Ep01–05 and Ep06–10)
+- **Ep01–05 concept half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep01-ep05|viva-recap-ep01-ep05]] — full-forms glossary (every acronym expanded), ELI5 episode-by-episode recap, formula/constants sheet, five circuit topologies, 10 gotchas, and a 30-question oral Q&A with model answers.
+- **Ep01–05 code half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep01-ep05|viva-programs-ep01-ep05]] — all 9 programs in full with beginner line-by-line commentary, wiring diagrams, per-program demo checklists, and "write it on the spot" model answers. Use for a practical viva (demonstrate + write code).
+- **Ep06–10 concept half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-recap-ep06-ep10|viva-recap-ep06-ep10]] — full-forms glossary (UART, I2C, SPI, XBee, ISR, RC, Schmitt…), episode recap, formula sheet, protocol topologies, 30-question oral Q&A.
+- **Ep06–10 code half:** [[01-Areas/Engineering/arduino-microcontrollers/viva-programs-ep06-ep10|viva-programs-ep06-ep10]] — every Ep6–10 sketch with line commentary, wiring, demo checklists, write-it-live drills, plus a wired two-Arduino link.
 Use these notes to:
 1. Rebuild circuits from ASCII diagrams + parts lists
 2. Adapt code snippets for own projects (always credit Jeremy Blum)
