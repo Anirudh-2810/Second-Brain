@@ -20,7 +20,7 @@ _What am I working toward right now?_
 - **FE Robotics & AI (RAI) @ KJSCE** — build out `wiki/` per subject module; keep CA/MSE/ESE prep material current
 - **Hardware thread (Arduino → 3D printing → robotics)** — Arduino first (decided 2026-09-30); **Fusion added 2026-10-02 as the CAD tool for this thread only** — a *complement* to the SolidWorks track, not a replacement
 - **Quant-finance self-study track** — math + programming core; path undecided (CQF vs MSc abroad vs job route) — build foundations first, decide by exposure
-- **Stock-agent project** — actively building: data → signal → backtest loop (`wiki/modules/stock-agent`)
+- **ShopBrain project** — actively building: an offline AI back-office for small shops (pharmacy wedge): 1) Bill/sales CSV → inventory updates, 2) Forecasts per-item demand → guarded weekly reorder suggestions the owner approves, 3) Self-improves via performance feedback. Architecture and repo roles (StockOffline app · tscore forecasting lib · stock-agent patterns only · wine-shell + Algorithm101 parked) single-sourced in [[ShopBrain]]; execution plan in [[01-Areas/Business/plans/shopbrain-agency-launch]]
 - **Freelancing start** — wants to begin n8n/automation freelancing but unsure where to start; pick a first-offer strategy
 - **Daily habit streak** — Study hours, Exercise, Mood tracked in `daily/`
 
@@ -48,12 +48,12 @@ Decided 2026-10-02: Fusion **complements** SolidWorks. SolidWorks = design/portf
 ### Medium-term (This Half)
 
 - Strong DSA + Python/C fluency through wiki practice pages
-- Ship a working stock-agent prototype (data → signal → backtest loop)
+- Ship a working ShopBrain prototype (bill scanner + ML forecasts + reorder logic)
 - Cover the quant self-study plan's core subjects: probability, linear algebra, statistics, one ML pass
 
 ### Long-term (This Year+)
 
-- Internship-ready portfolio: coursework + projects + quant fundamentals
+- Internship-ready portfolio: coursework + projects + quant fundamentals + ShopBrain agency
 - Path toward a quant researcher/trader role (CQF / MSc quant-finance route under research) `(TBC)`
 - German alongside engineering as a differentiator
 
@@ -86,3 +86,5 @@ Record when focus changes, with date and reason.
 | 2026-09-30 | **Arduino-first** hardware path chosen over Fusion 360 as the immediate next step | user had just missed Onyx + DataZen; agent recommended hardware to close the RAI gap. Fusion explicitly deferred as "a tool, not a path" |
 | 2026-10-02 | **Fusion added as a scoped tool** under the hardware thread, and the "a tool not a path" stance from 2026-09-30 is **partially superseded** | user downloaded Fusion and asked to learn it. Reconciled as a *complement* to the existing SolidWorks track — not a second full CAD track, and not a replacement. Rationale: Fusion is free on the Education plan, runs in a browser, and has CAM + 3MF integrated, which is what the 3D-printing/Arduino builds need; SolidWorks stays the portfolio/industry skill |
 | 2026-10-02 | Arrays named a **weak area** and elevated to a first-class study target | user self-identified it; led to splitting Module 3 into 1D + 2D pages plus a dedicated 107-question exam bank |
+| 2026-11-10 | **ShopBrain agency platform concept** emerges | StockOffline + tscore (new) + stock-agent patterns → offline AI back-office for small shops; sold as setup + monthly service, price set by pilot answers |
+| 2026-11-10 | **ShopBrain spec corrected (v2): wine-shell + Algorithm101 parked, revenue numbers stripped** | v1 overstated both repos (wine-shell is Mac-only Wine wrapper; Algorithm101 is a music-trend RNN, not forecasting) and asserted invented pricing/margins — corrected per Write-Correctness Laws; single source now [[ShopBrain]] |

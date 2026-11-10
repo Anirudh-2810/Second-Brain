@@ -24,3 +24,5 @@ SORT file.name DESC
 
 - [[Home]] — the heatmap dashboard (vault activity, study, exercise, mood)
 - [[templates/daily-note-template|Daily Note Template]] — the template used for new daily notes
+- [[brain/ShopBrain]] — New agency platform concept (emerges 2026-11-10)
+- [[01-Areas/Business/plans/shopbrain-agency-launch]] — Concrete launch plan

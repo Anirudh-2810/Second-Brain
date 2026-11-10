@@ -3,7 +3,7 @@ course_code: "BUSINESS"
 course_name: "Business Domain Index"
 unit: "Domain Hub"
 tags: [business, index, domain-hub]
-last_updated: "2026-08-24"
+last_updated: "2026-11-10"
 description: "BUSINESS domain hub - market analysis, interviews, freelancing, n8n automations, quant finance. Scan THIS folder for business/money/career questions."
 ---
 
@@ -21,7 +21,7 @@ description: "BUSINESS domain hub - market analysis, interviews, freelancing, n8
 | [[01-Areas/Business/quant-finance/quantitative-finance-foundations|quant-finance/]] | 20 | Quant foundations, derivatives, stochastic calc, pairs/momentum/TAA strategies, risk/VaR, careers |
 | [[Financial-Independence/FI-Blueprint|Financial-Independence/]] | 1 | FIRE blueprint: budgeting, investments, multiple income streams, net worth tracking, early retirement |
 | [[Side-Hustles/Side-Hustles-Archive|Side-Hustles/]] | 1 | AI copywriting, dropshipping, print-on-demand, SMMA, YouTube automation, Andrew Tate course |
-| [[01-Areas/Business/plans/automation-agency-launch|plans/]] | 1 | Make.com + agency-CRM launch plan: niche gate → dogfood pipeline → first dollar → retainer |
+| [[01-Areas/Business/plans/shopbrain-agency-launch|plans/]] | 2 | **ShopBrain** 8-week build (CSV → forecast → guarded reorder report → paid pharmacy pilots; exam blackout Dec 1st week) + Make.com agency-CRM launch plan |
 | [[Study-Abroad/Study-Abroad-Guide|Study-Abroad/]] | 1 | SAT prep (English/Math/Reading) + Ankur Warikoo's 3-part study abroad series |
 | [[Budgeting-VBA/Budgeting-VBA-Collection|Budgeting-VBA/]] | 1 | Excel budgeting workbooks 101-106 with VBA macros and user manuals |
 
@@ -32,6 +32,7 @@ description: "BUSINESS domain hub - market analysis, interviews, freelancing, n8
 - "What project should I build?" → [[build-project-playbook]]
 - "How do I make money with n8n?" → [[earn-with-n8n]] + [[client-acquisition-playbook]]
 - "Launch my Make.com automation agency / start earning" → [[automation-agency-launch]] (plan) + [[pricing-and-packages]]
+- "What is ShopBrain / how do I build the shop AI agency?" → [[brain/ShopBrain]] (spec) + [[shopbrain-agency-launch]] (plan)
 - "Explain momentum/pairs trading" → [[momentum-jegadeesh-titman]], [[pairs-trading-gatev-goetzmann-rouwenhorst]]
 - "Quant career path?" → [[quant-careers-and-industry]]
 

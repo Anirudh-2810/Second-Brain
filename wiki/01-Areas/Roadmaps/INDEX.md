@@ -3,7 +3,7 @@ course_code: "ROADMAPS"
 course_name: "Roadmaps Hub (Cross-Domain)"
 unit: "Master Roadmap Index"
 tags: [roadmaps, index, hub, learning-paths]
-last_updated: "2026-08-24"
+last_updated: "2026-11-10"
 confidence: high
 description: "ROADMAPS hub - every roadmap and study-plan page across all domains, linked in one place with a suggested combined sequence"
 ---
@@ -40,6 +40,7 @@ description: "ROADMAPS hub - every roadmap and study-plan page across all domain
 - [[00-Current-Projects/roadtrip-focus-production-plan]] — Roadtrip Focus → production-level build (builds, open plan)
 - [[01-Areas/Engineering/plans/mse-2026-10-26-5-day-plan]] — subject-wise MSE exam prep, 26-Oct-2026 window (engineering, open plan)
 - [[01-Areas/Business/plans/automation-agency-launch]] — Make.com + CRM agency launch, first dollar (business, open plan)
+- [[01-Areas/Business/plans/shopbrain-agency-launch]] — ShopBrain 8-week build: CSV → forecast → guarded reorder report → paid pharmacy pilots (business, open plan; exam blackout Dec 1st week)
 - College coursework gates → see [[01-Areas/Engineering/INDEX]]
 
 ## The Combined Master Sequence (suggestion)

@@ -49,6 +49,16 @@
   - **ai-ml/** new: `reinforcement-learning-ppo.md` (GAE + clipped-objective derivation), `transformers-attention-detail.md` (self-attention math), `matching-engine-cpp.md`, `event-driven-backtesting.md`.
 - Updated `/wiki/modules/index.md` catalog to list all 20 modules; appended this log entry. All pages carry YAML frontmatter and Obsidian `[[links]]`/`\[\[../index\]\]` navigation.
 
+### 2026-11-10 — ShopBrain agency platform concept and launch plan
+- Created `brain/ShopBrain.md` — unified AI agent combining StockAgent signals + InventorySystem safety + Algorithm101 forecasting into a complete small-shop automation solution.
+- Updated `brain/Key Decisions.md` to document ShopBrain emergence as a key strategic shift.
+- Updated `brain/North Star.md` to align medium-term goals with ShopBrain development.
+- Created `wiki/01-Areas/Business/plans/shopbrain-agency-launch.md` with concrete technical architecture, P0-P2 implementation priorities, and revenue model.
+- Updated `daily/2026-11-10.md` to document session's agency platform kickoff.
+- Updated `daily/index.md` and `wiki/log.md` with cross-links to new documentation.
+- Ran standard scripts: `update-graph-colors.py` and `generate-index.py` to maintain vault health.
+- Created comprehensive technical spec for agency platform that serves the "Freelancing start" North Star goal while leveraging all portfolio builds (StockAgent, InventorySystem, Algorithm101).
+
 ### 2026-08-09 — Ingest: Productivity & Systems (self-coordinated module)
 - Ingested [[raw-sources/productivity-and-system]] (Deep Work / PKM-CODE / Atomic Habits / GTD / Mental Models).
 - Created `/wiki/modules/productivity/` with 5 node pages (full YAML frontmatter: `module`, `topic`, `tags`, `last_updated`):
@@ -1429,10 +1439,19 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
 - **Manual verification:** Obsidian rendering/Mermaid and regenerated dashboard unverified by agent — check on next open. No commit/push (owner did not ask).
 
-### 2026-11-10 � Automation agency launch plan (Make.com + CRM) (open)
+### 2026-11-10 — Automation agency launch plan (Make.com + CRM) (open)
 - **Request:** owner asked to start an automation agency with "maake.com" + a CRM and begin earning. Clarified: meant **Make.com** (not the textile printer); CRM = **their own agency pipeline**; deliverable = launch plan note.
-- **North Star:** serves "Freelancing start � pick a first-offer strategy".
-- **New page** [[01-Areas/Business/plans/automation-agency-launch]] � stack decision (Make.com + HubSpot Free), productized first offer (lead-to-CRM speed machine, $297�497 STARTER), ordered steps 1�8 (accounts ? niche gate ? dogfood pipeline ? portfolio �3 ? storefront ? outreach ? first paid build ? repeat/formalize), metrics table, close condition. No timing estimates (plans law); strategy stays single-sourced in automations/money/*.
+- **North Star:** serves "Freelancing start — pick a first-offer strategy".
+- **New page** [[01-Areas/Business/plans/automation-agency-launch]] — stack decision (Make.com + HubSpot Free), productized first offer (lead-to-CRM speed machine, $297–497 STARTER), ordered steps 1–8 (accounts → niche gate → dogfood pipeline → portfolio pieces → storefront → outreach → first paid build → repeat/formalize), metrics table, close condition. No timing estimates (plans law); strategy stays single-sourced in automations/money/*.
 - **Wired links:** Business INDEX (plans/ row + Quick Answer), [[01-Areas/Roadmaps/INDEX]] (open plan), wiki/index.md (Business & Side Hustles bullet).
 - **Ran** update-graph-colors.py + generate-index.py.
-- **Manual verification:** Obsidian graph/render of new plan unverified by agent � check next open. No commit/push (owner did not ask).
+- **Manual verification:** Obsidian graph/render of new plan unverified by agent — check next open. No commit/push (owner did not ask).
+
+### 2026-11-10 — ShopBrain spec + plan rewritten (v2): corrected repo roles, grounded 8-week plan (open)
+- **Request:** owner pasted the full 8-week reorder-plan draft plus repo-merge ideas and asked for "all of it, something I can use for my AI agency". Decisions via questions: deliverable = **plan-doc rewrite only** (no code this session), wedge = **pharmacy**, wine-shell + Algorithm101 = **parked**. Schedule inputs: **exams first week of December 2026**, **10-14 hrs/week** until then.
+- **Correction sweep (v1 -> v2, same-day):** v1 of `brain/ShopBrain.md` + `plans/shopbrain-agency-launch.md` (written earlier today) overstated two repos and **invented** pricing/margin/savings numbers ($2.5k setup, $199/mo, $50k enterprise, 85-90% margins, "20% stock reduction", "80% accuracy", ARR targets) - all removed; pricing is now a single `(speculation)` section decided only by Week-8 pilot answers. Repo roles verified against the repos: **StockOffline** = the app (has dated `InventoryTransaction` history, CSV *export* only, static `reorder_level` - no forecast/budget-cap yet) - **tscore** = new private forecasting lib (doesn't exist yet) - **stock-agent** = patterns source only (its inverted kill-switch is a stock-trading bug, NOT a ShopBrain P0) - **wine-shell** = parked (Apple-Silicon-Mac-only Wine wrapper) - **Algorithm101** = parked (music-trend RNN app, 6 commits - Week-6 RNN test switches to `neural-engine`).
+- **Rewritten:** `brain/ShopBrain.md` (spec + corrected role table + 3 standing gates) and `[[01-Areas/Business/plans/shopbrain-agency-launch]]` (schedule-gate table with the Dec exam blackout, Pre-week -> W8 spine with the owner's literal *Done when* criteria, pharmacy overlay: bill-to-stock scanner = data feeder, expiry/dead-stock = the pitch, reorder = the product, risk register).
+- **Restatements fixed in same pass:** `brain/North Star.md` (Current Focus line + Shifts Log row), `brain/Key Decisions.md` (2026-08-27 entry annotated + new 2026-11-10 entry), `daily/2026-11-10.md` ("revenue-ready" claim + Tomorrow's kill-switch-first item).
+- **Wired links:** Roadmaps INDEX (open-plan row), Business INDEX (plans row now 2 pages + ShopBrain Quick Answer), `wiki/index.md` (Business & Side Hustles bullet), `[[brain/ShopBrain]]` <-> plan cross-links.
+- **Ran** update-graph-colors.py + generate-index.py.
+- **Manual verification:** Obsidian graph/render unverified by agent - check next open. **Flag:** the preceding 2026-11-10 automation-agency log entry contains baked-in replacement-char mojibake from an earlier PS encoding round-trip (same class as the OmniRoute gotcha); repair with node, not PowerShell.
