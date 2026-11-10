@@ -2,7 +2,7 @@
 module: "current-projects"
 topic: "StockOffline — Secure Offline Inventory System (Python + SQLite + Tkinter)"
 tags: [builds, python, inventory, sqlite, tkinter, jwt, security, docker, pyinstaller, offline-first, barcode, payments]
-last_updated: "2026-08-26"
+last_updated: "2026-11-11"
 confidence: "medium"
 provenance: "AI-assisted build per owner 2026-09-24 — owner understands CRUD + DB layer, not auth/web-tier internals."
 source: "C:\Users\Vijaykumar\inventory-system"
@@ -19,7 +19,7 @@ description: "Production-grade offline-first inventory manager with desktop GUI 
 ---
 
 ## For future agent
-This is a **personal inventory build** — a complete offline-first inventory management system with desktop GUI, CLI, and optional web/API tier. Demonstrates advanced Python patterns: Tkinter dark theme UI, SQLite with parameterized queries, JWT authentication with refresh tokens, PBKDF2 password hashing, per-tenant data isolation, rate limiting, Stripe/Razorpay payment integration, and PyInstaller packaging. Security-hardened: no SQL injection, CORS, security headers, generic errors with correlation IDs. Cross-links: [[wiki/00-Current-Projects/foundry-backup]], [[wiki/00-Current-Projects/budget-tracker]].
+This is a **personal inventory build** — a complete offline-first inventory management system with desktop GUI, CLI, and optional web/API tier. Demonstrates advanced Python patterns: Tkinter dark theme UI, SQLite with parameterized queries, JWT authentication with refresh tokens, PBKDF2 password hashing, per-tenant data isolation, rate limiting, Stripe/Razorpay payment integration, and PyInstaller packaging. Security-hardened: no SQL injection, CORS, security headers, generic errors with correlation IDs. As of 2026-11-11 it also has **sales CSV import** (`import-sales` CLI + GUI Import button) implementing the [[tscore]] data contract v1 — historical rows are dated but never mutate counted stock, unknown items are reported not guessed. Cross-links: [[wiki/00-Current-Projects/foundry-backup]], [[wiki/00-Current-Projects/budget-tracker]].
 
 ---
 
@@ -224,6 +224,10 @@ python main.py adjust --id W-1 --qty 95 --reason "Inventory count correction"
 python main.py status                    # Stock health overview
 python main.py report                    # Category + sales report
 python main.py export                    # CSV export
+
+# Sales history import (tscore contract v1: item,date,quantity,price)
+python main.py import-sales --file sales.csv                  # match by sku/barcode/name
+python main.py import-sales --file sales.csv --create-missing # also create unknown items
 ```
 
 ### CLI Implementation

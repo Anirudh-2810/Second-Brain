@@ -43,17 +43,17 @@ Repo roles (StockOffline = app, tscore = new forecasting lib, stock-agent = patt
 
 ## Pre-week (1–2 days, Phase A)
 
-- [ ] Profile README that links the repos.
-- [ ] Pick the shop type — **decided: pharmacy** — and find one friendly pharmacy that would let you test with their data.
-- [ ] Create a private `tscore` repo for the shared forecasting code.
+- [x] Profile README that links the repos. (done 2026-11-11 — https://github.com/Anirudh-2810/Anirudh-2810)
+- [ ] Pick the shop type — **decided: pharmacy** — and find one friendly pharmacy that would let you test with their data. *(type decided; outreach is the owner's task — open)*
+- [x] Create a private `tscore` repo for the shared forecasting code. (done 2026-11-11 — https://github.com/Anirudh-2810/tscore)
 
 ## Week 1 — data contract and import (Phase A)
 
-- Define one sales format (`item, date, quantity, price`) and one forecast output format (`item, predicted demand, suggested reorder, confidence`).
-- Add CSV import to StockOffline.
-- Write a script that generates fake sales data with weekly and seasonal patterns, so testing works before real data exists.
+- [x] Define one sales format (`item, date, quantity, price`) and one forecast output format (`item, predicted demand, suggested reorder, confidence`). ([[tscore]] `docs/data-contract.md`, contract v1)
+- [x] Add CSV import to StockOffline (`import-sales` CLI + GUI Import button; stock-safe, no double-counting).
+- [x] Write a script that generates fake sales data with weekly and seasonal patterns, so testing works before real data exists. (seeded, Poisson + pay-day + flu season; 968-row example committed)
 
-**Done when:** fake and real-format CSVs load without errors.
+**Done when:** fake and real-format CSVs load without errors. — **met 2026-11-11**, verified end-to-end: fake 968 rows imported (stock unchanged); real-format strict → 12 skipped with row-numbered problems; `--create-missing` → 6 items created; non-contract file → hard error exit 1. Both suites green (`run_tests.py`, `test_web.py`).
 
 ## Week 2 — baselines and honest testing (Phase B)
 

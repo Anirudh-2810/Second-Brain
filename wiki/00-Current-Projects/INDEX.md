@@ -33,6 +33,7 @@ description: "BUILDS domain hub - YOUR active builds: stock-agent trading platfo
 | [[budget-tracker|budget-tracker]] | 1 | Excel/VBA Budget vs Actual vs Variance + Executive Dashboard (Mac/Win compatible) |
 | [[foundry-backup|foundry-backup]] | 1 | Full-stack startup validation platform: Express + Prisma + PostgreSQL, Stripe, experiments, waitlist, canvas |
 | [[inventory-system|inventory-system/]] | 3 | StockOffline: offline-first inventory with Tkinter GUI, CLI, JWT auth, Docker, PyInstaller. Deep review (2 critical bugs, 8 security concerns), improvement roadmap P0–P3 (AI-assisted per owner 2026-09-24 — owner owns CRUD/DB layer only) |
+| [[tscore|tscore]] | 1 | **ShopBrain forecasting core** (private repo): sales/forecast data contract v1, seeded fake-sales generator, contract tests. Feeds [[inventory-system]] `import-sales`; Phase A week 1 done 2026-11-11 |
 | [[understand-anything|understand-anything]] | 1 | Knowledge graph tool for codebases: multi-agent pipeline, tree-sitter + LLM, React dashboard |
 | [[handwrite-ai-profile2|handwrite-ai]] | 2 | HandwriteAI handwriting renderer — **Profile 2** (current workhorse; sheet-only pool 71 chars/74 glyphs from the 2026-10-15 all-chars photo, full-replace, uniform 4.3px ink, verified) · **Profile 1** (original hand, 19 chars/1137 glyphs, missing c h j k q x z+digits) |
 
