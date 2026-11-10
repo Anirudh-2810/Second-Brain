@@ -39,6 +39,7 @@ description: "ROADMAPS hub - every roadmap and study-plan page across all domain
 - [[spanish/overview]] — Spanish A1 via VideoEle 8-week plan (self-dev)
 - [[00-Current-Projects/roadtrip-focus-production-plan]] — Roadtrip Focus → production-level build (builds, open plan)
 - [[01-Areas/Engineering/plans/mse-2026-10-26-5-day-plan]] — subject-wise MSE exam prep, 26-Oct-2026 window (engineering, open plan)
+- [[01-Areas/Business/plans/automation-agency-launch]] — Make.com + CRM agency launch, first dollar (business, open plan)
 - College coursework gates → see [[01-Areas/Engineering/INDEX]]
 
 ## The Combined Master Sequence (suggestion)

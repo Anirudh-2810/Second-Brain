@@ -4,7 +4,7 @@ topic: "HandwriteAI Profile 2 — exact-letter handwriting renderer (WIP)"
 tags: [handwrite-ai, handwriting, renderer, glyphs, profile-2, wip]
 last_updated: "2026-10-17"
 confidence: high
-description: "Profile 2 of HandwriteAI (E:\Brain\Second-Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→17: pool rebuild, ink normalization, FULL pool replace from the owner's new photo sheet, component-based re-harvest fixing floating/detached descenders, then fixed landscape 3500x1800 pages with pagination. STATUS: working — descenders seated, landscape output, verified render 2026-10-17."
+description: "Profile 2 of HandwriteAI (E:\Brain\HandwriteAI): exact-letter renderer pasting the user's real ink crops. Session log 2026-10-14→17: pool rebuild, ink normalization, FULL pool replace from the owner's new photo sheet, component-based re-harvest fixing floating/detached descenders, then fixed landscape 3500x1800 pages with pagination. STATUS: working — descenders seated, landscape output, verified render 2026-10-17."
 ---
 
 ## For future agent
@@ -112,14 +112,14 @@ Owner request: the old output was a tall vertical strip (`width=1600`, height = 
 ## File map
 | Path | Role |
 |---|---|
-| `HandwriteAI/inference.py` | `render_labeled`, `_match_thickness`, `THICK_SCALE` (~26), `load_labeled`; all three renderers take `width=3500, page_h=1800` and return `List[Image]` (landscape pagination) |
-| `HandwriteAI/_p2_sheet_reharvest.py` | V1 band re-harvest (2026-10-13 screenshot), ord-safe names, left-expansion, `strip_edge_junk` |
-| `HandwriteAI/_p2_sheet_reharvest2.py` | V2 harvest (2026-10-15 photo sheet) — **component-based (2026-10-16)**: cv2 CCs, full-extent crops, per-row baseline-fit `bb` → `staged_meta.json` |
-| `HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet OR `--replace` (sheet-only), drop enr, metrics (reads `bb` from `staged_meta.json`), `.bak-rebuild` / `.bak-rebuild2` |
-| `HandwriteAI/_p2_normalize_ink.py` | binarize + width-normalize library to 1.91px native (**skipped for V2** — sheet already uniform) |
-| `HandwriteAI/styles/profile_002.labeled/` | live library (71 chars / 74 glyphs, sheet-only); backups `.bak-rebuild2`, `.bak-normalize`, `.bak-normalize-v1` |
-| `HandwriteAI/styles/_p2_stage/` | staged V2 raw sheet crops + `staged.json` + `staged_meta.json` (per-crop `top`, `cx`, `band`, `bb`) |
-| `HandwriteAI/styles/profile_002.style` | writer features (thickness_px=1.91 — the target source) |
-| `HandwriteAI/convert.py` | CLI: `--profile 002 --mode labeled --seed 7 --text "..."` (+ `--width 3500 --page-h 1800` landscape defaults, `--page-h 0` = strip) |
+| `E:\Brain\HandwriteAI/inference.py` | `render_labeled`, `_match_thickness`, `THICK_SCALE` (~26), `load_labeled`; all three renderers take `width=3500, page_h=1800` and return `List[Image]` (landscape pagination) |
+| `E:\Brain\HandwriteAI/_p2_sheet_reharvest.py` | V1 band re-harvest (2026-10-13 screenshot), ord-safe names, left-expansion, `strip_edge_junk` |
+| `E:\Brain\HandwriteAI/_p2_sheet_reharvest2.py` | V2 harvest (2026-10-15 photo sheet) — **component-based (2026-10-16)**: cv2 CCs, full-extent crops, per-row baseline-fit `bb` → `staged_meta.json` |
+| `E:\Brain\HandwriteAI/_p2_manifest_rebuild.py` | merge clusters+sheet OR `--replace` (sheet-only), drop enr, metrics (reads `bb` from `staged_meta.json`), `.bak-rebuild` / `.bak-rebuild2` |
+| `E:\Brain\HandwriteAI/_p2_normalize_ink.py` | binarize + width-normalize library to 1.91px native (**skipped for V2** — sheet already uniform) |
+| `E:\Brain\HandwriteAI/styles/profile_002.labeled/` | live library (71 chars / 74 glyphs, sheet-only); backups `.bak-rebuild2`, `.bak-normalize`, `.bak-normalize-v1` |
+| `E:\Brain\HandwriteAI/styles/_p2_stage/` | staged V2 raw sheet crops + `staged.json` + `staged_meta.json` (per-crop `top`, `cx`, `band`, `bb`) |
+| `E:\Brain\HandwriteAI/styles/profile_002.style` | writer features (thickness_px=1.91 — the target source) |
+| `E:\Brain\HandwriteAI/convert.py` | CLI: `--profile 002 --mode labeled --seed 7 --text "..."` (+ `--width 3500 --page-h 1800` landscape defaults, `--page-h 0` = strip) |
 
 **Pipeline order (rebuild from scratch):** `_p2_sheet_reharvest2.py` → `_p2_manifest_rebuild.py --replace` → render. (`_p2_normalize_ink.py` is skipped for the V2 sheet — it is natively uniform.)

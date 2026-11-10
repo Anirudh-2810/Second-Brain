@@ -54,11 +54,11 @@ Profile 1 is the **original** HandwriteAI profile (user_001 hand, renamed 2026-1
 ## File map
 | Path | Role |
 |---|---|
-| `HandwriteAI/inference.py` | all three renderers; `load_labeled` ~604; buckets erosion ~558 |
-| `HandwriteAI/enroll.py` | `enroll.py sheet` / `enroll.py build photo.jpg` — enrollment |
-| `HandwriteAI/cluster.py` | cluster labeling (tab 6); contact sheets |
-| `HandwriteAI/styles/profile_001.labeled/` | live library (19 chars / 1137 glyphs) |
-| `HandwriteAI/styles/profile_001.glyphs/` | 3580 source crops |
-| `HandwriteAI/styles/profile_001.clusters/` | 64 clusters, 26 labeled |
-| `HandwriteAI/styles/profile_001.style` | writer features |
-| `HandwriteAI/convert.py` | CLI; `--mode font/labeled/buckets/auto` |
+| `E:\Brain\HandwriteAI/inference.py` | all three renderers; `load_labeled` ~604; buckets erosion ~558 |
+| `E:\Brain\HandwriteAI/enroll.py` | `enroll.py sheet` / `enroll.py build photo.jpg` — enrollment |
+| `E:\Brain\HandwriteAI/cluster.py` | cluster labeling (tab 6); contact sheets |
+| `E:\Brain\HandwriteAI/styles/profile_001.labeled/` | live library (19 chars / 1137 glyphs) |
+| `E:\Brain\HandwriteAI/styles/profile_001.glyphs/` | 3580 source crops |
+| `E:\Brain\HandwriteAI/styles/profile_001.clusters/` | 64 clusters, 26 labeled |
+| `E:\Brain\HandwriteAI/styles/profile_001.style` | writer features |
+| `E:\Brain\HandwriteAI/convert.py` | CLI; `--mode font/labeled/buckets/auto` |

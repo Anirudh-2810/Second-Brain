@@ -21,6 +21,7 @@ description: "BUSINESS domain hub - market analysis, interviews, freelancing, n8
 | [[01-Areas/Business/quant-finance/quantitative-finance-foundations|quant-finance/]] | 20 | Quant foundations, derivatives, stochastic calc, pairs/momentum/TAA strategies, risk/VaR, careers |
 | [[Financial-Independence/FI-Blueprint|Financial-Independence/]] | 1 | FIRE blueprint: budgeting, investments, multiple income streams, net worth tracking, early retirement |
 | [[Side-Hustles/Side-Hustles-Archive|Side-Hustles/]] | 1 | AI copywriting, dropshipping, print-on-demand, SMMA, YouTube automation, Andrew Tate course |
+| [[01-Areas/Business/plans/automation-agency-launch|plans/]] | 1 | Make.com + agency-CRM launch plan: niche gate → dogfood pipeline → first dollar → retainer |
 | [[Study-Abroad/Study-Abroad-Guide|Study-Abroad/]] | 1 | SAT prep (English/Math/Reading) + Ankur Warikoo's 3-part study abroad series |
 | [[Budgeting-VBA/Budgeting-VBA-Collection|Budgeting-VBA/]] | 1 | Excel budgeting workbooks 101-106 with VBA macros and user manuals |
 
@@ -30,6 +31,7 @@ description: "BUSINESS domain hub - market analysis, interviews, freelancing, n8
 - "How do interviews work / how do I prep?" → [[interview-counter-guide]] + [[example-question-bank]]
 - "What project should I build?" → [[build-project-playbook]]
 - "How do I make money with n8n?" → [[earn-with-n8n]] + [[client-acquisition-playbook]]
+- "Launch my Make.com automation agency / start earning" → [[automation-agency-launch]] (plan) + [[pricing-and-packages]]
 - "Explain momentum/pairs trading" → [[momentum-jegadeesh-titman]], [[pairs-trading-gatev-goetzmann-rouwenhorst]]
 - "Quant career path?" → [[quant-careers-and-industry]]
 

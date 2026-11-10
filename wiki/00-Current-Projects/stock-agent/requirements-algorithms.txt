@@ -1,0 +1,46 @@
+---
+module: "stock-agent"
+topic: "Requirements-Tied Algorithm Dependencies"
+last_updated: "2026-10-31
+---
+# Stock Agent — Requirements-Tied Algorithm Dependencies
+
+This file maps algorithm categories to the `requirements.txt` packages that power them, based on the deep-review-report findings at `C:\Users\Vijaykumar\stock-agent`.
+
+## Current `requirements.txt` Package Status
+
+| Package | Status in requirements.txt | Algorithms it Powers | Notes |
+|---|---|---|---|
+| `arelle` | **Commented out** (line 16) | SEC XBRL parsing (`sec_parser.py`, `sec_tags.py`) | Degraded even in Docker; graceful fallback to manual tag mapping |
+| `pandas-ta` | **Commented out** (line 17) | All 8 technical indicators (SMA, EMA, RSI, MACD, ATR, ADX, Bollinger %B, Volume Ratio) | Manual fallback implementations exist in `feature_engine.py:16-21, 186-281` |
+| `vectorbt` | **Commented out** (line 25) | Backtest strategies (SMA crossover, RSI mean-reversion, ML predictions) | Present in local `.venv` despite numpy-2 incompatibility noted |
+| `mlflow` | **Commented out** (line 29) | ML pipeline tracking (optional) | Local joblib registry used instead; training crashes if MLflow enabled (NameError at `xgboost_trainer.py:253`) |
+| `prophet` | **Commented out** (line 33) | Not used in current codebase | Listed in requirements but no references in source |
+| `pytest` | Present (lines 14-15) | Test framework | Zero tests exist; framework shipped but unused |
+
+## Phase 2-4 Packages (in `requirements-phase2.txt`)
+
+| Package | Version | Algorithms it Powers | Notes |
+|---|---|---|---|
+| `arelle` | `1.18.0` | SEC XBRL parsing | Pins older version compatible with Python 3.14 |
+| `pandas-ta` | `0.3.14b0` | All 8 technical indicators | Pinned for Python 3.14 compatibility |
+
+## Dependency Impact Summary
+
+**When packages ARE available** (e.g., local venv with manual installs):
+- All 8 technical indicators compute normally via `pandas_ta`
+- VectorBT backtesting works fully
+- MLflow tracking optional but available
+
+**When packages are COMMENTED OUT (current state)**:
+- Technical indicators fall back to manual pandas implementations (`feature_engine.py:16-21, 186-281`) — still functional
+- VectorBT backtesting raises `RuntimeError` if called directly (`backtest_engine.py:1-7`)
+- ML pipeline trains only on returns + momentum (technical indicators stored as NULL in view)
+- SEC parsing degrades gracefully (Arelle optional; `sec_tags.py` fallbacks used)
+- App runs fully without heavy dependencies (strength documented in §2.2 of deep-review-report)
+
+## Recommendation
+
+Un-comment Phase 2-4 packages in `requirements.txt` **or** commit to `requirements-phase2.txt` as the active set, and pin Python to 3.11 for Docker compatibility (current mix of 3.14 dev + 3.11 Docker creates divergent environments — see deep-review-report G-F).
+
+---

@@ -1428,3 +1428,11 @@ extjs/supabase/security, repo/stack/Obsidian + For-future-agent + new > **Next.j
 - **Wired links:** INDEX.md (new "Companion Notes" table + expanded Revision/Viva sections), [[index]] Arduino bullet, and each new page cross-links the others + Ep06–Ep10 + BEE.
 - **Ran** `update-graph-colors.py` and `generate-index.py` after wiring.
 - **Manual verification:** Obsidian rendering/Mermaid and regenerated dashboard unverified by agent — check on next open. No commit/push (owner did not ask).
+
+### 2026-11-10 � Automation agency launch plan (Make.com + CRM) (open)
+- **Request:** owner asked to start an automation agency with "maake.com" + a CRM and begin earning. Clarified: meant **Make.com** (not the textile printer); CRM = **their own agency pipeline**; deliverable = launch plan note.
+- **North Star:** serves "Freelancing start � pick a first-offer strategy".
+- **New page** [[01-Areas/Business/plans/automation-agency-launch]] � stack decision (Make.com + HubSpot Free), productized first offer (lead-to-CRM speed machine, $297�497 STARTER), ordered steps 1�8 (accounts ? niche gate ? dogfood pipeline ? portfolio �3 ? storefront ? outreach ? first paid build ? repeat/formalize), metrics table, close condition. No timing estimates (plans law); strategy stays single-sourced in automations/money/*.
+- **Wired links:** Business INDEX (plans/ row + Quick Answer), [[01-Areas/Roadmaps/INDEX]] (open plan), wiki/index.md (Business & Side Hustles bullet).
+- **Ran** update-graph-colors.py + generate-index.py.
+- **Manual verification:** Obsidian graph/render of new plan unverified by agent � check next open. No commit/push (owner did not ask).

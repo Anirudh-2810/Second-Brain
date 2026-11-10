@@ -325,7 +325,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[00-Current-Projects/projects/handsens101|handsens101]]** — MediaPipe hand-gesture mouse control; perception→action pipeline.
 
 ### Local Builds — HandwriteAI
-> Handwriting renderer at `E:\Brain\Second-Brain\HandwriteAI` (PIL/numpy/cv2, no ML). Hub: `[[00-Current-Projects/INDEX|Builds Domain Index]]`.
+> Handwriting renderer at `E:\Brain\HandwriteAI` (PIL/numpy/cv2, no ML). Hub: `[[00-Current-Projects/INDEX|Builds Domain Index]]`.
 - **[[00-Current-Projects/handwrite-ai-profile2|HandwriteAI Profile 2]]** — current workhorse: exact-letter renderer, 69 chars / 756 glyphs, uniform 4.3px ink. **WIP — owner paused for exams; next session = full re-enroll from new sheet.**
 - **[[00-Current-Projects/handwrite-ai-profile1|HandwriteAI Profile 1]]** — original hand: 19 letters / 1137 glyphs, font+labeled+buckets render paths, known issues.
 
@@ -335,6 +335,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Business/Side-Hustles/Side-Hustles-Archive|Side Hustles]]** — AI copywriting, dropshipping, print-on-demand, SMMA, YouTube automation, Andrew Tate course material.
 - **[[01-Areas/Business/Study-Abroad/Study-Abroad-Guide|Study Abroad Guide]]** — SAT prep (English/Math/Reading) + Ankur Warikoo's 3-part study abroad series (planning, applying, adjusting).
 - **[[01-Areas/Business/Budgeting-VBA/Budgeting-VBA-Collection|Budgeting & VBA]]** — Excel budgeting workbooks 101-106 with VBA macros, user manuals, iterative development.
+- **[[01-Areas/Business/plans/automation-agency-launch|Automation Agency Launch Plan]]** — Make.com + HubSpot agency: niche gate → dogfood CRM pipeline → storefront → first dollar → retainer (open plan).
 
 ### Engineering Formula Sheets
 > Printed physics/chemistry/maths formula sheets for quick revision. Hub: `[[01-Areas/Engineering/INDEX|Engineering Domain Index]]`.
