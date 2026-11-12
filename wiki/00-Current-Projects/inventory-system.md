@@ -2,11 +2,11 @@
 module: "current-projects"
 topic: "StockOffline — Secure Offline Inventory System (Python + SQLite + Tkinter)"
 tags: [builds, python, inventory, sqlite, tkinter, jwt, security, docker, pyinstaller, offline-first, barcode, payments]
-last_updated: "2026-11-11"
+last_updated: "2026-11-13"
 confidence: "medium"
-provenance: "AI-assisted build per owner 2026-09-24 — owner understands CRUD + DB layer, not auth/web-tier internals."
-source: "C:\Users\Vijaykumar\inventory-system"
-description: "Production-grade offline-first inventory manager with desktop GUI (Tkinter dark theme), CLI, optional web/API tier (JWT auth, PBKDF2 passwords, per-tenant isolation, rate limiting, Stripe/Razorpay payments). Zero dependencies for offline mode, Docker deployment for web tier, PyInstaller .exe packaging. Security-hardened: parameterized SQL, CORS, security headers, generic errors."
+provenance: "AI-assisted build per owner 2026-09-24 — owner understands CRUD + DB layer, not auth/web-tier internals. ShopBrain forecast feature added 2026-11-13."
+source: "E:\Brain\inventory-system"
+description: "Production-grade offline-first inventory manager with desktop GUI (Tkinter dark theme), CLI, optional web/API tier (JWT auth, PBKDF2 passwords, per-tenant isolation, rate limiting, payments). Zero deps for offline mode; sales CSV import + one-click weekly reorder forecast (CLI forecast + GUI Forecast screen with approve/reject persistence). Security-hardened: parameterized SQL, CORS, security headers, generic errors."
 ---
 
 # StockOffline — Secure Offline Inventory System
@@ -19,7 +19,7 @@ description: "Production-grade offline-first inventory manager with desktop GUI 
 ---
 
 ## For future agent
-This is a **personal inventory build** — a complete offline-first inventory management system with desktop GUI, CLI, and optional web/API tier. Demonstrates advanced Python patterns: Tkinter dark theme UI, SQLite with parameterized queries, JWT authentication with refresh tokens, PBKDF2 password hashing, per-tenant data isolation, rate limiting, Stripe/Razorpay payment integration, and PyInstaller packaging. Security-hardened: no SQL injection, CORS, security headers, generic errors with correlation IDs. As of 2026-11-11 it also has **sales CSV import** (`import-sales` CLI + GUI Import button) implementing the [[tscore]] data contract v1 — historical rows are dated but never mutate counted stock, unknown items are reported not guessed. Cross-links: [[wiki/00-Current-Projects/foundry-backup]], [[wiki/00-Current-Projects/budget-tracker]].
+This is a **personal inventory build** — a complete offline-first inventory management system with desktop GUI, CLI, and optional web/API tier. Demonstrates advanced Python patterns: Tkinter dark theme UI, SQLite with parameterized queries, JWT authentication with refresh tokens, PBKDF2 password hashing, per-tenant data isolation, rate limiting, Stripe/Razorpay payment integration, and PyInstaller packaging. Security-hardened: no SQL injection, CORS, security headers, generic errors with correlation IDs. As of 2026-11-11 it has **sales CSV import** (`import-sales` CLI + GUI Import button) implementing the [[tscore]] data contract v1 — historical rows are dated but never mutate counted stock, unknown items are reported not guessed. As of 2026-11-13 it has the **weekly forecast** (Week 4 of [[shopbrain-agency-launch]]): `forecast` CLI command and a GUI Forecast button that shells into tscore's `report.py` via `services/forecast_service.py` (never imports `main.py` — module-level side effects), opens a report + per-line approve/reject screen, and persists decisions in the `forecast_decisions` table (upsert per item+day). Cross-links: [[wiki/00-Current-Projects/foundry-backup]], [[wiki/00-Current-Projects/budget-tracker]].
 
 ---
 
@@ -228,6 +228,11 @@ python main.py export                    # CSV export
 # Sales history import (tscore contract v1: item,date,quantity,price)
 python main.py import-sales --file sales.csv                  # match by sku/barcode/name
 python main.py import-sales --file sales.csv --create-missing # also create unknown items
+
+# Weekly reorder forecast (shells into tscore; needs sibling checkout or TSCORE_DIR)
+python main.py forecast [--budget 20000] [--safety 0.2] [--lead-time 7] \
+        [--max-order 100] [--max-multiple 3] [--out DIR]
+# writes report.txt + contract forecast.csv; exits 2 if the naive gate fails
 ```
 
 ### CLI Implementation

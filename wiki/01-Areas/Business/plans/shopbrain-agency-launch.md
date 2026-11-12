@@ -60,21 +60,21 @@ Repo roles (StockOffline = app, tscore = new forecasting lib, stock-agent = patt
 - Build two simple forecasts in tscore: moving average and seasonal naive (same as this time last week / last year).
 - Build a walk-forward backtest that trains on the past and tests on the next week, measuring error and stockouts.
 
-**Done when:** you can see which baseline wins on the fake data — and it beats the naive "reorder what sold last week" (standing rule 1).
+**Done when:** you can see which baseline wins on the fake data — and it beats the naive "reorder what sold last week" (standing rule 1). — **met 2026-11-13**: `backtest.py` walk-forward (dense weekly axis, no-leakage test); on fake data `moving_average(k=8)` WAPE 28.10% vs naive gate 34.77% (14 weeks / 12 items / 72 folds, exit 0). Gate display distinguishes PASS / TIE / FAILED; a tie does not pass (rule 1 needs a BEAT). 42 tscore tests green.
 
 ## Week 3 — reorder logic and guards
 
 - Turn forecasts into reorder quantities using delivery time, a safety buffer, and the owner's budget.
 - Add guards: maximum order size, budget cap, never more than a set multiple of the last order.
 
-**Done when:** every suggestion respects the limits, and tests prove it.
+**Done when:** every suggestion respects the limits, and tests prove it. — **met 2026-11-13**: `reorder.py` (raw_need − on hand, lead time × safety buffer) with guards `max_order_qty`, `max_multiple_of_last`, `budget_cap` (urgent-first, partial fill); grid-invariant tests in `test_reorder.py` prove every suggestion respects its limits.
 
 ## Week 4 — the report
 
 - Generate a weekly report: reorder list, running-out alerts, dead stock, short summary message.
 - Add a Forecast screen to StockOffline with an approve/reject step.
 
-**Done when:** one click produces a report a shop owner can read without help.
+**Done when:** one click produces a report a shop owner can read without help. — **build met 2026-11-13** (owner-readability check deferred to the Week 5 pilot): `report.py` → `report.txt` (ORDER / WANTED BUT NOT ORDERED / RUNNING OUT / DEAD STOCK, measured confidence, gate disclosure) + contract `forecast.csv`; StockOffline Forecast button runs the whole pipeline and opens a report + approve/reject screen (decisions persisted, `forecast_decisions` table). Physically verified: GUI launch clean, ForecastWindow smoke, one-click path smoke (report → window → approved line in real DB). All suites green.
 
 ## Week 5 — real pilot
 
