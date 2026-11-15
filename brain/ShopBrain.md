@@ -25,13 +25,13 @@ This is the platform SPEC for ShopBrain — what each repo actually contributes 
 
 | Repo | Role | What it actually is (verified) |
 |------|------|-------------------------------|
-| **`inventory-system` (StockOffline)** | **The app shops use** | Offline-first Tkinter GUI + CLI + optional JWT web tier, SQLite. `Product` + `InventoryTransaction` (purchase/sale/adjustment/return, timestamped) already give dated sales history. Has `reorder_level` (static threshold only) and CSV **export**. **No CSV import, no forecasting, no budget cap yet** — those are build items. |
-| **`tscore`** (new, private repo) | **The forecasting lib** | Does not exist yet. Owns: sales/forecast data contracts, fake-data generator, baselines (moving average, seasonal naive), walk-forward backtest, reorder math + guards. Shared code the agency reuses across shops. |
+| **`inventory-system` (StockOffline)** | **The app shops use** | Offline-first Tkinter GUI + CLI + optional JWT web tier, SQLite. `Product` + `InventoryTransaction` (purchase/sale/adjustment/return, timestamped) already give dated sales history. Has `reorder_level` (static threshold only). **Shipped as of 2026-11-16:** sales CSV import (contract v1, dated rows never touch counted stock), weekly Forecast screen with per-line approve/reject persisted per report date, `forecast` CLI shelling into tscore's `report.py`. |
+| **`tscore`** (private repo) | **The forecasting lib** | **Exists and is current through Week 8 (built 2026-11-11 → 11-16).** Owns: sales/forecast data contract v1, seeded fake-sales generator, baselines + walk-forward backtest with naive gate (fake-data gate PASS: WAPE 28.10% vs 34.77% naive), reorder math + guards, weekly report, **W6 RNN experiment (verdict: DROP** — loses to MA(8) under all 8 seed×epoch configs), **W7 live-and-die agent sim + HTML replay dashboard**, **W8 one-command demo driver** (`scripts/demo.py`). 68 stdlib tests. Shared code the agency reuses across shops. |
 | **`stock-agent`** | **Patterns source only — not a dependency** | FastAPI + React paper-trading platform. Borrow the *shape* of: `execution_guards.py` (guard/circuit-breaker style), `backtest_engine.py` (walk-forward structure), React dashboard layout, WebSocket event stream. **Its bugs are stock-trading bugs** (e.g. the kill-switch inversion) and are NOT a ShopBrain P0 — do not import its trading logic. |
 | **`wine-shell`** | **Parked** | Swift/SwiftUI CrossOver-style Wine wrapper for **Apple Silicon Macs only** — runs Windows apps on Mac. Needs a Mac we don't have; most target shops run Windows. Revisit only as a Mac-installation route. Not a generic installer. |
-| **`Algorithm101`** | **Parked** | A **music-trend RNN** app (6 commits, backend/frontend/tests) — NOT a forecasting library. The Week-6 "does an RNN beat the baseline" experiment uses `neural-engine` (from-scratch NumPy NN) + the `stock-predictor` pipeline instead. Keep an RNN only if it clearly wins on the same data; a negative result is a valid write-up. |
+| **`Algorithm101`** | **Parked** | A **music-trend RNN** app (backend/frontend/tests) — NOT a forecasting library. Inspected at code level 2026-11-13: **no trainable neural net** (backend = rule scores + EMA "hidden state"; `LocalRNN` = decorative wall-clock animation) — confirms this park decision. The Week-6 RNN experiment ran **inside tscore** (stdlib Elman RNN, see below), not here. |
 
-Supporting assets, not core path: `neural-engine` (NumPy NN library), `stock-predictor` (forecast pipeline + walk-forward habits), `retrieval-agent` (business-knowledge pattern).
+Supporting assets: `stock-predictor` (forecast pipeline + walk-forward habits), `retrieval-agent` (business-knowledge pattern). ~~`neural-engine`~~ — **unreachable as of 2026-11-13** (source lives only on the old machine, not local/GitHub); the W6 substitute was a from-scratch stdlib Elman RNN written into tscore. If the old machine's `Neural net 2/` folder is ever copied over, use it as a cross-check — the DROP verdict is about data sufficiency, not the engine.
 
 ## Architecture (what gets built)
 
@@ -51,7 +51,7 @@ sales CSV / bill photo ──► StockOffline (records sales + stock, SQLite, lo
 - **Data contracts (Week 1):** sales CSV = `item, date, quantity, price`. Forecast output = `item, predicted_demand, suggested_reorder, confidence`.
 - **Guards (Week 3, all tested):** max order size · budget cap · never more than a set multiple of the last order. Every suggestion must pass, proven by tests.
 - **Report (Week 4):** reorder list · running-out alerts · dead stock · short summary the owner can read unaided, one click.
-- **Self-improvement (Week 7, optional after pilots):** forecasters as agents with virtual wallets scored on avoided stockouts vs overstock; death at zero, mutated children funded from the parent; best lineage feeds the weekly report. Virtual money only.
+- **Self-improvement (Week 7 — BUILT 2026-11-13, tscore `scripts/agents_sim.py`):** forecasters as agents with virtual wallets scored on avoided stockouts vs overstock; death at zero, mutated children funded from the parent; replay dashboard. Virtual money only. Lineage finding: lifespan improves founders→gen4 (~3.6×) then declines; descendant wallets worse (structural — children inherit 40 vs founders 100); shape verified on 3 seeds. "Best lineage feeds the weekly report" was NOT built — not required by the plan's Done-when.
 
 ## Standing gates (non-negotiable — from the owner's rules)
 
@@ -61,14 +61,14 @@ sales CSV / bill photo ──► StockOffline (records sales + stock, SQLite, lo
 
 ## Status
 
-Spec only. Nothing built yet; schedule and week-by-week Done-when gates live in [[01-Areas/Business/plans/shopbrain-agency-launch]] (exam blackout first week of December 2026 gates the calendar).
+**Build phase effectively complete (2026-11-16):** Weeks 1–4 + 6 + 7 + 8-agent-part shipped across `tscore` (68 tests) and `inventory-system` (forecast screen). Remaining: **W5 real pilot** (owner-blocked: pharmacy outreach) and **W8 owner part** (10 shops approached → their answers set the price). Schedule and week-by-week Done-when gates live in [[01-Areas/Business/plans/shopbrain-agency-launch]] (exam blackout first week of December 2026 gates the calendar).
 
 ## Cross-references
 
 - [[01-Areas/Business/plans/shopbrain-agency-launch]] — execution plan (8-week spine)
 - [[inventory-system]] — StockOffline deep review + roadmap
 - [[stock-agent/overview]] · [[stock-agent/deep-review-report]] — pattern source and its known bugs
-- [[neural-engine]] · [[stock-predictor]] — forecasting assets (RNN experiment source)
+- [[neural-engine]] — parked/unreachable (old machine only; W6 substitute was tscore's stdlib Elman RNN) · [[stock-predictor]] — forecasting asset
 - [[wine-shell-plan]] — parked repo's own plan
 - [[North Star]] — serves "Freelancing start" + "Ship a working ShopBrain prototype"
 - [[Key Decisions]] — 2026-08-27 concept born; 2026-11-10 roles corrected
