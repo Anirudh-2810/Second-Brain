@@ -103,7 +103,7 @@ Repo roles (StockOffline = app, tscore = new forecasting lib, stock-agent = patt
 - Write a one-page case study with your pilot numbers, record a short demo, write clear READMEs.
 - Approach 10 shops and ask 2–3 to pay for setup plus a monthly fee. **Let their answers set your price.**
 
-**Done when:** 10 shops approached, 2–3 asked to pay, pricing decided by their answers.
+**Done when:** 10 shops approached, 2–3 asked to pay, pricing decided by their answers. — **agent part met 2026-11-16; owner part open.** Shipped: one-command demo (`python scripts/demo.py` in tscore — fake data → gate verdict → report → agent replay, deterministic any day, `--dry-run`/`--with-rnn` flags, 68 tests green); READMEs updated both repos (demo section in tscore; Forecast feature + `TSCORE_DIR` quick-start + tracked `build_exe.py` in StockOffline — README referenced it but it was never committed); case-study skeleton at inventory-system `marketing/case-study.md` — every number is a `(TBC)` placeholder per the no-numbers-before-the-pilot rule. **Owner open:** (1) approach 10 shops and record answers → sets price; (2) decide fate of placeholder prices Rs.499/Rs.299 in `marketing/price_sheet.txt` + `leaflet.txt` (they predate the "no invented numbers" rule — keep as conversation anchors or strike until Week 8 answers land); (3) record the short demo video (script runs it, human records it).
 
 ## Pricing hypotheses — UNVALIDATED `(speculation)`
 
@@ -133,7 +133,7 @@ Phase A closed early (2026-11-11) and Weeks 2–4 shipped 2026-11-13 (gate PASS)
 
 1. **W6 neural test — DONE 2026-11-13 (verdict: DROP, written up in tscore `docs/w6-rnn-verdict.md`).** Flag: `neural-engine` source (`Neural net 2/neuralnet.py`) exists only on the old machine, not local or GitHub as of 2026-11-13. Substitute: from-scratch RNN implemented inside tscore, run through the *same* walk-forward gate harness; keep/drop verdict unchanged. Owner pointed at `Algorithm101` as the NN source — inspected at code level: **no trainable neural net** (backend = rule scores + EMA "hidden state"; `LocalRNN` = decorative wall-clock animation), confirming the plan's original "NOT Algorithm101" warning. If the owner later copies the old `Neural net 2/` folder over, use it as a cross-check, not a blocker.
 2. **W7 agents (small)** — sanctioned cut first if capacity slips (Risk register rule); never dropped silently.
-3. **W8 packaging (agent part)** — READMEs, demo script, case-study skeleton with `(TBC)` placeholders — no numbers before the pilot.
+3. **W8 packaging (agent part) — DONE 2026-11-16.** Demo driver `scripts/demo.py` (end-to-end, deterministic), READMEs both repos, case-study skeleton `marketing/case-study.md` with `(TBC)` placeholders — no numbers before the pilot. Owner open: 10-shop outreach (sets price), placeholder-price decision in `price_sheet.txt`/`leaflet.txt`, demo video recording.
 4. **W5 pilot** — runs the moment a pharmacy CSV exists. **Owner critical path: pharmacy outreach** — it gates what "complete" can mean.
 
 Owner thread: pharmacy outreach now → 10-shop approaches once demo + READMEs exist.
