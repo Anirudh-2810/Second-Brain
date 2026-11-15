@@ -31,6 +31,8 @@ Full-stack **music trend intelligence** app: fetches live YouTube trending data 
 - Viral prediction via composite score
 - "RNN hidden state" animated visualization
 
+**Scope warning (verified at code level 2026-11-13): despite the "Neural Trend Engine" name, this repo contains NO trainable neural net.** Backend `server.py` is rule-based (`eng_score`/`vel_score` composites, heuristic `forecast_trends`); the `hidden_state` line is an exponential moving average over genre scores; the only `LocalRNN` (`frontend/src/components/RnnBars.js`) is decorative — random fixed weights, input `Math.sin(Date.now()/1000)`, output → CSS bar heights. Do not route forecasting/NN work here (this is why the [[01-Areas/Business/plans/shopbrain-agency-launch|ShopBrain plan]] says "NOT Algorithm101").
+
 ## Status (as of Jan 2026 per PRD)
 All core requirements checked, tests passing 100%. Backlog: auto-refresh, click-through to video, scan comparison, genre filters, user accounts.
 

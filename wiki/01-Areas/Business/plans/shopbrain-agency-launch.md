@@ -88,7 +88,7 @@ Repo roles (StockOffline = app, tscore = new forecasting lib, stock-agent = patt
 - Use `neural-engine` (NOT Algorithm101 — that's a music-trend RNN, see [[brain/ShopBrain]]) to test an RNN against the baseline on the same data.
 - Only keep it if it clearly wins. If it doesn't, that's a valid result — write it up.
 
-**Done when:** a written keep-or-drop verdict exists.
+**Done when:** a written keep-or-drop verdict exists. — **met 2026-11-13: DROP.** From-scratch Elman RNN (engine substitute — `neural-engine` source unreachable; `Algorithm101` inspected at code level: no trainable NN, its "hidden state" is an EMA and `LocalRNN` is a wall-clock-driven viz) scored on the identical walk-forward folds: WAPE 39.92% (defaults), 34.92–49.67% across 8 seed×epoch configs — loses to both the naive gate (34.77%) and MA(8) (28.10%) every time. Written up in tscore `docs/w6-rnn-verdict.md`; revisit only with ≥6 months of real pilot data. 51 tscore tests green (incl. fold-parity vs `backtest.evaluate` + no-leakage sentinels).
 
 ## Week 7 — the "live and die" agents (small version)
 
@@ -127,16 +127,23 @@ Sequencing note: the scanner and expiry tracker are sales *conversations*; the r
 | Scope creep into WhatsApp bot / price tracker / mismatch alerts | Standing rule 3; those are post-first-payment candidates |
 | Phase B capacity lower than 10–14 hrs | Re-timebox at Dec 8; drop Week 7 (agents) before compressing Weeks 2–5 |
 
-## Next milestone
+## Next milestone — two-week completion sprint (set 2026-11-13)
 
-**Phase A close (by Nov 23):** profile README · friendly pharmacy identified · `tscore` repo created · sales/forecast contracts written · StockOffline CSV import working · fake data loads. Exams, then Week 2.
+Phase A closed early (2026-11-11) and Weeks 2–4 shipped 2026-11-13 (gate PASS). Remaining plan (W5–W8) compressed into **2026-11-14 → 11-27** (owner directive: complete before exams, Dec 1st week). Order and scope only:
+
+1. **W6 neural test — DONE 2026-11-13 (verdict: DROP, written up in tscore `docs/w6-rnn-verdict.md`).** Flag: `neural-engine` source (`Neural net 2/neuralnet.py`) exists only on the old machine, not local or GitHub as of 2026-11-13. Substitute: from-scratch RNN implemented inside tscore, run through the *same* walk-forward gate harness; keep/drop verdict unchanged. Owner pointed at `Algorithm101` as the NN source — inspected at code level: **no trainable neural net** (backend = rule scores + EMA "hidden state"; `LocalRNN` = decorative wall-clock animation), confirming the plan's original "NOT Algorithm101" warning. If the owner later copies the old `Neural net 2/` folder over, use it as a cross-check, not a blocker.
+2. **W7 agents (small)** — sanctioned cut first if capacity slips (Risk register rule); never dropped silently.
+3. **W8 packaging (agent part)** — READMEs, demo script, case-study skeleton with `(TBC)` placeholders — no numbers before the pilot.
+4. **W5 pilot** — runs the moment a pharmacy CSV exists. **Owner critical path: pharmacy outreach** — it gates what "complete" can mean.
+
+Owner thread: pharmacy outreach now → 10-shop approaches once demo + READMEs exist.
 
 ## Cross-references
 
 - [[brain/ShopBrain]] — platform spec + repo role map (single source)
 - [[inventory-system]] · [[inventory-system/deep-review-report]] — StockOffline as-is
 - [[stock-agent/overview]] — pattern source (guards, backtest, dashboard)
-- [[neural-engine]] · [[stock-predictor]] — Week 6 RNN experiment source
+- [[neural-engine]] · [[stock-predictor]] — Week 6 RNN experiment source *(original source on old machine only — substitute RNN in tscore per sprint note above)*
 - [[01-Areas/Business/plans/automation-agency-launch]] — earlier Make.com agency track (separate offer, not ShopBrain)
 - [[North Star]] — serves "Freelancing start" + "Ship a working ShopBrain prototype"
 - [[Key Decisions]] — concept born 2026-08-27; roles corrected 2026-11-10
