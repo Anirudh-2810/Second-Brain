@@ -96,7 +96,7 @@ Repo roles (StockOffline = app, tscore = new forecasting lib, stock-agent = patt
 - Death at zero and mutated children, with the money coming from the parent.
 - Show it on a basic dashboard, reusing parts of stock-agent (guard style, event stream, React layout — patterns only).
 
-**Done when:** you can watch agents die and spawn, and see whether lineages improve.
+**Done when:** you can watch agents die and spawn, and see whether lineages improve. — **met 2026-11-13.** Built `scripts/agents_sim.py` (stdlib): MA(k)×safety agents on the contract demand stream, wallet economy (revenue − orders − stockout penalty − holding − upkeep), death at ≤ 0, parent-funded mutated spawns (child gets `spawn_cost` from parent's wallet), immigrant refill. 52-week run: 189 agents, 17 generations, deaths in every week-bucket, 8 survivors at end. **Lineage answer: lifespan improves founders 2.7w → gen4 9.8w then declines; descendant wallets worse (structural — children inherit 40 vs founders' 100). Shape verified on 3 seeds.** Self-contained `agents_dashboard.html` replay (play/pause/speed, event stream, wallet bars). Written up in tscore `docs/w7-agents-notes.md`; 64 tscore tests green. *(Manual check for owner: open the dashboard HTML and press Play — agent cannot see rendered output.)*
 
 ## Week 8 — package and sell
 
