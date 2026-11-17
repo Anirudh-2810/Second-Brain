@@ -45,7 +45,7 @@ Repo roles (StockOffline = app, tscore = new forecasting lib, stock-agent = patt
 
 - [x] Profile README that links the repos. (done 2026-11-11 — https://github.com/Anirudh-2810/Anirudh-2810)
 - [ ] Pick the shop type — **decided: pharmacy** — and find one friendly pharmacy that would let you test with their data. *(type decided; outreach is the owner's task — open)*
-- [x] Create a private `tscore` repo for the shared forecasting code. (done 2026-11-11 — https://github.com/Anirudh-2810/tscore)
+- [x] Create a private `tscore` repo for the shared forecasting code. (done 2026-11-11 — https://github.com/Anirudh-2810/tscore; made public 2026-11-18)
 
 ## Week 1 — data contract and import (Phase A)
 

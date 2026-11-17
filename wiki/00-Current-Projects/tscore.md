@@ -11,7 +11,7 @@ description: "Private forecasting repo powering ShopBrain: sales + forecast data
 
 # tscore — ShopBrain forecasting core
 
-> **Repo:** https://github.com/Anirudh-2810/tscore (private) · `E:\Brain\tscore`
+> **Repo:** https://github.com/Anirudh-2810/tscore (public since 2026-11-18; created private 2026-11-11) · `E:\Brain\tscore`
 > **Stack:** Python 3 stdlib only (no deps) · seeded RNG · unittest
 > **Role:** data contracts + synthetic data + (later) baselines & models for [[ShopBrain]]
 
