@@ -21,7 +21,7 @@ description: "BUSINESS domain hub - market analysis, interviews, freelancing, n8
 | [[01-Areas/Business/quant-finance/quantitative-finance-foundations|quant-finance/]] | 20 | Quant foundations, derivatives, stochastic calc, pairs/momentum/TAA strategies, risk/VaR, careers |
 | [[Financial-Independence/FI-Blueprint|Financial-Independence/]] | 1 | FIRE blueprint: budgeting, investments, multiple income streams, net worth tracking, early retirement |
 | [[Side-Hustles/Side-Hustles-Archive|Side-Hustles/]] | 1 | AI copywriting, dropshipping, print-on-demand, SMMA, YouTube automation, Andrew Tate course |
-| [[01-Areas/Business/plans/shopbrain-agency-launch|plans/]] | 2 | **ShopBrain** 8-week build (CSV → forecast → guarded reorder report → paid pharmacy pilots; exam blackout Dec 1st week) + Make.com agency-CRM launch plan |
+| [[01-Areas/Business/plans/shopbrain-agency-launch|plans/]] | 3 | **ShopBrain** 8-week build (CSV → forecast → guarded reorder report → paid pharmacy pilots; exam blackout Dec 1st week) + Make.com agency-CRM launch plan + [[01-Areas/Business/plans/product-hardening-backlog|product hardening backlog]] (P0 fixes, security audit, sellability) |
 | [[Study-Abroad/Study-Abroad-Guide|Study-Abroad/]] | 1 | SAT prep (English/Math/Reading) + Ankur Warikoo's 3-part study abroad series |
 | [[Budgeting-VBA/Budgeting-VBA-Collection|Budgeting-VBA/]] | 1 | Excel budgeting workbooks 101-106 with VBA macros and user manuals |
 

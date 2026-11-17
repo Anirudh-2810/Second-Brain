@@ -338,6 +338,7 @@ Browser dashboard: `index.html` (regenerate: `python .scripts/generate-index.py`
 - **[[01-Areas/Business/Budgeting-VBA/Budgeting-VBA-Collection|Budgeting & VBA]]** — Excel budgeting workbooks 101-106 with VBA macros, user manuals, iterative development.
 - **[[01-Areas/Business/plans/automation-agency-launch|Automation Agency Launch Plan]]** — Make.com + HubSpot agency: niche gate → dogfood CRM pipeline → storefront → first dollar → retainer (open plan).
 - **[[01-Areas/Business/plans/shopbrain-agency-launch|ShopBrain Agency Launch Plan]]** — offline AI back-office for shops (pharmacy wedge): 8-week build from sales-CSV import → baselines + walk-forward backtest → guarded reorder report → paid pilots; pricing set by pilot answers (open plan, exam blackout Dec 1st week). Spec: `[[brain/ShopBrain]]`.
+- **[[01-Areas/Business/plans/product-hardening-backlog|Product Hardening Backlog]]** — tscore + inventory-system + roadtrip fix list (2026-11-18 code scan): 3 P0s (gitignored source files break fresh clones, exe can't forecast without vendored tscore, roadtrip email missing RESEND_API_KEY), security audit verified-vs-owner-check split, branch plan.
 
 ### Engineering Formula Sheets
 > Printed physics/chemistry/maths formula sheets for quick revision. Hub: `[[01-Areas/Engineering/INDEX|Engineering Domain Index]]`.
