@@ -5,7 +5,7 @@ unit: "Module Hub"
 date: 2026-10-05
 description: "Nexus Robotics club coding-interview prep hub (interview 2026-10-06): embedded C drills, Python telemetry tasks, theory rapid-fire, and a tiered fallback ladder if prep time collapses."
 tags: [btech, kjsce, nexus-robotics, interview-prep, embedded, c-programming, python, robotics-club]
-last_updated: "2026-10-05"
+last_updated: "2026-11-19"
 confidence: medium
 ---
 
@@ -27,6 +27,9 @@ Hub for the **Nexus Robotics** club coding interview scheduled **2026-10-06** (u
 | [[nexus-c-embedded-drills]] | **8 C drills (T1–T8)** — bit-field macros, saturating clamp + Q8 fixed-point, SPSC ring buffer, non-blocking debounce, ISR→main-loop flag handoff, CRC-8, integer PID with anti-windup, O(1) moving average. Each has narration script, expected output, complexity, 2–3 follow-ups. | Do 3–6 under a timer tonight; the rest are the backup pool |
 | [[nexus-python-drills]] | **4 Python drills (T9–T12)** — telemetry CSV parse, outlier rejection + rolling median, PID with filtered derivative, serial frame parser. All outputs executed and verified. | T9 reuses the Onyx CSV muscle — start here if the round is Python-leaning |
 | [[nexus-interview-fallbacks]] | **The backup mechanism.** Three prep tiers (T-mini 45 min / T-core 2 h / T-full 3.5 h), each with an explicit cut line, plus device-failure logistics, the honest-IDK script bank, and the "prep ran out of time" triage. | Read this FIRST if you have less than 2 hours |
+| [[nexus-components-viva-level1]] | **Hardware viva — component sheet Level 1:** passives, actives, LDO/switching/78xx/79xx, BJT/MOSFET, motors, drivers, controller, connectors, 555, switches, protection (fuse/MCB/varistor/relay), pull-ups, dividers, PWM + the 7 datasheet parts (7805, 7905, IRLZ44N, IRFZ44N, IRF4905, LM741, MG995) | Drill with the component sheet image open |
+| [[nexus-components-viva-level2]] | **Hardware viva — component sheet Level 2:** HC-05, MPU6050/9250, UART/I2C/SPI/WiFi/Zigbee/CAN/Ethernet, Roboclaw/Cytron/VNH/ODESC/ESC, LIDAR/ultrasonic/IR/LDR, Jetson/RPi, 328P/2560/ESP32/STM32, op-amps, optocouplers, encoders, level shifters, mux | After Level 1 |
+| [[nexus-robocon-rulebook-viva]] | **ABU Robocon 2027 rulebook V1.1 viva:** field/object dimensions, TR/BR roles, scoring table, retry/Failure/violation/DQ ladder, robot specs (60 kg, 24 V, comms bans), V1.0→V1.1 redline changes, rapid-fire 12 | Rulebook round prep |
 | [[01-Areas/Engineering/aeromodelling/team-onyx-interview-mock-01]] | Onyx's live-code mock (Python prop/CSV + Arduino talk) — closest thing in the vault to a real dry run; re-run its Set B/C with C versions of the same tasks | If time remains |
 | [[01-Areas/Engineering/robotics/robotics-fundamentals]] | Derivation-level kinematics, PID, Kalman, SLAM, planning | Only for the "why" follow-ups, not cramming |
 

@@ -3,7 +3,7 @@ course_code: "BEE"
 course_name: "Basic Electrical Engineering"
 unit: "Module Index"
 tags: [bee, electrical-engineering, coursework, kjsce, index, domain-hub]
-last_updated: "2026-09-28"
+last_updated: "2026-11-19"
 confidence: "high"
 description: "Basic Electrical Engineering module index - DC circuits, AC circuits, magnetic circuits & transformers, DC machines & induction motors, installations & safety"
 ---
@@ -27,6 +27,7 @@ description: "Basic Electrical Engineering module index - DC circuits, AC circui
 | — | [[mse-past-paper-bee-2025-solved]] | **Aug–Dec 2025 BEE MSE paper fully solved + figure-read caveats (Thevenin/eq-resistance/AC basics)** |
 | 1 | [[bee-ia1-2026-solutions-and-viva]] | IA1 2026-27 fully solved (Q1 mesh, Q2 Thevenin, R1-from-roll tables) + viva bank for Expt 1 components/instruments, Expt 2 battery level indicator, unknown-resistance-by-Thevenin |
 | Labs | [[lab-dc-theorems-expts-2-5]] · [[lab-ac-pf-three-phase-motor-expts-6-8]] | Bench records Expts 1–8, obs tables, viva |
+| Labs | [[bee-viva-exp4-8]] | Viva Q&A bank for Expts 4–8: superposition, max-power, PF improvement, two-wattmeter, DC-motor speed control (traps + rapid-fire) |
 | — | [[source-map-bee-sem1]] | File registry: every raw-source → page it fed |
 
 ## Exam Strategy (MU pattern)
